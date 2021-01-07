@@ -8,29 +8,29 @@ public class d extends com.kwad.sdk.reward.d {
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.reward.a.b f10936b;
+    private com.kwad.sdk.reward.a.b f10937b;
     private com.kwad.sdk.reward.c.a c;
     private com.kwad.sdk.contentalliance.detail.video.e d = new f() { // from class: com.kwad.sdk.reward.b.d.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
-            d.this.f10936b.d();
+            d.this.f10937b.d();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a(int i, int i2) {
-            d.this.f10936b.a(i, i2);
+            d.this.f10937b.a(i, i2);
             d.this.e();
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
-            d.this.f10936b.c();
+            d.this.f10937b.c();
         }
     };
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        Activity activity = this.f10949a.g;
+        Activity activity = this.f10950a.g;
         if (activity != null) {
             activity.finish();
         }
@@ -40,8 +40,8 @@ public class d extends com.kwad.sdk.reward.d {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f10936b = this.f10949a.f10824b;
-        this.c = this.f10949a.i;
+        this.f10937b = this.f10950a.f10825b;
+        this.c = this.f10950a.i;
         this.c.a(this.d);
     }
 

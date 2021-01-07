@@ -31,7 +31,7 @@ public class PbReplyLoadMoreAdapter extends l<PostData, ReplyLoadMoreViewHolder>
         View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.pb_reply_load_more_item, viewGroup, false);
         inflate.findViewById(R.id.tv_pb_reply_more).setOnClickListener(this.bHO);
         ReplyLoadMoreViewHolder replyLoadMoreViewHolder = new ReplyLoadMoreViewHolder(inflate);
-        replyLoadMoreViewHolder.bCO();
+        replyLoadMoreViewHolder.bCP();
         return replyLoadMoreViewHolder;
     }
 
@@ -45,29 +45,29 @@ public class PbReplyLoadMoreAdapter extends l<PostData, ReplyLoadMoreViewHolder>
 
     /* loaded from: classes2.dex */
     public static class ReplyLoadMoreViewHolder extends TypeAdapter.ViewHolder {
-        private TextView lIg;
+        private TextView lIf;
 
         public ReplyLoadMoreViewHolder(View view) {
             super(view);
-            this.lIg = (TextView) view.findViewById(R.id.tv_pb_reply_more);
+            this.lIf = (TextView) view.findViewById(R.id.tv_pb_reply_more);
         }
 
         public void setData(PostData postData) {
             if (postData != null) {
-                if (postData.nrV) {
+                if (postData.nrU) {
                     Drawable drawable = ao.getDrawable(R.drawable.icon_emotion_smallarrow_n);
                     drawable.setBounds(0, 0, drawable.getMinimumWidth(), drawable.getMinimumHeight());
-                    this.lIg.setCompoundDrawables(null, null, drawable, null);
+                    this.lIf.setCompoundDrawables(null, null, drawable, null);
                     return;
                 }
                 Drawable drawable2 = ao.getDrawable(R.drawable.icon_emotion_smallarrow_down);
                 drawable2.setBounds(0, 0, drawable2.getMinimumWidth(), drawable2.getMinimumHeight());
-                this.lIg.setCompoundDrawables(null, null, drawable2, null);
+                this.lIf.setCompoundDrawables(null, null, drawable2, null);
             }
         }
 
-        public void bCO() {
-            ao.setViewTextColor(this.lIg, R.color.CAM_X0109);
+        public void bCP() {
+            ao.setViewTextColor(this.lIf, R.color.CAM_X0109);
         }
     }
 }

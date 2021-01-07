@@ -43,7 +43,7 @@ public class c extends a {
             i(jsObject);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.aMm());
+                jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.aMn());
                 jSONObject.put("swanid_list", jSONArray);
             } catch (JSONException e3) {
                 if (DEBUG) {
@@ -388,17 +388,17 @@ public class c extends a {
     }
 
     private boolean isLogin() {
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-        if (aMk == null) {
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl == null) {
             return false;
         }
-        return aMk.aMx().isLogin(AppRuntime.getAppContext());
+        return aMl.aMy().isLogin(AppRuntime.getAppContext());
     }
 
     private JSONObject a(com.baidu.swan.games.r.a.b[] bVarArr) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.aMm());
+            jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.aMn());
             JSONArray jSONArray = new JSONArray();
             for (com.baidu.swan.games.r.a.b bVar : bVarArr) {
                 JSONObject jSONObject2 = new JSONObject();
@@ -437,11 +437,11 @@ public class c extends a {
                 bVarArr[i] = new com.baidu.swan.games.r.a.b();
                 bVarArr[i].key = e.optString("key");
                 bVarArr[i].value = e.optString("value");
-                if (!bVarArr[i].bbu()) {
+                if (!bVarArr[i].bbv()) {
                     cVar2.errMsg = com.baidu.swan.games.utils.b.dq("setUserCloudStorage", "fail some keys in list meet length exceed");
                     com.baidu.swan.games.utils.b.a(cVar, false, cVar2);
                     return null;
-                } else if (!bVarArr[i].bbv()) {
+                } else if (!bVarArr[i].bbw()) {
                     cVar2.errMsg = com.baidu.swan.games.utils.b.dq("setUserCloudStorage", "fail some key-value in list meet length exceed");
                     com.baidu.swan.games.utils.b.a(cVar, false, cVar2);
                     return null;
@@ -558,7 +558,7 @@ public class c extends a {
             }
         }
         try {
-            jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.aMm());
+            jSONObject.put("ma_id", com.baidu.swan.apps.runtime.e.aMn());
             jSONObject.put("key_list", jSONArray);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -569,31 +569,31 @@ public class c extends a {
     }
 
     private String mK(int i) {
-        String akR;
+        String akS;
         switch (i) {
             case 1:
-                akR = com.baidu.swan.apps.t.a.aAD().akQ();
+                akS = com.baidu.swan.apps.t.a.aAE().akR();
                 break;
             case 2:
-                akR = com.baidu.swan.apps.t.a.aAD().akR();
+                akS = com.baidu.swan.apps.t.a.aAE().akS();
                 break;
             case 3:
-                akR = com.baidu.swan.apps.t.a.aAD().akS();
+                akS = com.baidu.swan.apps.t.a.aAE().akT();
                 break;
             case 4:
-                akR = com.baidu.swan.apps.t.a.aAD().akT();
+                akS = com.baidu.swan.apps.t.a.aAE().akU();
                 break;
             case 5:
-                akR = com.baidu.swan.apps.t.a.aAD().akU();
+                akS = com.baidu.swan.apps.t.a.aAE().akV();
                 break;
             default:
-                akR = "";
+                akS = "";
                 break;
         }
-        if (TextUtils.isEmpty(akR) && DEBUG) {
+        if (TextUtils.isEmpty(akS) && DEBUG) {
             Log.e("OpenDataApi", "getUrlByType（）meet empty url !");
         }
-        return akR;
+        return akS;
     }
 
     private void i(JsObject jsObject) {

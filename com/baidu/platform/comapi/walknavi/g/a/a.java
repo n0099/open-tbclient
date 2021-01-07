@@ -12,14 +12,14 @@ import com.baidu.platform.comapi.wnplatform.p.h;
 import com.baidu.tieba.R;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewGroup f4498a;
+    private ViewGroup f4499a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LinearLayout f4499b;
+    private LinearLayout f4500b;
     private View c;
     private ListView d;
     private View e;
@@ -27,36 +27,36 @@ public class a {
     private Activity g;
 
     public a(ViewGroup viewGroup, Activity activity) {
-        this.f4498a = viewGroup;
+        this.f4499a = viewGroup;
         this.g = activity;
     }
 
     public void a() {
-        this.f4499b = (LinearLayout) this.f4498a.findViewById(R.dimen.abc_dialog_corner_radius_material);
+        this.f4500b = (LinearLayout) this.f4499a.findViewById(R.dimen.abc_dialog_corner_radius_material);
         if (this.c == null) {
             this.c = com.baidu.platform.comapi.wnplatform.p.a.a.a(this.g, R.array.S_O_X003, null);
         }
         this.e = this.c.findViewById(R.dimen.abc_button_padding_vertical_material);
         this.f = this.c.findViewById(R.dimen.abc_config_prefDialogWidth);
-        this.f4499b.addView(this.c);
+        this.f4500b.addView(this.c);
         this.d = (ListView) this.c.findViewById(R.dimen.abc_cascading_menus_min_smallest_width);
     }
 
     public void b() {
-        if (this.f4499b != null && com.baidu.platform.comapi.wnplatform.a.a().c()) {
-            this.f4499b.setVisibility(8);
+        if (this.f4500b != null && com.baidu.platform.comapi.wnplatform.a.a().c()) {
+            this.f4500b.setVisibility(8);
         }
     }
 
     public void c() {
-        this.f4499b.setVisibility(8);
+        this.f4500b.setVisibility(8);
     }
 
     public void a(MapBaseIndoorMapInfo mapBaseIndoorMapInfo) {
         if (mapBaseIndoorMapInfo != null) {
             String id = mapBaseIndoorMapInfo.getID();
             String curFloor = mapBaseIndoorMapInfo.getCurFloor();
-            this.f4499b.setVisibility(0);
+            this.f4500b.setVisibility(0);
             ArrayList<String> floors = mapBaseIndoorMapInfo.getFloors();
             if (floors != null && floors.size() != 0) {
                 this.d.setLayoutParams(a(floors, this.d, this.d.getLayoutParams()));
@@ -100,7 +100,7 @@ public class a {
 
     public void a(String str) {
         int i = 0;
-        this.f4499b.setVisibility(0);
+        this.f4500b.setVisibility(0);
         b bVar = (b) this.d.getAdapter();
         if (bVar != null) {
             bVar.a(str);

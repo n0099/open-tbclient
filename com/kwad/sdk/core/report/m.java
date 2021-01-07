@@ -8,16 +8,16 @@ import java.util.UUID;
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f9724a = g();
+    private static String f9725a = g();
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f9725b = 0;
+    private static long f9726b = 0;
     private static Context c;
 
     public static String a() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateSessionId");
-        f9724a = g();
-        return f9724a;
+        f9725a = g();
+        return f9725a;
     }
 
     public static void a(Context context) {
@@ -44,7 +44,7 @@ public class m {
     }
 
     public static String b() {
-        return f9724a;
+        return f9725a;
     }
 
     @WorkerThread
@@ -85,12 +85,12 @@ public class m {
 
     public static long e() {
         com.kwad.sdk.core.d.a.a("ReportIdManager", ">> updateListId");
-        f9725b = System.currentTimeMillis();
-        return f9725b;
+        f9726b = System.currentTimeMillis();
+        return f9726b;
     }
 
     public static long f() {
-        return f9725b;
+        return f9726b;
     }
 
     private static String g() {

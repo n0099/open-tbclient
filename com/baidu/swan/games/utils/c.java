@@ -27,35 +27,35 @@ public class c {
     private c() {
     }
 
-    public static c bcl() {
+    public static c bcm() {
         return eol;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ym(String str) {
-        h.aPH().putBoolean(eom, "1".equals(str));
+        h.aPI().putBoolean(eom, "1".equals(str));
     }
 
-    public boolean bcm() {
-        return h.aPH().getBoolean(eom, true);
+    public boolean bcn() {
+        return h.aPI().getBoolean(eom, true);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void yn(String str) {
-        h.aPH().putString(eon, str);
+        h.aPI().putString(eon, str);
     }
 
-    private long bcn() {
-        String string = h.aPH().getString(eon, "1");
+    private long bco() {
+        String string = h.aPI().getString(eon, "1");
         return string != null ? Long.valueOf(string).longValue() * 60 * 60 * 1000 : BdKVCache.MILLS_1Hour;
     }
 
     public void dr(String str, String str2) {
-        h.aPH().putString(str, str2);
+        h.aPI().putString(str, str2);
     }
 
     private long yo(String str) {
-        String string = h.aPH().getString(str, "0");
+        String string = h.aPI().getString(str, "0");
         if (string != null) {
             return Long.valueOf(string).longValue();
         }
@@ -64,55 +64,55 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dg(long j) {
-        h.aPH().putLong("banner_ad_start_show_key", j);
+        h.aPI().putLong("banner_ad_start_show_key", j);
     }
 
-    public long bco() {
-        return h.aPH().getLong("banner_ad_start_show_key", 5L) * 1000;
+    public long bcp() {
+        return h.aPI().getLong("banner_ad_start_show_key", 5L) * 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dh(long j) {
-        h.aPH().putLong("banner_ad_repeat_show_key", j);
+        h.aPI().putLong("banner_ad_repeat_show_key", j);
     }
 
-    public long bcp() {
-        return h.aPH().getLong("banner_ad_repeat_show_key", 120L) * 1000;
+    public long bcq() {
+        return h.aPI().getLong("banner_ad_repeat_show_key", 120L) * 1000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void di(long j) {
-        h.aPH().putLong("banner_ad_close_key", j);
+        h.aPI().putLong("banner_ad_close_key", j);
     }
 
-    public long bcq() {
-        return h.aPH().getLong("banner_ad_close_key", 60L) * 1000;
-    }
-
-    public void bcr() {
-        this.eoo = System.currentTimeMillis();
+    public long bcr() {
+        return h.aPI().getLong("banner_ad_close_key", 60L) * 1000;
     }
 
     public void bcs() {
+        this.eoo = System.currentTimeMillis();
+    }
+
+    public void bct() {
         this.eop = System.currentTimeMillis();
     }
 
     public boolean yp(String str) {
-        return System.currentTimeMillis() - yo(str) <= bcn();
-    }
-
-    public boolean bct() {
-        return this.eoo != 0 && System.currentTimeMillis() - this.eoo <= bco();
+        return System.currentTimeMillis() - yo(str) <= bco();
     }
 
     public boolean bcu() {
-        return this.eop != 0 && System.currentTimeMillis() - this.eop <= bcp();
+        return this.eoo != 0 && System.currentTimeMillis() - this.eoo <= bcp();
     }
 
-    public void bcv() {
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-        if (aMk != null && com.baidu.swan.apps.t.a.aAD() != null && com.baidu.swan.apps.t.a.aAQ() != null) {
-            aMk.aMz().getRequest().cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).url(com.baidu.swan.apps.t.a.aAD().alb()).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.1
+    public boolean bcv() {
+        return this.eop != 0 && System.currentTimeMillis() - this.eop <= bcq();
+    }
+
+    public void bcw() {
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl != null && com.baidu.swan.apps.t.a.aAE() != null && com.baidu.swan.apps.t.a.aAR() != null) {
+            aMl.aMA().getRequest().cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).url(com.baidu.swan.apps.t.a.aAE().alc()).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: S */
@@ -137,10 +137,10 @@ public class c {
         }
     }
 
-    public void bcw() {
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-        if (aMk != null && com.baidu.swan.apps.t.a.aAD() != null && com.baidu.swan.apps.t.a.aAQ() != null) {
-            aMk.aMz().getRequest().cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).url(com.baidu.swan.apps.t.a.aAD().alh()).addUrlParam("app_key", aMk.getAppKey()).addUrlParam("host", aMk.getPackageName()).addUrlParam("os", HttpConstants.OS_TYPE_VALUE).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.2
+    public void bcx() {
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl != null && com.baidu.swan.apps.t.a.aAE() != null && com.baidu.swan.apps.t.a.aAR() != null) {
+            aMl.aMA().getRequest().cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).url(com.baidu.swan.apps.t.a.aAE().ali()).addUrlParam("app_key", aMl.getAppKey()).addUrlParam("host", aMl.getPackageName()).addUrlParam("os", HttpConstants.OS_TYPE_VALUE).build().executeAsync(new StringResponseCallback() { // from class: com.baidu.swan.games.utils.c.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback
                 /* renamed from: S */
@@ -187,70 +187,70 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void yq(String str) {
-        h.aPH().putString(eos, str);
+        h.aPI().putString(eos, str);
     }
 
-    public String bcx() {
-        return h.aPH().getString(eos, "");
+    public String bcy() {
+        return h.aPI().getString(eos, "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void yr(String str) {
-        h.aPH().putString(eot, str);
+        h.aPI().putString(eot, str);
     }
 
-    public String bcy() {
-        return h.aPH().getString(eot, "");
+    public String bcz() {
+        return h.aPI().getString(eot, "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ys(String str) {
-        h.aPH().putString(eoq, str);
+        h.aPI().putString(eoq, str);
     }
 
-    public String aVY() {
-        return h.aPH().getString(eoq, "");
+    public String aVZ() {
+        return h.aPI().getString(eoq, "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void yt(String str) {
-        h.aPH().putString(eor, str);
+        h.aPI().putString(eor, str);
     }
 
-    public String aWa() {
-        return h.aPH().getString(eor, "");
+    public String aWb() {
+        return h.aPI().getString(eor, "");
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void dj(long j) {
-        h.aPH().putLong(eou, j);
+        h.aPI().putLong(eou, j);
     }
 
-    public Long bcz() {
-        return Long.valueOf(h.aPH().getLong(eou, 0L));
-    }
-
-    public boolean bcA() {
-        return h.aPH().getBoolean(eov, false);
-    }
-
-    public void il(boolean z) {
-        h.aPH().putBoolean(eov, z);
+    public Long bcA() {
+        return Long.valueOf(h.aPI().getLong(eou, 0L));
     }
 
     public boolean bcB() {
-        return h.aPH().getBoolean(eow, false);
+        return h.aPI().getBoolean(eov, false);
     }
 
-    public void im(boolean z) {
-        h.aPH().putBoolean(eow, z);
+    public void il(boolean z) {
+        h.aPI().putBoolean(eov, z);
     }
 
     public boolean bcC() {
-        return h.aPH().getBoolean(eox, false);
+        return h.aPI().getBoolean(eow, false);
+    }
+
+    public void im(boolean z) {
+        h.aPI().putBoolean(eow, z);
+    }
+
+    public boolean bcD() {
+        return h.aPI().getBoolean(eox, false);
     }
 
     public void in(boolean z) {
-        h.aPH().putBoolean(eox, z);
+        h.aPI().putBoolean(eox, z);
     }
 }

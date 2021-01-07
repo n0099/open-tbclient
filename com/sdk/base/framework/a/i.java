@@ -11,10 +11,10 @@ import org.apache.http.client.methods.HttpTrace;
 public final class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final i f13100a = new i("GET", 0, "GET");
+    public static final i f13101a = new i("GET", 0, "GET");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final i f13101b = new i("POST", 1, "POST");
+    public static final i f13102b = new i("POST", 1, "POST");
     private static i c = new i(HttpPut.METHOD_NAME, 2, HttpPut.METHOD_NAME);
     private static i d = new i(HttpHead.METHOD_NAME, 3, HttpHead.METHOD_NAME);
     private static i e = new i("MOVE", 4, "MOVE");
@@ -26,7 +26,7 @@ public final class i {
     private final String k;
 
     static {
-        i[] iVarArr = {f13100a, f13101b, c, d, e, f, g, h, i, j};
+        i[] iVarArr = {f13101a, f13102b, c, d, e, f, g, h, i, j};
     }
 
     private i(String str, int i2, String str2) {

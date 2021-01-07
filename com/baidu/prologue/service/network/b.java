@@ -5,7 +5,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Map;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class b implements e {
     /* JADX INFO: Access modifiers changed from: protected */
     public static String c(String str, Map<String, String> map) throws URISyntaxException {

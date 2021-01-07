@@ -19,30 +19,30 @@ import com.win.opensdk.downloader.WDownLoadService;
 /* loaded from: classes4.dex */
 public class bj {
     private static final String java = bj.class.getSimpleName();
-    private Context qbB;
-    private Info qbW;
-    private WebView qde;
+    private Info qdE;
+    private Context qdj;
+    private WebView qeM;
 
     public bj(Context context) {
-        this.qbB = context;
-        if (this.qde != null) {
+        this.qdj = context;
+        if (this.qeM != null) {
             return;
         }
-        this.qde = new WebView(this.qbB);
-        WebSettings settings = this.qde.getSettings();
+        this.qeM = new WebView(this.qdj);
+        WebSettings settings = this.qeM.getSettings();
         settings.setAllowContentAccess(true);
         settings.setJavaScriptEnabled(true);
         if (Build.VERSION.SDK_INT >= 11) {
-            this.qde.removeJavascriptInterface("searchBoxJavaBridge_");
-            this.qde.removeJavascriptInterface("accessibility");
-            this.qde.removeJavascriptInterface("accessibilityTraversal");
+            this.qeM.removeJavascriptInterface("searchBoxJavaBridge_");
+            this.qeM.removeJavascriptInterface("accessibility");
+            this.qeM.removeJavascriptInterface("accessibilityTraversal");
         }
-        this.qde.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
-        this.qde.getSettings().setBlockNetworkImage(true);
-        this.qde.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
-        this.qde.getSettings().setCacheMode(2);
-        this.qde.getSettings().setAppCacheEnabled(true);
-        this.qde.setScrollBarStyle(0);
+        this.qeM.getSettings().setJavaScriptCanOpenWindowsAutomatically(true);
+        this.qeM.getSettings().setBlockNetworkImage(true);
+        this.qeM.getSettings().setRenderPriority(WebSettings.RenderPriority.HIGH);
+        this.qeM.getSettings().setCacheMode(2);
+        this.qeM.getSettings().setAppCacheEnabled(true);
+        this.qeM.setScrollBarStyle(0);
         settings.setDomStorageEnabled(true);
         settings.setLayoutAlgorithm(WebSettings.LayoutAlgorithm.NARROW_COLUMNS);
         settings.setEnableSmoothTransition(true);
@@ -50,15 +50,15 @@ public class bj {
             settings.setMixedContentMode(1);
         }
         settings.setNeedInitialFocus(false);
-        this.qde.clearCache(true);
-        this.qde.clearHistory();
-        this.qde.setWebChromeClient(new WebChromeClient() { // from class: com.win.opensdk.bj.1
+        this.qeM.clearCache(true);
+        this.qeM.clearHistory();
+        this.qeM.setWebChromeClient(new WebChromeClient() { // from class: com.win.opensdk.bj.1
             @Override // android.webkit.WebChromeClient
             public final void onReceivedTitle(WebView webView, String str) {
                 super.onReceivedTitle(webView, str);
             }
         });
-        this.qde.setWebViewClient(new WebViewClient() { // from class: com.win.opensdk.bj.2
+        this.qeM.setWebViewClient(new WebViewClient() { // from class: com.win.opensdk.bj.2
             @Override // android.webkit.WebViewClient
             public final void onPageStarted(WebView webView, String str, Bitmap bitmap) {
                 super.onPageStarted(webView, str, bitmap);
@@ -72,12 +72,12 @@ public class bj {
             @Override // android.webkit.WebViewClient
             public final void onReceivedError(WebView webView, int i, String str, String str2) {
                 super.onReceivedError(webView, i, str, str2);
-                bj.this.qde.setVisibility(8);
+                bj.this.qeM.setVisibility(8);
                 if (str.contains("TIMED_OUT")) {
-                    if (bj.this.qbW != null) {
-                        w.iM(bj.this.qbB).a(new x(bj.this.qbW), 4).hu("desc", str + "&errcode:" + i + "&fileurl:" + str2).eJL();
+                    if (bj.this.qdE != null) {
+                        w.iM(bj.this.qdj).a(new x(bj.this.qdE), 4).hv("desc", str + "&errcode:" + i + "&fileurl:" + str2).eKp();
                     }
-                    Toast.makeText(bj.this.qbB, d.e.win_toast_network_error, 0).show();
+                    Toast.makeText(bj.this.qdj, d.e.win_toast_network_error, 0).show();
                 }
             }
         });
@@ -86,10 +86,10 @@ public class bj {
     @SuppressLint({"SetJavaScriptEnabled"})
     @TargetApi(11)
     public final void a(Info info) {
-        this.qbW = info;
-        if (this.qde != null) {
-            this.qde.loadUrl(info.getOpen());
-            this.qde.setDownloadListener(new a());
+        this.qdE = info;
+        if (this.qeM != null) {
+            this.qeM.loadUrl(info.getOpen());
+            this.qeM.setDownloadListener(new a());
         }
     }
 
@@ -101,20 +101,20 @@ public class bj {
 
         @Override // android.webkit.DownloadListener
         public final void onDownloadStart(String str, String str2, String str3, String str4, long j) {
-            if (bj.this.qbW != null && bj.this.qbW.getOpent() == 1 && j > 10) {
-                Context context = bj.this.qbB;
-                Info info = bj.this.qbW;
+            if (bj.this.qdE != null && bj.this.qdE.getOpent() == 1 && j > 10) {
+                Context context = bj.this.qdj;
+                Info info = bj.this.qdE;
                 if (!av.iL(context)) {
                     Toast.makeText(context, context.getString(d.e.wdownload_no_netwrok) + info.getDl_name(), 0).show();
                     if (info != null) {
-                        w.iM(context).a(new x(info), 1).eJL();
+                        w.iM(context).a(new x(info), 1).eKp();
                         return;
                     }
                     return;
                 }
                 try {
                     if (bv.bK(context, info.getOpen()) && bv.a(context, info)) {
-                        w.iM(context).e(new x(info), info.getOpen()).eJL();
+                        w.iM(context).e(new x(info), info.getOpen()).eKp();
                         bv.a(info, context, bv.bO(context, info.getOpen()));
                         return;
                     }
@@ -134,7 +134,7 @@ public class bj {
                     } catch (Exception e2) {
                         e2.printStackTrace();
                         if (info != null) {
-                            w.iM(context).a(new x(info), 2).hu("desc", e2.getMessage()).eJL();
+                            w.iM(context).a(new x(info), 2).hv("desc", e2.getMessage()).eKp();
                         }
                     }
                 }

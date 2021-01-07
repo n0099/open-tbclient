@@ -9,12 +9,12 @@ import java.io.InputStream;
 import java.nio.channels.Channels;
 import java.nio.channels.FileChannel;
 import java.nio.channels.ReadableByteChannel;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e {
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
-        void agC();
+        void agD();
     }
 
     public static void c(InputStream inputStream, File file) throws IOException {
@@ -34,13 +34,13 @@ public final class e {
     }
 
     public static void a(final File file, String str, final a aVar) {
-        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).ahw().ahv().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
+        new Request.a(com.baidu.prologue.a.b.b.getAppContext(), str).ahx().ahw().a(new com.baidu.prologue.service.network.l() { // from class: com.baidu.prologue.a.c.e.1
             @Override // com.baidu.prologue.service.network.l
             public void a(long j, InputStream inputStream) {
                 try {
                     e.c(inputStream, file);
                     if (aVar != null) {
-                        aVar.agC();
+                        aVar.agD();
                     }
                 } catch (IOException e) {
                     e.printStackTrace();

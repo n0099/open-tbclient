@@ -13,11 +13,11 @@ public class b {
         this.mStatus = i;
     }
 
-    public boolean aXh() {
+    public boolean aXi() {
         return TextUtils.equals(this.een, "onSuccess");
     }
 
-    public String aXi() {
+    public String aXj() {
         return this.een;
     }
 

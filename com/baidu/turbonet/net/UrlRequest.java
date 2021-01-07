@@ -26,9 +26,9 @@ public interface UrlRequest {
 
     void NZ(int i);
 
-    void WV(String str);
+    void WU(String str);
 
-    void WW(String str);
+    void WV(String str);
 
     void a(UploadDataProvider uploadDataProvider, Executor executor);
 
@@ -36,9 +36,9 @@ public interface UrlRequest {
 
     void cancel();
 
-    void ehC();
-
     void ehD();
+
+    void ehE();
 
     void followRedirect();
 
@@ -112,7 +112,7 @@ public interface UrlRequest {
             this.oKn = null;
         }
 
-        public Builder Xg(String str) {
+        public Builder Xf(String str) {
             if (str == null) {
                 throw new NullPointerException("Method is required.");
             }
@@ -135,17 +135,17 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder ein() {
+        public Builder eio() {
             this.mDisableCache = true;
             return this;
         }
 
-        public Builder eio() {
+        public Builder eip() {
             this.oLK = true;
             return this;
         }
 
-        public Builder eip() {
+        public Builder eiq() {
             this.oKf = true;
             return this;
         }
@@ -165,12 +165,12 @@ public interface UrlRequest {
             return this;
         }
 
-        public Builder Xh(String str) {
+        public Builder Xg(String str) {
             this.oKm = str;
             return this;
         }
 
-        public Builder Xi(String str) {
+        public Builder Xh(String str) {
             this.oKn = str;
             return this;
         }
@@ -190,7 +190,7 @@ public interface UrlRequest {
             return this;
         }
 
-        public UrlRequest eiq() {
+        public UrlRequest eir() {
             UrlRequest a2 = this.oLf.a(this.mUrl, this.oJQ, this.mExecutor, this.mPriority, this.mRequestAnnotations, this.mDisableCache, this.mDisableConnectionMigration, this.oKf);
             if (this.mMethod != null) {
                 a2.setHttpMethod(this.mMethod);
@@ -204,10 +204,10 @@ public interface UrlRequest {
                 a2.a(this.oLJ, this.mUploadDataProviderExecutor);
             }
             if (this.oLK) {
-                a2.ehC();
+                a2.ehD();
             }
             if (this.oKh) {
-                a2.ehD();
+                a2.ehE();
             }
             if (this.oKi > 0) {
                 a2.setTimeout(this.oKi);
@@ -225,10 +225,10 @@ public interface UrlRequest {
                 a2.setTag(this.mTag);
             }
             if (!TextUtils.isEmpty(this.oKm)) {
-                a2.WV(this.oKm);
+                a2.WU(this.oKm);
             }
             if (!TextUtils.isEmpty(this.oKn)) {
-                a2.WW(this.oKn);
+                a2.WV(this.oKn);
             }
             return a2;
         }

@@ -37,7 +37,7 @@ public class c {
         this.mErrorMessage = str;
     }
 
-    public String bgp() {
+    public String bgq() {
         return this.ewR;
     }
 

@@ -19,16 +19,16 @@ public class FullRewardExpressBackupView extends BackupView {
 
     public FullRewardExpressBackupView(@NonNull Context context) {
         super(context);
-        this.f6914a = context;
+        this.f6915a = context;
     }
 
     public void a(com.bytedance.sdk.openadsdk.core.d.l lVar, NativeExpressView nativeExpressView, com.bytedance.sdk.openadsdk.downloadnew.core.a aVar) {
         u.b("FullRewardExpressBackupView", "show backup view");
         setBackgroundColor(-1);
-        this.f6915b = lVar;
+        this.f6916b = lVar;
         this.i = nativeExpressView;
         this.k = aVar;
-        if (aj.c(this.f6915b.W()) == 7) {
+        if (aj.c(this.f6916b.W()) == 7) {
             this.e = "rewarded_video";
         } else {
             this.e = "fullscreen_interstitial_ad";
@@ -38,8 +38,8 @@ public class FullRewardExpressBackupView extends BackupView {
     }
 
     private void b() {
-        this.f = ak.c(this.f6914a, this.i.getExpectExpressWidth());
-        this.g = ak.c(this.f6914a, this.i.getExpectExpressWidth());
+        this.f = ak.c(this.f6915a, this.i.getExpectExpressWidth());
+        this.g = ak.c(this.f6915a, this.i.getExpectExpressWidth());
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(this.f, this.g);
@@ -50,13 +50,13 @@ public class FullRewardExpressBackupView extends BackupView {
             ((FrameLayout.LayoutParams) layoutParams).gravity = 17;
         }
         setLayoutParams(layoutParams);
-        this.f6915b.h();
+        this.f6916b.h();
         c();
     }
 
     private void c() {
-        this.h = LayoutInflater.from(this.f6914a).inflate(ac.f(this.f6914a, "tt_backup_full_reward"), (ViewGroup) this, true);
-        this.j = (FrameLayout) this.h.findViewById(ac.e(this.f6914a, "tt_bu_video_container"));
+        this.h = LayoutInflater.from(this.f6915a).inflate(ac.f(this.f6915a, "tt_backup_full_reward"), (ViewGroup) this, true);
+        this.j = (FrameLayout) this.h.findViewById(ac.e(this.f6915a, "tt_bu_video_container"));
         this.j.removeAllViews();
     }
 

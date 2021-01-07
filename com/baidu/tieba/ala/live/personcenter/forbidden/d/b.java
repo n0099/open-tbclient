@@ -41,6 +41,6 @@ public class b extends TypeAdapter.ViewHolder {
     public void b(com.baidu.tieba.ala.live.personcenter.forbidden.b.b bVar) {
         this.hlS = bVar;
         m.a(this.hdn, bVar.getPortrait(), false, false);
-        this.hkB.setText(bVar.bCB());
+        this.hkB.setText(bVar.bCC());
     }
 }

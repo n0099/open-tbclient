@@ -222,7 +222,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
         this.gpX.setHintText(getPageContext().getResources().getString(a.h.add_wish_thank_way_hinit));
         this.gpX.getTextView().setText(getPageContext().getResources().getString(a.h.add_wish_thank_way_send));
         e(this.gpX);
-        bRu();
+        bRv();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -243,7 +243,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                         AlaLiveAddWishActivity.this.gpW.post(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.6.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                AlaLiveAddWishActivity.this.bRw();
+                                AlaLiveAddWishActivity.this.bRx();
                             }
                         });
                         e.printStackTrace();
@@ -292,7 +292,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
             eVar3.dR(this.gra);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, eVar3));
         } else if (id == a.f.add_wish_center_edit_thank_way) {
-            bRv();
+            bRw();
         } else if (id == a.f.add_wish_next_bt) {
             if (TextUtils.isEmpty(this.aPa)) {
                 getPageContext().showToast(getPageContext().getResources().getString(a.h.add_wish_tips_txt));
@@ -336,14 +336,14 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                     this.gqX.setText(String.valueOf(optInt2) + "小时");
                     this.gqX.setTextColor(getPageContext().getResources().getColor(a.c.sdk_cp_cont_g));
                 }
-                bRu();
+                bRv();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
     }
 
-    private void bRu() {
+    private void bRv() {
         if (this.gqU != null) {
             if (!TextUtils.isEmpty(this.aPa) && this.mGiftNum > 0 && this.gra > 0) {
                 this.gqU.setTextColor(getPageContext().getResources().getColor(a.c.sdk_cp_cont_g));
@@ -402,7 +402,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                     return;
                 }
                 AlaLiveAddWishActivity.this.gpX.setSendEnabled(true);
-                if (!AlaLiveAddWishActivity.this.Ge(charSequence.toString())) {
+                if (!AlaLiveAddWishActivity.this.Gd(charSequence.toString())) {
                     AlaLiveAddWishActivity.this.a(charSequence, i, i3);
                 }
             }
@@ -418,7 +418,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
                     AlaLiveAddWishActivity.this.gqZ = str;
                     AlaLiveAddWishActivity.this.gqY.setText(str);
                     AlaLiveAddWishActivity.this.gqY.setTextColor(AlaLiveAddWishActivity.this.getPageContext().getResources().getColor(a.c.sdk_cp_cont_g));
-                    AlaLiveAddWishActivity.this.bRw();
+                    AlaLiveAddWishActivity.this.bRx();
                 }
             }
         });
@@ -433,7 +433,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
         }
     }
 
-    public void bRv() {
+    public void bRw() {
         this.gpX.Ox();
         this.gpX.getEditView().setFocusable(true);
         this.gpX.getEditView().setFocusableInTouchMode(true);
@@ -446,7 +446,7 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
         }, 100L);
     }
 
-    public void bRw() {
+    public void bRx() {
         this.gpX.setVisibility(8);
         this.gpX.getEditView().post(new Runnable() { // from class: com.baidu.tieba.ala.AlaLiveAddWishActivity.2
             @Override // java.lang.Runnable
@@ -505,13 +505,13 @@ public class AlaLiveAddWishActivity extends BaseFragmentActivity implements View
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (this.gpX.getVisibility() == 0) {
-            bRw();
+            bRx();
             return true;
         }
         return super.onTouchEvent(motionEvent);
     }
 
-    public boolean Ge(String str) {
+    public boolean Gd(String str) {
         if (this.pattern == null) {
             this.pattern = Pattern.compile("^[a-zA-Z0-9\\u4e00-\\u9fa5]+$");
         }

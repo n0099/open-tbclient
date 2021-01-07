@@ -9,9 +9,9 @@ public class e {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static JSONObject dtr;
 
-    public static void aHw() {
+    public static void aHx() {
         try {
-            dtr = i.aHz().aHu();
+            dtr = i.aHA().aHv();
             if (dtr != null) {
                 dtr.put("_ts", com.baidu.swan.apps.ao.j.a(new Date(), "yyyy-MM-dd HH:mm:ss"));
             }
@@ -22,14 +22,14 @@ public class e {
         }
     }
 
-    public static JSONObject aHx() {
+    public static JSONObject aHy() {
         JSONObject jSONObject = new JSONObject();
         try {
-            JSONObject aHu = i.aHz().aHu();
-            if (aHu == null || !aHu.has("events")) {
-                aHu = dtr != null ? dtr : jSONObject;
+            JSONObject aHv = i.aHA().aHv();
+            if (aHv == null || !aHv.has("events")) {
+                aHv = dtr != null ? dtr : jSONObject;
             }
-            jSONObject = aHu;
+            jSONObject = aHv;
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("PerformanceUbcSnapshot", "JSONException:", e);

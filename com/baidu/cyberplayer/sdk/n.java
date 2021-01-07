@@ -49,10 +49,10 @@ import org.json.JSONTokener;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f1844a = ".video_cache";
+    public static String f1845a = ".video_cache";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f1845b = "last_file_cache_time";
+    public static String f1846b = "last_file_cache_time";
     public static long c = 86400000;
     public static long d = KsMediaMeta.AV_CH_STEREO_LEFT;
     private static volatile int e = -1;
@@ -64,7 +64,7 @@ public class n {
             long i = d.i();
             d.f();
             long i2 = d.i();
-            CyberCfgManager.getInstance().setPrefLong(f1845b, System.currentTimeMillis());
+            CyberCfgManager.getInstance().setPrefLong(f1846b, System.currentTimeMillis());
             CyberLog.i("sdk_Utils", "delete file success,  beforeSpace = " + i + " afterSpace = " + i2 + " deleteSpaceSize = " + (i - i2));
             return i - i2;
         }
@@ -592,7 +592,7 @@ public class n {
     private static boolean r() {
         boolean z = false;
         try {
-            long prefLong = CyberCfgManager.getInstance().getPrefLong(f1845b, 0L);
+            long prefLong = CyberCfgManager.getInstance().getPrefLong(f1846b, 0L);
             long currentTimeMillis = System.currentTimeMillis();
             if (prefLong > 0) {
                 boolean z2 = currentTimeMillis - prefLong > s();
@@ -601,7 +601,7 @@ public class n {
                     z = true;
                 }
             } else {
-                CyberCfgManager.getInstance().setPrefLong(f1845b, currentTimeMillis);
+                CyberCfgManager.getInstance().setPrefLong(f1846b, currentTimeMillis);
             }
             return z;
         } catch (Exception e2) {

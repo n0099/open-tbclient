@@ -34,11 +34,11 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
         this.cWc.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_message));
         this.cWd = (SelectorTextView) this.mView.findViewById(a.f.safe_dialog_sub_content);
         this.cWd.setTextColor(getContext().getResources().getColor(a.c.aiapps_safe_dialog_btn_blue));
-        atF();
+        atG();
         return this.mView;
     }
 
-    private void atF() {
+    private void atG() {
         if (this.cWe == null) {
             return;
         }
@@ -114,8 +114,8 @@ public class c extends com.baidu.swan.apps.res.widget.dialog.b {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.b.C0472b, com.baidu.swan.apps.res.widget.dialog.g.a
-        public g atG() {
-            c cVar = (c) super.atG();
+        public g atH() {
+            c cVar = (c) super.atH();
             cVar.a(this);
             return cVar;
         }

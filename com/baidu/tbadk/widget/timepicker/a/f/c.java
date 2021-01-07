@@ -121,7 +121,7 @@ public class c {
                     c.this.gcG.setCurrentItem(bu - 1);
                 }
                 if (c.this.gcP != null) {
-                    c.this.gcP.bLX();
+                    c.this.gcP.bLY();
                 }
             }
         });
@@ -144,7 +144,7 @@ public class c {
                     c.this.gcG.setCurrentItem(bu - 1);
                 }
                 if (c.this.gcP != null) {
-                    c.this.gcP.bLX();
+                    c.this.gcP.bLY();
                 }
             }
         });
@@ -161,7 +161,7 @@ public class c {
         this.gcH.setVisibility(this.gbz[3] ? 0 : 8);
         this.gcI.setVisibility(this.gbz[4] ? 0 : 8);
         this.gcJ.setVisibility(this.gbz[5] ? 0 : 8);
-        bMf();
+        bMg();
     }
 
     private void i(int i, int i2, int i3, int i4, int i5, int i6) {
@@ -323,7 +323,7 @@ public class c {
                     c.this.a(i8, c.this.gcF.getCurrentItem() + 1, 1, 31, asList, asList2);
                 }
                 if (c.this.gcP != null) {
-                    c.this.gcP.bLX();
+                    c.this.gcP.bLY();
                 }
             }
         });
@@ -359,7 +359,7 @@ public class c {
                     c.this.a(c.this.gcO, i8, 1, 31, asList, asList2);
                 }
                 if (c.this.gcP != null) {
-                    c.this.gcP.bLX();
+                    c.this.gcP.bLY();
                 }
             }
         });
@@ -376,7 +376,7 @@ public class c {
         this.gcH.setVisibility(this.gbz[3] ? 0 : 8);
         this.gcI.setVisibility(this.gbz[4] ? 0 : 8);
         this.gcJ.setVisibility(this.gbz[5] ? 0 : 8);
-        bMf();
+        bMg();
     }
 
     private void a(WheelView wheelView) {
@@ -384,7 +384,7 @@ public class c {
             wheelView.setOnItemSelectedListener(new com.baidu.tbadk.widget.timepicker.wheel.c.b() { // from class: com.baidu.tbadk.widget.timepicker.a.f.c.5
                 @Override // com.baidu.tbadk.widget.timepicker.wheel.c.b
                 public void uh(int i) {
-                    c.this.gcP.bLX();
+                    c.this.gcP.bLY();
                 }
             });
         }
@@ -419,7 +419,7 @@ public class c {
         }
     }
 
-    private void bMf() {
+    private void bMg() {
         this.gcG.setTextSize(this.textSize);
         this.gcF.setTextSize(this.textSize);
         this.gcE.setTextSize(this.textSize);
@@ -428,7 +428,7 @@ public class c {
         this.gcJ.setTextSize(this.textSize);
     }
 
-    private void bMg() {
+    private void bMh() {
         this.gcG.setTextColorOut(this.dCT);
         this.gcF.setTextColorOut(this.dCT);
         this.gcE.setTextColorOut(this.dCT);
@@ -437,7 +437,7 @@ public class c {
         this.gcJ.setTextColorOut(this.dCT);
     }
 
-    private void bMh() {
+    private void bMi() {
         this.gcG.setTextColorCenter(this.dCU);
         this.gcF.setTextColorCenter(this.dCU);
         this.gcE.setTextColorCenter(this.dCU);
@@ -446,7 +446,7 @@ public class c {
         this.gcJ.setTextColorCenter(this.dCU);
     }
 
-    private void bMi() {
+    private void bMj() {
         this.gcG.setDividerColor(this.dCV);
         this.gcF.setDividerColor(this.dCV);
         this.gcE.setDividerColor(this.dCV);
@@ -455,7 +455,7 @@ public class c {
         this.gcJ.setDividerColor(this.dCV);
     }
 
-    private void bMj() {
+    private void bMk() {
         this.gcG.setDividerType(this.gch);
         this.gcF.setDividerType(this.gch);
         this.gcE.setDividerType(this.gch);
@@ -464,7 +464,7 @@ public class c {
         this.gcJ.setDividerType(this.gch);
     }
 
-    private void bMk() {
+    private void bMl() {
         this.gcG.setLineSpacingMultiplier(this.dCW);
         this.gcF.setLineSpacingMultiplier(this.dCW);
         this.gcE.setLineSpacingMultiplier(this.dCW);
@@ -528,7 +528,7 @@ public class c {
 
     public String getTime() {
         if (this.gbG) {
-            return bMl();
+            return bMm();
         }
         StringBuilder sb = new StringBuilder();
         if (this.gcO == this.gbD) {
@@ -543,7 +543,7 @@ public class c {
         return sb.toString();
     }
 
-    private String bMl() {
+    private String bMm() {
         int currentItem;
         boolean z;
         StringBuilder sb = new StringBuilder();
@@ -629,27 +629,27 @@ public class c {
 
     public void setLineSpacingMultiplier(float f) {
         this.dCW = f;
-        bMk();
+        bMl();
     }
 
     public void setDividerColor(int i) {
         this.dCV = i;
-        bMi();
+        bMj();
     }
 
     public void setDividerType(WheelView.DividerType dividerType) {
         this.gch = dividerType;
-        bMj();
+        bMk();
     }
 
     public void setTextColorCenter(int i) {
         this.dCU = i;
-        bMh();
+        bMi();
     }
 
     public void setTextColorOut(int i) {
         this.dCT = i;
-        bMg();
+        bMh();
     }
 
     public void lS(boolean z) {

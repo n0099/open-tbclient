@@ -8,17 +8,17 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private AdTemplate f9987a;
+    private AdTemplate f9988a;
 
     /* renamed from: b  reason: collision with root package name */
-    private InterfaceC1082a f9988b;
+    private InterfaceC1123a f9989b;
     @Nullable
     private b c;
     private boolean d = false;
 
     /* renamed from: com.kwad.sdk.draw.b.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1082a {
+    public interface InterfaceC1123a {
         void a();
     }
 
@@ -28,7 +28,7 @@ public class a {
     }
 
     public a(AdTemplate adTemplate) {
-        this.f9987a = adTemplate;
+        this.f9988a = adTemplate;
     }
 
     public void a() {
@@ -36,17 +36,17 @@ public class a {
             return;
         }
         this.d = true;
-        if (com.kwad.sdk.core.response.b.c.j(this.f9987a).status == DOWNLOADSTAUS.START || com.kwad.sdk.core.response.b.c.j(this.f9987a).status == DOWNLOADSTAUS.DOWNLOADING || com.kwad.sdk.core.response.b.c.j(this.f9987a).status == DOWNLOADSTAUS.PROGRESS) {
+        if (com.kwad.sdk.core.response.b.c.j(this.f9988a).status == DOWNLOADSTAUS.START || com.kwad.sdk.core.response.b.c.j(this.f9988a).status == DOWNLOADSTAUS.DOWNLOADING || com.kwad.sdk.core.response.b.c.j(this.f9988a).status == DOWNLOADSTAUS.PROGRESS) {
             return;
         }
-        if ((this.c == null || !this.c.a()) && this.f9988b != null) {
-            this.f9988b.a();
+        if ((this.c == null || !this.c.a()) && this.f9989b != null) {
+            this.f9989b.a();
         }
     }
 
     @MainThread
-    public void a(InterfaceC1082a interfaceC1082a) {
-        this.f9988b = interfaceC1082a;
+    public void a(InterfaceC1123a interfaceC1123a) {
+        this.f9989b = interfaceC1123a;
     }
 
     @MainThread

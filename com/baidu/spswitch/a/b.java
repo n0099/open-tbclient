@@ -1,7 +1,7 @@
 package com.baidu.spswitch.a;
 
 import android.view.View;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements com.baidu.spswitch.a {
     private final View cDQ;
     private boolean cDR = false;
@@ -27,20 +27,20 @@ public class b implements com.baidu.spswitch.a {
         if (i == this.cDQ.getVisibility()) {
             return true;
         }
-        return ajh() && i == 0;
+        return aji() && i == 0;
     }
 
-    public boolean ajh() {
+    public boolean aji() {
         return this.cDS;
     }
 
     @Override // com.baidu.spswitch.a
-    public void aiZ() {
+    public void aja() {
         throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
     }
 
     @Override // com.baidu.spswitch.a
-    public void aja() {
+    public void ajb() {
         this.cDR = true;
     }
 }

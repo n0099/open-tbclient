@@ -13,7 +13,7 @@ public class a {
         this.gOQ.dG(jSONObject.optJSONObject("cat2"));
     }
 
-    public c bWz() {
+    public c bWA() {
         return this.gOP;
     }
 
@@ -21,7 +21,7 @@ public class a {
         this.gOP = cVar;
     }
 
-    public c bWA() {
+    public c bWB() {
         return this.gOQ;
     }
 
@@ -30,10 +30,10 @@ public class a {
     }
 
     public static String a(a aVar) {
-        return (aVar == null || aVar.bWz() == null || aVar.bWz().getId() == null) ? "" : aVar.bWz().getId();
+        return (aVar == null || aVar.bWA() == null || aVar.bWA().getId() == null) ? "" : aVar.bWA().getId();
     }
 
     public static String b(a aVar) {
-        return (aVar == null || aVar.bWA() == null || aVar.bWA().getId() == null) ? "" : aVar.bWA().getId();
+        return (aVar == null || aVar.bWB() == null || aVar.bWB().getId() == null) ? "" : aVar.bWB().getId();
     }
 }

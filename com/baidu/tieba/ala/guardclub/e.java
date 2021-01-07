@@ -31,7 +31,7 @@ public class e {
     private View.OnClickListener gZJ = new View.OnClickListener() { // from class: com.baidu.tieba.ala.guardclub.e.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            e.this.bYF();
+            e.this.bYG();
         }
     };
     private HttpMessageListener gZs = new HttpMessageListener(1021137) { // from class: com.baidu.tieba.ala.guardclub.e.2
@@ -41,7 +41,7 @@ public class e {
             GuardClubInfoHttpResponseMessage guardClubInfoHttpResponseMessage;
             if (httpResponsedMessage == null || httpResponsedMessage.hasError() || !(httpResponsedMessage instanceof GuardClubInfoHttpResponseMessage)) {
                 if (e.this.gZI != null) {
-                    e.this.gZI.bYI();
+                    e.this.gZI.bYJ();
                 }
             } else if (e.this.gZI != null && (guardClubInfoHttpResponseMessage = (GuardClubInfoHttpResponseMessage) httpResponsedMessage) != null && guardClubInfoHttpResponseMessage.getOrginalMessage().getTag() == e.this.gQC && guardClubInfoHttpResponseMessage != null && guardClubInfoHttpResponseMessage.bkF != null) {
                 e.this.bkF = guardClubInfoHttpResponseMessage.bkF;
@@ -65,7 +65,7 @@ public class e {
                 GuardClubJoinHttpResponseMessage guardClubJoinHttpResponseMessage = (GuardClubJoinHttpResponseMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (e.this.bkF != null && e.this.bkF.id == guardClubJoinHttpResponseMessage.bkP) {
-                        e.this.bYF();
+                        e.this.bYG();
                     }
                 } else if (!guardClubJoinHttpResponseMessage.bkS) {
                     guardClubJoinHttpResponseMessage.bkS = true;
@@ -94,7 +94,7 @@ public class e {
                 com.baidu.live.guardclub.a aVar = ((GuardClubInfoRenameResponseMessage) httpResponsedMessage).bkF;
                 if (aVar != null && e.this.bkF != null && e.this.bkF.id == aVar.id) {
                     if (e.this.gZI != null) {
-                        e.this.gZI.HD(aVar.bks);
+                        e.this.gZI.HC(aVar.bks);
                         return;
                     }
                     return;
@@ -113,7 +113,7 @@ public class e {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021132 && (httpResponsedMessage instanceof LiveSyncHttpResponseMessage)) {
                 if ((httpResponsedMessage.getError() == 0) && ((LiveSyncHttpResponseMessage) httpResponsedMessage).QV() != null) {
-                    e.this.bYF();
+                    e.this.bYG();
                 }
             }
         }
@@ -135,7 +135,7 @@ public class e {
         MessageManager.getInstance().registerListener(this.gZv);
         MessageManager.getInstance().registerListener(this.bCe);
         MessageManager.getInstance().registerListener(this.gZK);
-        bYF();
+        bYG();
     }
 
     public View getView() {
@@ -148,7 +148,7 @@ public class e {
         }
     }
 
-    public void bYF() {
+    public void bYG() {
         if (BdNetTypeUtil.isNetWorkAvailable()) {
             com.baidu.live.guardclub.b bVar = new com.baidu.live.guardclub.b();
             bVar.setAnchorId(this.anchorId);
@@ -156,7 +156,7 @@ public class e {
             bVar.setTag(this.gQC);
             MessageManager.getInstance().sendMessage(bVar);
         } else if (this.gZI != null) {
-            this.gZI.bYI();
+            this.gZI.bYJ();
         }
     }
 

@@ -8,24 +8,24 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 /* loaded from: classes9.dex */
 public abstract class a implements d {
     private static final ReadWriteLock dOC = new ReentrantReadWriteLock();
-    private File dOD = aPz();
+    private File dOD = aPA();
     private final long MAX_SIZE = getMaxSize();
 
     @NonNull
-    public abstract String aPA();
+    public abstract String aPB();
 
     @Override // com.baidu.swan.apps.storage.b.d
     public void cQ(long j) {
         dOC.writeLock().lock();
         try {
             if (this.dOD == null) {
-                this.dOD = aPz();
+                this.dOD = aPA();
             }
             File file = this.dOD;
             if (!file.exists()) {
                 file.createNewFile();
             }
-            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aPy() + j).getBytes(), file);
+            com.baidu.swan.c.d.saveFileCommon(String.valueOf(aPz() + j).getBytes(), file);
         } catch (Exception e) {
             if (com.baidu.swan.apps.b.DEBUG) {
                 e.printStackTrace();
@@ -39,15 +39,15 @@ public abstract class a implements d {
     public boolean cR(long j) {
         dOC.readLock().lock();
         try {
-            return aPy() + j > this.MAX_SIZE;
+            return aPz() + j > this.MAX_SIZE;
         } finally {
             dOC.readLock().unlock();
         }
     }
 
-    private long aPy() {
+    private long aPz() {
         if (this.dOD == null) {
-            this.dOD = aPz();
+            this.dOD = aPA();
         }
         File file = this.dOD;
         if (file.exists() && file.isFile()) {
@@ -68,7 +68,7 @@ public abstract class a implements d {
         return 0L;
     }
 
-    private File aPz() {
-        return new File(aPA() + File.separator + "record.pro");
+    private File aPA() {
+        return new File(aPB() + File.separator + "record.pro");
     }
 }

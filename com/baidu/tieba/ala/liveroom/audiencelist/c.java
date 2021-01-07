@@ -113,7 +113,7 @@ public class c {
             layoutParams.addRule(0, i2);
             layoutParams.leftMargin = BdUtilHelper.getDimens(getPageContext().getPageActivity(), a.d.sdk_ds10);
             layoutParams.rightMargin = BdUtilHelper.dip2px(getPageContext().getPageActivity(), -6.0f);
-            cfm();
+            cfn();
             this.bRX.addView(this.hue, layoutParams);
         }
     }
@@ -148,7 +148,7 @@ public class c {
         this.otherParams = str;
     }
 
-    public void cfm() {
+    public void cfn() {
         if (this.hug != null) {
             Animation loadAnimation = AnimationUtils.loadAnimation(getPageContext().getPageActivity(), this.hsH);
             loadAnimation.setFillEnabled(true);

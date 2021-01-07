@@ -9,10 +9,10 @@ import com.baidu.ufosdk.f.c;
 public final class a extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5633a;
+    private Context f5634a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f5634b;
+    private String f5635b;
     private String c;
     private boolean d = false;
     private boolean e = false;
@@ -20,10 +20,10 @@ public final class a extends Thread {
     private final long g = 300;
 
     public a(Context context, String str, String str2) {
-        this.f5634b = "";
+        this.f5635b = "";
         this.c = "";
-        this.f5633a = context;
-        this.f5634b = str;
+        this.f5634a = context;
+        this.f5635b = str;
         this.c = str2;
     }
 
@@ -32,7 +32,7 @@ public final class a extends Thread {
     }
 
     public final void a(String str) {
-        this.f5634b = str;
+        this.f5635b = str;
     }
 
     public final void b() {
@@ -51,14 +51,14 @@ public final class a extends Thread {
             } catch (InterruptedException e) {
                 c.a("Interrupted!", e);
             }
-            if (!this.e && this.f5634b != null && !this.f5634b.equals("newMessage")) {
-                if (d.c(this.f5633a)) {
-                    Context context = this.f5633a;
+            if (!this.e && this.f5635b != null && !this.f5635b.equals("newMessage")) {
+                if (d.c(this.f5634a)) {
+                    Context context = this.f5634a;
                     String str = UfoSDK.clientid;
-                    com.baidu.ufosdk.e.a.a(context, this.f5634b, this.c);
+                    com.baidu.ufosdk.e.a.a(context, this.f5635b, this.c);
                 } else {
-                    this.f5633a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
-                    this.f5633a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
+                    this.f5634a.sendBroadcast(new Intent("com.baidu.ufosdk.reload"));
+                    this.f5634a.sendBroadcast(new Intent("com.baidu.ufosdk.deletemsg_dialogdismiss"));
                 }
             }
             try {

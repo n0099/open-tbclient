@@ -23,7 +23,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        return m(com.baidu.swan.pms.database.a.bgb().yN(str));
+        return m(com.baidu.swan.pms.database.a.bgc().yN(str));
     }
 
     public static boolean a(@Nullable PMSAppInfo pMSAppInfo, @Nullable Bundle bundle) {
@@ -129,7 +129,7 @@ public class a {
                 cVar.nz(bundle.getInt("pms_update_expect_pkg_ver"));
             }
             if (DEBUG) {
-                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.bgT())));
+                Log.i("SwanAppLaunchUtils", String.format(Locale.getDefault(), "asyncUpdatePkg: swanAsyncUpdate -> 异步更新 appid=%s frameType=%d expectVer=%d", string, Integer.valueOf(i), Integer.valueOf(cVar.bgU())));
             }
             cVar.zb("4");
             com.baidu.swan.pms.c.a(cVar, new e(string) { // from class: com.baidu.swan.apps.u.f.a.1

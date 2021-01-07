@@ -14,16 +14,16 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableFlattenIterable<T, R> extends a<T, R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final int prefetch;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
-        if (this.qgK instanceof Callable) {
+        if (this.qit instanceof Callable) {
             try {
-                Object call = ((Callable) this.qgK).call();
+                Object call = ((Callable) this.qit).call();
                 if (call == null) {
                     EmptySubscription.complete(cVar);
                     return;
@@ -42,10 +42,10 @@ public final class FlowableFlattenIterable<T, R> extends a<T, R> {
                 return;
             }
         }
-        this.qgK.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
+        this.qit.a((j) new FlattenIterableSubscriber(cVar, this.mapper, this.prefetch));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class FlattenIterableSubscriber<T, R> extends BasicIntQueueSubscription<R> implements j<T> {
         private static final long serialVersionUID = -3096000382929934955L;
         final org.a.c<? super R> actual;

@@ -22,7 +22,7 @@ public abstract class d<T> implements f.a {
 
     protected abstract boolean an(T t);
 
-    protected abstract String bgq();
+    protected abstract String bgr();
 
     protected abstract T cO(JSONObject jSONObject);
 
@@ -59,7 +59,7 @@ public abstract class d<T> implements f.a {
         }
         int errorCode = yS.getErrorCode();
         if (errorCode != 0) {
-            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(errorCode, PMSConstants.a.aC(errorCode, "response errorCode with errmsg:" + yS.getErrorMessage()), yS.bgp());
+            com.baidu.swan.pms.model.a aVar3 = new com.baidu.swan.pms.model.a(errorCode, PMSConstants.a.aC(errorCode, "response errorCode with errmsg:" + yS.getErrorMessage()), yS.bgq());
             this.ewT.b(aVar3);
             if (yS.getErrorCode() != 1010) {
                 a(aVar3, str);
@@ -127,9 +127,9 @@ public abstract class d<T> implements f.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void v(PMSAppInfo pMSAppInfo) {
-        com.baidu.swan.pms.a.f aul;
-        if (pMSAppInfo != null && (aul = this.ewT.aul()) != null) {
-            aul.e(pMSAppInfo);
+        com.baidu.swan.pms.a.f aum;
+        if (pMSAppInfo != null && (aum = this.ewT.aum()) != null) {
+            aum.e(pMSAppInfo);
         }
     }
 
@@ -149,7 +149,7 @@ public abstract class d<T> implements f.a {
             } catch (JSONException e2) {
                 e = e2;
                 e.printStackTrace();
-                com.baidu.swan.pms.f.a.a(this.ddf.getCategory(), "cs_protocol", bgq(), i, jSONObject);
+                com.baidu.swan.pms.f.a.a(this.ddf.getCategory(), "cs_protocol", bgr(), i, jSONObject);
             }
         }
         int i2 = i;
@@ -162,8 +162,8 @@ public abstract class d<T> implements f.a {
             e = e3;
             i = i2;
             e.printStackTrace();
-            com.baidu.swan.pms.f.a.a(this.ddf.getCategory(), "cs_protocol", bgq(), i, jSONObject);
+            com.baidu.swan.pms.f.a.a(this.ddf.getCategory(), "cs_protocol", bgr(), i, jSONObject);
         }
-        com.baidu.swan.pms.f.a.a(this.ddf.getCategory(), "cs_protocol", bgq(), i, jSONObject);
+        com.baidu.swan.pms.f.a.a(this.ddf.getCategory(), "cs_protocol", bgr(), i, jSONObject);
     }
 }

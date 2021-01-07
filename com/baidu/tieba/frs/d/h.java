@@ -91,7 +91,7 @@ public class h {
                     if (frsPrivateShareDialogView.a(frsViewData, tbPageContext, aVar)) {
                         aVar.pd(2);
                         aVar.br(frsPrivateShareDialogView);
-                        aVar.b(tbPageContext).btX();
+                        aVar.b(tbPageContext).btY();
                     }
                 }
             });
@@ -112,7 +112,7 @@ public class h {
         if (frsPrivateShareDialogView.a(frsViewData, tbPageContext, aVar)) {
             aVar.pd(2);
             aVar.br(frsPrivateShareDialogView);
-            aVar.b(tbPageContext).btX();
+            aVar.b(tbPageContext).btY();
         }
     }
 
@@ -151,7 +151,7 @@ public class h {
                 }
             });
             aVar.jI(true);
-            aVar.b(frsFragment.getPageContext()).btX();
+            aVar.b(frsFragment.getPageContext()).btY();
             if (!com.baidu.adp.lib.util.k.isEmpty(i.getImageUrl())) {
                 frsShareCardView.aQ(i.getImageUrl(), false);
             }

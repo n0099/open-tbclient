@@ -2,21 +2,21 @@ package com.qq.e.comm.plugin.ab.c;
 
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c implements e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final c f12027a = new c();
+        static final c f12028a = new c();
     }
 
     private c() {
     }
 
     public static c a() {
-        return a.f12027a;
+        return a.f12028a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e

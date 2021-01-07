@@ -5,7 +5,7 @@ public class c {
     private int geB;
     private int threadType;
 
-    public Object bMN() {
+    public Object bMO() {
         return this.geA;
     }
 
@@ -21,7 +21,7 @@ public class c {
         this.threadType = i;
     }
 
-    public int bMO() {
+    public int bMP() {
         return this.geB;
     }
 

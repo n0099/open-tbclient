@@ -36,16 +36,16 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabFriendModel.a
         public void f(boolean z, List<n> list) {
             LiveTabFriendSubFragment.this.hideLoadingView();
-            LiveTabFriendSubFragment.this.Zi();
+            LiveTabFriendSubFragment.this.Zj();
             if (z) {
-                LiveTabFriendSubFragment.this.bUE();
+                LiveTabFriendSubFragment.this.bUF();
             } else {
-                LiveTabFriendSubFragment.this.bUD();
+                LiveTabFriendSubFragment.this.bUE();
             }
-            LiveTabFriendSubFragment.this.bUO();
+            LiveTabFriendSubFragment.this.bUP();
             LiveTabFriendSubFragment.this.setData(list);
             if (x.isEmpty(list)) {
-                LiveTabFriendSubFragment.this.bUL();
+                LiveTabFriendSubFragment.this.bUM();
             } else {
                 LiveTabFriendSubFragment.this.hideEmptyView();
             }
@@ -53,12 +53,12 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
 
         @Override // com.baidu.tieba.ala.alasquare.live_tab.model.AlaLiveTabFriendModel.a
         public void h(int i, String str, boolean z) {
-            LiveTabFriendSubFragment.this.bUO();
+            LiveTabFriendSubFragment.this.bUP();
             LiveTabFriendSubFragment.this.hideLoadingView();
-            LiveTabFriendSubFragment.this.Zi();
+            LiveTabFriendSubFragment.this.Zj();
             if (!z) {
                 if (!LiveTabFriendSubFragment.this.gDh.hasData()) {
-                    LiveTabFriendSubFragment.this.bUH();
+                    LiveTabFriendSubFragment.this.bUI();
                     return;
                 } else {
                     LiveTabFriendSubFragment.this.showToast(R.string.data_load_error);
@@ -74,7 +74,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
             if (j.isNetWorkAvailable()) {
                 LiveTabFriendSubFragment.this.gDh.refresh();
             } else {
-                LiveTabFriendSubFragment.this.bUO();
+                LiveTabFriendSubFragment.this.bUP();
             }
         }
     };
@@ -82,9 +82,9 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
-                LiveTabFriendSubFragment.this.bUP();
+                LiveTabFriendSubFragment.this.bUQ();
             } else {
-                LiveTabFriendSubFragment.this.gDh.bUp();
+                LiveTabFriendSubFragment.this.gDh.bUq();
             }
         }
     };
@@ -93,7 +93,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
         public void onScrolled(RecyclerView recyclerView, int i, int i2) {
             super.onScrolled(recyclerView, i, i2);
             if (i2 >= 4 && !LiveTabFriendSubFragment.this.gDb) {
-                LiveTabFriendSubFragment.this.bUM();
+                LiveTabFriendSubFragment.this.bUN();
             }
         }
     };
@@ -187,12 +187,12 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUO() {
+    public void bUP() {
         this.gDf.setRefreshing(false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUD() {
+    public void bUE() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.Yc.setNextPage(this.gCf);
@@ -204,7 +204,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUE() {
+    public void bUF() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.Yc.setNextPage(this.gCf);
@@ -216,7 +216,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUP() {
+    public void bUQ() {
         this.Yc.setNextPage(null);
     }
 
@@ -254,20 +254,20 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
     public void loadData() {
         if (this.gDh != null) {
-            Zi();
+            Zj();
             showLoadingView();
             this.gDh.refresh();
         }
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void WE() {
+    public void WF() {
         this.Yc.setSelection(0);
         startPullRefresh();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabBaseSubFragment
-    public void bUN() {
+    public void bUO() {
         if (this.gDg != null) {
             this.gDg.notifyDataSetChanged();
         }
@@ -285,7 +285,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUH() {
+    public void bUI() {
         this.gCZ.setVisibility(0);
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.live_tab.fragment.LiveTabFriendSubFragment.5
@@ -307,7 +307,7 @@ public class LiveTabFriendSubFragment extends LiveTabBaseSubFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zi() {
+    public void Zj() {
         this.gCZ.setVisibility(8);
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.gCZ);

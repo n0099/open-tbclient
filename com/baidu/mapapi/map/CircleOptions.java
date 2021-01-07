@@ -4,12 +4,12 @@ import android.os.Bundle;
 import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class CircleOptions extends OverlayOptions {
     private static final String d = CircleOptions.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2806a;
+    int f2807a;
     Bundle c;
     private LatLng e;
     private int g;
@@ -21,17 +21,17 @@ public final class CircleOptions extends OverlayOptions {
     private int j = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2807b = true;
+    boolean f2808b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Circle circle = new Circle();
-        circle.B = this.f2807b;
-        circle.A = this.f2806a;
+        circle.B = this.f2808b;
+        circle.A = this.f2807a;
         circle.C = this.c;
-        circle.f2802b = this.f;
-        circle.f2801a = this.e;
+        circle.f2803b = this.f;
+        circle.f2802a = this.e;
         circle.c = this.g;
         circle.d = this.h;
         circle.e = this.i;
@@ -100,11 +100,11 @@ public final class CircleOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2806a;
+        return this.f2807a;
     }
 
     public boolean isVisible() {
-        return this.f2807b;
+        return this.f2808b;
     }
 
     public CircleOptions radius(int i) {
@@ -118,12 +118,12 @@ public final class CircleOptions extends OverlayOptions {
     }
 
     public CircleOptions visible(boolean z) {
-        this.f2807b = z;
+        this.f2808b = z;
         return this;
     }
 
     public CircleOptions zIndex(int i) {
-        this.f2806a = i;
+        this.f2807a = i;
         return this;
     }
 }

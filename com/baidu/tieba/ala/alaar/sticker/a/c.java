@@ -11,36 +11,36 @@ public class c<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
     private ArrayMap<String, T> gvd = new ArrayMap<>();
     private File mFolder;
 
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bTf() {
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.b> bTg() {
         if (gvb == null) {
-            gvb = bTg();
+            gvb = bTh();
         }
         return gvb;
     }
 
-    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.b> bTg() {
+    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.b> bTh() {
         c<com.baidu.tieba.ala.alaar.sticker.model.b> cVar;
         synchronized (c.class) {
             if (gvb == null) {
-                gvb = new c(a.bTa().bTc());
+                gvb = new c(a.bTb().bTd());
             }
             cVar = gvb;
         }
         return cVar;
     }
 
-    public static c<com.baidu.tieba.ala.alaar.sticker.model.d> bTe() {
+    public static c<com.baidu.tieba.ala.alaar.sticker.model.d> bTf() {
         if (gvc == null) {
-            gvc = bTh();
+            gvc = bTi();
         }
         return gvc;
     }
 
-    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.d> bTh() {
+    private static synchronized c<com.baidu.tieba.ala.alaar.sticker.model.d> bTi() {
         c<com.baidu.tieba.ala.alaar.sticker.model.d> cVar;
         synchronized (c.class) {
             if (gvc == null) {
-                gvc = new c(a.bTa().bTd());
+                gvc = new c(a.bTb().bTe());
             }
             cVar = gvc;
         }
@@ -51,7 +51,7 @@ public class c<T extends com.baidu.tieba.ala.alaar.sticker.model.e> {
         this.mFolder = file;
     }
 
-    public T Gn(String str) {
+    public T Gm(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

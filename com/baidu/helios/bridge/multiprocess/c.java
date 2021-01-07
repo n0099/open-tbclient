@@ -4,7 +4,7 @@ import android.os.Bundle;
 import com.baidu.helios.bridge.a;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public class c extends com.baidu.helios.bridge.a {
     private volatile h awB;
     private volatile com.baidu.helios.bridge.a.a awC;

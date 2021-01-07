@@ -27,9 +27,9 @@ public final class b {
         }
         switch (c) {
             case 0:
-                a.C0421a arn = a.b.arn();
-                codeCacheSetting.maxCount = arn.maxCount;
-                codeCacheSetting.sizeLimit = arn.sizeLimit;
+                a.C0421a aro = a.b.aro();
+                codeCacheSetting.maxCount = aro.maxCount;
+                codeCacheSetting.sizeLimit = aro.sizeLimit;
                 break;
             default:
                 codeCacheSetting.maxCount = 5;

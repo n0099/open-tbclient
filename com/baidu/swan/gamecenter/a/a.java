@@ -18,11 +18,11 @@ public class a extends com.baidu.swan.gamecenter.c.a {
             Log.i("authorize", "debug mode: true.");
             bVar.aI(null);
         } else {
-            e aMl = e.aMl();
-            if (aMl == null) {
+            e aMm = e.aMm();
+            if (aMm == null) {
                 bVar.onFail(10001, "authorize fail.");
             } else {
-                aMl.aMw().e("mapp_gamecenter_private_api", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.gamecenter.a.a.1
+                aMm.aMx().e("mapp_gamecenter_private_api", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.gamecenter.a.a.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ao.e.b
                     /* renamed from: c */

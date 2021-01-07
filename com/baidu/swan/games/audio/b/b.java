@@ -19,16 +19,16 @@ public class b {
     private SwanAudioPlayer efE;
     private Handler mHandler;
     private HashMap<String, Long> efB = new HashMap<>();
-    private String efC = f.aXE();
+    private String efC = f.aXF();
     private com.baidu.swan.games.audio.a.b efA = new com.baidu.swan.games.audio.a.b(this.efC);
 
     static {
-        com.baidu.swan.games.utils.so.d.bcG();
+        com.baidu.swan.games.utils.so.d.bcH();
     }
 
     private b() {
-        aXL();
-        aXM().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.1
+        aXM();
+        aXN().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.1
             @Override // java.lang.Runnable
             public void run() {
                 b.this.efE = SwanAudioPlayer.getInstance();
@@ -37,7 +37,7 @@ public class b {
         });
     }
 
-    public static b aXK() {
+    public static b aXL() {
         if (efz == null) {
             synchronized (b.class) {
                 if (efz == null) {
@@ -48,7 +48,7 @@ public class b {
         return efz;
     }
 
-    private void aXL() {
+    private void aXM() {
         if (this.efD == null) {
             this.efD = new HandlerThread("audio_thread");
             this.efD.start();
@@ -56,7 +56,7 @@ public class b {
         }
     }
 
-    public Handler aXM() {
+    public Handler aXN() {
         return this.mHandler;
     }
 
@@ -101,7 +101,7 @@ public class b {
 
     public void pauseAll() {
         if (this.efE != null) {
-            aXM().postDelayed(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.2
+            aXN().postDelayed(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.2
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.efE.pauseAll();
@@ -112,7 +112,7 @@ public class b {
 
     public void onResume() {
         if (this.efE != null) {
-            aXM().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.3
+            aXN().post(new Runnable() { // from class: com.baidu.swan.games.audio.b.b.3
                 @Override // java.lang.Runnable
                 public void run() {
                     b.this.efE.resume();
@@ -121,7 +121,7 @@ public class b {
         }
     }
 
-    public boolean aXN() {
+    public boolean aXO() {
         if (this.efE != null) {
             this.efE.isAudioPlayer();
             return false;
@@ -130,6 +130,6 @@ public class b {
     }
 
     public void a(JsArrayBuffer jsArrayBuffer, a.InterfaceC0529a interfaceC0529a) {
-        a.aXJ().a(jsArrayBuffer, interfaceC0529a);
+        a.aXK().a(jsArrayBuffer, interfaceC0529a);
     }
 }

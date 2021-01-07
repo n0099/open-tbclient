@@ -8,14 +8,14 @@ public class a {
     private i cFj;
 
     @NonNull
-    public i ajN() {
+    public i ajO() {
         if (this.cFj == null) {
-            this.cFj = ajO();
+            this.cFj = ajP();
         }
         return this.cFj;
     }
 
-    public i ajO() {
+    public i ajP() {
         return new u();
     }
 }

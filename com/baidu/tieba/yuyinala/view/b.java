@@ -31,7 +31,7 @@ public class b {
     private AlaRankListHeaderView oIn;
     private g oIo;
     private TextView oIp;
-    private AlaRankListActivity ojJ;
+    private AlaRankListActivity ojI;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -39,24 +39,24 @@ public class b {
     }
 
     public b(AlaRankListActivity alaRankListActivity, String str) {
-        this.ojJ = alaRankListActivity;
+        this.ojI = alaRankListActivity;
         this.mRoomId = str;
         initView();
     }
 
     private void initView() {
-        this.mRootView = LayoutInflater.from(this.ojJ).inflate(a.g.yuyin_ala_rank_fragment_layout, (ViewGroup) null);
+        this.mRootView = LayoutInflater.from(this.ojI).inflate(a.g.yuyin_ala_rank_fragment_layout, (ViewGroup) null);
         this.ijb = (BdListView) this.mRootView.findViewById(a.f.ala_rank_list_view);
-        this.oIl = new com.baidu.tieba.yuyinala.adapter.a(this.ojJ, this.mRoomId);
+        this.oIl = new com.baidu.tieba.yuyinala.adapter.a(this.ojI, this.mRoomId);
         this.ijb.setAdapter((ListAdapter) this.oIl);
-        this.oIn = new AlaRankListHeaderView(this.ojJ, this.mRoomId);
+        this.oIn = new AlaRankListHeaderView(this.ojI, this.mRoomId);
         this.ijb.addHeaderView(this.oIn);
-        this.ceJ = (LinearLayout) LayoutInflater.from(this.ojJ).inflate(a.g.yuyin_hour_rank_list_footer_view, (ViewGroup) null);
+        this.ceJ = (LinearLayout) LayoutInflater.from(this.ojI).inflate(a.g.yuyin_hour_rank_list_footer_view, (ViewGroup) null);
         this.oIp = (TextView) this.ceJ.findViewById(a.f.tv_footer);
         this.ijb.addFooterView(this.ceJ);
         this.ceJ.setVisibility(0);
         this.bxO = (LinearLayout) this.mRootView.findViewById(a.f.ala_rank_list_bottom_container);
-        this.oIm = new com.baidu.tieba.yuyinala.view.a(this.ojJ, this.mRoomId);
+        this.oIm = new com.baidu.tieba.yuyinala.view.a(this.ojI, this.mRoomId);
         this.bxO.addView(this.oIm.getView(), new LinearLayout.LayoutParams(-1, -2));
         this.bxT = (CommonEmptyView) this.mRootView.findViewById(a.f.ala_rank_list_empty);
         this.ijb.setEmptyView(this.bxT);
@@ -91,7 +91,7 @@ public class b {
         }
     }
 
-    public void WT(String str) {
+    public void WS(String str) {
         if (this.oIp != null) {
             this.oIp.setText(str);
         }
@@ -125,7 +125,7 @@ public class b {
         }
     }
 
-    public void csm() {
+    public void csn() {
         if (this.oIm != null) {
             this.oIm.getView().setVisibility(8);
         }
@@ -136,11 +136,11 @@ public class b {
         this.bxT.setTitle("网络不给力，请稍后重试");
         this.bxT.setRefreshButton("重新加载", onClickListener);
         this.bxT.setup(CommonEmptyView.ImgType.NO_NET, CommonEmptyView.StyleType.DARK);
-        this.bxT.setTextColor(this.ojJ.getResources().getColor(a.c.sdk_color_525252));
+        this.bxT.setTextColor(this.ojI.getResources().getColor(a.c.sdk_color_525252));
         this.bxT.setVisibility(0);
     }
 
-    public void Zi() {
+    public void Zj() {
         this.bxT.setVisibility(8);
     }
 
@@ -149,7 +149,7 @@ public class b {
             this.bxT.reset();
             this.bxT.setTitle("还没有房间上榜哦~");
             this.bxT.setup(CommonEmptyView.ImgType.NO_DATA, CommonEmptyView.StyleType.DARK);
-            this.bxT.setTextColor(this.ojJ.getResources().getColor(a.c.sdk_color_525252));
+            this.bxT.setTextColor(this.ojI.getResources().getColor(a.c.sdk_color_525252));
             this.bxT.setVisibility(0);
             return;
         }

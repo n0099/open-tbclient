@@ -48,7 +48,7 @@ public class a extends d {
         if (b2 == null) {
             return new Pair<>(null, 202);
         }
-        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.aAW().all()).post(b2).build(), 0);
+        return new Pair<>(new Request.Builder().url(com.baidu.swan.apps.t.a.aAX().alm()).post(b2).build(), 0);
     }
 
     private void a(@NonNull Request request, final String str) {
@@ -72,7 +72,7 @@ public class a extends d {
         aVar.ewn = true;
         aVar.ewo = true;
         aVar.ewp = true;
-        com.baidu.swan.a.c.a.bfE().b(aVar);
+        com.baidu.swan.a.c.a.bfF().b(aVar);
     }
 
     private RequestBody b(@NonNull e eVar, @NonNull JSONObject jSONObject) {

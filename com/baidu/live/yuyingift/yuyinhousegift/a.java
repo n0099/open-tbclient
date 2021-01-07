@@ -12,7 +12,7 @@ public class a extends d {
     public interface InterfaceC0247a {
         void a(YuyinAlaRoomComboGiftView yuyinAlaRoomComboGiftView);
 
-        void abu();
+        void abv();
 
         void b(YuyinAlaRoomComboGiftView yuyinAlaRoomComboGiftView);
     }
@@ -36,7 +36,7 @@ public class a extends d {
             @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomComboGiftView.a
             public void t(com.baidu.live.yuyingift.a.c cVar) {
                 if (a.this.cck != null) {
-                    a.this.cck.abu();
+                    a.this.cck.abv();
                 }
             }
 
@@ -46,7 +46,7 @@ public class a extends d {
                     a.this.cck.b(a.this.ccj);
                 }
                 if (a.this.cck != null) {
-                    a.this.cck.abu();
+                    a.this.cck.abv();
                 }
             }
         });
@@ -72,7 +72,7 @@ public class a extends d {
     }
 
     public boolean isRunning() {
-        return this.ccj != null && this.ccj.abB();
+        return this.ccj != null && this.ccj.abC();
     }
 
     public void r(com.baidu.live.yuyingift.a.c cVar) {

@@ -15,7 +15,7 @@ public class b implements aw {
     @Override // com.baidu.swan.apps.adaptation.a.aw
     @Nullable
     public com.baidu.swan.apps.api.c.b a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull com.baidu.swan.apps.o.b bVar) {
-        if (aXj()) {
+        if (aXk()) {
             bVar.aI(null);
             return null;
         }
@@ -26,7 +26,7 @@ public class b implements aw {
         return TextUtils.equals(this.eeq.name, str);
     }
 
-    public boolean aXj() {
+    public boolean aXk() {
         Boolean bool;
         String appKey = getAppKey();
         if (!TextUtils.isEmpty(appKey) && (bool = this.eep.get(appKey)) != null) {
@@ -60,9 +60,9 @@ public class b implements aw {
     }
 
     private String getAppKey() {
-        e aMl = e.aMl();
-        if (aMl != null) {
-            return aMl.getAppKey();
+        e aMm = e.aMm();
+        if (aMm != null) {
+            return aMm.getAppKey();
         }
         return null;
     }

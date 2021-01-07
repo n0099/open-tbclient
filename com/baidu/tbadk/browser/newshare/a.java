@@ -132,10 +132,10 @@ public class a {
         ao.setViewTextColor(this.eKI, R.color.CAM_X0105);
         ao.setViewTextColor(this.eKJ, R.color.CAM_X0305);
         ao.setBackgroundColor(this.mRoot, R.color.CAM_X0201);
-        com.baidu.tbadk.core.util.f.a.bwT().qB(1).qD(0).qI(ao.qc(R.color.CAM_X0201)).qE(ao.qc(R.color.CAM_X0806)).qC(4112).qF(l.getDimens(this.mContext, R.dimen.tbds16)).qG(0).qH(l.getDimens(this.mContext, R.dimen.tbds5)).bz(this.eKQ);
-        this.eKU.setImageDrawable(SvgManager.bwq().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
-        this.eKX.setImageDrawable(SvgManager.bwq().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
-        this.eLa.setImageDrawable(SvgManager.bwq().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+        com.baidu.tbadk.core.util.f.a.bwU().qB(1).qD(0).qI(ao.qc(R.color.CAM_X0201)).qE(ao.qc(R.color.CAM_X0806)).qC(4112).qF(l.getDimens(this.mContext, R.dimen.tbds16)).qG(0).qH(l.getDimens(this.mContext, R.dimen.tbds5)).bz(this.eKQ);
+        this.eKU.setImageDrawable(SvgManager.bwr().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+        this.eKX.setImageDrawable(SvgManager.bwr().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+        this.eLa.setImageDrawable(SvgManager.bwr().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
         ao.setViewTextColor(this.eKV, R.color.CAM_X0101);
         ao.setViewTextColor(this.eKY, R.color.CAM_X0101);
         ao.setViewTextColor(this.eLb, R.color.CAM_X0101);

@@ -13,14 +13,14 @@ import com.baidu.location.e.l;
 import dalvik.system.DexClassLoader;
 import java.io.File;
 import java.io.RandomAccessFile;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class f extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    LLSInterface f2735a = null;
+    LLSInterface f2736a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    LLSInterface f2736b = null;
+    LLSInterface f2737b = null;
     LLSInterface c = null;
     public static String replaceFileName = "repll.jar";
     public static Context mC = null;
@@ -84,7 +84,7 @@ public class f extends Service {
         }
         mC = getApplicationContext();
         System.currentTimeMillis();
-        this.f2736b = new com.baidu.location.d.a();
+        this.f2737b = new com.baidu.location.d.a();
         try {
             File file = new File(l.j() + File.separator + replaceFileName);
             File file2 = new File(l.j() + File.separator + "app.jar");
@@ -95,17 +95,17 @@ public class f extends Service {
                 file.renameTo(file2);
             }
             if (file2.exists() && a(new File(l.j() + File.separator + "app.jar"))) {
-                this.f2735a = (LLSInterface) new DexClassLoader(l.j() + File.separator + "app.jar", l.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
+                this.f2736a = (LLSInterface) new DexClassLoader(l.j() + File.separator + "app.jar", l.j(), null, getClassLoader()).loadClass("com.baidu.serverLoc.LocationService").newInstance();
             }
         } catch (Exception e) {
-            this.f2735a = null;
+            this.f2736a = null;
         }
-        if (this.f2735a == null || this.f2735a.getVersion() < this.f2736b.getVersion()) {
-            this.c = this.f2736b;
-            this.f2735a = null;
+        if (this.f2736a == null || this.f2736a.getVersion() < this.f2737b.getVersion()) {
+            this.c = this.f2737b;
+            this.f2736a = null;
         } else {
-            this.c = this.f2735a;
-            this.f2736b = null;
+            this.c = this.f2736a;
+            this.f2737b = null;
         }
         isServing = true;
         this.c.onCreate(this);

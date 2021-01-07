@@ -106,7 +106,7 @@ public class HotTopicHeaderView extends LinearLayout {
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 HotTopicHeaderView.this.ktb.setText(HotTopicHeaderView.this.OZ);
-                HotTopicHeaderView.this.cVs();
+                HotTopicHeaderView.this.cVt();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -162,7 +162,7 @@ public class HotTopicHeaderView extends LinearLayout {
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 HotTopicHeaderView.this.ktb.setText(HotTopicHeaderView.this.OZ);
-                HotTopicHeaderView.this.cVs();
+                HotTopicHeaderView.this.cVt();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -218,7 +218,7 @@ public class HotTopicHeaderView extends LinearLayout {
             @Override // android.text.style.ClickableSpan
             public void onClick(View view) {
                 HotTopicHeaderView.this.ktb.setText(HotTopicHeaderView.this.OZ);
-                HotTopicHeaderView.this.cVs();
+                HotTopicHeaderView.this.cVt();
             }
 
             @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
@@ -265,7 +265,7 @@ public class HotTopicHeaderView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cVs() {
+    public void cVt() {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) this.OZ);
         String string = getResources().getString(R.string.hot_topic_detail);
@@ -323,7 +323,7 @@ public class HotTopicHeaderView extends LinearLayout {
                 this.ktl = this.ktb.getLineCount();
                 if (this.ktl > 3) {
                     this.ktb.setMovementMethod(LinkMovementMethod.getInstance());
-                    cVs();
+                    cVt();
                 }
                 this.ktb.setVisibility(0);
                 this.ktb.setHighlightColor(getResources().getColor(R.color.transparent));
@@ -349,7 +349,7 @@ public class HotTopicHeaderView extends LinearLayout {
         }
     }
 
-    public boolean cVt() {
+    public boolean cVu() {
         return this.ktk;
     }
 

@@ -116,7 +116,7 @@ public class a implements ad {
         if (cVar == null || cVar.bex == null) {
             return false;
         }
-        return com.baidu.live.yuyingift.b.b.aaZ().gX(cVar.bex.Gx());
+        return com.baidu.live.yuyingift.b.b.aba().gX(cVar.bex.Gx());
     }
 
     private void c(c cVar) {
@@ -129,7 +129,7 @@ public class a implements ad {
         }
         for (int i = 0; i < size * cVar.beC; i++) {
             this.bYB.h(cVar);
-            this.bYB.aaB();
+            this.bYB.aaC();
         }
     }
 

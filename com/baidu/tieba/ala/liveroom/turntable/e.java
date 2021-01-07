@@ -23,7 +23,7 @@ public class e {
 
     public e(Activity activity) {
         this.mContext = activity;
-        aaf();
+        aag();
     }
 
     public void b(String str, long j, long j2, long j3) {
@@ -32,11 +32,11 @@ public class e {
         this.hOV.getWebView().setBackgroundColor(ih(str));
         g gVar = new g();
         gVar.w(this.mContext).a(this.hOV).a(this.hOV.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] aae = gVar.aae();
-        for (com.baidu.live.view.web.a aVar : aae) {
+        com.baidu.live.view.web.a[] aaf = gVar.aaf();
+        for (com.baidu.live.view.web.a aVar : aaf) {
             this.hOV.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.hOV.GB(a(str, j, ExtraParamsManager.getEncryptionUserId(String.valueOf(j2)), ExtraParamsManager.getEncryptionUserId(String.valueOf(j3))));
+        this.hOV.GA(a(str, j, ExtraParamsManager.getEncryptionUserId(String.valueOf(j2)), ExtraParamsManager.getEncryptionUserId(String.valueOf(j3))));
     }
 
     public void resume() {
@@ -53,7 +53,7 @@ public class e {
 
     public void dismiss() {
         if (this.hOV != null) {
-            this.hOV.aag();
+            this.hOV.aah();
         }
     }
 
@@ -72,7 +72,7 @@ public class e {
         MessageManager.getInstance().unRegisterListener(this.bXd);
     }
 
-    private void aaf() {
+    private void aag() {
         this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.ala.liveroom.turntable.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -122,7 +122,7 @@ public class e {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(q.XF());
+        sb.append(q.XG());
         return sb.toString();
     }
 
@@ -130,7 +130,7 @@ public class e {
         this.hOT = aVar;
     }
 
-    public d.a cnz() {
+    public d.a cnA() {
         return this.hOT;
     }
 }

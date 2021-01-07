@@ -55,7 +55,7 @@ public class a implements View.OnClickListener, b {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021226 && (httpResponsedMessage instanceof AlaQuitRoomRecommendResponseMessage)) {
                 if (httpResponsedMessage.hasError() || httpResponsedMessage.getError() != 0) {
-                    a.this.crD();
+                    a.this.crE();
                 } else {
                     a.this.a((AlaQuitRoomRecommendResponseMessage) httpResponsedMessage);
                 }
@@ -94,9 +94,9 @@ public class a implements View.OnClickListener, b {
         }
     }
 
-    private void crz() {
+    private void crA() {
         if (this.mDialog == null) {
-            crA();
+            crB();
             this.rootView = LayoutInflater.from(this.mContext).inflate(a.g.sdk_ala_quit_room_recommend_dialog, (ViewGroup) null);
             this.mTitleView = (TextView) this.rootView.findViewById(a.f.sdk_ala_quit_tv_title);
             if (!TextUtils.isEmpty(this.igB)) {
@@ -131,38 +131,38 @@ public class a implements View.OnClickListener, b {
         }
     }
 
-    private void crA() {
+    private void crB() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "quitreco_show").setContentExt(null, "quit_reco", null));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AlaQuitRoomRecommendResponseMessage alaQuitRoomRecommendResponseMessage) {
         if (alaQuitRoomRecommendResponseMessage == null || alaQuitRoomRecommendResponseMessage.igK == null || alaQuitRoomRecommendResponseMessage.igK.isEmpty()) {
-            crB();
+            crC();
             return;
         }
-        crz();
+        crA();
         if (this.igv != null) {
             this.igv.setData(alaQuitRoomRecommendResponseMessage.igK);
         }
     }
 
-    private void crB() {
-        crC();
+    private void crC() {
+        crD();
     }
 
-    private void crC() {
+    private void crD() {
         if (this.igu != null) {
             this.igu.RR();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crD() {
-        crC();
+    public void crE() {
+        crD();
     }
 
-    private void bIm() {
+    private void bIn() {
         if (this.aMh != null && this.aMh.mLiveInfo != null) {
             if (!this.igx) {
                 this.igx = true;
@@ -191,14 +191,14 @@ public class a implements View.OnClickListener, b {
 
     @Override // com.baidu.live.y.b
     public boolean RS() {
-        if (this.igE && TbadkCoreApplication.isLogin() && System.currentTimeMillis() - this.igz >= this.igC && SharedPrefHelper.getInstance().getInt("KEY_QUITROOMRECOMMEND_CLICK_EXIT_COUNT", 0) < this.igD && !crE()) {
-            bIm();
+        if (this.igE && TbadkCoreApplication.isLogin() && System.currentTimeMillis() - this.igz >= this.igC && SharedPrefHelper.getInstance().getInt("KEY_QUITROOMRECOMMEND_CLICK_EXIT_COUNT", 0) < this.igD && !crF()) {
+            bIn();
             return true;
         }
         return false;
     }
 
-    private boolean crE() {
+    private boolean crF() {
         int i;
         String b2 = k.b(new Date());
         String string = SharedPrefHelper.getInstance().getString("KEY_QUITROOMRECOMMEND_COUNT", "");
@@ -227,7 +227,7 @@ public class a implements View.OnClickListener, b {
             if (this.mDialog != null && this.mDialog.isShowing()) {
                 this.mDialog.dismiss();
             }
-            crC();
+            crD();
         }
     }
 }

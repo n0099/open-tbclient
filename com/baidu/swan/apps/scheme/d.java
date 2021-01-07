@@ -3,7 +3,7 @@ package com.baidu.swan.apps.scheme;
 public class d {
     private static volatile c dIE;
 
-    public static synchronized c aNq() {
+    public static synchronized c aNr() {
         c cVar;
         synchronized (d.class) {
             if (dIE == null) {

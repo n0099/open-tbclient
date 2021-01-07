@@ -131,7 +131,7 @@ public class DrawableCenterTextView extends TextView {
     }
 
     private void q(Canvas canvas) {
-        if (aKi()) {
+        if (aKj()) {
             if (this.mCornerRadius >= 0.0f) {
                 this.dyr.setCornerRadius(this.mCornerRadius);
             } else {
@@ -158,7 +158,7 @@ public class DrawableCenterTextView extends TextView {
             }
             canvas.save();
             if (this.dyC) {
-                aKg();
+                aKh();
             } else {
                 this.dyr.setBounds(0, 0, getWidth(), getHeight());
             }
@@ -220,7 +220,7 @@ public class DrawableCenterTextView extends TextView {
         this.dyC = z;
     }
 
-    private void aKg() {
+    private void aKh() {
         if (this.dyr != null) {
             int[] iArr = {getWidth(), getHeight()};
             if (this.dyC) {
@@ -234,14 +234,14 @@ public class DrawableCenterTextView extends TextView {
 
     @Override // android.widget.TextView
     public void setShadowLayer(float f, float f2, float f3, int i) {
-        aKh();
+        aKi();
         RectF rectF = new RectF(f, f, f, f);
         rectF.offset(f2, f3);
         setPadding(rectF.left < 0.0f ? 0 : (int) (rectF.left + 0.5f), rectF.top < 0.0f ? 0 : (int) (rectF.top + 0.5f), rectF.right < 0.0f ? 0 : (int) (rectF.right + 0.5f), rectF.bottom >= 0.0f ? (int) (rectF.bottom + 0.5f) : 0);
         this.dys.setShadowLayer(f, f2, f3, i);
     }
 
-    private void aKh() {
+    private void aKi() {
         if (this.dys == null) {
             this.dys = new Paint();
             this.dys.setColor(0);
@@ -281,7 +281,7 @@ public class DrawableCenterTextView extends TextView {
         this.mCornerRadius = i;
     }
 
-    private boolean aKi() {
+    private boolean aKj() {
         return this.dyx && this.dyt != null;
     }
 
@@ -289,21 +289,21 @@ public class DrawableCenterTextView extends TextView {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                if (aKi()) {
+                if (aKj()) {
                     this.dyA = true;
                     invalidate();
                     break;
                 }
                 break;
             case 1:
-                if (aKi()) {
+                if (aKj()) {
                     this.dyA = false;
                     invalidate();
                     break;
                 }
                 break;
             case 3:
-                if (aKi()) {
+                if (aKj()) {
                     this.dyA = false;
                     invalidate();
                     break;

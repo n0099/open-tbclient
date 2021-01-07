@@ -12,7 +12,7 @@ public class g extends com.baidu.live.yuyingift.yuyinhousegift.a.a {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void abz();
+        void abA();
     }
 
     public g(View view) {
@@ -20,7 +20,7 @@ public class g extends com.baidu.live.yuyingift.yuyinhousegift.a.a {
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.a
-    protected AnimatorSet aby() {
+    protected AnimatorSet abz() {
         AnimatorSet animatorSet = new AnimatorSet();
         ObjectAnimator ofPropertyValuesHolder = ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat("scaleX", 0.0f, 1.2f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 0.0f, 1.2f, 1.0f), PropertyValuesHolder.ofFloat("alpha", 1.0f, 1.0f));
         ofPropertyValuesHolder.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.live.yuyingift.yuyinhousegift.a.g.1
@@ -31,7 +31,7 @@ public class g extends com.baidu.live.yuyingift.yuyinhousegift.a.a {
                 if (!this.ccH && ((Float) valueAnimator.getAnimatedValue()).floatValue() > 0.01d) {
                     this.ccH = true;
                     if (g.this.ccJ != null) {
-                        g.this.ccJ.abz();
+                        g.this.ccJ.abA();
                     }
                 }
             }

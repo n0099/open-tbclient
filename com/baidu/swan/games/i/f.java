@@ -47,7 +47,7 @@ public class f {
         this.mContext = context;
         this.ejf = str;
         this.ejg = cVar;
-        this.ejh = this.ejg.aPD();
+        this.ejh = this.ejg.aPE();
     }
 
     private String xn(String str) {
@@ -223,8 +223,8 @@ public class f {
                 } else if (z2) {
                     j = ((byte[]) obj).length;
                 }
-                if (this.ejg.aPD().cR(j)) {
-                    return az(-1, aZU());
+                if (this.ejg.aPE().cR(j)) {
+                    return az(-1, aZV());
                 }
                 File file = new File(xn);
                 if (file.exists() && file.isDirectory()) {
@@ -447,7 +447,7 @@ public class f {
                     }
                     if (this.ejh.cR(j)) {
                         n.bd(arrayList);
-                        return az(-1, aZU());
+                        return az(-1, aZV());
                     }
                     this.ejh.cQ(j);
                 }
@@ -516,7 +516,7 @@ public class f {
             }
             long fileSize = n.getFileSize(xn2);
             if (this.ejh.cR(fileSize)) {
-                return az(-1, aZU());
+                return az(-1, aZV());
             }
             if (!xB.startsWith(a.USER_DATA_PATH) || n.xv(xB)) {
                 return az(-1, n.u("fail permission denied, open ", null, str2, null));
@@ -915,7 +915,7 @@ public class f {
                             z2 = false;
                         }
                         if (z2 && this.ejh.cR(fileSize)) {
-                            return az(-1, aZU());
+                            return az(-1, aZV());
                         }
                         c dd = !xB.equals(xB2) ? dd(xB, xB2) : az(0, "ok");
                         if (z2 && dd != null && dd.errCode == 0) {
@@ -1059,8 +1059,8 @@ public class f {
         return az;
     }
 
-    public c aZT() {
-        String aPC = this.ejg.aPC();
+    public c aZU() {
+        String aPD = this.ejg.aPD();
         String xn = xn(a.USER_DATA_PATH);
         if (TextUtils.isEmpty(xn)) {
             return az(-1, "path must be a string");
@@ -1071,7 +1071,7 @@ public class f {
             d dVar = new d();
             dVar.createTime = file.exists() ? file.lastModified() : 0L;
             String absolutePath = file.getAbsolutePath();
-            if (file.exists() && !TextUtils.isEmpty(absolutePath) && !TextUtils.isEmpty(aPC) && absolutePath.startsWith(aPC)) {
+            if (file.exists() && !TextUtils.isEmpty(absolutePath) && !TextUtils.isEmpty(aPD) && absolutePath.startsWith(aPD)) {
                 dVar.filePath = this.ejg.uh(absolutePath);
             }
             dVar.size = file.exists() ? file.length() : 0L;
@@ -1139,7 +1139,7 @@ public class f {
         return ag;
     }
 
-    private String aZU() {
+    private String aZV() {
         String generateFileSizeText = com.baidu.swan.c.d.generateFileSizeText(this.ejh.getMaxSize());
         return String.format("fail file size over %s", (TextUtils.isEmpty(generateFileSizeText) || TextUtils.equals(generateFileSizeText, FileUtils.UNKNOW)) ? "" : "");
     }

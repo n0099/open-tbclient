@@ -62,7 +62,7 @@ public class v extends e {
             covers = signleGraphicTextMsg.getCover();
         }
         com.baidu.yuyinala.privatemessage.implugin.util.b.hE(this.mContext);
-        ImageLoader.getInstance().displayImage(covers, this.oTw, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
+        ImageLoader.getInstance().displayImage(covers, this.oTw, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
         this.oTy.setText(signleGraphicTextMsg.getTitle());
         this.oTx.setText(signleGraphicTextMsg.getDigest());
         super.b(context, chatMsg);

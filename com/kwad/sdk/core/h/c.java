@@ -11,10 +11,10 @@ public class c extends InputStream {
     private volatile long h;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9604a = -1;
+    private int f9605a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f9605b = 10000;
+    private int f9606b = 10000;
     private long c = -1;
     private long f = -1;
     private int i = 20480;
@@ -46,17 +46,17 @@ public class c extends InputStream {
     }
 
     private void b() {
-        this.f9604a = 0;
+        this.f9605a = 0;
         this.c = System.currentTimeMillis();
     }
 
     private void c() {
-        if (this.f9604a < this.f9605b) {
+        if (this.f9605a < this.f9606b) {
             return;
         }
         long currentTimeMillis = System.currentTimeMillis();
         long j = currentTimeMillis - this.c;
-        float f = this.f9604a / this.g;
+        float f = this.f9605a / this.g;
         this.h = a(this.e, currentTimeMillis - this.f);
         if (f > ((float) j)) {
             a(f - ((float) j));
@@ -96,12 +96,12 @@ public class c extends InputStream {
             this.f = System.currentTimeMillis();
         }
         this.e++;
-        if (b.f9603b && b.f9602a) {
-            if (this.f9604a < 0) {
+        if (b.f9604b && b.f9603a) {
+            if (this.f9605a < 0) {
                 b();
             }
             int read = this.d.read();
-            this.f9604a++;
+            this.f9605a++;
             c();
             return read;
         }

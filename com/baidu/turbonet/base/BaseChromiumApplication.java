@@ -74,7 +74,7 @@ public class BaseChromiumApplication extends Application {
     public void onCreate() {
         super.onCreate();
         if (this.oIR) {
-            eho();
+            ehp();
         }
     }
 
@@ -82,7 +82,7 @@ public class BaseChromiumApplication extends Application {
         this.oIS.addObserver(bVar);
     }
 
-    private void eho() {
+    private void ehp() {
         ApplicationStatus.a(this);
         registerActivityLifecycleCallbacks(new Application.ActivityLifecycleCallbacks() { // from class: com.baidu.turbonet.base.BaseChromiumApplication.1
             @Override // android.app.Application.ActivityLifecycleCallbacks

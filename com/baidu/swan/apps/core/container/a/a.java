@@ -24,7 +24,7 @@ public class a implements i {
     /* renamed from: com.baidu.swan.apps.core.container.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0422a {
-        void ajU();
+        void ajV();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -41,12 +41,12 @@ public class a implements i {
         this.cTp = -1;
         this.cTq = new InterfaceC0422a() { // from class: com.baidu.swan.apps.core.container.a.a.1
             @Override // com.baidu.swan.apps.core.container.a.a.InterfaceC0422a
-            public void ajU() {
+            public void ajV() {
                 try {
                     a.this.mLock.lock();
                     a.this.cTo = true;
-                    a.this.art();
-                    a.this.arw();
+                    a.this.aru();
+                    a.this.arx();
                 } finally {
                     a.this.mLock.unlock();
                 }
@@ -65,7 +65,7 @@ public class a implements i {
                 try {
                     a.this.mLock.lock();
                     a.this.cTn = true;
-                    a.this.arw();
+                    a.this.arx();
                     a.this.mLock.unlock();
                     BdSailor.getInstance().removeForceInitListener(a.this.cTr);
                 } catch (Throwable th) {
@@ -75,29 +75,29 @@ public class a implements i {
             }
         };
         BdSailor.addForceInitListener(this.cTr);
-        com.baidu.swan.apps.t.a.aAO().a(this.cTq);
+        com.baidu.swan.apps.t.a.aAP().a(this.cTq);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void art() {
+    public synchronized void aru() {
         if (this.cTp == -1) {
-            this.cTp = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_enable_file_in_io", 0);
+            this.cTp = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_enable_file_in_io", 0);
         }
         if (!ProcessUtils.isMainProcess() && this.cTp == 1) {
             WebSettingsGlobalBlink.setFileInIOEnabled(true);
         }
     }
 
-    public static a aru() {
+    public static a arv() {
         return b.cTt;
     }
 
-    public void arv() {
+    public void arw() {
         fh(false);
     }
 
     public void fh(boolean z) {
-        com.baidu.swan.apps.t.a.aAO().eJ(z);
+        com.baidu.swan.apps.t.a.aAP().eJ(z);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.i
@@ -109,7 +109,7 @@ public class a implements i {
                     this.mListeners.add(bVar);
                 }
                 if (isLoaded()) {
-                    arw();
+                    arx();
                 }
             }
         } finally {
@@ -130,7 +130,7 @@ public class a implements i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arw() {
+    public void arx() {
         try {
             this.mLock.lock();
             if (isLoaded()) {
@@ -138,7 +138,7 @@ public class a implements i {
                 while (it.hasNext()) {
                     com.baidu.swan.apps.core.container.a.b next = it.next();
                     if (next != null) {
-                        next.ajU();
+                        next.ajV();
                     }
                 }
                 this.mListeners.clear();

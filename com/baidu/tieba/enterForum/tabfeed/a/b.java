@@ -41,10 +41,10 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
         this.fWD = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bLR */
+            /* renamed from: bLS */
             public ImageView makeObject() {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(b.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.bou().isShowImages();
+                boolean isShowImages = com.baidu.tbadk.core.k.bov().isShowImages();
                 foreDrawableImageView.setDefaultBg(ao.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -80,7 +80,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (com.baidu.tbadk.core.k.bou().isShowImages()) {
+                    if (com.baidu.tbadk.core.k.bov().isShowImages()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -113,10 +113,10 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
         this.fWE = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.enterForum.tabfeed.a.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: czE */
+            /* renamed from: czF */
             public GifView makeObject() {
                 GifView gifView = new GifView(b.this.mPageContext.getPageActivity());
-                boolean isShowImages = com.baidu.tbadk.core.k.bou().isShowImages();
+                boolean isShowImages = com.baidu.tbadk.core.k.bov().isShowImages();
                 gifView.setDefaultBg(ao.getDrawable(R.color.common_color_10220));
                 if (isShowImages) {
                     gifView.setAdjustViewBounds(false);
@@ -146,7 +146,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
             /* renamed from: h */
             public GifView activateObject(GifView gifView) {
                 gifView.setTag(null);
-                if (com.baidu.tbadk.core.k.bou().isShowImages()) {
+                if (com.baidu.tbadk.core.k.bov().isShowImages()) {
                     gifView.setAdjustViewBounds(false);
                     gifView.setInterceptOnClick(false);
                 } else {
@@ -164,7 +164,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
                 gifView.release();
                 gifView.onDestroy();
                 gifView.setImageDrawable(null);
-                gifView.bGn();
+                gifView.bGo();
                 gifView.setBackgroundDrawable(null);
                 gifView.setTag(null);
                 gifView.setOnClickListener(null);
@@ -177,7 +177,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bz bzVar) {
-                com.baidu.tieba.card.s.cva().mG(true);
+                com.baidu.tieba.card.s.cvb().mG(true);
                 com.baidu.tieba.enterForum.a.a(view, bzVar, b.this.mTabName);
             }
         };
@@ -200,7 +200,7 @@ public class b extends com.baidu.adp.widget.ListView.a<by, ThreadCardViewHolder<
         oVar.setFrom("index");
         oVar.setFromForPb(2);
         oVar.setObjectPool(this.fWD, this.fWE);
-        oVar.e(com.baidu.tbadk.a.b.b.bnj(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), com.baidu.tbadk.a.b.b.bnj(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
+        oVar.e(com.baidu.tbadk.a.b.b.bnk(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004), com.baidu.tbadk.a.b.b.bnk(), UtilHelper.getDimenPixelSize(R.dimen.M_H_X004));
         oVar.setFromCDN(this.alQ);
         oVar.setCornerStyle(1);
         aVar.c(oVar);

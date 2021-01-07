@@ -26,10 +26,10 @@ public class WebSocketFrame {
     private String cRi;
 
     WebSocketFrame(WebSocketFrame webSocketFrame) {
-        a(webSocketFrame.aqd());
-        fc(webSocketFrame.aqe());
-        F(webSocketFrame.aqf());
-        G(webSocketFrame.aqh());
+        a(webSocketFrame.aqe());
+        fc(webSocketFrame.aqf());
+        F(webSocketFrame.aqg());
+        G(webSocketFrame.aqi());
     }
 
     private WebSocketFrame(OpCode opCode, boolean z) {
@@ -43,7 +43,7 @@ public class WebSocketFrame {
         Iterator<WebSocketFrame> it;
         long j = 0;
         while (list.iterator().hasNext()) {
-            j = it.next().aqf().length + j;
+            j = it.next().aqg().length + j;
         }
         if (j < 0 || j > 2147483647L) {
             if (DEBUG) {
@@ -55,8 +55,8 @@ public class WebSocketFrame {
         byte[] bArr = new byte[this.cRh];
         int i = 0;
         for (WebSocketFrame webSocketFrame : list) {
-            System.arraycopy(webSocketFrame.aqf(), 0, bArr, i, webSocketFrame.aqf().length);
-            i = webSocketFrame.aqf().length + i;
+            System.arraycopy(webSocketFrame.aqg(), 0, bArr, i, webSocketFrame.aqg().length);
+            i = webSocketFrame.aqg().length + i;
         }
         F(bArr);
     }
@@ -76,7 +76,7 @@ public class WebSocketFrame {
         this.cRd = opCode;
     }
 
-    public OpCode aqd() {
+    public OpCode aqe() {
         return this.cRd;
     }
 
@@ -84,7 +84,7 @@ public class WebSocketFrame {
         this.Sl = z;
     }
 
-    public boolean aqe() {
+    public boolean aqf() {
         return this.Sl;
     }
 
@@ -94,7 +94,7 @@ public class WebSocketFrame {
         this.cRi = null;
     }
 
-    public byte[] aqf() {
+    public byte[] aqg() {
         return this.RD;
     }
 
@@ -104,9 +104,9 @@ public class WebSocketFrame {
         this.cRi = str;
     }
 
-    public String aqg() {
+    public String aqh() {
         if (this.cRi == null) {
-            this.cRi = H(aqf());
+            this.cRi = H(aqg());
         }
         return this.cRi;
     }
@@ -118,7 +118,7 @@ public class WebSocketFrame {
         this.cRg = bArr;
     }
 
-    private byte[] aqh() {
+    private byte[] aqi() {
         return this.cRg;
     }
 
@@ -218,25 +218,25 @@ public class WebSocketFrame {
         WebSocketFrame webSocketFrame = new WebSocketFrame(find, z);
         webSocketFrame.p(inputStream);
         webSocketFrame.o(inputStream);
-        return webSocketFrame.aqd() == OpCode.Close ? new a() : webSocketFrame;
+        return webSocketFrame.aqe() == OpCode.Close ? new a() : webSocketFrame;
     }
 
     static byte[] mY(String str) {
         return str.getBytes(cRf);
     }
 
-    private String aqi() {
+    private String aqj() {
         if (this.RD == null) {
             return "";
         }
         StringBuilder sb = new StringBuilder();
         sb.append('[').append(this.RD.length).append("b] ");
-        if (aqd() == OpCode.Text) {
-            String aqg = aqg();
-            if (aqg.length() > 100) {
-                sb.append(aqg.substring(0, 100)).append(StringHelper.STRING_MORE);
+        if (aqe() == OpCode.Text) {
+            String aqh = aqh();
+            if (aqh.length() > 100) {
+                sb.append(aqh.substring(0, 100)).append(StringHelper.STRING_MORE);
             } else {
-                sb.append(aqg);
+                sb.append(aqh);
             }
         } else {
             sb.append("0x");
@@ -262,8 +262,8 @@ public class WebSocketFrame {
                 bArr[i2] = (byte) (bArr[i2] ^ this.cRg[i2 % 4]);
             }
         }
-        if (aqd() == OpCode.Text) {
-            this.cRi = H(aqf());
+        if (aqe() == OpCode.Text) {
+            this.cRi = H(aqg());
         }
     }
 
@@ -305,16 +305,16 @@ public class WebSocketFrame {
 
     public String toString() {
         Object[] objArr = new Object[4];
-        objArr[0] = aqd();
-        objArr[1] = aqe() ? "fin" : "inter";
+        objArr[0] = aqe();
+        objArr[1] = aqf() ? "fin" : "inter";
         objArr[2] = isMasked() ? "masked" : "unmasked";
-        objArr[3] = aqi();
+        objArr[3] = aqj();
         return String.format("WS[%s, %s, %s, %s]", objArr);
     }
 
     public void write(OutputStream outputStream) throws IOException {
         outputStream.write((byte) ((this.Sl ? (byte) 128 : (byte) 0) | (this.cRd.getValue() & 15)));
-        this.cRh = aqf().length;
+        this.cRh = aqg().length;
         if (this.cRh <= 125) {
             outputStream.write(isMasked() ? ((byte) this.cRh) | 128 : (byte) this.cRh);
         } else if (this.cRh < 65536) {
@@ -332,10 +332,10 @@ public class WebSocketFrame {
         if (isMasked()) {
             outputStream.write(this.cRg);
             for (int i = 0; i < this.cRh; i++) {
-                outputStream.write(aqf()[i] ^ this.cRg[i % 4]);
+                outputStream.write(aqg()[i] ^ this.cRg[i % 4]);
             }
         } else {
-            outputStream.write(aqf());
+            outputStream.write(aqg());
         }
         outputStream.flush();
     }
@@ -364,13 +364,13 @@ public class WebSocketFrame {
 
         private a(WebSocketFrame webSocketFrame) {
             super(webSocketFrame);
-            if (webSocketFrame.aqf().length >= 2) {
-                this.cRj = CloseCode.find(((webSocketFrame.aqf()[0] & 255) << 8) | (webSocketFrame.aqf()[1] & 255));
-                this.cRk = r(aqf(), 2, aqf().length - 2);
+            if (webSocketFrame.aqg().length >= 2) {
+                this.cRj = CloseCode.find(((webSocketFrame.aqg()[0] & 255) << 8) | (webSocketFrame.aqg()[1] & 255));
+                this.cRk = r(aqg(), 2, aqg().length - 2);
             }
         }
 
-        public CloseCode aqj() {
+        public CloseCode aqk() {
             return this.cRj;
         }
 

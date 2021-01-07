@@ -8,10 +8,10 @@ import java.util.regex.Pattern;
 public final class y {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f6281a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
+    private static final Pattern f6282a = Pattern.compile("([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)/([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)");
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Pattern f6282b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
+    private static final Pattern f6283b = Pattern.compile(";\\s*(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)=(?:([a-zA-Z0-9-!#$%&'*+.^_`{|}~]+)|\"([^\"]*)\"))?");
     private final String c;
     private final String d;
     private final String e;
@@ -24,12 +24,12 @@ public final class y {
         this.f = str4;
     }
 
-    public static y YU(String str) {
-        Matcher matcher = f6281a.matcher(str);
+    public static y YT(String str) {
+        Matcher matcher = f6282a.matcher(str);
         if (matcher.lookingAt()) {
             String lowerCase = matcher.group(1).toLowerCase(Locale.US);
             String lowerCase2 = matcher.group(2).toLowerCase(Locale.US);
-            Matcher matcher2 = f6282b.matcher(str);
+            Matcher matcher2 = f6283b.matcher(str);
             String str2 = null;
             for (int end = matcher.end(); end < str.length(); end = matcher2.end()) {
                 matcher2.region(end, str.length());
@@ -57,7 +57,7 @@ public final class y {
         return null;
     }
 
-    public Charset erC() {
+    public Charset erD() {
         return a(null);
     }
 

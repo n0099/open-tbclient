@@ -5,10 +5,10 @@ import java.util.List;
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public List<String> f11349a;
+    public List<String> f11350a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f11350b;
+    public int f11351b;
     public float c;
     public int d;
     public int e;

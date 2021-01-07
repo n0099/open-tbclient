@@ -12,7 +12,7 @@ public class u {
     private String fci = "";
     private final long fcj = 120000;
 
-    public static u bvL() {
+    public static u bvM() {
         if (fck == null) {
             synchronized (u.class) {
                 if (fck == null) {
@@ -23,7 +23,7 @@ public class u {
         return fck;
     }
 
-    public String bvM() {
+    public String bvN() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.fcf > 120000) {
             if (com.baidu.adp.lib.util.l.isMainThread()) {
@@ -35,7 +35,7 @@ public class u {
         return this.fch;
     }
 
-    public String BS(String str) {
+    public String BR(String str) {
         try {
             String host = new URL(str).getHost();
             if (!TextUtils.isEmpty(host)) {
@@ -47,7 +47,7 @@ public class u {
         return null;
     }
 
-    public String BT(String str) {
+    public String BS(String str) {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.fcg > 120000) {
             int indexOf = str.indexOf("hiphotos.baidu.com");

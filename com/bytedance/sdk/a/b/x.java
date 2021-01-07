@@ -14,7 +14,7 @@ public interface x {
 
         int d();
 
-        ab eqN();
+        ab eqO();
     }
 
     b a(a aVar) throws IOException;

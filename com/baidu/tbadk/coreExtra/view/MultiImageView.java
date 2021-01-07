@@ -183,7 +183,7 @@ public class MultiImageView extends RelativeLayout {
                     for (int i2 = 0; i2 < childCount; i2++) {
                         View childAt = MultiImageView.this.fAd.getChildAt(i2);
                         if (childAt != null && (childAt instanceof UrlDragImageView)) {
-                            ((UrlDragImageView) childAt).bDo();
+                            ((UrlDragImageView) childAt).bDp();
                         }
                     }
                 }
@@ -238,8 +238,8 @@ public class MultiImageView extends RelativeLayout {
                         MultiImageView.this.fyS.a(imageView);
                     }
                 }
+                urlDragImageView.bDn();
                 urlDragImageView.bDm();
-                urlDragImageView.bDl();
                 urlDragImageView.E(MultiImageView.this.fzc, true);
                 MultiImageView.this.c(((UrlDragImageView) obj).getmAssistUrlData());
             }
@@ -313,7 +313,7 @@ public class MultiImageView extends RelativeLayout {
                 kC(false);
                 return;
             }
-            if (!this.fAn.bCU()) {
+            if (!this.fAn.bCV()) {
                 this.fAn.kA(false);
             }
             if (!this.fAn.isShown()) {
@@ -344,15 +344,15 @@ public class MultiImageView extends RelativeLayout {
             }
             String str = imageUrlData.imageUrl;
             if (!StringUtils.isNull(str)) {
-                ImageUrlData Dj = Dj(str);
-                urlDragImageView.setAssistUrl(Dj);
-                c(Dj);
+                ImageUrlData Di = Di(str);
+                urlDragImageView.setAssistUrl(Di);
+                c(Di);
             }
             urlDragImageView.E(this.fzc, true);
         }
     }
 
-    private ImageUrlData Dj(String str) {
+    private ImageUrlData Di(String str) {
         if (TextUtils.isEmpty(str) || this.fAk == null) {
             return null;
         }
@@ -378,7 +378,7 @@ public class MultiImageView extends RelativeLayout {
     public void sj(int i) {
         View findViewWithTag;
         if (this.fAd != null && (findViewWithTag = this.fAd.findViewWithTag(String.valueOf(i))) != null && (findViewWithTag instanceof UrlDragImageView)) {
-            ((UrlDragImageView) findViewWithTag).bDq();
+            ((UrlDragImageView) findViewWithTag).bDr();
         }
     }
 
@@ -478,13 +478,13 @@ public class MultiImageView extends RelativeLayout {
         this.fAa.setEnabled(false);
     }
 
-    public void bDc() {
+    public void bDd() {
         if (!this.fAi) {
             this.fAc.setVisibility(0);
         }
     }
 
-    public boolean bDd() {
+    public boolean bDe() {
         return this.fAl;
     }
 
@@ -515,7 +515,7 @@ public class MultiImageView extends RelativeLayout {
         }
     }
 
-    public void bDe() {
+    public void bDf() {
         if (!this.fAi) {
             this.fAc.setVisibility(8);
         }

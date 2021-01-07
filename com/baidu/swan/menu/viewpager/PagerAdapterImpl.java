@@ -5,12 +5,12 @@ import android.util.SparseArray;
 import android.view.View;
 import android.view.ViewGroup;
 import androidx.viewpager.widget.PagerAdapter;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class PagerAdapterImpl extends PagerAdapter {
     private c<View> evT = new c<>(5);
     private SparseArray<View> dnc = new SparseArray<>();
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void recycle();
     }

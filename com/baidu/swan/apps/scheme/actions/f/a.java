@@ -43,12 +43,12 @@ public final class a extends aa implements b.a {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         } else {
-            eVar.aMw().b(context, "mapp_location", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.f.a.1
+            eVar.aMx().b(context, "mapp_location", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.f.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
                 public void L(h<b.d> hVar) {
-                    a.this.a(hVar, callbackHandler, lD, eVar.ank());
+                    a.this.a(hVar, callbackHandler, lD, eVar.anl());
                 }
             });
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -60,7 +60,7 @@ public final class a extends aa implements b.a {
     public void a(h<b.d> hVar, CallbackHandler callbackHandler, a.C0393a c0393a, boolean z) {
         c.i("GetLocationAction", "authorized result is " + hVar);
         if (com.baidu.swan.apps.setting.oauth.c.b(hVar)) {
-            com.baidu.swan.apps.api.module.f.b.any().a(c0393a, this, z);
+            com.baidu.swan.apps.api.module.f.b.anz().a(c0393a, this, z);
             return;
         }
         int errorCode = hVar.getErrorCode();

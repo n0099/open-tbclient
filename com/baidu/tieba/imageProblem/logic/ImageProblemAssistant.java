@@ -92,7 +92,7 @@ public class ImageProblemAssistant {
     public void checkDNSIP() {
         Exception e;
         TestTask testTask;
-        if (ad.bvY()) {
+        if (ad.bvZ()) {
             TestTask testTask2 = null;
             try {
                 testTask = this.aPH.get(1);
@@ -281,7 +281,7 @@ public class ImageProblemAssistant {
     }
 
     public void fix() {
-        t.BR(this.mLogContent.toString());
+        t.BQ(this.mLogContent.toString());
         if (this.kTC) {
             try {
                 z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.CDN_LOG_ADDRESS);

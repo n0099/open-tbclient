@@ -25,11 +25,11 @@ public abstract class CollectFragment extends BaseFragment {
         }
     };
 
-    public abstract boolean bor();
+    public abstract boolean bos();
 
     public abstract int getType();
 
-    public boolean boq() {
+    public boolean bor() {
         return this.eLX;
     }
 
@@ -48,7 +48,7 @@ public abstract class CollectFragment extends BaseFragment {
     /* JADX INFO: Access modifiers changed from: protected */
     public void op(int i) {
         Bundle bundle = new Bundle();
-        this.eLX = !bor() && j.isNetWorkAvailable();
+        this.eLX = !bos() && j.isNetWorkAvailable();
         bundle.putBoolean("is_enable_edit", this.eLX);
         bundle.putInt("fragment_type", i);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.COLLECT_TAB_NAVI_EDIT_ENABLE, bundle));

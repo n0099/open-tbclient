@@ -52,15 +52,15 @@ public class j extends BaseData {
         return this.aZj;
     }
 
-    public int bXw() {
+    public int bXx() {
         return this.countDown;
     }
 
-    public boolean bXx() {
+    public boolean bXy() {
         return this.gUI;
     }
 
-    public k[] bXy() {
+    public k[] bXz() {
         return this.gUJ;
     }
 }

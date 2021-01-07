@@ -8,17 +8,17 @@ import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes11.dex */
 public class f {
     private RelativeLayout ltF;
-    private final ConcurrentHashMap<String, ConnectionLineView> oBm = new ConcurrentHashMap<>();
-    private final ConcurrentHashMap<String, Boolean> oBn = new ConcurrentHashMap<>();
-    private a oBo;
+    private final ConcurrentHashMap<String, ConnectionLineView> oBl = new ConcurrentHashMap<>();
+    private final ConcurrentHashMap<String, Boolean> oBm = new ConcurrentHashMap<>();
+    private a oBn;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void Wu(String str);
+        void Wt(String str);
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:14:0x0032, code lost:
-        if (r8.ltF.indexOfChild(r8.oBm.get(r1)) == (-1)) goto L16;
+        if (r8.ltF.indexOfChild(r8.oBl.get(r1)) == (-1)) goto L16;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -26,7 +26,7 @@ public class f {
     public synchronized void a(int[] iArr, RelativeLayout relativeLayout, double[] dArr, double[] dArr2, int i) {
         if (dArr[0] != dArr2[0] || dArr[1] != dArr2[1]) {
             String o = o(iArr);
-            if (this.oBm.containsKey(o)) {
+            if (this.oBl.containsKey(o)) {
             }
             this.ltF = relativeLayout;
             ConnectionLineView connectionLineView = new ConnectionLineView(relativeLayout.getContext());
@@ -41,27 +41,27 @@ public class f {
             }
             connectionLineView.setRotation(b2);
             relativeLayout.addView(connectionLineView, i + 1);
-            this.oBm.put(o, connectionLineView);
-            if (this.oBo != null) {
-                this.oBo.Wu(o);
+            this.oBl.put(o, connectionLineView);
+            if (this.oBn != null) {
+                this.oBn.Wt(o);
             }
         }
     }
 
-    public synchronized void Ws(String str) {
-        if (!ListUtils.isEmpty(this.oBm) && this.oBm.containsKey(str)) {
-            ConnectionLineView connectionLineView = this.oBm.get(str);
+    public synchronized void Wr(String str) {
+        if (!ListUtils.isEmpty(this.oBl) && this.oBl.containsKey(str)) {
+            ConnectionLineView connectionLineView = this.oBl.get(str);
             if (connectionLineView != null && this.ltF.indexOfChild(connectionLineView) != -1) {
                 this.ltF.removeView(connectionLineView);
             }
-            this.oBm.remove(str);
+            this.oBl.remove(str);
         }
     }
 
-    public synchronized void eeR() {
-        if (!ListUtils.isEmpty(this.oBm)) {
-            for (Map.Entry<String, ConnectionLineView> entry : this.oBm.entrySet()) {
-                Ws(entry.getKey());
+    public synchronized void eeS() {
+        if (!ListUtils.isEmpty(this.oBl)) {
+            for (Map.Entry<String, ConnectionLineView> entry : this.oBl.entrySet()) {
+                Wr(entry.getKey());
             }
         }
     }
@@ -85,36 +85,36 @@ public class f {
     }
 
     public void a(a aVar) {
-        this.oBo = aVar;
+        this.oBn = aVar;
     }
 
     public synchronized void p(int[] iArr) {
         ConnectionLineView connectionLineView;
-        if (!ListUtils.isEmpty(this.oBm) && (connectionLineView = this.oBm.get(o(iArr))) != null) {
-            connectionLineView.egz();
+        if (!ListUtils.isEmpty(this.oBl) && (connectionLineView = this.oBl.get(o(iArr))) != null) {
+            connectionLineView.egA();
         }
     }
 
-    public ConcurrentHashMap<String, ConnectionLineView> eeS() {
-        return this.oBm;
+    public ConcurrentHashMap<String, ConnectionLineView> eeT() {
+        return this.oBl;
     }
 
     public synchronized void bh(String str, boolean z) {
-        if (this.oBn != null) {
-            if (this.oBn.containsKey(str)) {
-                this.oBn.remove(str);
+        if (this.oBm != null) {
+            if (this.oBm.containsKey(str)) {
+                this.oBm.remove(str);
             }
-            this.oBn.put(str, Boolean.valueOf(z));
+            this.oBm.put(str, Boolean.valueOf(z));
         }
     }
 
-    public synchronized boolean Wt(String str) {
-        return (this.oBn == null || !this.oBn.containsKey(str)) ? false : this.oBn.get(str).booleanValue();
+    public synchronized boolean Ws(String str) {
+        return (this.oBm == null || !this.oBm.containsKey(str)) ? false : this.oBm.get(str).booleanValue();
     }
 
-    public synchronized void eeT() {
-        if (this.oBn != null) {
-            this.oBn.clear();
+    public synchronized void eeU() {
+        if (this.oBm != null) {
+            this.oBm.clear();
         }
     }
 }

@@ -33,11 +33,11 @@ public class e {
         return this.imageUrl;
     }
 
-    public String dbF() {
+    public String dbG() {
         return this.kQR;
     }
 
-    public String dbG() {
+    public String dbH() {
         return this.postId;
     }
 
@@ -49,7 +49,7 @@ public class e {
         return this.userName;
     }
 
-    public String bCB() {
+    public String bCC() {
         return this.userNameShow;
     }
 
@@ -65,11 +65,11 @@ public class e {
         return this.index;
     }
 
-    public String bLm() {
+    public String bLn() {
         return this.fZB;
     }
 
-    public String bLs() {
+    public String bLt() {
         return this.kQS;
     }
 
@@ -85,11 +85,11 @@ public class e {
         return this.tagName;
     }
 
-    public boolean dbH() {
+    public boolean dbI() {
         return this.kQT;
     }
 
-    public boolean dbI() {
+    public boolean dbJ() {
         return this.isBlockedPic;
     }
 
@@ -97,23 +97,23 @@ public class e {
         return this.isLongPic;
     }
 
-    public long dbJ() {
+    public long dbK() {
         return this.overAllIndex;
     }
 
-    public String dbK() {
+    public String dbL() {
         return this.commentNum;
     }
 
-    public AgreeData btk() {
+    public AgreeData btl() {
         return this.agreeData;
     }
 
-    public JSONArray dbL() {
+    public JSONArray dbM() {
         return this.kQU;
     }
 
-    public boolean dbM() {
+    public boolean dbN() {
         return this.isFirstPost;
     }
 

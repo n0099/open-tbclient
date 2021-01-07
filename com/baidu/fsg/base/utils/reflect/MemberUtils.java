@@ -9,10 +9,10 @@ import java.util.Map;
 class MemberUtils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2053a = 7;
+    private static final int f2054a = 7;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Class<?>[] f2054b = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
+    private static final Class<?>[] f2055b = {Byte.TYPE, Short.TYPE, Character.TYPE, Integer.TYPE, Long.TYPE, Float.TYPE, Double.TYPE};
     private static final Map<Class<?>, Class<?>> c = new HashMap();
     private static final Map<Class<?>, Class<?>> d = new HashMap();
 
@@ -70,10 +70,10 @@ class MemberUtils {
     public static boolean a(Class<?>[] clsArr, Class<?>[] clsArr2, boolean z) {
         if (Utils.a(clsArr, clsArr2)) {
             if (clsArr == null) {
-                clsArr = Utils.f2057b;
+                clsArr = Utils.f2058b;
             }
             if (clsArr2 == null) {
-                clsArr2 = Utils.f2057b;
+                clsArr2 = Utils.f2058b;
             }
             for (int i = 0; i < clsArr.length; i++) {
                 if (!a(clsArr[i], clsArr2[i], z)) {
@@ -193,11 +193,11 @@ class MemberUtils {
         int i = 0;
         Class<?> cls4 = cls;
         float f2 = f;
-        while (cls4 != cls2 && i < f2054b.length) {
-            if (cls4 == f2054b[i]) {
+        while (cls4 != cls2 && i < f2055b.length) {
+            if (cls4 == f2055b[i]) {
                 f2 += 0.1f;
-                if (i < f2054b.length - 1) {
-                    cls3 = f2054b[i + 1];
+                if (i < f2055b.length - 1) {
+                    cls3 = f2055b[i + 1];
                     i++;
                     cls4 = cls3;
                 }

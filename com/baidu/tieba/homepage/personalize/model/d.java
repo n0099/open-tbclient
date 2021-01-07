@@ -45,7 +45,7 @@ public class d {
             if (builder.age_sex == null) {
                 builder.age_sex = builder2.age_sex;
                 if (builder2.age_sex != null) {
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.HAS_REQUESTED_NEW_USER_GUIDE, true);
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.HAS_REQUESTED_NEW_USER_GUIDE, true);
                 }
             }
             if (builder2.interestion != null && builder != null && builder.interestion != null && builder.interestion.size() == 0) {
@@ -239,53 +239,53 @@ public class d {
                 if (cardForum != null && com.baidu.tieba.homepage.personalize.data.b.Dm(cardForum.card_type.intValue()) && dVar == null) {
                     dVar = new com.baidu.tieba.homepage.personalize.data.d();
                     dVar.a(cardForum);
-                    if (dVar.bPM()) {
+                    if (dVar.bPN()) {
                         linkedList.add(dVar);
                     }
                 }
                 dVar = dVar;
             }
         }
-        List<AppData> dET = r.dEV().dET();
-        if (dET != null) {
-            dET.clear();
+        List<AppData> dEU = r.dEW().dEU();
+        if (dEU != null) {
+            dEU.clear();
         }
         if (builder.banner_list != null && builder.banner_list.app != null) {
             for (App app : builder.banner_list.app) {
                 com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
                 aVar.b(app);
-                if (dET != null && aVar.izk != null) {
+                if (dEU != null && aVar.izk != null) {
                     aVar.izk.eWd = true;
-                    dET.add(aVar.izk.eOj);
+                    dEU.add(aVar.izk.eOj);
                 }
-                AdvertAppInfo cvx = aVar.cvx();
-                if (cvx == null) {
-                    com.baidu.tieba.recapp.report.d.a(aVar.cvx(), 1, 100);
+                AdvertAppInfo cvy = aVar.cvy();
+                if (cvy == null) {
+                    com.baidu.tieba.recapp.report.d.a(aVar.cvy(), 1, 100);
                 } else {
-                    int bpe = cvx.bpe();
-                    if (bpe != 0) {
-                        com.baidu.tieba.recapp.report.d.a(aVar.cvx(), 1, bpe);
-                        if (bpe != 28 && bpe != 31) {
-                            if (cvx.eOc != null) {
-                                cvx.eOc.eOq = -1001;
+                    int bpf = cvy.bpf();
+                    if (bpf != 0) {
+                        com.baidu.tieba.recapp.report.d.a(aVar.cvy(), 1, bpf);
+                        if (bpf != 28 && bpf != 31) {
+                            if (cvy.eOc != null) {
+                                cvy.eOc.eOq = -1001;
                             }
                         }
                     }
                     if (aVar.getPosition() <= 0) {
-                        com.baidu.tieba.recapp.report.d.a(aVar.cvx(), 1, 23);
-                        if (cvx.eOc != null) {
-                            cvx.eOc.eOq = -1001;
+                        com.baidu.tieba.recapp.report.d.a(aVar.cvy(), 1, 23);
+                        if (cvy.eOc != null) {
+                            cvy.eOc.eOq = -1001;
                         }
                     }
-                    if (cvx.bpf()) {
+                    if (cvy.bpg()) {
                         try {
-                            if (TextUtils.isEmpty(cvx.eNW)) {
-                                com.baidu.tieba.recapp.report.d.a(aVar.cvx(), 1, 26);
-                            } else if (z.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), cvx.eNW) && com.baidu.tieba.a.bME().bMG()) {
-                                com.baidu.tieba.recapp.report.d.a(aVar.cvx(), 1, 3);
+                            if (TextUtils.isEmpty(cvy.eNW)) {
+                                com.baidu.tieba.recapp.report.d.a(aVar.cvy(), 1, 26);
+                            } else if (z.isInstalledPackage(TbadkCoreApplication.getInst().getContext(), cvy.eNW) && com.baidu.tieba.a.bMF().bMH()) {
+                                com.baidu.tieba.recapp.report.d.a(aVar.cvy(), 1, 3);
                             }
                         } catch (Exception e) {
-                            com.baidu.tieba.recapp.report.d.a(aVar.cvx(), 1, 100);
+                            com.baidu.tieba.recapp.report.d.a(aVar.cvy(), 1, 100);
                         }
                     }
                     linkedList.add(aVar);
@@ -335,9 +335,9 @@ public class d {
             if (k.ad(bzVar) || k.af(bzVar)) {
                 k kVar2 = new k();
                 kVar2.isLinkThread = bzVar.isLinkThread();
-                kVar2.eSB = bzVar.bsv();
-                if (!bzVar.isLinkThread() && !bzVar.bsv()) {
-                    kVar2.izS = bzVar.brt();
+                kVar2.eSB = bzVar.bsw();
+                if (!bzVar.isLinkThread() && !bzVar.bsw()) {
+                    kVar2.izS = bzVar.bru();
                 }
                 kVar2.eMv = bzVar;
                 kVar2.izT = true;
@@ -355,7 +355,7 @@ public class d {
         kVar.eMv = bzVar;
         kVar.isLinkThread = bzVar.isLinkThread();
         if (!bzVar.isLinkThread()) {
-            kVar.izS = bzVar.brt();
+            kVar.izS = bzVar.bru();
         }
         kVar.izT = true;
         return kVar;
@@ -475,20 +475,20 @@ public class d {
                         aVar.b(app);
                         int i = app != null ? com.baidu.adp.lib.f.b.toInt(app.pos_name, -1) : -1;
                         if (i < 0) {
-                            com.baidu.tieba.recapp.report.d.a(aVar.cvx(), 1, 33);
+                            com.baidu.tieba.recapp.report.d.a(aVar.cvy(), 1, 33);
                             builder2.app.remove(size);
                         } else if (i > count + size) {
-                            com.baidu.tieba.recapp.report.d.a(aVar.bpi(), 1, 2, i, count + size);
+                            com.baidu.tieba.recapp.report.d.a(aVar.bpj(), 1, 2, i, count + size);
                             builder2.app.remove(size);
                         } else {
-                            AdvertAppInfo cvx = aVar.cvx();
-                            if (cvx == null) {
-                                com.baidu.tieba.recapp.report.d.a(aVar.cvx(), 1, 100);
+                            AdvertAppInfo cvy = aVar.cvy();
+                            if (cvy == null) {
+                                com.baidu.tieba.recapp.report.d.a(aVar.cvy(), 1, 100);
                                 builder2.app.remove(size);
                             } else {
-                                int bpe = cvx.bpe();
-                                if (bpe != 0) {
-                                    com.baidu.tieba.recapp.report.d.a(aVar.cvx(), 1, bpe);
+                                int bpf = cvy.bpf();
+                                if (bpf != 0) {
+                                    com.baidu.tieba.recapp.report.d.a(aVar.cvy(), 1, bpf);
                                     builder2.app.remove(size);
                                 }
                             }
@@ -555,15 +555,15 @@ public class d {
     private static AdvertAppInfo d(App app) {
         com.baidu.tieba.homepage.personalize.data.a aVar = new com.baidu.tieba.homepage.personalize.data.a();
         aVar.b(app);
-        return aVar.cvx();
+        return aVar.cvy();
     }
 
     public static void aC(bz bzVar) {
-        String bqN = bzVar.bqN();
-        String dT = at.dT(bzVar.brj() * 1000);
-        if (!TextUtils.isEmpty(bqN) && !TextUtils.isEmpty(dT)) {
-            bqN = bqN + "   " + TbadkCoreApplication.getInst().getString(R.string.repley_when) + dT;
+        String bqO = bzVar.bqO();
+        String dT = at.dT(bzVar.brk() * 1000);
+        if (!TextUtils.isEmpty(bqO) && !TextUtils.isEmpty(dT)) {
+            bqO = bqO + "   " + TbadkCoreApplication.getInst().getString(R.string.repley_when) + dT;
         }
-        bzVar.Ba(bqN);
+        bzVar.AZ(bqO);
     }
 }

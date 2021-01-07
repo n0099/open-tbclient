@@ -17,7 +17,7 @@ import android.text.TextUtils;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class c extends ag {
     public static boolean c = false;
     private CellLocation Ah;
@@ -94,7 +94,7 @@ public final class c extends ag {
                 i = 0;
             }
             hN = agVar.hN();
-            c2 = c(hN.f1081a);
+            c2 = c(hN.f1082a);
             if (hN.a()) {
                 if (hN.e.getSimState() != 5) {
                     z = false;
@@ -112,7 +112,7 @@ public final class c extends ag {
         }
         i = -1;
         hN = agVar.hN();
-        c2 = c(hN.f1081a);
+        c2 = c(hN.f1082a);
         if (hN.a()) {
         }
         z = false;
@@ -161,7 +161,7 @@ public final class c extends ag {
         if (zVar == null) {
             return false;
         }
-        return a(zVar.f1084a, zVar.f1085b, zVar.c, zVar.d, zVar.e);
+        return a(zVar.f1085a, zVar.f1086b, zVar.c, zVar.d, zVar.e);
     }
 
     private static int b(int i, SignalStrength signalStrength, SignalStrength signalStrength2) {
@@ -216,7 +216,7 @@ public final class c extends ag {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void b(c cVar) {
-        if (cVar.f1054b) {
+        if (cVar.f1055b) {
             cVar.i = true;
             a(cVar.Aj, cVar);
         }
@@ -300,7 +300,7 @@ public final class c extends ag {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void e(c cVar) {
-        if (cVar.f1054b) {
+        if (cVar.f1055b) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - cVar.k > 2000) {
                 cVar.k = currentTimeMillis;

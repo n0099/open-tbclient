@@ -36,7 +36,7 @@ import com.bumptech.glide.util.CachedHashCodeArrayMap;
 import com.bumptech.glide.util.Preconditions;
 import com.bumptech.glide.util.Util;
 import java.util.Map;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RequestOptions implements Cloneable {
     private static final int DISK_CACHE_STRATEGY = 4;
     private static final int ERROR_ID = 32;
@@ -303,7 +303,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions sizeMultiplier(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().sizeMultiplier(f);
+            return m57clone().sizeMultiplier(f);
         }
         if (f < 0.0f || f > 1.0f) {
             throw new IllegalArgumentException("sizeMultiplier must be between 0 and 1");
@@ -317,7 +317,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions useUnlimitedSourceGeneratorsPool(boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().useUnlimitedSourceGeneratorsPool(z);
+            return m57clone().useUnlimitedSourceGeneratorsPool(z);
         }
         this.useUnlimitedSourceGeneratorsPool = z;
         this.fields |= 262144;
@@ -328,7 +328,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions useAnimationPool(boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().useAnimationPool(z);
+            return m57clone().useAnimationPool(z);
         }
         this.useAnimationPool = z;
         this.fields |= 1048576;
@@ -339,7 +339,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions onlyRetrieveFromCache(boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().onlyRetrieveFromCache(z);
+            return m57clone().onlyRetrieveFromCache(z);
         }
         this.onlyRetrieveFromCache = z;
         this.fields |= 524288;
@@ -350,7 +350,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions diskCacheStrategy(@NonNull DiskCacheStrategy diskCacheStrategy) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().diskCacheStrategy(diskCacheStrategy);
+            return m57clone().diskCacheStrategy(diskCacheStrategy);
         }
         this.diskCacheStrategy = (DiskCacheStrategy) Preconditions.checkNotNull(diskCacheStrategy);
         this.fields |= 4;
@@ -361,7 +361,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions priority(@NonNull Priority priority) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().priority(priority);
+            return m57clone().priority(priority);
         }
         this.priority = (Priority) Preconditions.checkNotNull(priority);
         this.fields |= 8;
@@ -372,7 +372,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions placeholder(@Nullable Drawable drawable) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().placeholder(drawable);
+            return m57clone().placeholder(drawable);
         }
         this.placeholderDrawable = drawable;
         this.fields |= 64;
@@ -385,7 +385,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions placeholder(@DrawableRes int i) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().placeholder(i);
+            return m57clone().placeholder(i);
         }
         this.placeholderId = i;
         this.fields |= 128;
@@ -398,7 +398,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions fallback(@Nullable Drawable drawable) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().fallback(drawable);
+            return m57clone().fallback(drawable);
         }
         this.fallbackDrawable = drawable;
         this.fields |= 8192;
@@ -411,7 +411,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions fallback(@DrawableRes int i) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().fallback(i);
+            return m57clone().fallback(i);
         }
         this.fallbackId = i;
         this.fields |= 16384;
@@ -424,7 +424,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions error(@Nullable Drawable drawable) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().error(drawable);
+            return m57clone().error(drawable);
         }
         this.errorPlaceholder = drawable;
         this.fields |= 16;
@@ -437,7 +437,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions error(@DrawableRes int i) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().error(i);
+            return m57clone().error(i);
         }
         this.errorId = i;
         this.fields |= 32;
@@ -450,7 +450,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions theme(@Nullable Resources.Theme theme) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().theme(theme);
+            return m57clone().theme(theme);
         }
         this.theme = theme;
         this.fields |= 32768;
@@ -461,7 +461,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions skipMemoryCache(boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().skipMemoryCache(true);
+            return m57clone().skipMemoryCache(true);
         }
         this.isCacheable = z ? false : true;
         this.fields |= 256;
@@ -472,7 +472,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions override(int i, int i2) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().override(i, i2);
+            return m57clone().override(i, i2);
         }
         this.overrideWidth = i;
         this.overrideHeight = i2;
@@ -490,7 +490,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions signature(@NonNull Key key) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().signature(key);
+            return m57clone().signature(key);
         }
         this.signature = (Key) Preconditions.checkNotNull(key);
         this.fields |= 1024;
@@ -500,7 +500,7 @@ public class RequestOptions implements Cloneable {
     /* JADX DEBUG: Method merged with bridge method */
     @CheckResult
     /* renamed from: clone */
-    public RequestOptions m46clone() {
+    public RequestOptions m57clone() {
         try {
             RequestOptions requestOptions = (RequestOptions) super.clone();
             requestOptions.options = new Options();
@@ -519,7 +519,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public <T> RequestOptions set(@NonNull Option<T> option, @NonNull T t) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().set(option, t);
+            return m57clone().set(option, t);
         }
         Preconditions.checkNotNull(option);
         Preconditions.checkNotNull(t);
@@ -531,7 +531,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions decode(@NonNull Class<?> cls) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().decode(cls);
+            return m57clone().decode(cls);
         }
         this.resourceClass = (Class) Preconditions.checkNotNull(cls);
         this.fields |= 4096;
@@ -644,7 +644,7 @@ public class RequestOptions implements Cloneable {
     @NonNull
     final RequestOptions optionalTransform(@NonNull DownsampleStrategy downsampleStrategy, @NonNull Transformation<Bitmap> transformation) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().optionalTransform(downsampleStrategy, transformation);
+            return m57clone().optionalTransform(downsampleStrategy, transformation);
         }
         downsample(downsampleStrategy);
         return transform(transformation, false);
@@ -654,7 +654,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     final RequestOptions transform(@NonNull DownsampleStrategy downsampleStrategy, @NonNull Transformation<Bitmap> transformation) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().transform(downsampleStrategy, transformation);
+            return m57clone().transform(downsampleStrategy, transformation);
         }
         downsample(downsampleStrategy);
         return transform(transformation);
@@ -698,7 +698,7 @@ public class RequestOptions implements Cloneable {
     @NonNull
     private RequestOptions transform(@NonNull Transformation<Bitmap> transformation, boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().transform(transformation, z);
+            return m57clone().transform(transformation, z);
         }
         DrawableTransformation drawableTransformation = new DrawableTransformation(transformation, z);
         transform(Bitmap.class, transformation, z);
@@ -717,7 +717,7 @@ public class RequestOptions implements Cloneable {
     @NonNull
     private <T> RequestOptions transform(@NonNull Class<T> cls, @NonNull Transformation<T> transformation, boolean z) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().transform(cls, transformation, z);
+            return m57clone().transform(cls, transformation, z);
         }
         Preconditions.checkNotNull(cls);
         Preconditions.checkNotNull(transformation);
@@ -743,7 +743,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions dontTransform() {
         if (this.isAutoCloneEnabled) {
-            return m46clone().dontTransform();
+            return m57clone().dontTransform();
         }
         this.transformations.clear();
         this.fields &= -2049;
@@ -765,7 +765,7 @@ public class RequestOptions implements Cloneable {
     @CheckResult
     public RequestOptions apply(@NonNull RequestOptions requestOptions) {
         if (this.isAutoCloneEnabled) {
-            return m46clone().apply(requestOptions);
+            return m57clone().apply(requestOptions);
         }
         if (isSet(requestOptions.fields, 2)) {
             this.sizeMultiplier = requestOptions.sizeMultiplier;

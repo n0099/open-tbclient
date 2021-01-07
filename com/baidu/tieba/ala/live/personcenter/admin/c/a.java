@@ -54,18 +54,18 @@ public class a {
             a.this.hkp.completePullRefresh();
             a.this.hkp.hideNoDataView();
             if (a.this.hko.getUserList().size() == 0) {
-                a.this.hkp.bYQ();
-                a.this.hkp.caZ();
+                a.this.hkp.bYR();
+                a.this.hkp.cba();
                 a.this.hkp.showNoDataView();
                 return;
             }
-            a.this.hkp.Zi();
-            a.this.hkp.caY();
-            a.this.hkp.f(a.this.hko.getUserList(), a.this.hko.caV());
+            a.this.hkp.Zj();
+            a.this.hkp.caZ();
+            a.this.hkp.f(a.this.hko.getUserList(), a.this.hko.caW());
             if (z) {
-                a.this.hkp.bYv();
+                a.this.hkp.bYw();
             } else {
-                a.this.hkp.bYQ();
+                a.this.hkp.bYR();
             }
         }
 
@@ -74,13 +74,13 @@ public class a {
             a.this.hkp.completePullRefresh();
             a.this.hkp.hideNoDataView();
             if (a.this.hko.getUserList().size() <= 0) {
-                a.this.hkp.bYQ();
-                a.this.hkp.caZ();
+                a.this.hkp.bYR();
+                a.this.hkp.cba();
                 a.this.hkp.a(a.h.sdk_network_not_available, new View.OnClickListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.2.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
-                        a.this.hkp.Zi();
-                        a.this.hko.caX();
+                        a.this.hkp.Zj();
+                        a.this.hko.caY();
                     }
                 });
                 return;
@@ -109,15 +109,15 @@ public class a {
         this.hkp.setListPullRefreshListener(new TbListCommonPullView.ListPullRefreshListener() { // from class: com.baidu.tieba.ala.live.personcenter.admin.c.a.3
             @Override // com.baidu.live.tbadk.core.view.TbListCommonPullView.ListPullRefreshListener
             public void onListPullRefresh(boolean z) {
-                a.this.hko.caX();
+                a.this.hko.caY();
             }
         });
-        this.hkp.bYQ();
+        this.hkp.bYR();
     }
 
     public void onCreate(Bundle bundle) {
         getPageContext().registerListener(this.hkr);
-        this.hko.caX();
+        this.hko.caY();
     }
 
     public void onChangeSkinType(int i) {

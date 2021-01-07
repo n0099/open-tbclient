@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class k implements r {
     @Override // com.ss.android.socialbase.downloader.downloader.r
     public void a(com.ss.android.socialbase.downloader.g.c cVar, int i, int i2) {
-        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eFp().j(cVar);
+        com.ss.android.b.a.b.a j = com.ss.android.downloadlib.a.b.d.eFT().j(cVar);
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.putOpt("reserve_wifi_source", Integer.valueOf(i2));
@@ -15,6 +15,6 @@ public class k implements r {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        com.ss.android.downloadlib.e.a.eFX().a("pause_reserve_wifi", jSONObject, j);
+        com.ss.android.downloadlib.e.a.eGB().a("pause_reserve_wifi", jSONObject, j);
     }
 }

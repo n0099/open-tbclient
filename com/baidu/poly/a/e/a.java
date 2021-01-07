@@ -9,7 +9,7 @@ import com.baidu.poly.a.f.a;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     private com.baidu.poly.a.f.a cnU;
 

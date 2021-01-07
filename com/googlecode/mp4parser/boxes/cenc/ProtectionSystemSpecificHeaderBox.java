@@ -9,16 +9,16 @@ import java.nio.ByteBuffer;
 import java.util.UUID;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class ProtectionSystemSpecificHeaderBox extends AbstractFullBox {
     static final /* synthetic */ boolean $assertionsDisabled;
     public static byte[] OMA2_SYSTEM_ID = null;
     public static byte[] PLAYREADY_SYSTEM_ID = null;
     public static final String TYPE = "pssh";
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_3 = null;
     byte[] content;
     byte[] systemId;
 

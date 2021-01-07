@@ -11,20 +11,20 @@ import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Pattern f12458a = Pattern.compile("bytes\\W+(\\d+)-(\\d+)/(\\d+)");
+    private static final Pattern f12459a = Pattern.compile("bytes\\W+(\\d+)-(\\d+)/(\\d+)");
 
     /* renamed from: b  reason: collision with root package name */
-    private HttpURLConnection f12459b;
+    private HttpURLConnection f12460b;
     private int c;
     private String d;
     private AtomicBoolean e = new AtomicBoolean(false);
 
     public a(HttpURLConnection httpURLConnection, int i, String str) {
-        this.f12459b = httpURLConnection;
+        this.f12460b = httpURLConnection;
         this.c = i;
         this.d = str;
     }
@@ -38,28 +38,28 @@ public class a {
     }
 
     public boolean c() {
-        String headerField = this.f12459b.getHeaderField(Headers.CONTENT_RANGE);
-        return !TextUtils.isEmpty(headerField) && f12458a.matcher(headerField).matches() && d() >= 0;
+        String headerField = this.f12460b.getHeaderField(Headers.CONTENT_RANGE);
+        return !TextUtils.isEmpty(headerField) && f12459a.matcher(headerField).matches() && d() >= 0;
     }
 
     public long d() {
-        if (this.f12459b != null) {
-            return this.f12459b.getContentLength();
+        if (this.f12460b != null) {
+            return this.f12460b.getContentLength();
         }
         return -1L;
     }
 
     public InputStream e() throws IllegalStateException, IOException {
-        if (this.f12459b != null) {
-            return this.f12459b.getInputStream();
+        if (this.f12460b != null) {
+            return this.f12460b.getInputStream();
         }
         return null;
     }
 
     public void f() {
-        if (this.f12459b != null) {
+        if (this.f12460b != null) {
             try {
-                this.f12459b.disconnect();
+                this.f12460b.disconnect();
             } catch (Throwable th) {
             }
         }
@@ -73,8 +73,8 @@ public class a {
         int i = 0;
         if (this.e.compareAndSet(false, true)) {
             try {
-                this.f12459b = ab.a(this.f12459b);
-                i = this.f12459b.getResponseCode();
+                this.f12460b = ab.a(this.f12460b);
+                i = this.f12460b.getResponseCode();
                 ai.a("status code = %d", Integer.valueOf(i));
             } catch (SocketTimeoutException e) {
                 this.c |= 131072;

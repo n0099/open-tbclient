@@ -52,21 +52,21 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(final int i, View view, ViewGroup viewGroup) {
-        final C0800a c0800a;
+        final C0834a c0834a;
         if (view == null) {
             view = LayoutInflater.from(this.mContext).inflate(R.layout.list_item_interest_selection, viewGroup, false);
-            C0800a c0800a2 = new C0800a(view);
-            view.setTag(c0800a2);
-            c0800a = c0800a2;
+            C0834a c0834a2 = new C0834a(view);
+            view.setTag(c0834a2);
+            c0834a = c0834a2;
         } else {
-            c0800a = (C0800a) view.getTag();
+            c0834a = (C0834a) view.getTag();
         }
         final com.baidu.tieba.newinterest.data.b bVar = this.lAB.get(i);
         if (bVar.getIcon() > 0) {
-            SvgManager.bwq().a(c0800a.lAG, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwr().a(c0834a.lAG, bVar.getIcon(), (SvgManager.SvgResourceStateType) null);
         }
-        c0800a.lAH.setText(bVar.getText());
-        a(c0800a.lAI, bVar);
+        c0834a.lAH.setText(bVar.getText());
+        a(c0834a.lAI, bVar);
         if (bVar.isSelected()) {
             this.lAA++;
         }
@@ -78,7 +78,7 @@ public class a extends BaseAdapter {
                     return;
                 }
                 bVar.setSelected(!bVar.isSelected());
-                a.this.a(c0800a.lAI, bVar);
+                a.this.a(c0834a.lAI, bVar);
                 a.this.a(bVar);
                 if (a.this.lAC != null) {
                     a.this.lAC.Gx(a.this.lAA);
@@ -95,7 +95,7 @@ public class a extends BaseAdapter {
         return view;
     }
 
-    public List<com.baidu.tieba.newinterest.data.b> dlc() {
+    public List<com.baidu.tieba.newinterest.data.b> dld() {
         ArrayList arrayList = new ArrayList();
         for (com.baidu.tieba.newinterest.data.b bVar : this.lAB) {
             if (bVar.isSelected()) {
@@ -107,12 +107,12 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.newinterest.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0800a {
+    public static class C0834a {
         public ImageView lAG;
         public TextView lAH;
         public ImageView lAI;
 
-        public C0800a(View view) {
+        public C0834a(View view) {
             this.lAG = (ImageView) view.findViewById(R.id.interest_icon);
             this.lAH = (TextView) view.findViewById(R.id.interest_text);
             this.lAI = (ImageView) view.findViewById(R.id.select_status_view);
@@ -124,9 +124,9 @@ public class a extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ImageView imageView, com.baidu.tieba.newinterest.data.b bVar) {
         if (bVar.isSelected()) {
-            SvgManager.bwq().a(imageView, R.drawable.ic_icon_pure_guide_select_svg, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(imageView, R.drawable.ic_icon_pure_guide_select_svg, SvgManager.SvgResourceStateType.NORMAL);
         } else {
-            SvgManager.bwq().a(imageView, R.drawable.ic_icon_mask_module_unselect_svg, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(imageView, R.drawable.ic_icon_mask_module_unselect_svg, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 

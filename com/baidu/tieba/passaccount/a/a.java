@@ -1,6 +1,5 @@
 package com.baidu.tieba.passaccount.a;
 
-import android.text.TextUtils;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.j;
@@ -21,39 +20,17 @@ public class a extends com.baidu.tbadk.core.a.a {
         }
 
         @Override // com.baidu.tbadk.core.a.a.InterfaceC0575a
-        public void onFailure(final String str, int i, String str2) {
+        public void onFailure(String str, int i, String str2) {
             if (i == 1) {
-                ReloginManager.bvi().e(null);
+                ReloginManager.bvj().e(null);
             }
-            BdAsyncTask<Void, Void, AccountData> bdAsyncTask = new BdAsyncTask<Void, Void, AccountData>() { // from class: com.baidu.tieba.passaccount.a.a.1.1
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                /* renamed from: j */
-                public AccountData doInBackground(Void... voidArr) {
-                    return com.baidu.tbadk.core.a.b.AD(str);
-                }
-
-                /* JADX DEBUG: Method merged with bridge method */
-                /* JADX INFO: Access modifiers changed from: protected */
-                @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-                /* renamed from: m */
-                public void onPostExecute(AccountData accountData) {
-                    super.onPostExecute(accountData);
-                    if (accountData != null && !TextUtils.isEmpty(accountData.getID())) {
-                        com.baidu.tbadk.core.a.b.AC(accountData.getID());
-                    }
-                }
-            };
-            bdAsyncTask.setPriority(3);
-            bdAsyncTask.execute(new Void[0]);
         }
     };
 
     private a() {
     }
 
-    public static a dlI() {
+    public static a dlJ() {
         if (lCH == null) {
             lCH = new a();
         }

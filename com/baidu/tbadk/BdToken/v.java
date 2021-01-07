@@ -35,7 +35,7 @@ public class v implements SensorEventListener {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bma();
+        void bmb();
     }
 
     public v(@NonNull Context context, @Nullable a aVar) {
@@ -75,7 +75,7 @@ public class v implements SensorEventListener {
     @Override // android.hardware.SensorEventListener
     public void onSensorChanged(SensorEvent sensorEvent) {
         if (sensorEvent.sensor.getType() == 1 && w(sensorEvent.values) && this.eHI != null) {
-            this.eHI.bma();
+            this.eHI.bmb();
         }
     }
 
@@ -89,16 +89,16 @@ public class v implements SensorEventListener {
         float abs3 = Math.abs(fArr[2]);
         double sqrt = Math.sqrt(Math.pow(abs2 / 9.8d, 2.0d) + Math.pow(abs / 9.8d, 2.0d) + Math.pow(abs3 / 9.8d, 2.0d));
         if (Build.VERSION.SDK_INT <= 23) {
-            if (sqrt >= 2.5d && blY()) {
+            if (sqrt >= 2.5d && blZ()) {
                 return true;
             }
-        } else if (sqrt >= 4.2d && blY()) {
+        } else if (sqrt >= 4.2d && blZ()) {
             return true;
         }
         return false;
     }
 
-    private boolean blY() {
+    private boolean blZ() {
         long currentTimeMillis = System.currentTimeMillis();
         if (currentTimeMillis - this.eHM > 2000) {
             this.eHM = currentTimeMillis;
@@ -107,7 +107,7 @@ public class v implements SensorEventListener {
         return false;
     }
 
-    public boolean blZ() {
+    public boolean bma() {
         int i;
         if (this.context == null) {
             return false;

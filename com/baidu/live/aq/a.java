@@ -8,7 +8,7 @@ public class a implements b {
     private static volatile a bXl;
     private b bXm;
 
-    public static a aam() {
+    public static a aan() {
         if (bXl == null) {
             bXl = new a();
         }
@@ -59,9 +59,9 @@ public class a implements b {
     }
 
     @Override // com.baidu.live.aq.b
-    public AlaWheatInfoData aan() {
+    public AlaWheatInfoData aao() {
         if (this.bXm != null) {
-            return this.bXm.aan();
+            return this.bXm.aao();
         }
         return null;
     }
@@ -86,14 +86,6 @@ public class a implements b {
     }
 
     @Override // com.baidu.live.aq.b
-    public List<AlaWheatInfoData> aao() {
-        if (this.bXm != null) {
-            return this.bXm.aao();
-        }
-        return null;
-    }
-
-    @Override // com.baidu.live.aq.b
     public List<AlaWheatInfoData> aap() {
         if (this.bXm != null) {
             return this.bXm.aap();
@@ -102,7 +94,7 @@ public class a implements b {
     }
 
     @Override // com.baidu.live.aq.b
-    public String aaq() {
+    public List<AlaWheatInfoData> aaq() {
         if (this.bXm != null) {
             return this.bXm.aaq();
         }
@@ -118,6 +110,14 @@ public class a implements b {
     }
 
     @Override // com.baidu.live.aq.b
+    public String aas() {
+        if (this.bXm != null) {
+            return this.bXm.aas();
+        }
+        return null;
+    }
+
+    @Override // com.baidu.live.aq.b
     public String getCustomRoomId() {
         if (this.bXm != null) {
             return this.bXm.getCustomRoomId();
@@ -126,17 +126,17 @@ public class a implements b {
     }
 
     @Override // com.baidu.live.aq.b
-    public x aas() {
+    public x aat() {
         if (this.bXm != null) {
-            return this.bXm.aas();
+            return this.bXm.aat();
         }
         return null;
     }
 
     @Override // com.baidu.live.aq.b
-    public String aat() {
+    public String aau() {
         if (this.bXm != null) {
-            return this.bXm.aat();
+            return this.bXm.aau();
         }
         return null;
     }
@@ -149,16 +149,16 @@ public class a implements b {
     }
 
     @Override // com.baidu.live.aq.b
-    public void aau() {
+    public void aav() {
         if (this.bXm != null) {
-            this.bXm.aau();
+            this.bXm.aav();
         }
     }
 
     @Override // com.baidu.live.aq.b
-    public void aav() {
+    public void aaw() {
         if (this.bXm != null) {
-            this.bXm.aav();
+            this.bXm.aaw();
         }
     }
 }

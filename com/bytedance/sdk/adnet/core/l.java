@@ -9,10 +9,10 @@ import java.util.TreeMap;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f6339a;
+    public final int f6340a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f6340b;
+    public final byte[] f6341b;
     public final Map<String, String> c;
     public final List<a> d;
     public final boolean e;
@@ -33,8 +33,8 @@ public class l {
     }
 
     private l(int i, byte[] bArr, Map<String, String> map, List<a> list, boolean z, long j) {
-        this.f6339a = i;
-        this.f6340b = bArr;
+        this.f6340a = i;
+        this.f6341b = bArr;
         this.c = map;
         if (list == null) {
             this.d = null;

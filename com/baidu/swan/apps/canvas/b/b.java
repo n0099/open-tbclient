@@ -115,11 +115,11 @@ public class b extends a {
         }
     }
 
-    public List<com.baidu.swan.apps.canvas.a.a.a> aom() {
+    public List<com.baidu.swan.apps.canvas.a.a.a> aon() {
         return this.cMU;
     }
 
-    public boolean aon() {
+    public boolean aoo() {
         return this.cMV;
     }
 

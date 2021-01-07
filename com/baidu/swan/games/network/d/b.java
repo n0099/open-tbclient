@@ -33,15 +33,15 @@ public class b extends com.baidu.swan.games.network.a {
 
     @Override // com.baidu.swan.games.network.a
     public void start() {
-        Request bbm;
-        if (this.elx != null && (bbm = bbm()) != null) {
-            if (e.aMk() == null) {
+        Request bbn;
+        if (this.elx != null && (bbn = bbn()) != null) {
+            if (e.aMl() == null) {
                 onError("", -1, "request:swanApp is null");
                 return;
             }
-            final String httpUrl = bbm.url().toString();
-            final com.baidu.swan.games.network.b aMz = e.aMk().aMz();
-            aMz.a(bbm, new Callback() { // from class: com.baidu.swan.games.network.d.b.1
+            final String httpUrl = bbn.url().toString();
+            final com.baidu.swan.games.network.b aMA = e.aMl().aMA();
+            aMA.a(bbn, new Callback() { // from class: com.baidu.swan.games.network.d.b.1
                 /* JADX WARN: Removed duplicated region for block: B:16:0x007b  */
                 @Override // okhttp3.Callback
                 /*
@@ -86,7 +86,7 @@ public class b extends com.baidu.swan.games.network.a {
 
                 @Override // okhttp3.Callback
                 public void onFailure(Call call, IOException iOException) {
-                    aMz.cancelTag(b.this.mTaskId);
+                    aMA.cancelTag(b.this.mTaskId);
                     b.this.l(httpUrl, 0, iOException.getMessage());
                 }
             });
@@ -109,23 +109,23 @@ public class b extends com.baidu.swan.games.network.a {
         }
     }
 
-    private Request bbm() {
-        final String bbf = bbf();
-        if (TextUtils.isEmpty(bbf)) {
+    private Request bbn() {
+        final String bbg = bbg();
+        if (TextUtils.isEmpty(bbg)) {
             return null;
         }
         String optString = this.elx.optString("filePath");
         if (TextUtils.isEmpty(optString)) {
-            onError(bbf, -1, "uploadFile:filePath is empty or invalid");
+            onError(bbg, -1, "uploadFile:filePath is empty or invalid");
             return null;
         } else if (d.zJ(optString)) {
-            onError(bbf, -1, "uploadFile:filePath is empty or invalid");
+            onError(bbg, -1, "uploadFile:filePath is empty or invalid");
             return null;
         } else if (this.elx.wZ(WebSocketRequest.PARAM_KEY_HEADER) && this.elx.wY(WebSocketRequest.PARAM_KEY_HEADER) != 9) {
-            onError(bbf, -1, "uploadFile:header is invalid");
+            onError(bbg, -1, "uploadFile:header is invalid");
             return null;
         } else {
-            File file = getFile(bbf, optString);
+            File file = getFile(bbg, optString);
             if (file != null) {
                 com.baidu.swan.games.binding.model.c xg = this.elx.xg("formData");
                 Request.Builder builder = new Request.Builder();
@@ -133,7 +133,7 @@ public class b extends com.baidu.swan.games.network.a {
                 com.baidu.swan.apps.network.c cVar = new com.baidu.swan.apps.network.c(file, "multipart/form-data", new com.baidu.swan.apps.network.b.a() { // from class: com.baidu.swan.games.network.d.b.2
                     @Override // com.baidu.swan.apps.network.b.a
                     public void cv(long j) {
-                        b.this.b(length, j, bbf);
+                        b.this.b(length, j, bbg);
                     }
                 });
                 MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
@@ -141,14 +141,14 @@ public class b extends com.baidu.swan.games.network.a {
                 type.addFormDataPart(this.elx.optString("name"), file.getName(), cVar);
                 MultipartBody build = type.build();
                 a(builder, this.elx.xg(WebSocketRequest.PARAM_KEY_HEADER), (Map<String, String>) new HashMap(), false);
-                return builder.url(bbf).tag(this.mTaskId).post(build).build();
+                return builder.url(bbg).tag(this.mTaskId).post(build).build();
             }
             return null;
         }
     }
 
     private File getFile(String str, String str2) {
-        String ue = f.aDG().aDm().ue(str2);
+        String ue = f.aDH().aDn().ue(str2);
         if (TextUtils.isEmpty(ue) || TextUtils.equals(str2, ue)) {
             onError(str, -1, "uploadFile:filePath is empty or invalid");
             return null;

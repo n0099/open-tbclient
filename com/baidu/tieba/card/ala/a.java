@@ -16,7 +16,7 @@ public class a implements e {
     private f.a ivR = new f.a() { // from class: com.baidu.tieba.card.ala.a.1
         @Override // com.baidu.tieba.play.f.a
         public void rF() {
-            a.this.cuI();
+            a.this.cuJ();
         }
     };
     private AlaInfoData iyK;
@@ -37,15 +37,15 @@ public class a implements e {
         this.mForumName = str;
         if (bzVar != null) {
             this.alW = bzVar;
-            if (this.hnB != null && this.alW.brJ() != null) {
-                this.iyK = this.alW.brJ();
+            if (this.hnB != null && this.alW.brK() != null) {
+                this.iyK = this.alW.brK();
                 this.hnB.setVideoThumbnail(this.iyK.cover);
                 if (z) {
                     this.hnB.setTitle(this.alW.getTitle());
                 } else {
                     this.hnB.setTitle("");
                 }
-                this.hnB.setPlayCount(String.format(this.hnB.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), at.numFormatOverWan(this.alW.brJ().audience_count)));
+                this.hnB.setPlayCount(String.format(this.hnB.getVideoView().getContext().getResources().getString(R.string.ala_audience_count_prefix), at.numFormatOverWan(this.alW.brK().audience_count)));
             }
         }
     }
@@ -73,7 +73,7 @@ public class a implements e {
     public void stopPlay() {
         if (this.hnB != null && this.hnB.getVideoView() != null) {
             this.hnB.getVideoView().stopPlayback();
-            this.hnB.bUy();
+            this.hnB.bUz();
             if (this.gBV != null) {
                 this.gBV.stop();
             }
@@ -91,10 +91,10 @@ public class a implements e {
 
     @Override // com.baidu.tieba.play.e
     public String getPlayUrl() {
-        if (this.alW == null || this.alW.brH() == null) {
+        if (this.alW == null || this.alW.brI() == null) {
             return null;
         }
-        return this.alW.brH().video_url;
+        return this.alW.brI().video_url;
     }
 
     @Override // com.baidu.tieba.play.e
@@ -106,8 +106,8 @@ public class a implements e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuI() {
-        if (this.alW == null || this.alW.brH() == null) {
+    public void cuJ() {
+        if (this.alW == null || this.alW.brI() == null) {
         }
     }
 

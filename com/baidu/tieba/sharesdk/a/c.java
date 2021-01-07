@@ -11,12 +11,12 @@ import com.tencent.tauth.IUiListener;
 import java.util.ArrayList;
 /* loaded from: classes8.dex */
 public class c extends b {
-    private IUiListener nfd;
-    private final com.baidu.adp.lib.e.c<e.a> nff;
+    private IUiListener nfc;
+    private final com.baidu.adp.lib.e.c<e.a> nfe;
 
     public c(Context context) {
         super(context);
-        this.nff = new com.baidu.adp.lib.e.c<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
+        this.nfe = new com.baidu.adp.lib.e.c<e.a>() { // from class: com.baidu.tieba.sharesdk.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.baidu.adp.lib.e.c
@@ -26,7 +26,7 @@ public class c extends b {
                 if (aVar == null || aVar.ffl == null || TextUtils.isEmpty(aVar.path)) {
                     c.this.dp(2, 4);
                 }
-                c.this.SG(aVar.path);
+                c.this.SF(aVar.path);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
@@ -36,24 +36,24 @@ public class c extends b {
                 c.this.dp(3, 4);
             }
         };
-        this.neU = 4;
+        this.neT = 4;
     }
 
     @Override // com.baidu.tieba.sharesdk.a.b, com.baidu.tieba.sharesdk.b.a
     public void a(ShareEntity shareEntity, com.baidu.tieba.sharesdk.b.b bVar) {
-        if (shareEntity == null || this.nfc == null) {
+        if (shareEntity == null || this.nfb == null) {
             dp(2, 4);
             if (bVar != null) {
-                bVar.mo41do(0, 2);
+                bVar.mo52do(0, 2);
             }
         } else if (this.context == null || !(this.context instanceof Activity)) {
             dp(2, 4);
             if (bVar != null) {
-                bVar.mo41do(0, 2);
+                bVar.mo52do(0, 2);
             }
         } else {
-            this.nfd = new b.a(bVar);
-            if (shareEntity.dKI() != 0) {
+            this.nfc = new b.a(bVar);
+            if (shareEntity.dKJ() != 0) {
                 b(shareEntity);
             } else {
                 c(shareEntity);
@@ -62,23 +62,23 @@ public class c extends b {
     }
 
     private void b(ShareEntity shareEntity) {
-        if (Dg(shareEntity.dKG())) {
-            SG(shareEntity.dKG());
+        if (Df(shareEntity.dKH())) {
+            SF(shareEntity.dKH());
         } else if (w(shareEntity.getImageUri())) {
-            SG(shareEntity.getImageUri().getPath());
+            SF(shareEntity.getImageUri().getPath());
         } else {
-            com.baidu.adp.lib.e.d.mx().a(shareEntity.getImgUrl(), 34, this.nff, 0, 0, getPageId(), new Object[0]);
+            com.baidu.adp.lib.e.d.mx().a(shareEntity.getImgUrl(), 34, this.nfe, 0, 0, getPageId(), new Object[0]);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void SG(String str) {
+    public void SF(String str) {
         Bundle bundle = new Bundle();
         bundle.putString("imageLocalUrl", str);
         bundle.putInt("req_type", 5);
         bundle.putInt("cflag", 1);
-        if (this.nfd != null) {
-            this.nfc.shareToQQ((Activity) this.context, bundle, this.nfd);
+        if (this.nfc != null) {
+            this.nfb.shareToQQ((Activity) this.context, bundle, this.nfc);
         }
     }
 
@@ -93,8 +93,8 @@ public class c extends b {
             arrayList.add(shareEntity.getImgUrl());
         }
         bundle.putStringArrayList("imageUrl", arrayList);
-        if (this.nfd != null) {
-            this.nfc.shareToQzone((Activity) this.context, bundle, this.nfd);
+        if (this.nfc != null) {
+            this.nfb.shareToQzone((Activity) this.context, bundle, this.nfc);
         }
     }
 }

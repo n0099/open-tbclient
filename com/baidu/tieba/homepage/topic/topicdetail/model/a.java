@@ -47,17 +47,17 @@ public class a {
         MessageManager.getInstance().registerListener(this.iCG);
     }
 
-    public RunnableC0754a C(long j, long j2) {
-        return new RunnableC0754a(j2, j);
+    public RunnableC0763a C(long j, long j2) {
+        return new RunnableC0763a(j2, j);
     }
 
     /* renamed from: com.baidu.tieba.homepage.topic.topicdetail.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public class RunnableC0754a implements Runnable {
+    public class RunnableC0763a implements Runnable {
         private long postId;
         private long threadId;
 
-        public RunnableC0754a(long j, long j2) {
+        public RunnableC0763a(long j, long j2) {
             this.threadId = j;
             this.postId = j2;
         }
@@ -68,7 +68,7 @@ public class a {
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (au.bwr().bws()) {
+            if (au.bws().bwt()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();

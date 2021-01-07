@@ -68,9 +68,9 @@ public class a {
 
     public void l(bz bzVar, String str) {
         int i = 0;
-        if (bzVar != null && bzVar.brJ() != null && this.mPageContext != null && this.hnL != null) {
-            boolean z = (bzVar.brq() == null || bzVar.brq().getUserId() == null || !bzVar.brq().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (TbadkCoreApplication.isLogin() && bzVar.brJ().dislikeInfo != null && !z && bzVar.brJ().dislikeInfo.size() > 0) {
+        if (bzVar != null && bzVar.brK() != null && this.mPageContext != null && this.hnL != null) {
+            boolean z = (bzVar.brr() == null || bzVar.brr().getUserId() == null || !bzVar.brr().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+            if (TbadkCoreApplication.isLogin() && bzVar.brK().dislikeInfo != null && !z && bzVar.brK().dislikeInfo.size() > 0) {
                 if (this.hnK == null) {
                     this.hnK = new NEGFeedBackView(this.mPageContext);
                     this.hnK.setUniqueId(this.mBdUniqueId);
@@ -86,9 +86,9 @@ public class a {
                 at atVar = new at();
                 atVar.setTid(bzVar.getTid());
                 atVar.setFid(bzVar.getFid());
-                atVar.setNid(bzVar.bpO());
+                atVar.setNid(bzVar.bpP());
                 atVar.setType(str);
-                atVar.setFeedBackReasonMap(bzVar.brJ().dislikeInfo);
+                atVar.setFeedBackReasonMap(bzVar.brK().dislikeInfo);
                 this.hnK.setData(atVar);
             } else {
                 if (this.hnK != null && this.hnK.getVisibility() != 8) {
@@ -107,12 +107,12 @@ public class a {
                 this.hnL.setLayoutParams(layoutParams2);
             }
             if (this.hnK != null) {
-                this.hnK.bNI();
+                this.hnK.bNJ();
             }
         }
     }
 
-    public View cbH() {
+    public View cbI() {
         return this.hnK;
     }
 

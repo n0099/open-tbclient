@@ -15,7 +15,7 @@ import java.util.ArrayList;
 public class DownloadHandlerService extends Service {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13299a = DownloadHandlerService.class.getSimpleName();
+    private static final String f13300a = DownloadHandlerService.class.getSimpleName();
 
     @Override // android.app.Service
     public void onCreate() {
@@ -27,7 +27,7 @@ public class DownloadHandlerService extends Service {
     public int onStartCommand(Intent intent, int i, int i2) {
         super.onStartCommand(intent, i, i2);
         if (com.ss.android.socialbase.downloader.f.a.a()) {
-            com.ss.android.socialbase.downloader.f.a.b(f13299a, "onStartCommand");
+            com.ss.android.socialbase.downloader.f.a.b(f13300a, "onStartCommand");
         }
         a(intent);
         stopSelf();
@@ -44,21 +44,21 @@ public class DownloadHandlerService extends Service {
         if (TextUtils.isEmpty(action)) {
             return false;
         }
-        com.ss.android.socialbase.appdownloader.c.d eGe = d.eGi().eGe();
+        com.ss.android.socialbase.appdownloader.c.d eGI = d.eGM().eGI();
         int intExtra = intent.getIntExtra("extra_click_download_ids", 0);
         int intExtra2 = intent.getIntExtra("extra_click_download_type", 0);
-        com.ss.android.socialbase.downloader.d.d So = com.ss.android.socialbase.downloader.downloader.f.iA(this).So(intExtra);
+        com.ss.android.socialbase.downloader.d.d SE = com.ss.android.socialbase.downloader.downloader.f.iA(this).SE(intExtra);
         if (action.equals("android.ss.intent.action.DOWNLOAD_OPEN") || action.equals("android.ss.intent.action.DOWNLOAD_DELETE") || action.equals("android.ss.intent.action.DOWNLOAD_HIDE")) {
             a(this, intent);
             if (!action.equals("android.ss.intent.action.DOWNLOAD_DELETE") || (h = com.ss.android.socialbase.downloader.downloader.f.iA(this).h(intExtra)) == null) {
                 return false;
             }
             h.aa();
-            if (eGe != null) {
-                eGe.a(intExtra, 7, "", h.q(), h.eIo());
+            if (eGI != null) {
+                eGI.a(intExtra, 7, "", h.q(), h.eIS());
             }
-            if (So != null) {
-                So.a(7, h, "", "");
+            if (SE != null) {
+                SE.a(7, h, "", "");
                 return false;
             }
             return false;
@@ -69,50 +69,50 @@ public class DownloadHandlerService extends Service {
             }
             if (q == -3) {
                 c.f(this, intExtra, true);
-                a(eGe, h2);
+                a(eGI, h2);
                 return true;
             }
             if (intExtra2 == 1 || intExtra2 == 4) {
                 if (com.ss.android.socialbase.downloader.b.f.b(q)) {
                     a(h2);
                     com.ss.android.socialbase.downloader.downloader.f.iA(this).a(intExtra);
-                    if (eGe != null) {
-                        eGe.a(intExtra, 5, "", h2.q(), h2.eIo());
+                    if (eGI != null) {
+                        eGI.a(intExtra, 5, "", h2.q(), h2.eIS());
                     }
-                    if (So != null) {
-                        So.a(5, h2, "", "");
+                    if (SE != null) {
+                        SE.a(5, h2, "", "");
                     }
                 }
             } else if (intExtra2 == 2) {
                 com.ss.android.socialbase.downloader.downloader.f.iA(this).c(intExtra);
-                if (eGe != null) {
-                    eGe.a(intExtra, 6, "", h2.q(), h2.eIo());
+                if (eGI != null) {
+                    eGI.a(intExtra, 6, "", h2.q(), h2.eIS());
                 }
-                if (So != null) {
-                    So.a(6, h2, "", "");
+                if (SE != null) {
+                    SE.a(6, h2, "", "");
                 }
             } else if (intExtra2 == 3) {
                 if (q == -1 || q == -4) {
                     com.ss.android.socialbase.downloader.downloader.f.iA(this).e(intExtra);
                 }
             } else {
-                a(h2, eGe, So);
+                a(h2, eGI, SE);
             }
-            if (h2.aQ() && com.ss.android.socialbase.downloader.k.a.SR(intExtra).a("no_hide_notification", 0) == 0) {
-                com.ss.android.socialbase.downloader.notification.b.eJw().a(intExtra);
-                com.ss.android.socialbase.downloader.notification.b.eJw().f(intExtra);
+            if (h2.aQ() && com.ss.android.socialbase.downloader.k.a.Th(intExtra).a("no_hide_notification", 0) == 0) {
+                com.ss.android.socialbase.downloader.notification.b.eKa().a(intExtra);
+                com.ss.android.socialbase.downloader.notification.b.eKa().f(intExtra);
                 return false;
             }
             return false;
         } else if (action.equals("android.intent.action.BOOT_COMPLETED") || action.equals("android.intent.action.MEDIA_MOUNTED")) {
-            com.ss.android.socialbase.downloader.downloader.b.eGX().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadHandlerService.1
+            com.ss.android.socialbase.downloader.downloader.b.eHB().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadHandlerService.1
                 @Override // java.lang.Runnable
                 public void run() {
                     try {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add("application/vnd.android.package-archive");
                         arrayList.add("mime_type_plugin");
-                        com.ss.android.socialbase.downloader.downloader.f.iA(com.ss.android.socialbase.downloader.downloader.b.eHp()).a(arrayList);
+                        com.ss.android.socialbase.downloader.downloader.f.iA(com.ss.android.socialbase.downloader.downloader.b.eHT()).a(arrayList);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -132,9 +132,9 @@ public class DownloadHandlerService extends Service {
 
     private void a(final com.ss.android.socialbase.appdownloader.c.d dVar, final com.ss.android.socialbase.downloader.g.c cVar) {
         if (cVar != null) {
-            final com.ss.android.socialbase.downloader.d.d So = com.ss.android.socialbase.downloader.downloader.f.iA(this).So(cVar.g());
-            if (dVar != null || So != null) {
-                com.ss.android.socialbase.downloader.downloader.b.eGX().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadHandlerService.2
+            final com.ss.android.socialbase.downloader.d.d SE = com.ss.android.socialbase.downloader.downloader.f.iA(this).SE(cVar.g());
+            if (dVar != null || SE != null) {
+                com.ss.android.socialbase.downloader.downloader.b.eHB().execute(new Runnable() { // from class: com.ss.android.socialbase.appdownloader.DownloadHandlerService.2
                     @Override // java.lang.Runnable
                     public void run() {
                         PackageInfo a2;
@@ -143,15 +143,15 @@ public class DownloadHandlerService extends Service {
                             if (file.exists()) {
                                 try {
                                     String str = "";
-                                    Context eHp = com.ss.android.socialbase.downloader.downloader.b.eHp();
-                                    if (eHp != null && (a2 = com.ss.android.socialbase.appdownloader.f.a.e.a(eHp, file, c.a())) != null) {
+                                    Context eHT = com.ss.android.socialbase.downloader.downloader.b.eHT();
+                                    if (eHT != null && (a2 = com.ss.android.socialbase.appdownloader.f.a.e.a(eHT, file, c.a())) != null) {
                                         str = a2.packageName;
                                     }
                                     if (dVar != null) {
-                                        dVar.a(cVar.g(), 3, str, -3, cVar.eIo());
+                                        dVar.a(cVar.g(), 3, str, -3, cVar.eIS());
                                     }
-                                    if (So != null) {
-                                        So.a(3, cVar, str, "");
+                                    if (SE != null) {
+                                        SE.a(3, cVar, str, "");
                                     }
                                 } catch (Exception e) {
                                     e.printStackTrace();
@@ -167,7 +167,7 @@ public class DownloadHandlerService extends Service {
     }
 
     private void a(Context context, Intent intent) {
-        com.ss.android.socialbase.downloader.notification.a SX;
+        com.ss.android.socialbase.downloader.notification.a Tn;
         com.ss.android.socialbase.downloader.g.c h;
         boolean z = false;
         String action = intent.getAction();
@@ -176,12 +176,12 @@ public class DownloadHandlerService extends Service {
             boolean booleanExtra = intent.getBooleanExtra("extra_from_notification", false);
             if ("android.ss.intent.action.DOWNLOAD_DELETE".equals(action)) {
                 if (booleanExtra) {
-                    r Sl = com.ss.android.socialbase.downloader.downloader.c.eHt().Sl(intExtra);
-                    if (Sl == null) {
-                        Sl = com.ss.android.socialbase.downloader.downloader.b.eHm();
+                    r SB = com.ss.android.socialbase.downloader.downloader.c.eHX().SB(intExtra);
+                    if (SB == null) {
+                        SB = com.ss.android.socialbase.downloader.downloader.b.eHQ();
                     }
-                    if (Sl != null && (h = com.ss.android.socialbase.downloader.downloader.f.iA(context).h(intExtra)) != null) {
-                        z = Sl.a(h);
+                    if (SB != null && (h = com.ss.android.socialbase.downloader.downloader.f.iA(context).h(intExtra)) != null) {
+                        z = SB.a(h);
                     }
                 }
                 if (!z) {
@@ -189,32 +189,32 @@ public class DownloadHandlerService extends Service {
                     intent2.putExtra("extra_click_download_ids", intExtra);
                     intent2.addFlags(268435456);
                     context.startActivity(intent2);
-                    com.ss.android.socialbase.downloader.notification.b.eJw().a(intExtra);
+                    com.ss.android.socialbase.downloader.notification.b.eKa().a(intExtra);
                 }
             } else if ("android.ss.intent.action.DOWNLOAD_OPEN".equals(action)) {
                 com.ss.android.socialbase.downloader.g.c h2 = com.ss.android.socialbase.downloader.downloader.f.iA(this).h(intExtra);
-                r Sl2 = com.ss.android.socialbase.downloader.downloader.c.eHt().Sl(intExtra);
-                if (booleanExtra && h2 != null && "application/vnd.android.package-archive".equals(h2.eIa()) && Sl2 != null && c.b(this, h2)) {
-                    Sl2.c(h2);
+                r SB2 = com.ss.android.socialbase.downloader.downloader.c.eHX().SB(intExtra);
+                if (booleanExtra && h2 != null && "application/vnd.android.package-archive".equals(h2.eIE()) && SB2 != null && c.b(this, h2)) {
+                    SB2.c(h2);
                     return;
                 }
                 a(context, intExtra, booleanExtra);
-                com.ss.android.socialbase.appdownloader.c.d eGe = d.eGi().eGe();
-                com.ss.android.socialbase.downloader.d.d So = com.ss.android.socialbase.downloader.downloader.f.iA(this).So(intExtra);
-                if ((eGe != null || So != null) && h2 != null) {
-                    a(eGe, h2);
+                com.ss.android.socialbase.appdownloader.c.d eGI = d.eGM().eGI();
+                com.ss.android.socialbase.downloader.d.d SE = com.ss.android.socialbase.downloader.downloader.f.iA(this).SE(intExtra);
+                if ((eGI != null || SE != null) && h2 != null) {
+                    a(eGI, h2);
                 }
-                if (com.ss.android.socialbase.downloader.k.a.SR(intExtra).a("notification_click_install_auto_cancel", 1) != 0 || (SX = com.ss.android.socialbase.downloader.notification.b.eJw().SX(intExtra)) == null) {
+                if (com.ss.android.socialbase.downloader.k.a.Th(intExtra).a("notification_click_install_auto_cancel", 1) != 0 || (Tn = com.ss.android.socialbase.downloader.notification.b.eKa().Tn(intExtra)) == null) {
                     z = true;
                 } else {
-                    SX.g();
-                    SX.a(-3, null, false, true);
+                    Tn.g();
+                    Tn.a(-3, null, false, true);
                 }
                 if (z) {
-                    com.ss.android.socialbase.downloader.notification.b.eJw().a(intExtra);
+                    com.ss.android.socialbase.downloader.notification.b.eKa().a(intExtra);
                 }
             } else if ("android.ss.intent.action.DOWNLOAD_HIDE".equals(action)) {
-                com.ss.android.socialbase.downloader.notification.b.eJw().a(intExtra);
+                com.ss.android.socialbase.downloader.notification.b.eKa().a(intExtra);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -223,16 +223,16 @@ public class DownloadHandlerService extends Service {
 
     private void a(Context context, int i, boolean z) {
         boolean z2;
-        r Sl;
+        r SB;
         com.ss.android.socialbase.downloader.g.c h;
-        if (z && (Sl = com.ss.android.socialbase.downloader.downloader.c.eHt().Sl(i)) != null) {
+        if (z && (SB = com.ss.android.socialbase.downloader.downloader.c.eHX().SB(i)) != null) {
             try {
                 h = com.ss.android.socialbase.downloader.downloader.f.iA(context).h(i);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
             if (h != null) {
-                z2 = Sl.b(h);
+                z2 = SB.b(h);
                 if (!z2 && c.f(context, i, true) == 0) {
                     Toast.makeText(context, "Open Fail!", 0).show();
                 }
@@ -264,7 +264,7 @@ public class DownloadHandlerService extends Service {
             case -2:
                 com.ss.android.socialbase.downloader.downloader.f.iA(this).c(g);
                 if (dVar != null) {
-                    dVar.a(g, 6, "", cVar.q(), cVar.eIo());
+                    dVar.a(g, 6, "", cVar.q(), cVar.eIS());
                 }
                 if (dVar2 != null) {
                     dVar2.a(6, cVar, "", "");
@@ -282,7 +282,7 @@ public class DownloadHandlerService extends Service {
                 com.ss.android.socialbase.downloader.downloader.f.iA(this).a(g);
                 a(cVar);
                 if (dVar != null) {
-                    dVar.a(g, 5, "", cVar.q(), cVar.eIo());
+                    dVar.a(g, 5, "", cVar.q(), cVar.eIS());
                 }
                 if (dVar2 != null) {
                     dVar2.a(5, cVar, "", "");

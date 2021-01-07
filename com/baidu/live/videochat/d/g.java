@@ -73,7 +73,7 @@ public class g implements a {
                 g.this.mMainHandler.post(new Runnable() { // from class: com.baidu.live.videochat.d.g.6.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        g.this.YN();
+                        g.this.YO();
                     }
                 });
             }
@@ -279,13 +279,13 @@ public class g implements a {
         return this.mChatStatus;
     }
 
-    private boolean YK() {
+    private boolean YL() {
         BdLog.e("mCurInvitedUser=" + this.bQT);
         return this.bQT != null;
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public com.baidu.live.alablmsdk.module.c YH() {
+    public com.baidu.live.alablmsdk.module.c YI() {
         return this.bQT;
     }
 
@@ -300,25 +300,25 @@ public class g implements a {
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public void XK() {
+    public void XL() {
         if (this.bQR != null) {
             this.bQR.enterBackground();
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public void XL() {
+    public void XM() {
         if (this.bQR != null) {
             this.bQR.enterForeground();
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public JSONObject YI() {
+    public JSONObject YJ() {
         return this.bQV;
     }
 
-    private String YL() {
+    private String YM() {
         StringBuilder sb = new StringBuilder();
         if (this.bQV != null) {
             b an = d.an(this.bQV);
@@ -353,7 +353,7 @@ public class g implements a {
         if (this.mChatStatus == c.bGJ) {
             fL(c.bQx);
             this.bQX = System.currentTimeMillis();
-            YM();
+            YN();
             this.bQT = cVar;
             this.bQV = jSONObject;
             this.bQR.a(new com.baidu.live.alablmsdk.c.a() { // from class: com.baidu.live.videochat.d.g.1
@@ -383,10 +383,10 @@ public class g implements a {
                 return;
             }
             if (this.bQS != null) {
-                this.bQS.a(c.bGP, true, i, str2, str, YL());
+                this.bQS.a(c.bGP, true, i, str2, str, YM());
             }
             fL(c.bGJ);
-            YM();
+            YN();
             if (this.bQS != null) {
                 this.bQS.p(c.bGP, true);
             }
@@ -411,17 +411,17 @@ public class g implements a {
             if (i == 0) {
                 fL(c.bQy);
                 if (this.bQS != null) {
-                    this.bQS.Yb();
+                    this.bQS.Yc();
                     return;
                 }
                 return;
             }
             this.bQR.d(this.bQW, d.aQ("invite_fail", this.bQW), this.bQZ);
             if (this.bQS != null) {
-                this.bQS.a(c.bGQ, true, i, str, this.bQW, YL());
+                this.bQS.a(c.bGQ, true, i, str, this.bQW, YM());
             }
             fL(c.bGJ);
-            YM();
+            YN();
             if (this.bQS != null) {
                 this.bQS.p(c.bGQ, true);
             }
@@ -431,16 +431,16 @@ public class g implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void i(String str, com.baidu.live.alablmsdk.module.c cVar) {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        if (YK() && this.mChatStatus == c.bQy) {
+        if (YL() && this.mChatStatus == c.bQy) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(this.bQT);
             this.bQR.b(this.bQW, arrayList, null, this.bQZ);
             this.bQR.d(this.bQW, d.aQ("invite_time_out", str), this.bQZ);
             if (this.bQS != null) {
-                this.bQS.a(c.bGU, true, c.bGU, "inviteTimeOut", str, YL());
+                this.bQS.a(c.bGU, true, c.bGU, "inviteTimeOut", str, YM());
             }
             fL(c.bGJ);
-            YM();
+            YN();
             if (this.bQS != null) {
                 this.bQS.p(c.bGU, true);
             }
@@ -449,7 +449,7 @@ public class g implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void j(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|chatRoomId=" + str + "|userInfo=" + cVar + "|mChatRoomId=" + this.bQW + "|isChatSender()=" + YK() + "|costTime=" + (System.currentTimeMillis() - this.bQX));
+        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|chatRoomId=" + str + "|userInfo=" + cVar + "|mChatRoomId=" + this.bQW + "|isChatSender()=" + YL() + "|costTime=" + (System.currentTimeMillis() - this.bQX));
         this.bQX = System.currentTimeMillis();
         if (this.mChatStatus == c.bQy && this.bQW != null && this.bQW.equals(str) && cVar != null && this.bQT != null) {
             BdLog.e("blmsdk:user uk=" + cVar.aCG + "|invite user uk" + this.bQT.aCG);
@@ -464,10 +464,10 @@ public class g implements a {
             this.bQR.b(this.bQW, arrayList, null, this.bQZ);
             this.bQR.d(this.bQW, d.aQ("user_data_error", str), this.bQZ);
             if (this.bQS != null) {
-                this.bQS.a(c.bGR, true, c.bGR, "inviteAcceptDataError", str, YL());
+                this.bQS.a(c.bGR, true, c.bGR, "inviteAcceptDataError", str, YM());
             }
             fL(c.bGJ);
-            YM();
+            YN();
             if (this.bQS != null) {
                 this.bQS.p(c.bGR, true);
             }
@@ -476,12 +476,12 @@ public class g implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
-        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|isChatSender()=" + YK() + "|chatRoomId=" + str + "|costTime=" + (System.currentTimeMillis() - this.bQX) + "ext=" + jSONObject);
+        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|isChatSender()=" + YL() + "|chatRoomId=" + str + "|costTime=" + (System.currentTimeMillis() - this.bQX) + "ext=" + jSONObject);
         this.bQX = System.currentTimeMillis();
-        if (YK() && this.mChatStatus == c.bQy) {
+        if (YL() && this.mChatStatus == c.bQy) {
             this.bQR.d(str, d.aQ("invite_reject", str), this.bQZ);
             fL(c.bGJ);
-            YM();
+            YN();
             if (this.bQS != null) {
                 this.bQS.p(c.bGV, true);
             }
@@ -504,7 +504,7 @@ public class g implements a {
             if (i == 0) {
                 fL(c.bGN);
                 if (this.bQS != null) {
-                    this.bQS.C(this.bQW, YK());
+                    this.bQS.C(this.bQW, YL());
                     return;
                 }
                 return;
@@ -512,10 +512,10 @@ public class g implements a {
             this.bQR.d(this.bQW, d.aQ("join_fail", this.bQW), this.bQZ);
             Ui();
             if (this.bQS != null) {
-                this.bQS.a(c.bGS, true, i, str, this.bQW, YL());
+                this.bQS.a(c.bGS, true, i, str, this.bQW, YM());
             }
             fL(c.bGJ);
-            YM();
+            YN();
             if (this.bQS != null) {
                 this.bQS.p(c.bGS, true);
             }
@@ -536,7 +536,7 @@ public class g implements a {
                 this.bQR.d(this.bQW, d.aQ("closed_by_user_in_create", this.bQW), this.bQZ);
             }
             fL(c.bGJ);
-            YM();
+            YN();
             if (z) {
                 if (this.bQS != null) {
                     this.bQS.p(c.bQB, true);
@@ -550,7 +550,7 @@ public class g implements a {
             this.bQR.b(this.bQW, arrayList, null, this.bQZ);
             this.bQR.d(this.bQW, d.aQ(z ? "closed_by_user_wait_connect" : "closed_by_time_out", this.bQW), this.bQZ);
             fL(c.bGJ);
-            YM();
+            YN();
             if (z) {
                 if (this.bQS != null) {
                     this.bQS.p(c.bQB, true);
@@ -562,7 +562,7 @@ public class g implements a {
             this.bQR.d(this.bQW, d.aQ("closed_by_user_in_connecting", this.bQW), this.bQZ);
             Ui();
             fL(c.bGJ);
-            YM();
+            YN();
             if (z) {
                 if (this.bQS != null) {
                     this.bQS.p(c.bQB, true);
@@ -574,7 +574,7 @@ public class g implements a {
             this.bQR.d(this.bQW, d.aQ("closed_by_user", this.bQW), this.bQZ);
             Ui();
             fL(c.bGJ);
-            YM();
+            YN();
             if (this.bQS != null) {
                 this.bQS.D(this.bQW, true);
             }
@@ -596,9 +596,9 @@ public class g implements a {
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public void YG() {
+    public void YH() {
         fL(c.bGJ);
-        YM();
+        YN();
     }
 
     @Override // com.baidu.live.videochat.d.a
@@ -618,45 +618,45 @@ public class g implements a {
             if (i == 0) {
                 fL(c.bGN);
                 if (this.bQS != null) {
-                    this.bQS.C(this.bQW, YK());
+                    this.bQS.C(this.bQW, YL());
                     return;
                 }
                 return;
             }
             Ui();
             if (this.bQS != null) {
-                this.bQS.a(c.bGT, false, i, str, this.bQW, YL());
+                this.bQS.a(c.bGT, false, i, str, this.bQW, YM());
             }
             if (this.bQS != null) {
                 this.bQS.p(c.bGT, false);
             }
             fL(c.bGJ);
-            YM();
+            YN();
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
-    public String YJ() {
+    public String YK() {
         return this.bQW;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void l(String str, com.baidu.live.alablmsdk.module.c cVar, JSONObject jSONObject) {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        boolean YK = YK();
+        boolean YL = YL();
         if (this.mChatStatus == c.bQw) {
             fL(c.bGJ);
-            YM();
+            YN();
             if (this.bQS != null) {
-                this.bQS.p(c.bQz, YK);
+                this.bQS.p(c.bQz, YL);
             }
         } else if (this.mChatStatus == c.bGM) {
             Ui();
             if (this.bQS != null) {
-                this.bQS.D(str, YK);
+                this.bQS.D(str, YL);
             }
             fL(c.bGJ);
-            YM();
+            YN();
         }
     }
 
@@ -671,7 +671,7 @@ public class g implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void W(int i, String str) {
         fL(c.bGJ);
-        YM();
+        YN();
         if (this.bQS != null) {
             this.bQS.p(c.bQC, false);
         }
@@ -682,7 +682,7 @@ public class g implements a {
             this.bQR.c(this.bQW, d.aQ(z ? "leave_by_time_out" : "leave_by_user_in_connecting", this.bQW), this.bQZ);
             Ui();
             fL(c.bGJ);
-            YM();
+            YN();
             if (z) {
                 if (this.bQS != null) {
                     this.bQS.p(c.bQB, false);
@@ -694,7 +694,7 @@ public class g implements a {
             this.bQR.c(this.bQW, d.aQ("leave_by_user", this.bQW), this.bQZ);
             Ui();
             fL(c.bGJ);
-            YM();
+            YN();
             if (this.bQS != null) {
                 this.bQS.D(this.bQW, true);
             }
@@ -707,13 +707,13 @@ public class g implements a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void k(String str, com.baidu.live.alablmsdk.module.c cVar) {
-        BdLog.e("blmsdk:dealUserLeaved chatStatus=" + this.mChatStatus + "isChatSender =" + YK());
-        if (YK()) {
+        BdLog.e("blmsdk:dealUserLeaved chatStatus=" + this.mChatStatus + "isChatSender =" + YL());
+        if (YL()) {
             if (this.mChatStatus == c.bGN) {
                 this.bQR.d(str, d.aQ("user_leave", str), this.bQZ);
                 Ui();
                 fL(c.bGJ);
-                YM();
+                YN();
                 if (this.bQS != null) {
                     this.bQS.D(str, false);
                 }
@@ -721,7 +721,7 @@ public class g implements a {
                 this.bQR.d(str, d.aQ("user_leave_in_connecting", str), this.bQZ);
                 Ui();
                 fL(c.bGJ);
-                YM();
+                YN();
                 if (this.bQS != null) {
                     this.bQS.p(c.bQA, true);
                 }
@@ -732,19 +732,19 @@ public class g implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void iD(String str) {
         BdLog.e("blmsdk:dealRoomClosed chatStatus=" + this.mChatStatus + "|chatRoomId=" + str);
-        if (!YK()) {
+        if (!YL()) {
             if (this.mChatStatus == c.bGN) {
                 this.bQR.c(this.bQW, d.aQ("room_closed", this.bQW), this.bQZ);
                 Ui();
                 fL(c.bGJ);
-                YM();
+                YN();
                 if (this.bQS != null) {
                     this.bQS.D(this.bQW, false);
                 }
             } else if (this.mChatStatus == c.bGM) {
                 Ui();
                 fL(c.bGJ);
-                YM();
+                YN();
                 if (this.bQS != null) {
                     this.bQS.p(c.bQA, true);
                 }
@@ -752,7 +752,7 @@ public class g implements a {
         }
     }
 
-    private void YM() {
+    private void YN() {
         this.bQT = null;
         this.bQU = null;
         this.bQW = null;
@@ -760,8 +760,8 @@ public class g implements a {
 
     @Override // com.baidu.live.videochat.d.a
     public void dv(boolean z) {
-        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|isChatSender()=" + YK());
-        if (YK()) {
+        BdLog.e("blmsdk:chatStatus=" + this.mChatStatus + "|isChatSender()=" + YL());
+        if (YL()) {
             dw(z);
         } else {
             dx(z);
@@ -794,21 +794,21 @@ public class g implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void YN() {
+    public void YO() {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
         if (this.bQR != null) {
             com.baidu.live.alablmsdk.a.b.a.d("StreamArrive" + this.isMute);
             this.bQR.bd(this.isMute);
         }
         if (this.bQS != null) {
-            this.bQS.Yc();
+            this.bQS.Yd();
         }
     }
 
     @Override // com.baidu.live.videochat.d.a
     public View Pp() {
         BdLog.e("blmsdk:chatStatus=" + this.mChatStatus);
-        return YK() ? this.bQR.Bi().c(this.bQT) : this.bQR.Bi().c(this.bQU);
+        return YL() ? this.bQR.Bi().c(this.bQT) : this.bQR.Bi().c(this.bQU);
     }
 
     private void Ui() {

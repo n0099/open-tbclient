@@ -24,29 +24,29 @@ public class g extends h<JSONObject> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNZ() {
-        cA("data", aOx().toString());
+    protected boolean aOa() {
+        cA("data", aOy().toString());
         return true;
     }
 
-    public JSONObject aOx() {
+    public JSONObject aOy() {
         JSONObject jSONObject = new JSONObject();
         try {
-            com.baidu.swan.apps.runtime.e aOz = aOz();
-            jSONObject.put("ma_id", aOz.id);
+            com.baidu.swan.apps.runtime.e aOA = aOA();
+            jSONObject.put("ma_id", aOA.id);
             jSONObject.put("scope", this.mScope);
             jSONObject.put("host_pkgname", AppRuntime.getApplication().getPackageName());
             jSONObject.put("host_key_hash", com.baidu.swan.apps.setting.oauth.c.getKeyHash());
-            jSONObject.put("app_key", aOz.getAppKey());
-            if (aOz.aju() != null && aOz.aju().aCv() != null) {
-                jSONObject.put("scene", aOz.aju().aCv());
+            jSONObject.put("app_key", aOA.getAppKey());
+            if (aOA.ajv() != null && aOA.ajv().aCw() != null) {
+                jSONObject.put("scene", aOA.ajv().aCw());
             }
             if (this.dMx) {
                 jSONObject.put(LivenessRecogActivity.EXTRA_UPLOAD_ACTION_TYPE, "1");
             }
-            String alK = com.baidu.swan.apps.t.a.aAD().alK();
-            if (!TextUtils.isEmpty(alK)) {
-                jSONObject.put("host_api_key", alK);
+            String alL = com.baidu.swan.apps.t.a.aAE().alL();
+            if (!TextUtils.isEmpty(alL)) {
+                jSONObject.put("host_api_key", alL);
             }
             if (!TextUtils.isEmpty(this.dMM)) {
                 jSONObject.put("provider_appkey", this.dMM);
@@ -61,7 +61,7 @@ public class g extends h<JSONObject> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.aAD().k(this.mActivity, hVar.aOA());
+        return com.baidu.swan.apps.t.a.aAE().k(this.mActivity, hVar.aOB());
     }
 
     /* JADX DEBUG: Method merged with bridge method */

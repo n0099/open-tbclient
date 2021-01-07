@@ -59,14 +59,14 @@ public class a {
     public void initViews() {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2, 80);
         LayoutInflater from = LayoutInflater.from(this.context);
-        if (bLZ()) {
+        if (bMa()) {
             this.gcu = (ViewGroup) from.inflate(R.layout.layout_basepickerview, (ViewGroup) null, false);
             this.gcu.setBackgroundColor(0);
             this.gcs = (ViewGroup) this.gcu.findViewById(R.id.content_container);
             layoutParams.leftMargin = 30;
             layoutParams.rightMargin = 30;
             this.gcs.setLayoutParams(layoutParams);
-            atC();
+            atD();
             this.gcu.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.widget.timepicker.a.f.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -95,7 +95,7 @@ public class a {
     }
 
     public void show() {
-        if (bLZ()) {
+        if (bMa()) {
             SY();
         } else if (!isShowing()) {
             this.isShowing = true;
@@ -112,14 +112,14 @@ public class a {
     }
 
     public boolean isShowing() {
-        if (bLZ()) {
+        if (bMa()) {
             return false;
         }
         return this.rootView.getParent() != null || this.isShowing;
     }
 
     public void dismiss() {
-        if (bLZ()) {
+        if (bMa()) {
             If();
         } else if (!this.gcw) {
             if (this.gcz) {
@@ -169,7 +169,7 @@ public class a {
 
     public void lP(boolean z) {
         ViewGroup viewGroup;
-        if (bLZ()) {
+        if (bMa()) {
             viewGroup = this.gcu;
         } else {
             viewGroup = this.rootView;
@@ -196,7 +196,7 @@ public class a {
         return this;
     }
 
-    public void bLY() {
+    public void bLZ() {
         if (this.mDialog != null) {
             this.mDialog.setCancelable(this.gbr.cancelable);
         }
@@ -206,7 +206,7 @@ public class a {
         return this.gcs.findViewById(i);
     }
 
-    public void atC() {
+    public void atD() {
         if (this.gcu != null) {
             this.mDialog = new Dialog(this.context, R.style.custom_dialog2);
             this.mDialog.setCancelable(this.gbr.cancelable);
@@ -243,7 +243,7 @@ public class a {
         return this.mDialog;
     }
 
-    public boolean bLZ() {
+    public boolean bMa() {
         return false;
     }
 }

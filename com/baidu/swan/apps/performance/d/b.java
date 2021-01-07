@@ -16,8 +16,8 @@ class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void reset() {
         this.dtP = false;
+        aIh();
         aIg();
-        aIf();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -46,9 +46,9 @@ class b {
     }
 
     private void b(int i, long j, String str, String str2) {
-        ViewGroup aId;
-        if (!this.dtP && (aId = aId()) != null) {
-            TextView textView = (TextView) aId.findViewById(i);
+        ViewGroup aIe;
+        if (!this.dtP && (aIe = aIe()) != null) {
+            TextView textView = (TextView) aIe.findViewById(i);
             textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
             textView.setBackgroundColor(Color.parseColor(str));
         }
@@ -56,18 +56,18 @@ class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void m(long j, long j2) {
-        ViewGroup aId;
-        if (!this.dtP && (aId = aId()) != null) {
-            ((TextView) aId.findViewById(a.f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
+        ViewGroup aIe;
+        if (!this.dtP && (aIe = aIe()) != null) {
+            ((TextView) aIe.findViewById(a.f.sum)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
         }
     }
 
-    private ViewGroup aId() {
+    private ViewGroup aIe() {
         ViewGroup viewGroup;
-        if (e.aMl() != null && e.aMl().aMe() != null && (viewGroup = (ViewGroup) e.aMl().aMe().findViewById(16908290)) != null) {
+        if (e.aMm() != null && e.aMm().aMf() != null && (viewGroup = (ViewGroup) e.aMm().aMf().findViewById(16908290)) != null) {
             ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(a.f.start_up_root_container);
             if (viewGroup2 == null) {
-                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.aMl().aMe()).inflate(a.g.swan_app_startup_window, viewGroup);
+                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(e.aMm().aMf()).inflate(a.g.swan_app_startup_window, viewGroup);
                 this.duv = true;
                 return viewGroup3;
             }
@@ -76,10 +76,10 @@ class b {
         return null;
     }
 
-    private void aIe() {
-        e aMl = e.aMl();
-        if (aMl != null && aMl.aMe() != null) {
-            ViewGroup viewGroup = (ViewGroup) aMl.aMe().findViewById(a.f.start_up_root_container);
+    private void aIf() {
+        e aMm = e.aMm();
+        if (aMm != null && aMm.aMf() != null) {
+            ViewGroup viewGroup = (ViewGroup) aMm.aMf().findViewById(a.f.start_up_root_container);
             if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
                 ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
             }
@@ -88,16 +88,16 @@ class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIf() {
+    public void aIg() {
         if (!this.duv) {
-            aId();
+            aIe();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aIg() {
+    public void aIh() {
         if (this.duv) {
-            aIe();
+            aIf();
         }
     }
 }

@@ -22,7 +22,7 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f7972a = false;
+    public static boolean f7973a = false;
     private static c pqu;
 
     public static f a(long j, String str, byte[] bArr, a aVar, String str2, boolean z) throws IOException {
@@ -368,7 +368,7 @@ public class b {
     }
 
     public static String a(Map map) {
-        return h.esH().a();
+        return h.esI().a();
     }
 
     public static f L(String str, String str2, boolean z) {
@@ -419,7 +419,7 @@ public class b {
 
     /* renamed from: com.bytedance.tea.crash.upload.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public enum EnumC1009b {
+    public enum EnumC1047b {
         NONE(0),
         MOBILE(1),
         MOBILE_2G(2),
@@ -429,7 +429,7 @@ public class b {
         
         final int g;
 
-        EnumC1009b(int i) {
+        EnumC1047b(int i) {
             this.g = i;
         }
     }

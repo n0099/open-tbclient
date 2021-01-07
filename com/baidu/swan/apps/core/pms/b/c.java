@@ -166,7 +166,7 @@ public final class c extends com.baidu.swan.apps.core.pms.b.a implements com.bai
                     if (c.DEBUG) {
                         c.this.D("callbackIpcSession", "ipcSession= " + ca);
                     }
-                    ca.aIT();
+                    ca.aIU();
                 }
             });
         }

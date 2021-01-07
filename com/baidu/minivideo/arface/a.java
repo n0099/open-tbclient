@@ -76,7 +76,7 @@ public class a {
     private DuMixController cjy;
     private Context mContext;
     private HandlerThread mHandlerThread;
-    public static final String cjs = c.adY();
+    public static final String cjs = c.adZ();
     private static boolean cju = false;
     private static final InterfaceC0268a cjI = null;
     private static boolean cjM = false;
@@ -100,14 +100,14 @@ public class a {
             }
             a.this.dX(z);
             a.this.cjU.clear();
-            if (z && a.this.cjy != null && b.adM() != null) {
+            if (z && a.this.cjy != null && b.adN() != null) {
                 a aVar = a.this;
-                b.adM();
+                b.adN();
                 aVar.jF(c.dZ(true));
                 a aVar2 = a.this;
                 BeautyType beautyType = BeautyType.beautyJsonPath;
-                b.adM();
-                aVar2.setBeautyValue(beautyType, c.adZ());
+                b.adN();
+                aVar2.setBeautyValue(beautyType, c.aea());
             }
             int i = 0;
             while (true) {
@@ -202,7 +202,7 @@ public class a {
         void onHolderChanged(InterfaceC0268a interfaceC0268a);
     }
 
-    public static boolean adC() {
+    public static boolean adD() {
         if (cju) {
             return cju;
         }
@@ -333,7 +333,7 @@ public class a {
         this.cjD = new SurfaceTexture.OnFrameAvailableListener() { // from class: com.baidu.minivideo.arface.a.5
             @Override // android.graphics.SurfaceTexture.OnFrameAvailableListener
             public void onFrameAvailable(SurfaceTexture surfaceTexture) {
-                a.this.cjT.aeB();
+                a.this.cjT.aeC();
                 if (a.this.cjC != null) {
                     a.this.cjC.onFrameAvailable(surfaceTexture);
                 }
@@ -343,7 +343,7 @@ public class a {
         this.cjT.bI(5000L);
     }
 
-    private Handler adD() {
+    private Handler adE() {
         if (this.cjY != null) {
             return this.cjY;
         }
@@ -352,18 +352,18 @@ public class a {
             public void handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        a.this.adJ();
+                        a.this.adK();
                         return;
                     case 2:
-                        a.this.adI();
+                        a.this.adJ();
                         return;
                     case 3:
                         a.C0270a c0270a = new a.C0270a();
-                        c0270a.clH = (int) com.baidu.minivideo.arface.c.b.aew().aey();
-                        ActivityManager.MemoryInfo aex = com.baidu.minivideo.arface.c.b.aew().aex();
-                        if (aex != null) {
-                            c0270a.clJ = (aex.availMem / 1024) / 1024;
-                            c0270a.clI = (aex.totalMem / 1024) / 1024;
+                        c0270a.clH = (int) com.baidu.minivideo.arface.c.b.aex().aez();
+                        ActivityManager.MemoryInfo aey = com.baidu.minivideo.arface.c.b.aex().aey();
+                        if (aey != null) {
+                            c0270a.clJ = (aey.availMem / 1024) / 1024;
+                            c0270a.clI = (aey.totalMem / 1024) / 1024;
                         }
                         c0270a.fps = 0;
                         c0270a.clK = 0L;
@@ -423,7 +423,7 @@ public class a {
         return cjt;
     }
 
-    public InterfaceC0268a adE() {
+    public InterfaceC0268a adF() {
         return this.cjw;
     }
 
@@ -456,7 +456,7 @@ public class a {
             this.cjw = cjI;
             DuMixController duMixController = this.cjy;
             this.cjy = null;
-            cjR = this.cjT.aeD();
+            cjR = this.cjT.aeE();
             if (duMixController != null) {
                 d("DuAr_DuController", "release");
                 this.cjP = System.currentTimeMillis();
@@ -476,15 +476,15 @@ public class a {
         }
     }
 
-    public boolean adF() {
+    public boolean adG() {
         return this.cjJ;
     }
 
-    private boolean adG() {
-        return (this.cjy == null || !adF() || isPaused()) ? false : true;
+    private boolean adH() {
+        return (this.cjy == null || !adG() || isPaused()) ? false : true;
     }
 
-    public boolean adH() {
+    public boolean adI() {
         return this.cjx;
     }
 
@@ -541,7 +541,7 @@ public class a {
                 this.cjJ = true;
                 dW(true);
                 k("output", this.cjB.getOutputWidth(), this.cjB.getOutputHeight());
-                adD().obtainMessage(3).sendToTarget();
+                adE().obtainMessage(3).sendToTarget();
                 return;
             }
             this.cjy.changeOutputSize(i, i2);
@@ -569,15 +569,15 @@ public class a {
                 jSONObject.put("beauty_out_fps", this.cjB.getOutputFPS());
             }
             jSONObject.put("beauty_is_resume", z ? 1 : 0);
-            String adU = b.adM() != null ? c.adU() : null;
-            if (!TextUtils.isEmpty(adU)) {
-                b.adM();
-                file = new File(c.adU());
+            String adV = b.adN() != null ? c.adV() : null;
+            if (!TextUtils.isEmpty(adV)) {
+                b.adN();
+                file = new File(c.adV());
             }
-            if (adU == null) {
-                adU = "null";
+            if (adV == null) {
+                adV = "null";
             }
-            jSONObject.put("beauty_ar_path", adU);
+            jSONObject.put("beauty_ar_path", adV);
             if (file == null || !file.exists()) {
                 i = 0;
             }
@@ -621,7 +621,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adI() {
+    public void adJ() {
         JSONObject jSONObject = new JSONObject();
         try {
             Makeup makeup = this.cjX;
@@ -634,12 +634,12 @@ public class a {
 
     private void a(Makeup makeup) {
         this.cjX = makeup;
-        adD().removeMessages(2);
-        adD().sendMessageDelayed(adD().obtainMessage(2), 500L);
+        adE().removeMessages(2);
+        adE().sendMessageDelayed(adE().obtainMessage(2), 500L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adJ() {
+    public void adK() {
         JSONObject jSONObject = this.cjW;
         try {
             jSONObject.put("beauty_parameters", this.cjV);
@@ -678,8 +678,8 @@ public class a {
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            adD().removeMessages(1);
-            adD().sendMessageDelayed(adD().obtainMessage(1), 500L);
+            adE().removeMessages(1);
+            adE().sendMessageDelayed(adE().obtainMessage(1), 500L);
         }
     }
 
@@ -824,7 +824,7 @@ public class a {
         if (isDebug()) {
             i.d("DuAr_DuController", " updateFilter :" + filterParam + " = " + f);
         }
-        if (adG() && filterParam != null) {
+        if (adH() && filterParam != null) {
             this.cjy.updateFilter(filterParam, f);
         }
     }
@@ -833,7 +833,7 @@ public class a {
         if (isDebug()) {
             i.d("DuAr_DuController", new StringBuilder().append(" updateFilter :").append(filterParam).append(" = ").append(list).toString() != null ? list.toString() : "");
         }
-        if (adG() && filterParam != null && list != null) {
+        if (adH() && filterParam != null && list != null) {
             this.cjy.updateFilter(filterParam, list);
         }
     }
@@ -939,7 +939,7 @@ public class a {
         if (this.cjG != null && TextUtils.isEmpty(str)) {
             this.cjG.onFilterStateChanged(null, null);
         }
-        if (adG()) {
+        if (adH()) {
             if (isDebug()) {
                 i.d("DuAr_DuController", "loadcase Path = " + str + ", arType = " + str2 + ", casePath = " + str2);
             }
@@ -1052,7 +1052,7 @@ public class a {
     }
 
     public static boolean a(a aVar, Object obj) {
-        return (aVar == null || aVar.adH() || aVar.adE() != obj) ? false : true;
+        return (aVar == null || aVar.adI() || aVar.adF() != obj) ? false : true;
     }
 
     public void updateFilterBrightness(float f) {

@@ -39,7 +39,7 @@ public class c extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                c.this.j.setText(com.kwad.sdk.core.response.b.a.w(c.this.f10160b));
+                c.this.j.setText(com.kwad.sdk.core.response.b.a.w(c.this.f10161b));
                 c.this.j.setVisibility(0);
                 c.this.k.setVisibility(8);
             }
@@ -48,12 +48,12 @@ public class c extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
             public void onDownloadFinished() {
                 c.this.j.setVisibility(8);
                 c.this.k.setVisibility(0);
-                c.this.k.a(com.kwad.sdk.core.response.b.a.a(c.this.f10159a), c.this.k.getMax());
+                c.this.k.a(com.kwad.sdk.core.response.b.a.a(c.this.f10160a), c.this.k.getMax());
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
-                c.this.j.setText(com.kwad.sdk.core.response.b.a.w(c.this.f10160b));
+                c.this.j.setText(com.kwad.sdk.core.response.b.a.w(c.this.f10161b));
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
@@ -75,19 +75,19 @@ public class c extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     private void f() {
         findViewById(R.id.ksad_ad_h5_container).setVisibility(0);
         TextView textView = (TextView) findViewById(R.id.ksad_h5_open_btn);
-        ((TextView) findViewById(R.id.ksad_h5_desc)).setText(com.kwad.sdk.core.response.b.a.n(this.f10160b));
-        textView.setText(com.kwad.sdk.core.response.b.a.w(this.f10160b));
+        ((TextView) findViewById(R.id.ksad_h5_desc)).setText(com.kwad.sdk.core.response.b.a.n(this.f10161b));
+        textView.setText(com.kwad.sdk.core.response.b.a.w(this.f10161b));
         findViewById(R.id.ksad_h5_open_cover).setOnClickListener(this);
         textView.setOnClickListener(this);
     }
 
     private void g() {
         findViewById(R.id.ksad_ad_download_container).setVisibility(0);
-        ((TextView) findViewById(R.id.ksad_app_title)).setText(com.kwad.sdk.core.response.b.a.q(this.f10160b));
-        KSImageLoader.loadAppIcon((ImageView) findViewById(R.id.ksad_app_icon), com.kwad.sdk.core.response.b.a.o(this.f10160b), this.f10159a, 8);
-        ((TextView) findViewById(R.id.ksad_app_desc)).setText(com.kwad.sdk.core.response.b.a.n(this.f10160b));
+        ((TextView) findViewById(R.id.ksad_app_title)).setText(com.kwad.sdk.core.response.b.a.q(this.f10161b));
+        KSImageLoader.loadAppIcon((ImageView) findViewById(R.id.ksad_app_icon), com.kwad.sdk.core.response.b.a.o(this.f10161b), this.f10160a, 8);
+        ((TextView) findViewById(R.id.ksad_app_desc)).setText(com.kwad.sdk.core.response.b.a.n(this.f10161b));
         this.j = (TextView) findViewById(R.id.ksad_app_download_before);
-        this.j.setText(com.kwad.sdk.core.response.b.a.w(this.f10160b));
+        this.j.setText(com.kwad.sdk.core.response.b.a.w(this.f10161b));
         this.j.setVisibility(0);
         this.j.setOnClickListener(this);
         this.k = (TextProgressBar) findViewById(R.id.ksad_app_download_btn);
@@ -96,21 +96,21 @@ public class c extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
         this.k.setVisibility(8);
         this.k.setOnClickListener(this);
         this.l.setOnClickListener(this);
-        this.i = new com.kwad.sdk.core.download.b.b(this.f10159a, null, this.n);
+        this.i = new com.kwad.sdk.core.download.b.b(this.f10160a, null, this.n);
     }
 
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f10160b));
+        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f10161b));
         this.m.a(adTemplate);
-        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f10160b);
+        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f10161b);
         if (I.size() >= 1) {
-            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f10159a);
+            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f10160a);
         } else {
             com.kwad.sdk.core.d.a.d("FeedTextAboveImageView", "getImageUrlList size less than one");
         }
-        if (com.kwad.sdk.core.response.b.a.y(this.f10160b)) {
+        if (com.kwad.sdk.core.response.b.a.y(this.f10161b)) {
             g();
         } else {
             f();
@@ -141,8 +141,8 @@ public class c extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
             return;
         }
         com.kwad.sdk.core.download.b.b.a(this.i, view == this.l);
-        com.kwad.sdk.core.download.b.a.a(ao.a(this), this.f10159a, new a.InterfaceC1064a() { // from class: com.kwad.sdk.feed.widget.c.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+        com.kwad.sdk.core.download.b.a.a(ao.a(this), this.f10160a, new a.InterfaceC1105a() { // from class: com.kwad.sdk.feed.widget.c.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
             public void a() {
                 c.this.k();
             }

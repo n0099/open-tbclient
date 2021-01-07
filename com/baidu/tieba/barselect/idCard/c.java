@@ -28,7 +28,7 @@ public class c {
         return iqF;
     }
 
-    public static void cuu() {
+    public static void cuv() {
         if (iqF != null) {
             iqF.cancel();
             iqF = null;

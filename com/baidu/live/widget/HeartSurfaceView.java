@@ -55,7 +55,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes11.dex */
     public interface d {
-        void aaz();
+        void aaA();
 
         void onOver();
 
@@ -128,8 +128,8 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         if (this.bXB == null) {
             this.bXB = Executors.newFixedThreadPool(5);
         }
+        aay();
         aax();
-        aaw();
     }
 
     @Override // android.view.SurfaceHolder.Callback
@@ -171,14 +171,14 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         release();
     }
 
-    private void aaw() {
+    private void aax() {
         Runnable runnable = new Runnable() { // from class: com.baidu.live.widget.HeartSurfaceView.2
             @Override // java.lang.Runnable
             public void run() {
                 while (HeartSurfaceView.this.bXp) {
                     SystemClock.sleep(10L);
                     while (HeartSurfaceView.this.bXp && HeartSurfaceView.this.bXx > 0) {
-                        if (HeartSurfaceView.this.aay()) {
+                        if (HeartSurfaceView.this.aaz()) {
                             HeartSurfaceView.g(HeartSurfaceView.this);
                         }
                         SystemClock.sleep(150L);
@@ -191,7 +191,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
         }
     }
 
-    private void aax() {
+    private void aay() {
         Runnable runnable = new Runnable() { // from class: com.baidu.live.widget.HeartSurfaceView.3
             @Override // java.lang.Runnable
             public void run() {
@@ -233,7 +233,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean aay() {
+    public boolean aaz() {
         PointF pointF;
         if (!this.bXq || this.bXv == null || this.bXw == null || this.bXt == null || this.bXu == null) {
             return false;
@@ -347,7 +347,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 }
 
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
-                public void aaz() {
+                public void aaA() {
                 }
 
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
@@ -365,7 +365,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 }
 
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
-                public void aaz() {
+                public void aaA() {
                     c.this.bXG.start();
                 }
 
@@ -387,7 +387,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 }
 
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
-                public void aaz() {
+                public void aaA() {
                 }
 
                 @Override // com.baidu.live.widget.HeartSurfaceView.d
@@ -484,7 +484,7 @@ public class HeartSurfaceView extends SurfaceView implements SurfaceHolder.Callb
                 this.bXI = true;
             } else if (this.bXI) {
                 if (this.bXJ != null) {
-                    this.bXJ.aaz();
+                    this.bXJ.aaA();
                 }
                 this.bXI = false;
             }

@@ -18,30 +18,30 @@ public final class TurbonetContext {
         a(turbonetConfig);
     }
 
-    public TurbonetEngine eie() {
+    public TurbonetEngine eif() {
         return this.oLf;
     }
 
-    public long eif() {
-        return this.oLf.ehz();
+    public long eig() {
+        return this.oLf.ehA();
     }
 
     private void a(TurbonetConfig turbonetConfig) {
         TurbonetEngine.Builder builder = new TurbonetEngine.Builder(this.mContext);
         if (turbonetConfig == null) {
-            this.oLf = builder.Xe(this.mAppName).Xd(this.oLB).eim();
+            this.oLf = builder.Xd(this.mAppName).Xc(this.oLB).ein();
         } else {
-            if (turbonetConfig.eid()) {
-                builder.Xc(turbonetConfig.eic());
+            if (turbonetConfig.eie()) {
+                builder.Xb(turbonetConfig.eid());
             }
             try {
-                if (turbonetConfig.eib().has("nq") && turbonetConfig.eib().getJSONObject("nq").getBoolean("network_quality_enabled")) {
+                if (turbonetConfig.eic().has("nq") && turbonetConfig.eic().getJSONObject("nq").getBoolean("network_quality_enabled")) {
                     builder.K(true, "");
                 }
             } catch (JSONException e) {
                 Log.e("cr_TurbonetContext", "JSON expcetion: " + e);
             }
-            this.oLf = builder.Xe(this.mAppName).Xd(this.oLB).Xf(turbonetConfig.eib().toString()).eim();
+            this.oLf = builder.Xd(this.mAppName).Xc(this.oLB).Xe(turbonetConfig.eic().toString()).ein();
         }
         Log.v("cr_TurbonetContext", "Turbonet init context success.");
     }

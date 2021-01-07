@@ -81,7 +81,7 @@ public abstract class b<T extends BaseCardInfo> implements View.OnClickListener 
         this.itw = aaVar;
     }
 
-    public aa<T> cuC() {
+    public aa<T> cuD() {
         return this.itw;
     }
 }

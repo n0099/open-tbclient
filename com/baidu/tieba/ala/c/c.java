@@ -43,7 +43,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.tieba.ala.c.d
-    protected int bXd() {
+    protected int bXe() {
         return a.g.ala_choose_num_and_date;
     }
 
@@ -53,7 +53,7 @@ public class c extends d {
         this.gRN.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.c.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.bRv();
+                c.this.bRw();
             }
         });
         this.gRO = (TextView) this.mRootView.findViewById(a.f.choose_bottom_tip);
@@ -99,7 +99,7 @@ public class c extends d {
             this.gSj = alaSdkGetGiftListHttpResponseMessage.Ki();
         }
         if (ListUtils.isEmpty(this.gSj)) {
-            bXe();
+            bXf();
         }
         if (this.gSn > 0) {
             Iterator<k> it = this.gSj.iterator();
@@ -120,7 +120,7 @@ public class c extends d {
         this.gSh.setData(this.gSj);
     }
 
-    private void bXe() {
+    private void bXf() {
         this.gSj = new ArrayList<>();
         for (int i = 0; i < 6; i++) {
             k kVar = new k();

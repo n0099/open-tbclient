@@ -21,7 +21,7 @@ import org.json.JSONObject;
 public class a {
     public static void a(final Context context, Map<String, ComponentModel.b> map, File file, final com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (map != null && !map.isEmpty()) {
-            final List<C1003a> list = null;
+            final List<C1041a> list = null;
             try {
                 list = a(map, file);
             } catch (Exception e) {
@@ -43,26 +43,26 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void b(Context context, List<C1003a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
+    public static void b(Context context, List<C1041a> list, com.bytedance.sdk.openadsdk.preload.geckox.e.a aVar) {
         if (list != null && !list.isEmpty()) {
-            for (C1003a c1003a : list) {
-                File file = c1003a.e;
+            for (C1041a c1041a : list) {
+                File file = c1041a.e;
                 long uptimeMillis = SystemClock.uptimeMillis();
                 boolean a2 = d.a(file);
                 long uptimeMillis2 = SystemClock.uptimeMillis();
                 if (a2) {
                     if (aVar != null) {
-                        aVar.b(c1003a.f7740b);
+                        aVar.b(c1041a.f7741b);
                     }
-                    b.a(context).a(c1003a.f7739a, c1003a.f7740b, c1003a.c, 200, c1003a.d, 0, null, uptimeMillis2 - uptimeMillis, 1);
+                    b.a(context).a(c1041a.f7740a, c1041a.f7741b, c1041a.c, 200, c1041a.d, 0, null, uptimeMillis2 - uptimeMillis, 1);
                 } else {
-                    b.a(context).a(c1003a.f7739a, c1003a.f7740b, c1003a.c, 201, c1003a.d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
+                    b.a(context).a(c1041a.f7740a, c1041a.f7741b, c1041a.c, 201, c1041a.d, 601, "delete failed", uptimeMillis2 - uptimeMillis, 1);
                 }
             }
         }
     }
 
-    private static List<C1003a> a(Map<String, ComponentModel.b> map, File file) {
+    private static List<C1041a> a(Map<String, ComponentModel.b> map, File file) {
         ComponentModel.b value;
         List<Long> b2;
         List<Long> b3;
@@ -70,14 +70,14 @@ public class a {
         for (Map.Entry<String, ComponentModel.b> entry : map.entrySet()) {
             String key = entry.getKey();
             File file2 = new File(file, key);
-            if (file2.isDirectory() && (value = entry.getValue()) != null && value.f7805a != null && !value.f7805a.isEmpty()) {
-                List<ComponentModel.a> list = value.f7805a;
+            if (file2.isDirectory() && (value = entry.getValue()) != null && value.f7806a != null && !value.f7806a.isEmpty()) {
+                List<ComponentModel.a> list = value.f7806a;
                 HashSet hashSet = new HashSet();
                 for (ComponentModel.a aVar : list) {
-                    String str = aVar.f7803a;
+                    String str = aVar.f7804a;
                     if (!hashSet.contains(str)) {
                         hashSet.add(str);
-                        int i = aVar.f7804b;
+                        int i = aVar.f7805b;
                         List<Long> list2 = aVar.c;
                         File file3 = new File(file2, str);
                         switch (i) {
@@ -87,7 +87,7 @@ public class a {
                                         if (list2.contains(l)) {
                                             File file4 = new File(file3, l + "--pending-delete");
                                             new File(file3, l + "").renameTo(file4);
-                                            arrayList.add(new C1003a(key, str, i, l.longValue(), file4));
+                                            arrayList.add(new C1041a(key, str, i, l.longValue(), file4));
                                         }
                                     }
                                     break;
@@ -99,7 +99,7 @@ public class a {
                                         if (list2.get(0).longValue() > l2.longValue()) {
                                             File file5 = new File(file3, l2 + "--pending-delete");
                                             new File(file3, l2 + "").renameTo(file5);
-                                            arrayList.add(new C1003a(key, str, i, l2.longValue(), file5));
+                                            arrayList.add(new C1041a(key, str, i, l2.longValue(), file5));
                                         }
                                     }
                                     break;
@@ -109,7 +109,7 @@ public class a {
                                 File file6 = new File(file2, str);
                                 File file7 = new File(file2, str + "--pending-delete");
                                 file6.renameTo(file7);
-                                arrayList.add(new C1003a(key, str, i, 0L, file7));
+                                arrayList.add(new C1041a(key, str, i, 0L, file7));
                                 break;
                         }
                     }
@@ -127,7 +127,7 @@ public class a {
         if (bVar.c()) {
             Common common2 = new Common(bVar.j(), bVar.n(), bVar.q(), com.bytedance.sdk.openadsdk.preload.geckox.utils.a.b(bVar.a()), i.a(bVar.a()), bVar.k(), bVar.l());
             StatisticModel statisticModel = new StatisticModel();
-            statisticModel.f7813common = common2;
+            statisticModel.f7814common = common2;
             statisticModel.packages.addAll(a(bVar.a()));
             if (!statisticModel.packages.isEmpty()) {
                 String str = SapiUtils.COOKIE_HTTPS_URL_PREFIX + bVar.i() + "/gecko/server/packages/stats";
@@ -150,7 +150,7 @@ public class a {
         if (a2.c != 200) {
             throw new NetworkErrorException("net work get failed, code: " + a2.c + ", url:" + str);
         }
-        if (new JSONObject(a2.f7793b).getInt("status") != 0) {
+        if (new JSONObject(a2.f7794b).getInt("status") != 0) {
             throw new RuntimeException("upload failed");
         }
     }
@@ -158,20 +158,20 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.preload.geckox.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C1003a {
+    public static class C1041a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f7739a;
+        String f7740a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f7740b;
+        String f7741b;
         int c;
         long d;
         File e;
 
-        C1003a(String str, String str2, int i, long j, File file) {
-            this.f7739a = str;
-            this.f7740b = str2;
+        C1041a(String str, String str2, int i, long j, File file) {
+            this.f7740a = str;
+            this.f7741b = str2;
             this.c = i;
             this.d = j;
             this.e = file;

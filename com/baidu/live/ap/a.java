@@ -30,7 +30,7 @@ public class a {
 
     public a(Activity activity) {
         this.mContext = activity;
-        aaf();
+        aag();
     }
 
     public void a(c cVar) {
@@ -41,8 +41,8 @@ public class a {
             this.bXc.getWebView().setBackgroundColor(ih(str));
             g gVar = new g();
             gVar.w(this.mContext).a(this.bXc).a(this.bXc.getWebView().getSchemeCallback()).b(this.bWS);
-            com.baidu.live.view.web.a[] aae = gVar.aae();
-            for (com.baidu.live.view.web.a aVar : aae) {
+            com.baidu.live.view.web.a[] aaf = gVar.aaf();
+            for (com.baidu.live.view.web.a aVar : aaf) {
                 this.bXc.getWebView().addJavascriptInterface(aVar, aVar.getName());
             }
             this.bXc.c(cVar);
@@ -57,8 +57,8 @@ public class a {
             this.bXc.getWebView().setBackgroundColor(ih(str));
             g gVar = new g();
             gVar.w(this.mContext).a(this.bXc).a(this.bXc.getWebView().getSchemeCallback()).b(this.bWS);
-            com.baidu.live.view.web.a[] aae = gVar.aae();
-            for (com.baidu.live.view.web.a aVar : aae) {
+            com.baidu.live.view.web.a[] aaf = gVar.aaf();
+            for (com.baidu.live.view.web.a aVar : aaf) {
                 this.bXc.getWebView().addJavascriptInterface(aVar, aVar.getName());
             }
             this.bXc.d(cVar);
@@ -79,7 +79,7 @@ public class a {
 
     public void dismiss() {
         if (this.bXc != null) {
-            this.bXc.aag();
+            this.bXc.aah();
             this.bXc = null;
         }
     }
@@ -121,7 +121,7 @@ public class a {
         }
     }
 
-    private void aaf() {
+    private void aag() {
         if (this.bXd == null) {
             this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.live.ap.a.2
                 /* JADX DEBUG: Method merged with bridge method */

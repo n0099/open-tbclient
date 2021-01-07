@@ -16,20 +16,20 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class a extends BdBaseModel {
     private x aGe;
-    private InterfaceC0936a oQV;
+    private InterfaceC0974a oQV;
     private int oQW = -1;
 
     /* renamed from: com.baidu.yuyinala.mode.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0936a {
-        void ekE();
-
+    public interface InterfaceC0974a {
         void ekF();
+
+        void ekG();
     }
 
-    public a(x xVar, InterfaceC0936a interfaceC0936a) {
+    public a(x xVar, InterfaceC0974a interfaceC0974a) {
         this.aGe = xVar;
-        this.oQV = interfaceC0936a;
+        this.oQV = interfaceC0974a;
         registerListener();
     }
 
@@ -45,15 +45,15 @@ public class a extends BdBaseModel {
                 if (httpResponsedMessage.getCmd() == 1031079) {
                     if (httpResponsedMessage.getError() != 0) {
                         if (a.this.oQV != null) {
-                            a.this.oQV.ekE();
+                            a.this.oQV.ekF();
                             return;
                         }
                         return;
                     }
                     if (a.this.oQV != null) {
-                        a.this.oQV.ekF();
+                        a.this.oQV.ekG();
                     }
-                    a.this.ekJ();
+                    a.this.ekK();
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501073));
                 }
             }
@@ -61,7 +61,7 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ekJ() {
+    public void ekK() {
         if (this.oQW >= 0) {
             JSONObject jSONObject = new JSONObject();
             try {
@@ -72,7 +72,7 @@ public class a extends BdBaseModel {
                 } else if (this.oQW == 2) {
                     jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "battle");
                 }
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, com.baidu.live.aq.a.aam().aas().aLl.croom_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, com.baidu.live.aq.a.aan().aat().aLl.croom_id);
             } catch (Exception e) {
                 BdLog.e(e);
             }

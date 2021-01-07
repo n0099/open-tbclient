@@ -9,7 +9,7 @@ import java.nio.charset.Charset;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile e f9619a = null;
+    private static volatile e f9620a = null;
 
     private e() {
     }
@@ -17,10 +17,10 @@ public class e {
     public static synchronized e a() {
         e eVar;
         synchronized (e.class) {
-            if (f9619a == null) {
-                f9619a = new e();
+            if (f9620a == null) {
+                f9620a = new e();
             }
-            eVar = f9619a;
+            eVar = f9620a;
         }
         return eVar;
     }

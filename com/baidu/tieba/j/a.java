@@ -20,22 +20,22 @@ public class a {
     private String jUY;
     private String jUZ;
     private String jVa;
-    private List<C0778a> jVb;
+    private List<C0787a> jVb;
     private String nid;
     private String originalPrice;
     private String price;
     private String title;
     private String userName;
 
-    public void LT(String str) {
+    public void LS(String str) {
         this.jUU = str;
     }
 
-    public String cQf() {
+    public String cQg() {
         return this.bAi;
     }
 
-    public void LU(String str) {
+    public void LT(String str) {
         this.bAi = str;
     }
 
@@ -43,7 +43,7 @@ public class a {
         this.title = str;
     }
 
-    public void LV(String str) {
+    public void LU(String str) {
         this.originalPrice = str;
     }
 
@@ -55,7 +55,7 @@ public class a {
         this.price = str;
     }
 
-    public b cQg() {
+    public b cQh() {
         return this.jUV;
     }
 
@@ -63,15 +63,15 @@ public class a {
         this.jUV = bVar;
     }
 
-    public void LW(String str) {
+    public void LV(String str) {
         this.jUW = str;
     }
 
-    public String cQh() {
+    public String cQi() {
         return this.jUX;
     }
 
-    public void LX(String str) {
+    public void LW(String str) {
         this.jUX = str;
     }
 
@@ -79,23 +79,23 @@ public class a {
         this.userName = str;
     }
 
-    public void LY(String str) {
+    public void LX(String str) {
         this.jUY = str;
     }
 
-    public void LZ(String str) {
+    public void LY(String str) {
         this.jUZ = str;
     }
 
-    public void Ma(String str) {
+    public void LZ(String str) {
         this.bAs = str;
     }
 
-    public void Mb(String str) {
+    public void Ma(String str) {
         this.bAr = str;
     }
 
-    public void Mc(String str) {
+    public void Mb(String str) {
         this.jVa = str;
     }
 
@@ -103,11 +103,11 @@ public class a {
         this.nid = str;
     }
 
-    public String cQi() {
+    public String cQj() {
         return this.ePq;
     }
 
-    public void Md(String str) {
+    public void Mc(String str) {
         this.ePq = str;
     }
 
@@ -115,11 +115,11 @@ public class a {
         this.isSelected = z;
     }
 
-    public List<C0778a> getImageList() {
+    public List<C0787a> getImageList() {
         return this.jVb;
     }
 
-    public void dR(List<C0778a> list) {
+    public void dR(List<C0787a> list) {
         this.jVb = list;
     }
 
@@ -129,30 +129,30 @@ public class a {
         private String jVd;
         private String jVe;
 
-        public void Me(String str) {
+        public void Md(String str) {
             this.jVc = str;
         }
 
-        public String cQj() {
+        public String cQk() {
             return this.jVd;
         }
 
-        public void Mf(String str) {
+        public void Me(String str) {
             this.jVd = str;
         }
 
-        public String cQk() {
+        public String cQl() {
             return this.jVe;
         }
 
-        public void Mg(String str) {
+        public void Mf(String str) {
             this.jVe = str;
         }
     }
 
     /* renamed from: com.baidu.tieba.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0778a {
+    public static class C0787a {
         private String src;
 
         public String getSrc() {
@@ -169,39 +169,39 @@ public class a {
             return null;
         }
         a aVar = new a();
-        aVar.LW(jSONObject.optString("commission"));
-        aVar.Ma(jSONObject.optString("coupon"));
-        aVar.Md(jSONObject.optString("goodsId"));
-        aVar.LY(jSONObject.optString("goodsStatus"));
+        aVar.LV(jSONObject.optString("commission"));
+        aVar.LZ(jSONObject.optString("coupon"));
+        aVar.Mc(jSONObject.optString("goodsId"));
+        aVar.LX(jSONObject.optString("goodsStatus"));
         JSONArray optJSONArray = jSONObject.optJSONArray("imageList");
         if (optJSONArray != null && optJSONArray.length() > 0) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < optJSONArray.length(); i++) {
-                C0778a c0778a = new C0778a();
+                C0787a c0787a = new C0787a();
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
-                    c0778a.setSrc(optJSONObject.optString("src"));
-                    arrayList.add(c0778a);
+                    c0787a.setSrc(optJSONObject.optString("src"));
+                    arrayList.add(c0787a);
                 }
             }
             aVar.dR(arrayList);
         }
-        aVar.Mc(jSONObject.optString("isBindingVideo"));
+        aVar.Mb(jSONObject.optString("isBindingVideo"));
         aVar.setIsSelected(jSONObject.optBoolean("isSelected"));
         aVar.setNid(jSONObject.optString(IntentConfig.NID));
-        aVar.LT(jSONObject.optString("originalGoodsId"));
-        aVar.LV(jSONObject.optString("originalPrice"));
-        aVar.LU(jSONObject.optString("originalTitle"));
-        aVar.LX(jSONObject.optString("tpName"));
+        aVar.LS(jSONObject.optString("originalGoodsId"));
+        aVar.LU(jSONObject.optString("originalPrice"));
+        aVar.LT(jSONObject.optString("originalTitle"));
+        aVar.LW(jSONObject.optString("tpName"));
         aVar.setPrice(jSONObject.optString("price"));
-        aVar.Mb(jSONObject.optString("saleNum"));
-        aVar.LZ(jSONObject.optString("shareStatus"));
+        aVar.Ma(jSONObject.optString("saleNum"));
+        aVar.LY(jSONObject.optString("shareStatus"));
         JSONObject optJSONObject2 = jSONObject.optJSONObject("slink");
         if (optJSONObject2 != null) {
             b bVar = new b();
-            bVar.Mf(optJSONObject2.optString("Android"));
-            bVar.Me(optJSONObject2.optString("IOS"));
-            bVar.Mg(optJSONObject2.optString("h5"));
+            bVar.Me(optJSONObject2.optString("Android"));
+            bVar.Md(optJSONObject2.optString("IOS"));
+            bVar.Mf(optJSONObject2.optString("h5"));
             aVar.a(bVar);
         }
         aVar.setTitle(jSONObject.optString("title"));

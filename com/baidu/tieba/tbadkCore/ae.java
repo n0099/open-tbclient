@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class ae {
     private String mFrom = BarDetailForDirSwitch.BAR_DETAIL_DIR;
-    private a nqC;
+    private a nqB;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -29,11 +29,11 @@ public class ae {
     }
 
     public void a(a aVar) {
-        this.nqC = aVar;
+        this.nqB = aVar;
     }
 
     public void P(String str, long j) {
-        new b(str, j, this.mFrom, this.nqC, this, null).execute(new Integer[0]);
+        new b(str, j, this.mFrom, this.nqB, this, null).execute(new Integer[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -46,18 +46,18 @@ public class ae {
         private String mForumName;
         private String mFrom;
         private com.baidu.tbadk.core.util.z mNetwork = null;
-        private WeakReference<a> nqD;
-        private WeakReference<ae> nqE;
+        private WeakReference<a> nqC;
+        private WeakReference<ae> nqD;
         private AuthTokenData tokenData;
 
         public b(String str, long j, String str2, a aVar, ae aeVar, String str3) {
             this.mForumName = null;
             this.mForumId = 0L;
-            this.nqD = null;
-            this.nqE = new WeakReference<>(aeVar);
+            this.nqC = null;
+            this.nqD = new WeakReference<>(aeVar);
             this.mForumName = str;
             this.mForumId = j;
-            this.nqD = new WeakReference<>(aVar);
+            this.nqC = new WeakReference<>(aVar);
             this.mFrom = str2;
             this.authSid = str3;
             setPriority(3);
@@ -77,14 +77,14 @@ public class ae {
                     this.mNetwork.addPostData("favo_type", "1");
                     this.mNetwork.addPostData("st_type", this.mFrom);
                     this.mNetwork.addPostData("authsid", this.authSid);
-                    this.mNetwork.bvQ().bwz().mIsNeedTbs = true;
+                    this.mNetwork.bvR().bwA().mIsNeedTbs = true;
                     String postNetData = this.mNetwork.postNetData();
                     if (!at.isEmpty(postNetData) && (jSONObject = new JSONObject(postNetData)) != null) {
                         this.errorCode = jSONObject.optInt("error_code");
                         this.errorMsg = jSONObject.optString("error_msg");
                         this.tokenData = AuthTokenData.parse(jSONObject);
                     }
-                    if (this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+                    if (this.mNetwork.bvR().bwB().isRequestSuccess()) {
                         return 1;
                     }
                 }
@@ -100,12 +100,12 @@ public class ae {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void onPostExecute(Integer num) {
             super.onPostExecute((b) num);
-            if (this.nqD != null) {
+            if (this.nqC != null) {
                 com.baidu.tieba.tbadkCore.writeModel.e eVar = new com.baidu.tieba.tbadkCore.writeModel.e();
                 eVar.forumId = this.mForumId;
-                a aVar = this.nqD.get();
+                a aVar = this.nqC.get();
                 if (aVar != null) {
-                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+                    if (num.intValue() == 1 && this.mNetwork != null && this.mNetwork.bvR().bwB().isRequestSuccess()) {
                         TbadkCoreApplication.getInst().delLikeForum(this.mForumName);
                         aVar.C(this.mForumName, this.mForumId);
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_UNLIKE_FORUM, Long.valueOf(this.mForumId)));
@@ -114,7 +114,7 @@ public class ae {
                     } else {
                         eVar.isSuccess = false;
                         if (this.mNetwork != null) {
-                            String errorString = this.mNetwork.isNetSuccess() ? this.mNetwork.getErrorString() : this.mNetwork.bvR();
+                            String errorString = this.mNetwork.isNetSuccess() ? this.mNetwork.getErrorString() : this.mNetwork.bvS();
                             eVar.errorMessage = errorString;
                             aVar.D(errorString, this.errorCode);
                         }

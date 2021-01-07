@@ -69,19 +69,19 @@ public class f extends a {
             }
         });
         this.hEM = textView.getText().toString();
-        ciS();
+        ciT();
     }
 
     @Override // com.baidu.tieba.ala.liveroom.n.a
     public void ez(String str, String str2) {
-        ciR();
+        ciS();
         this.aGr.startLoad(str, 25, false, false);
         this.hFc.setText(str2);
         Oj();
         show();
     }
 
-    private void ciS() {
+    private void ciT() {
         if (com.baidu.live.af.a.SE().bwi != null && com.baidu.live.af.a.SE().bwi.aOM == null) {
         }
     }
@@ -90,7 +90,7 @@ public class f extends a {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.ala.liveroom.n.f.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                f.this.ciR();
+                f.this.ciS();
             }
         });
     }
@@ -103,7 +103,7 @@ public class f extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciR() {
+    public void ciS() {
         if (this.aGr != null) {
             this.aGr.stopLoad();
         }

@@ -17,10 +17,10 @@ import org.json.JSONObject;
 public class b extends Presenter implements com.kwad.sdk.core.i.c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.kwad.sdk.splashscreen.c f11019a;
+    protected com.kwad.sdk.splashscreen.c f11020a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f11020b;
+    private Handler f11021b;
     private TextView c;
     private TextView d;
     private int e;
@@ -39,12 +39,12 @@ public class b extends Presenter implements com.kwad.sdk.core.i.c {
     public void a() {
         super.a();
         com.kwad.sdk.core.d.a.a("SkipAdPresenter", "onBind");
-        this.f11019a = (com.kwad.sdk.splashscreen.c) n();
-        this.c = (TextView) this.f11019a.d.findViewById(R.id.ksad_splash_preload_tips);
-        this.d = (TextView) this.f11019a.d.findViewById(R.id.ksad_splash_skip_time);
-        this.f11020b = new Handler(Looper.getMainLooper());
-        AdInfo j = com.kwad.sdk.core.response.b.c.j(this.f11019a.c);
-        if (!this.f11019a.c.adInfoList.isEmpty()) {
+        this.f11020a = (com.kwad.sdk.splashscreen.c) n();
+        this.c = (TextView) this.f11020a.d.findViewById(R.id.ksad_splash_preload_tips);
+        this.d = (TextView) this.f11020a.d.findViewById(R.id.ksad_splash_skip_time);
+        this.f11021b = new Handler(Looper.getMainLooper());
+        AdInfo j = com.kwad.sdk.core.response.b.c.j(this.f11020a.c);
+        if (!this.f11020a.c.adInfoList.isEmpty()) {
             this.h = j.adPreloadInfo;
             this.f = j.adSplashInfo.skipSecond;
             this.e = this.f;
@@ -58,7 +58,7 @@ public class b extends Presenter implements com.kwad.sdk.core.i.c {
         }
         this.i = SystemClock.elapsedRealtime();
         this.e = this.f;
-        this.f11019a.h.a(this);
+        this.f11020a.h.a(this);
         e();
         if (TextUtils.isEmpty(j.adSplashInfo.skipTips)) {
             this.d.setText("跳过");
@@ -69,18 +69,18 @@ public class b extends Presenter implements com.kwad.sdk.core.i.c {
         this.d.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.splashscreen.a.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.g && b.this.f11019a.f11046a != null) {
-                    b.this.f11019a.f11046a.onSkippedAd();
+                if (b.this.g && b.this.f11020a.f11047a != null) {
+                    b.this.f11020a.f11047a.onSkippedAd();
                 }
                 JSONObject jSONObject = new JSONObject();
-                if (b.this.f11019a.e != null) {
+                if (b.this.f11020a.e != null) {
                     try {
-                        jSONObject.put("duration", b.this.f11019a.e.c());
+                        jSONObject.put("duration", b.this.f11020a.e.c());
                     } catch (JSONException e) {
                         com.kwad.sdk.core.d.a.a(e);
                     }
                 }
-                com.kwad.sdk.core.report.b.a(b.this.f11019a.c, 1, jSONObject);
+                com.kwad.sdk.core.report.b.a(b.this.f11020a.c, 1, jSONObject);
             }
         });
     }
@@ -93,21 +93,21 @@ public class b extends Presenter implements com.kwad.sdk.core.i.c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f11019a.h.b(this);
-        if (this.f11020b != null) {
-            this.f11020b.removeCallbacksAndMessages(null);
+        this.f11020a.h.b(this);
+        if (this.f11021b != null) {
+            this.f11021b.removeCallbacksAndMessages(null);
         }
     }
 
     @Override // com.kwad.sdk.core.i.c
     public void c_() {
         com.kwad.sdk.core.d.a.a("SkipAdPresenter", "onPageVisible");
-        this.f11020b.removeCallbacksAndMessages(null);
-        if (com.kwad.sdk.core.response.b.c.j(this.f11019a.c).adSplashInfo.skipSecond == -1) {
+        this.f11021b.removeCallbacksAndMessages(null);
+        if (com.kwad.sdk.core.response.b.c.j(this.f11020a.c).adSplashInfo.skipSecond == -1) {
             this.d.setVisibility(8);
         } else if (this.e < 0 || this.g) {
         } else {
-            this.f11020b.postDelayed(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.b.2
+            this.f11021b.postDelayed(new Runnable() { // from class: com.kwad.sdk.splashscreen.a.b.2
                 @Override // java.lang.Runnable
                 @SuppressLint({"SetTextI18n"})
                 public void run() {

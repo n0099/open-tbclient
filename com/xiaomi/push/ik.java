@@ -7,13 +7,13 @@ import java.util.List;
 public class ik implements ix<ik, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */
-    public List<hv> f689a;
+    public List<hv> f690a;
 
     /* renamed from: a  reason: collision with other field name */
-    private static final jn f688a = new jn("XmPushActionNormalConfig");
+    private static final jn f689a = new jn("XmPushActionNormalConfig");
 
     /* renamed from: a  reason: collision with root package name */
-    private static final jf f14437a = new jf("", (byte) 15, 1);
+    private static final jf f14438a = new jf("", (byte) 15, 1);
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.lang.Comparable
@@ -21,9 +21,9 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
     public int compareTo(ik ikVar) {
         int a2;
         if (getClass().equals(ikVar.getClass())) {
-            int compareTo = Boolean.valueOf(m450a()).compareTo(Boolean.valueOf(ikVar.m450a()));
+            int compareTo = Boolean.valueOf(m461a()).compareTo(Boolean.valueOf(ikVar.m461a()));
             if (compareTo == 0) {
-                if (!m450a() || (a2 = iy.a(this.f689a, ikVar.f689a)) == 0) {
+                if (!m461a() || (a2 = iy.a(this.f690a, ikVar.f690a)) == 0) {
                     return 0;
                 }
                 return a2;
@@ -34,44 +34,44 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
     }
 
     public List<hv> a() {
-        return this.f689a;
+        return this.f690a;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public void m449a() {
-        if (this.f689a == null) {
+    public void m460a() {
+        if (this.f690a == null) {
             throw new jj("Required field 'normalConfigs' was not present! Struct: " + toString());
         }
     }
 
     @Override // com.xiaomi.push.ix
     public void a(ji jiVar) {
-        jiVar.m508a();
+        jiVar.m519a();
         while (true) {
-            jf m504a = jiVar.m504a();
-            if (m504a.f14470a == 0) {
+            jf m515a = jiVar.m515a();
+            if (m515a.f14471a == 0) {
                 jiVar.f();
-                m449a();
+                m460a();
                 return;
             }
-            switch (m504a.f857a) {
+            switch (m515a.f858a) {
                 case 1:
-                    if (m504a.f14470a == 15) {
-                        jg m505a = jiVar.m505a();
-                        this.f689a = new ArrayList(m505a.f858a);
-                        for (int i = 0; i < m505a.f858a; i++) {
+                    if (m515a.f14471a == 15) {
+                        jg m516a = jiVar.m516a();
+                        this.f690a = new ArrayList(m516a.f859a);
+                        for (int i = 0; i < m516a.f859a; i++) {
                             hv hvVar = new hv();
                             hvVar.a(jiVar);
-                            this.f689a.add(hvVar);
+                            this.f690a.add(hvVar);
                         }
                         jiVar.i();
                         break;
                     } else {
-                        jl.a(jiVar, m504a.f14470a);
+                        jl.a(jiVar, m515a.f14471a);
                         break;
                     }
                 default:
-                    jl.a(jiVar, m504a.f14470a);
+                    jl.a(jiVar, m515a.f14471a);
                     break;
             }
             jiVar.g();
@@ -79,40 +79,40 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m450a() {
-        return this.f689a != null;
+    public boolean m461a() {
+        return this.f690a != null;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public boolean m451a(ik ikVar) {
+    public boolean m462a(ik ikVar) {
         if (ikVar == null) {
             return false;
         }
-        boolean m450a = m450a();
-        boolean m450a2 = ikVar.m450a();
-        return !(m450a || m450a2) || (m450a && m450a2 && this.f689a.equals(ikVar.f689a));
+        boolean m461a = m461a();
+        boolean m461a2 = ikVar.m461a();
+        return !(m461a || m461a2) || (m461a && m461a2 && this.f690a.equals(ikVar.f690a));
     }
 
     @Override // com.xiaomi.push.ix
     public void b(ji jiVar) {
-        m449a();
-        jiVar.a(f688a);
-        if (this.f689a != null) {
-            jiVar.a(f14437a);
-            jiVar.a(new jg((byte) 12, this.f689a.size()));
-            for (hv hvVar : this.f689a) {
+        m460a();
+        jiVar.a(f689a);
+        if (this.f690a != null) {
+            jiVar.a(f14438a);
+            jiVar.a(new jg((byte) 12, this.f690a.size()));
+            for (hv hvVar : this.f690a) {
                 hvVar.b(jiVar);
             }
             jiVar.e();
             jiVar.b();
         }
         jiVar.c();
-        jiVar.m512a();
+        jiVar.m523a();
     }
 
     public boolean equals(Object obj) {
         if (obj != null && (obj instanceof ik)) {
-            return m451a((ik) obj);
+            return m462a((ik) obj);
         }
         return false;
     }
@@ -124,10 +124,10 @@ public class ik implements ix<ik, Object>, Serializable, Cloneable {
     public String toString() {
         StringBuilder sb = new StringBuilder("XmPushActionNormalConfig(");
         sb.append("normalConfigs:");
-        if (this.f689a == null) {
+        if (this.f690a == null) {
             sb.append("null");
         } else {
-            sb.append(this.f689a);
+            sb.append(this.f690a);
         }
         sb.append(")");
         return sb.toString();

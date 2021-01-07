@@ -11,38 +11,38 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13470a = b.class.getSimpleName();
+    private static final String f13471a = b.class.getSimpleName();
     private static long f = -1;
-    private static volatile b pZc = null;
+    private static volatile b qaK = null;
     private long e;
-    private final a pZb;
-    private final j pZa = j.eJj();
+    private final a qaJ;
+    private final j qaI = j.eJN();
     private final AtomicInteger c = new AtomicInteger();
 
-    public static b eJi() {
-        if (pZc == null) {
+    public static b eJM() {
+        if (qaK == null) {
             synchronized (b.class) {
-                if (pZc == null) {
-                    pZc = new b();
+                if (qaK == null) {
+                    qaK = new b();
                 }
             }
         }
-        return pZc;
+        return qaK;
     }
 
     private b() {
         HandlerThread handlerThread = new HandlerThread("ParseThread");
         handlerThread.start();
-        this.pZb = new a(handlerThread.getLooper());
+        this.qaJ = new a(handlerThread.getLooper());
     }
 
     public void b() {
         try {
             if (this.c.getAndIncrement() == 0) {
                 if (com.ss.android.socialbase.downloader.f.a.a()) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13470a, "startSampling");
+                    com.ss.android.socialbase.downloader.f.a.b(f13471a, "startSampling");
                 }
-                this.pZb.a();
+                this.qaJ.a();
                 this.e = SystemClock.uptimeMillis();
             }
         } catch (Throwable th) {
@@ -53,9 +53,9 @@ public class b {
         try {
             if (this.c.decrementAndGet() == 0) {
                 if (com.ss.android.socialbase.downloader.f.a.a()) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13470a, "stopSampling");
+                    com.ss.android.socialbase.downloader.f.a.b(f13471a, "stopSampling");
                 }
-                this.pZb.b();
+                this.qaJ.b();
                 f();
             }
         } catch (Throwable th) {
@@ -69,7 +69,7 @@ public class b {
     protected void e() {
         long mobileRxBytes;
         try {
-            if (com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eHp())) {
+            if (com.ss.android.socialbase.downloader.m.d.a(com.ss.android.socialbase.downloader.downloader.b.eHT())) {
                 mobileRxBytes = d();
             } else {
                 mobileRxBytes = TrafficStats.getMobileRxBytes();
@@ -78,7 +78,7 @@ public class b {
             if (f >= 0) {
                 synchronized (this) {
                     long uptimeMillis = SystemClock.uptimeMillis();
-                    this.pZa.a(j, uptimeMillis - this.e);
+                    this.qaI.a(j, uptimeMillis - this.e);
                     this.e = uptimeMillis;
                 }
             }

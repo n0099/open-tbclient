@@ -33,15 +33,15 @@ public class l {
     private Runnable jLf = new Runnable() { // from class: com.baidu.tieba.frs.vc.l.2
         @Override // java.lang.Runnable
         public void run() {
-            l.this.cOA();
+            l.this.cOB();
         }
     };
     private View.OnClickListener jLg = new View.OnClickListener() { // from class: com.baidu.tieba.frs.vc.l.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            l.this.cOz();
+            l.this.cOA();
             if (l.this.jFx != null && l.this.jFx.postTopic != null && l.this.jFx.getForum() != null) {
-                if ((l.this.jLd == null || l.this.jLd.cJg()) && !WriteActivityConfig.isAsyncWriting()) {
+                if ((l.this.jLd == null || l.this.jLd.cJh()) && !WriteActivityConfig.isAsyncWriting()) {
                     WriteActivityConfig.newInstance(l.this.mActivity).setType(9).setForumData(l.this.jFx.getForum()).setAntiData(l.this.jFx.getAnti()).setTitle(l.this.jFx.postTopic.recom_topic).send();
                     TiebaStatic.log(new aq("c13017").an("obj_locate", 2));
                 }
@@ -70,14 +70,14 @@ public class l {
         }
     }
 
-    public void cOz() {
+    public void cOA() {
         com.baidu.adp.lib.f.e.mB().removeCallbacks(this.jLe);
         com.baidu.adp.lib.f.e.mB().removeCallbacks(this.jLf);
-        cOA();
+        cOB();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cOA() {
+    public void cOB() {
         com.baidu.adp.lib.f.g.dismissPopupWindow(this.jLc);
     }
 }

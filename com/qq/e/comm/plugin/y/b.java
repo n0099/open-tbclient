@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import com.qq.e.comm.constants.Constants;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONObject f12995a = new JSONObject();
+    private JSONObject f12996a = new JSONObject();
 
     public JSONObject a() {
-        return this.f12995a;
+        return this.f12996a;
     }
 
     void a(int i) {
@@ -40,13 +40,13 @@ class b {
             return;
         }
         try {
-            this.f12995a.put(str, obj);
+            this.f12996a.put(str, obj);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
     public String toString() {
-        return this.f12995a.toString();
+        return this.f12996a.toString();
     }
 }

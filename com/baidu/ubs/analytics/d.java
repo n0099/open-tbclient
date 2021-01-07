@@ -28,7 +28,7 @@ public final class d {
         this();
     }
 
-    public final Map<String, g> ejx() {
+    public final Map<String, g> ejy() {
         return this.k;
     }
 
@@ -40,7 +40,7 @@ public final class d {
         this.j = z;
     }
 
-    public static d ejy() {
+    public static d ejz() {
         return a.oOa;
     }
 
@@ -87,20 +87,20 @@ public final class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final SampleResult XI(String str) {
+    public final SampleResult XH(String str) {
         if (this.oNZ == null) {
             if (str == null || this.k == null) {
                 return SampleResult.OTHERE;
             }
             if (this.k.containsKey(str)) {
-                return i.XS(this.k.get(str).getGroup());
+                return i.XR(this.k.get(str).getGroup());
             }
             return SampleResult.OTHERE;
         }
         for (int i = 0; i < this.oNZ.length(); i++) {
             JSONObject optJSONObject = this.oNZ.optJSONObject(i);
             if (optJSONObject != null && str.equals(optJSONObject.optString("exid"))) {
-                return i.XS(optJSONObject.optString(TbEnum.ParamKey.GROUP));
+                return i.XR(optJSONObject.optString(TbEnum.ParamKey.GROUP));
             }
         }
         return SampleResult.OTHERE;

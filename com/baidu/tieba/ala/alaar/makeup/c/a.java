@@ -11,8 +11,8 @@ public class a extends c<Integer> {
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.alaar.makeup.c.b
-    /* renamed from: bSK */
-    public Integer bSL() {
+    /* renamed from: bSL */
+    public Integer bSM() {
         return Integer.valueOf(super.aE(getKey(), getDefaultValue().intValue()));
     }
 }

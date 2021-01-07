@@ -14,10 +14,10 @@ public class AdSlot {
     public static final int TYPE_SPLASH = 3;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6364a;
+    private String f6365a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6365b;
+    private int f6366b;
     private int c;
     private float d;
     private float e;
@@ -39,7 +39,7 @@ public class AdSlot {
     }
 
     public String getCodeId() {
-        return this.f6364a;
+        return this.f6365a;
     }
 
     public static int getPosition(int i) {
@@ -66,7 +66,7 @@ public class AdSlot {
     }
 
     public int getImgAcceptedWidth() {
-        return this.f6365b;
+        return this.f6366b;
     }
 
     public int getImgAcceptedHeight() {
@@ -138,15 +138,15 @@ public class AdSlot {
     }
 
     public String toString() {
-        return "AdSlot{mCodeId='" + this.f6364a + "', mImgAcceptedWidth=" + this.f6365b + ", mImgAcceptedHeight=" + this.c + ", mExpressViewAcceptedWidth=" + this.d + ", mExpressViewAcceptedHeight=" + this.e + ", mAdCount=" + this.f + ", mSupportDeepLink=" + this.g + ", mRewardName='" + this.h + "', mRewardAmount=" + this.i + ", mMediaExtra='" + this.j + "', mUserID='" + this.k + "', mOrientation=" + this.l + ", mNativeAdType=" + this.m + ", mIsAutoPlay=" + this.n + ", mPrimeRit" + this.q + ", mAdloadSeq" + this.p + '}';
+        return "AdSlot{mCodeId='" + this.f6365a + "', mImgAcceptedWidth=" + this.f6366b + ", mImgAcceptedHeight=" + this.c + ", mExpressViewAcceptedWidth=" + this.d + ", mExpressViewAcceptedHeight=" + this.e + ", mAdCount=" + this.f + ", mSupportDeepLink=" + this.g + ", mRewardName='" + this.h + "', mRewardAmount=" + this.i + ", mMediaExtra='" + this.j + "', mUserID='" + this.k + "', mOrientation=" + this.l + ", mNativeAdType=" + this.m + ", mIsAutoPlay=" + this.n + ", mPrimeRit" + this.q + ", mAdloadSeq" + this.p + '}';
     }
 
     public JSONObject toJsonObj() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("mCodeId", this.f6364a);
+            jSONObject.put("mCodeId", this.f6365a);
             jSONObject.put("mIsAutoPlay", this.n);
-            jSONObject.put("mImgAcceptedWidth", this.f6365b);
+            jSONObject.put("mImgAcceptedWidth", this.f6366b);
             jSONObject.put("mImgAcceptedHeight", this.c);
             jSONObject.put("mExpressViewAcceptedWidth", this.d);
             jSONObject.put("mExpressViewAcceptedHeight", this.e);
@@ -169,7 +169,7 @@ public class AdSlot {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6366a;
+        private String f6367a;
         private boolean d;
         private String f;
         private int g;
@@ -184,7 +184,7 @@ public class AdSlot {
         private String q;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f6367b = 640;
+        private int f6368b = 640;
         private int c = 320;
         private int e = 1;
         private boolean n = true;
@@ -195,12 +195,12 @@ public class AdSlot {
         }
 
         public Builder setCodeId(String str) {
-            this.f6366a = str;
+            this.f6367a = str;
             return this;
         }
 
         public Builder setImageAcceptedSize(int i, int i2) {
-            this.f6367b = i;
+            this.f6368b = i;
             this.c = i2;
             return this;
         }
@@ -281,10 +281,10 @@ public class AdSlot {
 
         public AdSlot build() {
             AdSlot adSlot = new AdSlot();
-            adSlot.f6364a = this.f6366a;
+            adSlot.f6365a = this.f6367a;
             adSlot.f = this.e;
             adSlot.g = this.d;
-            adSlot.f6365b = this.f6367b;
+            adSlot.f6366b = this.f6368b;
             adSlot.c = this.c;
             adSlot.d = this.l;
             adSlot.e = this.m;

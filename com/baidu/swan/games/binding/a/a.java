@@ -21,8 +21,8 @@ public final class a extends EventTargetImpl {
 
     @JavascriptInterface
     public void initSharedCanvas(JsObject jsObject) {
-        if (this.efi.aZG() instanceof com.baidu.swan.games.binding.c) {
-            ((com.baidu.swan.games.binding.c) this.efi.aZG()).d(jsObject);
+        if (this.efi.aZH() instanceof com.baidu.swan.games.binding.c) {
+            ((com.baidu.swan.games.binding.c) this.efi.aZH()).d(jsObject);
         }
     }
 

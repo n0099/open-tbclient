@@ -16,11 +16,11 @@ public class bf {
         return this.eRw;
     }
 
-    public PrivateForumInfo bqm() {
+    public PrivateForumInfo bqn() {
         return this.eRx;
     }
 
-    public Integer bqn() {
+    public Integer bqo() {
         return this.eRy;
     }
 

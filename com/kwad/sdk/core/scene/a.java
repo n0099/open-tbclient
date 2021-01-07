@@ -9,10 +9,10 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static a f9735a;
+    public static a f9736a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Object f9736b = new Object();
+    private static Object f9737b = new Object();
     private URLPackage e;
     private HashMap<String, URLPackage> c = new HashMap<>();
     private HashMap<String, URLPackage> d = new HashMap<>();
@@ -20,14 +20,14 @@ public class a {
     private final EntryPackage g = new EntryPackage("", 0);
 
     public static a a() {
-        if (f9735a == null) {
-            synchronized (f9736b) {
-                if (f9735a == null) {
-                    f9735a = new a();
+        if (f9736a == null) {
+            synchronized (f9737b) {
+                if (f9736a == null) {
+                    f9736a = new a();
                 }
             }
         }
-        return f9735a;
+        return f9736a;
     }
 
     private void a(String str, @NonNull URLPackage uRLPackage) {

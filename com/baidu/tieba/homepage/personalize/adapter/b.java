@@ -44,8 +44,8 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.homepage.
         }
         threadCardViewHolder.b((ThreadCardViewHolder<com.baidu.tieba.homepage.personalize.data.f>) fVar);
         threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        com.baidu.tieba.card.s.cva().e(fVar.cTv());
-        com.baidu.tieba.a.d.bOm().e(fVar.cTv());
+        com.baidu.tieba.card.s.cvb().e(fVar.cTw());
+        com.baidu.tieba.a.d.bOn().e(fVar.cTw());
         return threadCardViewHolder.getView();
     }
 

@@ -19,15 +19,15 @@ public class d {
     private long uid;
     private int vote_num;
 
-    public int ctG() {
+    public int ctH() {
         return this.agree_num;
     }
 
-    public int ctH() {
+    public int ctI() {
         return this.ipq;
     }
 
-    public int ctI() {
+    public int ctJ() {
         return this.ipr;
     }
 
@@ -47,11 +47,11 @@ public class d {
         return this.uid;
     }
 
-    public int ctJ() {
+    public int ctK() {
         return this.vote_num;
     }
 
-    public String ctK() {
+    public String ctL() {
         return this.apply_declaration;
     }
 
@@ -67,11 +67,11 @@ public class d {
         return this.tid;
     }
 
-    public boolean ctL() {
+    public boolean ctM() {
         return this.ips;
     }
 
-    public int ctM() {
+    public int ctN() {
         return this.ipt;
     }
 
@@ -88,7 +88,7 @@ public class d {
         dVar.setNickname(electionList.name_show);
         dVar.setPortrait(electionList.portrait);
         dVar.yi(electionList.forum_level.intValue());
-        dVar.Jj(electionList.apply_declaration);
+        dVar.Ji(electionList.apply_declaration);
         dVar.setRank(electionList.rank.intValue());
         dVar.yh(electionList.apply_id.intValue());
         dVar.setPost_num(electionList.post_num.intValue());
@@ -110,7 +110,7 @@ public class d {
         dVar.setNickname(myrecord.name_show);
         dVar.setPortrait(myrecord.portrait);
         dVar.yi(myrecord.forum_level.intValue());
-        dVar.Jj(myrecord.apply_declaration);
+        dVar.Ji(myrecord.apply_declaration);
         dVar.setRank(myrecord.rank.intValue());
         dVar.yh(myrecord.apply_id.intValue());
         dVar.setPost_num(myrecord.post_num.intValue());
@@ -129,7 +129,7 @@ public class d {
         this.ipq = i;
     }
 
-    public void Jj(String str) {
+    public void Ji(String str) {
         this.apply_declaration = str;
     }
 

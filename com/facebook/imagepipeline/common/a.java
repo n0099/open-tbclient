@@ -5,7 +5,7 @@ import com.facebook.common.internal.g;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     public final int from;
     public final int to;
@@ -20,10 +20,10 @@ public class a {
     }
 
     public String toString() {
-        return String.format(null, "%s-%s", Qz(this.from), Qz(this.to));
+        return String.format(null, "%s-%s", QQ(this.from), QQ(this.to));
     }
 
-    private static String Qz(int i) {
+    private static String QQ(int i) {
         return i == Integer.MAX_VALUE ? "" : Integer.toString(i);
     }
 
@@ -42,12 +42,12 @@ public class a {
         return com.facebook.common.util.a.hashCode(this.from, this.to);
     }
 
-    public static a QA(int i) {
+    public static a QR(int i) {
         g.checkArgument(i >= 0);
         return new a(i, ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED);
     }
 
-    public static a QB(int i) {
+    public static a QS(int i) {
         g.checkArgument(i > 0);
         return new a(0, i);
     }

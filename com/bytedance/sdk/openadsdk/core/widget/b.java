@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class b extends AlertDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private SSWebView f7090a;
+    private SSWebView f7091a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f7091b;
+    private Context f7092b;
     private TextView c;
     private String d;
     private a e;
@@ -30,20 +30,20 @@ public class b extends AlertDialog {
 
     public b(Context context) {
         super(context, ac.g(context, "DialogFullscreen"));
-        this.f7091b = context;
+        this.f7092b = context;
     }
 
     @Override // android.app.AlertDialog, android.app.Dialog
     protected void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        setContentView(ac.f(this.f7091b, "tt_app_privacy_dialog"));
+        setContentView(ac.f(this.f7092b, "tt_app_privacy_dialog"));
         b();
         a();
     }
 
     protected void a() {
-        this.f7090a = (SSWebView) findViewById(ac.e(this.f7091b, "tt_privacy_webview"));
-        this.c = (TextView) findViewById(ac.e(this.f7091b, "tt_app_privacy_back_tv"));
+        this.f7091a = (SSWebView) findViewById(ac.e(this.f7092b, "tt_privacy_webview"));
+        this.c = (TextView) findViewById(ac.e(this.f7092b, "tt_app_privacy_back_tv"));
         this.c.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.widget.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -52,10 +52,10 @@ public class b extends AlertDialog {
                 }
             }
         });
-        this.f7090a.getSettings().setJavaScriptEnabled(true);
-        this.f7090a.getSettings().setDisplayZoomControls(false);
-        this.f7090a.getSettings().setCacheMode(2);
-        this.f7090a.loadUrl(this.d);
+        this.f7091a.getSettings().setJavaScriptEnabled(true);
+        this.f7091a.getSettings().setDisplayZoomControls(false);
+        this.f7091a.getSettings().setCacheMode(2);
+        this.f7091a.loadUrl(this.d);
     }
 
     private void b() {

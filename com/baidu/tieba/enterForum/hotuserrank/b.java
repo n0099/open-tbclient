@@ -28,7 +28,7 @@ public class b {
                 b.this.eXu.showToast(R.string.load_error_retry);
                 return;
             }
-            be.bwu().b(b.this.eXu, new String[]{b.this.iJI});
+            be.bwv().b(b.this.eXu, new String[]{b.this.iJI});
             if (b.this.iJJ != 0) {
                 if (b.this.iJJ != 2) {
                     if (b.this.iJJ == 1) {
@@ -63,7 +63,7 @@ public class b {
         if (cVar != null && cVar.iKj != null && cVar.iKj.iKf != null && !cVar.iKj.iKf.isMask && TbadkCoreApplication.isLogin()) {
             this.mRootView.setVisibility(0);
             this.iJF.a(cVar.iKj);
-            this.iJF.czb();
+            this.iJF.czc();
             this.iJI = cVar.iKk;
             return;
         }

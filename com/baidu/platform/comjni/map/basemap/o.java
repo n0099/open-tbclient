@@ -4,19 +4,19 @@ import android.os.Bundle;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class o implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Bundle f4750a;
+    final /* synthetic */ Bundle f4751a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ NABaseMap f4751b;
+    final /* synthetic */ NABaseMap f4752b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(NABaseMap nABaseMap, Bundle bundle) {
-        this.f4751b = nABaseMap;
-        this.f4750a = bundle;
+        this.f4752b = nABaseMap;
+        this.f4751a = bundle;
     }
 
     /* JADX DEBUG: Another duplicated slice has different insns count: {[IF]}, finally: {[IF, IGET, INVOKE, INVOKE, INVOKE] complete} */
@@ -31,36 +31,36 @@ public class o implements Runnable {
         ReadWriteLock readWriteLock5;
         boolean z = false;
         try {
-            readWriteLock3 = this.f4751b.c;
+            readWriteLock3 = this.f4752b.c;
             z = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
             if (z) {
-                if (this.f4750a != null) {
-                    a2 = this.f4751b.a(this.f4750a.getLong("itemaddr", 0L));
+                if (this.f4751a != null) {
+                    a2 = this.f4752b.a(this.f4751a.getLong("itemaddr", 0L));
                     if (a2) {
                         if (z) {
-                            readWriteLock5 = this.f4751b.c;
+                            readWriteLock5 = this.f4752b.c;
                             readWriteLock5.readLock().unlock();
                             return;
                         }
                         return;
                     }
                 }
-                NABaseMap nABaseMap = this.f4751b;
-                j = this.f4751b.f4723b;
-                nABaseMap.nativeAddItemData(j, this.f4750a);
+                NABaseMap nABaseMap = this.f4752b;
+                j = this.f4752b.f4724b;
+                nABaseMap.nativeAddItemData(j, this.f4751a);
             }
             if (z) {
-                readWriteLock4 = this.f4751b.c;
+                readWriteLock4 = this.f4752b.c;
                 readWriteLock4.readLock().unlock();
             }
         } catch (Exception e) {
             if (z) {
-                readWriteLock2 = this.f4751b.c;
+                readWriteLock2 = this.f4752b.c;
                 readWriteLock2.readLock().unlock();
             }
         } catch (Throwable th) {
             if (z) {
-                readWriteLock = this.f4751b.c;
+                readWriteLock = this.f4752b.c;
                 readWriteLock.readLock().unlock();
             }
             throw th;

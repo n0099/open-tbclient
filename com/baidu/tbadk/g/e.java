@@ -7,7 +7,7 @@ public class e {
     private a eJL;
     public b eJM;
 
-    public ViewGroup bnQ() {
+    public ViewGroup bnR() {
         return this.eJJ;
     }
 
@@ -15,7 +15,7 @@ public class e {
         this.eJJ = viewGroup;
     }
 
-    public a bnS() {
+    public a bnT() {
         return this.eJL;
     }
 

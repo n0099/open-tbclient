@@ -25,7 +25,7 @@ public class c extends BaseCardInfo {
             if (topicThread.thread_info != null) {
                 this.eMv = new bz();
                 this.eMv.a(topicThread.thread_info);
-                this.eMv.bsq();
+                this.eMv.bsr();
             }
             this.klb = topicThread.user_agree.intValue();
             this.source = topicThread.source.intValue();
@@ -38,7 +38,7 @@ public class c extends BaseCardInfo {
             if (topicThread.thread_info != null) {
                 this.eMv = new bz();
                 this.eMv.a(topicThread.thread_info);
-                this.eMv.bsq();
+                this.eMv.bsr();
             }
             this.klb = Integer.parseInt(topicThread.user_agree);
             this.source = topicThread.source.intValue();

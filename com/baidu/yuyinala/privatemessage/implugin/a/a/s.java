@@ -79,10 +79,10 @@ public class s extends e {
             this.oTs.setVisibility(8);
         }
         this.mContentView.setMinimumWidth(a.c(context.getResources().getDimension(a.d.bd_im_audio_msg_min_width), audioMsg.getDuration()));
-        eld();
+        ele();
         super.b(context, chatMsg);
     }
 
-    private void eld() {
+    private void ele() {
     }
 }

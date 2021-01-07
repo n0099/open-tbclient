@@ -44,7 +44,7 @@ public class a {
     /* renamed from: com.baidu.swan.games.view.button.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0549a {
-        void bdk();
+        void bdl();
     }
 
     public a(@NonNull com.baidu.swan.games.binding.model.c cVar) {
@@ -78,7 +78,7 @@ public class a {
             Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
         }
         if (this.eoP != null) {
-            this.eoP.bdk();
+            this.eoP.bdl();
         }
     }
 

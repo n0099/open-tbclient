@@ -20,7 +20,7 @@ public class g {
     private af oMy = new af();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static g eiW() {
+    public static g eiX() {
         if (oNq == null) {
             synchronized (e.class) {
                 if (oNq == null) {
@@ -35,12 +35,12 @@ public class g {
     public void a(c cVar, Context context) {
         this.mContext = context;
         this.eAT = 360000;
-        ai ejs = ai.ejs();
-        this.eAU = ejs.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
-        this.eAV = ejs.getInt("ubc_database_limit", 10000);
-        cVar.eiR().a(this.oNt);
-        this.oNr = ejs.getInt("ubc_launch_upload_max_limit", 614400);
-        this.oNs = ejs.getInt("ubc_single_log_max_limit", 153600);
+        ai ejt = ai.ejt();
+        this.eAU = ejt.getInt("ubc_data_expire_time", PersonListModel.CACHETIME);
+        this.eAV = ejt.getInt("ubc_database_limit", 10000);
+        cVar.eiS().a(this.oNt);
+        this.oNr = ejt.getInt("ubc_launch_upload_max_limit", 614400);
+        this.oNs = ejt.getInt("ubc_single_log_max_limit", 153600);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -48,30 +48,30 @@ public class g {
         for (k kVar : list) {
             String id = kVar.getId();
             if (!TextUtils.isEmpty(id)) {
-                if ("0".equals(kVar.bip())) {
+                if ("0".equals(kVar.biq())) {
                     this.oNt.oNd.add(id);
                     this.oNt.oNg.remove(id);
                 } else {
                     this.oNt.oNd.remove(id);
                     this.oNt.oNg.add(id);
                 }
-                if ("1".equals(kVar.biq())) {
+                if ("1".equals(kVar.bir())) {
                     this.oNt.oNe.add(id);
                 } else {
                     this.oNt.oNe.remove(id);
                 }
-                if ("1".equals(kVar.bir())) {
+                if ("1".equals(kVar.bis())) {
                     this.oNt.oNf.add(id);
                 } else {
                     this.oNt.oNf.remove(id);
                 }
-                if ("1".equals(kVar.eja())) {
+                if ("1".equals(kVar.ejb())) {
                     this.oNt.oNh.add(id);
                 } else {
                     this.oNt.oNh.remove(id);
                 }
-                if (kVar.bis() >= 1 && kVar.bis() <= 100) {
-                    this.oNt.oNi.put(id, String.valueOf(kVar.bis()));
+                if (kVar.bit() >= 1 && kVar.bit() <= 100) {
+                    this.oNt.oNi.put(id, String.valueOf(kVar.bit()));
                 } else {
                     this.oNt.oNi.remove(id);
                 }
@@ -80,35 +80,35 @@ public class g {
                 } else {
                     this.oNt.oNj.remove(id);
                 }
-                if (kVar.biu() != 0 && kVar.bit() != 0) {
-                    m mVar = new m(id, kVar.bit(), kVar.biu());
+                if (kVar.biv() != 0 && kVar.biu() != 0) {
+                    m mVar = new m(id, kVar.biu(), kVar.biv());
                     this.oNt.oNk.put(mVar.getId(), mVar);
                 }
-                if (TextUtils.equals(kVar.biv(), "1")) {
+                if (TextUtils.equals(kVar.biw(), "1")) {
                     this.oNt.oNl.add(id);
                 } else {
                     this.oNt.oNl.remove(id);
                 }
-                if (TextUtils.equals(kVar.ejc(), "1")) {
+                if (TextUtils.equals(kVar.ejd(), "1")) {
                     this.oNt.oNm.add(id);
                 } else {
                     this.oNt.oNm.remove(id);
                 }
-                String ejd = kVar.ejd();
-                if (!TextUtils.isEmpty(ejd) && !TextUtils.equals(ejd, "0")) {
-                    this.oNt.oNn.put(id, ejd);
+                String eje = kVar.eje();
+                if (!TextUtils.isEmpty(eje) && !TextUtils.equals(eje, "0")) {
+                    this.oNt.oNn.put(id, eje);
                 } else {
                     this.oNt.oNn.remove(id);
                 }
-                String eje = kVar.eje();
-                if (!TextUtils.isEmpty(eje)) {
-                    this.oNt.oNo.put(id, eje);
+                String ejf = kVar.ejf();
+                if (!TextUtils.isEmpty(ejf)) {
+                    this.oNt.oNo.put(id, ejf);
                 } else {
                     this.oNt.oNo.remove(id);
                 }
-                int ejf = kVar.ejf();
-                if (ejf != 2) {
-                    this.oNt.oNp.put(id, Integer.valueOf(ejf));
+                int ejg = kVar.ejg();
+                if (ejg != 2) {
+                    this.oNt.oNp.put(id, Integer.valueOf(ejg));
                 } else {
                     this.oNt.oNp.remove(id);
                 }
@@ -126,15 +126,15 @@ public class g {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean zo(String str) {
-        if (this.oMy.ejn()) {
+        if (this.oMy.ejo()) {
             return true;
         }
         return this.oNt.oNe.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Xl(String str) {
-        if (!isBeta() && this.oMy.ejq() && zr(str) > 0) {
+    public boolean Xk(String str) {
+        if (!isBeta() && this.oMy.ejr() && zr(str) > 0) {
             return new Random().nextInt(100) >= zr(str);
         }
         return false;
@@ -145,7 +145,7 @@ public class g {
         return this.oNt.oNf.contains(str);
     }
 
-    boolean Xm(String str) {
+    boolean Xl(String str) {
         return this.oNt.oNh.contains(str);
     }
 
@@ -155,7 +155,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bik() {
+    public int bil() {
         return this.eAT;
     }
 
@@ -167,7 +167,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bil() {
+    public int bim() {
         return this.eAU;
     }
 
@@ -175,12 +175,12 @@ public class g {
     public void nK(int i) {
         if (i >= this.eAU) {
             this.eAU = i;
-            ai.ejs().putInt("ubc_data_expire_time", i);
+            ai.ejt().putInt("ubc_data_expire_time", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int bim() {
+    public int bin() {
         return this.eAV;
     }
 
@@ -188,12 +188,12 @@ public class g {
     public void nL(int i) {
         if (i >= this.eAV) {
             this.eAV = i;
-            ai.ejs().putInt("ubc_database_limit", i);
+            ai.ejt().putInt("ubc_database_limit", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int eiX() {
+    public int eiY() {
         return this.oNr;
     }
 
@@ -201,12 +201,12 @@ public class g {
     public void Or(int i) {
         if (i >= 307200) {
             this.oNr = i;
-            ai.ejs().putInt("ubc_launch_upload_max_limit", i);
+            ai.ejt().putInt("ubc_launch_upload_max_limit", i);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int eiY() {
+    public int eiZ() {
         return this.oNs;
     }
 
@@ -214,7 +214,7 @@ public class g {
     public void Os(int i) {
         if (i >= 30720) {
             this.oNs = i;
-            ai.ejs().putInt("ubc_single_log_max_limit", i);
+            ai.ejt().putInt("ubc_single_log_max_limit", i);
         }
     }
 
@@ -230,7 +230,7 @@ public class g {
         if (this.oNt.oNk == null || !this.oNt.oNk.containsKey(str)) {
             return false;
         }
-        return this.oNt.oNk.get(str).biw();
+        return this.oNt.oNk.get(str).bix();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -238,7 +238,7 @@ public class g {
         if (this.oNt.oNk == null || !this.oNt.oNk.containsKey(str)) {
             return false;
         }
-        return this.oNt.oNk.get(str).bix();
+        return this.oNt.oNk.get(str).biy();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -247,8 +247,8 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Xn(String str) {
-        return this.mContext == null || isNetworkConnected(this.mContext) || !Xm(str);
+    public boolean Xm(String str) {
+        return this.mContext == null || isNetworkConnected(this.mContext) || !Xl(str);
     }
 
     public boolean isNetworkConnected(Context context) {
@@ -257,17 +257,17 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Xo(String str) {
+    public boolean Xn(String str) {
         return this.oNt.oNm.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean Xp(String str) {
+    public boolean Xo(String str) {
         return this.oNt.oNe.contains(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String Xq(String str) {
+    public String Xp(String str) {
         return this.oNt.oNn.containsKey(str) ? this.oNt.oNn.get(str) : "";
     }
 
@@ -276,7 +276,7 @@ public class g {
         return this.oNt.oNo.containsKey(str) ? this.oNt.oNo.get(str) : "";
     }
 
-    public boolean Xr(String str) {
+    public boolean Xq(String str) {
         return TextUtils.equals("0", getUploadType(str));
     }
 
@@ -290,7 +290,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int Xs(String str) {
+    public int Xr(String str) {
         Integer num;
         if (!this.oNt.oNp.containsKey(str) || (num = this.oNt.oNp.get(str)) == null) {
             return 2;

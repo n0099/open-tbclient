@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.data.Config;
 public class HomeWatcherReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private a f7831a;
+    private a f7832a;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -29,13 +29,13 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
                 Log.i("HomeReceiver", "reason: " + stringExtra);
                 if ("homekey".equals(stringExtra)) {
                     Log.i("HomeReceiver", "homekey");
-                    if (this.f7831a != null) {
-                        this.f7831a.H();
+                    if (this.f7832a != null) {
+                        this.f7832a.H();
                     }
                 } else if ("recentapps".equals(stringExtra)) {
                     Log.i("HomeReceiver", "long press home key or activity switch");
-                    if (this.f7831a != null) {
-                        this.f7831a.I();
+                    if (this.f7832a != null) {
+                        this.f7832a.I();
                     }
                 } else if (Config.BAWU_TYPE_ASSIST.equals(stringExtra)) {
                     Log.i("HomeReceiver", Config.BAWU_TYPE_ASSIST);
@@ -45,6 +45,6 @@ public class HomeWatcherReceiver extends BroadcastReceiver {
     }
 
     public void a(a aVar) {
-        this.f7831a = aVar;
+        this.f7832a = aVar;
     }
 }

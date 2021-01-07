@@ -24,7 +24,7 @@ import org.apache.http.protocol.HTTP;
 public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
     /* renamed from: a  reason: collision with root package name */
-    final z f6185a;
+    final z f6186a;
     int e = 0;
     private long f = PlaybackStateCompat.ACTION_SET_REPEAT_MODE;
     final com.bytedance.sdk.a.a.d piu;
@@ -32,7 +32,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     final g pjw;
 
     public a(z zVar, g gVar, com.bytedance.sdk.a.a.e eVar, com.bytedance.sdk.a.a.d dVar) {
-        this.f6185a = zVar;
+        this.f6186a = zVar;
         this.pjw = gVar;
         this.pjC = eVar;
         this.piu = dVar;
@@ -41,7 +41,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     @Override // com.bytedance.sdk.a.b.a.c.c
     public r a(ab abVar, long j) {
         if (HTTP.CHUNK_CODING.equalsIgnoreCase(abVar.a("Transfer-Encoding"))) {
-            return eqR();
+            return eqS();
         }
         if (j != -1) {
             return in(j);
@@ -51,7 +51,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
     @Override // com.bytedance.sdk.a.b.a.c.c
     public void d(ab abVar) throws IOException {
-        a(abVar.eqQ(), i.a(abVar, this.pjw.eqG().eqx().ern().type()));
+        a(abVar.eqR(), i.a(abVar, this.pjw.eqH().eqy().ero().type()));
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
@@ -62,13 +62,13 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             return new h(a2, 0L, l.c(io(0L)));
         }
         if (HTTP.CHUNK_CODING.equalsIgnoreCase(bVar.a("Transfer-Encoding"))) {
-            return new h(a2, -1L, l.c(d(bVar.eqN().eqk())));
+            return new h(a2, -1L, l.c(d(bVar.eqO().eql())));
         }
         long d2 = com.bytedance.sdk.a.b.a.c.e.d(bVar);
         if (d2 != -1) {
             return new h(a2, d2, l.c(io(d2)));
         }
-        return new h(a2, -1L, l.c(eqS()));
+        return new h(a2, -1L, l.c(eqT()));
     }
 
     @Override // com.bytedance.sdk.a.b.a.c.c
@@ -85,12 +85,12 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         if (this.e != 0) {
             throw new IllegalStateException("state: " + this.e);
         }
-        this.piu.YH(str).YH("\r\n");
+        this.piu.YG(str).YG("\r\n");
         int a2 = vVar.a();
         for (int i = 0; i < a2; i++) {
-            this.piu.YH(vVar.a(i)).YH(": ").YH(vVar.b(i)).YH("\r\n");
+            this.piu.YG(vVar.a(i)).YG(": ").YG(vVar.b(i)).YG("\r\n");
         }
-        this.piu.YH("\r\n");
+        this.piu.YG("\r\n");
         this.e = 1;
     }
 
@@ -100,9 +100,9 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             throw new IllegalStateException("state: " + this.e);
         }
         try {
-            k YI = k.YI(f());
-            b.a c2 = new b.a().a(YI.f6183a).PR(YI.f6184b).YJ(YI.c).c(eqQ());
-            if (z && YI.f6184b == 100) {
+            k YH = k.YH(f());
+            b.a c2 = new b.a().a(YH.f6184a).PR(YH.f6185b).YI(YH.c).c(eqR());
+            if (z && YH.f6185b == 100) {
                 return null;
             }
             this.e = 4;
@@ -120,19 +120,19 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         return e2;
     }
 
-    public v eqQ() throws IOException {
+    public v eqR() throws IOException {
         v.a aVar = new v.a();
         while (true) {
             String f2 = f();
             if (f2.length() != 0) {
                 com.bytedance.sdk.a.b.a.a.pir.a(aVar, f2);
             } else {
-                return aVar.erx();
+                return aVar.ery();
             }
         }
     }
 
-    public r eqR() {
+    public r eqS() {
         if (this.e != 1) {
             throw new IllegalStateException("state: " + this.e);
         }
@@ -164,7 +164,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         return new c(sVar);
     }
 
-    public s eqS() throws IOException {
+    public s eqT() throws IOException {
         if (this.e != 4) {
             throw new IllegalStateException("state: " + this.e);
         }
@@ -177,10 +177,10 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     }
 
     void a(com.bytedance.sdk.a.a.i iVar) {
-        t epR = iVar.epR();
+        t epS = iVar.epS();
         iVar.a(t.pig);
-        epR.eqg();
-        epR.eqf();
+        epS.eqh();
+        epS.eqg();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -191,12 +191,12 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         private final com.bytedance.sdk.a.a.i pjG;
 
         d(long j) {
-            this.pjG = new com.bytedance.sdk.a.a.i(a.this.piu.epR());
+            this.pjG = new com.bytedance.sdk.a.a.i(a.this.piu.epS());
             this.d = j;
         }
 
         @Override // com.bytedance.sdk.a.a.r
-        public t epR() {
+        public t epS() {
             return this.pjG;
         }
 
@@ -240,11 +240,11 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         private final com.bytedance.sdk.a.a.i pjG;
 
         b() {
-            this.pjG = new com.bytedance.sdk.a.a.i(a.this.piu.epR());
+            this.pjG = new com.bytedance.sdk.a.a.i(a.this.piu.epS());
         }
 
         @Override // com.bytedance.sdk.a.a.r
-        public t epR() {
+        public t epS() {
             return this.pjG;
         }
 
@@ -255,9 +255,9 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             }
             if (j != 0) {
                 a.this.piu.ik(j);
-                a.this.piu.YH("\r\n");
+                a.this.piu.YG("\r\n");
                 a.this.piu.a(cVar, j);
-                a.this.piu.YH("\r\n");
+                a.this.piu.YG("\r\n");
             }
         }
 
@@ -272,7 +272,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
         public synchronized void close() throws IOException {
             if (!this.c) {
                 this.c = true;
-                a.this.piu.YH("0\r\n\r\n");
+                a.this.piu.YG("0\r\n\r\n");
                 a.this.a(this.pjG);
                 a.this.e = 3;
             }
@@ -282,20 +282,20 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.a.b.a.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public abstract class AbstractC0968a implements s {
+    public abstract class AbstractC1006a implements s {
 
         /* renamed from: b  reason: collision with root package name */
-        protected boolean f6186b;
+        protected boolean f6187b;
         protected long c;
         protected final com.bytedance.sdk.a.a.i pjE;
 
-        private AbstractC0968a() {
-            this.pjE = new com.bytedance.sdk.a.a.i(a.this.pjC.epR());
+        private AbstractC1006a() {
+            this.pjE = new com.bytedance.sdk.a.a.i(a.this.pjC.epS());
             this.c = 0L;
         }
 
         @Override // com.bytedance.sdk.a.a.s
-        public t epR() {
+        public t epS() {
             return this.pjE;
         }
 
@@ -329,7 +329,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public class e extends AbstractC0968a {
+    public class e extends AbstractC1006a {
         private long f;
 
         e(long j) throws IOException {
@@ -340,12 +340,12 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             }
         }
 
-        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0968a, com.bytedance.sdk.a.a.s
+        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC1006a, com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             if (j < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
             }
-            if (this.f6186b) {
+            if (this.f6187b) {
                 throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             if (this.f == 0) {
@@ -366,18 +366,18 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
         @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (!this.f6186b) {
+            if (!this.f6187b) {
                 if (this.f != 0 && !com.bytedance.sdk.a.b.a.c.a(this, 100, TimeUnit.MILLISECONDS)) {
                     a(false, null);
                 }
-                this.f6186b = true;
+                this.f6187b = true;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public class c extends AbstractC0968a {
+    public class c extends AbstractC1006a {
         private long g;
         private boolean h;
         private final com.bytedance.sdk.a.b.s pjI;
@@ -389,12 +389,12 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
             this.pjI = sVar;
         }
 
-        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0968a, com.bytedance.sdk.a.a.s
+        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC1006a, com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             if (j < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
             }
-            if (this.f6186b) {
+            if (this.f6187b) {
                 throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             if (this.h) {
@@ -427,7 +427,7 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
                     throw new ProtocolException("expected chunk size and optional extensions but was \"" + this.g + trim + "\"");
                 } else if (this.g == 0) {
                     this.h = false;
-                    com.bytedance.sdk.a.b.a.c.e.a(a.this.f6185a.erF(), this.pjI, a.this.eqQ());
+                    com.bytedance.sdk.a.b.a.c.e.a(a.this.f6186a.erG(), this.pjI, a.this.eqR());
                     a(true, null);
                 }
             } catch (NumberFormatException e) {
@@ -437,30 +437,30 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
         @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (!this.f6186b) {
+            if (!this.f6187b) {
                 if (this.h && !com.bytedance.sdk.a.b.a.c.a(this, 100, TimeUnit.MILLISECONDS)) {
                     a(false, null);
                 }
-                this.f6186b = true;
+                this.f6187b = true;
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes4.dex */
-    public class f extends AbstractC0968a {
+    public class f extends AbstractC1006a {
         private boolean f;
 
         f() {
             super();
         }
 
-        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC0968a, com.bytedance.sdk.a.a.s
+        @Override // com.bytedance.sdk.a.b.a.d.a.AbstractC1006a, com.bytedance.sdk.a.a.s
         public long b(com.bytedance.sdk.a.a.c cVar, long j) throws IOException {
             if (j < 0) {
                 throw new IllegalArgumentException("byteCount < 0: " + j);
             }
-            if (this.f6186b) {
+            if (this.f6187b) {
                 throw new IllegalStateException(LogConfig.TYPE_CLOSED);
             }
             if (this.f) {
@@ -477,11 +477,11 @@ public final class a implements com.bytedance.sdk.a.b.a.c.c {
 
         @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable
         public void close() throws IOException {
-            if (!this.f6186b) {
+            if (!this.f6187b) {
                 if (!this.f) {
                     a(false, null);
                 }
-                this.f6186b = true;
+                this.f6187b = true;
             }
         }
     }

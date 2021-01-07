@@ -14,13 +14,13 @@ import org.json.JSONObject;
 public class ExceptionAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ExceptionAnalysis f3633a = new ExceptionAnalysis();
+    private static ExceptionAnalysis f3634a = new ExceptionAnalysis();
     private Context c;
     private String e;
     public Callback mCallback;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3634b = false;
+    private boolean f3635b = false;
     private HeadObject d = new HeadObject();
 
     /* loaded from: classes15.dex */
@@ -29,7 +29,7 @@ public class ExceptionAnalysis {
     }
 
     public static ExceptionAnalysis getInstance() {
-        return f3633a;
+        return f3634a;
     }
 
     private ExceptionAnalysis() {
@@ -43,8 +43,8 @@ public class ExceptionAnalysis {
         if (context != null) {
             this.c = context.getApplicationContext();
         }
-        if (this.c != null && !this.f3634b) {
-            this.f3634b = true;
+        if (this.c != null && !this.f3635b) {
+            this.f3635b = true;
             ad.a().a(this.c);
             if (!z) {
                 NativeCrashHandler.init(this.c);

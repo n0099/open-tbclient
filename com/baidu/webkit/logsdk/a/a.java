@@ -23,15 +23,15 @@ import java.net.URLEncoder;
 import java.util.HashSet;
 import java.util.Iterator;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class a {
     private static String n;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5985a;
+    private String f5986a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f5986b;
+    private int f5987b;
     private int c;
     private int d;
     private String e;
@@ -58,10 +58,10 @@ public final class a {
 
     private String a(Context context, com.baidu.webkit.logsdk.b bVar) {
         if (TextUtils.isEmpty(this.g)) {
-            if (this.f5986b == 0) {
+            if (this.f5987b == 0) {
                 d(context);
             }
-            int i = this.f5986b;
+            int i = this.f5987b;
             if (this.c == 0) {
                 d(context);
             }
@@ -100,13 +100,13 @@ public final class a {
     }
 
     private String a(com.baidu.webkit.logsdk.b bVar) {
-        if (TextUtils.isEmpty(this.f5985a)) {
-            this.f5985a = bVar.e();
+        if (TextUtils.isEmpty(this.f5986a)) {
+            this.f5986a = bVar.e();
         }
-        if (TextUtils.isEmpty(this.f5985a)) {
+        if (TextUtils.isEmpty(this.f5986a)) {
             throw new RuntimeException("BdLogBase: get cuid null!");
         }
-        return this.f5985a;
+        return this.f5986a;
     }
 
     private String b() {
@@ -206,7 +206,7 @@ public final class a {
     private void d(Context context) {
         try {
             DisplayMetrics displayMetrics = context.getResources().getDisplayMetrics();
-            this.f5986b = displayMetrics.widthPixels;
+            this.f5987b = displayMetrics.widthPixels;
             this.c = displayMetrics.heightPixels;
             this.d = displayMetrics.densityDpi;
         } catch (Exception e) {
@@ -662,7 +662,7 @@ public final class a {
 
     public final String b(Context context, String str) {
         com.baidu.webkit.logsdk.b.c c = b.a().e().c(str);
-        if ("full".equals(c.f6000a)) {
+        if ("full".equals(c.f6001a)) {
             return a(context);
         }
         HashSet<String> hashSet = c.c;

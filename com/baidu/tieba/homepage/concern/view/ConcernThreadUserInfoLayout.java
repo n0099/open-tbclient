@@ -31,7 +31,7 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
 
     @Override // com.baidu.tbadk.core.view.ThreadUserInfoLayout
     protected void j(bz bzVar) {
-        if (bzVar == null || StringUtils.isNull(bzVar.boP())) {
+        if (bzVar == null || StringUtils.isNull(bzVar.boQ())) {
             this.alh.setVisibility(8);
             return;
         }
@@ -40,7 +40,7 @@ public class ConcernThreadUserInfoLayout extends ThreadUserInfoLayout {
             layoutParams.bottomMargin = 0;
             this.alh.setLayoutParams(layoutParams);
         }
-        this.alh.setText(bzVar.boP());
+        this.alh.setText(bzVar.boQ());
         this.alh.setVisibility(0);
     }
 }

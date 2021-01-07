@@ -9,7 +9,7 @@ public class AdService {
     protected static int instanceCount = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    private AdView f3289a;
+    private AdView f3290a;
 
     public static void setChannelId(String str) {
         channelId = str;
@@ -24,19 +24,19 @@ public class AdService {
         if (context == null || viewGroup == null || layoutParams == null || adViewListener == null || adSize == null) {
             throw new IllegalArgumentException("One of arguments is null");
         }
-        this.f3289a = new AdView(context, false, adSize, str);
-        this.f3289a.setListener(adViewListener);
+        this.f3290a = new AdView(context, false, adSize, str);
+        this.f3290a.setListener(adViewListener);
         a(viewGroup, layoutParams);
         instanceCount++;
     }
 
     private void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         try {
-            if (this.f3289a.getParent() != viewGroup) {
-                if (this.f3289a.getParent() != null) {
-                    ((ViewGroup) this.f3289a.getParent()).removeView(this.f3289a);
+            if (this.f3290a.getParent() != viewGroup) {
+                if (this.f3290a.getParent() != null) {
+                    ((ViewGroup) this.f3290a.getParent()).removeView(this.f3290a);
                 }
-                viewGroup.addView(this.f3289a, layoutParams);
+                viewGroup.addView(this.f3290a, layoutParams);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().d(e);
@@ -44,9 +44,9 @@ public class AdService {
     }
 
     public void destroy() {
-        if (this.f3289a != null) {
-            this.f3289a.destroy();
-            this.f3289a = null;
+        if (this.f3290a != null) {
+            this.f3290a.destroy();
+            this.f3290a = null;
         }
     }
 }

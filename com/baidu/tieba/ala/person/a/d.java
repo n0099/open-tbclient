@@ -12,7 +12,7 @@ public class d {
     public List<AlaLiveInfoData> hVK;
     public b hVL;
 
-    public List cpr() {
+    public List cps() {
         int i = 0;
         if (ListUtils.isEmpty(this.hVK)) {
             return null;

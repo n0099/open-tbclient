@@ -19,7 +19,7 @@ import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 /* loaded from: classes9.dex */
 public class b {
-    public static final boolean dDB = aLi();
+    public static final boolean dDB = aLj();
     private static int dDC;
     private boolean dTD;
     @Nullable
@@ -66,7 +66,7 @@ public class b {
                     reset();
                 }
                 this.dTJ = i;
-                a2 = aSr();
+                a2 = aSs();
             } else {
                 this.dTJ = i;
                 a2 = a(i, lV(i), z3, z, z2);
@@ -77,8 +77,8 @@ public class b {
         }
     }
 
-    public void ash() {
-        a(aSr());
+    public void asi() {
+        a(aSs());
     }
 
     public void reset() {
@@ -87,19 +87,19 @@ public class b {
     }
 
     @NonNull
-    public a aSr() {
+    public a aSs() {
         if (this.dTK == null) {
-            aSv();
+            aSw();
         }
         return this.dTK;
     }
 
     @Nullable
-    public View aSs() {
+    public View aSt() {
         return this.dTI;
     }
 
-    public boolean aSt() {
+    public boolean aSu() {
         return this.dTD;
     }
 
@@ -107,7 +107,7 @@ public class b {
         if (dDC == 2) {
             c(aVar);
         } else {
-            aSu();
+            aSv();
             b(aVar);
         }
         if (this.mContentView != null) {
@@ -121,7 +121,7 @@ public class b {
         }
     }
 
-    private void aSu() {
+    private void aSv() {
         Window window = this.mActivity.getWindow();
         window.clearFlags(1024);
         if (Build.VERSION.SDK_INT >= 21) {
@@ -129,7 +129,7 @@ public class b {
             window.addFlags(Integer.MIN_VALUE);
             switch (dDC) {
                 case 1:
-                    d(window, aSr().dTB);
+                    d(window, aSs().dTB);
                     return;
                 default:
                     return;
@@ -157,7 +157,7 @@ public class b {
         }
         int i3 = aVar.dTz;
         if (i3 == 1) {
-            i3 = aSw();
+            i3 = aSx();
         }
         window.getDecorView().setSystemUiVisibility(i2);
         if (Build.VERSION.SDK_INT >= 21) {
@@ -198,7 +198,7 @@ public class b {
             window.setAttributes(attributes);
             int i4 = aVar.dTz;
             if (i4 == 1) {
-                i4 = aSw();
+                i4 = aSx();
             }
             View d = d(aVar);
             if (d != null) {
@@ -254,16 +254,16 @@ public class b {
         return null;
     }
 
-    private void aSv() {
-        int aSw = aSw();
-        this.dTK = a(aSw, lV(aSw), false, false, true);
+    private void aSw() {
+        int aSx = aSx();
+        this.dTK = a(aSx, lV(aSx), false, false, true);
     }
 
     private a a(int i, int i2, boolean z, boolean z2, boolean z3) {
-        return a.C0497a.aSp().hE(z).hF(true).hD(false).lT(i2).lU(i).hG(z2).hH(z3).aSq();
+        return a.C0497a.aSq().hE(z).hF(true).hD(false).lT(i2).lU(i).hG(z2).hH(z3).aSr();
     }
 
-    private int aSw() {
+    private int aSx() {
         return Build.VERSION.SDK_INT >= 21 ? this.mActivity.getResources().getColor(a.c.aiapps_statusbar_immersion_bg) : this.mActivity.getResources().getColor(a.c.aiapps_statusbar_immersion_bg_below_lollipop);
     }
 
@@ -282,7 +282,7 @@ public class b {
         return i;
     }
 
-    private static boolean aLi() {
+    private static boolean aLj() {
         return Build.VERSION.SDK_INT >= 21;
     }
 }

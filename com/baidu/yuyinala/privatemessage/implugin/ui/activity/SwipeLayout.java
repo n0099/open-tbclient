@@ -215,7 +215,7 @@ public class SwipeLayout extends FrameLayout {
         }
     }
 
-    public void elP() {
+    public void elQ() {
         if (this.oVX != null) {
             this.oVX.removeAllListeners();
             this.oVX.cancel();
@@ -233,7 +233,7 @@ public class SwipeLayout extends FrameLayout {
 
     private void Aw(boolean z) {
         int i;
-        elP();
+        elQ();
         this.oVX = ObjectAnimator.ofFloat(this, "contentX", getContentX(), 0.0f);
         if (z) {
             i = (int) ((200.0f * getContentX()) / this.screenWidth);
@@ -247,7 +247,7 @@ public class SwipeLayout extends FrameLayout {
 
     private void Ax(boolean z) {
         int i;
-        elP();
+        elQ();
         this.oVX = ObjectAnimator.ofFloat(this, "contentX", getContentX(), this.screenWidth);
         if (z) {
             i = (int) ((200.0f * (this.screenWidth - getContentX())) / this.screenWidth);

@@ -74,7 +74,7 @@ public class FloatButton extends FullScreenFloatView {
                     }
                     removeCallbacks(this.dyU);
                 } else if (this.dyR && this.dyV != null) {
-                    this.dyV.aDv();
+                    this.dyV.aDw();
                 }
                 if (DEBUG) {
                     Log.e("FloatButton", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.dyQ);

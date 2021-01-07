@@ -3,7 +3,7 @@ package com.baidu.browser.sailor.feature.upload;
 import android.content.Intent;
 import com.baidu.n.a.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class a implements a.InterfaceC0277a {
     final /* synthetic */ BdUploadHandler agT;
 

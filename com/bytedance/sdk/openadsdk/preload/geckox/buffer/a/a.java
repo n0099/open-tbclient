@@ -7,33 +7,33 @@ import java.io.InputStream;
 public class a extends InputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f7756a;
+    private com.bytedance.sdk.openadsdk.preload.geckox.buffer.a f7757a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f7757b;
+    private long f7758b;
 
     public a(com.bytedance.sdk.openadsdk.preload.geckox.buffer.a aVar) {
-        this.f7756a = aVar;
+        this.f7757a = aVar;
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr) throws IOException {
-        return this.f7756a.b(bArr);
+        return this.f7757a.b(bArr);
     }
 
     @Override // java.io.InputStream
     public int read(byte[] bArr, int i, int i2) throws IOException {
-        return this.f7756a.b(bArr, i, i2);
+        return this.f7757a.b(bArr, i, i2);
     }
 
     @Override // java.io.InputStream
     public long skip(long j) throws IOException {
-        return this.f7756a.a(j);
+        return this.f7757a.a(j);
     }
 
     @Override // java.io.InputStream
     public int available() throws IOException {
-        long b2 = this.f7756a.b() - this.f7756a.c();
+        long b2 = this.f7757a.b() - this.f7757a.c();
         return b2 > 2147483647L ? ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED : (int) b2;
     }
 
@@ -43,12 +43,12 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream
     public synchronized void mark(int i) {
-        this.f7757b = i;
+        this.f7758b = i;
     }
 
     @Override // java.io.InputStream
     public synchronized void reset() throws IOException {
-        this.f7756a.b(this.f7757b);
+        this.f7757a.b(this.f7758b);
     }
 
     @Override // java.io.InputStream
@@ -58,6 +58,6 @@ public class a extends InputStream {
 
     @Override // java.io.InputStream
     public int read() throws IOException {
-        return this.f7756a.d();
+        return this.f7757a.d();
     }
 }

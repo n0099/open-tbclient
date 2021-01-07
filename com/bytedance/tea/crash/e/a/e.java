@@ -12,18 +12,18 @@ public class e {
     private static volatile e pqf;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f7939b;
+    private Context f7940b;
     private Map<com.bytedance.tea.crash.c, c> c = new HashMap();
     private b pqd;
     private d pqe;
 
     private e(@NonNull Context context) {
-        this.f7939b = context;
-        this.pqd = new b(this.f7939b);
-        this.pqe = new d(this.f7939b);
+        this.f7940b = context;
+        this.pqd = new b(this.f7940b);
+        this.pqe = new d(this.f7940b);
     }
 
-    public static e esz() {
+    public static e esA() {
         if (pqf == null) {
             throw new IllegalArgumentException("CrashContextAssembly not init");
         }
@@ -42,13 +42,13 @@ public class e {
         if (cVar2 == null) {
             switch (cVar) {
                 case JAVA:
-                    cVar2 = new g(this.f7939b, this.pqd, this.pqe);
+                    cVar2 = new g(this.f7940b, this.pqd, this.pqe);
                     break;
                 case ANR:
-                    cVar2 = new a(this.f7939b, this.pqd, this.pqe);
+                    cVar2 = new a(this.f7940b, this.pqd, this.pqe);
                     break;
                 case CUSTOM_JAVA:
-                    cVar2 = new f(this.f7939b, this.pqd, this.pqe);
+                    cVar2 = new f(this.f7940b, this.pqd, this.pqe);
                     break;
             }
             if (cVar2 != null) {

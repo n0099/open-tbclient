@@ -15,7 +15,7 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.a> im
     private com.baidu.swan.apps.w.b etf;
     private com.baidu.swan.apps.w.a.a etg;
 
-    public static a beK() {
+    public static a beL() {
         return new a();
     }
 
@@ -36,7 +36,7 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.a> im
             @Override // com.baidu.swan.impl.map.a.b.d.a
             public void onSuccess() {
                 c.w("map", "location permission success");
-                a.this.beL();
+                a.this.beM();
             }
 
             @Override // com.baidu.swan.impl.map.a.b.d.a
@@ -50,10 +50,10 @@ public class a extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.a> im
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void beL() {
+    public void beM() {
         com.baidu.swan.impl.map.location.a aa = com.baidu.swan.impl.map.location.a.aa(null);
         aa.a(this);
-        aa.beq();
+        aa.ber();
     }
 
     @Override // com.baidu.swan.impl.map.location.a.InterfaceC0554a

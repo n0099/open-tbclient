@@ -27,18 +27,18 @@ public class a {
         this.dOk = "";
         this.mScheme = "";
         this.dOn = "";
-        if (e.aMl() != null) {
-            b.a aMo = e.aMl().aMo();
-            this.mFrom = h.kX(aMo.getAppFrameType());
-            this.mAppId = aMo.getAppId();
-            this.mSource = aMo.aCv();
-            this.dOi = aMo.aCB().getString("aiapp_extra_need_download", "");
-            this.dOk = aMo.aCB().getString("aiapp_extra_preset_pkg", "");
-            this.mScheme = aMo.aCx();
-            this.dOn = aMo.getPage();
-            this.dHk = aMo.aCO();
-            this.mAppVersion = aMo.getVersion();
-            this.dOg = aMo.getVersionCode();
+        if (e.aMm() != null) {
+            b.a aMp = e.aMm().aMp();
+            this.mFrom = h.kX(aMp.getAppFrameType());
+            this.mAppId = aMp.getAppId();
+            this.mSource = aMp.aCw();
+            this.dOi = aMp.aCC().getString("aiapp_extra_need_download", "");
+            this.dOk = aMp.aCC().getString("aiapp_extra_preset_pkg", "");
+            this.mScheme = aMp.aCy();
+            this.dOn = aMp.getPage();
+            this.dHk = aMp.aCP();
+            this.mAppVersion = aMp.getVersion();
+            this.dOg = aMp.getVersionCode();
         }
     }
 

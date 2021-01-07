@@ -38,7 +38,7 @@ public class a extends BdBaseModel {
                     } else {
                         a.this.mDataList.clear();
                     }
-                    a.this.mDataList.addAll(liveBBVideoFriendsResponseMessage.Zl());
+                    a.this.mDataList.addAll(liveBBVideoFriendsResponseMessage.Zm());
                     if (a.this.bSr != null) {
                         a.this.bSr.g(a.this.mDataList, liveBBVideoFriendsResponseMessage.hasMore());
                     }
@@ -77,7 +77,7 @@ public class a extends BdBaseModel {
         void g(List<com.baidu.live.videochat.panel.a.a> list, boolean z);
     }
 
-    private void Zm() {
+    private void Zn() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021216, TbConfig.SERVER_ADDRESS + "ala/pubshow/getPubShowList");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);
@@ -93,7 +93,7 @@ public class a extends BdBaseModel {
     public a(TbPageContext tbPageContext, InterfaceC0234a interfaceC0234a) {
         this.mPageContext = tbPageContext;
         this.bSr = interfaceC0234a;
-        Zm();
+        Zn();
         registerListener(this.bSt);
         registerListener(this.bSu);
     }

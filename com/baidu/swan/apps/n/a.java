@@ -178,7 +178,7 @@ public class a extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     @AnyThread
     public void a(final String str, final String str2, final String str3, final LinkedHashMap<String, Boolean> linkedHashMap, @NonNull final List<String> list, final boolean z, final boolean z2) {
-        com.baidu.swan.apps.t.a.aAW().a(str2, linkedHashMap.keySet(), new InterfaceC0457a() { // from class: com.baidu.swan.apps.n.a.3
+        com.baidu.swan.apps.t.a.aAX().a(str2, linkedHashMap.keySet(), new InterfaceC0457a() { // from class: com.baidu.swan.apps.n.a.3
             @Override // com.baidu.swan.apps.n.a.InterfaceC0457a
             public void b(@Nullable final String str4, final List<d> list2, boolean z3) {
                 if (TextUtils.isEmpty(str4) || list2 == null || list2.size() <= 0) {
@@ -260,7 +260,7 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final String str, final List<d> list, final String str2, final boolean z) {
-        p.aRp().execute(new Runnable() { // from class: com.baidu.swan.apps.n.a.6
+        p.aRq().execute(new Runnable() { // from class: com.baidu.swan.apps.n.a.6
             @Override // java.lang.Runnable
             public void run() {
                 ContentResolver contentResolver = a.this.mContext.getContentResolver();
@@ -276,14 +276,14 @@ public class a extends aa {
     }
 
     private void bM(@NonNull String str, @NonNull final String str2) {
-        com.baidu.swan.apps.t.a.aAW().a(str, new com.baidu.swan.apps.n.b() { // from class: com.baidu.swan.apps.n.a.7
+        com.baidu.swan.apps.t.a.aAX().a(str, new com.baidu.swan.apps.n.b() { // from class: com.baidu.swan.apps.n.a.7
             @Override // com.baidu.swan.apps.ae.a
             public void aI(JSONObject jSONObject) {
                 a.this.det.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                if (com.baidu.swan.apps.t.a.aAw().cb(a.this.mContext)) {
-                    com.baidu.swan.apps.ae.c.dwQ.aJU();
-                } else {
+                if (com.baidu.swan.apps.t.a.aAx().cb(a.this.mContext)) {
                     com.baidu.swan.apps.ae.c.dwQ.aJV();
+                } else {
+                    com.baidu.swan.apps.ae.c.dwQ.aJW();
                 }
             }
 
@@ -296,14 +296,14 @@ public class a extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(@NonNull String str, @NonNull List<String> list, @Nullable String str2, boolean z, @NonNull final String str3) {
-        com.baidu.swan.apps.t.a.aAW().a(str, list, str2, z, new com.baidu.swan.apps.n.b() { // from class: com.baidu.swan.apps.n.a.8
+        com.baidu.swan.apps.t.a.aAX().a(str, list, str2, z, new com.baidu.swan.apps.n.b() { // from class: com.baidu.swan.apps.n.a.8
             @Override // com.baidu.swan.apps.ae.a
             public void aI(JSONObject jSONObject) {
                 a.this.det.handleSchemeDispatchCallback(str3, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
-                if (com.baidu.swan.apps.t.a.aAw().cb(a.this.mContext)) {
-                    com.baidu.swan.apps.ae.c.dwQ.aJU();
-                } else {
+                if (com.baidu.swan.apps.t.a.aAx().cb(a.this.mContext)) {
                     com.baidu.swan.apps.ae.c.dwQ.aJV();
+                } else {
+                    com.baidu.swan.apps.ae.c.dwQ.aJW();
                 }
             }
 

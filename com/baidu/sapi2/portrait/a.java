@@ -3,10 +3,10 @@ package com.baidu.sapi2.portrait;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f5287a = false;
+    public static final boolean f5288a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5288b = "com.baidu.sapi2.portrait";
+    public static final String f5289b = "com.baidu.sapi2.portrait";
     @Deprecated
     public static final String c = "com.baidu.sapi2.portrait";
     public static final String d = "release";

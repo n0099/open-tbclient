@@ -3,28 +3,28 @@ package com.facebook.cache.disk;
 import com.facebook.cache.common.CacheEventListener;
 import com.facebook.infer.annotation.ReturnsOwnership;
 import java.io.IOException;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class i implements com.facebook.cache.common.a {
-    private static final Object psG = new Object();
-    private static i psH;
-    private static int psI;
-    private String mDP;
+    private static final Object psH = new Object();
+    private static i psI;
+    private static int psJ;
+    private String mDO;
     private IOException oMu;
-    private com.facebook.cache.common.b psJ;
-    private long psK;
+    private com.facebook.cache.common.b psK;
     private long psL;
     private long psM;
-    private CacheEventListener.EvictionReason psN;
-    private i psO;
+    private long psN;
+    private CacheEventListener.EvictionReason psO;
+    private i psP;
 
     @ReturnsOwnership
-    public static i etM() {
-        synchronized (psG) {
-            if (psH != null) {
-                i iVar = psH;
-                psH = iVar.psO;
-                iVar.psO = null;
-                psI--;
+    public static i etQ() {
+        synchronized (psH) {
+            if (psI != null) {
+                i iVar = psI;
+                psI = iVar.psP;
+                iVar.psP = null;
+                psJ--;
                 return iVar;
             }
             return new i();
@@ -35,27 +35,27 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i h(com.facebook.cache.common.b bVar) {
-        this.psJ = bVar;
+        this.psK = bVar;
         return this;
     }
 
-    public i Zo(String str) {
-        this.mDP = str;
+    public i Zn(String str) {
+        this.mDO = str;
         return this;
     }
 
     public i ix(long j) {
-        this.psK = j;
+        this.psL = j;
         return this;
     }
 
     public i iy(long j) {
-        this.psM = j;
+        this.psN = j;
         return this;
     }
 
     public i iz(long j) {
-        this.psL = j;
+        this.psM = j;
         return this;
     }
 
@@ -65,30 +65,30 @@ public class i implements com.facebook.cache.common.a {
     }
 
     public i a(CacheEventListener.EvictionReason evictionReason) {
-        this.psN = evictionReason;
+        this.psO = evictionReason;
         return this;
     }
 
     public void recycle() {
-        synchronized (psG) {
-            if (psI < 5) {
+        synchronized (psH) {
+            if (psJ < 5) {
                 reset();
-                psI++;
-                if (psH != null) {
-                    this.psO = psH;
+                psJ++;
+                if (psI != null) {
+                    this.psP = psI;
                 }
-                psH = this;
+                psI = this;
             }
         }
     }
 
     private void reset() {
-        this.psJ = null;
-        this.mDP = null;
-        this.psK = 0L;
+        this.psK = null;
+        this.mDO = null;
         this.psL = 0L;
         this.psM = 0L;
+        this.psN = 0L;
         this.oMu = null;
-        this.psN = null;
+        this.psO = null;
     }
 }

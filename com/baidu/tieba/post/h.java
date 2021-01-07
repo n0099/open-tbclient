@@ -12,11 +12,11 @@ public class h {
     private com.baidu.tbadk.l.h gDQ;
     private NavigationBarShadowView kNs;
     private Context mContext;
-    BdTypeListView mHH;
-    private d mHr;
+    BdTypeListView mHG;
+    private d mHq;
     private View mRootView;
     NoDataView mNoDataView = null;
-    private View.OnClickListener mHs = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
+    private View.OnClickListener mHr = new View.OnClickListener() { // from class: com.baidu.tieba.post.h.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
@@ -24,8 +24,8 @@ public class h {
                     h.this.gDQ.dettachView(h.this.mRootView);
                     h.this.gDQ = null;
                 }
-                if (h.this.mHr != null) {
-                    h.this.mHr.dCC();
+                if (h.this.mHq != null) {
+                    h.this.mHq.dCD();
                 }
             }
         }
@@ -47,29 +47,29 @@ public class h {
         }
     };
 
-    public BdTypeListView dCN() {
-        return this.mHH;
+    public BdTypeListView dCO() {
+        return this.mHG;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(Context context, View view) {
         this.mContext = context;
         this.mRootView = view;
-        this.mHH = (BdTypeListView) view.findViewById(R.id.list);
+        this.mHG = (BdTypeListView) view.findViewById(R.id.list);
         this.kNs = (NavigationBarShadowView) view.findViewById(R.id.navi_shadow_view_my_thread);
-        this.mHH.setOnScrollListener(this.mOnScrollListener);
+        this.mHG.setOnScrollListener(this.mOnScrollListener);
     }
 
-    public d dCO() {
-        return this.mHr;
+    public d dCP() {
+        return this.mHq;
     }
 
     public void b(d dVar) {
-        this.mHr = dVar;
+        this.mHq = dVar;
     }
 
     public void aR(String str, boolean z) {
-        f.a(this.gDQ, this.mHs, this.mContext, this.mRootView, str, z);
-        this.mHH.setVisibility(8);
+        f.a(this.gDQ, this.mHr, this.mContext, this.mRootView, str, z);
+        this.mHG.setVisibility(8);
     }
 }

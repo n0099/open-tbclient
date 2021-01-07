@@ -28,7 +28,7 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     @Override // com.google.gson.TypeAdapterFactory
     public <T> TypeAdapter<T> create(Gson gson, com.google.gson.b.a<T> aVar) {
         Type type = aVar.getType();
-        if (!Map.class.isAssignableFrom(aVar.eCI())) {
+        if (!Map.class.isAssignableFrom(aVar.eDm())) {
             return null;
         }
         Type[] d = C$Gson$Types.d(type, C$Gson$Types.m(type));
@@ -36,54 +36,54 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
     }
 
     private TypeAdapter<?> a(Gson gson, Type type) {
-        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.pMw : gson.getAdapter(com.google.gson.b.a.r(type));
+        return (type == Boolean.TYPE || type == Boolean.class) ? TypeAdapters.pOe : gson.getAdapter(com.google.gson.b.a.r(type));
     }
 
     /* loaded from: classes5.dex */
     private final class Adapter<K, V> extends TypeAdapter<Map<K, V>> {
-        private final e<? extends Map<K, V>> pLH;
-        private final TypeAdapter<K> pLS;
-        private final TypeAdapter<V> pLT;
+        private final TypeAdapter<K> pNA;
+        private final TypeAdapter<V> pNB;
+        private final e<? extends Map<K, V>> pNp;
 
         public Adapter(Gson gson, Type type, TypeAdapter<K> typeAdapter, Type type2, TypeAdapter<V> typeAdapter2, e<? extends Map<K, V>> eVar) {
-            this.pLS = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
-            this.pLT = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
-            this.pLH = eVar;
+            this.pNA = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter, type);
+            this.pNB = new TypeAdapterRuntimeTypeWrapper(gson, typeAdapter2, type2);
+            this.pNp = eVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.google.gson.TypeAdapter
         /* renamed from: c */
         public Map<K, V> read(com.google.gson.stream.a aVar) throws IOException {
-            JsonToken eCl = aVar.eCl();
-            if (eCl == JsonToken.NULL) {
-                aVar.eCr();
+            JsonToken eCP = aVar.eCP();
+            if (eCP == JsonToken.NULL) {
+                aVar.eCV();
                 return null;
             }
-            Map<K, V> eBS = this.pLH.eBS();
-            if (eCl == JsonToken.BEGIN_ARRAY) {
-                aVar.eCj();
+            Map<K, V> eCw = this.pNp.eCw();
+            if (eCP == JsonToken.BEGIN_ARRAY) {
+                aVar.eCN();
                 while (aVar.hasNext()) {
-                    aVar.eCj();
-                    K read = this.pLS.read(aVar);
-                    if (eBS.put(read, this.pLT.read(aVar)) != null) {
+                    aVar.eCN();
+                    K read = this.pNA.read(aVar);
+                    if (eCw.put(read, this.pNB.read(aVar)) != null) {
                         throw new JsonSyntaxException("duplicate key: " + read);
                     }
                     aVar.endArray();
                 }
                 aVar.endArray();
-                return eBS;
+                return eCw;
             }
-            aVar.eCk();
+            aVar.eCO();
             while (aVar.hasNext()) {
-                d.pLa.a(aVar);
-                K read2 = this.pLS.read(aVar);
-                if (eBS.put(read2, this.pLT.read(aVar)) != null) {
+                d.pMI.a(aVar);
+                K read2 = this.pNA.read(aVar);
+                if (eCw.put(read2, this.pNB.read(aVar)) != null) {
                     throw new JsonSyntaxException("duplicate key: " + read2);
                 }
             }
             aVar.endObject();
-            return eBS;
+            return eCw;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -95,45 +95,45 @@ public final class MapTypeAdapterFactory implements TypeAdapterFactory {
         public void write(com.google.gson.stream.b bVar, Map<K, V> map) throws IOException {
             int i = 0;
             if (map == null) {
-                bVar.eCE();
+                bVar.eDi();
             } else if (!MapTypeAdapterFactory.this.complexMapKeySerialization) {
-                bVar.eCC();
+                bVar.eDg();
                 for (Map.Entry<K, V> entry : map.entrySet()) {
-                    bVar.ZP(String.valueOf(entry.getKey()));
-                    this.pLT.write(bVar, entry.getValue());
+                    bVar.ZQ(String.valueOf(entry.getKey()));
+                    this.pNB.write(bVar, entry.getValue());
                 }
-                bVar.eCD();
+                bVar.eDh();
             } else {
                 ArrayList arrayList = new ArrayList(map.size());
                 ArrayList arrayList2 = new ArrayList(map.size());
                 boolean z = false;
                 for (Map.Entry<K, V> entry2 : map.entrySet()) {
-                    JsonElement jsonTree = this.pLS.toJsonTree(entry2.getKey());
+                    JsonElement jsonTree = this.pNA.toJsonTree(entry2.getKey());
                     arrayList.add(jsonTree);
                     arrayList2.add(entry2.getValue());
                     z = (jsonTree.isJsonArray() || jsonTree.isJsonObject()) | z;
                 }
                 if (z) {
-                    bVar.eCA();
+                    bVar.eDe();
                     int size = arrayList.size();
                     while (i < size) {
-                        bVar.eCA();
+                        bVar.eDe();
                         h.a((JsonElement) arrayList.get(i), bVar);
-                        this.pLT.write(bVar, arrayList2.get(i));
-                        bVar.eCB();
+                        this.pNB.write(bVar, arrayList2.get(i));
+                        bVar.eDf();
                         i++;
                     }
-                    bVar.eCB();
+                    bVar.eDf();
                     return;
                 }
-                bVar.eCC();
+                bVar.eDg();
                 int size2 = arrayList.size();
                 while (i < size2) {
-                    bVar.ZP(b((JsonElement) arrayList.get(i)));
-                    this.pLT.write(bVar, arrayList2.get(i));
+                    bVar.ZQ(b((JsonElement) arrayList.get(i)));
+                    this.pNB.write(bVar, arrayList2.get(i));
                     i++;
                 }
-                bVar.eCD();
+                bVar.eDh();
             }
         }
 

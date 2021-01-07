@@ -37,7 +37,7 @@ public class a {
 
     public a(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        cng();
+        cnh();
     }
 
     public void d(x xVar, boolean z) {
@@ -56,7 +56,7 @@ public class a {
         }
     }
 
-    private void cng() {
+    private void cnh() {
         this.mPageContext.registerListener(new CustomMessageListener(AlaCmdConfigCustom.CMD_ALA_RES_ZIP_DOWNLOADED_STATUS) { // from class: com.baidu.tieba.yuyinala.liveroom.share.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -96,14 +96,14 @@ public class a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1395, "click", UbcStatConstant.Page.VOICE_ROOM, LogConfig.VALUE_LIVE_SHARE_TO).setContentExt(jSONObject));
     }
 
-    private void cni() {
+    private void cnj() {
         if (this.bNp != null) {
             this.bNp.setDialogVisiable(false);
         }
     }
 
     public void DC() {
-        cni();
+        cnj();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
@@ -113,7 +113,7 @@ public class a {
     }
 
     public void onDestroy() {
-        cni();
+        cnj();
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }

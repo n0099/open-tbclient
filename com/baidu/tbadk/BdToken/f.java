@@ -65,7 +65,7 @@ public class f {
         void onCallBack(HashMap<String, Object> hashMap);
     }
 
-    public static final f bln() {
+    public static final f blo() {
         return b.eGO;
     }
 
@@ -191,10 +191,10 @@ public class f {
         if (!at.isEmpty(str)) {
             com.baidu.tbadk.BdToken.b bVar = new com.baidu.tbadk.BdToken.b(str);
             bVar.setToken(str3);
-            if (bVar.getActivityId() != 0 && bVar.bkD() != 0) {
-                TbSingleton.getInstance().setInvokeSource(bVar.bkE());
+            if (bVar.getActivityId() != 0 && bVar.bkE() != 0) {
+                TbSingleton.getInstance().setInvokeSource(bVar.bkF());
                 com.baidu.adp.lib.stats.f.setActivityId(String.valueOf(bVar.getActivityId()));
-                com.baidu.adp.lib.stats.f.bV(String.valueOf(bVar.bkD()));
+                com.baidu.adp.lib.stats.f.bV(String.valueOf(bVar.bkE()));
                 int i = at.equals(str2, eGN) ? 2 : 1;
                 String str5 = "";
                 if (uri == null) {
@@ -210,8 +210,8 @@ public class f {
                         ((BaseActivity) currentActivity).showFloatingWindow();
                     }
                 }
-                TiebaStatic.log(new aq("c13321").dX("obj_source", bVar.bkE()).an("obj_type", bVar.getActivityId()).an("obj_param1", bVar.bkD()).an(TiebaInitialize.Params.OBJ_PARAM2, i).dX(TiebaInitialize.Params.OBJ_PARAM3, bVar.getSource()).dX("extra", bVar.bkF()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("fname", str5).dX("tid", str4).an("obj_locate", TbadkCoreApplication.getInst().getStartType()).an("obj_name", 1));
-                c.bkT().l(bVar);
+                TiebaStatic.log(new aq("c13321").dX("obj_source", bVar.bkF()).an("obj_type", bVar.getActivityId()).an("obj_param1", bVar.bkE()).an(TiebaInitialize.Params.OBJ_PARAM2, i).dX(TiebaInitialize.Params.OBJ_PARAM3, bVar.getSource()).dX("extra", bVar.bkG()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("fname", str5).dX("tid", str4).an("obj_locate", TbadkCoreApplication.getInst().getStartType()).an("obj_name", 1));
+                c.bkU().l(bVar);
             }
         }
     }
@@ -230,8 +230,8 @@ public class f {
 
     private void Ad(String str) {
         if (!TextUtils.isEmpty(str) && UbcStatConstant.ContentSource.SHOUBAI.equals(str)) {
-            com.baidu.tbadk.util.d.bIE().lw(true);
-            com.baidu.tbadk.util.d.bIE().bIF();
+            com.baidu.tbadk.util.d.bIF().lw(true);
+            com.baidu.tbadk.util.d.bIF().bIG();
         }
     }
 }

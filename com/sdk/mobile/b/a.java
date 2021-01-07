@@ -15,10 +15,10 @@ import com.tencent.connect.common.Constants;
 public class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13170a = a.class.getName();
+    private static final String f13171a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static Boolean f13171b = Boolean.valueOf(f.f13118b);
+    private static Boolean f13172b = Boolean.valueOf(f.f13119b);
     private CallBack<T> c;
     private Context d;
     private a<T>.e e;
@@ -29,27 +29,27 @@ public class a<T> {
     public final class e implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private Handler f13184a = new Handler(Looper.getMainLooper());
+        private Handler f13185a = new Handler(Looper.getMainLooper());
 
         /* renamed from: b  reason: collision with root package name */
-        private long f13185b;
+        private long f13186b;
 
         e(long j) {
-            this.f13185b = j;
+            this.f13186b = j;
         }
 
         public final void a() {
-            this.f13184a.postDelayed(this, this.f13185b);
+            this.f13185a.postDelayed(this, this.f13186b);
         }
 
         public final void b() {
-            this.f13184a.removeCallbacks(this);
+            this.f13185a.removeCallbacks(this);
         }
 
         @Override // java.lang.Runnable
         public final void run() {
             if (a.this.f != null) {
-                com.sdk.base.framework.a.a.c.c(a.f13170a, "超时，已取消请求", a.f13171b);
+                com.sdk.base.framework.a.a.c.c(a.f13171a, "超时，已取消请求", a.f13172b);
                 a.this.f.a();
             }
             a.this.a(1, PayHelper.STATUS_TIMEOUT_DESC, 101005, null, com.sdk.base.framework.f.g.a.b().a());
@@ -96,7 +96,7 @@ public class a<T> {
     }
 
     public final void a(int i) {
-        String b2 = com.sdk.base.framework.a.a.a.b(this.d, i, g.f13148b.a());
+        String b2 = com.sdk.base.framework.a.a.a.b(this.d, i, g.f13149b.a());
         if (com.sdk.base.framework.a.a.c.b(b2).booleanValue()) {
             a(0, "成功", 100, com.sdk.base.framework.a.a.a.a(b2), com.sdk.base.framework.a.a.a.b(b2));
         } else if (!com.sdk.base.framework.f.j.b.a(this.d)) {
@@ -108,7 +108,7 @@ public class a<T> {
             dataInfo.putData("serviceType", Integer.valueOf(i));
             dataInfo.putData("privateIp", com.sdk.base.framework.f.a.a.a());
             dataInfo.putData("newVersion", Constants.VIA_REPORT_TYPE_SHARE_TO_QQ);
-            this.f = aVar.a(aVar.f13122b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, i.f13101b);
+            this.f = aVar.a(aVar.f13123b, "/dro/netm/v1.0/qc", dataInfo, aVar.a(), 0, i.f13102b);
         }
     }
 

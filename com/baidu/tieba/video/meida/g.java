@@ -15,33 +15,33 @@ import java.io.IOException;
 import java.nio.ByteOrder;
 /* loaded from: classes8.dex */
 public class g {
-    public static boolean nKb = false;
+    public static boolean nKa = false;
 
     /* loaded from: classes8.dex */
     public static class a {
         public int sampleRate = StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
         public int channelCount = 1;
-        public int nJY = 16;
-        public int nKc = 0;
-
-        public boolean dUZ() {
-            return this.nKc == 1 || this.nKc == 4 || this.nKc == 6 || this.nKc == 9;
-        }
+        public int nJX = 16;
+        public int nKb = 0;
 
         public boolean dVa() {
-            return this.nKc == 3 || this.nKc == 4 || this.nKc == 8 || this.nKc == 9;
+            return this.nKb == 1 || this.nKb == 4 || this.nKb == 6 || this.nKb == 9;
         }
 
         public boolean dVb() {
-            return this.nKc == 5 || this.nKc == 6 || this.nKc == 8 || this.nKc == 9;
+            return this.nKb == 3 || this.nKb == 4 || this.nKb == 8 || this.nKb == 9;
+        }
+
+        public boolean dVc() {
+            return this.nKb == 5 || this.nKb == 6 || this.nKb == 8 || this.nKb == 9;
         }
     }
 
-    public static void dUY() {
+    public static void dUZ() {
         if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-            nKb = true;
+            nKa = true;
         } else {
-            nKb = false;
+            nKa = false;
         }
     }
 
@@ -58,15 +58,15 @@ public class g {
                 return z2;
             }
             if (aVar.sampleRate != aVarArr[i].sampleRate) {
-                aVarArr[i].nKc++;
+                aVarArr[i].nKb++;
                 z2 = false;
             }
             if (aVar.channelCount != aVarArr[i].channelCount) {
-                aVarArr[i].nKc += 3;
+                aVarArr[i].nKb += 3;
                 z2 = false;
             }
-            if (aVar.nJY != aVarArr[i].nJY) {
-                aVarArr[i].nKc += 5;
+            if (aVar.nJX != aVarArr[i].nJX) {
+                aVarArr[i].nKb += 5;
                 z = false;
             } else {
                 z = z2;
@@ -76,7 +76,7 @@ public class g {
     }
 
     @TargetApi(16)
-    public static a UH(String str) {
+    public static a UG(String str) {
         MediaFormat mediaFormat;
         MediaExtractor mediaExtractor = new MediaExtractor();
         try {
@@ -102,7 +102,7 @@ public class g {
             a aVar = new a();
             aVar.sampleRate = mediaFormat.containsKey("sample-rate") ? mediaFormat.getInteger("sample-rate") : StreamConfig.Audio.AUDIO_RTC_FREQUENCY_48K;
             aVar.channelCount = mediaFormat.containsKey("channel-count") ? mediaFormat.getInteger("channel-count") : 1;
-            aVar.nJY = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
+            aVar.nJX = mediaFormat.containsKey("bit-width") ? mediaFormat.getInteger("bit-width") : 16;
             mediaExtractor.release();
             return aVar;
         } catch (IOException e) {
@@ -184,7 +184,7 @@ public class g {
                                             break;
                                         case 2:
                                             for (int i6 = 0; i6 < i5; i6 += 2) {
-                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], nKb);
+                                                byte[] a2 = a(bArr[i6 * 2], bArr[(i6 * 2) + 1], bArr[(i6 * 2) + 2], bArr[(i6 * 2) + 3], nKa);
                                                 bArr3[i6] = a2[0];
                                                 bArr3[i6 + 1] = a2[1];
                                             }
@@ -214,7 +214,7 @@ public class g {
                         case 2:
                             byte[] bArr2 = new byte[length * 2];
                             for (int i3 = 0; i3 < length; i3++) {
-                                byte[] a2 = a((short) (bArr[i3] * GDiffPatcher.EOF), nKb);
+                                byte[] a2 = a((short) (bArr[i3] * GDiffPatcher.EOF), nKa);
                                 bArr2[i3 * 2] = a2[0];
                                 bArr2[(i3 * 2) + 1] = a2[1];
                             }
@@ -228,7 +228,7 @@ public class g {
                             int i4 = length / 2;
                             byte[] bArr3 = new byte[i4];
                             for (int i5 = 0; i5 < i4; i5++) {
-                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], nKb) / 256);
+                                bArr3[i5] = (byte) (a(bArr[i5 * 2], bArr[(i5 * 2) + 1], nKa) / 256);
                             }
                             return bArr3;
                         default:

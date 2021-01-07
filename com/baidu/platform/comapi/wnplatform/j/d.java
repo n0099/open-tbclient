@@ -12,14 +12,14 @@ import com.baidu.platform.comapi.wnplatform.e.e;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.platform.comapi.walknavi.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private c f4648a = null;
+    private c f4649a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f4649b = null;
+    private a f4650b = null;
     private b c = null;
     private int d = 1;
     private int e = 0;
@@ -36,8 +36,8 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     public void release() {
         MessageCenter.unregistMessage(4099, this.g);
         MessageCenter.unregistMessage(2008, this.g);
-        this.f4648a = null;
-        this.f4649b = null;
+        this.f4649a = null;
+        this.f4650b = null;
         this.f = false;
         this.g = null;
     }
@@ -63,7 +63,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public void a(c cVar) {
-        this.f4648a = cVar;
+        this.f4649a = cVar;
     }
 
     public void a(b bVar) {
@@ -79,8 +79,8 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
     }
 
     public int a(int i, int i2, int i3, int i4, byte[] bArr) {
-        if (this.f4648a != null) {
-            this.f4648a.a();
+        if (this.f4649a != null) {
+            this.f4649a.a();
         }
         return com.baidu.platform.comapi.walknavi.b.a().G().a(i, i2, i3, i4, bArr);
     }
@@ -97,7 +97,7 @@ public class d extends com.baidu.platform.comapi.walknavi.a {
         com.baidu.platform.comapi.wnplatform.e.e eVar = new com.baidu.platform.comapi.wnplatform.e.e();
         eVar.a("qt", "walkplan");
         eVar.a(IXAdRequestInfo.SN, walkNaviLaunchParam.getStartNodeInfo().toQuery());
-        eVar.a(h.f1996a, walkNaviLaunchParam.getEndNodeInfo().toQuery());
+        eVar.a(h.f1997a, walkNaviLaunchParam.getEndNodeInfo().toQuery());
         eVar.a("run", 0);
         eVar.a("mt_rt", -1);
         JSONArray jSONArray = new JSONArray();

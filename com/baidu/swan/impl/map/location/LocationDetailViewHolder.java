@@ -32,7 +32,7 @@ public class LocationDetailViewHolder extends RecyclerView.ViewHolder implements
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        this.esv.beI();
+        this.esv.beJ();
         this.esL.isSelected = true;
         this.esv.notifyDataSetChanged();
         if (this.esM != null) {

@@ -12,7 +12,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private View f8599b;
+    private View f8600b;
     private SwipeLayout c;
     private AdTemplate d;
     private com.kwad.sdk.contentalliance.a.a e = new com.kwad.sdk.contentalliance.a.b() { // from class: com.kwad.sdk.contentalliance.detail.a.b.1
@@ -40,11 +40,11 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     };
 
     private void a(KsFragment ksFragment) {
-        if (this.f8599b != null) {
+        if (this.f8600b != null) {
             return;
         }
-        this.f8599b = ksFragment.getParentFragment().getView();
-        this.c = (SwipeLayout) this.f8599b.findViewById(R.id.ksad_swipe);
+        this.f8600b = ksFragment.getParentFragment().getView();
+        this.c = (SwipeLayout) this.f8600b.findViewById(R.id.ksad_swipe);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,14 +71,14 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        a(this.f8692a.k);
-        this.d = this.f8692a.j;
-        this.f8692a.f8702b.add(this.e);
+        a(this.f8693a.k);
+        this.d = this.f8693a.j;
+        this.f8693a.f8703b.add(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
-        this.f8692a.f8702b.remove(this.e);
+        this.f8693a.f8703b.remove(this.e);
     }
 }

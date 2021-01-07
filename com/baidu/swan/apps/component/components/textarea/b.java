@@ -49,7 +49,7 @@ public final class b extends com.baidu.swan.apps.component.a.a.b {
             this.cOS = jSONObject.optBoolean("adjustPosition", true);
             this.cOT = jSONObject.optBoolean("disabled", false);
             this.cOz = jSONObject.optInt("confirmHold") == 1;
-            aor();
+            aos();
         }
     }
 
@@ -65,7 +65,7 @@ public final class b extends com.baidu.swan.apps.component.a.a.b {
         bi(jSONObject);
         bh(jSONObject);
         bj(jSONObject);
-        aor();
+        aos();
     }
 
     private void bh(JSONObject jSONObject) {
@@ -92,7 +92,7 @@ public final class b extends com.baidu.swan.apps.component.a.a.b {
         }
     }
 
-    private void aor() {
+    private void aos() {
         if (this.cNz != null) {
             int O = ah.O(getFloat(this.cNz, "minHeight", 0.0f));
             if (O < 0) {

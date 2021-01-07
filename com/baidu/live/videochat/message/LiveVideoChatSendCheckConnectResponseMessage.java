@@ -45,15 +45,15 @@ public class LiveVideoChatSendCheckConnectResponseMessage extends JsonHttpRespon
         }
     }
 
-    public com.baidu.live.videochat.b.a YT() {
+    public com.baidu.live.videochat.b.a YU() {
         return this.bRq;
     }
 
-    public c YU() {
+    public c YV() {
         return this.bRr;
     }
 
-    public AlaLiveInfoData YV() {
+    public AlaLiveInfoData YW() {
         return this.brX;
     }
 

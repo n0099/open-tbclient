@@ -26,7 +26,7 @@ public class LiveVideoChatSendAcceptResponseMessage extends JsonHttpResponsedMes
         }
     }
 
-    public com.baidu.live.videochat.b.a YQ() {
+    public com.baidu.live.videochat.b.a YR() {
         return this.bRo;
     }
 }

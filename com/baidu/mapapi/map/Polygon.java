@@ -6,14 +6,14 @@ import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class Polygon extends Overlay {
 
     /* renamed from: a  reason: collision with root package name */
-    Stroke f2860a;
+    Stroke f2861a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f2861b;
+    int f2862b;
     List<LatLng> c;
     List<HoleOptions> d;
     HoleOptions e;
@@ -49,12 +49,12 @@ public final class Polygon extends Overlay {
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
         Overlay.a(this.c, bundle);
-        Overlay.a(this.f2861b, bundle);
-        if (this.f2860a == null) {
+        Overlay.a(this.f2862b, bundle);
+        if (this.f2861a == null) {
             bundle.putInt("has_stroke", 0);
         } else {
             bundle.putInt("has_stroke", 1);
-            bundle.putBundle("stroke", this.f2860a.a(new Bundle()));
+            bundle.putBundle("stroke", this.f2861a.a(new Bundle()));
         }
         if (this.d != null && this.d.size() != 0) {
             c(this.d, bundle);
@@ -77,7 +77,7 @@ public final class Polygon extends Overlay {
     }
 
     public int getFillColor() {
-        return this.f2861b;
+        return this.f2862b;
     }
 
     public HoleOptions getHoleOption() {
@@ -93,11 +93,11 @@ public final class Polygon extends Overlay {
     }
 
     public Stroke getStroke() {
-        return this.f2860a;
+        return this.f2861a;
     }
 
     public void setFillColor(int i) {
-        this.f2861b = i;
+        this.f2862b = i;
         this.listener.b(this);
     }
 
@@ -146,7 +146,7 @@ public final class Polygon extends Overlay {
     }
 
     public void setStroke(Stroke stroke) {
-        this.f2860a = stroke;
+        this.f2861a = stroke;
         this.listener.b(this);
     }
 }

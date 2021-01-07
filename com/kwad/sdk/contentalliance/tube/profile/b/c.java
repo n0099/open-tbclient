@@ -13,7 +13,7 @@ import com.kwad.sdk.utils.ag;
 public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private LinearLayout f9268b;
+    private LinearLayout f9269b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -41,7 +41,7 @@ public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
             this.f.setText(String.format(o().getString(R.string.ksad_tube_update_unfinished_format_text), ag.a(valueOf, string)));
         }
         this.g.setText(ag.a(tubeInfo.summary, string));
-        this.f9268b.setVisibility(0);
+        this.f9269b.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -49,15 +49,15 @@ public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public void a() {
         super.a();
         com.kwad.sdk.core.d.a.a("TubeProfileHeaderPresenter", "TubeProfileHeaderPresenter onBind");
-        this.f9252a.e.add(this.i);
-        TubeProfileParam tubeProfileParam = this.f9252a.c;
+        this.f9253a.e.add(this.i);
+        TubeProfileParam tubeProfileParam = this.f9253a.c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9252a.e.remove(this.i);
+        this.f9253a.e.remove(this.i);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -65,7 +65,7 @@ public class c extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public void c() {
         super.c();
         com.kwad.sdk.core.d.a.a("TubeProfileHeaderPresenter", "TubeProfileHeaderPresenter onCreate");
-        this.f9268b = (LinearLayout) b(R.id.ksad_tube_author_info_area);
+        this.f9269b = (LinearLayout) b(R.id.ksad_tube_author_info_area);
         this.c = (TextView) b(R.id.ksad_tube_name);
         this.d = (TextView) b(R.id.ksad_tube_author_name);
         this.e = (TextView) b(R.id.ksad_tube_author_name_label);

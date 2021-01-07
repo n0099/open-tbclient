@@ -15,7 +15,7 @@ import com.baidu.tieba.ala.live.walletconfig.CashierData;
 import com.heytap.mcssdk.mode.CommandMessage;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PolyActivity extends Activity implements m.l {
     private static com.baidu.poly.d.a.c cpE;
     private static a.b cpF;
@@ -50,11 +50,11 @@ public class PolyActivity extends Activity implements m.l {
         context.startActivity(intent);
     }
 
-    private void afM() {
+    private void afN() {
         this.cpI = getIntent().getBundleExtra("pay_arguements");
     }
 
-    private String afN() {
+    private String afO() {
         try {
             return getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
         } catch (PackageManager.NameNotFoundException e) {
@@ -108,7 +108,7 @@ public class PolyActivity extends Activity implements m.l {
         super.onActivityResult(i, i2, intent);
         if (i == 200) {
             if (i2 == -1) {
-                com.baidu.poly.a.j.a.afF().a((Context) this, intent.getExtras(), this.cpH, true);
+                com.baidu.poly.a.j.a.afG().a((Context) this, intent.getExtras(), this.cpH, true);
                 return;
             }
             m mVar = this.cpH;
@@ -143,7 +143,7 @@ public class PolyActivity extends Activity implements m.l {
         d.H();
         super.onCreate(bundle);
         overridePendingTransition(0, 0);
-        afM();
+        afN();
         com.baidu.poly.util.d.info("PolyActivity onCreate");
     }
 
@@ -183,7 +183,7 @@ public class PolyActivity extends Activity implements m.l {
                 return;
             }
             this.cpH.a(c(this.cpI));
-            this.cpH.afX();
+            this.cpH.afY();
         }
     }
 
@@ -198,7 +198,7 @@ public class PolyActivity extends Activity implements m.l {
                     jSONObject.put(MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, string);
                     jSONObject.put("mac", com.baidu.poly.util.a.getMacAddress());
                     jSONObject.put("app", HttpConstants.OS_TYPE_VALUE);
-                    jSONObject.put("ver", afN());
+                    jSONObject.put("ver", afO());
                     bundle.putString("deviceInfo", jSONObject.toString());
                 }
             } catch (Exception e) {

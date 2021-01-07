@@ -43,11 +43,11 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         this.mId = intent.getStringExtra("PARAM_FID");
         this.mFrom = intent.getStringExtra("PARAM_FROM");
         this.eVY = intent.getStringExtra("key_nid");
-        WF();
-        cOP();
+        WG();
+        cOQ();
     }
 
-    private void cOP() {
+    private void cOQ() {
         aq aqVar = new aq("c12664");
         if (!StringUtils.isNull(this.mFrom)) {
             aqVar.dX("obj_source", this.mFrom);
@@ -61,7 +61,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
         TiebaStatic.log(aqVar);
     }
 
-    private void WF() {
+    private void WG() {
         FragmentManager supportFragmentManager = getSupportFragmentManager();
         if (supportFragmentManager != null && !supportFragmentManager.isDestroyed()) {
             VideoMiddlePageFragment videoMiddlePageFragment = (VideoMiddlePageFragment) supportFragmentManager.findFragmentByTag(VideoMiddlePageFragment.class.getCanonicalName());
@@ -78,7 +78,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     public void onResume() {
         super.onResume();
         if (!at.isEmpty(this.mId)) {
-            com.baidu.tbadk.BdToken.c.bkT().p(com.baidu.tbadk.BdToken.b.eES, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
+            com.baidu.tbadk.BdToken.c.bkU().p(com.baidu.tbadk.BdToken.b.eES, com.baidu.adp.lib.f.b.toLong(this.mId, 0L));
         }
     }
 
@@ -86,7 +86,7 @@ public class VideoMiddlePageActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        com.baidu.tbadk.BdToken.c.bkT().ble();
+        com.baidu.tbadk.BdToken.c.bkU().blf();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

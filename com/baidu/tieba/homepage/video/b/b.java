@@ -120,11 +120,11 @@ public class b {
         MessageManager.getInstance().registerListener(this.koc);
     }
 
-    public void cUn() {
+    public void cUo() {
         if (!this.isLoading) {
             this.isLoading = true;
             if (this.iXY) {
-                boE();
+                boF();
                 this.iXY = false;
             }
             VideoTabRequestMessage videoTabRequestMessage = new VideoTabRequestMessage();
@@ -136,7 +136,7 @@ public class b {
         }
     }
 
-    public void cIc() {
+    public void cId() {
         if (!this.isLoading) {
             this.isLoading = true;
             VideoTabRequestMessage videoTabRequestMessage = new VideoTabRequestMessage();
@@ -152,14 +152,14 @@ public class b {
         return this.mDataList;
     }
 
-    public void Lx(String str) {
+    public void Lw(String str) {
         if (!x.isEmpty(this.mDataList)) {
             Iterator<n> it = this.mDataList.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (next instanceof com.baidu.tieba.card.data.b) {
                     com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) next;
-                    if (bVar.boO() != null && bVar.boO().getTid() != null && bVar.boO().getTid().equals(str)) {
+                    if (bVar.boP() != null && bVar.boP().getTid() != null && bVar.boP().getTid().equals(str)) {
                         it.remove();
                     }
                 }
@@ -167,7 +167,7 @@ public class b {
         }
     }
 
-    public void Mt(String str) {
+    public void Ms(String str) {
         if (this.kob != null && !x.isEmpty(this.kob.thread_list)) {
             long j = com.baidu.adp.lib.f.b.toLong(str, 0L);
             int i = 0;
@@ -226,13 +226,13 @@ public class b {
         }
     }
 
-    private void boE() {
+    private void boF() {
         ac.a(new ab<DataRes>() { // from class: com.baidu.tieba.homepage.video.b.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: cUo */
+            /* renamed from: cUp */
             public DataRes doInBackground() {
-                l<byte[]> dL = com.baidu.tbadk.core.c.a.btS().dL("tb.video_tab", TbadkCoreApplication.getCurrentAccount());
+                l<byte[]> dL = com.baidu.tbadk.core.c.a.btT().dL("tb.video_tab", TbadkCoreApplication.getCurrentAccount());
                 if (dL == null) {
                     return null;
                 }
@@ -270,7 +270,7 @@ public class b {
     public void a(DataRes dataRes, boolean z) {
         r(dataRes.thread_list, !z);
         s(dataRes.thread_personalized, z ? false : true);
-        this.mDataList = cSj();
+        this.mDataList = cSk();
         com.baidu.tieba.homepage.video.b.a.z(this.koa, this.mDataList);
     }
 
@@ -302,7 +302,7 @@ public class b {
         }
     }
 
-    private List<n> cSj() {
+    private List<n> cSk() {
         int i;
         String format;
         LinkedList linkedList = new LinkedList();
@@ -316,7 +316,7 @@ public class b {
             bzVar.eWf = true;
             if (com.baidu.tieba.card.data.l.ad(bzVar)) {
                 k aE = d.aE(bzVar);
-                if (aE != null && aE.eMv != null && aE.eMv.bth() != null && !StringUtils.isNull(aE.eMv.bth().forumName)) {
+                if (aE != null && aE.eMv != null && aE.eMv.bti() != null && !StringUtils.isNull(aE.eMv.bti().forumName)) {
                     aE.tid = bzVar.getTid();
                     aE.position = i2;
                     d.h(aE);
@@ -338,13 +338,13 @@ public class b {
                     aD.tid = bzVar.getTid();
                     aD.position = i2;
                     if (aD instanceof k) {
-                        if (bzVar.bto()) {
+                        if (bzVar.btp()) {
                             d.d(aD);
-                        } else if (bzVar.bsy() == 1) {
+                        } else if (bzVar.bsz() == 1) {
                             d.b(aD);
                             aD.eSI = imageWidthAndHeight[0];
                             aD.eSJ = imageWidthAndHeight[1];
-                        } else if (bzVar.bsy() >= 2) {
+                        } else if (bzVar.bsz() >= 2) {
                             d.c(aD);
                         } else {
                             d.e(aD);
@@ -354,9 +354,9 @@ public class b {
                     }
                 }
                 if (aD != null && aD.isValid()) {
-                    if (!bzVar.bpZ() && bzVar.brq() != null && bzVar.bth() != null && !StringUtils.isNull(bzVar.bth().forumName)) {
-                        SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), bzVar.brq().getName_show()));
-                        spannableString.setSpan(new f(16, bzVar.brq().getUserId()) { // from class: com.baidu.tieba.homepage.video.b.b.4
+                    if (!bzVar.bqa() && bzVar.brr() != null && bzVar.bti() != null && !StringUtils.isNull(bzVar.bti().forumName)) {
+                        SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), bzVar.brr().getName_show()));
+                        spannableString.setSpan(new f(16, bzVar.brr().getUserId()) { // from class: com.baidu.tieba.homepage.video.b.b.4
                             @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                             public void onClick(View view) {
                                 com.baidu.tieba.homepage.video.c.a.o(aD);
@@ -403,7 +403,7 @@ public class b {
             public Object doInBackground() {
                 DataRes.Builder builder2 = new DataRes.Builder(builder.build(true));
                 try {
-                    com.baidu.tbadk.core.c.a.btS().dL("tb.video_tab", TbadkCoreApplication.getCurrentAccount()).setForever(TbadkCoreApplication.getCurrentAccount(), builder2.build(true).toByteArray());
+                    com.baidu.tbadk.core.c.a.btT().dL("tb.video_tab", TbadkCoreApplication.getCurrentAccount()).setForever(TbadkCoreApplication.getCurrentAccount(), builder2.build(true).toByteArray());
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e);

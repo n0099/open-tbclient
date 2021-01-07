@@ -157,13 +157,13 @@ public class EntryTypeTabView extends a {
     @Override // com.kwad.sdk.entry.view.a, com.kwad.sdk.widget.b
     public void a() {
         super.a();
-        com.kwad.sdk.core.report.e.b(this.f, this.f10100a.e);
+        com.kwad.sdk.core.report.e.b(this.f, this.f10101a.e);
     }
 
     @Override // com.kwad.sdk.entry.view.a
     protected boolean b() {
         this.h.clear();
-        Iterator<AdTemplate> it = this.f10100a.k.iterator();
+        Iterator<AdTemplate> it = this.f10101a.k.iterator();
         while (true) {
             if (!it.hasNext()) {
                 break;

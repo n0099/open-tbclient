@@ -27,8 +27,8 @@ public class b extends d {
 
     @SuppressLint({"SwanBindApiNote"})
     public com.baidu.swan.apps.api.c.b vm(String str) {
-        e aMl = e.aMl();
-        if (aMl == null) {
+        e aMm = e.aMm();
+        if (aMm == null) {
             if (DEBUG) {
                 Log.e("getOpenBduss", "getOpenBduss failed: null swan runtime");
             }
@@ -48,7 +48,7 @@ public class b extends d {
         if (TextUtils.isEmpty(optString)) {
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
         }
-        aMl.aMw().b(com.baidu.swan.apps.runtime.d.aMg(), "scope_get_open_bduss", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.b.1
+        aMm.aMx().b(com.baidu.swan.apps.runtime.d.aMh(), "scope_get_open_bduss", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.api.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -76,10 +76,10 @@ public class b extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, ArrayList<String> arrayList, final String str2) {
-        if (!com.baidu.swan.bdprivate.a.a.dW(com.baidu.swan.apps.runtime.d.aMg())) {
+        if (!com.baidu.swan.bdprivate.a.a.dW(com.baidu.swan.apps.runtime.d.aMh())) {
             a(str2, new com.baidu.swan.apps.api.c.b(202, "user is not logged in or the params are invalid"));
         } else {
-            com.baidu.swan.bdprivate.a.a.a(com.baidu.swan.apps.runtime.d.aMg(), str, arrayList, new a() { // from class: com.baidu.swan.bdprivate.api.b.2
+            com.baidu.swan.bdprivate.a.a.a(com.baidu.swan.apps.runtime.d.aMh(), str, arrayList, new a() { // from class: com.baidu.swan.bdprivate.api.b.2
                 @Override // com.baidu.swan.bdprivate.api.b.a
                 public void vj(String str3) {
                     try {

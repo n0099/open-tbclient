@@ -152,7 +152,7 @@ public class MessageRedDotView extends View {
 
     private void initView() {
         setLayerType(1, null);
-        bxu();
+        bxv();
         this.bjo = new Paint(1);
         this.bjo.setColor(ao.getColor(R.color.CAM_X0101));
         if (this.fjz || !this.shadowEnabled) {
@@ -185,7 +185,7 @@ public class MessageRedDotView extends View {
         this.fjy = new RectF();
     }
 
-    private void bxu() {
+    private void bxv() {
         String str = Build.MODEL;
         if (str.contains(RomUtils.MANUFACTURER_VIVO) && str.contains("X20")) {
             this.fjn = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds2);

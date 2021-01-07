@@ -138,7 +138,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         this.fWp = (ImageView) findViewById(R.id.image_video_play);
         this.abK = new TbCyberVideoView(getContext());
         this.abK.setStageType("2003");
-        bKF();
+        bKG();
         this.abK.setOnErrorListener(this.eDg);
         this.abK.setOnSurfaceDestroyedListener(this.fWA);
         this.fWt = findViewById(R.id.auto_video_black_mask);
@@ -148,7 +148,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         this.fWu = (TextView) findViewById(R.id.text_video_play_count);
     }
 
-    private void bKF() {
+    private void bKG() {
         if (this.abK != null && this.abK.getParent() == null) {
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
             layoutParams.gravity = 17;
@@ -179,7 +179,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
                 this.fWo.clearAnimation();
                 this.fWo.setVisibility(0);
                 this.fWt.setVisibility(0);
-                this.fWs.dBL();
+                this.fWs.dBM();
                 this.fWr.setVisibility(8);
                 this.fWq.setVisibility(8);
             }
@@ -187,7 +187,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     }
 
     private void c(VideoInfo videoInfo) {
-        if (this.aim == null || this.aim.brq() == null) {
+        if (this.aim == null || this.aim.brr() == null) {
             setVisibility(8);
             return;
         }
@@ -196,15 +196,15 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void bKG() {
+    private void bKH() {
         com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fWy);
         com.baidu.adp.lib.f.e.mB().removeCallbacks(this.fWz);
     }
 
     private void d(VideoInfo videoInfo) {
-        bKG();
+        bKH();
         if (this.fWo != null && this.fWm != null && this.abK != null) {
-            if (k.bou().isShowImages() && this.aim != null && videoInfo != null) {
+            if (k.bov().isShowImages() && this.aim != null && videoInfo != null) {
                 this.fWm.setVisibility(0);
                 this.fWo.setDefaultBgResource(R.drawable.pic_bg_video_frs);
                 this.fWo.startLoad(videoInfo.thumbnail_url, 10, false);
@@ -244,7 +244,7 @@ public class FrsBaseVideoView extends LinearLayout implements View.OnClickListen
     }
 
     public void stopPlay() {
-        bKG();
+        bKH();
         v(true, 1);
         if (this.abK != null) {
             this.abK.stopPlayback();

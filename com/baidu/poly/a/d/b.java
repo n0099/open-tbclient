@@ -1,7 +1,7 @@
 package com.baidu.poly.a.d;
 
 import android.widget.ImageView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     private static b cnO;
     private c cnP;
@@ -20,7 +20,7 @@ public class b {
         }
     }
 
-    public static b aft() {
+    public static b afu() {
         return cnO;
     }
 

@@ -13,39 +13,39 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaCancelApplyOrCancelInv
 import com.baidu.tieba.yuyinala.liveroom.wheat.model.e;
 /* loaded from: classes11.dex */
 public class k {
-    private static k oBE;
-    private a oBF;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.model.e oBG;
-    private i oBH;
-    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g oBy;
+    private static k oBD;
+    private a oBE;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.model.e oBF;
+    private i oBG;
+    private com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g oBx;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void eeY();
-
         void eeZ();
 
         void efa();
+
+        void efb();
     }
 
     private k() {
     }
 
-    public static k eeW() {
-        if (oBE == null) {
-            oBE = new k();
+    public static k eeX() {
+        if (oBD == null) {
+            oBD = new k();
         }
-        return oBE;
+        return oBD;
     }
 
     public boolean aH(Activity activity) {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null && !TextUtils.isEmpty(currentAccountInfo.getID())) {
             String encryptionUserId = ExtraParamsManager.getEncryptionUserId(currentAccountInfo.getID());
-            if (o.eff().jm(encryptionUserId)) {
+            if (o.efg().jm(encryptionUserId)) {
                 a(activity, activity.getString(a.h.yuyin_ala_connection_wheat_close_room_remind_1_text), true, encryptionUserId);
                 return false;
-            } else if (o.eff().isApplying()) {
+            } else if (o.efg().isApplying()) {
                 a(activity, activity.getString(a.h.yuyin_ala_connection_wheat_close_room_remind_2_text), false, encryptionUserId);
                 return false;
             }
@@ -54,8 +54,8 @@ public class k {
     }
 
     public boolean isShowing() {
-        if (this.oBy != null) {
-            return this.oBy.isShowing();
+        if (this.oBx != null) {
+            return this.oBx.isShowing();
         }
         return false;
     }
@@ -63,87 +63,87 @@ public class k {
     private void a(Activity activity, String str, final boolean z, final String str2) {
         if (activity != null) {
             hide();
-            this.oBy = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(activity);
-            this.oBy.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.k.1
+            this.oBx = new com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g(activity);
+            this.oBx.a(new g.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.k.1
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onCancel() {
                     k.this.hide();
-                    if (k.this.oBF != null) {
-                        k.this.oBF.eeY();
+                    if (k.this.oBE != null) {
+                        k.this.oBE.eeZ();
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.g.a
                 public void onConfirm() {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        if (k.this.oBF != null) {
-                            k.this.oBF.eeZ();
+                        if (k.this.oBE != null) {
+                            k.this.oBE.efa();
                         }
                     } else if (z) {
-                        k.this.Wx(str2);
+                        k.this.Ww(str2);
                     } else {
-                        k.this.eeX();
+                        k.this.eeY();
                     }
                 }
             });
-            this.oBy.show();
+            this.oBx.show();
             if (!TextUtils.isEmpty(str)) {
-                this.oBy.setText(str);
+                this.oBx.setText(str);
             }
         }
     }
 
     public void hide() {
-        if (this.oBy != null) {
-            this.oBy.dismiss();
-            this.oBy = null;
+        if (this.oBx != null) {
+            this.oBx.dismiss();
+            this.oBx = null;
         }
     }
 
     public void a(a aVar) {
-        this.oBF = aVar;
+        this.oBE = aVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Wx(String str) {
-        if (this.oBH == null) {
-            this.oBH = new i();
+    public void Ww(String str) {
+        if (this.oBG == null) {
+            this.oBG = new i();
         }
-        this.oBH.Wv(str);
-        this.oBH.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.k.2
+        this.oBG.Wu(str);
+        this.oBG.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.k.2
             @Override // com.baidu.tieba.yuyinala.liveroom.wheat.c.i.a
-            public void Ww(String str2) {
+            public void Wv(String str2) {
                 k.this.hide();
-                if (k.this.oBF != null) {
-                    k.this.oBF.eeZ();
+                if (k.this.oBE != null) {
+                    k.this.oBE.efa();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eeX() {
-        if (this.oBG == null) {
-            this.oBG = new com.baidu.tieba.yuyinala.liveroom.wheat.model.e(null, new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.k.3
+    public void eeY() {
+        if (this.oBF == null) {
+            this.oBF = new com.baidu.tieba.yuyinala.liveroom.wheat.model.e(null, new e.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.k.3
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.e.a
                 public void a(AlaCancelApplyOrCancelInviteHttpResponseMessage alaCancelApplyOrCancelInviteHttpResponseMessage) {
                     if (!alaCancelApplyOrCancelInviteHttpResponseMessage.isError()) {
                         k.this.hide();
-                        if (k.this.oBF != null) {
-                            k.this.oBF.eeZ();
+                        if (k.this.oBE != null) {
+                            k.this.oBE.efa();
                         }
-                        o.eff().zQ(false);
+                        o.efg().zQ(false);
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.liveroom.wheat.model.e.a
                 public void onFail(int i, String str) {
-                    if (k.this.oBF != null) {
-                        k.this.oBF.efa();
+                    if (k.this.oBE != null) {
+                        k.this.oBE.efb();
                     }
                 }
             });
         }
-        this.oBG.gS(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().Cq(), "1");
+        this.oBF.gS(com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().Cq(), "1");
     }
 }

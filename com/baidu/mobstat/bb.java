@@ -4,7 +4,7 @@ public class bb extends ba {
     private static bb c = new bb();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3776b;
+    private boolean f3777b;
 
     private bb() {
     }
@@ -20,6 +20,6 @@ public class bb extends ba {
 
     @Override // com.baidu.mobstat.ba
     public boolean b() {
-        return this.f3776b;
+        return this.f3777b;
     }
 }

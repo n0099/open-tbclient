@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes2.dex */
 public interface d<T> {
-    void Fd(String str);
+    void Fc(String str);
 
     void aB(T t);
 

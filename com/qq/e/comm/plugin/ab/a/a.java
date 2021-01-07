@@ -2,18 +2,18 @@ package com.qq.e.comm.plugin.ab.a;
 
 import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final c f11998a;
+    private final c f11999a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final JSONObject f11999b;
+    private final JSONObject f12000b;
 
     public a(c cVar, JSONObject jSONObject) {
-        this.f11998a = cVar;
-        this.f11999b = jSONObject;
+        this.f11999a = cVar;
+        this.f12000b = jSONObject;
     }
 
     public static a a(String str, JSONObject jSONObject) {
@@ -26,14 +26,14 @@ public class a {
     }
 
     public c a() {
-        return this.f11998a;
+        return this.f11999a;
     }
 
     public JSONObject b() {
-        return this.f11999b;
+        return this.f12000b;
     }
 
     public String toString() {
-        return "event<" + this.f11998a + "," + this.f11999b + ">";
+        return "event<" + this.f11999a + "," + this.f12000b + ">";
     }
 }

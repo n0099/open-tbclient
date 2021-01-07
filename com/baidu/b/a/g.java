@@ -1,12 +1,12 @@
 package com.baidu.b.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 abstract class g {
 
     /* renamed from: a  reason: collision with root package name */
-    protected long f1567a;
+    protected long f1568a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected int f1568b;
+    protected int f1569b;
     protected int c;
     protected int d;
     protected int e;

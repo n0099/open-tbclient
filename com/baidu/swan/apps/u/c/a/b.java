@@ -25,22 +25,22 @@ public abstract class b<ValueT> {
     }
 
     public ValueT a(c cVar, String str, ValueT valuet) {
-        return a(cVar.aCS(), str, (String) valuet);
+        return a(cVar.aCT(), str, (String) valuet);
     }
 
     public void b(@NonNull final c cVar, final String str, final ValueT valuet) {
-        aq aCT = cVar.aCT();
-        if (aCT.aSc()) {
-            b(cVar.aCS(), str, (String) valuet);
-            aCT.aSd();
+        aq aCU = cVar.aCU();
+        if (aCU.aSd()) {
+            b(cVar.aCT(), str, (String) valuet);
+            aCU.aSe();
             return;
         }
-        aCT.m(new Runnable() { // from class: com.baidu.swan.apps.u.c.a.b.1
+        aCU.m(new Runnable() { // from class: com.baidu.swan.apps.u.c.a.b.1
             /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.swan.apps.u.c.a.b */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // java.lang.Runnable
             public void run() {
-                b.this.b(cVar.aCS(), str, (String) valuet);
+                b.this.b(cVar.aCT(), str, (String) valuet);
             }
         });
     }

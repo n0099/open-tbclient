@@ -17,10 +17,10 @@ public class c {
     private static String d;
 
     /* renamed from: a  reason: collision with root package name */
-    static String f13689a = null;
+    static String f13690a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    static String f13690b = null;
+    static String f13691b = null;
     static String c = null;
     private static String e = null;
 
@@ -60,30 +60,30 @@ public class c {
     }
 
     public static String b(Context context) {
-        if (f13689a != null && f13689a.length() > 0) {
-            return f13689a;
+        if (f13690a != null && f13690a.length() > 0) {
+            return f13690a;
         }
         if (context == null) {
             return "";
         }
         try {
-            f13689a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
-            return f13689a;
+            f13690a = ((TelephonyManager) context.getSystemService("phone")).getDeviceId();
+            return f13690a;
         } catch (Exception e2) {
             return "";
         }
     }
 
     public static String c(Context context) {
-        if (f13690b != null && f13690b.length() > 0) {
-            return f13690b;
+        if (f13691b != null && f13691b.length() > 0) {
+            return f13691b;
         }
         if (context == null) {
             return "";
         }
         try {
-            f13690b = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
-            return f13690b;
+            f13691b = ((TelephonyManager) context.getSystemService("phone")).getSimSerialNumber();
+            return f13691b;
         } catch (Exception e2) {
             return "";
         }

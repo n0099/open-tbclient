@@ -26,7 +26,7 @@ import com.baidu.swan.apps.runtime.e;
 import com.baidu.swan.apps.storage.PathType;
 import com.baidu.webkit.internal.ABTestConstants;
 import com.bytedance.sdk.openadsdk.preload.falconx.statistic.StatisticData;
-import com.facebook.common.b.f;
+import com.facebook.common.b.i;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
 import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import java.io.File;
@@ -84,7 +84,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     public void setButtonText(String str) {
         if (!TextUtils.equals(str, this.mText)) {
             this.mText = str;
-            if (bdj() && getParent() != null) {
+            if (bdk() && getParent() != null) {
                 setText(this.mText);
                 requestLayout();
             }
@@ -95,8 +95,8 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         if (!TextUtils.equals(str, this.mImage)) {
             this.mImage = str;
             this.mBitmap = null;
-            if (agU() && getParent() != null) {
-                Zz();
+            if (agV() && getParent() != null) {
+                ZA();
             }
         }
     }
@@ -110,28 +110,28 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         this.mWidth = i;
         this.mHeight = i2;
         this.mBitmap = null;
-        bdb();
+        bdc();
     }
 
-    public void bdb() {
+    public void bdc() {
         if (this.eoN != null && getParent() != null) {
-            if (bdj()) {
+            if (bdk()) {
                 GradientDrawable gradientDrawable = new GradientDrawable();
                 gradientDrawable.setColor(0);
                 setBorder(gradientDrawable);
                 setBorderRadius(gradientDrawable);
                 setButtonBackground(gradientDrawable);
                 setText(this.mText);
-                bdc();
+                bdd();
                 setTextColor(ag(this.eoN.color, ViewCompat.MEASURED_STATE_MASK));
-                bdf();
-                bde();
                 bdg();
-                bdi();
+                bdf();
+                bdh();
+                bdj();
             } else {
-                Zz();
+                ZA();
             }
-            bdd();
+            bde();
         }
     }
 
@@ -172,11 +172,11 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         return i;
     }
 
-    private void bdc() {
+    private void bdd() {
         setTextSize((float) this.eoN.fontSize);
     }
 
-    private void bdd() {
+    private void bde() {
         if (this.eoN.hidden) {
             setVisibility(8);
         } else {
@@ -184,10 +184,10 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         }
     }
 
-    private void Zz() {
+    private void ZA() {
         Uri uri = getUri();
         if (uri == null || o(uri)) {
-            bdh();
+            bdi();
             return;
         }
         try {
@@ -200,21 +200,21 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     private Uri getUri() {
-        String bdo;
+        String bdp;
         String str;
         if (c.tW(this.mImage) == PathType.NETWORK) {
             return Uri.parse(this.mImage);
         }
-        if (c.tW(this.mImage) != PathType.RELATIVE || (bdo = c.bdo()) == null) {
+        if (c.tW(this.mImage) != PathType.RELATIVE || (bdp = c.bdp()) == null) {
             return null;
         }
         if (this.mImage.startsWith(".")) {
             this.mImage = this.mImage.substring(1);
         }
         if (this.mImage.startsWith("/")) {
-            str = bdo + this.mImage;
+            str = bdp + this.mImage;
         } else {
-            str = bdo + File.separator + this.mImage;
+            str = bdp + File.separator + this.mImage;
         }
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.d("ApiButton", "——> getUri: " + str);
@@ -222,7 +222,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         return Uri.parse(str);
     }
 
-    private void bde() {
+    private void bdf() {
         if (!TextUtils.isEmpty(this.eoN.textAlign)) {
             String str = this.eoN.textAlign;
             char c = 65535;
@@ -263,7 +263,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         }
     }
 
-    private void bdf() {
+    private void bdg() {
         if (!TextUtils.isEmpty(this.eoN.fontWeight)) {
             TextPaint paint = getPaint();
             paint.setStyle(Paint.Style.FILL_AND_STROKE);
@@ -408,7 +408,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         }
     }
 
-    private void bdg() {
+    private void bdh() {
         int O = ah.O(this.eoN.borderWidth);
         int O2 = ah.O(this.eoN.lineHeight);
         int textLineHeight = O2 > 0 ? ((O2 / 2) - (getTextLineHeight() / 2)) - getTextTopPadding() : 0;
@@ -417,7 +417,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bdh() {
+    public void bdi() {
         if (this.eoN != null) {
             GradientDrawable gradientDrawable = new GradientDrawable();
             gradientDrawable.setColor(0);
@@ -429,11 +429,11 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
                 gradientDrawable2 = new com.baidu.swan.apps.res.ui.c(this.mBitmap, ah.O((float) this.eoN.borderRadius), 0, 0);
             }
             setBackgroundDrawable(new LayerDrawable(new Drawable[]{gradientDrawable2, gradientDrawable}));
-            bdi();
+            bdj();
         }
     }
 
-    private void bdi() {
+    private void bdj() {
         float min = Math.min(1.0f, Math.max(0.0f, (float) this.eoN.opacity));
         if (getBackground() != null) {
             setAlpha(min);
@@ -456,7 +456,7 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
 
     @UiThread
     private void p(Uri uri) {
-        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> e = com.facebook.drawee.a.a.c.euK().e(ImageRequestBuilder.aj(uri).eBe(), getContext());
+        final com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> e = com.facebook.drawee.a.a.c.euR().e(ImageRequestBuilder.aj(uri).eBI(), getContext());
         e.a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.swan.games.view.button.base.ApiButton.1
             @Override // com.facebook.imagepipeline.d.b
             public void f(@Nullable Bitmap bitmap) {
@@ -465,8 +465,8 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
                 }
                 if (e.isFinished()) {
                     ApiButton.this.mBitmap = s.d(bitmap, ApiButton.this.mWidth, ApiButton.this.mHeight);
-                    ApiButton.this.bdh();
-                    e.ath();
+                    ApiButton.this.bdi();
+                    e.ati();
                 }
             }
 
@@ -474,14 +474,14 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
             @Override // com.facebook.datasource.a
             public void a(com.facebook.datasource.b<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> bVar) {
                 if (e.DEBUG) {
-                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.eut().getMessage());
+                    Log.d("ApiButton", "——> onFailureImpl: " + bVar.euA().getMessage());
                 }
-                ApiButton.this.bdh();
+                ApiButton.this.bdi();
                 if (bVar != null) {
-                    bVar.ath();
+                    bVar.ati();
                 }
             }
-        }, f.etR());
+        }, i.etX());
     }
 
     @Override // android.view.View.OnClickListener
@@ -495,12 +495,12 @@ public class ApiButton extends AppCompatButton implements View.OnClickListener {
         }
     }
 
-    public boolean bdj() {
+    public boolean bdk() {
         return TextUtils.equals(getType(), "text");
     }
 
-    public boolean agU() {
-        return !bdj();
+    public boolean agV() {
+        return !bdk();
     }
 
     private int getTextLineHeight() {

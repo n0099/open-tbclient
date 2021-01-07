@@ -12,10 +12,10 @@ import java.io.Closeable;
 public final class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final PathMeasure f8288a = new PathMeasure();
+    private static final PathMeasure f8289a = new PathMeasure();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Path f8289b = new Path();
+    private static final Path f8290b = new Path();
     private static final Path c = new Path();
     private static final float[] d = new float[4];
     private static final float e = (float) Math.sqrt(2.0d);
@@ -61,8 +61,8 @@ public final class f {
 
     public static void a(Path path, float f2, float f3, float f4) {
         com.ksad.lottie.c.c("applyTrimPathIfNeeded");
-        f8288a.setPath(path, false);
-        float length = f8288a.getLength();
+        f8289a.setPath(path, false);
+        float length = f8289a.getLength();
         if (f2 == 1.0f && f3 == 0.0f) {
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         } else if (length < 1.0f || Math.abs((f3 - f2) - 1.0f) < 0.01d) {
@@ -93,18 +93,18 @@ public final class f {
             if (f8 >= f9) {
                 f8 -= length;
             }
-            f8289b.reset();
-            f8288a.getSegment(f8, f9, f8289b, true);
+            f8290b.reset();
+            f8289a.getSegment(f8, f9, f8290b, true);
             if (f9 > length) {
                 c.reset();
-                f8288a.getSegment(0.0f, f9 % length, c, true);
-                f8289b.addPath(c);
+                f8289a.getSegment(0.0f, f9 % length, c, true);
+                f8290b.addPath(c);
             } else if (f8 < 0.0f) {
                 c.reset();
-                f8288a.getSegment(f8 + length, length, c, true);
-                f8289b.addPath(c);
+                f8289a.getSegment(f8 + length, length, c, true);
+                f8290b.addPath(c);
             }
-            path.set(f8289b);
+            path.set(f8290b);
             com.ksad.lottie.c.d("applyTrimPathIfNeeded");
         }
     }

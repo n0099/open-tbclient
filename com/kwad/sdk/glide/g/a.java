@@ -14,31 +14,31 @@ import java.util.concurrent.atomic.AtomicReference;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicReference<byte[]> f10305a = new AtomicReference<>();
+    private static final AtomicReference<byte[]> f10306a = new AtomicReference<>();
 
     /* renamed from: com.kwad.sdk.glide.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static class C1094a extends InputStream {
+    private static class C1135a extends InputStream {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f10306a;
+        private final ByteBuffer f10307a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f10307b = -1;
+        private int f10308b = -1;
 
-        C1094a(@NonNull ByteBuffer byteBuffer) {
-            this.f10306a = byteBuffer;
+        C1135a(@NonNull ByteBuffer byteBuffer) {
+            this.f10307a = byteBuffer;
         }
 
         @Override // java.io.InputStream
         public int available() {
-            return this.f10306a.remaining();
+            return this.f10307a.remaining();
         }
 
         @Override // java.io.InputStream
         public synchronized void mark(int i) {
-            this.f10307b = this.f10306a.position();
+            this.f10308b = this.f10307a.position();
         }
 
         @Override // java.io.InputStream
@@ -48,17 +48,17 @@ public final class a {
 
         @Override // java.io.InputStream
         public int read() {
-            if (this.f10306a.hasRemaining()) {
-                return this.f10306a.get();
+            if (this.f10307a.hasRemaining()) {
+                return this.f10307a.get();
             }
             return -1;
         }
 
         @Override // java.io.InputStream
         public int read(@NonNull byte[] bArr, int i, int i2) {
-            if (this.f10306a.hasRemaining()) {
+            if (this.f10307a.hasRemaining()) {
                 int min = Math.min(i2, available());
-                this.f10306a.get(bArr, i, min);
+                this.f10307a.get(bArr, i, min);
                 return min;
             }
             return -1;
@@ -66,17 +66,17 @@ public final class a {
 
         @Override // java.io.InputStream
         public synchronized void reset() {
-            if (this.f10307b == -1) {
+            if (this.f10308b == -1) {
                 throw new IOException("Cannot reset to unset mark position");
             }
-            this.f10306a.position(this.f10307b);
+            this.f10307a.position(this.f10308b);
         }
 
         @Override // java.io.InputStream
         public long skip(long j) {
-            if (this.f10306a.hasRemaining()) {
+            if (this.f10307a.hasRemaining()) {
                 long min = Math.min(j, available());
-                this.f10306a.position((int) (this.f10306a.position() + min));
+                this.f10307a.position((int) (this.f10307a.position() + min));
                 return min;
             }
             return -1L;
@@ -88,16 +88,16 @@ public final class a {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        final int f10311a;
+        final int f10312a;
 
         /* renamed from: b  reason: collision with root package name */
-        final int f10312b;
+        final int f10313b;
         final byte[] c;
 
         b(@NonNull byte[] bArr, int i, int i2) {
             this.c = bArr;
-            this.f10311a = i;
-            this.f10312b = i2;
+            this.f10312a = i;
+            this.f10313b = i2;
         }
     }
 
@@ -217,7 +217,7 @@ public final class a {
     @NonNull
     public static byte[] a(@NonNull ByteBuffer byteBuffer) {
         b c = c(byteBuffer);
-        if (c != null && c.f10311a == 0 && c.f10312b == c.c.length) {
+        if (c != null && c.f10312a == 0 && c.f10313b == c.c.length) {
             return byteBuffer.array();
         }
         ByteBuffer asReadOnlyBuffer = byteBuffer.asReadOnlyBuffer();
@@ -229,7 +229,7 @@ public final class a {
 
     @NonNull
     public static InputStream b(@NonNull ByteBuffer byteBuffer) {
-        return new C1094a(byteBuffer);
+        return new C1135a(byteBuffer);
     }
 
     @Nullable

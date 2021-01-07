@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
-    private String lQt;
+    private String lQs;
     private CustomMessageListener lhp;
     private LinearLayout mContainer;
     private ProgressBar mProgressBar;
@@ -46,7 +46,7 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
     }
 
     public void at(String str, int i) {
-        this.lQt = str;
+        this.lQs = str;
         this.mTextView.setText(str);
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.mContainer.getLayoutParams();
         layoutParams.height = i;
@@ -70,8 +70,8 @@ public class PbLoadMoreItemViewHolder extends TypeAdapter.ViewHolder {
 
     public void endLoadData() {
         this.mProgressBar.setVisibility(8);
-        if (this.lQt != null) {
-            this.mTextView.setText(this.lQt);
+        if (this.lQs != null) {
+            this.mTextView.setText(this.lQs);
         } else {
             this.mTextView.setText(TbadkCoreApplication.getInst().getContext().getText(R.string.pb_load_more));
         }

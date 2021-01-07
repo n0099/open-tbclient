@@ -149,7 +149,7 @@ public class DownloadInfo implements Serializable {
             return this;
         }
 
-        public DownloadInfo aVl() {
+        public DownloadInfo aVm() {
             DownloadInfo downloadInfo = new DownloadInfo();
             if (TextUtils.isEmpty(this.url)) {
                 throw new DownloadException(0, "uri cannot be null.");

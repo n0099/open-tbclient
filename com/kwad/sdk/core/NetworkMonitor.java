@@ -18,10 +18,10 @@ import java.util.List;
 public class NetworkMonitor {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f9326a = false;
+    private static volatile boolean f9327a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<WeakReference<a>> f9327b;
+    private List<WeakReference<a>> f9328b;
     private boolean c;
     private final BroadcastReceiver d;
 
@@ -52,7 +52,7 @@ public class NetworkMonitor {
     }
 
     private NetworkMonitor() {
-        this.f9327b = Collections.synchronizedList(new LinkedList());
+        this.f9328b = Collections.synchronizedList(new LinkedList());
         this.c = false;
         this.d = new BroadcastReceiver() { // from class: com.kwad.sdk.core.NetworkMonitor.1
             @Override // android.content.BroadcastReceiver
@@ -84,7 +84,7 @@ public class NetworkMonitor {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(NetworkState networkState) {
-        Iterator<WeakReference<a>> it = this.f9327b.iterator();
+        Iterator<WeakReference<a>> it = this.f9328b.iterator();
         while (it.hasNext()) {
             WeakReference<a> next = it.next();
             if (next == null) {
@@ -102,22 +102,22 @@ public class NetworkMonitor {
 
     private synchronized void d() {
         Context context;
-        if (!f9326a && (context = KsAdSDKImpl.get().getContext()) != null) {
+        if (!f9327a && (context = KsAdSDKImpl.get().getContext()) != null) {
             context.getApplicationContext().registerReceiver(this.d, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"));
-            f9326a = true;
+            f9327a = true;
         }
     }
 
     public void a(@NonNull a aVar) {
         d();
-        this.f9327b.add(new WeakReference<>(aVar));
+        this.f9328b.add(new WeakReference<>(aVar));
     }
 
     public void b(a aVar) {
         if (aVar == null) {
             return;
         }
-        Iterator<WeakReference<a>> it = this.f9327b.iterator();
+        Iterator<WeakReference<a>> it = this.f9328b.iterator();
         while (it.hasNext()) {
             WeakReference<a> next = it.next();
             if (next == null) {

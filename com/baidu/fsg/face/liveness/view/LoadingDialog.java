@@ -9,7 +9,7 @@ import com.baidu.sapi2.biometrics.liveness.R;
 public class LoadingDialog extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f2414a;
+    private TextView f2415a;
 
     public LoadingDialog(Context context) {
         super(context, R.style.BeautyDialog);
@@ -29,14 +29,14 @@ public class LoadingDialog extends Dialog {
     private void a() {
         setContentView(R.layout.layout_sapi_liveness_dialog_loading);
         setCanceledOnTouchOutside(false);
-        this.f2414a = (TextView) findViewById(R.id.msg_text);
+        this.f2415a = (TextView) findViewById(R.id.msg_text);
     }
 
     public void setMessage(String str) {
-        this.f2414a.setText(str);
+        this.f2415a.setText(str);
     }
 
     public void setMessage(int i) {
-        this.f2414a.setText(i);
+        this.f2415a.setText(i);
     }
 }

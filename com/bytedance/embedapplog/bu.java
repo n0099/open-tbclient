@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class bu extends bv {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f6112b;
+    private boolean f6113b;
     private final m phu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -23,11 +23,11 @@ public class bu extends bv {
 
     @Override // com.bytedance.embedapplog.bv
     long b() {
-        return this.f6112b ? Long.MAX_VALUE : 0L;
+        return this.f6113b ? Long.MAX_VALUE : 0L;
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] epw() {
+    long[] epx() {
         return cc.phA;
     }
 
@@ -36,12 +36,12 @@ public class bu extends bv {
         if (this.phu.o() != 0) {
             JSONObject a2 = this.phu.a();
             if (a2 != null) {
-                this.f6112b = aa.x(ab.a(this.f6113a, this.phu.a(), aa.eps().epC(), true, b.eoO()), a2);
+                this.f6113b = aa.x(ab.a(this.f6114a, this.phu.a(), aa.ept().epD(), true, b.eoP()), a2);
             } else {
                 au.a(null);
             }
         }
-        return this.f6112b;
+        return this.f6113b;
     }
 
     @Override // com.bytedance.embedapplog.bv

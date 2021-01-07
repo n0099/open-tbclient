@@ -26,9 +26,9 @@ public class s extends com.baidu.tieba.frs.k<by, FrsCardVideoViewHolder<com.baid
     /* JADX INFO: Access modifiers changed from: private */
     public void n(bz bzVar, String str) {
         if (bzVar != null) {
-            int bsH = bzVar.bsH();
+            int bsI = bzVar.bsI();
             aq aqVar = new aq(str);
-            aqVar.dX("obj_locate", AK(bsH));
+            aqVar.dX("obj_locate", AK(bsI));
             aqVar.dX("tid", bzVar.getTid());
             aqVar.an("obj_type", 2);
             TiebaStatic.log(aqVar);
@@ -65,7 +65,7 @@ public class s extends com.baidu.tieba.frs.k<by, FrsCardVideoViewHolder<com.baid
                     } else if (view.getId() == R.id.image_user || view.getId() == R.id.pendant_image_user) {
                         s.this.n(bzVar, TbadkCoreStatisticKey.FRS_PHOTO_LIVE_VIEW_PAGER_PORTRAIT);
                     } else if (view.getId() == R.id.card_divider_tv) {
-                        com.baidu.tieba.frs.d.k.a(s.this.jpq, bzVar.boP());
+                        com.baidu.tieba.frs.d.k.a(s.this.jpq, bzVar.boQ());
                     }
                     if (view.getId() == R.id.card_home_page_normal_thread_user_name || (view instanceof HeadImageView) || (view instanceof HeadPendantView)) {
                         com.baidu.tieba.frs.b.a.a(bzVar, 2, s.this.mPageId, s.this.jpq, s.this.getTbPageTag());
@@ -97,14 +97,14 @@ public class s extends com.baidu.tieba.frs.k<by, FrsCardVideoViewHolder<com.baid
         com.baidu.tieba.play.o oVar = null;
         if (bzVar != null) {
             oVar = new com.baidu.tieba.play.o();
-            oVar.mLocate = AK(bzVar.bsH());
+            oVar.mLocate = AK(bzVar.bsI());
             oVar.fPy = this.jpq.jGo;
             oVar.anD = bzVar.getTid();
-            oVar.mDL = bzVar.mRecomAbTag;
-            if (bzVar.brH() != null) {
-                oVar.mDM = bzVar.brH().video_md5;
+            oVar.mDK = bzVar.mRecomAbTag;
+            if (bzVar.brI() != null) {
+                oVar.mDL = bzVar.brI().video_md5;
             }
-            bzVar.bsE();
+            bzVar.bsF();
         }
         return oVar;
     }
@@ -113,12 +113,12 @@ public class s extends com.baidu.tieba.frs.k<by, FrsCardVideoViewHolder<com.baid
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, by byVar, FrsCardVideoViewHolder frsCardVideoViewHolder) {
-        if (frsCardVideoViewHolder == null || frsCardVideoViewHolder.cvG() == null) {
+        if (frsCardVideoViewHolder == null || frsCardVideoViewHolder.cvH() == null) {
             return null;
         }
-        frsCardVideoViewHolder.cvG().setVideoStatsData(ak(byVar.eMv));
-        frsCardVideoViewHolder.cvG().a(byVar.eMv);
-        frsCardVideoViewHolder.cvG().c(this.hnl);
+        frsCardVideoViewHolder.cvH().setVideoStatsData(ak(byVar.eMv));
+        frsCardVideoViewHolder.cvH().a(byVar.eMv);
+        frsCardVideoViewHolder.cvH().c(this.hnl);
         com.baidu.tieba.frs.b.a.a(byVar.eMv, this.mPageId, this.jpq, getTbPageTag());
         return frsCardVideoViewHolder.getView();
     }

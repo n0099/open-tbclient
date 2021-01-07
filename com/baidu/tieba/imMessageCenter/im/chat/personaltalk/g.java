@@ -80,9 +80,9 @@ public class g {
 
     public void e(f fVar) {
         if (fVar != null) {
-            D(fVar.dal(), fVar.dak().sex.intValue());
-            tc(fVar.daj());
-            a(fVar.dak());
+            D(fVar.dam(), fVar.dal().sex.intValue());
+            tc(fVar.dak());
+            a(fVar.dal());
             f(fVar);
         }
     }
@@ -116,7 +116,7 @@ public class g {
 
     public void f(f fVar) {
         String str;
-        if (fVar != null && fVar.dak() != null && (str = fVar.dak().portrait) != null && str.length() > 0) {
+        if (fVar != null && fVar.dal() != null && (str = fVar.dal().portrait) != null && str.length() > 0) {
             this.kwz.setImageResource(0);
             this.kwz.startLoad(str, 12, false);
         }

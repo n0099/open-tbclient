@@ -25,16 +25,16 @@ public class CharmRankItemView extends LinearLayout {
     public ImageView gRs;
     public HeadImageView gRt;
     public TextView gRw;
+    public TbImageView okT;
     public TbImageView okU;
-    public TbImageView okV;
-    private TBLottieAnimationView okW;
-    private j.b okX;
-    private a okY;
-    public YuyinALALevelView okg;
+    private TBLottieAnimationView okV;
+    private j.b okW;
+    private a okX;
+    public YuyinALALevelView okf;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void ebN();
+        void ebO();
     }
 
     public CharmRankItemView(Context context) {
@@ -49,7 +49,7 @@ public class CharmRankItemView extends LinearLayout {
 
     public void setData(int i, j.b bVar) {
         int i2;
-        this.okX = bVar;
+        this.okW = bVar;
         if (i == 1) {
             this.gRr.setVisibility(8);
             this.gRs.setVisibility(0);
@@ -67,7 +67,7 @@ public class CharmRankItemView extends LinearLayout {
             this.gRs.setVisibility(8);
             this.gRr.setText(i + "");
         }
-        this.aGM.setText(this.okX.user_nickname);
+        this.aGM.setText(this.okW.user_nickname);
         m.a(this.gRt, bVar.bd_portrait, true, false);
         this.gRw.setText(bVar.aJF);
         try {
@@ -76,52 +76,52 @@ public class CharmRankItemView extends LinearLayout {
             i2 = 0;
         }
         if (i2 == 7) {
-            this.okV.setVisibility(0);
-            this.okU.setVisibility(8);
-            this.okV.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
+            this.okU.setVisibility(0);
+            this.okT.setVisibility(8);
+            this.okU.setImageResource(a.e.sdk_pic_noble_avatar_box_king);
         } else if (i2 == 6) {
-            this.okV.setVisibility(0);
-            this.okU.setVisibility(8);
-            this.okV.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
+            this.okU.setVisibility(0);
+            this.okT.setVisibility(8);
+            this.okU.setImageResource(a.e.sdk_pic_noble_avatar_box_duke);
         } else if (i2 == 5) {
-            this.okV.setVisibility(0);
-            this.okU.setVisibility(8);
-            this.okV.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
+            this.okU.setVisibility(0);
+            this.okT.setVisibility(8);
+            this.okU.setImageResource(a.e.sdk_pic_noble_avatar_box_marquis);
         } else if (i2 == 4) {
-            this.okV.setVisibility(0);
-            this.okU.setVisibility(8);
-            this.okV.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
+            this.okU.setVisibility(0);
+            this.okT.setVisibility(8);
+            this.okU.setImageResource(a.e.sdk_pic_noble_avatar_box_earl);
         } else if (i == 1) {
-            this.okU.setVisibility(0);
-            this.okV.setVisibility(8);
-            this.okU.setImageResource(a.e.yuyin_pic_live_list_top1);
-        } else if (i == 2) {
-            this.okU.setVisibility(0);
-            this.okV.setVisibility(8);
-            this.okU.setImageResource(a.e.yuyin_pic_live_list_top2);
-        } else if (i == 3) {
-            this.okU.setVisibility(0);
-            this.okV.setVisibility(8);
-            this.okU.setImageResource(a.e.yuyin_pic_live_list_top3);
-        } else {
+            this.okT.setVisibility(0);
             this.okU.setVisibility(8);
-            this.okV.setVisibility(8);
+            this.okT.setImageResource(a.e.yuyin_pic_live_list_top1);
+        } else if (i == 2) {
+            this.okT.setVisibility(0);
+            this.okU.setVisibility(8);
+            this.okT.setImageResource(a.e.yuyin_pic_live_list_top2);
+        } else if (i == 3) {
+            this.okT.setVisibility(0);
+            this.okU.setVisibility(8);
+            this.okT.setImageResource(a.e.yuyin_pic_live_list_top3);
+        } else {
+            this.okT.setVisibility(8);
+            this.okU.setVisibility(8);
         }
         if (ExtraParamsManager.getEncryptionUserId(String.valueOf(TbadkCoreApplication.getCurrentAccountId())).equals(bVar.user_uk)) {
-            this.okW.setVisibility(4);
+            this.okV.setVisibility(4);
         } else {
             aE(bVar.Ez(), false);
         }
     }
 
     public j.b getData() {
-        return this.okX;
+        return this.okW;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpC() {
-        if (this.okY != null) {
-            this.okY.ebN();
+    public void cpD() {
+        if (this.okX != null) {
+            this.okX.ebO();
         }
     }
 
@@ -136,26 +136,26 @@ public class CharmRankItemView extends LinearLayout {
         this.gRr = (TextView) findViewById(a.f.tv_rank);
         this.gRs = (ImageView) findViewById(a.f.iv_rank);
         this.gRt = (HeadImageView) findViewById(a.f.iv_avatar);
-        this.okU = (TbImageView) findViewById(a.f.iv_pendant);
-        this.okV = (TbImageView) findViewById(a.f.iv_noble);
-        this.okg = (YuyinALALevelView) findViewById(a.f.level);
+        this.okT = (TbImageView) findViewById(a.f.iv_pendant);
+        this.okU = (TbImageView) findViewById(a.f.iv_noble);
+        this.okf = (YuyinALALevelView) findViewById(a.f.level);
         this.aGM = (TextView) findViewById(a.f.tv_name);
         this.gRw = (TextView) findViewById(a.f.tv_value);
-        this.okW = (TBLottieAnimationView) findViewById(a.f.anim_follow);
+        this.okV = (TBLottieAnimationView) findViewById(a.f.anim_follow);
     }
 
     private void initView() {
         this.gRt.setAutoChangeStyle(false);
         this.gRt.setDrawBorder(false);
         this.gRt.setIsRound(true);
-        this.okU.setDefaultBgResource(a.c.sdk_transparent);
-        this.okU.setDefaultErrorResource(a.e.sdk_shape_transparent);
-        this.okW.enableMergePathsForKitKatAndAbove(true);
-        this.okW.setAnimation("charm_rank_item_follow.json");
-        this.okW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.1
+        this.okT.setDefaultBgResource(a.c.sdk_transparent);
+        this.okT.setDefaultErrorResource(a.e.sdk_shape_transparent);
+        this.okV.enableMergePathsForKitKatAndAbove(true);
+        this.okV.setAnimation("charm_rank_item_follow.json");
+        this.okV.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                CharmRankItemView.this.cpC();
+                CharmRankItemView.this.cpD();
             }
         });
     }
@@ -163,18 +163,18 @@ public class CharmRankItemView extends LinearLayout {
     public void aE(boolean z, boolean z2) {
         if (z) {
             if (z2) {
-                this.okW.playAnimation();
+                this.okV.playAnimation();
                 return;
             } else {
-                this.okW.setVisibility(4);
+                this.okV.setVisibility(4);
                 return;
             }
         }
-        this.okW.setVisibility(0);
-        this.okW.setProgress(0.0f);
+        this.okV.setVisibility(0);
+        this.okV.setProgress(0.0f);
     }
 
     public void setmCallBack(a aVar) {
-        this.okY = aVar;
+        this.okX = aVar;
     }
 }

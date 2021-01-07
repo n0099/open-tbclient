@@ -49,12 +49,12 @@ public class WishListEntryView extends RelativeLayout {
 
     public void ah(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.hSX.ctg();
+            this.hSX.cth();
             this.hSX.an(null);
             this.hSX.setVisibility(8);
             this.hSY.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.hSX.ctg();
+            this.hSX.cth();
             this.hSX.an(null);
             this.hSX.setVisibility(8);
             this.hSY.setVisibility(0);
@@ -62,19 +62,19 @@ public class WishListEntryView extends RelativeLayout {
         } else {
             this.hSY.setVisibility(8);
             this.hSX.setVisibility(0);
-            this.hSX.cth();
+            this.hSX.cti();
             this.hSX.an(arrayList);
         }
     }
 
     public void ai(ArrayList<AlaLiveWishListData> arrayList) {
         if (ListUtils.isEmpty(arrayList)) {
-            this.hSX.ctg();
+            this.hSX.cth();
             this.hSX.an(null);
             this.hSX.setVisibility(8);
             this.hSY.setVisibility(8);
         } else if (arrayList != null && arrayList.size() == 1) {
-            this.hSX.ctg();
+            this.hSX.cth();
             this.hSX.an(null);
             this.hSX.setVisibility(8);
             this.hSY.setVisibility(0);
@@ -82,7 +82,7 @@ public class WishListEntryView extends RelativeLayout {
         } else {
             this.hSY.setVisibility(8);
             this.hSX.setVisibility(0);
-            this.hSX.cth();
+            this.hSX.cti();
             this.hSX.an(arrayList);
         }
     }

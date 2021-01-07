@@ -1,9 +1,9 @@
 package io.reactivex.internal.util;
 
 import java.util.concurrent.atomic.AtomicLong;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b {
-    public static long S(long j, long j2) {
+    public static long T(long j, long j2) {
         long j3 = j + j2;
         if (j3 < 0) {
             return Long.MAX_VALUE;
@@ -11,7 +11,7 @@ public final class b {
         return j3;
     }
 
-    public static long T(long j, long j2) {
+    public static long U(long j, long j2) {
         long j3 = j * j2;
         if (((j | j2) >>> 31) != 0 && j3 / j != j2) {
             return Long.MAX_VALUE;
@@ -26,7 +26,7 @@ public final class b {
             if (j2 == Long.MAX_VALUE) {
                 return Long.MAX_VALUE;
             }
-        } while (!atomicLong.compareAndSet(j2, S(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, T(j2, j)));
         return j2;
     }
 
@@ -40,7 +40,7 @@ public final class b {
             if (j2 == Long.MAX_VALUE) {
                 return Long.MAX_VALUE;
             }
-        } while (!atomicLong.compareAndSet(j2, S(j2, j)));
+        } while (!atomicLong.compareAndSet(j2, T(j2, j)));
         return j2;
     }
 

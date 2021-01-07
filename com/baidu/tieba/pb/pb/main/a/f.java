@@ -36,11 +36,11 @@ public class f {
     };
     private com.baidu.tieba.f.a jJI;
     private BdTypeRecyclerView jVV;
-    private com.baidu.tieba.pb.pb.adapter.b lYi;
+    private com.baidu.tieba.pb.pb.adapter.b lYh;
 
     public f(BdTypeRecyclerView bdTypeRecyclerView, com.baidu.tieba.pb.pb.adapter.b bVar) {
         this.jVV = bdTypeRecyclerView;
-        this.lYi = bVar;
+        this.lYh = bVar;
         bdTypeRecyclerView.setOnTouchListener(this.bTP);
         this.jJI = new com.baidu.tieba.f.a();
     }
@@ -51,10 +51,10 @@ public class f {
             if (fVar.getForum() != null) {
                 str = fVar.getForum().getFirst_class();
             }
-            List<ThreadInfo> dnm = fVar.dnm();
+            List<ThreadInfo> dnn = fVar.dnn();
             LinkedList linkedList = new LinkedList();
-            c(dnm, linkedList, str);
-            this.lYi.cC(linkedList);
+            c(dnn, linkedList, str);
+            this.lYh.cC(linkedList);
         }
     }
 
@@ -68,12 +68,12 @@ public class f {
                 bz bzVar2 = new bz();
                 bzVar2.eOY = i2 + 1;
                 bzVar2.a(threadInfo);
-                if (bzVar2.bth() != null) {
-                    bzVar2.bth().eSm = str;
+                if (bzVar2.bti() != null) {
+                    bzVar2.bti().eSm = str;
                 }
                 if ((k.ad(bzVar2) || l.ad(bzVar2)) && bzVar2.getType() != bz.eTo) {
                     k aE = aE(bzVar2);
-                    if (aE != null && (bzVar = aE.eMv) != null && bzVar.bth() != null && !StringUtils.isNull(bzVar.bth().forumName)) {
+                    if (aE != null && (bzVar = aE.eMv) != null && bzVar.bti() != null && !StringUtils.isNull(bzVar.bti().forumName)) {
                         aE.tid = bzVar2.getTid();
                         aE.position = i;
                         h(aE);
@@ -85,11 +85,11 @@ public class f {
                         aD.tid = bzVar2.getTid();
                         aD.position = i;
                         if (aD instanceof k) {
-                            if (bzVar2.bsy() == 1) {
+                            if (bzVar2.bsz() == 1) {
                                 b(aD);
                                 aD.eSI = imageWidthAndHeight[0];
                                 aD.eSJ = imageWidthAndHeight[1];
-                            } else if (bzVar2.bsy() >= 2) {
+                            } else if (bzVar2.bsz() >= 2) {
                                 c(aD);
                             } else {
                                 e(aD);
@@ -99,16 +99,16 @@ public class f {
                         }
                     }
                     if (aD != null && aD.isValid()) {
-                        aD.eMv.bqS();
-                        if (!bzVar2.bpZ() && bzVar2.brq() != null) {
-                            SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), bzVar2.brq().getName_show()));
-                            spannableString.setSpan(new com.baidu.tbadk.widget.richText.f(16, bzVar2.brq().getUserId()) { // from class: com.baidu.tieba.pb.pb.main.a.f.2
+                        aD.eMv.bqT();
+                        if (!bzVar2.bqa() && bzVar2.brr() != null) {
+                            SpannableString spannableString = new SpannableString(String.format(TbadkCoreApplication.getInst().getString(R.string.at_username), bzVar2.brr().getName_show()));
+                            spannableString.setSpan(new com.baidu.tbadk.widget.richText.f(16, bzVar2.brr().getUserId()) { // from class: com.baidu.tieba.pb.pb.main.a.f.2
                                 @Override // com.baidu.tbadk.widget.richText.f, android.text.style.ClickableSpan
                                 public void onClick(View view) {
                                     aq aj;
                                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(view.getContext(), getLink(), null)));
                                     if (aD instanceof k) {
-                                        aj = ((k) aD).cvB();
+                                        aj = ((k) aD).cvC();
                                     } else {
                                         aj = aD instanceof l ? ((l) aD).aj(null) : null;
                                     }
@@ -139,7 +139,7 @@ public class f {
         kVar.eMv = bzVar;
         kVar.isLinkThread = bzVar.isLinkThread();
         if (!bzVar.isLinkThread()) {
-            kVar.izS = bzVar.brt();
+            kVar.izS = bzVar.bru();
         }
         kVar.izT = true;
         return kVar;
@@ -152,9 +152,9 @@ public class f {
         if (k.ad(bzVar)) {
             k kVar = new k();
             kVar.isLinkThread = bzVar.isLinkThread();
-            kVar.eSB = bzVar.bsv();
-            if (!bzVar.isLinkThread() && !bzVar.bsv()) {
-                kVar.izS = bzVar.brt();
+            kVar.eSB = bzVar.bsw();
+            if (!bzVar.isLinkThread() && !bzVar.bsw()) {
+                kVar.izS = bzVar.bru();
             }
             kVar.eMv = bzVar;
             kVar.izT = true;

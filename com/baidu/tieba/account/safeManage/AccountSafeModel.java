@@ -13,7 +13,7 @@ public class AccountSafeModel extends BdBaseModel {
     private String giU;
     private boolean mFinished;
 
-    public com.baidu.tieba.setting.im.more.a bOz() {
+    public com.baidu.tieba.setting.im.more.a bOA() {
         return this.giR;
     }
 
@@ -39,40 +39,40 @@ public class AccountSafeModel extends BdBaseModel {
         return false;
     }
 
-    private PrivateInfoNetMessage bOA() {
+    private PrivateInfoNetMessage bOB() {
         return new PrivateInfoNetMessage();
     }
 
-    public boolean bOB() {
+    public boolean bOC() {
         if (this.fNP) {
             return false;
         }
         this.fNP = true;
         this.mFinished = false;
-        sendMessage(bOA());
+        sendMessage(bOB());
         return true;
     }
 
     public void a(com.baidu.tieba.setting.im.more.a aVar) {
         this.giR = aVar;
-        bOC();
+        bOD();
     }
 
-    private void bOC() {
-        SimpleUser bOD = bOD();
-        if (bOD != null) {
-            this.giT = bOD.secureemail;
-            this.giU = bOD.securemobil;
-            this.giS = bOD.ahead_url;
+    private void bOD() {
+        SimpleUser bOE = bOE();
+        if (bOE != null) {
+            this.giT = bOE.secureemail;
+            this.giU = bOE.securemobil;
+            this.giS = bOE.ahead_url;
             this.mFinished = true;
         }
     }
 
-    private SimpleUser bOD() {
-        if (this.giR == null || this.giR.bOD() == null) {
+    private SimpleUser bOE() {
+        if (this.giR == null || this.giR.bOE() == null) {
             return null;
         }
-        return this.giR.bOD();
+        return this.giR.bOE();
     }
 
     public boolean isLoading() {

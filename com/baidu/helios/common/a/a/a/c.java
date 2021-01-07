@@ -1,7 +1,7 @@
 package com.baidu.helios.common.a.a.a;
 
 import java.math.BigInteger;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class c implements com.baidu.helios.common.a.b.a {
     private BigInteger afm;
     private BigInteger afn;

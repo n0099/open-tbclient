@@ -4,7 +4,7 @@ import com.qq.e.comm.util.GDTLogger;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a extends e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a() {
@@ -17,12 +17,12 @@ public final class a extends e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final Object a(String str) {
-        return this.f11855a.opt(str);
+        return this.f11856a.opt(str);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final Object a(String str, String str2) {
-        JSONObject optJSONObject = this.f11855a.optJSONObject("ps");
+        JSONObject optJSONObject = this.f11856a.optJSONObject("ps");
         JSONObject optJSONObject2 = optJSONObject != null ? optJSONObject.optJSONObject(str2) : null;
         if (optJSONObject2 != null) {
             return optJSONObject2.opt(str);
@@ -33,7 +33,7 @@ public final class a extends e {
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(String str, Object obj) {
         try {
-            this.f11855a.putOpt(str, obj);
+            this.f11856a.putOpt(str, obj);
         } catch (JSONException e) {
             GDTLogger.e("Exception while update setting", e);
         }
@@ -43,10 +43,10 @@ public final class a extends e {
     public final void a(String str, Object obj, String str2) {
         JSONObject jSONObject;
         try {
-            JSONObject optJSONObject = this.f11855a.optJSONObject("ps");
+            JSONObject optJSONObject = this.f11856a.optJSONObject("ps");
             if (optJSONObject == null) {
                 JSONObject jSONObject2 = new JSONObject();
-                this.f11855a.putOpt("ps", jSONObject2);
+                this.f11856a.putOpt("ps", jSONObject2);
                 jSONObject = jSONObject2;
             } else {
                 jSONObject = optJSONObject;

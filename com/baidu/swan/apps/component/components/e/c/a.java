@@ -53,9 +53,9 @@ public final class a extends com.baidu.swan.apps.component.a.c.a<TextView, b> {
             Log.d("Component-CoverView", "renderBackground");
         }
         if (bVar.cNz != null) {
-            SwanAppComponentContainerView aoB = aoB();
-            if (aoB != null) {
-                aoB.setModel(bVar);
+            SwanAppComponentContainerView aoC = aoC();
+            if (aoC != null) {
+                aoC.setModel(bVar);
             }
             ViewParent parent = textView.getParent();
             if (parent instanceof View) {

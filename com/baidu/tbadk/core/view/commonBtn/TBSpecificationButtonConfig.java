@@ -47,30 +47,30 @@ public abstract class TBSpecificationButtonConfig {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes.dex */
     public interface a {
-        void byr();
-
         void bys();
 
         void byt();
+
+        void byu();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract Drawable aj(float f);
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable byu() {
+    public Drawable byv() {
         return rn(this.fpw[0]);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Drawable byv() {
+    public Drawable byw() {
         return rn(this.fpw[1]);
     }
 
     private Drawable rn(int i) {
         Drawable drawable;
         if (this.fpx == IconType.SVG) {
-            drawable = SvgManager.bwq().c(i, ao.getColor(this.akW, this.fpy > 0 ? this.fpy : this.fpt), SvgManager.SvgResourceStateType.NORMAL);
+            drawable = SvgManager.bwr().c(i, ao.getColor(this.akW, this.fpy > 0 ? this.fpy : this.fpt), SvgManager.SvgResourceStateType.NORMAL);
         } else if (this.fpx == IconType.WEBP) {
             if (this.fpr == WebpType.MASK) {
                 drawable = WebPManager.a(i, null);
@@ -92,7 +92,7 @@ public abstract class TBSpecificationButtonConfig {
             this.fpw[1] = i2;
             this.fpx = iconType;
             if (this.fpG != null) {
-                this.fpG.bys();
+                this.fpG.byt();
             }
         }
     }
@@ -105,7 +105,7 @@ public abstract class TBSpecificationButtonConfig {
         if (i > 0 && this.iconSize != i) {
             this.iconSize = i;
             if (this.fpG != null) {
-                this.fpG.byr();
+                this.fpG.bys();
             }
         }
     }
@@ -114,7 +114,7 @@ public abstract class TBSpecificationButtonConfig {
         if (this.fpy != i) {
             this.fpy = i;
             if (this.fpG != null) {
-                this.fpG.bys();
+                this.fpG.byt();
             }
         }
     }

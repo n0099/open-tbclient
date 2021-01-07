@@ -26,26 +26,26 @@ public final class b {
     private static volatile cn pgz;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f6092b = true;
+    private static boolean f6093b = true;
     private static boolean c = false;
     private static ao pgB = new ao();
     public static ConcurrentHashMap<String, String> pgD = new ConcurrentHashMap<>(4);
 
     public static void a(@NonNull Context context, @NonNull l lVar) {
-        if (!au.f6085b && Looper.myLooper() != Looper.getMainLooper()) {
+        if (!au.f6086b && Looper.myLooper() != Looper.getMainLooper()) {
             au.a(new RuntimeException("Wrong thread!"));
         } else if (pgz != null) {
             au.a(new RuntimeException("Init Twice!"));
             return;
-        } else if (lVar.epq() == null) {
+        } else if (lVar.epr() == null) {
             au.a(new RuntimeException("need to involve setSensitiveInfoProvider!"));
             return;
         }
         Application application = (Application) context.getApplicationContext();
-        bx epx = bx.epx();
+        bx epy = bx.epy();
         cn cnVar = new cn(application, lVar);
         m mVar = new m(application, cnVar);
-        epx.a(application, cnVar, mVar, new bs(lVar.epe()));
+        epy.a(application, cnVar, mVar, new bs(lVar.epf()));
         pgz = cnVar;
         pgA = mVar;
         au.d("Inited", null);
@@ -55,11 +55,11 @@ public final class b {
         bx.a();
     }
 
-    public static h eoN() {
+    public static h eoO() {
         return pgC;
     }
 
-    public static f eoO() {
+    public static f eoP() {
         return pgE;
     }
 
@@ -69,7 +69,7 @@ public final class b {
         }
     }
 
-    public static String eoP() {
+    public static String eoQ() {
         if (pgA != null) {
             return pgA.q();
         }
@@ -77,15 +77,15 @@ public final class b {
     }
 
     @Nullable
-    public static JSONObject eoQ() {
+    public static JSONObject eoR() {
         if (pgz != null) {
-            return pgz.epJ();
+            return pgz.epK();
         }
         return null;
     }
 
     @Nullable
-    public static String eoR() {
+    public static String eoS() {
         if (pgz != null) {
             return pgz.t();
         }
@@ -105,11 +105,11 @@ public final class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static byte[] YB(String str) {
+    public static byte[] YA(String str) {
         GZIPOutputStream gZIPOutputStream;
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream(8192);
         try {
-            if (eoS()) {
+            if (eoT()) {
                 gZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream);
                 try {
                     gZIPOutputStream.write(str.getBytes("UTF-8"));
@@ -125,7 +125,7 @@ public final class b {
                             }
                         }
                         byte[] byteArray = byteArrayOutputStream.toByteArray();
-                        if (!eoS()) {
+                        if (!eoT()) {
                         }
                     } catch (Throwable th2) {
                         GZIPOutputStream gZIPOutputStream2 = gZIPOutputStream;
@@ -155,12 +155,12 @@ public final class b {
             gZIPOutputStream = null;
         }
         byte[] byteArray2 = byteArrayOutputStream.toByteArray();
-        return !eoS() ? TTEncryptUtils.a(byteArray2, byteArray2.length) : byteArray2;
+        return !eoT() ? TTEncryptUtils.a(byteArray2, byteArray2.length) : byteArray2;
     }
 
     public static void c(@NonNull String str, @NonNull String str2, String str3, long j, long j2, JSONObject jSONObject) {
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str3)) {
-            if (au.f6085b) {
+            if (au.f6086b) {
                 au.a("category or label is empty", null);
             }
             bx.a(new ak("" + str2 + str3, "2", 1));
@@ -207,12 +207,12 @@ public final class b {
         v(str, jSONObject);
     }
 
-    public static boolean eoS() {
+    public static boolean eoT() {
         return true;
     }
 
-    public static boolean eoT() {
-        return f6092b;
+    public static boolean eoU() {
+        return f6093b;
     }
 
     public static String getDid() {
@@ -223,7 +223,7 @@ public final class b {
         return pgA != null ? pgA.k() : "";
     }
 
-    public static String eoU() {
+    public static String eoV() {
         return pgA != null ? pgA.l() : "";
     }
 
@@ -232,11 +232,11 @@ public final class b {
     }
 
     @NonNull
-    public static g eoV() {
+    public static g eoW() {
         return pgB;
     }
 
-    public static int eoW() {
+    public static int eoX() {
         if (pgz != null) {
             return pgz.i();
         }
@@ -248,9 +248,9 @@ public final class b {
         ba.b(iVar);
     }
 
-    public static l eoX() {
+    public static l eoY() {
         if (pgz != null) {
-            return pgz.epN();
+            return pgz.epO();
         }
         return null;
     }

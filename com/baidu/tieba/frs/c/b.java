@@ -20,20 +20,20 @@ public abstract class b {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void cMP();
+    public abstract void cMQ();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public abstract void cMQ();
+    public abstract void cMR();
 
     public b(g gVar, Intent intent) {
         this.jHC = true;
         this.joP = false;
         this.jHA = gVar;
         this.mIntent = intent;
-        e LF = d.cMV().LF(this.mIntent.getStringExtra("info_forum_name_text"));
-        this.jHC = LF.cMX();
-        this.joP = LF.cMW();
-        if (LF.cMY()) {
+        e LE = d.cMW().LE(this.mIntent.getStringExtra("info_forum_name_text"));
+        this.jHC = LE.cMY();
+        this.joP = LE.cMX();
+        if (LE.cMZ()) {
             ((RelativeLayout.LayoutParams) this.jHA.jHQ.getLayoutParams()).topMargin = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds_104);
         }
     }

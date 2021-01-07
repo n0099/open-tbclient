@@ -21,7 +21,7 @@ public class h extends com.baidu.tieba.frs.k<bz, a> {
         this.jlE = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ConstrainImageLayout>() { // from class: com.baidu.tieba.frs.entelechy.adapter.h.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cHK */
+            /* renamed from: cHL */
             public ConstrainImageLayout makeObject() {
                 return new ConstrainImageLayout(h.this.mPageContext.getPageActivity());
             }
@@ -50,7 +50,7 @@ public class h extends com.baidu.tieba.frs.k<bz, a> {
         this.jlF = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TbImageView>() { // from class: com.baidu.tieba.frs.entelechy.adapter.h.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: byk */
+            /* renamed from: byl */
             public TbImageView makeObject() {
                 TbImageView tbImageView = new TbImageView(h.this.mPageContext.getPageActivity());
                 tbImageView.setDrawBorder(true);
@@ -106,7 +106,7 @@ public class h extends com.baidu.tieba.frs.k<bz, a> {
         aVar.jpN.onChangeSkinType(this.mPageContext, this.mSkinType);
         aVar.jpN.a(bzVar);
         if (bzVar != null) {
-            bzVar.bsE();
+            bzVar.bsF();
         }
         return aVar.getView();
     }

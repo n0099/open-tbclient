@@ -6,7 +6,7 @@ import com.kwad.sdk.R;
 public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f8703b;
+    private ViewGroup f8704b;
     private com.kwad.sdk.contentalliance.home.swipe.a c = new com.kwad.sdk.contentalliance.home.swipe.b() { // from class: com.kwad.sdk.contentalliance.detail.photo.a.a.1
         @Override // com.kwad.sdk.contentalliance.home.swipe.b, com.kwad.sdk.contentalliance.home.swipe.a
         public void a(float f) {
@@ -16,29 +16,29 @@ public class a extends com.kwad.sdk.contentalliance.detail.b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(float f) {
-        this.f8703b.setAlpha(f);
-        this.f8703b.setVisibility(f == 0.0f ? 8 : 0);
+        this.f8704b.setAlpha(f);
+        this.f8704b.setVisibility(f == 0.0f ? 8 : 0);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        a(this.f8692a.l.getSourceType() == 0 ? 1.0f : 0.0f);
-        this.f8692a.e.add(this.c);
+        a(this.f8693a.l.getSourceType() == 0 ? 1.0f : 0.0f);
+        this.f8693a.e.add(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8692a.e.remove(this.c);
+        this.f8693a.e.remove(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8703b = (ViewGroup) b(R.id.ksad_video_bottom_container);
+        this.f8704b = (ViewGroup) b(R.id.ksad_video_bottom_container);
     }
 }

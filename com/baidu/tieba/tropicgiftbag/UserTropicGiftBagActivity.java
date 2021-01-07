@@ -23,25 +23,25 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TbPageContext<?> pageContext = UserTropicGiftBagActivity.this.getPageContext();
-            if (view.getId() == UserTropicGiftBagActivity.this.nEm.getId()) {
-                be.bwu().a(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
+            if (view.getId() == UserTropicGiftBagActivity.this.nEl.getId()) {
+                be.bwv().a(pageContext, new String[]{TbConfig.URL_JUMP_TAG_CARDBOX}, true);
                 UserTropicGiftBagActivity.this.LC(2);
                 UserTropicGiftBagActivity.this.finish();
             }
-            if (view.getId() == UserTropicGiftBagActivity.this.nEq.getId()) {
+            if (view.getId() == UserTropicGiftBagActivity.this.nEp.getId()) {
                 UserTropicGiftBagActivity.this.finish();
             }
         }
     };
-    private RoundRelativeLayout mWq;
+    private RoundRelativeLayout mWp;
+    private TextView nEi;
     private TextView nEj;
     private TextView nEk;
-    private TextView nEl;
-    private Button nEm;
+    private Button nEl;
+    private TbImageView nEm;
     private TbImageView nEn;
     private TbImageView nEo;
     private TbImageView nEp;
-    private TbImageView nEq;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -50,7 +50,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_user_tropic_gift_bag);
         initView();
-        cRh();
+        cRi();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -68,19 +68,19 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         boolean z = false;
         super.onChangeSkinType(i);
-        ao.setImageResource(this.nEn, R.drawable.icon_tropic);
-        this.nEn.setIsNight(i == 4 || i == 1);
-        ao.setImageResource(this.nEo, R.drawable.icon_tropic_left);
-        this.nEp.setIsNight(i == 4 || i == 1);
-        ao.setImageResource(this.nEp, R.drawable.icon_tropic_right);
-        this.nEp.setIsNight(i == 4 || i == 1);
-        ao.setBackgroundColor(this.mWq, R.color.CAM_X0205);
+        ao.setImageResource(this.nEm, R.drawable.icon_tropic);
+        this.nEm.setIsNight(i == 4 || i == 1);
+        ao.setImageResource(this.nEn, R.drawable.icon_tropic_left);
+        this.nEo.setIsNight(i == 4 || i == 1);
+        ao.setImageResource(this.nEo, R.drawable.icon_tropic_right);
+        this.nEo.setIsNight(i == 4 || i == 1);
+        ao.setBackgroundColor(this.mWp, R.color.CAM_X0205);
+        ao.setViewTextColor(this.nEi, R.color.CAM_X0105);
         ao.setViewTextColor(this.nEj, R.color.CAM_X0105);
-        ao.setViewTextColor(this.nEk, R.color.CAM_X0105);
-        ao.setViewTextColor(this.nEl, R.color.CAM_X0109);
-        ao.k(this.nEm, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-        ao.setImageResource(this.nEq, R.drawable.icon_popup_close);
-        TbImageView tbImageView = this.nEq;
+        ao.setViewTextColor(this.nEk, R.color.CAM_X0109);
+        ao.k(this.nEl, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
+        ao.setImageResource(this.nEp, R.drawable.icon_popup_close);
+        TbImageView tbImageView = this.nEp;
         if (i == 4 || i == 1) {
             z = true;
         }
@@ -104,21 +104,21 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     }
 
     private void initView() {
-        this.mWq = (RoundRelativeLayout) findViewById(R.id.tropic_gift_bag_layout);
-        this.mWq.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
-        this.nEj = (TextView) findViewById(R.id.tropic_greetings);
-        this.nEn = (TbImageView) findViewById(R.id.vip_pic);
-        this.nEo = (TbImageView) findViewById(R.id.line_tropic_left);
-        this.nEp = (TbImageView) findViewById(R.id.line_tropic_right);
-        this.nEk = (TextView) findViewById(R.id.seven_day_vip);
-        this.nEl = (TextView) findViewById(R.id.seven_day_vip_dec);
-        this.nEm = (Button) findViewById(R.id.tropic_know);
-        this.nEq = (TbImageView) findViewById(R.id.close);
+        this.mWp = (RoundRelativeLayout) findViewById(R.id.tropic_gift_bag_layout);
+        this.mWp.setAllCornerRound(l.getDimens(this, R.dimen.tbds32));
+        this.nEi = (TextView) findViewById(R.id.tropic_greetings);
+        this.nEm = (TbImageView) findViewById(R.id.vip_pic);
+        this.nEn = (TbImageView) findViewById(R.id.line_tropic_left);
+        this.nEo = (TbImageView) findViewById(R.id.line_tropic_right);
+        this.nEj = (TextView) findViewById(R.id.seven_day_vip);
+        this.nEk = (TextView) findViewById(R.id.seven_day_vip_dec);
+        this.nEl = (Button) findViewById(R.id.tropic_know);
+        this.nEp = (TbImageView) findViewById(R.id.close);
     }
 
-    private void cRh() {
-        this.nEm.setOnClickListener(this.mOnClickListener);
-        this.nEq.setOnClickListener(this.mOnClickListener);
+    private void cRi() {
+        this.nEl.setOnClickListener(this.mOnClickListener);
+        this.nEp.setOnClickListener(this.mOnClickListener);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

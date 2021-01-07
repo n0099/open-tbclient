@@ -31,10 +31,10 @@ public final class bh {
     private bl phe;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f6099b = bh.class.getSimpleName() + "#";
+    private static final String f6100b = bh.class.getSimpleName() + "#";
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f6098a = f6099b;
+    public static final String f6099a = f6100b;
     private final ReentrantLock phb = new ReentrantLock();
     private AtomicBoolean i = new AtomicBoolean(false);
 
@@ -58,14 +58,14 @@ public final class bh {
             return null;
         }
         a();
-        bb.a(f6098a, "Oaid#getOaid timeoutMills=" + j2);
+        bb.a(f6099a, "Oaid#getOaid timeoutMills=" + j2);
         if (this.k == null) {
             long elapsedRealtime = SystemClock.elapsedRealtime();
             boolean z = false;
             try {
                 try {
                     z = this.phb.tryLock(j2, TimeUnit.MILLISECONDS);
-                    bb.b(f6098a, "Oaid#getOaid locked=" + z + ", took " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
+                    bb.b(f6099a, "Oaid#getOaid locked=" + z + ", took " + (SystemClock.elapsedRealtime() - elapsedRealtime) + " ms");
                     if (z) {
                         this.phb.unlock();
                     }
@@ -82,7 +82,7 @@ public final class bh {
                 throw th;
             }
         }
-        bb.a(f6098a, "Oaid#getOaid return apiMap=" + this.k);
+        bb.a(f6099a, "Oaid#getOaid return apiMap=" + this.k);
         return this.k;
     }
 
@@ -135,24 +135,24 @@ public final class bh {
     public void b() {
         String str;
         bk bkVar = null;
-        bb.b(f6098a, "Oaid#initOaid");
+        bb.b(f6099a, "Oaid#initOaid");
         try {
             this.phb.lock();
-            bb.b(f6098a, "Oaid#initOaid exec");
-            bk epv = this.phe.epv();
-            bb.b(f6098a, "Oaid#initOaid fetch=" + epv);
-            if (epv != null) {
-                j = epv.f6101a;
-                this.k = epv.a();
+            bb.b(f6099a, "Oaid#initOaid exec");
+            bk epw = this.phe.epw();
+            bb.b(f6099a, "Oaid#initOaid fetch=" + epw);
+            if (epw != null) {
+                j = epw.f6102a;
+                this.k = epw.a();
             }
             long elapsedRealtime = SystemClock.elapsedRealtime();
             Pair<String, Boolean> hU = hU(this.h);
             long elapsedRealtime2 = SystemClock.elapsedRealtime() - elapsedRealtime;
             if (hU.first != null) {
                 int i = -1;
-                if (epv != null) {
-                    str = epv.f6102b;
-                    i = epv.phg.intValue() + 1;
+                if (epw != null) {
+                    str = epw.f6103b;
+                    i = epw.phg.intValue() + 1;
                 } else {
                     str = null;
                 }
@@ -163,10 +163,10 @@ public final class bh {
                 this.phe.a(bkVar);
             }
             if (bkVar != null) {
-                j = bkVar.f6101a;
+                j = bkVar.f6102a;
                 this.k = bkVar.a();
             }
-            bb.b(f6098a, "Oaid#initOaid oaidModel=" + bkVar);
+            bb.b(f6099a, "Oaid#initOaid oaidModel=" + bkVar);
         } finally {
             this.phb.unlock();
             a(new i.a(j));
@@ -183,10 +183,10 @@ public final class bh {
             bool = null;
             str = null;
         } else {
-            str = hR.f6100b;
+            str = hR.f6101b;
             Boolean valueOf = Boolean.valueOf(hR.c);
             if (hR instanceof bd.a) {
-                this.l = Long.valueOf(((bd.a) hR).f6097a);
+                this.l = Long.valueOf(((bd.a) hR).f6098a);
             }
             bool = valueOf;
         }
@@ -194,6 +194,6 @@ public final class bh {
     }
 
     private static void a(Runnable runnable) {
-        bc.a(f6098a + "-query", runnable);
+        bc.a(f6099a + "-query", runnable);
     }
 }

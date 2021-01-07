@@ -54,7 +54,7 @@ public interface j {
 
     void a(f fVar);
 
-    void aBY();
+    void aBZ();
 
     void b(com.baidu.swan.apps.media.b.c cVar);
 

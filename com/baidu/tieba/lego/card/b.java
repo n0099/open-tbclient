@@ -23,7 +23,7 @@ public class b extends e {
         private static final b kXM = new b();
     }
 
-    public static b ddl() {
+    public static b ddm() {
         return a.kXM;
     }
 
@@ -32,7 +32,7 @@ public class b extends e {
     }
 
     @Override // com.baidu.tieba.lego.card.e
-    protected void ddm() {
+    protected void ddn() {
     }
 
     @Override // com.baidu.tieba.lego.card.e
@@ -85,7 +85,7 @@ public class b extends e {
         return null;
     }
 
-    public static ICardInfo NW(String str) {
+    public static ICardInfo NV(String str) {
         try {
             ICardInfo ex = ex(new JSONObject(str));
             if (ex != null) {
@@ -103,7 +103,7 @@ public class b extends e {
         }
     }
 
-    public static ICardInfo NX(String str) throws Exception {
+    public static ICardInfo NW(String str) throws Exception {
         ICardInfo ex = ex(new JSONObject(str));
         if (ex == null || !ex.isValid()) {
             return null;
@@ -112,6 +112,6 @@ public class b extends e {
     }
 
     public static ICardInfo ex(JSONObject jSONObject) throws CardParseException {
-        return ddl().g(jSONObject, jSONObject.optInt(IntentConfig.CARD_TYPE));
+        return ddm().g(jSONObject, jSONObject.optInt(IntentConfig.CARD_TYPE));
     }
 }

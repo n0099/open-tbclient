@@ -72,7 +72,7 @@ public class p extends o {
             this.ezR = null;
         }
 
-        void bhM() {
+        void bhN() {
             if (this.mRetaining) {
                 if (p.DEBUG) {
                     Log.v("LoaderManager", "  Finished Retaining: " + this);
@@ -87,7 +87,7 @@ public class p extends o {
             }
         }
 
-        void bhP() {
+        void bhQ() {
             if (this.mStarted && this.ezV) {
                 this.ezV = false;
                 if (this.ezT) {
@@ -250,7 +250,7 @@ public class p extends o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bhK() {
+    public void bhL() {
         if (DEBUG) {
             Log.v("LoaderManager", "Starting in " + this);
         }
@@ -284,7 +284,7 @@ public class p extends o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bhL() {
+    public void bhM() {
         if (DEBUG) {
             Log.v("LoaderManager", "Retaining in " + this);
         }
@@ -302,29 +302,29 @@ public class p extends o {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bhM() {
+    public void bhN() {
         if (this.mRetaining) {
             if (DEBUG) {
                 Log.v("LoaderManager", "Finished Retaining in " + this);
             }
             this.mRetaining = false;
             for (int size = this.ezP.size() - 1; size >= 0; size--) {
-                this.ezP.valueAt(size).bhM();
+                this.ezP.valueAt(size).bhN();
             }
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: package-private */
-    public void bhN() {
-        for (int size = this.ezP.size() - 1; size >= 0; size--) {
-            this.ezP.valueAt(size).ezV = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void bhO() {
         for (int size = this.ezP.size() - 1; size >= 0; size--) {
-            this.ezP.valueAt(size).bhP();
+            this.ezP.valueAt(size).ezV = true;
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: package-private */
+    public void bhP() {
+        for (int size = this.ezP.size() - 1; size >= 0; size--) {
+            this.ezP.valueAt(size).bhQ();
         }
     }
 

@@ -14,7 +14,7 @@ public class AlaGuardianListHttpResponseMessage extends JsonHttpResponsedMessage
         this.mErrMsg = "";
     }
 
-    public c cbr() {
+    public c cbs() {
         return this.hmp;
     }
 

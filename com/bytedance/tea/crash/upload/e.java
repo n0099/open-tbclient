@@ -14,10 +14,10 @@ import java.util.zip.GZIPOutputStream;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f7978a = "AAA" + System.currentTimeMillis() + "AAA";
+    private final String f7979a = "AAA" + System.currentTimeMillis() + "AAA";
 
     /* renamed from: b  reason: collision with root package name */
-    private HttpURLConnection f7979b;
+    private HttpURLConnection f7980b;
     private String c;
     private boolean d;
     private DataOutputStream pqv;
@@ -27,23 +27,23 @@ public class e {
     public e(String str, String str2, boolean z) throws IOException {
         this.c = str2;
         this.d = z;
-        this.f7979b = (HttpURLConnection) new URL(str).openConnection();
-        this.f7979b.setUseCaches(false);
-        this.f7979b.setDoOutput(true);
-        this.f7979b.setDoInput(true);
-        this.f7979b.setRequestMethod("POST");
-        this.f7979b.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + this.f7978a);
+        this.f7980b = (HttpURLConnection) new URL(str).openConnection();
+        this.f7980b.setUseCaches(false);
+        this.f7980b.setDoOutput(true);
+        this.f7980b.setDoInput(true);
+        this.f7980b.setRequestMethod("POST");
+        this.f7980b.setRequestProperty("Content-Type", "multipart/form-data; boundary=" + this.f7979a);
         if (z) {
-            this.f7979b.setRequestProperty("Content-Encoding", "gzip");
-            this.pqw = new GZIPOutputStream(this.f7979b.getOutputStream());
+            this.f7980b.setRequestProperty("Content-Encoding", "gzip");
+            this.pqw = new GZIPOutputStream(this.f7980b.getOutputStream());
             return;
         }
-        this.pqv = new DataOutputStream(this.f7979b.getOutputStream());
+        this.pqv = new DataOutputStream(this.f7980b.getOutputStream());
     }
 
     public void a(String str, String str2) {
         StringBuilder sb = new StringBuilder();
-        sb.append("--").append(this.f7978a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"").append("\r\n").append("Content-Type: text/plain; charset=").append(this.c).append("\r\n").append("\r\n").append(str2).append("\r\n");
+        sb.append("--").append(this.f7979a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"").append("\r\n").append("Content-Type: text/plain; charset=").append(this.c).append("\r\n").append("\r\n").append(str2).append("\r\n");
         try {
             if (this.d) {
                 this.pqw.write(sb.toString().getBytes());
@@ -58,7 +58,7 @@ public class e {
     public void a(String str, File file) throws IOException {
         String name = file.getName();
         StringBuilder sb = new StringBuilder();
-        sb.append("--").append(this.f7978a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"; filename=\"").append(name).append("\"").append("\r\n").append("Content-Transfer-Encoding: binary").append("\r\n").append("\r\n");
+        sb.append("--").append(this.f7979a).append("\r\n").append("Content-Disposition: form-data; name=\"").append(str).append("\"; filename=\"").append(name).append("\"").append("\r\n").append("Content-Transfer-Encoding: binary").append("\r\n").append("\r\n");
         if (this.d) {
             this.pqw.write(sb.toString().getBytes());
         } else {
@@ -87,7 +87,7 @@ public class e {
 
     public String a() throws IOException {
         ArrayList<String> arrayList = new ArrayList();
-        byte[] bytes = ("\r\n--" + this.f7978a + "--\r\n").getBytes();
+        byte[] bytes = ("\r\n--" + this.f7979a + "--\r\n").getBytes();
         if (this.d) {
             this.pqw.write(bytes);
             this.pqw.finish();
@@ -97,9 +97,9 @@ public class e {
             this.pqv.flush();
             this.pqv.close();
         }
-        int responseCode = this.f7979b.getResponseCode();
+        int responseCode = this.f7980b.getResponseCode();
         if (responseCode == 200) {
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f7979b.getInputStream()));
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(this.f7980b.getInputStream()));
             while (true) {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
@@ -108,7 +108,7 @@ public class e {
                 arrayList.add(readLine);
             }
             bufferedReader.close();
-            this.f7979b.disconnect();
+            this.f7980b.disconnect();
             StringBuilder sb = new StringBuilder();
             for (String str : arrayList) {
                 sb.append(str);

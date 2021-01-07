@@ -100,11 +100,11 @@ public class HotTopicHeaderView extends LinearLayout {
         layoutParams3.topMargin = UtilHelper.getDimenPixelSize(R.dimen.M_H_X003);
         addView(this.kcY, layoutParams3);
         this.kcX = new com.baidu.tieba.homepage.hotTopic.tab.view.a(getContext());
-        addView(this.kcX.cSE());
-        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.kcX.cSE().getLayoutParams();
+        addView(this.kcX.cSF());
+        LinearLayout.LayoutParams layoutParams4 = (LinearLayout.LayoutParams) this.kcX.cSF().getLayoutParams();
         layoutParams4.weight = -1.0f;
         layoutParams4.height = UtilHelper.getDimenPixelSize(R.dimen.tbds106);
-        this.kcX.cSE().requestLayout();
+        this.kcX.cSF().requestLayout();
     }
 
     private String getString(int i) {
@@ -123,7 +123,7 @@ public class HotTopicHeaderView extends LinearLayout {
         }
         this.jOr.setVisibility(0);
         this.kcW.setVisibility(0);
-        this.kcX.a(c.eb((hotThreadListResIdl == null || hotThreadListResIdl.data == null) ? null : hotThreadListResIdl.data.hot_thread_tab_info).cFJ());
+        this.kcX.a(c.eb((hotThreadListResIdl == null || hotThreadListResIdl.data == null) ? null : hotThreadListResIdl.data.hot_thread_tab_info).cFK());
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 

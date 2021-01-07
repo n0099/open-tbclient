@@ -43,15 +43,15 @@ public class LiveVideoChatSendGetChatInfoResponseMessage extends JsonHttpRespons
         return this.mInterval;
     }
 
-    public d YX() {
+    public d YY() {
         return this.bRt;
     }
 
-    public d YY() {
+    public d YZ() {
         return this.bRu;
     }
 
-    public com.baidu.live.videochat.b.b YZ() {
+    public com.baidu.live.videochat.b.b Za() {
         return this.bRv;
     }
 }

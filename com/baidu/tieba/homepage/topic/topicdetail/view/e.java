@@ -75,8 +75,8 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
             }
             this.kmf.setVisibility(dVar.kle ? 0 : 8);
             String str = null;
-            if (!x.isEmpty(dVar.eMv.brz())) {
-                Iterator<MediaData> it = dVar.eMv.brz().iterator();
+            if (!x.isEmpty(dVar.eMv.brA())) {
+                Iterator<MediaData> it = dVar.eMv.brA().iterator();
                 while (it.hasNext()) {
                     MediaData next = it.next();
                     if (next != null && next.getType() == 3) {
@@ -106,7 +106,7 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
                 this.mTitleView.setVisibility(0);
                 this.mTitleView.setText(dVar.eMv.getTitle());
             }
-            this.kmg.setText(String.format(this.mContext.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.eMv.brh())));
+            this.kmg.setText(String.format(this.mContext.getString(R.string.topic_discuss_default), Integer.valueOf(dVar.eMv.bri())));
         }
     }
 
@@ -115,12 +115,12 @@ public class e extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
         if (this.kmh != null && this.kmh.eMv != null) {
             TiebaStatic.log(new aq("c13354").dX("tid", this.kmh.eMv.tid).w("topic_id", this.kmh.topicId).an("obj_locate", this.kmh.index));
             PbActivityConfig createFromThreadCfg = new PbActivityConfig(this.mTbPageContext.getPageActivity()).createFromThreadCfg(this.kmh.eMv, null, "", RequestResponseCode.REQUEST_PERSONCENTER_TO_PB, true, false, false);
-            if (this.kmh.eMv.bth() == null) {
+            if (this.kmh.eMv.bti() == null) {
                 createFromThreadCfg.setForumId(String.valueOf(this.kmh.eMv.getFid()));
-                createFromThreadCfg.setForumName(this.kmh.eMv.bru());
+                createFromThreadCfg.setForumName(this.kmh.eMv.brv());
             } else {
-                createFromThreadCfg.setForumId(this.kmh.eMv.bth().getForumId());
-                createFromThreadCfg.setForumName(this.kmh.eMv.bth().getForumName());
+                createFromThreadCfg.setForumId(this.kmh.eMv.bti().getForumId());
+                createFromThreadCfg.setForumName(this.kmh.eMv.bti().getForumName());
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
         }

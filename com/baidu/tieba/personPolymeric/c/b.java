@@ -4,7 +4,7 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes8.dex */
 public class b extends BaseCardInfo {
-    public static final BdUniqueId mwZ = BdUniqueId.gen();
+    public static final BdUniqueId mwY = BdUniqueId.gen();
     public String avatar;
     public long forumId;
     public String iAn;
@@ -13,12 +13,12 @@ public class b extends BaseCardInfo {
     public boolean isAttention;
     public boolean isHost;
     public String jYM;
-    public int mxa;
+    public int mwZ;
     public int postNum;
     public int sex;
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mwZ;
+        return mwY;
     }
 }

@@ -77,7 +77,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
                     }
                 }
             });
-            this.cEG = co.amr();
+            this.cEG = co.ams();
             co.loadUrl(this.mUrl);
             co.b((FrameLayout) findViewById(a.f.webview_container), this.cEG.covertToView());
         }
@@ -88,7 +88,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
         this.cED = i2;
     }
 
-    private void ajH() {
+    private void ajI() {
         if (this.cEC != 0 || this.cED != 0) {
             overridePendingTransition(this.cEC, this.cED);
             this.cEC = 0;
@@ -99,7 +99,7 @@ public class SwanAppScopeDetailActivity extends SwanAppBaseActivity {
     @Override // android.app.Activity
     public void finish() {
         super.finish();
-        ajH();
+        ajI();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

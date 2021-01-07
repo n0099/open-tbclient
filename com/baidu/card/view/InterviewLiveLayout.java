@@ -82,7 +82,7 @@ public class InterviewLiveLayout extends FrameLayout implements p<com.baidu.tbad
                         imageUrlData.postId = 0L;
                         concurrentHashMap.put(str, imageUrlData);
                         ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-                        aVar.x(InterviewLiveLayout.this.alV).ji(InterviewLiveLayout.this.alQ).AH(str).jj(false).d(concurrentHashMap).jk(false).s(InterviewLiveLayout.this.alW).jo(false);
+                        aVar.x(InterviewLiveLayout.this.alV).ji(InterviewLiveLayout.this.alQ).AG(str).jj(false).d(concurrentHashMap).jk(false).s(InterviewLiveLayout.this.alW).jo(false);
                         ImageViewerConfig eS = aVar.eS(InterviewLiveLayout.this.getContext());
                         eS.getIntent().putExtra("from", "frs");
                         Rect rect = new Rect();
@@ -113,10 +113,10 @@ public class InterviewLiveLayout extends FrameLayout implements p<com.baidu.tbad
                 float f3;
                 float f4;
                 if (tbImageView != null && tbImageView.getImageMatrix() != null) {
-                    com.baidu.adp.widget.ImageView.a Ef = c.bGp().Ef(d.mx().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.alQ ? 13 : 14));
-                    if (Ef != null) {
-                        int width = Ef.getWidth();
-                        i = Ef.getHeight();
+                    com.baidu.adp.widget.ImageView.a Ee = c.bGq().Ee(d.mx().genCacheKey(tbImageView.getUrl(), InterviewLiveLayout.this.alQ ? 13 : 14));
+                    if (Ee != null) {
+                        int width = Ee.getWidth();
+                        i = Ee.getHeight();
                         i2 = width;
                     } else {
                         i = 0;
@@ -187,23 +187,23 @@ public class InterviewLiveLayout extends FrameLayout implements p<com.baidu.tbad
             setVisibility(8);
             return;
         }
-        bz boO = aVar.boO();
-        bx bqW = boO.bqW();
-        if (bqW == null) {
+        bz boP = aVar.boP();
+        bx bqX = boP.bqX();
+        if (bqX == null) {
             setVisibility(8);
             return;
         }
-        this.alW = boO;
-        this.forumId = boO.getFid();
-        this.taskId = bqW.getTaskId();
-        if (k.bou().isShowImages() && bqW != null && !StringUtils.isNull(bqW.getThreadImgUrl())) {
+        this.alW = boP;
+        this.forumId = boP.getFid();
+        this.taskId = bqX.getTaskId();
+        if (k.bov().isShowImages() && bqX != null && !StringUtils.isNull(bqX.getThreadImgUrl())) {
             this.alV.clear();
-            this.alV.add(bqW.getThreadImgUrl());
+            this.alV.add(bqX.getThreadImgUrl());
             setVisibility(0);
             this.alR.setSupportNoImage(true);
             this.alR.setScaleType(ImageView.ScaleType.MATRIX);
             this.alR.setOnDrawListener(this.alY);
-            this.alR.startLoad(bqW.getThreadImgUrl(), this.alQ ? 13 : 14, false);
+            this.alR.startLoad(bqX.getThreadImgUrl(), this.alQ ? 13 : 14, false);
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
             layoutParams.width = l.getEquipmentWidth(getContext()) - l.getDimens(getContext(), R.dimen.tbds88);
             layoutParams.height = (int) ((layoutParams.width * 428.0f) / 760.0f);

@@ -5,7 +5,7 @@ import androidx.appcompat.widget.ActivityChooserView;
 @kotlin.e
 /* loaded from: classes5.dex */
 public class ad extends ac {
-    public static final int To(int i) {
+    public static final int TE(int i) {
         if (i < 3) {
             return i + 1;
         }

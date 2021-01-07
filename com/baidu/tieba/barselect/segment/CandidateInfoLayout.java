@@ -47,7 +47,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
                 if (CandidateInfoLayout.this.irV != null && CandidateInfoLayout.this.irV.getUid() != 0) {
                     long j = b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
                     long uid = CandidateInfoLayout.this.irV.getUid();
-                    if ((CandidateInfoLayout.this.getContext() instanceof Activity) && CandidateInfoLayout.this.irV.ctM() != 2) {
+                    if ((CandidateInfoLayout.this.getContext() instanceof Activity) && CandidateInfoLayout.this.irV.ctN() != 2) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(CandidateInfoLayout.this.getContext()).createNormalConfig(uid, uid == j, false)));
                     }
                 }
@@ -109,23 +109,23 @@ public class CandidateInfoLayout extends CardBasicLayout {
         } else {
             this.irP.pm(false);
         }
-        this.irP.Cv(this.irV.getPortrait());
+        this.irP.Cu(this.irV.getPortrait());
         this.irP.setOnClickListener(this.onClickListener);
         this.ala.setText(at.cutChineseAndEnglishWithSuffix(this.irV.getNickname(), 14, StringHelper.STRING_MORE));
-        setGrade(this.irV.ctI());
-        if (this.irV.ctM() == 2) {
+        setGrade(this.irV.ctJ());
+        if (this.irV.ctN() == 2) {
             this.irR.setVisibility(8);
         } else {
             this.irR.setVisibility(0);
-            if (this.irV.ctH() < 1000) {
-                String str2 = "0000" + this.irV.ctH();
+            if (this.irV.ctI() < 1000) {
+                String str2 = "0000" + this.irV.ctI();
                 str = str2.substring(str2.length() - 4, str2.length());
             } else {
-                str = "" + this.irV.ctH();
+                str = "" + this.irV.ctI();
             }
             this.irR.setText("NO." + str);
         }
-        this.irT.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), at.ea(this.irV.ctG()), at.ea(this.irV.getThread_num()), at.ea(this.irV.getPost_num())));
+        this.irT.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.agree_post_reply), at.ea(this.irV.ctH()), at.ea(this.irV.getThread_num()), at.ea(this.irV.getPost_num())));
     }
 
     public void setGrade(int i) {
@@ -137,7 +137,7 @@ public class CandidateInfoLayout extends CardBasicLayout {
         ao.setViewTextColor(this.irR, R.color.CAM_X0109, 1, i);
         ao.setViewTextColor(this.irT, R.color.CAM_X0109, 1, i);
         if (this.irV != null) {
-            setGrade(this.irV.ctI());
+            setGrade(this.irV.ctJ());
         }
     }
 }

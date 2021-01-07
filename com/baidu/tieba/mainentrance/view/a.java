@@ -8,7 +8,7 @@ import java.util.Map;
 public class a {
     private static Map<String, String> lgu;
 
-    public static void On(String str) {
+    public static void Om(String str) {
         try {
             ApplicationInfo.class.getField("primaryCpuAbi").set(((PackageInfo) Class.forName("android.webkit.WebViewFactory").getMethod("getLoadedPackageInfo", new Class[0]).invoke(null, new Object[0])).applicationInfo, str);
         } catch (Exception e) {
@@ -16,7 +16,7 @@ public class a {
         }
     }
 
-    public static Map<String, String> dgd() {
+    public static Map<String, String> dge() {
         if (lgu == null) {
             try {
                 Field declaredField = Class.forName("dalvik.system.VMRuntime").getDeclaredField("ABI_TO_INSTRUCTION_SET_MAP");

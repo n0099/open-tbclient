@@ -7,10 +7,10 @@ import java.util.zip.CRC32;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f10800a;
+    public final int f10801a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f10801b;
+    public final byte[] f10802b;
     public final String c;
     private CRC32 g;
     public byte[] d = null;
@@ -18,11 +18,11 @@ public class d {
     public byte[] e = new byte[4];
 
     public d(int i, String str, boolean z) {
-        this.f10800a = i;
+        this.f10801a = i;
         this.c = str;
-        this.f10801b = b.a(str);
+        this.f10802b = b.a(str);
         for (int i2 = 0; i2 < 4; i2++) {
-            if (this.f10801b[i2] < 65 || this.f10801b[i2] > 122 || (this.f10801b[i2] > 90 && this.f10801b[i2] < 97)) {
+            if (this.f10802b[i2] < 65 || this.f10802b[i2] > 122 || (this.f10802b[i2] > 90 && this.f10802b[i2] < 97)) {
                 com.kwad.sdk.core.d.a.a(new PngjException("Bad id chunk: must be ascii letters " + str));
             }
         }
@@ -32,8 +32,8 @@ public class d {
     }
 
     public void a() {
-        if (this.d == null || this.d.length < this.f10800a) {
-            this.d = new byte[this.f10800a];
+        if (this.d == null || this.d.length < this.f10801a) {
+            this.d = new byte[this.f10801a];
         }
     }
 
@@ -93,6 +93,6 @@ public class d {
     }
 
     public String toString() {
-        return "chunkid=" + b.a(this.f10801b) + " len=" + this.f10800a;
+        return "chunkid=" + b.a(this.f10802b) + " len=" + this.f10801a;
     }
 }

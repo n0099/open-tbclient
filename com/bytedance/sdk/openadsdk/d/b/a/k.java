@@ -13,7 +13,7 @@ import java.util.Date;
 public final class k extends v<Time> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final w f7194a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.k.1
+    public static final w f7195a = new w() { // from class: com.bytedance.sdk.openadsdk.d.b.a.k.1
         @Override // com.bytedance.sdk.openadsdk.d.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.d.f fVar, com.bytedance.sdk.openadsdk.d.c.a<T> aVar) {
             if (aVar.a() == Time.class) {
@@ -24,7 +24,7 @@ public final class k extends v<Time> {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final DateFormat f7195b = new SimpleDateFormat("hh:mm:ss a");
+    private final DateFormat f7196b = new SimpleDateFormat("hh:mm:ss a");
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.d.v
@@ -36,7 +36,7 @@ public final class k extends v<Time> {
             time = null;
         } else {
             try {
-                time = new Time(this.f7195b.parse(aVar.h()).getTime());
+                time = new Time(this.f7196b.parse(aVar.h()).getTime());
             } catch (ParseException e) {
                 throw new t(e);
             }
@@ -47,6 +47,6 @@ public final class k extends v<Time> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.sdk.openadsdk.d.v
     public synchronized void a(com.bytedance.sdk.openadsdk.d.d.c cVar, Time time) throws IOException {
-        cVar.b(time == null ? null : this.f7195b.format((Date) time));
+        cVar.b(time == null ? null : this.f7196b.format((Date) time));
     }
 }

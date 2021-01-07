@@ -3,9 +3,9 @@ package com.baidu.sapi2.utils.enums;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5410a = "import";
+    public static final String f5411a = "import";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5411b = "export";
+    public static final String f5412b = "export";
     public static final String c = "both";
 }

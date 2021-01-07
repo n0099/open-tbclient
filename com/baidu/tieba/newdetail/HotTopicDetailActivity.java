@@ -30,7 +30,7 @@ import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
-public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements BdListView.e, a.InterfaceC0798a {
+public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity> implements BdListView.e, a.InterfaceC0817a {
     private long eFe;
     private long fid;
     private String firstDir;
@@ -108,7 +108,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
             Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
             String uri2 = uri.toString();
             if (f.r(uri)) {
-                f.bln().e(uri, new f.a() { // from class: com.baidu.tieba.newdetail.HotTopicDetailActivity.1
+                f.blo().e(uri, new f.a() { // from class: com.baidu.tieba.newdetail.HotTopicDetailActivity.1
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap) {
                         if (hashMap != null && (hashMap.get(f.eGy) instanceof String)) {
@@ -144,19 +144,19 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         return this.lun > 0;
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0798a
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0817a
     public void Gf(int i) {
         boolean Gm = this.lul.Gm(i);
-        if (this.lum.djM() == null) {
+        if (this.lum.djN() == null) {
             if (Gm) {
-                this.lum.djJ();
-                this.lum.djL();
+                this.lum.djK();
+                this.lum.djM();
                 return;
             }
             this.lum.uf(true);
-            this.lum.djK();
+            this.lum.djL();
         } else if (!Gm) {
-            this.lum.bUO();
+            this.lum.bUP();
         }
     }
 
@@ -177,7 +177,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         d Gl = this.lum.Gl(i);
         if (Gl.pageData == null) {
             Gg(i);
-        } else if (Gl.pageData.bqf() != 0) {
+        } else if (Gl.pageData.bqg() != 0) {
             this.lul.a(i, Gl.pageData, Gl.lastId);
         }
     }
@@ -196,29 +196,29 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
 
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
-        Gh(this.lum.djN());
+        Gh(this.lum.djO());
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0798a
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0817a
     public void a(int i, e eVar) {
         if (eVar != null && eVar.sortType == -1) {
             this.lum.f(eVar);
             return;
         }
-        this.lum.djK();
-        this.lum.bUO();
+        this.lum.djL();
+        this.lum.bUP();
         if (i != 0 || eVar == null) {
-            if (this.lum.djM() == null) {
+            if (this.lum.djN() == null) {
                 this.lum.uf(false);
                 return;
             }
             return;
         }
-        if (eVar.cUZ() != null) {
-            fQ(eVar.cUZ().fgR, eVar.cUZ().eRS);
+        if (eVar.cVa() != null) {
+            fQ(eVar.cVa().fgR, eVar.cVa().eRS);
         }
         this.lum.e(eVar);
-        this.lum.djO();
+        this.lum.djP();
         a(i, eVar.kqO, true);
     }
 
@@ -230,12 +230,12 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0798a
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0817a
     public void a(int i, d dVar) {
         a(i, dVar, false);
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0798a
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0817a
     public void a(int i, long j, long j2, int i2) {
         if (i == 0 && j > 0 && i2 >= 0) {
             if (i2 == 1 || i2 == 2) {
@@ -246,19 +246,19 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    @Override // com.baidu.tieba.newdetail.a.InterfaceC0798a
+    @Override // com.baidu.tieba.newdetail.a.InterfaceC0817a
     public void d(e eVar) {
-        com.baidu.tieba.hottopic.data.f cUZ;
-        if (eVar != null && (cUZ = eVar.cUZ()) != null) {
+        com.baidu.tieba.hottopic.data.f cVa;
+        if (eVar != null && (cVa = eVar.cVa()) != null) {
             String str = "http://tieba.baidu.com/mo/q/newtopic/detail?topic_id=" + this.fgR;
             if (!TextUtils.isEmpty(this.eRS)) {
                 str = str + "&topic_name=" + URLEncoder.encode(this.eRS);
             }
-            this.kpG.a(cUZ.fgR, cUZ.eRS, str, cUZ.kkR, cUZ.shareTitle, true);
+            this.kpG.a(cVa.fgR, cVa.eRS, str, cVa.kkR, cVa.shareTitle, true);
         }
     }
 
-    public void djH() {
+    public void djI() {
         if ("5".equals(this.mFrom)) {
             finish();
         } else {
@@ -268,23 +268,23 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
 
     private void a(int i, d dVar, boolean z) {
         boolean z2 = false;
-        int djN = this.lum.djN();
+        int djO = this.lum.djO();
         if (dVar != null) {
-            djN = dVar.sortType;
+            djO = dVar.sortType;
         }
-        this.lum.Gj(djN);
+        this.lum.Gj(djO);
         if (i != 0 || dVar == null || x.isEmpty(dVar.list)) {
-            if (this.lum.Gl(djN).pageData == null) {
-                this.lum.E(i != 0, djN);
+            if (this.lum.Gl(djO).pageData == null) {
+                this.lum.E(i != 0, djO);
                 return;
             }
             return;
         }
         a.b bVar = this.lum;
-        if (z || this.lum.Gl(djN).pageData == null) {
+        if (z || this.lum.Gl(djO).pageData == null) {
             z2 = true;
         }
-        bVar.a(dVar, z2, djN);
+        bVar.a(dVar, z2, djO);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -319,7 +319,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
     public void onDestroy() {
         super.onDestroy();
         this.lum.destroy();
-        djI();
+        djJ();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
@@ -346,7 +346,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         if (i2 == -1) {
             switch (i) {
                 case 110435:
-                    this.lul.djP();
+                    this.lul.djQ();
                     return;
                 default:
                     return;
@@ -354,7 +354,7 @@ public class HotTopicDetailActivity extends BaseActivity<HotTopicDetailActivity>
         }
     }
 
-    private void djI() {
+    private void djJ() {
         if (this.luo) {
             MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this).createNormalCfg(2);
             createNormalCfg.setSubTabName(getString(R.string.tab_name_topic_rank));

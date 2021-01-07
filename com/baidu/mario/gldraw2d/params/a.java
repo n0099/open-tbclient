@@ -1,5 +1,5 @@
 package com.baidu.mario.gldraw2d.params;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a implements Cloneable {
     private float mTranslateX = 0.0f;
     private float mTranslateY = 0.0f;
@@ -17,7 +17,7 @@ public class a implements Cloneable {
         return this.mTranslateY;
     }
 
-    public MirrorType acl() {
+    public MirrorType acm() {
         return this.cgC;
     }
 
@@ -25,15 +25,15 @@ public class a implements Cloneable {
         this.cgC = mirrorType;
     }
 
-    public ScaleType acm() {
+    public ScaleType acn() {
         return this.cgE;
     }
 
-    public float acn() {
+    public float aco() {
         return this.cgF;
     }
 
-    public int aco() {
+    public int acp() {
         return this.cgD;
     }
 
@@ -41,12 +41,12 @@ public class a implements Cloneable {
         this.cgD = i;
     }
 
-    public int acp() {
+    public int acq() {
         return this.cgG;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: acq */
+    /* renamed from: acr */
     public a clone() {
         try {
             return (a) super.clone();

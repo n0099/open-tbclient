@@ -13,10 +13,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler>> f3230a = new ConcurrentHashMap();
+    private Map<String, WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler>> f3231a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private List<Integer> f3231b = new ArrayList();
+    private List<Integer> f3232b = new ArrayList();
     private int c = 0;
     private int d = CyberCfgManager.getInstance().getCfgIntValue(CyberCfgManager.KEY_INT_MEDIA_INSTANCE_CAP, 4);
     private boolean e;
@@ -50,23 +50,23 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
         MediaInstanceManagerProvider.OnClientInstanceHandler onClientInstanceHandler;
         MediaInstanceManagerProvider.OnClientInstanceHandler onClientInstanceHandler2;
         if (this.e && (activePlayer = activePlayer(i)) > 0) {
-            if (this.f3231b.contains(Integer.valueOf(i))) {
-                WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference = this.f3230a.get(String.valueOf(i));
+            if (this.f3232b.contains(Integer.valueOf(i))) {
+                WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference = this.f3231a.get(String.valueOf(i));
                 if (weakReference == null || (onClientInstanceHandler2 = weakReference.get()) == null) {
                     unRegisterPlayer(i);
-                    this.f3230a.remove(String.valueOf(i));
+                    this.f3231a.remove(String.valueOf(i));
                 } else {
                     onClientInstanceHandler2.onResumeInstance();
                 }
-                this.f3231b.remove(Integer.valueOf(i));
+                this.f3232b.remove(Integer.valueOf(i));
             }
-            WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference2 = this.f3230a.get(String.valueOf(activePlayer));
+            WeakReference<MediaInstanceManagerProvider.OnClientInstanceHandler> weakReference2 = this.f3231a.get(String.valueOf(activePlayer));
             if (weakReference2 == null || (onClientInstanceHandler = weakReference2.get()) == null) {
                 unRegisterPlayer(activePlayer);
-                this.f3230a.remove(String.valueOf(activePlayer));
+                this.f3231a.remove(String.valueOf(activePlayer));
             } else {
                 onClientInstanceHandler.onDestroyInstance();
-                this.f3231b.add(Integer.valueOf(activePlayer));
+                this.f3232b.add(Integer.valueOf(activePlayer));
             }
         }
     }
@@ -93,7 +93,7 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
         if (this.e) {
             registerPlayer = registerPlayer();
             if (registerPlayer > 0 && onClientInstanceHandler != null) {
-                this.f3230a.put(String.valueOf(registerPlayer), new WeakReference<>(onClientInstanceHandler));
+                this.f3231a.put(String.valueOf(registerPlayer), new WeakReference<>(onClientInstanceHandler));
                 if (this.c != this.d) {
                     setInstanceCapacity(this.d);
                     this.c = this.d;
@@ -109,15 +109,15 @@ public class MediaInstanceManagerImpl extends MediaInstanceManagerProvider {
     @Override // com.baidu.cyberplayer.sdk.MediaInstanceManagerProvider
     public synchronized void unRegisterInstance(int i) {
         if (this.e) {
-            if (this.f3231b.contains(Integer.valueOf(i))) {
-                this.f3231b.remove(Integer.valueOf(i));
+            if (this.f3232b.contains(Integer.valueOf(i))) {
+                this.f3232b.remove(Integer.valueOf(i));
             }
             unRegisterPlayer(i);
-            this.f3230a.remove(String.valueOf(i));
-            for (String str : this.f3230a.keySet()) {
-                if (this.f3230a.get(str).get() == null) {
+            this.f3231a.remove(String.valueOf(i));
+            for (String str : this.f3231a.keySet()) {
+                if (this.f3231a.get(str).get() == null) {
                     unRegisterPlayer(Integer.parseInt(str));
-                    this.f3230a.remove(str);
+                    this.f3231a.remove(str);
                 }
             }
         }

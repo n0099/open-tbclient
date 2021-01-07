@@ -78,8 +78,8 @@ public class e {
         this.fIT = imageFileInfo;
         String filePath = imageFileInfo.getFilePath();
         boolean checkIsLongImage = n.checkIsLongImage(filePath);
-        boolean BK = n.BK(filePath);
-        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !BK)) {
+        boolean BJ = n.BJ(filePath);
+        if (imageFileInfo.isGif() || (z && !imageFileInfo.hasActionsWithoutResize() && !BJ)) {
             if (checkIsLongImage) {
                 dVar = this.fIW;
                 str = "原始·长图";
@@ -96,7 +96,7 @@ public class e {
         }
         if (isDebugMode()) {
             int[] imageFileWH = n.getImageFileWH(filePath);
-            Log.d("UPLOAD_IMG", "" + filePath + "\n   w =" + imageFileWH[0] + " h =" + imageFileWH[1] + "  size =" + (((float) n.getFileSize(filePath)) / 1048576.0f) + "MB\n   isLongImage =" + checkIsLongImage + "  isHeifImage =" + BK + " resize =" + imageFileInfo.hasActionsWithoutResize() + " uploadStrategy =" + str);
+            Log.d("UPLOAD_IMG", "" + filePath + "\n   w =" + imageFileWH[0] + " h =" + imageFileWH[1] + "  size =" + (((float) n.getFileSize(filePath)) / 1048576.0f) + "MB\n   isLongImage =" + checkIsLongImage + "  isHeifImage =" + BJ + " resize =" + imageFileInfo.hasActionsWithoutResize() + " uploadStrategy =" + str);
         }
         String a2 = dVar.a(imageFileInfo);
         if (isDebugMode()) {
@@ -202,14 +202,14 @@ public class e {
     public String a(Bitmap bitmap, long j, int i) {
         if (this.fIS) {
             if (this.fIT != null && !TextUtils.isEmpty(this.fIT.getFilePath())) {
-                return n.a(fIQ, s.toMd5(this.fIT.toCachedKey(false)) + Eg(this.fIT.getFilePath()), bitmap, (float) j, i);
+                return n.a(fIQ, s.toMd5(this.fIT.toCachedKey(false)) + Ef(this.fIT.getFilePath()), bitmap, (float) j, i);
             }
             return "";
         }
         return n.compressBitmapToFile("img_upload_temp_file.temp", bitmap, (float) j, i);
     }
 
-    private String Eg(String str) {
+    private String Ef(String str) {
         if (TextUtils.isEmpty(str)) {
             return ".jpg";
         }

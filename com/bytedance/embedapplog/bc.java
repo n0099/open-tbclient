@@ -30,24 +30,24 @@ final class bc {
     static class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final Runnable f6095a;
+        private final Runnable f6096a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final String f6096b;
+        private final String f6097b;
         private final String c = Log.getStackTraceString(new RuntimeException("origin stacktrace"));
 
         a(Runnable runnable, String str) {
-            this.f6095a = runnable;
-            this.f6096b = str;
+            this.f6096a = runnable;
+            this.f6097b = str;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f6095a.run();
+                this.f6096a.run();
             } catch (Exception e) {
                 e.printStackTrace();
-                bb.b("TrackerDr", "Thread:" + this.f6096b + " exception\n" + this.c, e);
+                bb.b("TrackerDr", "Thread:" + this.f6097b + " exception\n" + this.c, e);
             }
         }
     }

@@ -68,10 +68,10 @@ public class PkRankResultView extends RelativeLayout {
         this.ilB.setInAnimation(AnimationUtils.loadAnimation(this.context, a.C0203a.pk_rank_slide_in_left));
         this.ilB.setOutAnimation(AnimationUtils.loadAnimation(this.context, a.C0203a.pk_rank_slide_out_right));
         this.ilT = (PkRankMvpView) this.mView.findViewById(a.f.mvp_view);
-        csB();
+        csC();
     }
 
-    private void csS() {
+    private void csT() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_result_score_layout, (ViewGroup) null);
         this.ilE = (TextView) inflate.findViewById(a.f.result);
         this.ilF = (TextView) inflate.findViewById(a.f.result_score);
@@ -86,7 +86,7 @@ public class PkRankResultView extends RelativeLayout {
         this.ilB.addView(inflate);
     }
 
-    private void csT() {
+    private void csU() {
         View inflate = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_result_rank_layout, (ViewGroup) null);
         this.ilO = (TbImageView) inflate.findViewById(a.f.rank_view);
         this.ilP = (LinearLayout) inflate.findViewById(a.f.star_layout);
@@ -97,7 +97,7 @@ public class PkRankResultView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csB() {
+    public void csC() {
         this.ilz.setVisibility(8);
         this.ilA.setVisibility(8);
         this.ilB.setVisibility(8);
@@ -105,20 +105,20 @@ public class PkRankResultView extends RelativeLayout {
     }
 
     public void b(PkInfoData pkInfoData, int i) {
-        this.gTH.cte();
+        this.gTH.ctf();
         if (this.gTH.ye(i) && !this.isShowing) {
             g(pkInfoData);
         }
     }
 
     private void g(final PkInfoData pkInfoData) {
-        csB();
+        csC();
         this.ilz.setVisibility(0);
         h(pkInfoData);
         this.handler.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.view.PkRankResultView.1
             @Override // java.lang.Runnable
             public void run() {
-                PkRankResultView.this.csU();
+                PkRankResultView.this.csV();
             }
         }, pkInfoData.showScoreTime);
         if (pkInfoData.mvpInfoData.userID != 0) {
@@ -132,7 +132,7 @@ public class PkRankResultView extends RelativeLayout {
                 @Override // java.lang.Runnable
                 public void run() {
                     PkRankResultView.this.gTH.imk.yc(0);
-                    PkRankResultView.this.csB();
+                    PkRankResultView.this.csC();
                 }
             }, pkInfoData.showScoreTime + pkInfoData.showRankTime + pkInfoData.showMvpTime);
         } else {
@@ -140,7 +140,7 @@ public class PkRankResultView extends RelativeLayout {
                 @Override // java.lang.Runnable
                 public void run() {
                     PkRankResultView.this.gTH.imk.yc(0);
-                    PkRankResultView.this.csB();
+                    PkRankResultView.this.csC();
                 }
             }, pkInfoData.showScoreTime + pkInfoData.showRankTime);
         }
@@ -151,14 +151,14 @@ public class PkRankResultView extends RelativeLayout {
         this.ilA.setVisibility(0);
         this.ilB.setVisibility(0);
         this.ilB.removeAllViews();
-        csS();
         csT();
+        csU();
         k(pkInfoData);
         j(pkInfoData);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csU() {
+    public void csV() {
         this.ilB.showNext();
     }
 
@@ -290,7 +290,7 @@ public class PkRankResultView extends RelativeLayout {
 
     public void onDestroy() {
         if (this.gTH.getGetPkInfoModel() != null) {
-            this.gTH.getGetPkInfoModel().coY();
+            this.gTH.getGetPkInfoModel().coZ();
             this.handler.removeMessages(0);
         }
     }

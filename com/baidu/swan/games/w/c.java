@@ -25,7 +25,7 @@ public class c {
             obj = this.efi.d(Base64.decode(string, 2), true);
         }
         if (obj == null) {
-            obj = d.bce();
+            obj = d.bcf();
         }
         return d.ai(obj);
     }
@@ -46,7 +46,7 @@ public class c {
             String encodeToString = Base64.encodeToString(a2, 2);
             String string = this.enO.getString(str, null);
             int length = str.getBytes().length;
-            if (this.enO.aPu() - this.enO.aPt() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
+            if (this.enO.aPv() - this.enO.aPu() < (encodeToString.length() + length) - (string == null ? 0 : string.length() + length)) {
                 return d.yj("storage error: the storage space insufficient.");
             }
             boolean putString = this.enO.putString(str, encodeToString);
@@ -66,19 +66,19 @@ public class c {
     }
 
     @NonNull
-    public d bcc() {
-        this.enO.bbZ();
+    public d bcd() {
+        this.enO.bca();
         e.dQM.update();
         return d.ai(null);
     }
 
     @NonNull
     public com.baidu.swan.games.w.a.c getStorageInfoSync() {
-        String[] bbY = this.enO.bbY();
+        String[] bbZ = this.enO.bbZ();
         com.baidu.swan.games.w.a.c cVar = new com.baidu.swan.games.w.a.c();
-        cVar.keys = bbY;
-        cVar.currentSize = this.enO.aPt() / 1024;
-        cVar.limitSize = this.enO.aPu() / 1024;
+        cVar.keys = bbZ;
+        cVar.currentSize = this.enO.aPu() / 1024;
+        cVar.limitSize = this.enO.aPv() / 1024;
         cVar.errMsg = com.baidu.swan.games.w.a.a.yi("getStorageInfoSync");
         return cVar;
     }

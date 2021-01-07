@@ -8,7 +8,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.disposables.SequentialDisposable;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class CompletableSubscribeOn extends a {
     final v scheduler;
     final e source;
@@ -20,7 +20,7 @@ public final class CompletableSubscribeOn extends a {
         subscribeOnObserver.task.replace(this.scheduler.E(subscribeOnObserver));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class SubscribeOnObserver extends AtomicReference<b> implements c, b, Runnable {
         private static final long serialVersionUID = 7000911171163930287L;
         final c actual;

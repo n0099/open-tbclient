@@ -20,21 +20,21 @@ public class YuyinAlaRoomComboGiftView extends YuyinAlaRoomBaseGiftView {
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView
-    protected void abE() {
+    protected void abF() {
         if (this.ccV != null) {
             this.ccV.u(getLastShowGift());
         }
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView
-    protected void abC() {
+    protected void abD() {
         if (this.ccV != null) {
             this.ccV.s(getLastShowGift());
         }
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView
-    protected void abD() {
+    protected void abE() {
         if (this.ccV != null) {
             this.ccV.t(getLastShowGift());
         }

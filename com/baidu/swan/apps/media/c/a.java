@@ -18,11 +18,11 @@ public class a implements com.baidu.swan.apps.media.a {
         this.mContext = context;
         this.dpH = cVar;
         this.doY = cVar.dkT;
-        aFv();
-        aFr();
+        aFw();
+        aFs();
     }
 
-    private void aFr() {
+    private void aFs() {
         if (!TextUtils.isEmpty(this.doY)) {
             com.baidu.swan.apps.media.b.a(this);
         }
@@ -36,7 +36,7 @@ public class a implements com.baidu.swan.apps.media.a {
         this.dpH = cVar;
     }
 
-    public c aFu() {
+    public c aFv() {
         return this.dpH;
     }
 
@@ -48,21 +48,21 @@ public class a implements com.baidu.swan.apps.media.a {
         this.dpH = cVar;
     }
 
-    public ar aFv() {
+    public ar aFw() {
         if (this.dpG == null) {
             com.baidu.swan.apps.console.c.i("VrVideo", "create player");
-            this.dpG = com.baidu.swan.apps.t.a.aBm().alA();
+            this.dpG = com.baidu.swan.apps.t.a.aBn().alB();
         }
         return this.dpG;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String azX() {
+    public String azY() {
         return this.doY;
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public String aDZ() {
+    public String aEa() {
         return this.dpH != null ? this.dpH.dpm : "";
     }
 
@@ -72,7 +72,7 @@ public class a implements com.baidu.swan.apps.media.a {
     }
 
     @Override // com.baidu.swan.apps.media.a
-    public Object aEa() {
+    public Object aEb() {
         return this;
     }
 
@@ -81,13 +81,13 @@ public class a implements com.baidu.swan.apps.media.a {
         this.mIsForeground = z;
         if (z) {
             if (this.dpa) {
-                aFv().resume();
+                aFw().resume();
             }
-            aFv().onForeground();
+            aFw().onForeground();
         } else if (this.dpG != null) {
-            this.dpa = aFv().isPlaying();
-            aFv().pause();
-            aFv().onBackground();
+            this.dpa = aFw().isPlaying();
+            aFw().pause();
+            aFw().onBackground();
         }
     }
 

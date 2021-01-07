@@ -16,7 +16,7 @@ public class AlaAudioVideoLayout extends RelativeLayout {
     private MediaMetadataRetriever bfW;
     private boolean mStopped;
     private String mVideoPath;
-    private d oDG;
+    private d oDF;
 
     public AlaAudioVideoLayout(Context context) {
         super(context);
@@ -78,7 +78,7 @@ public class AlaAudioVideoLayout extends RelativeLayout {
     }
 
     public void setVideoCallback(d dVar) {
-        this.oDG = dVar;
+        this.oDF = dVar;
     }
 
     public void startAnim() {
@@ -119,22 +119,22 @@ public class AlaAudioVideoLayout extends RelativeLayout {
         this.bfS.a(new c.a() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.lottie.AlaAudioVideoLayout.1
             @Override // com.baidu.live.alphavideo.c.a
             public void onStart() {
-                if (AlaAudioVideoLayout.this.oDG != null) {
-                    AlaAudioVideoLayout.this.oDG.FA(AlaAudioVideoLayout.this.mVideoPath);
+                if (AlaAudioVideoLayout.this.oDF != null) {
+                    AlaAudioVideoLayout.this.oDF.Fz(AlaAudioVideoLayout.this.mVideoPath);
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onEnd() {
-                if (!AlaAudioVideoLayout.this.mStopped && AlaAudioVideoLayout.this.oDG != null) {
-                    AlaAudioVideoLayout.this.oDG.WF(AlaAudioVideoLayout.this.mVideoPath);
+                if (!AlaAudioVideoLayout.this.mStopped && AlaAudioVideoLayout.this.oDF != null) {
+                    AlaAudioVideoLayout.this.oDF.WE(AlaAudioVideoLayout.this.mVideoPath);
                 }
             }
 
             @Override // com.baidu.live.alphavideo.c.a
             public void onError(int i, String str) {
-                if (AlaAudioVideoLayout.this.oDG != null) {
-                    AlaAudioVideoLayout.this.oDG.onFail(AlaAudioVideoLayout.this.mVideoPath);
+                if (AlaAudioVideoLayout.this.oDF != null) {
+                    AlaAudioVideoLayout.this.oDF.onFail(AlaAudioVideoLayout.this.mVideoPath);
                 }
             }
         });

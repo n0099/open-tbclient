@@ -7,14 +7,14 @@ import android.graphics.Paint;
 import android.graphics.RectF;
 import android.view.View;
 import com.qq.e.comm.plugin.util.ak;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f12129a;
+    private Paint f12130a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Paint f12130b;
+    private Paint f12131b;
     private int c;
     private int d;
     private int e;
@@ -29,16 +29,16 @@ public class a extends View {
     }
 
     private void a() {
-        this.f12129a = new Paint();
-        this.f12129a.setAntiAlias(true);
-        this.f12129a.setColor(Color.parseColor("#C3C4C5"));
-        this.f12129a.setStyle(Paint.Style.STROKE);
-        this.f12129a.setStrokeWidth(this.d);
-        this.f12130b = new Paint();
-        this.f12130b.setAntiAlias(true);
-        this.f12130b.setStyle(Paint.Style.STROKE);
-        this.f12130b.setColor(-1);
-        this.f12130b.setStrokeWidth(this.d);
+        this.f12130a = new Paint();
+        this.f12130a.setAntiAlias(true);
+        this.f12130a.setColor(Color.parseColor("#C3C4C5"));
+        this.f12130a.setStyle(Paint.Style.STROKE);
+        this.f12130a.setStrokeWidth(this.d);
+        this.f12131b = new Paint();
+        this.f12131b.setAntiAlias(true);
+        this.f12131b.setStyle(Paint.Style.STROKE);
+        this.f12131b.setColor(-1);
+        this.f12131b.setStrokeWidth(this.d);
         this.f = new RectF();
     }
 
@@ -57,13 +57,13 @@ public class a extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int measuredWidth = getMeasuredWidth();
-        canvas.drawCircle(measuredWidth / 2, getMeasuredHeight() / 2, (measuredWidth / 2) - this.d, this.f12129a);
+        canvas.drawCircle(measuredWidth / 2, getMeasuredHeight() / 2, (measuredWidth / 2) - this.d, this.f12130a);
         if (this.c > 0) {
             this.f.left = this.d;
             this.f.top = this.d;
             this.f.right = measuredWidth - this.d;
             this.f.bottom = measuredWidth - this.d;
-            canvas.drawArc(this.f, -90.0f, (this.c / this.e) * 360.0f, false, this.f12130b);
+            canvas.drawArc(this.f, -90.0f, (this.c / this.e) * 360.0f, false, this.f12131b);
         }
     }
 }

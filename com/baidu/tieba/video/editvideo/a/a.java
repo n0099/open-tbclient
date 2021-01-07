@@ -16,11 +16,11 @@ import java.util.List;
 public class a extends BaseAdapter {
     private f eXW;
     private List<PendantData> mList;
-    private InterfaceC0861a nGU;
+    private InterfaceC0899a nGT;
 
     /* renamed from: com.baidu.tieba.video.editvideo.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0861a {
+    public interface InterfaceC0899a {
         void a(View view, int i, PendantData pendantData);
     }
 
@@ -59,20 +59,20 @@ public class a extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.eXW.getPageActivity()).inflate(R.layout.layout_pendant_item, (ViewGroup) null);
             bVar = new b();
-            bVar.nGW = (TextView) view.findViewById(R.id.cover_text);
-            bVar.nGX = (TbImageView) view.findViewById(R.id.pendant_image);
-            bVar.nGY = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
-            bVar.nGX.setDefaultBgResource(R.color.transparent);
-            bVar.nGX.setDefaultResource(R.color.CAM_X0101);
+            bVar.nGV = (TextView) view.findViewById(R.id.cover_text);
+            bVar.nGW = (TbImageView) view.findViewById(R.id.pendant_image);
+            bVar.nGX = (ProgressBar) view.findViewById(R.id.pendant_progressbar);
+            bVar.nGW.setDefaultBgResource(R.color.transparent);
+            bVar.nGW.setDefaultResource(R.color.CAM_X0101);
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.video.editvideo.a.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.nGU != null) {
+                    if (a.this.nGT != null) {
                         b bVar2 = (b) view2.getTag();
-                        if (bVar2.nGX.getTag() instanceof Integer) {
-                            Integer num = (Integer) bVar2.nGX.getTag();
+                        if (bVar2.nGW.getTag() instanceof Integer) {
+                            Integer num = (Integer) bVar2.nGW.getTag();
                             if (a.this.mList.size() > num.intValue()) {
-                                a.this.nGU.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
+                                a.this.nGT.a(view2, num.intValue(), (PendantData) a.this.mList.get(num.intValue()));
                             }
                         }
                     }
@@ -85,60 +85,60 @@ public class a extends BaseAdapter {
         }
         PendantData pendantData = this.mList.get(i);
         if (pendantData != null) {
-            bVar.nGX.setTag(Integer.valueOf(i));
+            bVar.nGW.setTag(Integer.valueOf(i));
             switch (pendantData.pendantType) {
                 case 0:
-                    bVar.nGW.setVisibility(0);
+                    bVar.nGV.setVisibility(0);
+                    bVar.nGW.setVisibility(8);
                     bVar.nGX.setVisibility(8);
-                    bVar.nGY.setVisibility(8);
-                    bVar.nGW.setTextColor(ao.getColor(R.color.CAM_X0110));
-                    bVar.nGW.setText("No");
-                    bVar.nGW.setBackgroundDrawable(ao.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.nGV.setTextColor(ao.getColor(R.color.CAM_X0110));
+                    bVar.nGV.setText("No");
+                    bVar.nGV.setBackgroundDrawable(ao.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 case 1:
-                    bVar.nGW.setVisibility(0);
+                    bVar.nGV.setVisibility(0);
+                    bVar.nGW.setVisibility(8);
                     bVar.nGX.setVisibility(8);
-                    bVar.nGY.setVisibility(8);
-                    bVar.nGW.setTextColor(ao.getColor(R.color.CAM_X0111));
-                    bVar.nGW.setText("T");
-                    bVar.nGW.setBackgroundColor(ao.getColor(R.color.CAM_X0302));
+                    bVar.nGV.setTextColor(ao.getColor(R.color.CAM_X0111));
+                    bVar.nGV.setText("T");
+                    bVar.nGV.setBackgroundColor(ao.getColor(R.color.CAM_X0302));
                     break;
                 case 2:
-                    bVar.nGW.setVisibility(0);
+                    bVar.nGV.setVisibility(0);
+                    bVar.nGW.setVisibility(8);
                     bVar.nGX.setVisibility(8);
-                    bVar.nGY.setVisibility(8);
-                    bVar.nGW.setTextColor(ao.getColor(R.color.CAM_X0111));
-                    bVar.nGW.setText("T");
-                    bVar.nGW.setBackgroundColor(ao.getColor(R.color.CAM_X0109));
+                    bVar.nGV.setTextColor(ao.getColor(R.color.CAM_X0111));
+                    bVar.nGV.setText("T");
+                    bVar.nGV.setBackgroundColor(ao.getColor(R.color.CAM_X0109));
                     break;
                 case 3:
-                    bVar.nGW.setVisibility(0);
+                    bVar.nGV.setVisibility(0);
+                    bVar.nGW.setVisibility(8);
                     bVar.nGX.setVisibility(8);
-                    bVar.nGY.setVisibility(8);
-                    bVar.nGW.setTextColor(ao.getColor(R.color.CAM_X0109));
-                    bVar.nGW.setText("T");
-                    bVar.nGW.setBackgroundDrawable(ao.getDrawable(R.drawable.bg_cover_text_border));
+                    bVar.nGV.setTextColor(ao.getColor(R.color.CAM_X0109));
+                    bVar.nGV.setText("T");
+                    bVar.nGV.setBackgroundDrawable(ao.getDrawable(R.drawable.bg_cover_text_border));
                     break;
                 default:
-                    bVar.nGW.setVisibility(8);
-                    bVar.nGX.setVisibility(0);
-                    bVar.nGY.setVisibility(8);
-                    bVar.nGX.startLoad(pendantData.img, 10, false);
+                    bVar.nGV.setVisibility(8);
+                    bVar.nGW.setVisibility(0);
+                    bVar.nGX.setVisibility(8);
+                    bVar.nGW.startLoad(pendantData.img, 10, false);
                     break;
             }
         }
         return view;
     }
 
-    public void a(InterfaceC0861a interfaceC0861a) {
-        this.nGU = interfaceC0861a;
+    public void a(InterfaceC0899a interfaceC0899a) {
+        this.nGT = interfaceC0899a;
     }
 
     /* loaded from: classes8.dex */
     public class b {
-        public TextView nGW;
-        public TbImageView nGX;
-        public ProgressBar nGY;
+        public TextView nGV;
+        public TbImageView nGW;
+        public ProgressBar nGX;
 
         public b() {
         }

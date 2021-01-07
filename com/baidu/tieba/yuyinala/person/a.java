@@ -13,12 +13,12 @@ public class a extends Dialog implements View.OnClickListener {
     private View hVq;
     private View hVr;
     private boolean hVt;
-    private InterfaceC0922a oGY;
+    private InterfaceC0960a oGY;
 
     /* renamed from: com.baidu.tieba.yuyinala.person.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0922a {
-        void cpn();
+    public interface InterfaceC0960a {
+        void cpo();
     }
 
     @Override // android.app.Dialog
@@ -45,7 +45,7 @@ public class a extends Dialog implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.f.report && this.oGY != null) {
-            this.oGY.cpn();
+            this.oGY.cpo();
         }
         dismiss();
     }

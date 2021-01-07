@@ -10,14 +10,14 @@ import com.qq.e.comm.plugin.aa.a.b;
 import com.qq.e.comm.plugin.util.ah;
 import com.qq.e.comm.util.GDTLogger;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Movie f12150a;
+    private Movie f12151a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f12151b;
+    private long f12152b;
     private int c;
     private int d;
 
@@ -53,10 +53,10 @@ public class f extends ImageView {
                 public void a(File file, long j) {
                     GDTLogger.d("onCompleted");
                     if (file != null) {
-                        f.this.f12150a = Movie.decodeFile(file.getAbsolutePath());
-                        if (f.this.f12150a != null) {
-                            f.this.c = f.this.f12150a.width();
-                            f.this.d = f.this.f12150a.height();
+                        f.this.f12151a = Movie.decodeFile(file.getAbsolutePath());
+                        if (f.this.f12151a != null) {
+                            f.this.c = f.this.f12151a.width();
+                            f.this.d = f.this.f12151a.height();
                         }
                     }
                 }
@@ -71,10 +71,10 @@ public class f extends ImageView {
             });
             return;
         }
-        this.f12150a = Movie.decodeFile(a2.getAbsolutePath());
-        if (this.f12150a != null) {
-            this.c = this.f12150a.width();
-            this.d = this.f12150a.height();
+        this.f12151a = Movie.decodeFile(a2.getAbsolutePath());
+        if (this.f12151a != null) {
+            this.c = this.f12151a.width();
+            this.d = this.f12151a.height();
         }
     }
 
@@ -88,21 +88,21 @@ public class f extends ImageView {
 
     private boolean a(Canvas canvas) {
         long uptimeMillis = SystemClock.uptimeMillis();
-        if (this.f12151b == 0) {
-            this.f12151b = uptimeMillis;
+        if (this.f12152b == 0) {
+            this.f12152b = uptimeMillis;
         }
-        int duration = this.f12150a.duration();
+        int duration = this.f12151a.duration();
         if (duration == 0) {
             duration = 1000;
         }
-        this.f12150a.setTime((int) ((uptimeMillis - this.f12151b) % duration));
-        this.f12150a.draw(canvas, 0.0f, 0.0f);
+        this.f12151a.setTime((int) ((uptimeMillis - this.f12152b) % duration));
+        this.f12151a.draw(canvas, 0.0f, 0.0f);
         return false;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.f12150a == null) {
+        if (this.f12151a == null) {
             super.onDraw(canvas);
         } else if (a(canvas)) {
         } else {
@@ -113,7 +113,7 @@ public class f extends ImageView {
     @Override // android.widget.ImageView, android.view.View
     protected void onMeasure(int i, int i2) {
         super.onMeasure(i, i2);
-        if (this.f12150a != null) {
+        if (this.f12151a != null) {
             setMeasuredDimension(this.c, this.d);
         }
     }

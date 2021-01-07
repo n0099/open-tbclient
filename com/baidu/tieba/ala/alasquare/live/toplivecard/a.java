@@ -22,7 +22,7 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            a.this.bUv();
+            a.this.bUw();
         }
     };
     private Runnable gBQ = new Runnable() { // from class: com.baidu.tieba.ala.alasquare.live.toplivecard.a.2
@@ -64,27 +64,27 @@ public class a {
         }
     }
 
-    public void bUv() {
+    public void bUw() {
         if (!this.mIsBackground) {
             if (ah.th(1)) {
                 e.mB().removeCallbacks(this.gBQ);
                 e.mB().postDelayed(this.gBQ, 1000L);
             } else if (this.gBO != null) {
-                this.gBO.bUy();
+                this.gBO.bUz();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void startPlay() {
-        if (this.gBP != null && this.gBP.alW != null && this.gBP.alW.brJ() != null && this.gBO != null) {
-            this.gBO.GK(this.gBP.alW.brJ().hls_url);
+        if (this.gBP != null && this.gBP.alW != null && this.gBP.alW.brK() != null && this.gBO != null) {
+            this.gBO.GJ(this.gBP.alW.brK().hls_url);
         }
     }
 
     public void stopPlay() {
         if (this.gBO != null) {
-            this.gBO.bUy();
+            this.gBO.bUz();
         }
         e.mB().removeCallbacks(this.gBQ);
     }
@@ -101,7 +101,7 @@ public class a {
         }
     }
 
-    public c bUw() {
+    public c bUx() {
         return this.gBP;
     }
 }

@@ -69,8 +69,8 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
 
     public FeedRecModel() {
         setUniqueId(BdUniqueId.gen());
+        buH();
         buG();
-        buF();
         registerListener(this.eFZ);
     }
 
@@ -96,7 +96,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void buF() {
+    private void buG() {
         b bVar = new b(CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED);
         bVar.setResponsedClass(RecPersonalizeSocketResponse.class);
         bVar.setNeedAck(true);
@@ -104,7 +104,7 @@ public class FeedRecModel extends BdBaseModel<BaseFragmentActivity> {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void buG() {
+    private void buH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003070, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.RECOMMEND_HOME_PAGE_ADDRESS, CmdConfigSocket.CMD_RECOMMEND_PERSONALIZED));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(RecPersonalizeHttpResponse.class);

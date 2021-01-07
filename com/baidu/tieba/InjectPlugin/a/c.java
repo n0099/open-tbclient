@@ -7,7 +7,7 @@ public class c {
         this.geC = obj;
     }
 
-    public Object bMR() {
+    public Object bMS() {
         return this.geC;
     }
 }

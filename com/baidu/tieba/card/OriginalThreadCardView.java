@@ -263,7 +263,7 @@ public class OriginalThreadCardView extends RelativeLayout {
             ao.setViewTextColor(this.ixY, R.color.CAM_X0105, 1);
             ao.setViewTextColor(this.mTitleView, R.color.CAM_X0105, 1);
             ao.setViewTextColor(this.iya, R.color.CAM_X0109, 1);
-            this.ixZ.byy();
+            this.ixZ.byz();
         }
     }
 

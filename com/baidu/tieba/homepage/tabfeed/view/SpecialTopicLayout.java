@@ -69,7 +69,7 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
         this.amY = R.color.CAM_X0108;
         this.ana = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.homepage.tabfeed.view.SpecialTopicLayout.1
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void bKt() {
+            public void bKu() {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new HomePageTabFeedCollegeSecondActivityConfig(SpecialTopicLayout.this.mPageContext.getPageActivity(), SpecialTopicLayout.this.kkD)));
             }
         };
@@ -155,7 +155,7 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
     public void D(SpecialColumnListData specialColumnListData) {
         if (specialColumnListData != null) {
             this.mTitle.setText(specialColumnListData.title);
-            this.kkC.setData(specialColumnListData.cTT());
+            this.kkC.setData(specialColumnListData.cTU());
             this.kkD = specialColumnListData;
             this.mTopLine.setVisibility(0);
             this.mBottomLine.setVisibility(8);
@@ -168,7 +168,7 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         ao.setBackgroundColor(this, R.color.CAM_X0205);
         ao.setViewTextColor(this.mTitle, this.amY);
-        SvgManager.bwq().a(this.amR, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.amR, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         com.baidu.tbadk.a.b.b.bq(this.mTopLine);
         this.kkA.onChangeSkinType();
         this.kkC.notifyDataSetChanged();
@@ -270,11 +270,11 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
                 if (specialColumnItemData != null && specialColumnItemData.specialType == 2) {
                     this.kdV.setVisibility(0);
                     this.mIconResId = R.drawable.ic_icon_pure_video_play12_svg;
-                    SvgManager.bwq().a(this.kdV, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.bwr().a(this.kdV, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                 } else if (specialColumnItemData != null && (specialColumnItemData.specialType == 3 || specialColumnItemData.specialType == 4)) {
                     this.kdV.setVisibility(0);
                     this.mIconResId = R.drawable.ic_icon_pure_common_live12_svg;
-                    SvgManager.bwq().a(this.kdV, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.bwr().a(this.kdV, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
                 } else {
                     this.kdV.setVisibility(8);
                     this.mIconResId = 0;
@@ -286,8 +286,8 @@ public class SpecialTopicLayout extends LinearLayout implements p<SpecialColumnL
                     ao.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
                     ao.setViewTextColor(this.kkF, R.color.CAM_X0101);
                     ao.l(this.itemView, R.color.CAM_X0205, R.color.CAM_X0204);
-                    SvgManager.bwq().a(this.kdV, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-                    com.baidu.tbadk.core.util.f.a.bwU().qq(0).aR(R.color.CAM_X0601, R.color.CAM_X0607).qx(l.getDimens(HorizontalAdapter.this.mPageContext.getPageActivity(), R.dimen.tbds10)).bz(this.mMaskView);
+                    SvgManager.bwr().a(this.kdV, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+                    com.baidu.tbadk.core.util.f.a.bwV().qq(0).aR(R.color.CAM_X0601, R.color.CAM_X0607).qx(l.getDimens(HorizontalAdapter.this.mPageContext.getPageActivity(), R.dimen.tbds10)).bz(this.mMaskView);
                 }
                 this.mSkinType = i;
             }

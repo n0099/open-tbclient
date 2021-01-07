@@ -9,10 +9,10 @@ import com.baidu.android.pushservice.h.a.b;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f1415a = new Object();
+    private static final Object f1416a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private long f1416b = System.currentTimeMillis();
+    private long f1417b = System.currentTimeMillis();
     private a c;
     private Context d;
     private Intent e;
@@ -27,7 +27,7 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public long a() {
-        return this.f1416b;
+        return this.f1417b;
     }
 
     public void a(Intent intent) {
@@ -35,13 +35,13 @@ public class c {
             this.c.a(0, intent);
         }
         this.g = intent;
-        synchronized (f1415a) {
-            f1415a.notifyAll();
+        synchronized (f1416a) {
+            f1416a.notifyAll();
         }
     }
 
     public com.baidu.android.pushservice.message.g b() {
-        this.e.putExtra("bd.cross.request.ID", this.f1416b);
+        this.e.putExtra("bd.cross.request.ID", this.f1417b);
         this.e.putExtra("bd.cross.request.NEED_CALLBACK", true);
         this.e.putExtra("bd.cross.request.SOURCE_PACKAGE", this.d.getPackageName());
         this.e.putExtra("bd.cross.request.SENDING", true);
@@ -51,13 +51,13 @@ public class c {
         } catch (Exception e) {
         }
         com.baidu.android.pushservice.message.g gVar = new com.baidu.android.pushservice.message.g();
-        com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("timeOutRunnable-" + this.f1416b, (short) 50) { // from class: com.baidu.android.pushservice.i.c.1
+        com.baidu.android.pushservice.g.d.a().a(new com.baidu.android.pushservice.g.c("timeOutRunnable-" + this.f1417b, (short) 50) { // from class: com.baidu.android.pushservice.i.c.1
             @Override // com.baidu.android.pushservice.g.c
             public void a() {
                 try {
                     Thread.sleep(1000L);
-                    synchronized (c.f1415a) {
-                        c.f1415a.notifyAll();
+                    synchronized (c.f1416a) {
+                        c.f1416a.notifyAll();
                     }
                 } catch (InterruptedException e2) {
                     new b.c(c.this.d).a(Log.getStackTraceString(e2)).a();
@@ -65,9 +65,9 @@ public class c {
             }
         });
         if (this.c == null) {
-            synchronized (f1415a) {
+            synchronized (f1416a) {
                 try {
-                    f1415a.wait();
+                    f1416a.wait();
                 } catch (Exception e2) {
                     new b.c(this.d).a(Log.getStackTraceString(e2)).a();
                 }
@@ -91,6 +91,6 @@ public class c {
     synchronized void c() {
         this.c = null;
         this.d = null;
-        b.a(this.f1416b);
+        b.a(this.f1417b);
     }
 }

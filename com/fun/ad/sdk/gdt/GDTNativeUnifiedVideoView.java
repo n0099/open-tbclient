@@ -29,22 +29,22 @@ public class GDTNativeUnifiedVideoView extends v0 {
     public class a implements NativeADMediaListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ ah f8120a;
+        public final /* synthetic */ ah f8121a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final /* synthetic */ au.a f8121b;
+        public final /* synthetic */ au.a f8122b;
 
         public a(GDTNativeUnifiedVideoView gDTNativeUnifiedVideoView, ah ahVar, au.a aVar) {
-            this.f8120a = ahVar;
-            this.f8121b = aVar;
+            this.f8121a = ahVar;
+            this.f8122b = aVar;
         }
 
         @Override // com.qq.e.ads.nativ.NativeADMediaListener
         public void onVideoClicked() {
             m.a("GDTNativeUnifiedAd video onVideoClicked");
-            ah ahVar = this.f8120a;
+            ah ahVar = this.f8121a;
             if (ahVar != null) {
-                ((aa) ahVar).c(this.f8121b.f8059a);
+                ((aa) ahVar).c(this.f8122b.f8060a);
             }
         }
 
@@ -115,10 +115,10 @@ public class GDTNativeUnifiedVideoView extends v0 {
     @Override // com.fun.ad.v0
     public void a(Activity activity, au.a aVar, NativeUnifiedADData nativeUnifiedADData, ah ahVar) {
         super.a(activity, aVar, nativeUnifiedADData, ahVar);
-        ap.a.pId.a(getContext(), nativeUnifiedADData.getIconUrl(), this.e);
+        ap.a.pJL.a(getContext(), nativeUnifiedADData.getIconUrl(), this.e);
         m.a("GDTNativeUnifiedAd image width: " + nativeUnifiedADData.getPictureWidth() + ", height: " + nativeUnifiedADData.getPictureHeight());
         this.f = (nativeUnifiedADData.getPictureWidth() * 1.0f) / (nativeUnifiedADData.getPictureHeight() * 1.0f);
-        nativeUnifiedADData.bindMediaView(this.d, new VideoOption.Builder().setAutoPlayPolicy(d.c ? 1 : 0).setAutoPlayMuted(!d.f8075b).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this, ahVar, aVar));
+        nativeUnifiedADData.bindMediaView(this.d, new VideoOption.Builder().setAutoPlayPolicy(d.c ? 1 : 0).setAutoPlayMuted(!d.f8076b).setDetailPageMuted(false).setNeedCoverImage(true).setNeedProgressBar(true).setEnableDetailPage(false).setEnableUserControl(false).build(), new a(this, ahVar, aVar));
     }
 
     @Override // com.fun.ad.v0, android.view.View

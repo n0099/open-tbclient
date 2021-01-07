@@ -197,7 +197,7 @@ public class NotificationHelper {
 
     private static void processNotificationIcon(NotificationCompat.Builder builder) {
         if (builder != null) {
-            if (am.bwh()) {
+            if (am.bwi()) {
                 builder.setSmallIcon(R.drawable.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
             } else {
                 builder.setSmallIcon(R.drawable.tb_launcher_icon_notify);
@@ -215,19 +215,19 @@ public class NotificationHelper {
 
     private static a getSwitchData(Context context) {
         a aVar = new a();
-        if (!com.baidu.tbadk.coreExtra.messageCenter.b.bBe() && com.baidu.tbadk.coreExtra.messageCenter.b.bBd()) {
+        if (!com.baidu.tbadk.coreExtra.messageCenter.b.bBf() && com.baidu.tbadk.coreExtra.messageCenter.b.bBe()) {
             long currentTimeMillis = System.currentTimeMillis();
             if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                 AudioManager audioManager = (AudioManager) context.getSystemService("audio");
                 boolean z = audioManager.getRingerMode() == 0;
                 boolean z2 = audioManager.getRingerMode() == 1;
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.bBF().bBO()) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.bBG().bBP()) {
                     aVar.fcF = true;
                     if (z || z2) {
                         aVar.fcF = false;
                     }
                 }
-                if (com.baidu.tbadk.coreExtra.messageCenter.d.bBF().bBR()) {
+                if (com.baidu.tbadk.coreExtra.messageCenter.d.bBG().bBS()) {
                     aVar.fcG = true;
                     if (z) {
                         aVar.fcG = false;
@@ -239,7 +239,7 @@ public class NotificationHelper {
                 TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
             }
         }
-        if (com.baidu.tbadk.coreExtra.messageCenter.d.bBF().bBP()) {
+        if (com.baidu.tbadk.coreExtra.messageCenter.d.bBG().bBQ()) {
             aVar.fcH = true;
         }
         return aVar;
@@ -248,7 +248,7 @@ public class NotificationHelper {
     private static Notification notif_excption(Context context) {
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context, PRIMARY_CHANNEL);
         builder.setContentTitle(context.getString(R.string.notify_text));
-        if (am.bwh()) {
+        if (am.bwi()) {
             builder.setSmallIcon(R.drawable.tb_launcher_icon_notify_oneplus).setColor(ContextCompat.getColor(TbadkCoreApplication.getInst(), R.color.CAM_X0302));
         } else {
             builder.setSmallIcon(R.drawable.tb_launcher_icon_notify);

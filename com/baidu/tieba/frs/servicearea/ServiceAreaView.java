@@ -40,7 +40,7 @@ public class ServiceAreaView extends FrameLayout {
                 aaVar = new aa();
                 aaVar.dataList = new ArrayList();
             }
-            aaVar.nqx++;
+            aaVar.nqw++;
             ab abVar = new ab();
             abVar.name = getResources().getString(R.string.hot_user_rank);
             abVar.imageUrl = getResources().getString(R.string.hot_user_rank);
@@ -49,9 +49,9 @@ public class ServiceAreaView extends FrameLayout {
         if (aaVar != null) {
             int dimens = l.getDimens(getContext(), R.dimen.M_H_X001);
             int dimens2 = l.getDimens(getContext(), R.dimen.M_H_X001);
-            if (aaVar.nqx >= 2) {
+            if (aaVar.nqw >= 2) {
                 this.jFJ = new MultiServiceViewController(getContext());
-            } else if (aaVar.nqx == 1) {
+            } else if (aaVar.nqw == 1) {
                 this.jFJ = new c(getContext());
                 dimens2 = l.getDimens(getContext(), R.dimen.tbds12);
                 dimens = l.getDimens(getContext(), R.dimen.tbds5);
@@ -84,7 +84,7 @@ public class ServiceAreaView extends FrameLayout {
         this.jFL = z;
     }
 
-    public boolean cMC() {
+    public boolean cMD() {
         return this.jFL;
     }
 }

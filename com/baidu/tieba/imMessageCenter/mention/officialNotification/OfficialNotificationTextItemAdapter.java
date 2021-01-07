@@ -30,10 +30,10 @@ public class OfficialNotificationTextItemAdapter extends MsgCommonItemAdapter<a>
     @Override // com.baidu.tieba.im.chat.MsgCommonItemAdapter, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, ChatMessage chatMessage, MsgCommonItemAdapter.MsgViewHolder<a> msgViewHolder) {
         super.a(i, view, viewGroup, chatMessage, (MsgCommonItemAdapter.MsgViewHolder) msgViewHolder);
-        a cWy = msgViewHolder.cWy();
-        cWy.onChangeSkinType();
-        if (cWy != null) {
-            cWy.setData(chatMessage);
+        a cWz = msgViewHolder.cWz();
+        cWz.onChangeSkinType();
+        if (cWz != null) {
+            cWz.setData(chatMessage);
         }
         return view;
     }

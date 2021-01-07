@@ -28,7 +28,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long aGi() {
+    public long aGj() {
         if (this.dqR > 0) {
             this.dqR -= System.currentTimeMillis() - this.startTime;
         }
@@ -51,12 +51,12 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aGj() {
+    public void aGk() {
         this.dqQ = 1;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void aGk() {
+    public void aGl() {
         this.dqQ = 2;
     }
 

@@ -8,9 +8,9 @@ public interface i {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void aBW();
-
         void aBX();
+
+        void aBY();
     }
 
     void a(Context context, JSONObject jSONObject, a aVar);

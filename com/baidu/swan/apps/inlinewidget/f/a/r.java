@@ -12,7 +12,7 @@ public class r extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
 
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String azr() {
+    public String azs() {
         return "setZeusVideoExt";
     }
 

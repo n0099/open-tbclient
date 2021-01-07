@@ -206,7 +206,7 @@ public class d {
                 }
             }
             if (this.iiq != null) {
-                if ((rVar.aJy == 1 && rVar.bXN()) || rVar.gVc) {
+                if ((rVar.aJy == 1 && rVar.bXO()) || rVar.gVc) {
                     this.iiq.setVisibility(8);
                 } else {
                     this.iiq.setVisibility(0);

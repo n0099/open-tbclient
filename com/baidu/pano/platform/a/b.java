@@ -2,7 +2,7 @@ package com.baidu.pano.platform.a;
 
 import java.util.Collections;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public interface b {
     a a(String str);
 
@@ -10,14 +10,14 @@ public interface b {
 
     void a(String str, a aVar);
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public byte[] f3901a;
+        public byte[] f3902a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f3902b;
+        public String f3903b;
         public long c;
         public long d;
         public long e;

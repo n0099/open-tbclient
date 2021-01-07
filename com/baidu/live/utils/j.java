@@ -51,11 +51,11 @@ public class j {
         return simpleDateFormat.format(date);
     }
 
-    public static String Xy() {
+    public static String Xz() {
         return new SimpleDateFormat("HH").format(new Date());
     }
 
-    public static String Xz() {
+    public static String XA() {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH");
         Date date = new Date();
         date.setHours(date.getHours() - 1);

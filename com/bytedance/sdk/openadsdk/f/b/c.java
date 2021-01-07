@@ -13,14 +13,14 @@ import org.json.JSONObject;
 public class c extends e<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<SSWebView> f7460a;
+    private WeakReference<SSWebView> f7461a;
 
     public static void a(q qVar, SSWebView sSWebView) {
         qVar.a("preventTouchEvent", new c(sSWebView));
     }
 
     public c(SSWebView sSWebView) {
-        this.f7460a = new WeakReference<>(sSWebView);
+        this.f7461a = new WeakReference<>(sSWebView);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -30,7 +30,7 @@ public class c extends e<JSONObject, JSONObject> {
         JSONObject jSONObject2 = new JSONObject();
         try {
             boolean optBoolean = jSONObject.optBoolean("isPrevent", false);
-            SSWebView sSWebView = this.f7460a.get();
+            SSWebView sSWebView = this.f7461a.get();
             if (sSWebView != null) {
                 sSWebView.setIsPreventTouchEvent(optBoolean);
                 jSONObject2.put("success", true);

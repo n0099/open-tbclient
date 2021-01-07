@@ -22,7 +22,7 @@ import java.util.concurrent.CopyOnWriteArrayList;
 public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    protected RecyclerView f9259b;
+    protected RecyclerView f9260b;
     private TubeInfo c;
     private RecyclerView.Adapter d;
     private com.kwad.sdk.contentalliance.tube.profile.e e = new com.kwad.sdk.contentalliance.tube.profile.e() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.b.1
@@ -30,20 +30,20 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
         public void a(@NonNull TubeProfileResultData tubeProfileResultData) {
             b.this.c = tubeProfileResultData.tubeProfile.tubeInfo;
             b.this.d = new a(b.this.o(), tubeProfileResultData.tubeProfile);
-            b.this.f9259b.setAdapter(b.this.d);
-            b.this.f9259b.setVisibility(0);
+            b.this.f9260b.setAdapter(b.this.d);
+            b.this.f9260b.setVisibility(0);
         }
     };
 
     /* loaded from: classes5.dex */
-    private class a extends RecyclerView.Adapter<C1058b> {
+    private class a extends RecyclerView.Adapter<C1099b> {
 
         /* renamed from: b  reason: collision with root package name */
-        private LayoutInflater f9262b;
+        private LayoutInflater f9263b;
         private com.kwad.sdk.lib.widget.b<AdTemplate> c;
 
         public a(Context context, TubeProfile tubeProfile) {
-            this.f9262b = LayoutInflater.from(context);
+            this.f9263b = LayoutInflater.from(context);
             if (tubeProfile.adTemplateList == null) {
                 this.c = new com.kwad.sdk.lib.widget.b<>(new CopyOnWriteArrayList());
             } else if (tubeProfile.adTemplateList.size() > 6) {
@@ -62,8 +62,8 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
             TubeDetailParam tubeDetailParam = new TubeDetailParam();
             tubeDetailParam.mTubeInfo = tubeInfo;
             tubeDetailParam.mAdTemplate = adTemplate;
-            if (b.this.f9252a.f != null) {
-                tubeDetailParam.mEntryScene = b.this.f9252a.f.entryScene;
+            if (b.this.f9253a.f != null) {
+                tubeDetailParam.mEntryScene = b.this.f9253a.f.entryScene;
             }
             com.kwad.sdk.contentalliance.tube.detail.b.a(b.this.o(), tubeDetailParam);
         }
@@ -72,8 +72,8 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
         public void a(List<AdTemplate> list, int i) {
             com.kwad.sdk.contentalliance.tube.episode.b.a().a(list);
             TubeEpisodeDetailParam tubeEpisodeDetailParam = new TubeEpisodeDetailParam();
-            if (b.this.f9252a.c != null) {
-                tubeEpisodeDetailParam.mEntryScene = b.this.f9252a.c.mEntryScene;
+            if (b.this.f9253a.c != null) {
+                tubeEpisodeDetailParam.mEntryScene = b.this.f9253a.c.mEntryScene;
             }
             tubeEpisodeDetailParam.mTubeId = b.this.c.tubeId;
             tubeEpisodeDetailParam.mTotalEpisodeCount = b.this.c.totalEpisodeCount;
@@ -84,22 +84,22 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: a */
-        public C1058b onCreateViewHolder(ViewGroup viewGroup, int i) {
-            return new C1058b((EpisodePhotoView) this.f9262b.inflate(R.layout.ksad_tube_trend_scroll_view_episode_photo, viewGroup, false));
+        public C1099b onCreateViewHolder(ViewGroup viewGroup, int i) {
+            return new C1099b((EpisodePhotoView) this.f9263b.inflate(R.layout.ksad_tube_trend_scroll_view_episode_photo, viewGroup, false));
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
         /* renamed from: a */
-        public void onBindViewHolder(C1058b c1058b, final int i) {
+        public void onBindViewHolder(C1099b c1099b, final int i) {
             com.kwad.sdk.core.d.a.a("TubeProfileEpisodeGridPresenter", "position =" + i);
             final AdTemplate a2 = a(i);
-            c1058b.f9267a.setRatio(1.29f);
-            c1058b.f9267a.a(i, b.this.c.tubeId);
-            c1058b.f9267a.setTemplateData(a2);
+            c1099b.f9268a.setRatio(1.29f);
+            c1099b.f9268a.a(i, b.this.c.tubeId);
+            c1099b.f9268a.setTemplateData(a2);
             if (i != 5 || b.this.c.totalEpisodeCount <= 6) {
-                c1058b.f9267a.setLookMoreVisibility(false);
-                c1058b.f9267a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.b.a.2
+                c1099b.f9268a.setLookMoreVisibility(false);
+                c1099b.f9268a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.b.a.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         com.kwad.sdk.core.report.e.a(a2, 1, "current_tube_list", (String) null);
@@ -107,8 +107,8 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
                     }
                 });
             } else {
-                c1058b.f9267a.setLookMoreVisibility(true);
-                c1058b.f9267a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.b.a.1
+                c1099b.f9268a.setLookMoreVisibility(true);
+                c1099b.f9268a.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.b.a.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         com.kwad.sdk.core.report.e.a(a2, "current_tube_list", (String) null);
@@ -116,7 +116,7 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
                     }
                 });
             }
-            c1058b.f9267a.setId(i);
+            c1099b.f9268a.setId(i);
         }
 
         @Override // androidx.recyclerview.widget.RecyclerView.Adapter
@@ -127,14 +127,14 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     /* renamed from: com.kwad.sdk.contentalliance.tube.profile.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public static class C1058b extends RecyclerView.ViewHolder {
+    public static class C1099b extends RecyclerView.ViewHolder {
 
         /* renamed from: a  reason: collision with root package name */
-        public EpisodePhotoView f9267a;
+        public EpisodePhotoView f9268a;
 
-        public C1058b(View view) {
+        public C1099b(View view) {
             super(view);
-            this.f9267a = (EpisodePhotoView) view;
+            this.f9268a = (EpisodePhotoView) view;
         }
     }
 
@@ -143,14 +143,14 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public void a() {
         super.a();
         com.kwad.sdk.core.d.a.a("TubeProfileEpisodeGridPresenter", "TubeProfileEpisodeGridPresenter onBind");
-        this.f9252a.e.add(this.e);
+        this.f9253a.e.add(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9252a.e.remove(this.e);
+        this.f9253a.e.remove(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -158,8 +158,8 @@ public class b extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     public void c() {
         super.c();
         com.kwad.sdk.core.d.a.a("TubeProfileEpisodeGridPresenter", "TubeProfileEpisodeGridPresenter onCreate");
-        this.f9259b = (RecyclerView) b(R.id.ksad_tube_grid);
-        this.f9259b.addItemDecoration(new com.kwad.sdk.contentalliance.tube.view.a(ao.a(o(), 2.0f)));
-        this.f9259b.setLayoutManager(new GridLayoutManager(o(), 3));
+        this.f9260b = (RecyclerView) b(R.id.ksad_tube_grid);
+        this.f9260b.addItemDecoration(new com.kwad.sdk.contentalliance.tube.view.a(ao.a(o(), 2.0f)));
+        this.f9260b.setLayoutManager(new GridLayoutManager(o(), 3));
     }
 }

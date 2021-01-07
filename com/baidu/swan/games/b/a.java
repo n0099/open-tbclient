@@ -11,7 +11,7 @@ public class a {
     }
 
     public static void a(final InterfaceC0531a interfaceC0531a) {
-        com.baidu.swan.games.m.a.baX().a(new InterfaceC0531a() { // from class: com.baidu.swan.games.b.a.1
+        com.baidu.swan.games.m.a.baY().a(new InterfaceC0531a() { // from class: com.baidu.swan.games.b.a.1
             @Override // com.baidu.swan.games.b.a.InterfaceC0531a
             public void onSuccess() {
                 InterfaceC0531a.this.onSuccess();
@@ -25,10 +25,10 @@ public class a {
     }
 
     private static void a(com.baidu.swan.apps.runtime.e eVar, final InterfaceC0531a interfaceC0531a) {
-        if (eVar.aMx().isLogin(eVar.aMe())) {
+        if (eVar.aMy().isLogin(eVar.aMf())) {
             interfaceC0531a.onSuccess();
         } else {
-            eVar.aMx().a(eVar.aMe(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.games.b.a.2
+            eVar.aMy().a(eVar.aMf(), null, new com.baidu.swan.apps.a.a() { // from class: com.baidu.swan.games.b.a.2
                 @Override // com.baidu.swan.apps.a.a
                 public void onResult(int i) {
                     if (i == 0) {
@@ -42,11 +42,11 @@ public class a {
     }
 
     public static void b(final InterfaceC0531a interfaceC0531a) {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null || aMl.aMe() == null) {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm == null || aMm.aMf() == null) {
             interfaceC0531a.onFail("SwanApp is null or SwanActivity is null");
         } else {
-            a(aMl, new InterfaceC0531a() { // from class: com.baidu.swan.games.b.a.3
+            a(aMm, new InterfaceC0531a() { // from class: com.baidu.swan.games.b.a.3
                 @Override // com.baidu.swan.games.b.a.InterfaceC0531a
                 public void onSuccess() {
                     a.a(new InterfaceC0531a() { // from class: com.baidu.swan.games.b.a.3.1

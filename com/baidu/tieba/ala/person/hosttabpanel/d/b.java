@@ -88,7 +88,7 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
                                 b.this.ch(z);
                                 return;
                             } else if (z) {
-                                com.baidu.live.view.a.Zx().a(b.this.mPageContext, true);
+                                com.baidu.live.view.a.Zy().a(b.this.mPageContext, true);
                                 return;
                             } else {
                                 b.this.mPageContext.showToast(b.this.mPageContext.getResources().getString(a.h.sdk_unfollow_success_toast));
@@ -97,7 +97,7 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
                         }
                         boolean z2 = updateAttentionMessage.getData().isAttention;
                         if (equals) {
-                            if (com.baidu.live.view.a.Zx().a(updateAttentionMessage.getData(), (BdPageContext<?>) b.this.mPageContext, false)) {
+                            if (com.baidu.live.view.a.Zy().a(updateAttentionMessage.getData(), (BdPageContext<?>) b.this.mPageContext, false)) {
                                 b.this.bmX = !b.this.bmX;
                                 b.this.ch(b.this.bmX);
                                 b.this.cg(b.this.bmX);
@@ -222,15 +222,15 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.hWo) {
-            cpt();
+            cpu();
         } else if (view == this.hWs) {
             if (this.hGW != null && this.hVU != null && this.hVU.aKQ != null) {
                 this.hGW.a(this.hVU.aKQ, "from_host_tab_panel");
             }
         } else if (view == this.hWt) {
-            cpv();
+            cpw();
         } else if (view == this.hWu) {
-            cpu();
+            cpv();
         } else if (view == this.hWl) {
             xH(2);
         } else if (view == this.hWm) {
@@ -257,10 +257,10 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         }
     }
 
-    private void cpt() {
+    private void cpu() {
     }
 
-    private void cpu() {
+    private void cpv() {
         if (this.aKu != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());
@@ -275,7 +275,7 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
             ch(this.bmX);
             com.baidu.live.data.f fVar = new com.baidu.live.data.f(this.aKu.portrait, String.valueOf(this.aKu.userId), "1", this.bmX, hWw);
             fVar.setFrom("source_person_card_tab_host");
-            com.baidu.live.view.a.Zx().a(String.valueOf(this.aKu.userId), fVar);
+            com.baidu.live.view.a.Zy().a(String.valueOf(this.aKu.userId), fVar);
         }
     }
 
@@ -317,7 +317,7 @@ public class b extends com.baidu.live.tieba.b.a<com.baidu.tieba.ala.person.hostt
         textView2.setText(resources2.getString(i3, StringHelper.numberUniformFormat(i4)));
     }
 
-    private void cpv() {
+    private void cpw() {
         if (this.aKu != null) {
             if (!TbadkCoreApplication.isLogin()) {
                 ViewHelper.skipToLoginActivity(this.mPageContext.getPageActivity());

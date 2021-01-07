@@ -68,7 +68,7 @@ public class ItemTableRowView extends View {
         this.lineHeight = jPJ;
         this.radius = DEFAULT_RADIUS;
         this.jPF = jPK;
-        byy();
+        byz();
         this.rectF = new RectF();
         this.paint = new Paint(1);
     }
@@ -130,13 +130,13 @@ public class ItemTableRowView extends View {
     }
 
     public void onChangeSkinType() {
-        byy();
+        byz();
         invalidate();
     }
 
-    public void byy() {
-        this.fQU = SvgManager.bwq().a(this.fQQ, this.fQR, (SvgManager.SvgResourceStateType) null);
-        this.fQV = SvgManager.bwq().a(this.fQQ, this.fQT, (SvgManager.SvgResourceStateType) null);
+    public void byz() {
+        this.fQU = SvgManager.bwr().a(this.fQQ, this.fQR, (SvgManager.SvgResourceStateType) null);
+        this.fQV = SvgManager.bwr().a(this.fQQ, this.fQT, (SvgManager.SvgResourceStateType) null);
     }
 
     public void setEmptyStartCount(int i) {

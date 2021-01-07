@@ -8,18 +8,18 @@ import org.json.JSONArray;
 final class cx implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f5792a;
+    final /* synthetic */ String f5793a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ JSONArray f5793b;
+    final /* synthetic */ JSONArray f5794b;
     final /* synthetic */ int c;
     final /* synthetic */ cg d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cx(cg cgVar, String str, JSONArray jSONArray, int i) {
         this.d = cgVar;
-        this.f5792a = str;
-        this.f5793b = jSONArray;
+        this.f5793a = str;
+        this.f5794b = jSONArray;
         this.c = i;
     }
 
@@ -37,18 +37,18 @@ final class cx implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         com.baidu.ufosdk.f.c.a("点击查看不满意原因");
-        if (!TextUtils.isEmpty(this.f5792a) || (this.f5793b != null && this.f5793b.length() != 0)) {
-            ((Map) this.d.f5771a.h.get(this.c)).put("isClicked", 1);
+        if (!TextUtils.isEmpty(this.f5793a) || (this.f5794b != null && this.f5794b.length() != 0)) {
+            ((Map) this.d.f5772a.h.get(this.c)).put("isClicked", 1);
         }
-        this.d.f5771a.aF = this.c;
-        if (((Map) this.d.f5771a.h.get(this.c)).containsKey("chatId")) {
-            this.d.f5771a.f = new StringBuilder().append(((Map) this.d.f5771a.h.get(this.c)).get("chatId")).toString();
+        this.d.f5772a.aF = this.c;
+        if (((Map) this.d.f5772a.h.get(this.c)).containsKey("chatId")) {
+            this.d.f5772a.f = new StringBuilder().append(((Map) this.d.f5772a.h.get(this.c)).get("chatId")).toString();
         }
-        if (TextUtils.isEmpty(this.f5792a) && (this.f5793b == null || this.f5793b.length() == 0)) {
-            FeedbackInputActivity.a(this.d.f5771a, false, false);
+        if (TextUtils.isEmpty(this.f5793a) && (this.f5794b == null || this.f5794b.length() == 0)) {
+            FeedbackInputActivity.a(this.d.f5772a, false, false);
         } else {
-            FeedbackInputActivity.a(this.d.f5771a, true, false);
+            FeedbackInputActivity.a(this.d.f5772a, true, false);
         }
-        this.d.f5771a.j.notifyDataSetChanged();
+        this.d.f5772a.j.notifyDataSetChanged();
     }
 }

@@ -5,15 +5,15 @@ import android.os.IBinder;
 import com.asus.msa.sdid.SupplementaryDIDManager;
 import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private SupplierListener f6038a;
+    private SupplierListener f6039a;
     private SupplementaryDIDManager f;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6039b = "";
+    private String f6040b = "";
     private String c = "";
     private String d = "";
     private String e = "";
@@ -21,23 +21,23 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
     private boolean h = false;
 
     public a(Context context, SupplierListener supplierListener) {
-        this.f6038a = supplierListener;
+        this.f6039a = supplierListener;
         this.f = new SupplementaryDIDManager(context);
     }
 
     @Override // com.asus.msa.sdid.a
     public void a() {
-        if (this.f6038a != null) {
-            this.f6038a.OnSupport(false, this);
+        if (this.f6039a != null) {
+            this.f6039a.OnSupport(false, this);
         }
     }
 
     @Override // com.asus.msa.sdid.a
     public void a(com.asus.msa.a.a aVar) {
         try {
-            this.f6039b = aVar.b();
-            if (this.f6039b == null) {
-                this.f6039b = "";
+            this.f6040b = aVar.b();
+            if (this.f6040b == null) {
+                this.f6040b = "";
             }
         } catch (Exception e) {
         }
@@ -67,8 +67,8 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
         } catch (Exception e5) {
         }
         this.g = true;
-        if (this.f6038a != null) {
-            this.f6038a.OnSupport(this.h, this);
+        if (this.f6039a != null) {
+            this.f6039a.OnSupport(this.h, this);
         }
     }
 
@@ -99,7 +99,7 @@ public class a implements com.asus.msa.sdid.a, InnerIdSupplier {
 
     @Override // com.bun.miitmdid.supplier.InnerIdSupplier
     public String getUDID() {
-        return this.f6039b;
+        return this.f6040b;
     }
 
     @Override // com.bun.miitmdid.supplier.IdSupplier

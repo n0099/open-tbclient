@@ -19,7 +19,7 @@ public final class f {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static long ejF() {
+    public static long ejG() {
         return oOt;
     }
 
@@ -47,7 +47,7 @@ public final class f {
         oOu = j;
     }
 
-    public static long ejG() {
+    public static long ejH() {
         return oOu;
     }
 }

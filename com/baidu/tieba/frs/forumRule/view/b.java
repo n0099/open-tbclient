@@ -35,7 +35,7 @@ public class b {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cKf();
+        void cKg();
     }
 
     public b(Context context) {
@@ -68,7 +68,7 @@ public class b {
             public void afterTextChanged(Editable editable) {
                 com.baidu.tieba.frs.forumRule.view.a.b(b.this.jvD, editable.toString().length(), 30);
                 if (b.this.jvJ != null) {
-                    b.this.jvJ.cKf();
+                    b.this.jvJ.cKg();
                 }
                 if (b.this.jvK) {
                     com.baidu.tbadk.core.elementsMaven.c.bv(b.this.jvH).pC(R.color.CAM_X0105);
@@ -90,7 +90,7 @@ public class b {
             public void afterTextChanged(Editable editable) {
                 com.baidu.tieba.frs.forumRule.view.a.b(b.this.jvF, editable.toString().length(), 300);
                 if (b.this.jvJ != null) {
-                    b.this.jvJ.cKf();
+                    b.this.jvJ.cKg();
                 }
                 if (b.this.jvK) {
                     com.baidu.tbadk.core.elementsMaven.c.bv(b.this.jvH).pC(R.color.CAM_X0105);
@@ -128,11 +128,11 @@ public class b {
                 l.showSoftKeyPad(b.this.mContext, b.this.jvI);
             }
         });
-        bxO();
-        this.jvI.byA();
+        bxP();
+        this.jvI.byB();
     }
 
-    private void bxO() {
+    private void bxP() {
         if (this.rootView != null) {
             com.baidu.tbadk.core.elementsMaven.c.bv(this.jvB).setBackGroundColor(R.color.CAM_X0204);
             com.baidu.tbadk.core.elementsMaven.c.bv(this.jvC).setBackGroundColor(R.color.CAM_X0210);
@@ -157,11 +157,11 @@ public class b {
         return this.rootView;
     }
 
-    public SpanGroupEditText cKg() {
+    public SpanGroupEditText cKh() {
         return this.jvI;
     }
 
-    public EditText cKh() {
+    public EditText cKi() {
         return this.jvH;
     }
 

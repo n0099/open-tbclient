@@ -12,25 +12,25 @@ import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class NABaseMap extends NativeComponent {
 
     /* renamed from: b  reason: collision with root package name */
-    private long f4723b;
+    private long f4724b;
 
     /* renamed from: a  reason: collision with root package name */
-    private ThreadPoolExecutor f4722a = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
+    private ThreadPoolExecutor f4723a = new ThreadPoolExecutor(1, 1, 0, TimeUnit.MILLISECONDS, new LinkedBlockingQueue());
     private final ReadWriteLock c = new ReentrantReadWriteLock(true);
     private final Set<Long> d = new HashSet();
 
     private void a() {
         try {
-            if (this.f4722a != null) {
-                if (this.f4722a.getQueue() != null) {
-                    this.f4722a.getQueue().clear();
+            if (this.f4723a != null) {
+                if (this.f4723a.getQueue() != null) {
+                    this.f4723a.getQueue().clear();
                 }
-                this.f4722a.shutdownNow();
-                this.f4722a.awaitTermination(20L, TimeUnit.MILLISECONDS);
+                this.f4723a.shutdownNow();
+                this.f4723a.awaitTermination(20L, TimeUnit.MILLISECONDS);
             }
         } catch (Exception e) {
         }
@@ -43,7 +43,7 @@ public class NABaseMap extends NativeComponent {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean b() {
-        return (this.f4722a.isShutdown() || this.f4722a.isTerminated()) ? false : true;
+        return (this.f4723a.isShutdown() || this.f4723a.isTerminated()) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -346,12 +346,12 @@ public class NABaseMap extends NativeComponent {
 
     public void addItemData(Bundle bundle) {
         if (b()) {
-            this.f4722a.submit(new o(this, bundle));
+            this.f4723a.submit(new o(this, bundle));
         }
     }
 
     public long addLayer(int i, int i2, String str) {
-        long nativeAddLayer = nativeAddLayer(this.f4723b, i, i2, str);
+        long nativeAddLayer = nativeAddLayer(this.f4724b, i, i2, str);
         boolean z = false;
         try {
             z = this.c.writeLock().tryLock(2000L, TimeUnit.MILLISECONDS);
@@ -376,211 +376,211 @@ public class NABaseMap extends NativeComponent {
 
     public void addOneOverlayItem(Bundle bundle) {
         if (b()) {
-            this.f4722a.submit(new d(this, bundle));
+            this.f4723a.submit(new d(this, bundle));
         }
     }
 
     public void addOverlayItems(Bundle[] bundleArr, int i) {
         if (b()) {
-            this.f4722a.submit(new e(this, bundleArr, i));
+            this.f4723a.submit(new e(this, bundleArr, i));
         }
     }
 
     public void addPopupData(Bundle bundle) {
-        nativeAddPopupData(this.f4723b, bundle);
+        nativeAddPopupData(this.f4724b, bundle);
     }
 
     public void addRtPopData(Bundle bundle) {
-        nativeAddRtPopData(this.f4723b, bundle);
+        nativeAddRtPopData(this.f4724b, bundle);
     }
 
     public void addStreetCustomMarker(Bundle bundle, Bitmap bitmap) {
-        if (this.f4723b != 0) {
-            nativeAddStreetCustomMarker(this.f4723b, bundle, bitmap);
+        if (this.f4724b != 0) {
+            nativeAddStreetCustomMarker(this.f4724b, bundle, bitmap);
         }
     }
 
     public void beginLocationLayerAnimation() {
-        nativeBeginLocationLayerAnimation(this.f4723b);
+        nativeBeginLocationLayerAnimation(this.f4724b);
     }
 
     public boolean cleanCache(int i) {
-        return nativeCleanCache(this.f4723b, i);
+        return nativeCleanCache(this.f4724b, i);
     }
 
     public void clearLayer(long j) {
         if (b()) {
-            this.f4722a.submit(new m(this, j));
+            this.f4723a.submit(new m(this, j));
         }
     }
 
     public void clearLocationLayerData(Bundle bundle) {
-        nativeClearLocationLayerData(this.f4723b, bundle);
+        nativeClearLocationLayerData(this.f4724b, bundle);
     }
 
     public void clearMistmapLayer() {
-        nativeClearMistmapLayer(this.f4723b);
+        nativeClearMistmapLayer(this.f4724b);
     }
 
     public void clearSDKLayer(long j) {
         if (b()) {
-            this.f4722a.submit(new l(this, j));
+            this.f4723a.submit(new l(this, j));
         }
     }
 
     public void clearUniversalLayer() {
-        nativeClearUniversalLayer(this.f4723b);
+        nativeClearUniversalLayer(this.f4724b);
     }
 
     public boolean closeCache() {
-        return nativeCloseCache(this.f4723b);
+        return nativeCloseCache(this.f4724b);
     }
 
     public void closeParticleEffect(String str) {
-        nativeCloseParticleEffect(this.f4723b, str);
+        nativeCloseParticleEffect(this.f4724b, str);
     }
 
     @Override // com.baidu.platform.comjni.NativeComponent
     public long create() {
-        this.f4723b = nativeCreate();
-        nativeInitLayerCallback(this.f4723b);
-        return this.f4723b;
+        this.f4724b = nativeCreate();
+        nativeInitLayerCallback(this.f4724b);
+        return this.f4724b;
     }
 
     public long createByDuplicate(long j) {
-        this.f4723b = nativeCreateDuplicate(j);
-        if (this.f4723b != 0) {
-            nativeInitLayerCallback(this.f4723b);
+        this.f4724b = nativeCreateDuplicate(j);
+        if (this.f4724b != 0) {
+            nativeInitLayerCallback(this.f4724b);
         }
-        return this.f4723b;
+        return this.f4724b;
     }
 
     public long createDuplicate() {
-        return nativeCreateDuplicate(this.f4723b);
+        return nativeCreateDuplicate(this.f4724b);
     }
 
     @Override // com.baidu.platform.comjni.NativeComponent
     public int dispose() {
-        if (this.f4723b != 0) {
+        if (this.f4724b != 0) {
             a();
-            int nativeRelease = nativeRelease(this.f4723b);
-            this.f4723b = 0L;
+            int nativeRelease = nativeRelease(this.f4724b);
+            this.f4724b = 0L;
             return nativeRelease;
         }
         return 0;
     }
 
     public int draw() {
-        if (this.f4723b != 0) {
-            return nativeDraw(this.f4723b);
+        if (this.f4724b != 0) {
+            return nativeDraw(this.f4724b);
         }
         return 0;
     }
 
     public void enablePOIAnimation(boolean z) {
-        if (this.f4723b != 0) {
-            nativeEnablePOIAnimation(this.f4723b, z);
+        if (this.f4724b != 0) {
+            nativeEnablePOIAnimation(this.f4724b, z);
         }
     }
 
     public void entrySearchTopic(int i) {
-        if (this.f4723b != 0) {
-            nativeEntrySearchTopic(this.f4723b, i);
+        if (this.f4724b != 0) {
+            nativeEntrySearchTopic(this.f4724b, i);
         }
     }
 
     public void exitSearchTopic() {
-        if (this.f4723b != 0) {
-            nativeExitSearchTopic(this.f4723b);
+        if (this.f4724b != 0) {
+            nativeExitSearchTopic(this.f4724b);
         }
     }
 
     public void focusTrafficUGCLabel() {
-        nativeFocusTrafficUGCLabel(this.f4723b);
+        nativeFocusTrafficUGCLabel(this.f4724b);
     }
 
     public String geoPtToScrPoint(int i, int i2) {
-        return nativeGeoPtToScrPoint(this.f4723b, i, i2);
+        return nativeGeoPtToScrPoint(this.f4724b, i, i2);
     }
 
     public float getAdapterZoomUnitsEx() {
-        return nativeGetAdapterZoomUnitsEx(this.f4723b);
+        return nativeGetAdapterZoomUnitsEx(this.f4724b);
     }
 
     public int getCacheSize(int i) {
-        return nativeGetCacheSize(this.f4723b, i);
+        return nativeGetCacheSize(this.f4724b, i);
     }
 
     public String getCityInfoByID(int i) {
-        return nativeGetCityInfoByID(this.f4723b, i);
+        return nativeGetCityInfoByID(this.f4724b, i);
     }
 
     public boolean getDEMEnable() {
-        if (this.f4723b != 0) {
-            nativeGetDEMEnable(this.f4723b);
+        if (this.f4724b != 0) {
+            nativeGetDEMEnable(this.f4724b);
             return false;
         }
         return false;
     }
 
     public boolean getDrawHouseHeightEnable() {
-        if (this.f4723b != 0) {
-            return nativeGetDrawHouseHeightEnable(this.f4723b);
+        if (this.f4724b != 0) {
+            return nativeGetDrawHouseHeightEnable(this.f4724b);
         }
         return false;
     }
 
     public Bundle getDrawingMapStatus() {
-        return nativeGetDrawingMapStatus(this.f4723b);
+        return nativeGetDrawingMapStatus(this.f4724b);
     }
 
     public float getFZoomToBoundF(Bundle bundle, Bundle bundle2) {
-        return nativeGetFZoomToBoundF(this.f4723b, bundle, bundle2);
+        return nativeGetFZoomToBoundF(this.f4724b, bundle, bundle2);
     }
 
     public String getFocusedBaseIndoorMapInfo() {
-        if (this.f4723b != 0) {
-            return nativeGetFocusedBaseIndoorMapInfo(this.f4723b);
+        if (this.f4724b != 0) {
+            return nativeGetFocusedBaseIndoorMapInfo(this.f4724b);
         }
         return null;
     }
 
     public long getLayerIDByTag(String str) {
-        if (this.f4723b != 0) {
-            return nativeGetLayerIDByTag(this.f4723b, str);
+        if (this.f4724b != 0) {
+            return nativeGetLayerIDByTag(this.f4724b, str);
         }
         return 0L;
     }
 
     public boolean getMapBarData(Bundle bundle) {
-        return nativeGetMapBarData(this.f4723b, bundle);
+        return nativeGetMapBarData(this.f4724b, bundle);
     }
 
     public int getMapRenderType() {
-        return nativeGetMapRenderType(this.f4723b);
+        return nativeGetMapRenderType(this.f4724b);
     }
 
     public int getMapScene() {
-        return nativeGetMapScene(this.f4723b);
+        return nativeGetMapScene(this.f4724b);
     }
 
     public Bundle getMapStatus(boolean z) {
-        return nativeGetMapStatus(this.f4723b, z);
+        return nativeGetMapStatus(this.f4724b, z);
     }
 
     public Bundle getMapStatusLimits() {
-        if (this.f4723b != 0) {
-            return nativeGetMapStatusLimits(this.f4723b);
+        if (this.f4724b != 0) {
+            return nativeGetMapStatusLimits(this.f4724b);
         }
         return null;
     }
 
     public int getMapTheme() {
-        return nativeGetMapTheme(this.f4723b);
+        return nativeGetMapTheme(this.f4724b);
     }
 
     public long getNativeMapPointer() {
-        return this.f4723b;
+        return this.f4724b;
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -609,7 +609,7 @@ public class NABaseMap extends NativeComponent {
         L25:
             return r0
         L26:
-            long r2 = r11.f4723b     // Catch: java.lang.Throwable -> L6d java.lang.Exception -> L74
+            long r2 = r11.f4724b     // Catch: java.lang.Throwable -> L6d java.lang.Exception -> L74
             r1 = r11
             r4 = r12
             r6 = r14
@@ -667,29 +667,29 @@ public class NABaseMap extends NativeComponent {
     }
 
     public void getProjectMatrix(float[] fArr) {
-        if (this.f4723b != 0) {
-            nativeGetProjectionMatrix(this.f4723b, fArr);
+        if (this.f4724b != 0) {
+            nativeGetProjectionMatrix(this.f4724b, fArr);
         }
     }
 
     public String getProjectionPt(String str) {
-        return nativeGetProjectionPt(this.f4723b, str);
+        return nativeGetProjectionPt(this.f4724b, str);
     }
 
     public int getScaleLevel(int i, int i2) {
-        if (this.f4723b != 0) {
-            return nativeGetScaleLevel(this.f4723b, i, i2);
+        if (this.f4724b != 0) {
+            return nativeGetScaleLevel(this.f4724b, i, i2);
         }
         return -1;
     }
 
     public int getVMPMapCityInfo(Bundle bundle) {
-        return nativeGetVMPMapCityInfo(this.f4723b, bundle);
+        return nativeGetVMPMapCityInfo(this.f4724b, bundle);
     }
 
     public void getViewMatrix(float[] fArr) {
-        if (this.f4723b != 0) {
-            nativeGetViewMatrix(this.f4723b, fArr);
+        if (this.f4724b != 0) {
+            nativeGetViewMatrix(this.f4724b, fArr);
         }
     }
 
@@ -698,62 +698,62 @@ public class NABaseMap extends NativeComponent {
     }
 
     public float getZoomToBound(Bundle bundle, int i, int i2) {
-        return nativeGetZoomToBound(this.f4723b, bundle, i, i2);
+        return nativeGetZoomToBound(this.f4724b, bundle, i, i2);
     }
 
     public float getZoomToBoundF(Bundle bundle) {
-        return nativeGetZoomToBoundF(this.f4723b, bundle);
+        return nativeGetZoomToBoundF(this.f4724b, bundle);
     }
 
     public boolean importMapTheme(int i) {
-        return nativeImportMapTheme(this.f4723b, i);
+        return nativeImportMapTheme(this.f4724b, i);
     }
 
     public boolean init(String str, String str2, String str3, String str4, String str5, String str6, String str7, int i, int i2, int i3, int i4, int i5, int i6, int i7, boolean z, boolean z2) {
-        return this.f4723b != 0 && nativeInit(this.f4723b, str, str2, str3, str4, str5, str6, str7, i, i2, i3, i4, i5, i6, i7, z, z2);
+        return this.f4724b != 0 && nativeInit(this.f4724b, str, str2, str3, str4, str5, str6, str7, i, i2, i3, i4, i5, i6, i7, z, z2);
     }
 
     public boolean initCustomStyle(String str, String str2) {
-        if (this.f4723b != 0) {
-            return nativeInitCustomStyle(this.f4723b, str, str2);
+        if (this.f4724b != 0) {
+            return nativeInitCustomStyle(this.f4724b, str, str2);
         }
         return false;
     }
 
     public boolean isAnimationRunning() {
-        return nativeIsAnimationRunning(this.f4723b);
+        return nativeIsAnimationRunning(this.f4724b);
     }
 
     public boolean isBaseIndoorMapMode() {
-        return this.f4723b != 0 && nativeIsBaseIndoorMapMode(this.f4723b);
+        return this.f4724b != 0 && nativeIsBaseIndoorMapMode(this.f4724b);
     }
 
     public boolean isNaviMode() {
-        return nativeIsNaviMode(this.f4723b);
+        return nativeIsNaviMode(this.f4724b);
     }
 
     public boolean isPointInFocusBarBorder(double d, double d2, double d3) {
-        return this.f4723b != 0 && nativeIsPointInFocusBarBorder(this.f4723b, d, d2, d3);
+        return this.f4724b != 0 && nativeIsPointInFocusBarBorder(this.f4724b, d, d2, d3);
     }
 
     public boolean isPointInFocusIDRBorder(double d, double d2) {
-        return this.f4723b != 0 && nativeIsPointInFocusIDRBorder(this.f4723b, d, d2);
+        return this.f4724b != 0 && nativeIsPointInFocusIDRBorder(this.f4724b, d, d2);
     }
 
     public boolean isStreetArrowShown() {
-        return nativeIsStreetArrowShown(this.f4723b);
+        return nativeIsStreetArrowShown(this.f4724b);
     }
 
     public boolean isStreetCustomMarkerShown() {
-        return nativeIsStreetCustomMarkerShown(this.f4723b);
+        return nativeIsStreetCustomMarkerShown(this.f4724b);
     }
 
     public boolean isStreetPOIMarkerShown() {
-        return this.f4723b != 0 && nativeIsStreetPOIMarkerShown(this.f4723b);
+        return this.f4724b != 0 && nativeIsStreetPOIMarkerShown(this.f4724b);
     }
 
     public boolean isStreetRoadClickable() {
-        return nativeIsStreetRoadClickable(this.f4723b);
+        return nativeIsStreetRoadClickable(this.f4724b);
     }
 
     public boolean layersIsShow(long j) {
@@ -766,7 +766,7 @@ public class NABaseMap extends NativeComponent {
             if (z2) {
                 try {
                     if (!a(j)) {
-                        z3 = nativeLayersIsShow(this.f4723b, j);
+                        z3 = nativeLayersIsShow(this.f4724b, j);
                         if (z2) {
                             this.c.readLock().unlock();
                         }
@@ -799,7 +799,7 @@ public class NABaseMap extends NativeComponent {
     }
 
     public void moveToScrPoint(int i, int i2) {
-        nativeMoveToScrPoint(this.f4723b, i, i2);
+        nativeMoveToScrPoint(this.f4724b, i, i2);
     }
 
     public native void nativeAddOneOverlayItem(long j, Bundle bundle);
@@ -817,90 +817,90 @@ public class NABaseMap extends NativeComponent {
     public native boolean nativeUpdateSDKTile(long j, Bundle bundle);
 
     public void onBackground() {
-        if (this.f4723b != 0) {
-            nativeOnBackground(this.f4723b);
+        if (this.f4724b != 0) {
+            nativeOnBackground(this.f4724b);
         }
     }
 
     public void onForeground() {
-        if (this.f4723b != 0) {
-            nativeOnForeground(this.f4723b);
+        if (this.f4724b != 0) {
+            nativeOnForeground(this.f4724b);
         }
     }
 
     public String onHotcityGet() {
-        return nativeOnHotcityGet(this.f4723b);
+        return nativeOnHotcityGet(this.f4724b);
     }
 
     public void onPause() {
-        if (this.f4723b != 0) {
-            nativeOnPause(this.f4723b);
+        if (this.f4724b != 0) {
+            nativeOnPause(this.f4724b);
         }
     }
 
     public boolean onRecordAdd(int i) {
-        return nativeOnRecordAdd(this.f4723b, i);
+        return nativeOnRecordAdd(this.f4724b, i);
     }
 
     public String onRecordGetAll() {
-        return nativeOnRecordGetAll(this.f4723b);
+        return nativeOnRecordGetAll(this.f4724b);
     }
 
     public String onRecordGetAt(int i) {
-        return nativeOnRecordGetAt(this.f4723b, i);
+        return nativeOnRecordGetAt(this.f4724b, i);
     }
 
     public boolean onRecordImport(boolean z, boolean z2) {
-        return nativeOnRecordImport(this.f4723b, z, z2);
+        return nativeOnRecordImport(this.f4724b, z, z2);
     }
 
     public boolean onRecordReload(int i, boolean z) {
-        return nativeOnRecordReload(this.f4723b, i, z);
+        return nativeOnRecordReload(this.f4724b, i, z);
     }
 
     public boolean onRecordRemove(int i, boolean z) {
-        return nativeOnRecordRemove(this.f4723b, i, z);
+        return nativeOnRecordRemove(this.f4724b, i, z);
     }
 
     public boolean onRecordStart(int i, boolean z, int i2) {
-        return nativeOnRecordStart(this.f4723b, i, z, i2);
+        return nativeOnRecordStart(this.f4724b, i, z, i2);
     }
 
     public boolean onRecordSuspend(int i, boolean z, int i2) {
-        return nativeOnRecordSuspend(this.f4723b, i, z, i2);
+        return nativeOnRecordSuspend(this.f4724b, i, z, i2);
     }
 
     public void onResume() {
-        if (this.f4723b != 0) {
-            nativeOnResume(this.f4723b);
+        if (this.f4724b != 0) {
+            nativeOnResume(this.f4724b);
         }
     }
 
     public String onSchcityGet(String str) {
-        return nativeOnSchcityGet(this.f4723b, str);
+        return nativeOnSchcityGet(this.f4724b, str);
     }
 
     public boolean onUsrcityMsgInterval(int i) {
-        return nativeOnUsrcityMsgInterval(this.f4723b, i);
+        return nativeOnUsrcityMsgInterval(this.f4724b, i);
     }
 
     public int onWifiRecordAdd(int i) {
-        return nativeOnWifiRecordAdd(this.f4723b, i);
+        return nativeOnWifiRecordAdd(this.f4724b, i);
     }
 
     public boolean performAction(String str) {
-        return nativePerformAction(this.f4723b, str);
+        return nativePerformAction(this.f4724b, str);
     }
 
     public void recycleMemory(int i) {
-        if (this.f4723b != 0) {
-            nativeRecycleMemory(this.f4723b, i);
+        if (this.f4724b != 0) {
+            nativeRecycleMemory(this.f4724b, i);
         }
     }
 
     public boolean removeItemData(Bundle bundle) {
         if (b()) {
-            this.f4722a.submit(new c(this, bundle));
+            this.f4723a.submit(new c(this, bundle));
             return true;
         }
         return false;
@@ -908,22 +908,22 @@ public class NABaseMap extends NativeComponent {
 
     public void removeLayer(long j) {
         if (b()) {
-            this.f4722a.submit(new j(this, j));
+            this.f4723a.submit(new j(this, j));
         }
     }
 
     public void removeOneOverlayItem(Bundle bundle) {
         if (b()) {
-            this.f4722a.submit(new g(this, bundle));
+            this.f4723a.submit(new g(this, bundle));
         }
     }
 
     public void removeStreetAllCustomMarker() {
-        nativeRemoveStreetAllCustomMarker(this.f4723b);
+        nativeRemoveStreetAllCustomMarker(this.f4724b);
     }
 
     public void removeStreetCustomMaker(String str) {
-        nativeRemoveStreetCustomMaker(this.f4723b, str);
+        nativeRemoveStreetCustomMaker(this.f4724b, str);
     }
 
     @Deprecated
@@ -931,276 +931,276 @@ public class NABaseMap extends NativeComponent {
     }
 
     public void renderInit(int i, int i2, Surface surface, int i3) {
-        if (this.f4723b != 0) {
-            nativeRenderInit(this.f4723b, i, i2, surface, i3);
+        if (this.f4724b != 0) {
+            nativeRenderInit(this.f4724b, i, i2, surface, i3);
         }
     }
 
     @Deprecated
     public int renderRender() {
-        if (this.f4723b != 0) {
-            return nativeDraw(this.f4723b);
+        if (this.f4724b != 0) {
+            return nativeDraw(this.f4724b);
         }
         return 0;
     }
 
     public void renderResize(int i, int i2) {
-        if (this.f4723b != 0) {
-            nativeRenderResize(this.f4723b, i, i2);
+        if (this.f4724b != 0) {
+            nativeRenderResize(this.f4724b, i, i2);
         }
     }
 
     public void resetImageRes() {
-        if (this.f4723b != 0) {
-            nativeResetImageRes(this.f4723b);
+        if (this.f4724b != 0) {
+            nativeResetImageRes(this.f4724b);
         }
     }
 
     public boolean resumeCache() {
-        return nativeResumeCache(this.f4723b);
+        return nativeResumeCache(this.f4724b);
     }
 
     public boolean saveCache() {
         try {
-            return nativeSaveCache(this.f4723b);
+            return nativeSaveCache(this.f4724b);
         } catch (Throwable th) {
             return false;
         }
     }
 
     public void saveScreenToLocal(String str, String str2) {
-        nativeSaveScreenToLocal(this.f4723b, str, str2);
+        nativeSaveScreenToLocal(this.f4724b, str, str2);
     }
 
     public String scrPtToGeoPoint(int i, int i2) {
-        return nativeScrPtToGeoPoint(this.f4723b, i, i2);
+        return nativeScrPtToGeoPoint(this.f4724b, i, i2);
     }
 
     public void setAllStreetCustomMarkerVisibility(boolean z) {
-        if (this.f4723b != 0) {
-            nativeSetAllStreetCustomMarkerVisibility(this.f4723b, z);
+        if (this.f4724b != 0) {
+            nativeSetAllStreetCustomMarkerVisibility(this.f4724b, z);
         }
     }
 
     public void setCallback(ac acVar) {
-        BaseMapCallback.setMapCallback(this.f4723b, acVar);
+        BaseMapCallback.setMapCallback(this.f4724b, acVar);
     }
 
     public void setCustomStyleEnable(boolean z) {
-        if (this.f4723b != 0) {
-            nativeSetCustomStyleEnable(this.f4723b, z);
+        if (this.f4724b != 0) {
+            nativeSetCustomStyleEnable(this.f4724b, z);
         }
     }
 
     public void setDEMEnable(boolean z) {
-        if (this.f4723b != 0) {
-            nativeSetDEMEnable(this.f4723b, z);
+        if (this.f4724b != 0) {
+            nativeSetDEMEnable(this.f4724b, z);
         }
     }
 
     public void setDrawHouseHeightEnable(boolean z) {
-        if (this.f4723b != 0) {
-            nativeSetDrawHouseHeightEnable(this.f4723b, z);
+        if (this.f4724b != 0) {
+            nativeSetDrawHouseHeightEnable(this.f4724b, z);
         }
     }
 
     public void setFocus(long j, long j2, boolean z, Bundle bundle) {
         if (b()) {
-            this.f4722a.submit(new n(this, j, j2, z, bundle));
+            this.f4723a.submit(new n(this, j, j2, z, bundle));
         }
     }
 
     public boolean setItsPreTime(int i, int i2, int i3) {
-        return nativeSetItsPreTime(this.f4723b, i, i2, i3);
+        return nativeSetItsPreTime(this.f4724b, i, i2, i3);
     }
 
     public boolean setLayerSceneMode(long j, int i) {
-        return nativeSetLayerSceneMode(this.f4723b, j, i);
+        return nativeSetLayerSceneMode(this.f4724b, j, i);
     }
 
     public void setLayersClickable(long j, boolean z) {
         if (b()) {
-            this.f4722a.submit(new h(this, j, z));
+            this.f4723a.submit(new h(this, j, z));
         }
     }
 
     public void setLocationLayerData(Bundle bundle) {
-        nativeSetLocationLayerData(this.f4723b, bundle);
+        nativeSetLocationLayerData(this.f4724b, bundle);
     }
 
     public int setMapControlMode(int i) {
-        return nativeSetMapControlMode(this.f4723b, i);
+        return nativeSetMapControlMode(this.f4724b, i);
     }
 
     public void setMapScene(int i) {
-        nativeSetMapScene(this.f4723b, i);
+        nativeSetMapScene(this.f4724b, i);
     }
 
     public void setMapStatus(Bundle bundle) {
-        nativeSetMapStatus(this.f4723b, bundle);
+        nativeSetMapStatus(this.f4724b, bundle);
     }
 
     public void setMapStatusLimits(Bundle bundle) {
-        if (this.f4723b != 0) {
-            nativeSetMapStatusLimits(this.f4723b, bundle);
+        if (this.f4724b != 0) {
+            nativeSetMapStatusLimits(this.f4724b, bundle);
         }
     }
 
     public boolean setMapTheme(int i, Bundle bundle) {
-        return nativeSetMapTheme(this.f4723b, i, bundle);
+        return nativeSetMapTheme(this.f4724b, i, bundle);
     }
 
     public boolean setMapThemeScene(int i, int i2, Bundle bundle) {
-        return nativeSetMapThemeScene(this.f4723b, i, i2, bundle);
+        return nativeSetMapThemeScene(this.f4724b, i, i2, bundle);
     }
 
     public void setMaxAndMinZoomLevel(Bundle bundle) {
-        if (this.f4723b != 0) {
-            nativeSetMaxAndMinZoomLevel(this.f4723b, bundle);
+        if (this.f4724b != 0) {
+            nativeSetMaxAndMinZoomLevel(this.f4724b, bundle);
         }
     }
 
     public void setNewMapStatus(Bundle bundle) {
-        nativeNewSetMapStatus(this.f4723b, bundle);
+        nativeNewSetMapStatus(this.f4724b, bundle);
     }
 
     public void setRecommendPOIScene(int i) {
-        nativeSetRecommendPOIScene(this.f4723b, i);
+        nativeSetRecommendPOIScene(this.f4724b, i);
     }
 
     public void setStreetArrowShow(boolean z) {
-        nativeSetStreetArrowShow(this.f4723b, z);
+        nativeSetStreetArrowShow(this.f4724b, z);
     }
 
     public void setStreetMarkerClickable(String str, boolean z) {
-        nativeSetStreetMarkerClickable(this.f4723b, str, z);
+        nativeSetStreetMarkerClickable(this.f4724b, str, z);
     }
 
     public void setStreetRoadClickable(boolean z) {
-        nativeSetStreetRoadClickable(this.f4723b, z);
+        nativeSetStreetRoadClickable(this.f4724b, z);
     }
 
     public void setStyleMode(int i) {
-        nativeSetStyleMode(this.f4723b, i);
+        nativeSetStyleMode(this.f4724b, i);
     }
 
     public void setTargetStreetCustomMarkerVisibility(boolean z, String str) {
-        if (this.f4723b != 0) {
-            nativeSetTargetStreetCustomMarkerVisibility(this.f4723b, z, str);
+        if (this.f4724b != 0) {
+            nativeSetTargetStreetCustomMarkerVisibility(this.f4724b, z, str);
         }
     }
 
     public boolean setTestSwitch(boolean z) {
-        return nativeSetTestSwitch(this.f4723b, z);
+        return nativeSetTestSwitch(this.f4724b, z);
     }
 
     public void setTrafficUGCData(String str) {
-        nativeSetTrafficUGCData(this.f4723b, str);
+        nativeSetTrafficUGCData(this.f4724b, str);
     }
 
     public void setUniversalFilter(String str) {
-        nativeSetUniversalFilter(this.f4723b, str);
+        nativeSetUniversalFilter(this.f4724b, str);
     }
 
     public void showBaseIndoorMap(boolean z) {
-        nativeShowBaseIndoorMap(this.f4723b, z);
+        nativeShowBaseIndoorMap(this.f4724b, z);
     }
 
     public void showHotMap(boolean z, int i) {
-        nativeShowHotMap(this.f4723b, z, i);
+        nativeShowHotMap(this.f4724b, z, i);
     }
 
     public void showHotMap(boolean z, int i, String str) {
-        nativeShowHotMapWithUid(this.f4723b, z, i, str);
+        nativeShowHotMapWithUid(this.f4724b, z, i, str);
     }
 
     public void showLayers(long j, boolean z) {
         if (b()) {
-            this.f4722a.submit(new b(this, j, z));
+            this.f4723a.submit(new b(this, j, z));
         }
     }
 
     public void showMistMap(boolean z, String str) {
-        nativeShowMistMap(this.f4723b, z, str);
+        nativeShowMistMap(this.f4724b, z, str);
     }
 
     public boolean showParticleEffect(int i) {
-        return nativeShowParticleEffect(this.f4723b, i);
+        return nativeShowParticleEffect(this.f4724b, i);
     }
 
     public boolean showParticleEffectByName(String str, boolean z) {
-        return nativeShowParticleEffectByName(this.f4723b, str, z);
+        return nativeShowParticleEffectByName(this.f4724b, str, z);
     }
 
     public boolean showParticleEffectByType(int i) {
-        return nativeShowParticleEffectByType(this.f4723b, i);
+        return nativeShowParticleEffectByType(this.f4724b, i);
     }
 
     public void showSatelliteMap(boolean z) {
-        nativeShowSatelliteMap(this.f4723b, z);
+        nativeShowSatelliteMap(this.f4724b, z);
     }
 
     public void showStreetPOIMarker(boolean z) {
-        if (this.f4723b != 0) {
-            nativeShowStreetPOIMarker(this.f4723b, z);
+        if (this.f4724b != 0) {
+            nativeShowStreetPOIMarker(this.f4724b, z);
         }
     }
 
     public void showStreetRoadMap(boolean z) {
-        nativeShowStreetRoadMap(this.f4723b, z);
+        nativeShowStreetRoadMap(this.f4724b, z);
     }
 
     public void showTrafficMap(boolean z) {
-        nativeShowTrafficMap(this.f4723b, z);
+        nativeShowTrafficMap(this.f4724b, z);
     }
 
     public void showTrafficUGCMap(boolean z) {
-        nativeShowTrafficUGCMap(this.f4723b, z);
+        nativeShowTrafficUGCMap(this.f4724b, z);
     }
 
     public void showUniversalLayer(Bundle bundle) {
-        nativeShowUniversalLayer(this.f4723b, bundle);
+        nativeShowUniversalLayer(this.f4724b, bundle);
     }
 
     public void startIndoorAnimation() {
-        nativeStartIndoorAnimation(this.f4723b);
+        nativeStartIndoorAnimation(this.f4724b);
     }
 
     public boolean switchBaseIndoorMapFloor(String str, String str2) {
-        return nativeSwitchBaseIndoorMapFloor(this.f4723b, str, str2);
+        return nativeSwitchBaseIndoorMapFloor(this.f4724b, str, str2);
     }
 
     public boolean switchLayer(long j, long j2) {
         if (b()) {
-            this.f4722a.submit(new k(this, j, j2));
+            this.f4723a.submit(new k(this, j, j2));
             return true;
         }
         return false;
     }
 
     public void unFocusTrafficUGCLabel() {
-        nativeUnFocusTrafficUGCLabel(this.f4723b);
+        nativeUnFocusTrafficUGCLabel(this.f4724b);
     }
 
     public void updateDrawFPS() {
-        if (this.f4723b != 0) {
-            nativeUpdateDrawFPS(this.f4723b);
+        if (this.f4724b != 0) {
+            nativeUpdateDrawFPS(this.f4724b);
         }
     }
 
     public void updateLayers(long j) {
         if (b()) {
-            this.f4722a.submit(new i(this, j));
+            this.f4723a.submit(new i(this, j));
         }
     }
 
     public void updateOneOverlayItem(Bundle bundle) {
         if (b()) {
-            this.f4722a.submit(new f(this, bundle));
+            this.f4723a.submit(new f(this, bundle));
         }
     }
 
     public String worldPointToScreenPoint(float f, float f2, float f3) {
-        return nativeworldPointToScreenPoint(this.f4723b, f, f2, f3);
+        return nativeworldPointToScreenPoint(this.f4724b, f, f2, f3);
     }
 }

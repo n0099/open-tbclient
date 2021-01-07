@@ -21,7 +21,7 @@ public class g {
         this.mContext = context;
     }
 
-    public List<FrsTabInfo> bEt() {
+    public List<FrsTabInfo> bEu() {
         return this.jet;
     }
 
@@ -36,7 +36,7 @@ public class g {
         }
     }
 
-    public List<com.baidu.tbadk.mainTab.b> cED() {
+    public List<com.baidu.tbadk.mainTab.b> cEE() {
         return this.jeu;
     }
 
@@ -68,11 +68,11 @@ public class g {
         this.forumGameLabel = str;
     }
 
-    public void Bi(String str) {
+    public void Bh(String str) {
         this.eTO = str;
     }
 
-    public void Bj(String str) {
+    public void Bi(String str) {
         this.eTP = str;
     }
 }

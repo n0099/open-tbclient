@@ -3,7 +3,7 @@ package com.baidu.swan.uuid;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class a<T> {
     private List<com.baidu.swan.uuid.a.b<T>> eCh = new ArrayList(6);
 
@@ -13,7 +13,7 @@ public class a<T> {
         }
     }
 
-    public T bjh() {
+    public T bji() {
         T t;
         ArrayList<com.baidu.swan.uuid.a.b> arrayList = new ArrayList();
         T t2 = null;
@@ -59,7 +59,7 @@ public class a<T> {
     public void ar(T t) {
         if (!aq(t)) {
             for (com.baidu.swan.uuid.a.b<T> bVar : this.eCh) {
-                if (bVar.bji()) {
+                if (bVar.bjj()) {
                     bVar.put(t);
                 }
             }

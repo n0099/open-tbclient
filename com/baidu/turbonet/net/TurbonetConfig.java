@@ -26,7 +26,7 @@ public class TurbonetConfig {
         e(SchemeCollecter.CLASSIFY_BASE, ETAG.KEY_QUIC_ENABLED, Boolean.valueOf(z));
     }
 
-    public void WY(String str) {
+    public void WX(String str) {
         if (!new File(str).isDirectory()) {
             throw new IllegalArgumentException("Storage path must be set to existing directory");
         }
@@ -35,11 +35,11 @@ public class TurbonetConfig {
 
     public void B(int i, long j) {
         if (i == 3 || i == 2) {
-            if (eic() == null) {
+            if (eid() == null) {
                 throw new IllegalArgumentException("Storage path must be set");
             }
             this.oLA = true;
-        } else if (eic() != null) {
+        } else if (eid() != null) {
             throw new IllegalArgumentException("Storage path must not be set");
         }
         e(SchemeCollecter.CLASSIFY_BASE, "http_cache_enabled", Boolean.valueOf(i == 0 || i == 2 ? false : true));
@@ -64,7 +64,7 @@ public class TurbonetConfig {
         e("conn", "preconnect_enabled", Boolean.valueOf(z));
     }
 
-    public void WZ(String str) {
+    public void WY(String str) {
         e("conn", "preconnect_app_hosts", str);
     }
 
@@ -80,17 +80,17 @@ public class TurbonetConfig {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public JSONObject eib() {
+    public JSONObject eic() {
         return this.oLz;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public String eic() {
+    public String eid() {
         return this.mStoragePath;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public boolean eid() {
+    public boolean eie() {
         return this.oLA;
     }
 

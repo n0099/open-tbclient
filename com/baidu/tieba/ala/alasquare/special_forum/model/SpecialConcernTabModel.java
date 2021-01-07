@@ -92,12 +92,12 @@ public class SpecialConcernTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.gIW);
     }
 
-    public void WE() {
+    public void WF() {
         this.pn = 1;
         loadData(1);
     }
 
-    public void bUR() {
+    public void bUS() {
         loadData(this.pn + 1);
     }
 

@@ -2,11 +2,11 @@ package b.a.a.a.a;
 
 import java.io.ByteArrayOutputStream;
 import java.util.zip.GZIPOutputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final byte[] f1067a = new byte[0];
+    private static final byte[] f1068a = new byte[0];
 
     private static byte[] a(byte[] bArr) {
         byte[] bArr2 = null;
@@ -26,11 +26,11 @@ public final class n {
 
     public static byte[] a(byte[] bArr, String str) {
         if (bArr == null || bArr.length == 0) {
-            return f1067a;
+            return f1068a;
         }
         byte[] a2 = a.a(a(bArr), str);
         if (a2 == null || a2.length == 0) {
-            return f1067a;
+            return f1068a;
         }
         byte[] bArr2 = new byte[a2.length + 2];
         int length = a2.length;

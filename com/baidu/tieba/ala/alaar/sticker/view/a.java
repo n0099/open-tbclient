@@ -56,11 +56,11 @@ public class a implements com.baidu.live.view.tabhost.a {
             public void onClick(View view) {
                 if (a.this.gvL != null) {
                     if (a.this.gvJ == 2) {
-                        a.this.gvL.bTB();
-                    } else if (a.this.gvJ == 1) {
                         a.this.gvL.bTC();
-                    } else if (a.this.gvJ == 3) {
+                    } else if (a.this.gvJ == 1) {
                         a.this.gvL.bTD();
+                    } else if (a.this.gvJ == 3) {
+                        a.this.gvL.bTE();
                     }
                 }
             }

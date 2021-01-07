@@ -9,7 +9,7 @@ import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableObserveOn<T> extends a<T, T> {
     final boolean delayError;
     final int prefetch;
@@ -17,15 +17,15 @@ public final class FlowableObserveOn<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        v.c eLe = this.scheduler.eLe();
+        v.c eLI = this.scheduler.eLI();
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.qgK.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, eLe, this.delayError, this.prefetch));
+            this.qit.a((j) new ObserveOnConditionalSubscriber((io.reactivex.internal.a.a) cVar, eLI, this.delayError, this.prefetch));
         } else {
-            this.qgK.a((j) new ObserveOnSubscriber(cVar, eLe, this.delayError, this.prefetch));
+            this.qit.a((j) new ObserveOnSubscriber(cVar, eLI, this.delayError, this.prefetch));
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static abstract class BaseObserveOnSubscriber<T> extends BasicIntQueueSubscription<T> implements j<T>, Runnable {
         private static final long serialVersionUID = -8241002408341274697L;
         volatile boolean cancelled;
@@ -181,7 +181,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class ObserveOnSubscriber<T> extends BaseObserveOnSubscriber<T> implements j<T> {
         private static final long serialVersionUID = -4547113800637756442L;
         final org.a.c<? super T> actual;
@@ -364,7 +364,7 @@ public final class FlowableObserveOn<T> extends a<T, T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class ObserveOnConditionalSubscriber<T> extends BaseObserveOnSubscriber<T> {
         private static final long serialVersionUID = 644624475404284533L;
         final io.reactivex.internal.a.a<? super T> actual;

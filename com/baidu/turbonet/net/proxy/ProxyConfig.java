@@ -13,7 +13,7 @@ public class ProxyConfig {
     private ProxyConfig() {
     }
 
-    public boolean ehI() {
+    public boolean ehJ() {
         return this.oLR == LibType.NATIVE;
     }
 

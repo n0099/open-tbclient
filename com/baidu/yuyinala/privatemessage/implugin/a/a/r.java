@@ -37,7 +37,7 @@ public class r extends d {
         this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
         this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
         this.jnJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
-        this.mtx = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.mtw = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
         this.oSo = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         this.oTC = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_play_icon);
         this.anz = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_video_duration);
@@ -54,11 +54,11 @@ public class r extends d {
         return this.mContentView;
     }
 
-    public void ele() {
+    public void elf() {
         this.mProgressBar.setVisibility(0);
     }
 
-    public void elf() {
+    public void elg() {
         this.mProgressBar.setVisibility(4);
     }
 
@@ -72,7 +72,7 @@ public class r extends d {
         e(chatMsg);
         try {
             if (this.mContentView != null) {
-                if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+                if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
                     this.mContentView.setBackground(null);
                 } else {
                     this.mContentView.setBackground(null);
@@ -91,30 +91,30 @@ public class r extends d {
         }
         this.anz.setText(new SingleGraphicTextMsgExt(signleGraphicTextMsg).pcx);
         com.baidu.yuyinala.privatemessage.implugin.util.b.hE(this.mContext);
-        ImageLoader.getInstance().displayImage(covers, this.jNe, com.baidu.yuyinala.privatemessage.implugin.util.b.enT(), new ImageLoadingListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.r.1
+        ImageLoader.getInstance().displayImage(covers, this.jNe, com.baidu.yuyinala.privatemessage.implugin.util.b.enU(), new ImageLoadingListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.r.1
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener
             public void onLoadingStarted(String str, View view) {
-                r.this.ele();
+                r.this.elf();
             }
 
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener
             public void onLoadingFailed(String str, View view, FailReason failReason) {
-                r.this.elf();
+                r.this.elg();
             }
 
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener
             public void onLoadingComplete(String str, View view, Bitmap bitmap) {
-                r.this.elf();
+                r.this.elg();
             }
 
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingListener
             public void onLoadingCancelled(String str, View view) {
-                r.this.elf();
+                r.this.elg();
             }
         }, new ImageLoadingProgressListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.r.2
             @Override // com.baidu.sumeru.universalimageloader.core.assist.ImageLoadingProgressListener
             public void onProgressUpdate(String str, View view, int i, int i2) {
-                r.this.ele();
+                r.this.elf();
             }
         });
     }

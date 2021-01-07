@@ -14,14 +14,14 @@ import com.baidu.tieba.h.a;
 import com.baidu.tieba.tbadkCore.data.n;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class FunAdNativeHolder extends TypeAdapter.ViewHolder {
     public ImageView jQJ;
     public CardView jQK;
     public TextView jQL;
     public View jQM;
     public View jQN;
-    public a.C0749a jQX;
+    public a.C0758a jQX;
     public ViewGroup jQp;
     public List<View> jQq;
     public List<View> jQr;
@@ -61,7 +61,7 @@ public class FunAdNativeHolder extends TypeAdapter.ViewHolder {
 
     public void b(n nVar) {
         if (this.jQX == null) {
-            this.jQX = new a.C0749a();
+            this.jQX = new a.C0758a();
             this.jQX.eWF = nVar;
             this.jQX.jQp = this.jQp;
             this.jQX.jQq = this.jQq;

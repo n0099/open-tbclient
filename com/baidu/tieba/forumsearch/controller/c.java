@@ -39,11 +39,11 @@ public class c {
         this.bYR = (TextView) this.mRoot.findViewById(R.id.home_bt_search_cancel_s);
         this.bYR.setText(tbPageContext.getString(R.string.cancel));
         this.gAY = (BdTypeListView) this.mRoot.findViewById(R.id.search_bar_list);
-        cDH();
+        cDI();
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void cDH() {
+    private void cDI() {
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.jdj.getLayoutParams();
         layoutParams.height = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds88);
         int dimens = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds8);
@@ -58,9 +58,9 @@ public class c {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            SvgManager.bwq().a(this.gZe, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwr().a(this.gZe, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.bYR, R.color.CAM_X0302, 1);
-            SvgManager.bwq().a(this.fiW, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.fiW, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             if (i == 2) {
                 this.jdk.setHintTextColor(ao.getColor(R.color.s_navbar_title_color));
             } else {

@@ -4,7 +4,7 @@ import android.content.Context;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.widget.FrameLayout;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PolyFrameLayout extends FrameLayout {
     private boolean cpJ;
 

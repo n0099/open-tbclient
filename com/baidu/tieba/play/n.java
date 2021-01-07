@@ -8,14 +8,14 @@ import com.baidu.live.tbadk.core.frameworkdata.CmdConfigCustom;
 import java.util.LinkedHashMap;
 /* loaded from: classes.dex */
 public class n {
-    private static n mDE = null;
-    private LinkedHashMap<String, Integer> mDF = new LinkedHashMap<>(150, 0.75f, true);
+    private static n mDD = null;
+    private LinkedHashMap<String, Integer> mDE = new LinkedHashMap<>(150, 0.75f, true);
     private CustomMessageListener mAccountChangedListener = new CustomMessageListener(CmdConfigCustom.METHOD_ACCOUNT_CHANGE) { // from class: com.baidu.tieba.play.n.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                n.this.mDF.clear();
+                n.this.mDE.clear();
             }
         }
     };
@@ -24,31 +24,31 @@ public class n {
         MessageManager.getInstance().registerListener(this.mAccountChangedListener);
     }
 
-    public static n dBP() {
-        if (mDE == null) {
+    public static n dBQ() {
+        if (mDD == null) {
             synchronized (n.class) {
-                if (mDE == null) {
-                    mDE = new n();
+                if (mDD == null) {
+                    mDD = new n();
                 }
             }
         }
-        return mDE;
+        return mDD;
     }
 
     public void bK(String str, int i) {
-        if (i != 0 || !this.mDF.containsKey(str)) {
-            this.mDF.put(str, Integer.valueOf(i));
+        if (i != 0 || !this.mDE.containsKey(str)) {
+            this.mDE.put(str, Integer.valueOf(i));
         }
     }
 
     public void remove(String str) {
         if (!TextUtils.isEmpty(str)) {
-            this.mDF.remove(str);
+            this.mDE.remove(str);
         }
     }
 
-    public int QU(String str) {
-        Integer num = this.mDF.get(str);
+    public int QT(String str) {
+        Integer num = this.mDE.get(str);
         if (num != null) {
             return num.intValue();
         }
@@ -56,6 +56,6 @@ public class n {
     }
 
     public void clear() {
-        this.mDF.clear();
+        this.mDE.clear();
     }
 }

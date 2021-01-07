@@ -87,9 +87,9 @@ public class d extends BaseAdapter {
         if (eVar != null) {
             eVar.a(getItem(i));
             if (this.gwM == i) {
-                eVar.bTU();
+                eVar.bTV();
             } else {
-                eVar.bTT();
+                eVar.bTU();
             }
         }
         if (i == 0 && this.gyj != 0) {
@@ -127,7 +127,7 @@ public class d extends BaseAdapter {
         return 0;
     }
 
-    public String GH(String str) {
+    public String GG(String str) {
         int i = 0;
         if (TextUtils.equals(str, "goddessFace")) {
             i = 1;

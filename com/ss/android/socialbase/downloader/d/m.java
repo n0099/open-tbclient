@@ -25,7 +25,7 @@ public interface m extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof m)) {
                 return (m) queryLocalInterface;
             }
-            return new C1216a(iBinder);
+            return new C1257a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -57,18 +57,18 @@ public interface m extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.m$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1216a implements m {
+        private static class C1257a implements m {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13415a;
+            private IBinder f13416a;
 
-            C1216a(IBinder iBinder) {
-                this.f13415a = iBinder;
+            C1257a(IBinder iBinder) {
+                this.f13416a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13415a;
+                return this.f13416a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.m
@@ -83,7 +83,7 @@ public interface m extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13415a.transact(1, obtain, obtain2, 0);
+                    this.f13416a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -103,7 +103,7 @@ public interface m extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f13415a.transact(2, obtain, obtain2, 0);
+                    this.f13416a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

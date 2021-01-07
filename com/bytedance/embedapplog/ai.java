@@ -25,7 +25,7 @@ public class ai extends ac {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(long j, JSONObject jSONObject, ah ahVar, am amVar, JSONArray jSONArray, JSONArray jSONArray2, JSONArray jSONArray3, JSONArray jSONArray4) {
-        this.f6073a = j;
+        this.f6074a = j;
         this.axv = jSONObject;
         this.pgQ = ahVar;
         this.pgS = amVar;
@@ -47,7 +47,7 @@ public class ai extends ac {
     @Override // com.bytedance.embedapplog.ac
     @NonNull
     public ac B(@NonNull Cursor cursor) {
-        this.f6073a = cursor.getLong(0);
+        this.f6074a = cursor.getLong(0);
         this.h = cursor.getBlob(1);
         this.i = cursor.getInt(2);
         this.axv = null;
@@ -63,7 +63,7 @@ public class ai extends ac {
     @Override // com.bytedance.embedapplog.ac
     protected void d(@NonNull ContentValues contentValues) {
         contentValues.put("local_time_ms", Long.valueOf(System.currentTimeMillis()));
-        contentValues.put("_data", b.YB(f().toString()));
+        contentValues.put("_data", b.YA(f().toString()));
     }
 
     @Override // com.bytedance.embedapplog.ac
@@ -76,7 +76,7 @@ public class ai extends ac {
         JSONObject jSONObject = new JSONObject();
         jSONObject.put("magic_tag", "ss_app_log");
         jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, this.axv);
-        jSONObject.put("time_sync", aa.f6069a);
+        jSONObject.put("time_sync", aa.f6070a);
         if (this.pgQ != null) {
             JSONArray jSONArray = new JSONArray();
             jSONArray.put(this.pgQ.f());

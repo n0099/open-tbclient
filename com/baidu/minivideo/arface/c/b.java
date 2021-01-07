@@ -22,7 +22,7 @@ public class b {
     private b() {
     }
 
-    public static b aew() {
+    public static b aex() {
         if (clL == null) {
             synchronized (b.class) {
                 if (clL == null) {
@@ -33,21 +33,21 @@ public class b {
         return clL;
     }
 
-    public ActivityManager.MemoryInfo aex() {
+    public ActivityManager.MemoryInfo aey() {
         ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
         ((ActivityManager) com.baidu.minivideo.arface.b.getContext().getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getMemoryInfo(memoryInfo);
         return memoryInfo;
     }
 
-    public double aey() {
-        double aeA = aeA();
-        if (aeA <= 0.0d) {
-            aeA = aez();
+    public double aez() {
+        double aeB = aeB();
+        if (aeB <= 0.0d) {
+            aeB = aeA();
         }
-        if (aeA <= 0.0d) {
+        if (aeB <= 0.0d) {
             return getCpuUsageStatistic();
         }
-        return aeA;
+        return aeB;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:17:? A[RETURN, SYNTHETIC] */
@@ -55,7 +55,7 @@ public class b {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public double aez() {
+    public double aeA() {
         double doubleValue;
         if (Build.VERSION.SDK_INT >= 26) {
             String jN = jN(this.mPackageName);
@@ -74,7 +74,7 @@ public class b {
             if (doubleValue <= 0.0d) {
             }
         } else {
-            return aeA();
+            return aeB();
         }
     }
 
@@ -109,7 +109,7 @@ public class b {
         return "";
     }
 
-    public double aeA() {
+    public double aeB() {
         double d = 0.0d;
         try {
             if (this.clO == null || this.clP == null) {

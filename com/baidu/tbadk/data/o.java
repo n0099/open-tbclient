@@ -13,11 +13,11 @@ public class o implements com.baidu.adp.widget.ListView.n {
         return ahE;
     }
 
-    public String bEi() {
+    public String bEj() {
         return this.fCG;
     }
 
-    public void DA(String str) {
+    public void Dz(String str) {
         this.fCG = str;
     }
 
@@ -25,11 +25,11 @@ public class o implements com.baidu.adp.widget.ListView.n {
         return this.fCH;
     }
 
-    public void DB(String str) {
+    public void DA(String str) {
         this.fCH = str;
     }
 
-    public boolean bEj() {
+    public boolean bEk() {
         return this.cGs;
     }
 

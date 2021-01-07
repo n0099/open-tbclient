@@ -4,14 +4,14 @@ import com.baidu.webkit.internal.ETAG;
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4626a;
+    private String f4627a;
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, String> f4627b = new LinkedHashMap(32);
+    private HashMap<String, String> f4628b = new LinkedHashMap(32);
     private HashMap<String, String> c = new LinkedHashMap(32);
     private int d = -1;
     private boolean e = true;
@@ -26,7 +26,7 @@ public class e {
     private boolean n = false;
     private int o;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public enum b {
         GET("get"),
         POST("post");
@@ -43,7 +43,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public enum a {
         PROTOBUF("pb"),
         JSON("json"),
@@ -62,12 +62,12 @@ public class e {
     }
 
     public e() {
-        this.f4626a = "";
-        this.f4626a = "https://newclient.map.baidu.com/client/phpui2/";
+        this.f4627a = "";
+        this.f4627a = "https://newclient.map.baidu.com/client/phpui2/";
     }
 
     public e a(String str, String str2) {
-        this.f4627b.put(str, str2);
+        this.f4628b.put(str, str2);
         return this;
     }
 
@@ -110,9 +110,9 @@ public class e {
     public String toString() {
         com.baidu.platform.comapi.wnplatform.e.a.a aVar = new com.baidu.platform.comapi.wnplatform.e.a.a();
         aVar.a();
-        int indexOf = this.f4626a.indexOf(63);
+        int indexOf = this.f4627a.indexOf(63);
         if (indexOf != -1) {
-            String[] split = this.f4626a.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
+            String[] split = this.f4627a.substring(indexOf + 1).split(ETAG.ITEM_SEPARATOR);
             if (split != null) {
                 int length = split.length;
                 for (int i = 0; i < length; i++) {
@@ -122,15 +122,15 @@ public class e {
                     }
                 }
             }
-            this.f4626a = this.f4626a.substring(0, indexOf);
+            this.f4627a = this.f4627a.substring(0, indexOf);
         }
-        aVar.a("domain").b(this.f4626a);
+        aVar.a("domain").b(this.f4627a);
         if (this.m) {
             aVar.a("OFFLINE_SEARCH").a(1);
         }
-        if (this.f4627b.size() > 0 || (this.f == b.GET && this.c.size() > 0)) {
+        if (this.f4628b.size() > 0 || (this.f == b.GET && this.c.size() > 0)) {
             aVar.a("uri_param").a();
-            for (Map.Entry<String, String> entry : this.f4627b.entrySet()) {
+            for (Map.Entry<String, String> entry : this.f4628b.entrySet()) {
                 aVar.a(entry.getKey()).b(entry.getValue());
             }
             if (this.f == b.GET && this.c.size() > 0) {

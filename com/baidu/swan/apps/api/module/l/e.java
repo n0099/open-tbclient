@@ -22,7 +22,7 @@ public class e {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static JSONObject cKS;
 
-    public static synchronized void anX() {
+    public static synchronized void anY() {
         synchronized (e.class) {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "release cache system info");
@@ -37,7 +37,7 @@ public class e {
             if (DEBUG) {
                 Log.d("SystemInfoCacheHelper", "start pre cache");
             }
-            if (com.baidu.swan.apps.t.a.aAu().akm()) {
+            if (com.baidu.swan.apps.t.a.aAv().akn()) {
                 if (cKS == null && context != null) {
                     if (DEBUG) {
                         Log.d("SystemInfoCacheHelper", "need create system info");
@@ -90,9 +90,9 @@ public class e {
             jSONObject.put("version", ak.getVersionName());
             jSONObject.put("system", "Android " + Build.VERSION.RELEASE);
             jSONObject.put("platform", HttpConstants.OS_TYPE_VALUE);
-            jSONObject.put("fontSizeSetting", com.baidu.swan.apps.t.a.aAD().alN());
+            jSONObject.put("fontSizeSetting", com.baidu.swan.apps.t.a.aAE().alO());
             jSONObject.put("swanNativeVersion", com.baidu.swan.apps.c.getVersion());
-            jSONObject.put("host", com.baidu.swan.apps.t.a.aBd().getHostName());
+            jSONObject.put("host", com.baidu.swan.apps.t.a.aBe().getHostName());
             jSONObject.put("statusBarHeight", ah.Q(ah.getStatusBarHeight()));
             jSONObject.put("navigationBarHeight", ah.Q(ah.getActionBarHeight()));
             if (DEBUG) {

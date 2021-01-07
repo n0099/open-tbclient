@@ -79,7 +79,7 @@ public class MyForbiddenFansListAdapter extends RecyclerView.Adapter<FansViewHol
         return false;
     }
 
-    public boolean cDe() {
+    public boolean cDf() {
         return x.isEmpty(this.fansList);
     }
 

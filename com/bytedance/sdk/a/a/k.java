@@ -40,15 +40,15 @@ public final class k implements s {
             b2 = b();
             try {
                 o PI = cVar.PI(1);
-                int inflate = this.phY.inflate(PI.f6147a, PI.c, (int) Math.min(j, 8192 - PI.c));
+                int inflate = this.phY.inflate(PI.f6148a, PI.c, (int) Math.min(j, 8192 - PI.c));
                 if (inflate > 0) {
                     PI.c += inflate;
-                    cVar.f6139b += inflate;
+                    cVar.f6140b += inflate;
                     return inflate;
                 } else if (this.phY.finished() || this.phY.needsDictionary()) {
                     c();
-                    if (PI.f6148b == PI.c) {
-                        cVar.phQ = PI.eqi();
+                    if (PI.f6149b == PI.c) {
+                        cVar.phQ = PI.eqj();
                         p.b(PI);
                     }
                     return -1L;
@@ -69,9 +69,9 @@ public final class k implements s {
             if (this.phX.e()) {
                 return true;
             }
-            o oVar = this.phX.epS().phQ;
-            this.c = oVar.c - oVar.f6148b;
-            this.phY.setInput(oVar.f6147a, oVar.f6148b, this.c);
+            o oVar = this.phX.epT().phQ;
+            this.c = oVar.c - oVar.f6149b;
+            this.phY.setInput(oVar.f6148a, oVar.f6149b, this.c);
             return false;
         }
         return false;
@@ -86,8 +86,8 @@ public final class k implements s {
     }
 
     @Override // com.bytedance.sdk.a.a.s
-    public t epR() {
-        return this.phX.epR();
+    public t epS() {
+        return this.phX.epS();
     }
 
     @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable

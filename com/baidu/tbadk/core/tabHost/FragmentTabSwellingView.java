@@ -38,13 +38,13 @@ public class FragmentTabSwellingView extends View {
     }
 
     private void init() {
-        bvs();
-        bvu();
         bvt();
+        bvv();
+        bvu();
         setLayerType(1, null);
     }
 
-    private void bvs() {
+    private void bvt() {
         this.fbH = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds137);
         this.fbI = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds204);
         this.fbJ = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds23);
@@ -54,12 +54,12 @@ public class FragmentTabSwellingView extends View {
         this.fbN = l.getDimens(getContext().getApplicationContext(), R.dimen.tbds2);
     }
 
-    private void bvt() {
+    private void bvu() {
         this.fbF = new Path();
         this.fbG = new Path();
     }
 
-    private void bvu() {
+    private void bvv() {
         this.fbE = new Paint();
         this.fbE.setColor(ao.getColor(R.color.CAM_X0205));
         this.fbE.setAntiAlias(true);

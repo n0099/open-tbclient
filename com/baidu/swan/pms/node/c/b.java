@@ -20,7 +20,7 @@ public class b {
     private volatile boolean dYg = false;
     private a eyu = new a();
 
-    public static b bho() {
+    public static b bhp() {
         if (eyt == null) {
             synchronized (b.class) {
                 if (eyt == null) {
@@ -34,11 +34,11 @@ public class b {
     private b() {
     }
 
-    public String bhp() {
+    public String bhq() {
         if (this.eyu.contains("version")) {
             return this.eyu.getString("version", "0");
         }
-        if (aTJ()) {
+        if (aTK()) {
             return this.eyu.getString("version", "0");
         }
         return "0";
@@ -67,7 +67,7 @@ public class b {
         }
     }
 
-    private synchronized boolean aTJ() {
+    private synchronized boolean aTK() {
         boolean z;
         HashSet hashSet;
         synchronized (this) {

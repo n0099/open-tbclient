@@ -64,19 +64,19 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (TextUtils.isEmpty(l)) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             com.baidu.swan.apps.al.a uz = new com.baidu.swan.apps.al.a().cV(1L).cW(1L).uz("appId is empty");
-            e.aQJ().j(uz);
+            e.aQK().j(uz);
             h.b(new d().tH(h.kX(1)).i(uz).cD("scheme", uri.toString()));
             return true;
         }
-        if (com.baidu.swan.games.utils.so.d.bcK() != null) {
-            boolean exists = new File(com.baidu.swan.games.utils.so.d.bcK()).exists();
+        if (com.baidu.swan.games.utils.so.d.bcL() != null) {
+            boolean exists = new File(com.baidu.swan.games.utils.so.d.bcL()).exists();
             if (DEBUG) {
                 Log.d("V8LoadChecker", "is v8 load success: " + exists);
             }
             if (!exists) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 com.baidu.swan.apps.al.a uz2 = new com.baidu.swan.apps.al.a().cV(1L).cW(1L).uz("v8 is error");
-                e.aQJ().j(uz2);
+                e.aQK().j(uz2);
                 h.b(new d().tH(h.kX(1)).i(uz2).cD(V8Engine.TYPE_V8, uri.toString()));
                 return true;
             }
@@ -107,7 +107,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                 }
                 str = jSONObject.optString("navi");
                 try {
-                    JSONObject a2 = com.baidu.swan.c.c.a(aVar.aCv(), jSONObject.optJSONObject("ubc"), "pre_source");
+                    JSONObject a2 = com.baidu.swan.c.c.a(aVar.aCw(), jSONObject.optJSONObject("ubc"), "pre_source");
                     if (a2 != null) {
                         aVar.bZ("ubc", a2.toString());
                     }
@@ -126,7 +126,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                     if (DEBUG) {
                     }
                     param = unitedSchemeEntity.getParam("downloadUrl");
-                    if (!com.baidu.swan.apps.ad.a.a.aIG()) {
+                    if (!com.baidu.swan.apps.ad.a.a.aIH()) {
                     }
                     aVar.fV(true);
                     a(aVar, param, context, unitedSchemeEntity, callbackHandler);
@@ -141,12 +141,12 @@ public class a extends UnitedSchemeBaseInterceptor {
             Log.d("SwanGameLaunchAction", "launchParams: " + aVar);
         }
         param = unitedSchemeEntity.getParam("downloadUrl");
-        if ((!com.baidu.swan.apps.ad.a.a.aIG() || DEBUG) && !TextUtils.isEmpty(param)) {
+        if ((!com.baidu.swan.apps.ad.a.a.aIH() || DEBUG) && !TextUtils.isEmpty(param)) {
             aVar.fV(true);
             a(aVar, param, context, unitedSchemeEntity, callbackHandler);
             return true;
         }
-        SwanLauncher.axd().a(aVar, (Bundle) null);
+        SwanLauncher.axe().a(aVar, (Bundle) null);
         com.baidu.swan.apps.u.a.a(str, l, callbackHandler, unitedSchemeEntity, null);
         return true;
     }
@@ -194,7 +194,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                     ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.o.a.1.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            com.baidu.swan.apps.res.widget.b.d.a(applicationContext, "小游戏包下载成功").aLS();
+                            com.baidu.swan.apps.res.widget.b.d.a(applicationContext, "小游戏包下载成功").aLT();
                         }
                     });
                     cVar.pS("1.6.0");
@@ -224,7 +224,7 @@ public class a extends UnitedSchemeBaseInterceptor {
                         Log.d("SwanGameLaunchAction", "onFailed");
                     }
                     com.baidu.swan.apps.al.a uz = new com.baidu.swan.apps.al.a().cV(7L).cW(9L).uz("debug download pkg fail");
-                    e.aQJ().j(uz);
+                    e.aQK().j(uz);
                     com.baidu.swan.apps.u.b.a.a(applicationContext, uz, 1, cVar.getAppId());
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 }
@@ -237,20 +237,20 @@ public class a extends UnitedSchemeBaseInterceptor {
         if (cVar == null) {
             return null;
         }
-        com.baidu.swan.apps.u.c.b aCd = com.baidu.swan.apps.u.c.b.aCd();
-        aCd.pK(cVar.getAppId());
-        aCd.pN(cVar.aCv());
-        aCd.pP(cVar.getPage());
-        aCd.fW(cVar.isDebug());
-        aCd.pQ(cVar.aCC());
-        aCd.G(cVar.aCB());
-        aCd.pO(cVar.aCx());
-        aCd.pR(cVar.aCD());
-        aCd.b(cVar.avV());
-        aCd.c(cVar.avW());
-        aCd.pS(cVar.aCG());
-        aCd.pF("0");
-        aCd.jt(cVar.getAppFrameType());
-        return aCd;
+        com.baidu.swan.apps.u.c.b aCe = com.baidu.swan.apps.u.c.b.aCe();
+        aCe.pK(cVar.getAppId());
+        aCe.pN(cVar.aCw());
+        aCe.pP(cVar.getPage());
+        aCe.fW(cVar.isDebug());
+        aCe.pQ(cVar.aCD());
+        aCe.G(cVar.aCC());
+        aCe.pO(cVar.aCy());
+        aCe.pR(cVar.aCE());
+        aCe.b(cVar.avW());
+        aCe.c(cVar.avX());
+        aCe.pS(cVar.aCH());
+        aCe.pF("0");
+        aCe.jt(cVar.getAppFrameType());
+        return aCe;
     }
 }

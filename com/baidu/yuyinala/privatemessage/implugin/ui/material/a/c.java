@@ -34,10 +34,10 @@ public class c {
         this.mRootView = view;
         this.oYp = i;
         this.mUserId = j;
-        caG();
+        caH();
     }
 
-    private void caG() {
+    private void caH() {
         this.oYj = (LinearLayout) this.mRootView.findViewById(a.f.bd_im_subscribe_dialog_ll);
         this.oYk = (Button) this.mRootView.findViewById(a.f.subscribe_button);
         this.oYo = (LinearLayout) this.mRootView.findViewById(a.f.subscribe_text_root);
@@ -92,28 +92,28 @@ public class c {
         handler.postDelayed(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.c.3
             @Override // java.lang.Runnable
             public void run() {
-                c.this.emK();
+                c.this.emL();
             }
         }, this.oYn);
     }
 
-    public void emN() {
-        emK();
+    public void emO() {
+        emL();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void emK() {
+    public void emL() {
         if (this.oYa) {
             this.oYj.setVisibility(8);
         }
         this.oYa = false;
     }
 
-    public boolean emO() {
+    public boolean emP() {
         return this.oYa;
     }
 
-    public int emP() {
+    public int emQ() {
         return this.oYp;
     }
 }

@@ -21,11 +21,11 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class PersonCommonForumItemView extends RelativeLayout {
     public TextView ksx;
-    public BarImageView mAJ;
+    public BarImageView mAI;
+    public TextView mAJ;
     public TextView mAK;
     public TextView mAL;
-    public TextView mAM;
-    private com.baidu.tieba.personPolymeric.c.f mAN;
+    private com.baidu.tieba.personPolymeric.c.f mAM;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
     private int mSkinType;
@@ -40,21 +40,21 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     private void init() {
-        this.mAJ = (BarImageView) findViewById(R.id.forum_avatar);
+        this.mAI = (BarImageView) findViewById(R.id.forum_avatar);
         this.ksx = (TextView) findViewById(R.id.forum_name);
-        this.mAK = (TextView) findViewById(R.id.forum_post_thread);
-        this.mAL = (TextView) findViewById(R.id.forum_thread_num);
-        this.mAM = (TextView) findViewById(R.id.forum_thread_str);
+        this.mAJ = (TextView) findViewById(R.id.forum_post_thread);
+        this.mAK = (TextView) findViewById(R.id.forum_thread_num);
+        this.mAL = (TextView) findViewById(R.id.forum_thread_str);
     }
 
     private void initListener() {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.personPolymeric.view.PersonCommonForumItemView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view != null && PersonCommonForumItemView.this.mAN != null) {
+                if (view != null && PersonCommonForumItemView.this.mAM != null) {
                     TiebaStatic.log(new aq("c12503").dX("obj_locate", "6"));
                     TiebaStatic.log(new aq("c11594"));
-                    String str = PersonCommonForumItemView.this.mAN.forumName;
+                    String str = PersonCommonForumItemView.this.mAM.forumName;
                     if (at.isForumName(str)) {
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(PersonCommonForumItemView.this.mContext).createNormalCfg(str, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(8)));
                     }
@@ -64,11 +64,11 @@ public class PersonCommonForumItemView extends RelativeLayout {
     }
 
     public void setData(com.baidu.tieba.personPolymeric.c.f fVar) {
-        this.mAN = fVar;
-        this.mAJ.startLoad(fVar.avatar, 10, false);
+        this.mAM = fVar;
+        this.mAI.startLoad(fVar.avatar, 10, false);
         this.ksx.setText(at.cutForumNameWithSuffix(fVar.forumName, 7, StringHelper.STRING_MORE) + this.mContext.getString(R.string.forum));
-        this.mAL.setText(at.numberUniformFormat(fVar.mxg));
-        this.mAK.setText(String.format(this.mContext.getString(R.string.person_has_posted), at.getUserDescByGender(fVar.sex)));
+        this.mAK.setText(at.numberUniformFormat(fVar.mxf));
+        this.mAJ.setText(String.format(this.mContext.getString(R.string.person_has_posted), at.getUserDescByGender(fVar.sex)));
         if (getRootView() != null) {
             getRootView().setOnClickListener(this.mOnClickListener);
         }
@@ -78,9 +78,9 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public void onChangeSkinType() {
         if (this.mSkinType != TbadkCoreApplication.getInst().getSkinType()) {
             ao.setViewTextColor(this.ksx, R.color.CAM_X0105);
-            ao.setViewTextColor(this.mAK, R.color.CAM_X0109);
-            ao.setViewTextColor(this.mAM, R.color.CAM_X0109);
-            ao.setViewTextColor(this.mAL, R.color.CAM_X0302);
+            ao.setViewTextColor(this.mAJ, R.color.CAM_X0109);
+            ao.setViewTextColor(this.mAL, R.color.CAM_X0109);
+            ao.setViewTextColor(this.mAK, R.color.CAM_X0302);
             ao.setBackgroundResource(this, R.drawable.person_common_forum_item_bg);
         }
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();

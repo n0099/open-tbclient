@@ -12,24 +12,24 @@ import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableCombineLatest<T, R> extends g<R> {
     final int bufferSize;
     final h<? super Object[], ? extends R> combiner;
     final boolean delayErrors;
-    final org.a.b<? extends T>[] qgT;
-    final Iterable<? extends org.a.b<? extends T>> qgU;
+    final org.a.b<? extends T>[] qiC;
+    final Iterable<? extends org.a.b<? extends T>> qiD;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super R> cVar) {
         int length;
         org.a.b<? extends T>[] bVarArr;
         org.a.b<? extends T>[] bVarArr2;
-        org.a.b<? extends T>[] bVarArr3 = this.qgT;
+        org.a.b<? extends T>[] bVarArr3 = this.qiC;
         if (bVarArr3 == null) {
             org.a.b<? extends T>[] bVarArr4 = new org.a.b[8];
             try {
-                Iterator it = (Iterator) io.reactivex.internal.functions.a.m(this.qgU.iterator(), "The iterator returned is null");
+                Iterator it = (Iterator) io.reactivex.internal.functions.a.m(this.qiD.iterator(), "The iterator returned is null");
                 length = 0;
                 while (it.hasNext()) {
                     try {
@@ -68,7 +68,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
         if (length == 0) {
             EmptySubscription.complete(cVar);
         } else if (length == 1) {
-            bVarArr[0].subscribe(new b.C1266b(cVar, new a()));
+            bVarArr[0].subscribe(new b.C1307b(cVar, new a()));
         } else {
             CombineLatestCoordinator combineLatestCoordinator = new CombineLatestCoordinator(cVar, this.combiner, length, this.bufferSize, this.delayErrors);
             cVar.onSubscribe(combineLatestCoordinator);
@@ -76,7 +76,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class CombineLatestCoordinator<T, R> extends BasicIntQueueSubscription<R> {
         private static final long serialVersionUID = -5082275438355852221L;
         final org.a.c<? super R> actual;
@@ -346,7 +346,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class CombineLatestInnerSubscriber<T> extends AtomicReference<d> implements j<T> {
         private static final long serialVersionUID = -8730235182291002949L;
         final int index;
@@ -399,7 +399,7 @@ public final class FlowableCombineLatest<T, R> extends g<R> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     final class a implements h<T, R> {
         a() {
         }

@@ -47,10 +47,10 @@ public class ImageClipActivity extends Activity {
     private static final String n = "content://downloads/public_downloads";
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5092a = 0;
+    private int f5093a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f5093b = 0;
+    private int f5094b = 0;
     private int c = 0;
     private int d = 0;
     private int e;
@@ -122,8 +122,8 @@ public class ImageClipActivity extends Activity {
     }
 
     protected void setPendingTransition(int i, int i2, int i3, int i4) {
-        this.f5092a = i;
-        this.f5093b = i2;
+        this.f5093a = i;
+        this.f5094b = i2;
         this.c = i3;
         this.d = i4;
     }
@@ -221,12 +221,12 @@ public class ImageClipActivity extends Activity {
     }
 
     private void c() {
-        if (this.f5092a == 0 && this.f5093b == 0) {
+        if (this.f5093a == 0 && this.f5094b == 0) {
             return;
         }
-        overridePendingTransition(this.f5092a, this.f5093b);
-        this.f5092a = 0;
-        this.f5093b = 0;
+        overridePendingTransition(this.f5093a, this.f5094b);
+        this.f5093a = 0;
+        this.f5094b = 0;
     }
 
     @TargetApi(19)

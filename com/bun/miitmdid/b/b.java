@@ -14,16 +14,16 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
     private static boolean j = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f6034b;
+    private Context f6035b;
     private AsyncTask pfX;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6033a = null;
+    private String f6034a = null;
     private a pfW = null;
     private Object d = null;
     private Map<String, String> e = new HashMap();
@@ -31,31 +31,31 @@ public class b {
     private Map<String, String> g = new HashMap();
     private String h = "GET";
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         void a(Exception exc, int i, String str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bun.miitmdid.b.b$b  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0958b {
+    /* loaded from: classes5.dex */
+    public class C0996b {
 
         /* renamed from: b  reason: collision with root package name */
-        private String f6035b;
+        private String f6036b;
         private int c;
         private Exception pga;
 
-        public C0958b(String str, Exception exc, int i) {
-            this.f6035b = str;
+        public C0996b(String str, Exception exc, int i) {
+            this.f6036b = str;
             this.pga = exc;
             this.c = i;
         }
     }
 
     private b(Context context) {
-        this.f6034b = null;
-        this.f6034b = context;
+        this.f6035b = null;
+        this.f6035b = context;
     }
 
     private void a(HttpURLConnection httpURLConnection) {
@@ -67,12 +67,12 @@ public class b {
     }
 
     private String b() {
-        if (this.f6033a == null) {
+        if (this.f6034a == null) {
             throw new NullPointerException("URL IS NULL");
         }
         StringBuilder sb = new StringBuilder("");
         try {
-            if (this.f6033a.trim().endsWith("?")) {
+            if (this.f6034a.trim().endsWith("?")) {
                 sb.append(ETAG.ITEM_SEPARATOR);
             } else {
                 sb.append("?");
@@ -87,7 +87,7 @@ public class b {
             }
         } catch (Exception e) {
         }
-        return this.f6033a + (sb.toString().contains(ETAG.ITEM_SEPARATOR) ? sb.substring(0, sb.lastIndexOf(ETAG.ITEM_SEPARATOR)) : sb.toString());
+        return this.f6034a + (sb.toString().contains(ETAG.ITEM_SEPARATOR) ? sb.substring(0, sb.lastIndexOf(ETAG.ITEM_SEPARATOR)) : sb.toString());
     }
 
     private static void b(@NonNull String str) {
@@ -95,7 +95,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0958b eoI() {
+    public C0996b eoJ() {
         try {
             String b2 = b();
             if (j) {
@@ -111,7 +111,7 @@ public class b {
                 }
             }
             int responseCode = httpURLConnection.getResponseCode();
-            System.out.println("\nSending 'GET' request to URL : " + this.f6033a);
+            System.out.println("\nSending 'GET' request to URL : " + this.f6034a);
             System.out.println("Response Code : " + responseCode);
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
             StringBuilder sb = new StringBuilder();
@@ -119,7 +119,7 @@ public class b {
                 String readLine = bufferedReader.readLine();
                 if (readLine == null) {
                     bufferedReader.close();
-                    return new C0958b(sb.toString(), null, responseCode);
+                    return new C0996b(sb.toString(), null, responseCode);
                 }
                 sb.append(readLine);
             }
@@ -127,12 +127,12 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0958b(null, e, -1);
+            return new C0996b(null, e, -1);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public C0958b eoJ() {
+    public C0996b eoK() {
         try {
             HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(b()).openConnection();
             a(httpURLConnection);
@@ -167,7 +167,7 @@ public class b {
             dataOutputStream.close();
             int responseCode = httpURLConnection.getResponseCode();
             if (j) {
-                b("\nSending 'POST' request to URL : " + this.f6033a);
+                b("\nSending 'POST' request to URL : " + this.f6034a);
                 b("Post parameters : " + sb2);
                 b("Response Code : " + responseCode);
             }
@@ -179,7 +179,7 @@ public class b {
                     bufferedReader.close();
                     String sb4 = sb3.toString();
                     b("\nPOST RESPONSE : " + sb4);
-                    return new C0958b(sb4, null, responseCode);
+                    return new C0996b(sb4, null, responseCode);
                 }
                 sb3.append(readLine);
             }
@@ -187,7 +187,7 @@ public class b {
             if (j) {
                 e.printStackTrace();
             }
-            return new C0958b(null, e, -1);
+            return new C0996b(null, e, -1);
         }
     }
 
@@ -202,8 +202,8 @@ public class b {
         return this;
     }
 
-    public b YA(@NonNull String str) {
-        this.f6033a = str;
+    public b Yz(@NonNull String str) {
+        this.f6034a = str;
         this.h = "POST";
         return this;
     }
@@ -219,8 +219,8 @@ public class b {
     }
 
     /* JADX WARN: Type inference failed for: r0v0, types: [com.bun.miitmdid.b.b$1] */
-    public b eoH() {
-        this.pfX = new AsyncTask<Void, Void, C0958b>() { // from class: com.bun.miitmdid.b.b.1
+    public b eoI() {
+        this.pfX = new AsyncTask<Void, Void, C0996b>() { // from class: com.bun.miitmdid.b.b.1
             b pfY;
 
             {
@@ -231,16 +231,16 @@ public class b {
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
             /* renamed from: a */
-            public void onPostExecute(C0958b c0958b) {
-                super.onPostExecute(c0958b);
+            public void onPostExecute(C0996b c0996b) {
+                super.onPostExecute(c0996b);
                 if (b.this.pfW != null) {
-                    if (c0958b == null) {
+                    if (c0996b == null) {
                         b.this.pfW.a(new Exception("Unknown Error"), -1, null);
-                    } else if (c0958b.pga != null) {
-                        b.this.pfW.a(c0958b.pga, -1, null);
+                    } else if (c0996b.pga != null) {
+                        b.this.pfW.a(c0996b.pga, -1, null);
                     } else {
                         try {
-                            b.this.pfW.a(null, c0958b.c, c0958b.f6035b);
+                            b.this.pfW.a(null, c0996b.c, c0996b.f6036b);
                         } catch (Exception e) {
                             b.this.pfW.a(e, -1, null);
                         }
@@ -251,9 +251,9 @@ public class b {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // android.os.AsyncTask
-            /* renamed from: r */
-            public C0958b doInBackground(Void... voidArr) {
-                return this.pfY.h.equalsIgnoreCase("GET") ? b.this.eoI() : b.this.eoJ();
+            /* renamed from: q */
+            public C0996b doInBackground(Void... voidArr) {
+                return this.pfY.h.equalsIgnoreCase("GET") ? b.this.eoJ() : b.this.eoK();
             }
         }.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, new Void[0]);
         return this;

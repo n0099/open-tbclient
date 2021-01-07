@@ -38,33 +38,33 @@ public class d extends e implements f {
         return this.byR;
     }
 
-    public void GB(String str) {
+    public void GA(String str) {
         View findViewById;
-        int aaj;
         int aak;
+        int aal;
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && (findViewById = ((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290)) != null) {
             switch (UtilHelper.getRealScreenOrientation(this.mContext)) {
                 case 1:
                     this.bXh = 80;
-                    aaj = aah();
                     aak = aai();
+                    aal = aaj();
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
                     break;
                 case 2:
                     this.bXh = 5;
-                    aaj = aaj();
                     aak = aak();
+                    aal = aal();
                     this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
                     break;
                 default:
                     this.bXh = 80;
-                    aaj = aah();
                     aak = aai();
+                    aal = aaj();
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
                     break;
             }
-            setWidth(aaj);
-            setHeight(aak);
+            setWidth(aak);
+            setHeight(aal);
             showAtLocation(findViewById, 85, 0, 0);
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
                 ah(this.byQ);
@@ -75,44 +75,44 @@ public class d extends e implements f {
     }
 
     public void dU(int i) {
-        int aak;
+        int aal;
         int i2;
         if (((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290) != null) {
             switch (i) {
                 case 1:
                     this.bXh = 80;
-                    int aah = aah();
-                    aak = aai();
+                    int aai = aai();
+                    aal = aaj();
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
-                    i2 = aah;
+                    i2 = aai;
                     break;
                 case 2:
                     this.bXh = 5;
-                    int aaj = aaj();
-                    aak = aak();
+                    int aak = aak();
+                    aal = aal();
                     this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
-                    i2 = aaj;
+                    i2 = aak;
                     break;
                 default:
-                    aak = 0;
+                    aal = 0;
                     i2 = 0;
                     break;
             }
-            update(i2, aak);
+            update(i2, aal);
             if (i == 2) {
                 ah(this.byQ);
             }
         }
     }
 
-    public void aag() {
+    public void aah() {
         super.dismiss();
     }
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!aal()) {
-            aag();
+        if (!aam()) {
+            aah();
         }
     }
 
@@ -188,19 +188,19 @@ public class d extends e implements f {
         this.byS.setVisibility(8);
     }
 
-    private int aah() {
+    private int aai() {
         return ScreenHelper.getRealScreenWidth(this.mContext);
     }
 
-    private int aai() {
-        return (aah() * 470) / 375;
-    }
-
     private int aaj() {
-        return (aak() * 375) / 470;
+        return (aai() * 470) / 375;
     }
 
     private int aak() {
+        return (aal() * 375) / 470;
+    }
+
+    private int aal() {
         return ScreenHelper.getRealScreenHeight(this.mContext);
     }
 
@@ -223,7 +223,7 @@ public class d extends e implements f {
         }
     }
 
-    private boolean aal() {
+    private boolean aam() {
         if (getContentView() == null) {
             return false;
         }
@@ -246,7 +246,7 @@ public class d extends e implements f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    d.this.aag();
+                    d.this.aah();
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener

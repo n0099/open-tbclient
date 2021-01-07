@@ -523,7 +523,7 @@ public class ALALiveTextView extends LinearLayout implements a.b, com.baidu.live
         LayoutInflater.from(context).inflate(a.g.yuyinala_im_input_layout, (ViewGroup) this, true);
         Oq();
         Or();
-        abJ();
+        abK();
         this.brM = 50;
     }
 
@@ -620,7 +620,7 @@ public class ALALiveTextView extends LinearLayout implements a.b, com.baidu.live
         this.mUserName = str;
     }
 
-    private void abJ() {
+    private void abK() {
         this.ceg = (ImageView) findViewById(a.f.iv_emoji);
         this.brz = (FrameLayout) findViewById(a.f.quick_input_panel);
         this.ceh = EmojiconsController.c(getContext(), this.brz);
@@ -775,7 +775,6 @@ public class ALALiveTextView extends LinearLayout implements a.b, com.baidu.live
     public void a(List<String> list, Map<String, Integer> map, AlaLiveInfoData alaLiveInfoData) {
         this.brX = alaLiveInfoData;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913169, true));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913084, true));
         ViewGroup viewGroup = (ViewGroup) getParent();
         if (viewGroup != null && viewGroup.indexOfChild(this) != viewGroup.getChildCount() - 1) {
             bringToFront();
@@ -814,7 +813,7 @@ public class ALALiveTextView extends LinearLayout implements a.b, com.baidu.live
             this.ceg.setImageResource(a.e.bd_im_emoji_status);
         }
         if (this.ceh != null) {
-            this.ceh.abI();
+            this.ceh.abJ();
         }
         this.cei = 1;
     }

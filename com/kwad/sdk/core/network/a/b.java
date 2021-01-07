@@ -24,10 +24,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f9613a = "UTF-8";
+    public static String f9614a = "UTF-8";
 
     /* renamed from: b  reason: collision with root package name */
-    public static OkHttpClient f9614b = new OkHttpClient.Builder().connectTimeout(IMConnection.RETRY_DELAY_TIMES, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).build();
+    public static OkHttpClient f9615b = new OkHttpClient.Builder().connectTimeout(IMConnection.RETRY_DELAY_TIMES, TimeUnit.MILLISECONDS).readTimeout(6000, TimeUnit.MILLISECONDS).build();
 
     private static String a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -69,7 +69,7 @@ public class b {
                     gZIPInputStream2 = inputStream;
                 }
                 try {
-                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(gZIPInputStream2, f9613a), 8);
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(gZIPInputStream2, f9614a), 8);
                     while (true) {
                         String readLine = bufferedReader.readLine();
                         if (readLine == null) {
@@ -106,7 +106,7 @@ public class b {
     }
 
     public static OkHttpClient a() {
-        return f9614b;
+        return f9615b;
     }
 
     public static Response a(String str, Map<String, String> map) {

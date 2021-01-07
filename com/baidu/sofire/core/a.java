@@ -10,20 +10,20 @@ import java.util.ArrayList;
 public final class a implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public ArrayList<b> f5487a;
+    public ArrayList<b> f5488a;
 
     public a(ActivityInfo[] activityInfoArr) {
         int length;
-        this.f5487a = null;
+        this.f5488a = null;
         if (activityInfoArr != null && (length = activityInfoArr.length) > 0) {
-            this.f5487a = new ArrayList<>(length);
+            this.f5488a = new ArrayList<>(length);
             for (int i = 0; i < length; i++) {
                 if (activityInfoArr[i] != null) {
                     b bVar = new b();
                     bVar.h = activityInfoArr[i].configChanges;
                     bVar.f = activityInfoArr[i].flags;
                     bVar.l = activityInfoArr[i].labelRes;
-                    bVar.f5489b = activityInfoArr[i].launchMode;
+                    bVar.f5490b = activityInfoArr[i].launchMode;
                     if (activityInfoArr[i].nonLocalizedLabel != null) {
                         bVar.m = activityInfoArr[i].nonLocalizedLabel.toString();
                     }
@@ -34,8 +34,8 @@ public final class a implements Serializable {
                     bVar.i = activityInfoArr[i].softInputMode;
                     bVar.e = activityInfoArr[i].targetActivity;
                     bVar.d = activityInfoArr[i].taskAffinity;
-                    bVar.f5488a = activityInfoArr[i].theme;
-                    this.f5487a.add(bVar);
+                    bVar.f5489a = activityInfoArr[i].theme;
+                    this.f5488a.add(bVar);
                 }
             }
         }
@@ -52,7 +52,7 @@ public final class a implements Serializable {
             try {
                 objectOutputStream2 = new ObjectOutputStream(byteArrayOutputStream);
                 try {
-                    objectOutputStream2.writeObject(this.f5487a);
+                    objectOutputStream2.writeObject(this.f5488a);
                     objectOutputStream2.close();
                     byteArrayOutputStream.close();
                     bArr = byteArrayOutputStream.toByteArray();

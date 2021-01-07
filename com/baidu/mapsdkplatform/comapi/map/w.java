@@ -7,7 +7,7 @@ import com.baidu.live.adp.widget.VerticalTranslateLayout;
 import com.baidu.mapapi.map.WinRound;
 import com.baidu.platform.comapi.basestruct.Point;
 import com.baidu.platform.comapi.map.MapBundleKey;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class w {
     private static final String t = w.class.getSimpleName();
     public double m;
@@ -19,10 +19,10 @@ public class w {
     public int s;
 
     /* renamed from: a  reason: collision with root package name */
-    public float f3202a = 12.0f;
+    public float f3203a = 12.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3203b = 0;
+    public int f3204b = 0;
     public int c = 0;
     public double d = 1.2958162E7d;
     public double e = 4825907.0d;
@@ -34,14 +34,14 @@ public class w {
     public a k = new a();
     public boolean l = false;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f3204a = 0;
+        public long f3205a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f3205b = 0;
+        public long f3206b = 0;
         public long c = 0;
         public long d = 0;
         public Point e = new Point(0, 0);
@@ -54,21 +54,21 @@ public class w {
     }
 
     public Bundle a(d dVar) {
-        if (this.f3202a < dVar.f3172b) {
-            this.f3202a = dVar.f3172b;
+        if (this.f3203a < dVar.f3173b) {
+            this.f3203a = dVar.f3173b;
         }
-        if (this.f3202a > dVar.f3171a) {
-            if (this.f3202a == 1096.0f || d.d == 26.0f) {
-                this.f3202a = 26.0f;
+        if (this.f3203a > dVar.f3172a) {
+            if (this.f3203a == 1096.0f || d.d == 26.0f) {
+                this.f3203a = 26.0f;
                 d.d = 26.0f;
             } else {
-                this.f3202a = dVar.f3171a;
+                this.f3203a = dVar.f3172a;
             }
         }
-        while (this.f3203b < 0) {
-            this.f3203b += EncoderTextureDrawer.X264_WIDTH;
+        while (this.f3204b < 0) {
+            this.f3204b += EncoderTextureDrawer.X264_WIDTH;
         }
-        this.f3203b %= EncoderTextureDrawer.X264_WIDTH;
+        this.f3204b %= EncoderTextureDrawer.X264_WIDTH;
         if (this.c > 0) {
             this.c = 0;
         }
@@ -76,8 +76,8 @@ public class w {
             this.c = -45;
         }
         Bundle bundle = new Bundle();
-        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_LEVEL, this.f3202a);
-        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, this.f3203b);
+        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_LEVEL, this.f3203a);
+        bundle.putDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION, this.f3204b);
         bundle.putDouble("overlooking", this.c);
         bundle.putDouble("centerptx", this.d);
         bundle.putDouble("centerpty", this.e);
@@ -101,10 +101,10 @@ public class w {
         bundle.putInt("rty", this.k.g.getIntY());
         bundle.putInt("rbx", this.k.h.getIntX());
         bundle.putInt("rby", this.k.h.getIntY());
-        bundle.putLong("gleft", this.k.f3204a);
+        bundle.putLong("gleft", this.k.f3205a);
         bundle.putLong("gbottom", this.k.d);
         bundle.putLong("gtop", this.k.c);
-        bundle.putLong("gright", this.k.f3205b);
+        bundle.putLong("gright", this.k.f3206b);
         bundle.putInt("bfpp", this.l ? 1 : 0);
         bundle.putInt("animation", 1);
         bundle.putInt("animatime", this.o);
@@ -120,8 +120,8 @@ public class w {
         if (bundle == null) {
             return;
         }
-        this.f3202a = (float) bundle.getDouble(MapBundleKey.MapObjKey.OBJ_LEVEL);
-        this.f3203b = (int) bundle.getDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION);
+        this.f3203a = (float) bundle.getDouble(MapBundleKey.MapObjKey.OBJ_LEVEL);
+        this.f3204b = (int) bundle.getDouble(MapBundleKey.MapObjKey.OBJ_SS_ARROW_ROTATION);
         this.c = (int) bundle.getDouble("overlooking");
         this.d = bundle.getDouble("centerptx");
         this.e = bundle.getDouble("centerpty");
@@ -136,15 +136,15 @@ public class w {
             this.f = ((this.j.right - this.j.left) / 2) + ((int) this.h);
             this.g = i + ((this.j.bottom - this.j.top) / 2);
         }
-        this.k.f3204a = bundle.getLong("gleft");
-        this.k.f3205b = bundle.getLong("gright");
+        this.k.f3205a = bundle.getLong("gleft");
+        this.k.f3206b = bundle.getLong("gright");
         this.k.c = bundle.getLong("gtop");
         this.k.d = bundle.getLong("gbottom");
-        if (this.k.f3204a <= -20037508) {
-            this.k.f3204a = -20037508L;
+        if (this.k.f3205a <= -20037508) {
+            this.k.f3205a = -20037508L;
         }
-        if (this.k.f3205b >= 20037508) {
-            this.k.f3205b = 20037508L;
+        if (this.k.f3206b >= 20037508) {
+            this.k.f3206b = 20037508L;
         }
         if (this.k.c >= 20037508) {
             this.k.c = 20037508L;
@@ -152,13 +152,13 @@ public class w {
         if (this.k.d <= -20037508) {
             this.k.d = -20037508L;
         }
-        this.k.e.doubleX = this.k.f3204a;
+        this.k.e.doubleX = this.k.f3205a;
         this.k.e.doubleY = this.k.d;
-        this.k.f.doubleX = this.k.f3204a;
+        this.k.f.doubleX = this.k.f3205a;
         this.k.f.doubleY = this.k.c;
-        this.k.g.doubleX = this.k.f3205b;
+        this.k.g.doubleX = this.k.f3206b;
         this.k.g.doubleY = this.k.c;
-        this.k.h.doubleX = this.k.f3205b;
+        this.k.h.doubleX = this.k.f3206b;
         this.k.h.doubleY = this.k.d;
         this.l = bundle.getInt("bfpp") == 1;
         this.m = bundle.getDouble("adapterzoomunit");

@@ -26,12 +26,12 @@ public class AlaArGradingQualityConfigResponseMessage extends JsonHttpResponsedM
                 if (isDebug()) {
                     Log.e("GradingQualityConfig", "onResponse data >>>> " + optJSONObject.toString());
                 }
-                JSONObject dE = com.baidu.tieba.ala.alaar.a.b.bSP().dE(optJSONObject);
+                JSONObject dE = com.baidu.tieba.ala.alaar.a.b.bSQ().dE(optJSONObject);
                 if (isDebug() && dE != null) {
                     Log.e("GradingQualityConfig", "reStructData >>>> " + dE.toString());
                 }
                 this.gup = dE;
-                com.baidu.tieba.ala.alaar.a.b.bSP().f(dE, true);
+                com.baidu.tieba.ala.alaar.a.b.bSQ().f(dE, true);
             }
         }
     }

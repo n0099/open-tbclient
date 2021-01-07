@@ -59,9 +59,9 @@ public class b implements a.b {
         @Override // org.java_websocket.a.a
         public void onOpen(h hVar) {
             com.baidu.swan.apps.console.c.i("V8InspectorClient", "V8 inspector opened");
-            com.baidu.swan.apps.core.g.a avR = com.baidu.swan.apps.core.turbo.d.avA().avR();
-            if (avR instanceof e) {
-                b.this.cQM = (com.baidu.swan.games.f.a) avR.anh();
+            com.baidu.swan.apps.core.g.a avS = com.baidu.swan.apps.core.turbo.d.avB().avS();
+            if (avS instanceof e) {
+                b.this.cQM = (com.baidu.swan.games.f.a) avS.ani();
             }
             if (b.this.cQM == null) {
                 com.baidu.swan.apps.console.c.i("V8InspectorClient", "inner error, V8 mEngine is null");
@@ -103,10 +103,10 @@ public class b implements a.b {
             if (!TextUtils.isEmpty(str) && b.this.cQN != null) {
                 try {
                     if (TextUtils.equals(new JSONObject(str).optString("method"), "Debugger.enable")) {
-                        com.baidu.swan.apps.runtime.d aMg = com.baidu.swan.apps.runtime.d.aMg();
-                        SwanAppActivity aMe = aMg.aMe();
-                        if (aMg.aJw() && aMe != null) {
-                            aMe.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.2
+                        com.baidu.swan.apps.runtime.d aMh = com.baidu.swan.apps.runtime.d.aMh();
+                        SwanAppActivity aMf = aMh.aMf();
+                        if (aMh.aJx() && aMf != null) {
+                            aMf.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.b.b.2
                                 @Override // java.lang.Runnable
                                 public void run() {
                                     b.this.cQN.onConnected();
@@ -155,7 +155,7 @@ public class b implements a.b {
                                 return;
                             case 1:
                                 com.baidu.swan.apps.console.c.i("V8InspectorClient", "v8 inspector close");
-                                com.baidu.swan.apps.console.debugger.b.d.apQ();
+                                com.baidu.swan.apps.console.debugger.b.d.apR();
                                 return;
                             default:
                                 com.baidu.swan.apps.console.c.e("V8InspectorClient", "Undefined command");

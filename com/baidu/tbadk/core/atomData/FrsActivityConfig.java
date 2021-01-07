@@ -193,8 +193,8 @@ public class FrsActivityConfig extends IntentConfig {
         } else if (FRS_FROM_FREQUENTLY_FORUM_POST_THREAD.equals(stringExtra2)) {
             i = 6;
         }
-        if (d.bmY() && com.baidu.tbadk.a.b.a.eIU != com.baidu.tbadk.a.b.a.bni()) {
-            frsRequestData.KM(j.BP(com.baidu.tbadk.a.b.a.bni()));
+        if (d.bmZ() && com.baidu.tbadk.a.b.a.eIU != com.baidu.tbadk.a.b.a.bnj()) {
+            frsRequestData.KM(j.BP(com.baidu.tbadk.a.b.a.bnj()));
         }
         frsRequestData.setSortType(j.BP(i));
         if (i == 5) {
@@ -207,7 +207,7 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setPn(1);
         frsRequestData.setCallFrom(intExtra);
         j.a(i, frsRequestData);
-        frsRequestData.Tf("2");
+        frsRequestData.Te("2");
         frsRequestData.setObjSource("-2");
         frsRequestData.setKw(stringExtra);
         frsRequestData.setWithGroup(1);
@@ -215,13 +215,13 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.setScrW(l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         frsRequestData.setScrH(l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         frsRequestData.setScrDip(l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        frsRequestData.setqType(au.bwr().bws() ? 2 : 1);
+        frsRequestData.setqType(au.bws().bwt() ? 2 : 1);
         if (uri != null) {
             frsRequestData.setSchemeUrl(uri.toString());
         }
         frsRequestData.setLastId(null);
         frsRequestData.setYuelaouLocate(stringExtra3);
-        frsRequestData.setLastClickTid(b.toLong(z.bJf(), 0L));
+        frsRequestData.setLastClickTid(b.toLong(z.bJg(), 0L));
         frsRequestData.setStType(stringExtra2);
         frsRequestData.KL(1);
         frsRequestData.setNeedCache(true);
@@ -229,9 +229,9 @@ public class FrsActivityConfig extends IntentConfig {
         frsRequestData.hB(longExtra);
         j.a(i, frsRequestData);
         frsRequestData.setLoadType(1);
-        if (bz.eTz.get() && r.dEV().dEP() != null) {
-            int ba = r.dEV().dEP().ba(stringExtra, false);
-            int bb = r.dEV().dEP().bb(stringExtra, false);
+        if (bz.eTz.get() && r.dEW().dEQ() != null) {
+            int ba = r.dEW().dEQ().ba(stringExtra, false);
+            int bb = r.dEW().dEQ().bb(stringExtra, false);
             if (frsRequestData.getLoadType() == 1) {
                 ba++;
             } else if (frsRequestData.getLoadType() == 2) {

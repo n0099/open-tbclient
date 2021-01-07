@@ -35,23 +35,23 @@ public class e {
     public void a(com.baidu.live.ar.h hVar) {
         if (hVar != null) {
             this.flK.setText(hVar.getName());
-            GI(hVar.CK());
+            GH(hVar.CK());
             if (com.baidu.live.d.Ba().getInt("beauty_subitem_redot", 0) == 1) {
                 setRedotVisible(com.baidu.live.d.Ba().getBoolean(hVar.getType(), true));
             }
         }
     }
 
-    public void GI(String str) {
+    public void GH(String str) {
         this.gxG.startLoad(str, 10, false);
     }
 
-    public void bTT() {
+    public void bTU() {
         this.flK.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_cont_i));
         this.gys.setVisibility(4);
     }
 
-    public void bTU() {
+    public void bTV() {
         this.flK.setTextColor(this.mRootView.getResources().getColor(a.c.sdk_cp_other_b));
         this.gys.setVisibility(0);
     }

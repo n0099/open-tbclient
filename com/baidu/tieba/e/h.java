@@ -16,7 +16,7 @@ public class h implements n {
         return iDd;
     }
 
-    public FeatureCardTopic cwA() {
+    public FeatureCardTopic cwB() {
         return this.iDe;
     }
 

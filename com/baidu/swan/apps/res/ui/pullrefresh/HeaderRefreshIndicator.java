@@ -22,22 +22,22 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
         this.dAP = false;
     }
 
-    public void ahT() {
+    public void ahU() {
         if (!this.isInited) {
             this.isInited = true;
-            this.dAP = com.baidu.swan.apps.t.a.aAN().alD();
-            aKH();
+            this.dAP = com.baidu.swan.apps.t.a.aAO().alE();
+            aKI();
             setTextSize(1, 11.0f);
             setCompoundDrawablePadding(ah.dip2px(getContext(), 5.0f));
             ka(0);
         }
     }
 
-    public void aKG() {
-        boolean alD = com.baidu.swan.apps.t.a.aAN().alD();
-        if (this.dAP != alD) {
-            aKH();
-            this.dAP = alD;
+    public void aKH() {
+        boolean alE = com.baidu.swan.apps.t.a.aAO().alE();
+        if (this.dAP != alE) {
+            aKI();
+            this.dAP = alE;
         }
     }
 
@@ -49,10 +49,10 @@ public class HeaderRefreshIndicator extends DrawableCenterTextView {
     @Override // android.widget.TextView, android.view.View
     protected void onAttachedToWindow() {
         super.onAttachedToWindow();
-        aKG();
+        aKH();
     }
 
-    public void aKH() {
+    public void aKI() {
         setBackground(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_bg));
         setTextColor(getResources().getColor(a.c.aiapps_pull_refresh_result_text_color));
         a(getResources().getDrawable(a.e.aiapps_pull_refresh_success_tip_icon), 0, ah.dip2px(getContext(), 11.0f), ah.dip2px(getContext(), 11.0f));

@@ -84,10 +84,10 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                 super.onScrollStateChanged(recyclerView, i);
                 int currentItem = AlaBannerAutoScrollView.this.getCurrentItem();
-                int bVP = AlaBannerAutoScrollView.this.gMk.bVP();
+                int bVQ = AlaBannerAutoScrollView.this.gMk.bVQ();
                 AlaBannerAutoScrollView alaBannerAutoScrollView = AlaBannerAutoScrollView.this;
-                if (bVP != 0) {
-                    currentItem %= bVP;
+                if (bVQ != 0) {
+                    currentItem %= bVQ;
                 }
                 alaBannerAutoScrollView.vw(currentItem);
                 if (AlaBannerAutoScrollView.this.gMq != null) {
@@ -156,10 +156,10 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             public void onScrollStateChanged(RecyclerView recyclerView, int i) {
                 super.onScrollStateChanged(recyclerView, i);
                 int currentItem = AlaBannerAutoScrollView.this.getCurrentItem();
-                int bVP = AlaBannerAutoScrollView.this.gMk.bVP();
+                int bVQ = AlaBannerAutoScrollView.this.gMk.bVQ();
                 AlaBannerAutoScrollView alaBannerAutoScrollView = AlaBannerAutoScrollView.this;
-                if (bVP != 0) {
-                    currentItem %= bVP;
+                if (bVQ != 0) {
+                    currentItem %= bVQ;
                 }
                 alaBannerAutoScrollView.vw(currentItem);
                 if (AlaBannerAutoScrollView.this.gMq != null) {
@@ -228,10 +228,10 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             public void onScrollStateChanged(RecyclerView recyclerView, int i2) {
                 super.onScrollStateChanged(recyclerView, i2);
                 int currentItem = AlaBannerAutoScrollView.this.getCurrentItem();
-                int bVP = AlaBannerAutoScrollView.this.gMk.bVP();
+                int bVQ = AlaBannerAutoScrollView.this.gMk.bVQ();
                 AlaBannerAutoScrollView alaBannerAutoScrollView = AlaBannerAutoScrollView.this;
-                if (bVP != 0) {
-                    currentItem %= bVP;
+                if (bVQ != 0) {
+                    currentItem %= bVQ;
                 }
                 alaBannerAutoScrollView.vw(currentItem);
                 if (AlaBannerAutoScrollView.this.gMq != null) {
@@ -261,16 +261,16 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 switch (motionEvent.getAction()) {
                     case 0:
-                        AlaBannerAutoScrollView.this.byV();
+                        AlaBannerAutoScrollView.this.byW();
                         return false;
                     case 1:
-                        AlaBannerAutoScrollView.this.byU();
-                        return false;
-                    case 2:
                         AlaBannerAutoScrollView.this.byV();
                         return false;
+                    case 2:
+                        AlaBannerAutoScrollView.this.byW();
+                        return false;
                     default:
-                        AlaBannerAutoScrollView.this.byU();
+                        AlaBannerAutoScrollView.this.byV();
                         return false;
                 }
             }
@@ -298,7 +298,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
 
     public void a(List<T> list, a aVar) {
         if (!x.isEmpty(list)) {
-            byV();
+            byW();
             if (this.gMm != x.getCount(list)) {
                 this.gMm = x.getCount(list);
                 if (this.gMm == 1) {
@@ -310,7 +310,7 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             }
             this.gMk.setData(list);
             this.gMk.notifyDataSetChanged();
-            byU();
+            byV();
         }
     }
 
@@ -343,13 +343,13 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
             return -1;
         }
         int position = this.gMj.getLayoutManager().getPosition(findSnapView);
-        int bVP = this.gMk.bVP();
-        if (position < bVP) {
-            int i = position + bVP;
+        int bVQ = this.gMk.bVQ();
+        if (position < bVQ) {
+            int i = position + bVQ;
             this.gMj.getLayoutManager().scrollToPosition(i);
             return i;
-        } else if (position >= bVP * 2) {
-            int i2 = position - bVP;
+        } else if (position >= bVQ * 2) {
+            int i2 = position - bVQ;
             this.gMj.getLayoutManager().scrollToPosition(i2);
             return i2;
         } else {
@@ -360,16 +360,16 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     @Override // android.view.ViewGroup, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        byV();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void byU() {
-        postDelayed(this.gMs, 2000L);
+        byW();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void byV() {
+        postDelayed(this.gMs, 2000L);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void byW() {
         removeCallbacks(this.gMs);
     }
 
@@ -428,8 +428,8 @@ public class AlaBannerAutoScrollView<T> extends FrameLayout {
     }
 
     public void onChangeSkinType(int i) {
-        byV();
+        byW();
         vw(getCurrentItem());
-        byU();
+        byV();
     }
 }

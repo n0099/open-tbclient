@@ -1,9 +1,9 @@
 package com.baidu.helios.bridge;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class b {
     private a awi;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         com.baidu.helios.bridge.a yE();
     }

@@ -35,7 +35,7 @@ public class h {
             this.haP.onDestory();
         }
         if (this.haO != null) {
-            this.haO.bYO();
+            this.haO.bYP();
         }
     }
 }

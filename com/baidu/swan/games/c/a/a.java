@@ -27,7 +27,7 @@ public class a extends j {
         @Override // com.baidu.swan.pms.a.c
         /* renamed from: a */
         public String U(h hVar) {
-            return a.c.aAl().getPath();
+            return a.c.aAm().getPath();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -75,13 +75,13 @@ public class a extends j {
                 a.this.ehF.fg(false);
                 return;
             }
-            File ars = a.this.ehG.ars();
-            if (ars.exists()) {
-                d.deleteFile(ars);
+            File art = a.this.ehG.art();
+            if (art.exists()) {
+                d.deleteFile(art);
             } else {
-                d.ensureDirectoryExist(ars);
+                d.ensureDirectoryExist(art);
             }
-            boolean unzipFile = d.unzipFile(hVar.filePath, ars.getAbsolutePath());
+            boolean unzipFile = d.unzipFile(hVar.filePath, art.getAbsolutePath());
             if (unzipFile) {
                 a.this.ehG.nk(hVar.versionName);
             }
@@ -100,8 +100,8 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void aud() {
-        super.aud();
+    public void aue() {
+        super.aue();
         if (DEBUG) {
             Log.i("ConsoleJsDownload", "onFetchSuccess");
         }
@@ -117,8 +117,8 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void arc() {
-        super.arc();
+    public void ard() {
+        super.ard();
         if (DEBUG) {
             Log.i("ConsoleJsDownload", "onNoPackage");
         }
@@ -134,7 +134,7 @@ public class a extends j {
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public c<h> aIk() {
+    public c<h> aIl() {
         return this.duM;
     }
 }

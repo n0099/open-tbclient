@@ -29,7 +29,7 @@ public class b implements com.baidu.j.a.b.a.b {
     }
 
     public com.baidu.j.a.b.c jy(String str) {
-        return this.cgm.get(str).abY();
+        return this.cgm.get(str).abZ();
     }
 
     @Override // com.baidu.j.a.b.a.b
@@ -54,7 +54,7 @@ public class b implements com.baidu.j.a.b.a.b {
                 String key = entry.getKey();
                 a aVar = this.cgm.get(key);
                 if (aVar != null) {
-                    if (aVar.abZ()) {
+                    if (aVar.aca()) {
                         aVar.Mr();
                     }
                     this.cgm.remove(key);
@@ -91,7 +91,7 @@ public class b implements com.baidu.j.a.b.a.b {
                     if (i == 0) {
                         b.this.reconnect();
                     } else if (1 == i) {
-                        b.this.cgl.abN();
+                        b.this.cgl.abO();
                     }
                 }
             });

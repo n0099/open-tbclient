@@ -18,7 +18,7 @@ public abstract class b {
 
     abstract void Hi();
 
-    abstract void caG();
+    abstract void caH();
 
     abstract void initView();
 
@@ -30,7 +30,7 @@ public abstract class b {
     private void initDialog() {
         this.mDialog = new e(this.mContext);
         JK();
-        caG();
+        caH();
         initView();
         this.mDialog.setContentView(this.mRootView);
         Hi();

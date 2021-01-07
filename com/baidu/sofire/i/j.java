@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public final class j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String[] f5542a = {"java.lang.UnsatisfiedLinkError"};
+    public static final String[] f5543a = {"java.lang.UnsatisfiedLinkError"};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f5543b = {"space left"};
+    public static final String[] f5544b = {"space left"};
 
     public static String a(Context context, String str, String str2) {
         char c;
@@ -23,10 +23,10 @@ public final class j {
         String[] split;
         File[] listFiles;
         try {
-            if (str.contains(f5542a[0])) {
+            if (str.contains(f5543a[0])) {
                 c = 1;
             } else {
-                c = str.contains(f5543b[0]) ? (char) 2 : (char) 0;
+                c = str.contains(f5544b[0]) ? (char) 2 : (char) 0;
             }
             switch (c) {
                 case 1:

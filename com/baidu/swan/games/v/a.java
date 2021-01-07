@@ -12,7 +12,7 @@ public class a {
     public a(int i, com.baidu.swan.games.v.a.d dVar) {
         this.type = i;
         this.enH = dVar;
-        this.enI = d.bbU() ? 20 : 10;
+        this.enI = d.bbV() ? 20 : 10;
         this.ts = System.currentTimeMillis();
     }
 

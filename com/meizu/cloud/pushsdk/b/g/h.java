@@ -6,10 +6,10 @@ import java.io.IOException;
 final class h implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    public final b f11502a;
+    public final b f11503a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final l f11503b;
+    public final l f11504b;
     private boolean c;
 
     public h(l lVar) {
@@ -20,8 +20,8 @@ final class h implements c {
         if (lVar == null) {
             throw new IllegalArgumentException("sink == null");
         }
-        this.f11502a = bVar;
-        this.f11503b = lVar;
+        this.f11503a = bVar;
+        this.f11504b = lVar;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
@@ -31,7 +31,7 @@ final class h implements c {
         }
         long j = 0;
         while (true) {
-            long b2 = mVar.b(this.f11502a, 2048L);
+            long b2 = mVar.b(this.f11503a, 2048L);
             if (b2 == -1) {
                 return j;
             }
@@ -44,9 +44,9 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        long e = this.f11502a.e();
+        long e = this.f11503a.e();
         if (e > 0) {
-            this.f11503b.a(this.f11502a, e);
+            this.f11504b.a(this.f11503a, e);
         }
         return this;
     }
@@ -56,13 +56,13 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11502a.a(bVar, j);
+        this.f11503a.a(bVar, j);
         a();
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
     public b b() {
-        return this.f11502a;
+        return this.f11503a;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
@@ -70,7 +70,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11502a.b(eVar);
+        this.f11503a.b(eVar);
         return a();
     }
 
@@ -79,7 +79,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11502a.b(str);
+        this.f11503a.b(str);
         return a();
     }
 
@@ -88,7 +88,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11502a.c(bArr);
+        this.f11503a.c(bArr);
         return a();
     }
 
@@ -97,7 +97,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11502a.c(bArr, i, i2);
+        this.f11503a.c(bArr, i, i2);
         return a();
     }
 
@@ -108,14 +108,14 @@ final class h implements c {
         }
         Throwable th = null;
         try {
-            if (this.f11502a.f11492b > 0) {
-                this.f11503b.a(this.f11502a, this.f11502a.f11492b);
+            if (this.f11503a.f11493b > 0) {
+                this.f11504b.a(this.f11503a, this.f11503a.f11493b);
             }
         } catch (Throwable th2) {
             th = th2;
         }
         try {
-            this.f11503b.close();
+            this.f11504b.close();
         } catch (Throwable th3) {
             if (th == null) {
                 th = th3;
@@ -132,7 +132,7 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        this.f11502a.e(j);
+        this.f11503a.e(j);
         return a();
     }
 
@@ -141,13 +141,13 @@ final class h implements c {
         if (this.c) {
             throw new IllegalStateException(LogConfig.TYPE_CLOSED);
         }
-        if (this.f11502a.f11492b > 0) {
-            this.f11503b.a(this.f11502a, this.f11502a.f11492b);
+        if (this.f11503a.f11493b > 0) {
+            this.f11504b.a(this.f11503a, this.f11503a.f11493b);
         }
-        this.f11503b.flush();
+        this.f11504b.flush();
     }
 
     public String toString() {
-        return "buffer(" + this.f11503b + ")";
+        return "buffer(" + this.f11504b + ")";
     }
 }

@@ -126,7 +126,7 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
                     this.kjR.setVisibility(0);
                     HomePageTabFeedCollegeSecondListAdapter.this.mIconResId = R.drawable.ic_icon_pure_video_play12_svg;
                     this.kjX.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.person_play_num), at.numberUniformFormatExtra(specialColumnItemData.freq_num)));
-                    com.baidu.tbadk.core.util.f.a.bwU().qq(0).m(R.color.CAM_X0607, R.color.CAM_X0611).qx(l.getDimens(HomePageTabFeedCollegeSecondListAdapter.this.mContext, R.dimen.tbds10)).bz(this.kjV);
+                    com.baidu.tbadk.core.util.f.a.bwV().qq(0).m(R.color.CAM_X0607, R.color.CAM_X0611).qx(l.getDimens(HomePageTabFeedCollegeSecondListAdapter.this.mContext, R.dimen.tbds10)).bz(this.kjV);
                     return;
                 }
                 this.kjV.setVisibility(8);
@@ -170,7 +170,7 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
                 this.kjU.setVisibility(0);
                 HomePageTabFeedCollegeSecondListAdapter.this.mIconResId = R.drawable.ic_icon_pure_common_live12_svg;
                 this.kjV.setAlpha(0.5f);
-                com.baidu.tbadk.core.util.f.a.bwU().qq(0).qx(l.getDimens(HomePageTabFeedCollegeSecondListAdapter.this.mContext, R.dimen.tbds10)).m(R.color.CAM_X0607, R.color.CAM_X0611).bz(this.kjV);
+                com.baidu.tbadk.core.util.f.a.bwV().qq(0).qx(l.getDimens(HomePageTabFeedCollegeSecondListAdapter.this.mContext, R.dimen.tbds10)).m(R.color.CAM_X0607, R.color.CAM_X0611).bz(this.kjV);
             }
         }
     }
@@ -190,12 +190,12 @@ public class HomePageTabFeedCollegeSecondListAdapter extends RecyclerView.Adapte
             ao.setViewTextColor(((b) viewHolder).kjX, R.color.CAM_X0109);
             ao.setViewTextColor(((b) viewHolder).kjY, R.color.CAM_X0109);
             ao.setViewTextColor(((b) viewHolder).kjR, R.color.CAM_X0101);
-            SvgManager.bwq().a(((b) viewHolder).kjU, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(((b) viewHolder).kjU, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             com.baidu.tbadk.core.util.f.a.m(((b) viewHolder).kka, R.color.CAM_X0205, R.color.CAM_X0204);
         } else if (viewHolder instanceof a) {
             ao.setViewTextColor(((a) viewHolder).kjS, R.color.CAM_X0105);
             ao.setViewTextColor(((a) viewHolder).kjR, R.color.CAM_X0101);
-            SvgManager.bwq().a(((a) viewHolder).kjU, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(((a) viewHolder).kjU, this.mIconResId, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             com.baidu.tbadk.core.util.f.a.m(((a) viewHolder).kjW, R.color.CAM_X0205, R.color.CAM_X0204);
         }
     }

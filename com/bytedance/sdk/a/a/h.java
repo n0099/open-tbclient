@@ -12,7 +12,7 @@ public abstract class h implements s {
         this.phP = sVar;
     }
 
-    public final s eqc() {
+    public final s eqd() {
         return this.phP;
     }
 
@@ -22,8 +22,8 @@ public abstract class h implements s {
     }
 
     @Override // com.bytedance.sdk.a.a.s
-    public t epR() {
-        return this.phP.epR();
+    public t epS() {
+        return this.phP.epS();
     }
 
     @Override // com.bytedance.sdk.a.a.s, java.io.Closeable, java.lang.AutoCloseable

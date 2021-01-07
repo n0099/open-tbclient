@@ -5,10 +5,10 @@ import androidx.annotation.RestrictTo;
 public class b<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f8302a;
+    private float f8303a;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f8303b;
+    private float f8304b;
     private T c;
     private T d;
     private float e;
@@ -17,8 +17,8 @@ public class b<T> {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public b<T> a(float f, float f2, T t, T t2, float f3, float f4, float f5) {
-        this.f8302a = f;
-        this.f8303b = f2;
+        this.f8303a = f;
+        this.f8304b = f2;
         this.c = t;
         this.d = t2;
         this.e = f3;

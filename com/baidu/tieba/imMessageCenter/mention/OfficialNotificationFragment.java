@@ -76,37 +76,37 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
         }
 
         @Override // com.baidu.tbadk.widget.richText.h
-        public int bLE() {
+        public int bLF() {
             return 0;
         }
 
         @Override // com.baidu.tbadk.widget.richText.h
-        public com.baidu.adp.lib.d.b<ImageView> bLF() {
+        public com.baidu.adp.lib.d.b<ImageView> bLG() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.h
-        public com.baidu.adp.lib.d.b<TextView> bLG() {
+        public com.baidu.adp.lib.d.b<TextView> bLH() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.h
-        public com.baidu.adp.lib.d.b<GifView> bLH() {
+        public com.baidu.adp.lib.d.b<GifView> bLI() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.h
-        public com.baidu.adp.lib.d.b<View> bLI() {
+        public com.baidu.adp.lib.d.b<View> bLJ() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.h
-        public com.baidu.adp.lib.d.b<LinearLayout> bLJ() {
+        public com.baidu.adp.lib.d.b<LinearLayout> bLK() {
             return null;
         }
 
         @Override // com.baidu.tbadk.widget.richText.h
-        public com.baidu.adp.lib.d.b<RelativeLayout> bLK() {
+        public com.baidu.adp.lib.d.b<RelativeLayout> bLL() {
             return null;
         }
 
@@ -116,7 +116,7 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
 
         @Override // com.baidu.tbadk.widget.richText.h
         public void g(Context context, String str, boolean z) {
-            be.bwu().b(OfficialNotificationFragment.this.getPageContext(), new String[]{str});
+            be.bwv().b(OfficialNotificationFragment.this.getPageContext(), new String[]{str});
         }
 
         @Override // com.baidu.tbadk.widget.richText.h
@@ -159,14 +159,14 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
     }
 
     protected boolean au(Bundle bundle) {
-        this.mUid = com.baidu.tbadk.coreExtra.messageCenter.b.bBc().bBA();
+        this.mUid = com.baidu.tbadk.coreExtra.messageCenter.b.bBd().bBB();
         this.kOz = new OfficialNotificationListModel(this.mPageContext);
         this.kOz.setLoadDataCallBack(this.kxM);
         if (bundle != null) {
             av(bundle);
             return true;
         }
-        cWl();
+        cWm();
         return true;
     }
 
@@ -181,10 +181,10 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
         }
     }
 
-    protected void cWl() {
+    protected void cWm() {
         if (this.kOz != null) {
             this.kOz.setIsAcceptNotify(true);
-            dbm();
+            dbn();
         }
     }
 
@@ -196,7 +196,7 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
         }
     }
 
-    protected void dbm() {
+    protected void dbn() {
         if (!at.isEmpty(this.mUid) && this.mPageContext != null && this.kOz != null) {
             UserData userData = new UserData(Long.parseLong(this.mUid), this.mPageContext.getString(R.string.system_message), null, 0);
             b(userData);
@@ -208,9 +208,9 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
         ac.b(new ab<Void>() { // from class: com.baidu.tieba.imMessageCenter.mention.OfficialNotificationFragment.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: bPm */
+            /* renamed from: bPn */
             public Void doInBackground() {
-                com.baidu.tieba.im.settingcache.d.cZM().b(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), userData);
+                com.baidu.tieba.im.settingcache.d.cZN().b(TbadkCoreApplication.getCurrentAccount(), ChatStatusManager.getInst().getCurId(1), userData);
                 return null;
             }
         }, null);
@@ -245,7 +245,7 @@ public class OfficialNotificationFragment extends BaseFragment implements View.O
         }
     }
 
-    public void bYV() {
+    public void bYW() {
         if (this.kOz != null) {
             this.kOz.loadPrepage();
         }

@@ -210,7 +210,7 @@ public class ALaImMsgView extends RelativeLayout implements j {
         }
     }
 
-    public void abK() {
+    public void abL() {
         if (this.bso != null) {
             this.bso.setVisibility(8);
         }

@@ -23,7 +23,7 @@ public class d {
     }
 
     public d() {
-        Resources resources = com.baidu.swan.apps.t.a.aAr() != null ? com.baidu.swan.apps.t.a.aAr().getResources() : null;
+        Resources resources = com.baidu.swan.apps.t.a.aAs() != null ? com.baidu.swan.apps.t.a.aAs().getResources() : null;
         this.left = b(resources, a.d.swangame_recommend_button_default_left);
         this.top = b(resources, a.d.swangame_recommend_button_default_top);
         this.width = b(resources, a.d.swangame_recommend_button_default_width);

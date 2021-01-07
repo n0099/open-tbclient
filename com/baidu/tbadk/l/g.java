@@ -221,7 +221,7 @@ public class g extends a {
         }
     }
 
-    public void bGs() {
+    public void bGt() {
         if (this.fJl != null) {
             ((RelativeLayout.LayoutParams) this.fJl.getLayoutParams()).addRule(15, 0);
         }

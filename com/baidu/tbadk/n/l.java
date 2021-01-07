@@ -40,7 +40,7 @@ public class l extends j {
     private long fMY = -1;
     private long fMZ = -1;
 
-    public boolean bHI() {
+    public boolean bHJ() {
         return this.fMu;
     }
 
@@ -52,7 +52,7 @@ public class l extends j {
         this.fMx = j;
     }
 
-    public long bHJ() {
+    public long bHK() {
         return this.fMx;
     }
 
@@ -149,7 +149,7 @@ public class l extends j {
         this.fMM = j;
     }
 
-    public static l bHK() {
+    public static l bHL() {
         if (fNa == null) {
             synchronized (l.class) {
                 if (fNa == null) {
@@ -160,9 +160,9 @@ public class l extends j {
         return fNa;
     }
 
-    public void bHL() {
+    public void bHM() {
         long j = 0;
-        if (this.fMZ - this.fMx > 0 && !this.fMv && this.fMR > 0 && k.bHF().isSmallFlow()) {
+        if (this.fMZ - this.fMx > 0 && !this.fMv && this.fMR > 0 && k.bHG().isSmallFlow()) {
             long j2 = this.fMy - this.fMx;
             long j3 = -1;
             if (this.fMP > 0) {
@@ -208,12 +208,12 @@ public class l extends j {
             pi.append("locationinit", String.valueOf(j3 + j2 + this.fMX + this.fMN + this.fMO + j4 + this.fMR));
             pi.append("userperceptiont", String.valueOf(this.fMS - j));
             BdStatisticsManager.getInstance().performance("startt", pi);
-            bnL();
+            bnM();
         }
     }
 
     public void eD(long j) {
-        if (k.bHF().isSmallFlow() && j > 0) {
+        if (k.bHG().isSmallFlow() && j > 0) {
             com.baidu.adp.lib.stats.a pi = pi();
             pi.append("procname", "remote");
             pi.append("costt", String.valueOf(j));
@@ -221,7 +221,7 @@ public class l extends j {
         }
     }
 
-    private void bnL() {
+    private void bnM() {
         this.fMt = false;
         this.fMu = false;
         this.fMx = -1L;
@@ -264,7 +264,7 @@ public class l extends j {
         }
     }
 
-    public long bHM() {
+    public long bHN() {
         return this.totalTime;
     }
 

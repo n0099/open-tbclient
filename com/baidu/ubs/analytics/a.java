@@ -9,15 +9,15 @@ import java.util.Map;
 public class a {
     private static boolean oNS = false;
 
-    public static void XF(String str) {
+    public static void XE(String str) {
         if (oNS) {
-            e.ejE().XF(str);
+            e.ejF().XE(str);
         }
     }
 
-    public static void XG(String str) {
+    public static void XF(String str) {
         if (oNS) {
-            e.ejE().XG(str);
+            e.ejF().XF(str);
         }
     }
 
@@ -33,8 +33,8 @@ public class a {
         }
     }
 
-    public static SampleResult XH(String str) {
-        return oNS ? d.a.oOa.XI(str) : SampleResult.OTHERE;
+    public static SampleResult XG(String str) {
+        return oNS ? d.a.oOa.XH(str) : SampleResult.OTHERE;
     }
 
     public static void Al(boolean z) {

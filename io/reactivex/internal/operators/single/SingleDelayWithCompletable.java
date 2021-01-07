@@ -8,17 +8,17 @@ import io.reactivex.internal.observers.d;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class SingleDelayWithCompletable<T> extends w<T> {
-    final e qhR;
+    final e qjA;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.qhR.a(new OtherObserver(yVar, this.source));
+        this.qjA.a(new OtherObserver(yVar, this.source));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class OtherObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements c, io.reactivex.disposables.b {
         private static final long serialVersionUID = -8565274649390031272L;
         final y<? super T> actual;

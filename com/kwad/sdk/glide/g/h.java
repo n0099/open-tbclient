@@ -7,36 +7,36 @@ import java.io.InputStream;
 public class h extends FilterInputStream {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f10325a;
+    private int f10326a;
 
     public h(@NonNull InputStream inputStream) {
         super(inputStream);
-        this.f10325a = Integer.MIN_VALUE;
+        this.f10326a = Integer.MIN_VALUE;
     }
 
     private long a(long j) {
-        if (this.f10325a == 0) {
+        if (this.f10326a == 0) {
             return -1L;
         }
-        return (this.f10325a == Integer.MIN_VALUE || j <= ((long) this.f10325a)) ? j : this.f10325a;
+        return (this.f10326a == Integer.MIN_VALUE || j <= ((long) this.f10326a)) ? j : this.f10326a;
     }
 
     private void b(long j) {
-        if (this.f10325a == Integer.MIN_VALUE || j == -1) {
+        if (this.f10326a == Integer.MIN_VALUE || j == -1) {
             return;
         }
-        this.f10325a = (int) (this.f10325a - j);
+        this.f10326a = (int) (this.f10326a - j);
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public int available() {
-        return this.f10325a == Integer.MIN_VALUE ? super.available() : Math.min(this.f10325a, super.available());
+        return this.f10326a == Integer.MIN_VALUE ? super.available() : Math.min(this.f10326a, super.available());
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized void mark(int i) {
         super.mark(i);
-        this.f10325a = i;
+        this.f10326a = i;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream
@@ -63,7 +63,7 @@ public class h extends FilterInputStream {
     @Override // java.io.FilterInputStream, java.io.InputStream
     public synchronized void reset() {
         super.reset();
-        this.f10325a = Integer.MIN_VALUE;
+        this.f10326a = Integer.MIN_VALUE;
     }
 
     @Override // java.io.FilterInputStream, java.io.InputStream

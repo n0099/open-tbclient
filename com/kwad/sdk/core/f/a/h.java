@@ -8,10 +8,10 @@ import com.kwad.sdk.utils.w;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f9442a;
+    private Context f9443a;
 
     public h(Context context) {
-        this.f9442a = context;
+        this.f9443a = context;
     }
 
     public String a() {
@@ -19,7 +19,7 @@ public class h {
         String str;
         try {
             try {
-                cursor = this.f9442a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                cursor = this.f9443a.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
             } catch (Throwable th) {
                 th = th;
                 w.a((Cursor) null);

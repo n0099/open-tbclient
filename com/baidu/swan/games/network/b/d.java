@@ -14,7 +14,7 @@ public class d {
     private d() {
     }
 
-    public static d bbj() {
+    public static d bbk() {
         if (elJ == null) {
             synchronized (d.class) {
                 if (elJ == null) {
@@ -28,7 +28,7 @@ public class d {
     public void a(com.baidu.swan.games.f.b bVar, a.b bVar2) {
         if (bVar != null && bVar2 != null && bVar2.ekM != null && bVar2.ekM.emG != null) {
             release();
-            if (com.baidu.swan.apps.t.a.aAu().getSwitch("swan_game_resource_preload", 0) == 1) {
+            if (com.baidu.swan.apps.t.a.aAv().getSwitch("swan_game_resource_preload", 0) == 1) {
                 bVar2.ekM.emG.b(bVar);
             }
         }
@@ -79,8 +79,8 @@ public class d {
     }
 
     private static void a(com.baidu.swan.games.f.b bVar, String str) {
-        if (bVar != null && bVar.aZI() != null && !TextUtils.isEmpty(str)) {
-            bVar.aZI().log(str);
+        if (bVar != null && bVar.aZJ() != null && !TextUtils.isEmpty(str)) {
+            bVar.aZJ().log(str);
         }
     }
 }

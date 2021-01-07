@@ -4,14 +4,14 @@ import android.text.TextUtils;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.HashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static HashMap<String, Class<?>> f13758a = new HashMap<>();
+    public static HashMap<String, Class<?>> f13759a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    public static HashMap<Class<?>, HashMap<String, Field>> f13759b = new HashMap<>();
+    public static HashMap<Class<?>, HashMap<String, Field>> f13760b = new HashMap<>();
     public static HashMap<Class<?>, HashMap<String, Method>> c = new HashMap<>();
 
     public static Object a(Class<?> cls, String str, Object obj) {
@@ -21,10 +21,10 @@ public class aa {
             field = null;
         } else {
             try {
-                HashMap<String, Field> hashMap2 = f13759b.get(cls);
+                HashMap<String, Field> hashMap2 = f13760b.get(cls);
                 if (hashMap2 == null) {
                     HashMap<String, Field> hashMap3 = new HashMap<>();
-                    f13759b.put(cls, hashMap3);
+                    f13760b.put(cls, hashMap3);
                     hashMap = hashMap3;
                 } else {
                     hashMap = hashMap2;
@@ -49,14 +49,14 @@ public class aa {
 
     public static Object a(String str, String str2) {
         try {
-            Class<?> cls = f13758a.get(str);
+            Class<?> cls = f13759a.get(str);
             if (cls == null) {
                 cls = Class.forName(str);
             }
             if (cls == null) {
                 cls = null;
             } else {
-                f13758a.put(str, cls);
+                f13759a.put(str, cls);
             }
             return a(cls, str2, (Object) null);
         } catch (Throwable th) {

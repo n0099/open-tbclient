@@ -12,11 +12,11 @@ public class cl {
     private long end_time;
     private long start_time;
 
-    public String btQ() {
+    public String btR() {
         return this.activity_banner;
     }
 
-    public String btR() {
+    public String btS() {
         return this.activity_button;
     }
 

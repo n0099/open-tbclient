@@ -22,7 +22,7 @@ public class d {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
-        layoutParams.topMargin = aVar.aFZ();
+        layoutParams.topMargin = aVar.aGa();
         this.ajW.addView(view, layoutParams);
         return true;
     }
@@ -41,7 +41,7 @@ public class d {
         }
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(aVar.getWidth(), aVar.getHeight());
         layoutParams.leftMargin = aVar.getLeft();
-        layoutParams.topMargin = aVar.aFZ();
+        layoutParams.topMargin = aVar.aGa();
         this.ajW.updateViewLayout(view, layoutParams);
         return true;
     }
@@ -62,11 +62,11 @@ public class d {
         return this.ajW.getContext();
     }
 
-    public FrameLayout bcS() {
+    public FrameLayout bcT() {
         return this.ajW;
     }
 
-    public boolean bcT() {
+    public boolean bcU() {
         return this.eoL;
     }
 
@@ -88,7 +88,7 @@ public class d {
         }
     }
 
-    private synchronized a[] bcU() {
+    private synchronized a[] bcV() {
         a[] aVarArr;
         if (this.eoJ.isEmpty()) {
             aVarArr = null;
@@ -99,35 +99,35 @@ public class d {
         return aVarArr;
     }
 
-    private synchronized void bcV() {
+    private synchronized void bcW() {
         this.eoJ.clear();
     }
 
-    public void azI() {
-        a[] bcU = bcU();
-        if (bcU != null) {
-            for (a aVar : bcU) {
-                aVar.aWC();
-            }
-        }
-    }
-
-    public void azH() {
-        a[] bcU = bcU();
-        if (bcU != null) {
-            for (a aVar : bcU) {
+    public void azJ() {
+        a[] bcV = bcV();
+        if (bcV != null) {
+            for (a aVar : bcV) {
                 aVar.aWD();
             }
         }
     }
 
-    public void onPageDestroy() {
-        a[] bcU = bcU();
-        if (bcU != null) {
-            for (a aVar : bcU) {
+    public void azI() {
+        a[] bcV = bcV();
+        if (bcV != null) {
+            for (a aVar : bcV) {
                 aVar.aWE();
             }
         }
-        bcV();
+    }
+
+    public void onPageDestroy() {
+        a[] bcV = bcV();
+        if (bcV != null) {
+            for (a aVar : bcV) {
+                aVar.aWF();
+            }
+        }
+        bcW();
     }
 }

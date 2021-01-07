@@ -38,13 +38,13 @@ public class d extends Dialog implements View.OnClickListener {
         this.hFb = aVar;
     }
 
-    public void GB(String str) {
-        ciR();
+    public void GA(String str) {
+        ciS();
         this.aGr.startLoad(str, 25, false, false);
         show();
     }
 
-    public String ciJ() {
+    public String ciK() {
         return this.bUi.getText().toString();
     }
 
@@ -74,11 +74,11 @@ public class d extends Dialog implements View.OnClickListener {
             window.setGravity(17);
             window.setBackgroundDrawableResource(17170445);
             window.getDecorView().setPadding(0, 0, 0, 0);
-            ciI();
+            ciJ();
         }
     }
 
-    public void ciI() {
+    public void ciJ() {
         WindowManager windowManager = (WindowManager) getContext().getSystemService("window");
         if (windowManager != null) {
             DisplayMetrics displayMetrics = new DisplayMetrics();
@@ -123,7 +123,7 @@ public class d extends Dialog implements View.OnClickListener {
         this.bUj.setOnClickListener(this);
     }
 
-    private void ciR() {
+    private void ciS() {
         if (this.aGr != null) {
             this.aGr.stopLoad();
         }

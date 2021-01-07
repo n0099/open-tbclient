@@ -9,10 +9,10 @@ import java.io.IOException;
 public final class l<T> extends v<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    final com.bytedance.sdk.openadsdk.d.f f7196a;
+    final com.bytedance.sdk.openadsdk.d.f f7197a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final s<T> f7197b;
+    private final s<T> f7198b;
     private final com.bytedance.sdk.openadsdk.d.k<T> c;
     private final com.bytedance.sdk.openadsdk.d.c.a<T> d;
     private final w e;
@@ -20,9 +20,9 @@ public final class l<T> extends v<T> {
     private v<T> g;
 
     public l(s<T> sVar, com.bytedance.sdk.openadsdk.d.k<T> kVar, com.bytedance.sdk.openadsdk.d.f fVar, com.bytedance.sdk.openadsdk.d.c.a<T> aVar, w wVar) {
-        this.f7197b = sVar;
+        this.f7198b = sVar;
         this.c = kVar;
-        this.f7196a = fVar;
+        this.f7197a = fVar;
         this.d = aVar;
         this.e = wVar;
     }
@@ -41,12 +41,12 @@ public final class l<T> extends v<T> {
 
     @Override // com.bytedance.sdk.openadsdk.d.v
     public void a(com.bytedance.sdk.openadsdk.d.d.c cVar, T t) throws IOException {
-        if (this.f7197b == null) {
+        if (this.f7198b == null) {
             b().a(cVar, t);
         } else if (t == null) {
             cVar.f();
         } else {
-            com.bytedance.sdk.openadsdk.d.b.l.a(this.f7197b.a(t, this.d.b(), this.f), cVar);
+            com.bytedance.sdk.openadsdk.d.b.l.a(this.f7198b.a(t, this.d.b(), this.f), cVar);
         }
     }
 
@@ -55,7 +55,7 @@ public final class l<T> extends v<T> {
         if (vVar != null) {
             return vVar;
         }
-        v<T> a2 = this.f7196a.a(this.e, this.d);
+        v<T> a2 = this.f7197a.a(this.e, this.d);
         this.g = a2;
         return a2;
     }
@@ -69,10 +69,10 @@ public final class l<T> extends v<T> {
     public static final class b implements w {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.bytedance.sdk.openadsdk.d.c.a<?> f7199a;
+        private final com.bytedance.sdk.openadsdk.d.c.a<?> f7200a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final boolean f7200b;
+        private final boolean f7201b;
         private final Class<?> c;
         private final s<?> d;
         private final com.bytedance.sdk.openadsdk.d.k<?> e;
@@ -81,16 +81,16 @@ public final class l<T> extends v<T> {
             this.d = obj instanceof s ? (s) obj : null;
             this.e = obj instanceof com.bytedance.sdk.openadsdk.d.k ? (com.bytedance.sdk.openadsdk.d.k) obj : null;
             com.bytedance.sdk.openadsdk.d.b.a.a((this.d == null && this.e == null) ? false : true);
-            this.f7199a = aVar;
-            this.f7200b = z;
+            this.f7200a = aVar;
+            this.f7201b = z;
             this.c = cls;
         }
 
         @Override // com.bytedance.sdk.openadsdk.d.w
         public <T> v<T> a(com.bytedance.sdk.openadsdk.d.f fVar, com.bytedance.sdk.openadsdk.d.c.a<T> aVar) {
             boolean isAssignableFrom;
-            if (this.f7199a != null) {
-                isAssignableFrom = this.f7199a.equals(aVar) || (this.f7200b && this.f7199a.b() == aVar.a());
+            if (this.f7200a != null) {
+                isAssignableFrom = this.f7200a.equals(aVar) || (this.f7201b && this.f7200a.b() == aVar.a());
             } else {
                 isAssignableFrom = this.c.isAssignableFrom(aVar.a());
             }

@@ -11,7 +11,7 @@ public class e extends SwanAppSimpleH5Widget {
     }
 
     @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String ams() {
+    public String amt() {
         return "ai_apps_ad_landing";
     }
 }

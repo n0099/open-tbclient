@@ -25,7 +25,7 @@ public class e implements com.baidu.adp.lib.e.e<a> {
         return null;
     }
 
-    private void bwP() {
+    private void bwQ() {
         b bVar = new b(TbConfig.SHARE_HUB_DIR_NAME, null, DiskFileOperate.Action.DELETE_FILES);
         bVar.a(DiskFileOperate.OperateType.TRY_SUCCESS);
         bVar.setSubFolder(true);
@@ -48,7 +48,7 @@ public class e implements com.baidu.adp.lib.e.e<a> {
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: e */
     public a a(String str, String str2, int i, int i2, com.baidu.adp.lib.e.b bVar, Object... objArr) {
-        bwP();
+        bwQ();
         com.baidu.adp.widget.ImageView.a a2 = this.ffk.a(str, str2, i, i2, bVar, objArr);
         if (a2 != null && a2.getByteData() != null) {
             DiskFileOperate a3 = a(a2, str2);
@@ -63,7 +63,7 @@ public class e implements com.baidu.adp.lib.e.e<a> {
     @Override // com.baidu.adp.lib.e.e
     /* renamed from: f */
     public a b(String str, String str2, int i, int i2, com.baidu.adp.lib.e.b bVar, Object... objArr) {
-        bwP();
+        bwQ();
         com.baidu.adp.widget.ImageView.a b2 = this.ffk.b(str, str2, i, i2, bVar, objArr);
         if (b2 != null && b2.getByteData() != null) {
             DiskFileOperate a2 = a(b2, str2);

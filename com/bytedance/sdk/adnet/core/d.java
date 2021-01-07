@@ -8,7 +8,7 @@ import java.util.List;
 class d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected static final Comparator<byte[]> f6319a = new Comparator<byte[]>() { // from class: com.bytedance.sdk.adnet.core.d.1
+    protected static final Comparator<byte[]> f6320a = new Comparator<byte[]>() { // from class: com.bytedance.sdk.adnet.core.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // java.util.Comparator
         /* renamed from: a */
@@ -18,7 +18,7 @@ class d {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<byte[]> f6320b = new ArrayList();
+    private final List<byte[]> f6321b = new ArrayList();
     private final List<byte[]> c = new ArrayList(64);
     private int d = 0;
     private final int e;
@@ -39,7 +39,7 @@ class d {
                 } else {
                     this.d -= bArr.length;
                     this.c.remove(i3);
-                    this.f6320b.remove(bArr);
+                    this.f6321b.remove(bArr);
                     break;
                 }
             } else {
@@ -53,8 +53,8 @@ class d {
     public synchronized void a(byte[] bArr) {
         if (bArr != null) {
             if (bArr.length <= this.e) {
-                this.f6320b.add(bArr);
-                int binarySearch = Collections.binarySearch(this.c, bArr, f6319a);
+                this.f6321b.add(bArr);
+                int binarySearch = Collections.binarySearch(this.c, bArr, f6320a);
                 if (binarySearch < 0) {
                     binarySearch = (-binarySearch) - 1;
                 }
@@ -67,7 +67,7 @@ class d {
 
     private synchronized void a() {
         while (this.d > this.e) {
-            byte[] remove = this.f6320b.remove(0);
+            byte[] remove = this.f6321b.remove(0);
             this.c.remove(remove);
             this.d -= remove.length;
         }

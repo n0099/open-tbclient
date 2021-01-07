@@ -12,23 +12,23 @@ import com.win.opensdk.by;
 public class GifImageView extends ImageView implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f14048a;
-    public boolean qbE;
-    private long qbX;
-    private final Handler qcJ;
-    private boolean qce;
-    private final Runnable qdc;
-    private by qdt;
-    private Bitmap qdu;
-    private Thread qdv;
-    private a qdw;
-    private b qdx;
-    private c qdy;
-    private final Runnable qdz;
+    private boolean f14049a;
+    private long qdF;
+    private boolean qdM;
+    public boolean qdm;
+    private final Runnable qeK;
+    private final Handler qer;
+    private by qfb;
+    private Bitmap qfc;
+    private Thread qfd;
+    private a qfe;
+    private b qff;
+    private c qfg;
+    private final Runnable qfh;
 
     /* loaded from: classes4.dex */
     public interface a {
-        Bitmap eKn();
+        Bitmap eKR();
     }
 
     /* loaded from: classes4.dex */
@@ -41,105 +41,105 @@ public class GifImageView extends ImageView implements Runnable {
 
     public GifImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.qcJ = new Handler(Looper.getMainLooper());
-        this.qdw = null;
-        this.qbX = -1L;
-        this.qdx = null;
-        this.qdy = null;
-        this.qdc = new Runnable() { // from class: com.win.opensdk.image.gif2.GifImageView.1
+        this.qer = new Handler(Looper.getMainLooper());
+        this.qfe = null;
+        this.qdF = -1L;
+        this.qff = null;
+        this.qfg = null;
+        this.qeK = new Runnable() { // from class: com.win.opensdk.image.gif2.GifImageView.1
             @Override // java.lang.Runnable
             public final void run() {
-                if (GifImageView.this.qdu != null && !GifImageView.this.qdu.isRecycled()) {
-                    GifImageView.this.setImageBitmap(GifImageView.this.qdu);
+                if (GifImageView.this.qfc != null && !GifImageView.this.qfc.isRecycled()) {
+                    GifImageView.this.setImageBitmap(GifImageView.this.qfc);
                 }
             }
         };
-        this.qdz = new Runnable() { // from class: com.win.opensdk.image.gif2.GifImageView.2
+        this.qfh = new Runnable() { // from class: com.win.opensdk.image.gif2.GifImageView.2
             @Override // java.lang.Runnable
             public final void run() {
-                GifImageView.this.qdu = null;
-                GifImageView.this.qdt = null;
-                GifImageView.this.qdv = null;
-                GifImageView.this.f14048a = false;
+                GifImageView.this.qfc = null;
+                GifImageView.this.qfb = null;
+                GifImageView.this.qfd = null;
+                GifImageView.this.f14049a = false;
             }
         };
     }
 
     public GifImageView(Context context) {
         super(context);
-        this.qcJ = new Handler(Looper.getMainLooper());
-        this.qdw = null;
-        this.qbX = -1L;
-        this.qdx = null;
-        this.qdy = null;
-        this.qdc = new Runnable() { // from class: com.win.opensdk.image.gif2.GifImageView.1
+        this.qer = new Handler(Looper.getMainLooper());
+        this.qfe = null;
+        this.qdF = -1L;
+        this.qff = null;
+        this.qfg = null;
+        this.qeK = new Runnable() { // from class: com.win.opensdk.image.gif2.GifImageView.1
             @Override // java.lang.Runnable
             public final void run() {
-                if (GifImageView.this.qdu != null && !GifImageView.this.qdu.isRecycled()) {
-                    GifImageView.this.setImageBitmap(GifImageView.this.qdu);
+                if (GifImageView.this.qfc != null && !GifImageView.this.qfc.isRecycled()) {
+                    GifImageView.this.setImageBitmap(GifImageView.this.qfc);
                 }
             }
         };
-        this.qdz = new Runnable() { // from class: com.win.opensdk.image.gif2.GifImageView.2
+        this.qfh = new Runnable() { // from class: com.win.opensdk.image.gif2.GifImageView.2
             @Override // java.lang.Runnable
             public final void run() {
-                GifImageView.this.qdu = null;
-                GifImageView.this.qdt = null;
-                GifImageView.this.qdv = null;
-                GifImageView.this.f14048a = false;
+                GifImageView.this.qfc = null;
+                GifImageView.this.qfb = null;
+                GifImageView.this.qfd = null;
+                GifImageView.this.f14049a = false;
             }
         };
     }
 
     public void setBytes(byte[] bArr) {
         boolean z;
-        this.qdt = new by();
+        this.qfb = new by();
         try {
-            this.qdt.au(bArr);
-            if (this.qbE) {
-                eJL();
-            } else if (this.qdt.f39java == 0) {
+            this.qfb.au(bArr);
+            if (this.qdm) {
+                eKp();
+            } else if (this.qfb.f40java == 0) {
             } else {
-                by byVar = this.qdt;
-                if (-1 >= byVar.qdI.f43case) {
+                by byVar = this.qfb;
+                if (-1 >= byVar.qfq.f44case) {
                     z = false;
                 } else {
-                    byVar.f39java = -1;
+                    byVar.f40java = -1;
                     z = true;
                 }
-                if (!z || this.qbE) {
+                if (!z || this.qdm) {
                     return;
                 }
-                this.qce = true;
-                eJL();
+                this.qdM = true;
+                eKp();
             }
         } catch (Exception e) {
-            this.qdt = null;
+            this.qfb = null;
         }
     }
 
     public long getFramesDisplayDuration() {
-        return this.qbX;
+        return this.qdF;
     }
 
     public void setFramesDisplayDuration(long j) {
-        this.qbX = j;
+        this.qdF = j;
     }
 
     private boolean java() {
-        return (this.qbE || this.qce) && this.qdt != null && this.qdv == null;
+        return (this.qdm || this.qdM) && this.qfb != null && this.qfd == null;
     }
 
     public int getGifWidth() {
-        return this.qdt.qdI.f14036a;
+        return this.qfb.qfq.f14037a;
     }
 
     public int getFrameCount() {
-        return this.qdt.qdI.f43case;
+        return this.qfb.qfq.f44case;
     }
 
     public int getGifHeight() {
-        return this.qdt.qdI.f14037b;
+        return this.qfb.qfq.f14038b;
     }
 
     @Override // java.lang.Runnable
@@ -148,18 +148,18 @@ public class GifImageView extends ImageView implements Runnable {
         long j;
         int i;
         do {
-            if (!this.qbE && !this.qce) {
+            if (!this.qdm && !this.qdM) {
                 break;
             }
-            by byVar = this.qdt;
-            if (byVar.qdI.f43case <= 0) {
+            by byVar = this.qfb;
+            if (byVar.qfq.f44case <= 0) {
                 z = false;
             } else {
-                if (byVar.f39java == byVar.qdI.f43case - 1) {
-                    byVar.f38case++;
+                if (byVar.f40java == byVar.qfq.f44case - 1) {
+                    byVar.f39case++;
                 }
-                if (byVar.qdI.g == -1 || byVar.f38case <= byVar.qdI.g) {
-                    byVar.f39java = (byVar.f39java + 1) % byVar.qdI.f43case;
+                if (byVar.qfq.g == -1 || byVar.f39case <= byVar.qfq.g) {
+                    byVar.f40java = (byVar.f40java + 1) % byVar.qfq.f44case;
                     z = true;
                 } else {
                     z = false;
@@ -167,13 +167,13 @@ public class GifImageView extends ImageView implements Runnable {
             }
             try {
                 long nanoTime = System.nanoTime();
-                this.qdu = this.qdt.eKn();
-                if (this.qdw != null) {
-                    this.qdu = this.qdw.eKn();
+                this.qfc = this.qfb.eKR();
+                if (this.qfe != null) {
+                    this.qfc = this.qfe.eKR();
                 }
                 j = (System.nanoTime() - nanoTime) / TimeUtils.NANOS_PER_MS;
                 try {
-                    this.qcJ.post(this.qdc);
+                    this.qer.post(this.qeK);
                 } catch (ArrayIndexOutOfBoundsException e) {
                 } catch (IllegalArgumentException e2) {
                 }
@@ -182,70 +182,70 @@ public class GifImageView extends ImageView implements Runnable {
             } catch (IllegalArgumentException e4) {
                 j = 0;
             }
-            this.qce = false;
-            if (!this.qbE || !z) {
-                this.qbE = false;
+            this.qdM = false;
+            if (!this.qdm || !z) {
+                this.qdm = false;
                 break;
             }
             try {
-                by byVar2 = this.qdt;
-                if (byVar2.qdI.f43case <= 0 || byVar2.f39java < 0) {
+                by byVar2 = this.qfb;
+                if (byVar2.qfq.f44case <= 0 || byVar2.f40java < 0) {
                     i = 0;
                 } else {
-                    int i2 = byVar2.f39java;
-                    i = (i2 < 0 || i2 >= byVar2.qdI.f43case) ? -1 : byVar2.qdI.qcF.get(i2).e;
+                    int i2 = byVar2.f40java;
+                    i = (i2 < 0 || i2 >= byVar2.qfq.f44case) ? -1 : byVar2.qfq.qen.get(i2).e;
                 }
                 int i3 = (int) (i - j);
                 if (i3 > 0) {
-                    Thread.sleep(this.qbX > 0 ? this.qbX : i3);
+                    Thread.sleep(this.qdF > 0 ? this.qdF : i3);
                 }
             } catch (InterruptedException e5) {
             }
-        } while (this.qbE);
-        if (this.f14048a) {
-            this.qcJ.post(this.qdz);
+        } while (this.qdm);
+        if (this.f14049a) {
+            this.qer.post(this.qfh);
         }
-        this.qdv = null;
+        this.qfd = null;
     }
 
     public a getOnFrameAvailable() {
-        return this.qdw;
+        return this.qfe;
     }
 
     public void setOnFrameAvailable(a aVar) {
-        this.qdw = aVar;
+        this.qfe = aVar;
     }
 
     public b getOnAnimationStop() {
-        return this.qdx;
+        return this.qff;
     }
 
     public void setOnAnimationStop(b bVar) {
-        this.qdx = bVar;
+        this.qff = bVar;
     }
 
     public void setOnAnimationStart(c cVar) {
-        this.qdy = cVar;
+        this.qfg = cVar;
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        this.qbE = false;
-        this.qce = false;
-        this.f14048a = true;
-        this.qbE = false;
-        if (this.qdv != null) {
-            this.qdv.interrupt();
-            this.qdv = null;
+        this.qdm = false;
+        this.qdM = false;
+        this.f14049a = true;
+        this.qdm = false;
+        if (this.qfd != null) {
+            this.qfd.interrupt();
+            this.qfd = null;
         }
-        this.qcJ.post(this.qdz);
+        this.qer.post(this.qfh);
     }
 
-    public final void eJL() {
+    public final void eKp() {
         if (java()) {
-            this.qdv = new Thread(this);
-            this.qdv.start();
+            this.qfd = new Thread(this);
+            this.qfd.start();
         }
     }
 }

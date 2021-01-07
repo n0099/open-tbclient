@@ -14,7 +14,7 @@ public class b {
         this.url = str;
     }
 
-    public void Ez(String str) {
+    public void Ey(String str) {
         this.series = str;
     }
 

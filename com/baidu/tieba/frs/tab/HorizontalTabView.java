@@ -72,7 +72,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
         boolean BM(int i);
     }
 
-    public void cMK() {
+    public void cML() {
         final bd bdVar;
         if (this.iUb != null) {
             ArrayList arrayList = new ArrayList();
@@ -93,7 +93,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                     }
                 });
                 bVar.d(this.iUb);
-                bVar.btZ();
+                bVar.bua();
             }
         }
     }
@@ -213,7 +213,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                     }
                 }
                 if (this.jGE.getState() == TabItemView.jGW || this.jGE.getState() == TabItemView.STATE_EXPANDED) {
-                    this.jGC.cMN();
+                    this.jGC.cMO();
                     boolean z2 = this.jGE.getState() == TabItemView.jGW;
                     this.jGE.setState(TabItemView.jGX);
                     d BF = BF(this.jGE.getTabId());
@@ -287,7 +287,7 @@ public class HorizontalTabView extends MyHorizontalScrollView implements com.bai
                         if (HorizontalTabView.this.jGN != null) {
                             HorizontalTabView.this.jGN.b(HorizontalTabView.this.BE(1));
                         }
-                        HorizontalTabView.this.cMK();
+                        HorizontalTabView.this.cML();
                         return;
                     }
                     return;

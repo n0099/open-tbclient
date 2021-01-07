@@ -1,18 +1,18 @@
 package b.a.a.a.a;
 
 import android.location.Location;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class aa extends ac {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final Location f1048a = new Location("EMPTY");
+    public static final Location f1049a = new Location("EMPTY");
 
     /* renamed from: b  reason: collision with root package name */
-    public final Location f1049b;
+    public final Location f1050b;
     public final long c;
 
     public aa(Location location, long j) {
-        this.f1049b = location;
+        this.f1050b = location;
         this.c = j;
     }
 
@@ -26,6 +26,6 @@ public final class aa extends ac {
     }
 
     public final String toString() {
-        return "TxGpsInfo [location=" + this.f1049b + ", gpsTime=" + this.c + "]";
+        return "TxGpsInfo [location=" + this.f1050b + ", gpsTime=" + this.c + "]";
     }
 }

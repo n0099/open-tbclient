@@ -10,16 +10,16 @@ public class am extends BaseCardInfo {
     private String card;
     private boolean eQz;
 
-    public void AQ(String str) {
+    public void AP(String str) {
         this.card = str;
     }
 
-    public void bpE() {
-        this.aaJ = com.baidu.tieba.lego.card.b.NW(this.card);
+    public void bpF() {
+        this.aaJ = com.baidu.tieba.lego.card.b.NV(this.card);
         this.eQz = this.aaJ != null;
     }
 
-    public ICardInfo bpF() {
+    public ICardInfo bpG() {
         return this.aaJ;
     }
 

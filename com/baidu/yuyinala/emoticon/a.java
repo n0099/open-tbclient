@@ -8,7 +8,7 @@ public class a {
     private TbPageContext mPageContext;
     private b oQm;
 
-    public static a eky() {
+    public static a ekz() {
         if (oQl == null) {
             synchronized (a.class) {
                 if (oQl == null) {

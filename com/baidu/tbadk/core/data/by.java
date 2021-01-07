@@ -30,13 +30,13 @@ public class by extends a implements com.baidu.adp.widget.ListView.n {
         if (this.eMv == null) {
             return null;
         }
-        if (this.eMv.bti()) {
-            if (this.eMv.brH() != null) {
+        if (this.eMv.btj()) {
+            if (this.eMv.brI() != null) {
                 return bz.eTj;
             }
             return bz.eSL;
         }
-        int brl = this.eMv.brl();
+        int brm = this.eMv.brm();
         if (this.eMv.threadType == 63) {
             bz bzVar = this.eMv;
             return bz.eTv;
@@ -46,22 +46,22 @@ public class by extends a implements com.baidu.adp.widget.ListView.n {
         } else if (this.eMv.threadType == 65) {
             bz bzVar3 = this.eMv;
             return bz.eTa;
-        } else if (this.eMv.brJ() != null && this.eMv.threadType == 60) {
+        } else if (this.eMv.brK() != null && this.eMv.threadType == 60) {
             return bz.eTm;
         } else {
-            if (this.eMv.brJ() != null && this.eMv.threadType == 49) {
+            if (this.eMv.brK() != null && this.eMv.threadType == 49) {
                 return bz.eTk;
             }
-            if (this.eMv.brJ() != null && this.eMv.threadType == 67) {
+            if (this.eMv.brK() != null && this.eMv.threadType == 67) {
                 return bz.eTn;
             }
             if (this.eMv.threadType == 51) {
                 return bz.eTl;
             }
-            if (brl == 2 || brl == 1) {
+            if (brm == 2 || brm == 1) {
                 return bz.eSK;
             }
-            if (this.eMv.brH() != null && this.eMv.bsG() && !this.eMv.bsx()) {
+            if (this.eMv.brI() != null && this.eMv.bsH() && !this.eMv.bsy()) {
                 return bz.eTB;
             }
             if (this.eMv.isShareThread && this.eMv.eVB != null) {
@@ -69,25 +69,25 @@ public class by extends a implements com.baidu.adp.widget.ListView.n {
                     if (this.eMv.eVB.videoInfo != null) {
                         return bz.eTr;
                     }
-                    if (this.eMv.eVB.bpX()) {
+                    if (this.eMv.eVB.bpY()) {
                         return bz.eTq;
                     }
                     return bz.eTp;
                 }
                 return bz.eTo;
-            } else if (this.eMv.bsz()) {
+            } else if (this.eMv.bsA()) {
                 bz bzVar4 = this.eMv;
                 return bz.eTy.get() ? bz.eUO : bz.eSL;
-            } else if (this.eMv.bse() && this.eMv.bsd() == 1) {
+            } else if (this.eMv.bsf() && this.eMv.bse() == 1) {
                 bz bzVar5 = this.eMv;
                 return bz.eTy.get() ? bz.eUW : bz.eSL;
             } else if (this.eMv.isLinkThread()) {
                 return bz.eTh;
             } else {
-                if (this.eMv.bta()) {
-                    return this.eMv.bqY() != null ? bz.eTu : bz.eTt;
-                } else if (this.eMv.eWF != null && this.eMv.eWF.dOO()) {
-                    return (this.eMv.eWF.dON() == null && this.eMv.eWF.dOP()) ? AdvertAppInfo.eNK : AdvertAppInfo.eNL;
+                if (this.eMv.btb()) {
+                    return this.eMv.bqZ() != null ? bz.eTu : bz.eTt;
+                } else if (this.eMv.eWF != null && this.eMv.eWF.dOP()) {
+                    return (this.eMv.eWF.dOO() == null && this.eMv.eWF.dOQ()) ? AdvertAppInfo.eNK : AdvertAppInfo.eNL;
                 } else if (this.eSH) {
                     return bz.eSQ;
                 } else {
@@ -121,7 +121,7 @@ public class by extends a implements com.baidu.adp.widget.ListView.n {
                     if (this.eSz) {
                         return bz.eTC;
                     }
-                    if (this.eMv.brt()) {
+                    if (this.eMv.bru()) {
                         if (this.eSA) {
                             return bz.eTs;
                         }
@@ -152,19 +152,19 @@ public class by extends a implements com.baidu.adp.widget.ListView.n {
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return this.eMv;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at boQ() {
+    public at boR() {
         if (this.eMv == null || this.eMv.feedBackReasonMap == null || this.eMv.feedBackReasonMap.size() <= 0) {
             return null;
         }
         at atVar = new at();
-        atVar.setTid(boO().getTid());
-        atVar.setFid(boO().getFid());
-        atVar.setNid(boO().bpO());
+        atVar.setTid(boP().getTid());
+        atVar.setFid(boP().getFid());
+        atVar.setNid(boP().bpP());
         atVar.setFeedBackReasonMap(this.eMv.feedBackReasonMap);
         atVar.eQN = this.eMv.eQN;
         atVar.abTag = this.eMv.mRecomAbTag;
@@ -172,12 +172,12 @@ public class by extends a implements com.baidu.adp.widget.ListView.n {
         atVar.extra = this.eMv.mRecomExtra;
         atVar.source = this.eMv.mRecomSource;
         atVar.eQR = this.eMv.eQR;
-        atVar.cardType = this.eMv.bts();
+        atVar.cardType = this.eMv.btt();
         return atVar;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String boP() {
+    public String boQ() {
         return this.eMv.eVh;
     }
 }

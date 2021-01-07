@@ -26,20 +26,20 @@ public class b extends BaseAdapter {
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && !x.isEmpty(bVar.dcz())) {
+        if (bVar != null && !x.isEmpty(bVar.dcA())) {
             this.mLabelDataSet = bVar;
-            this.kUn = bVar.dcz();
-            if (!x.isEmpty(bVar.dcA())) {
-                this.kUo = new ArrayList(bVar.dcA());
+            this.kUn = bVar.dcA();
+            if (!x.isEmpty(bVar.dcB())) {
+                this.kUo = new ArrayList(bVar.dcB());
             }
         }
     }
 
-    public List<Integer> dcw() {
-        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.dcA();
+    public List<Integer> dcx() {
+        return this.mLabelDataSet == null ? new ArrayList() : this.mLabelDataSet.dcB();
     }
 
-    public List<Integer> dcx() {
+    public List<Integer> dcy() {
         return this.kUo;
     }
 
@@ -66,20 +66,20 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0777b c0777b;
+        C0786b c0786b;
         View view2;
         if (view == null) {
             view2 = LayoutInflater.from(this.kUl.getContext()).inflate(R.layout.item_label_layout, (ViewGroup) null);
-            C0777b c0777b2 = new C0777b();
-            c0777b2.kUq = (TextView) view2;
-            view2.setTag(c0777b2);
-            c0777b = c0777b2;
+            C0786b c0786b2 = new C0786b();
+            c0786b2.kUq = (TextView) view2;
+            view2.setTag(c0786b2);
+            c0786b = c0786b2;
         } else {
-            c0777b = (C0777b) view.getTag();
+            c0786b = (C0786b) view.getTag();
             view2 = view;
         }
-        c0777b.kUq.setOnClickListener(new a(i));
-        a(c0777b.kUq, getItem(i));
+        c0786b.kUq.setOnClickListener(new a(i));
+        a(c0786b.kUq, getItem(i));
         return view2;
     }
 
@@ -105,10 +105,10 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.interestlabel.a.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    class C0777b {
+    class C0786b {
         TextView kUq;
 
-        C0777b() {
+        C0786b() {
         }
     }
 

@@ -11,7 +11,7 @@ public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
 
     @Override // com.baidu.swan.apps.inlinewidget.a
     @NonNull
-    public String azr() {
+    public String azs() {
         return "setVolume";
     }
 
@@ -19,7 +19,7 @@ public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
     @Override // com.baidu.swan.apps.inlinewidget.a
     public void a(@NonNull ZeusPlugin.Command command, @NonNull com.baidu.swan.apps.inlinewidget.f.c.a aVar) {
         if (command.obj != null) {
-            if (!aVar.aAb()) {
+            if (!aVar.aAc()) {
                 a(aVar, command.what, "Not Set!! Volume: " + command.obj, false);
             } else if (command.obj instanceof Double) {
                 try {
@@ -34,7 +34,7 @@ public class q extends com.baidu.swan.apps.inlinewidget.a<com.baidu.swan.apps.in
                     a(doubleValue, aVar.getContext());
                 } catch (Exception e) {
                     if (DEBUG) {
-                        Log.e(azr(), "setVolume param type error");
+                        Log.e(azs(), "setVolume param type error");
                     }
                 }
             }

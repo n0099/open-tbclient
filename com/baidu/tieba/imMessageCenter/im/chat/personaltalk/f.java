@@ -123,7 +123,7 @@ public class f {
         void updateUI();
     }
 
-    public boolean daj() {
+    public boolean dak() {
         return this.azJ;
     }
 
@@ -131,11 +131,11 @@ public class f {
         this.azJ = z;
     }
 
-    public DataRes dak() {
+    public DataRes dal() {
         return this.data;
     }
 
-    public boolean dal() {
+    public boolean dam() {
         return this.kKT;
     }
 
@@ -148,9 +148,9 @@ public class f {
         ac.b(new ab<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: dao */
+            /* renamed from: dap */
             public PersonalSettingItemData doInBackground() {
-                return com.baidu.tieba.im.settingcache.e.cZN().fy(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
+                return com.baidu.tieba.im.settingcache.e.cZO().fy(TbadkCoreApplication.getCurrentAccount(), String.valueOf(j));
             }
         }, new l<PersonalSettingItemData>() { // from class: com.baidu.tieba.imMessageCenter.im.chat.personaltalk.f.2
             /* JADX DEBUG: Method merged with bridge method */
@@ -195,11 +195,11 @@ public class f {
         }
     }
 
-    public com.baidu.adp.framework.listener.c dam() {
+    public com.baidu.adp.framework.listener.c dan() {
         return this.kwr;
     }
 
-    public CustomMessageListener dan() {
+    public CustomMessageListener dao() {
         return this.mCustomListener;
     }
 }

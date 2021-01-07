@@ -18,10 +18,10 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f4070a = "CameraInterface";
+    private static final String f4071a = "CameraInterface";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f4071b = 3;
+    public static final int f4072b = 3;
     public static final int c = 480;
     public static final int d = 640;
     private static final float e = 0.2f;
@@ -38,14 +38,14 @@ public class a {
     public static class C0281a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4072a;
+        public int f4073a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4073b;
+        public int f4074b;
 
         public C0281a(int i, int i2) {
-            this.f4072a = i;
-            this.f4073b = i2;
+            this.f4073a = i;
+            this.f4074b = i2;
         }
     }
 
@@ -121,8 +121,8 @@ public class a {
             Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
             C0281a c0281a = new C0281a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
             int i2 = 153600;
-            int i3 = c0281a.f4072a;
-            int i4 = c0281a.f4073b;
+            int i3 = c0281a.f4073a;
+            int i4 = c0281a.f4074b;
             if ((i3 * i4) / 4 > 921600) {
                 i2 = (i4 * i3) / 8;
                 i = 2073600;
@@ -249,15 +249,15 @@ public class a {
             if (b2 != null && b2.size() != 0) {
                 Display defaultDisplay = ((WindowManager) activity.getSystemService("window")).getDefaultDisplay();
                 C0281a c0281a2 = new C0281a(defaultDisplay.getWidth(), defaultDisplay.getHeight() + PassBioDisplayUtil.getNavigationBarHeight(activity));
-                float f2 = c0281a2.f4073b / c0281a2.f4072a;
+                float f2 = c0281a2.f4074b / c0281a2.f4073a;
                 C0281a c0281a3 = this.i;
-                float f3 = c0281a3.f4072a / c0281a3.f4073b;
+                float f3 = c0281a3.f4073a / c0281a3.f4074b;
                 int i = 0;
                 while (true) {
                     int i2 = i;
                     if (i2 < b2.size()) {
                         C0281a c0281a4 = b2.get(i2);
-                        float abs = Math.abs((c0281a4.f4072a / c0281a4.f4073b) - f2);
+                        float abs = Math.abs((c0281a4.f4073a / c0281a4.f4074b) - f2);
                         if (abs < f3) {
                             this.i = c0281a4;
                             f3 = abs;
@@ -277,7 +277,7 @@ public class a {
 
     public C0281a a(Activity activity, Camera.Parameters parameters, boolean z) {
         C0281a a2 = a(activity, parameters);
-        parameters.setPreviewSize(a2.f4072a, a2.f4073b);
+        parameters.setPreviewSize(a2.f4073a, a2.f4074b);
         return a2;
     }
 
@@ -285,7 +285,7 @@ public class a {
     public void a(Camera.Parameters parameters, C0281a c0281a) {
         int i;
         int i2;
-        float f2 = c0281a != null ? c0281a.f4072a / c0281a.f4073b : 0.0f;
+        float f2 = c0281a != null ? c0281a.f4073a / c0281a.f4074b : 0.0f;
         List<Camera.Size> supportedPictureSizes = parameters.getSupportedPictureSizes();
         if (supportedPictureSizes != null) {
             int size = supportedPictureSizes.size();

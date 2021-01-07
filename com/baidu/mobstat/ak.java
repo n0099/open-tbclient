@@ -12,18 +12,18 @@ import com.baidu.mobstat.al;
 public class ak {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f3696a = true;
+    private static volatile boolean f3697a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f3697b;
+    private a f3698b;
     private Activity c;
     private Handler d = new Handler(Looper.getMainLooper()) { // from class: com.baidu.mobstat.ak.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
                 case 100:
-                    if (ak.this.f3697b != null) {
-                        ak.this.f3697b.a();
+                    if (ak.this.f3698b != null) {
+                        ak.this.f3698b.a();
                         return;
                     }
                     return;
@@ -39,18 +39,18 @@ public class ak {
     }
 
     public ak(a aVar) {
-        this.f3697b = aVar;
+        this.f3698b = aVar;
     }
 
     public static void a(boolean z) {
         if (z) {
             an.a();
         }
-        f3696a = z;
+        f3697a = z;
     }
 
     public static boolean a() {
-        return f3696a;
+        return f3697a;
     }
 
     public void a(Activity activity) {

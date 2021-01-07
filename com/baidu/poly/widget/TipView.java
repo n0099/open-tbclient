@@ -10,7 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TipView extends LinearLayout {
     private ImageView cpm;
     private TextView cpn;
@@ -52,7 +52,7 @@ public class TipView extends LinearLayout {
             layoutParams.width = dimensionPixelOffset;
             layoutParams.height = dimensionPixelOffset;
         }
-        com.baidu.poly.a.d.b.aft().b(this.cpm, str);
+        com.baidu.poly.a.d.b.afu().b(this.cpm, str);
         this.cpn.setText(str2);
     }
 

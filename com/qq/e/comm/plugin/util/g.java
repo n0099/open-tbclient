@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import android.widget.ImageView;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.managers.setting.SM;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
     public static String a(com.qq.e.comm.plugin.ad.e eVar) {
         String str;

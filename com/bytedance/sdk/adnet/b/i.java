@@ -11,11 +11,11 @@ import java.util.concurrent.TimeoutException;
 public class i<T> implements p.a<T>, Future<p<T>> {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f6302b = false;
+    private boolean f6303b = false;
     private Request<?> ppa;
     private p<T> ppd;
 
-    public static <E> i<E> esi() {
+    public static <E> i<E> esj() {
         return new i<>();
     }
 
@@ -36,7 +36,7 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.concurrent.Future
-    /* renamed from: esh */
+    /* renamed from: esi */
     public p<T> get() throws InterruptedException {
         try {
             return i(null);
@@ -54,7 +54,7 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     private synchronized p<T> i(Long l) throws InterruptedException, TimeoutException {
         p<T> pVar;
-        if (this.f6302b) {
+        if (this.f6303b) {
             pVar = this.ppd;
         } else {
             if (l == null) {
@@ -69,7 +69,7 @@ public class i<T> implements p.a<T>, Future<p<T>> {
                     uptimeMillis = SystemClock.uptimeMillis();
                 }
             }
-            if (!this.f6302b) {
+            if (!this.f6303b) {
                 throw new TimeoutException();
             }
             pVar = this.ppd;
@@ -88,7 +88,7 @@ public class i<T> implements p.a<T>, Future<p<T>> {
     @Override // java.util.concurrent.Future
     public synchronized boolean isDone() {
         boolean z;
-        if (!this.f6302b) {
+        if (!this.f6303b) {
             z = isCancelled();
         }
         return z;
@@ -96,14 +96,14 @@ public class i<T> implements p.a<T>, Future<p<T>> {
 
     @Override // com.bytedance.sdk.adnet.core.p.a
     public synchronized void a(p<T> pVar) {
-        this.f6302b = true;
+        this.f6303b = true;
         this.ppd = pVar;
         notifyAll();
     }
 
     @Override // com.bytedance.sdk.adnet.core.p.a
     public synchronized void b(p<T> pVar) {
-        this.f6302b = true;
+        this.f6303b = true;
         this.ppd = pVar;
         notifyAll();
     }

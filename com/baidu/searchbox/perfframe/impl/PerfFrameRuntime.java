@@ -10,7 +10,7 @@ public class PerfFrameRuntime {
     private d<IPerfFrameRegister> mIPerfFrameMonitorList;
 
     public void initmIPerfFrameMonitorList() {
-        this.mIPerfFrameMonitorList = b.ahA();
+        this.mIPerfFrameMonitorList = b.ahB();
         this.mIPerfFrameMonitorList.b(new IPerfFrameRegister_PerfFrameRuntime_ListProvider());
     }
 

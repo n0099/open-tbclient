@@ -19,7 +19,7 @@ public class b {
         }
     }
 
-    public boolean eoh() {
+    public boolean eoi() {
         return this.pcy;
     }
 }

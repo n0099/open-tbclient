@@ -34,7 +34,7 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
             this.ksB = (ForeDrawableImageView) view.findViewById(R.id.topic_list_video_item_thumbnail);
             this.gBU = new TbCyberVideoView(view.getContext());
             this.gBU.setStageType(null);
-            bKF();
+            bKG();
             this.ksC = (TopicVideoControllerView) view.findViewById(R.id.topic_video_controller);
             this.ksD = (TopicVideoProgressView) view.findViewById(R.id.topic_video_progress_view);
             this.ksE = view.findViewById(R.id.topic_replay_layout);
@@ -47,7 +47,7 @@ public class TopicMediaHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    private void bKF() {
+    private void bKG() {
         if (this.gBU != null && this.gBU.getParent() == null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
             layoutParams.addRule(13);

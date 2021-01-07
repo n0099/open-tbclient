@@ -20,17 +20,17 @@ public class b {
     private TbPageContext eXu;
     private int hWZ;
     private BdUniqueId mBdUniqueId;
-    private com.baidu.tieba.personPolymeric.tab.fragments.a myO;
-    private final CustomMessageListener myP = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
+    private com.baidu.tieba.personPolymeric.tab.fragments.a myN;
+    private final CustomMessageListener myO = new CustomMessageListener(2921428) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bz) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.myO != null && b.this.myO.dAU()) {
+            if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bz) && customResponsedMessage.getOrginalMessage() != null && customResponsedMessage.getOrginalMessage().getTag() == b.this.mBdUniqueId && b.this.myN != null && b.this.myN.dAV()) {
                 b.this.aZ((bz) customResponsedMessage.getData());
             }
         }
     };
-    private final CustomMessageListener myQ = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
+    private final CustomMessageListener myP = new CustomMessageListener(CmdConfigCustom.CMD_DELETE_CARD_PERSON_DYNAMIC_THREAD) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -39,12 +39,12 @@ public class b {
             }
         }
     };
-    private final CustomMessageListener myR = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
+    private final CustomMessageListener myQ = new CustomMessageListener(2921436) { // from class: com.baidu.tieba.personPolymeric.tab.a.b.4
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                b.this.QS((String) customResponsedMessage.getData());
+                b.this.QR((String) customResponsedMessage.getData());
             }
         }
     };
@@ -52,14 +52,14 @@ public class b {
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId, com.baidu.tieba.personPolymeric.tab.fragments.a aVar, int i) {
         this.eXu = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
-        this.myO = aVar;
+        this.myN = aVar;
         this.hWZ = i;
+        this.myO.setTag(bdUniqueId);
+        MessageManager.getInstance().registerListener(this.myO);
         this.myP.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.myP);
         this.myQ.setTag(bdUniqueId);
         MessageManager.getInstance().registerListener(this.myQ);
-        this.myR.setTag(bdUniqueId);
-        MessageManager.getInstance().registerListener(this.myR);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -93,18 +93,18 @@ public class b {
     public void a(boolean z, bz bzVar) {
         bz i;
         boolean z2 = false;
-        if (bzVar != null && this.myO != null && !x.isEmpty(this.myO.cTT()) && this.myO.dAT() != null && this.myO.dAT().dAV() != null) {
+        if (bzVar != null && this.myN != null && !x.isEmpty(this.myN.cTU()) && this.myN.dAU() != null && this.myN.dAU().dAW() != null) {
             int i2 = 0;
             while (true) {
-                if (i2 >= this.myO.cTT().size()) {
+                if (i2 >= this.myN.cTU().size()) {
                     break;
                 }
-                n nVar = this.myO.cTT().get(i2);
+                n nVar = this.myN.cTU().get(i2);
                 if (nVar != null && (i = com.baidu.tieba.personPolymeric.tab.b.a.i(nVar)) != null && !StringUtils.isNull(i.tid) && i.tid.equals(bzVar.tid)) {
                     i.isPrivacy = z;
                     com.baidu.tieba.card.data.b aD = com.baidu.tieba.personPolymeric.tab.b.a.aD(i);
                     if (aD != null) {
-                        this.myO.cTT().set(i2, aD);
+                        this.myN.cTU().set(i2, aD);
                         z2 = true;
                         break;
                     }
@@ -112,17 +112,17 @@ public class b {
                 i2++;
             }
             if (z2) {
-                this.myO.dAT().fF(this.myO.cTT());
+                this.myN.dAU().fF(this.myN.cTU());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void QS(String str) {
+    public void QR(String str) {
         boolean z;
         bz i;
-        if (!StringUtils.isNull(str) && this.myO != null && !x.isEmpty(this.myO.cTT()) && this.myO.dAT() != null && this.myO.dAT().dAV() != null) {
-            Iterator<n> it = this.myO.cTT().iterator();
+        if (!StringUtils.isNull(str) && this.myN != null && !x.isEmpty(this.myN.cTU()) && this.myN.dAU() != null && this.myN.dAU().dAW() != null) {
+            Iterator<n> it = this.myN.cTU().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -136,7 +136,7 @@ public class b {
                 }
             }
             if (z) {
-                this.myO.dAT().fF(this.myO.cTT());
+                this.myN.dAU().fF(this.myN.cTU());
             }
         }
     }
@@ -145,8 +145,8 @@ public class b {
     public void removeThread(String str) {
         boolean z;
         bz i;
-        if (!StringUtils.isNull(str) && this.myO != null && !x.isEmpty(this.myO.cTT()) && this.myO.dAT() != null && this.myO.dAT().dAV() != null) {
-            Iterator<n> it = this.myO.cTT().iterator();
+        if (!StringUtils.isNull(str) && this.myN != null && !x.isEmpty(this.myN.cTU()) && this.myN.dAU() != null && this.myN.dAU().dAW() != null) {
+            Iterator<n> it = this.myN.cTU().iterator();
             while (true) {
                 if (!it.hasNext()) {
                     z = false;
@@ -160,7 +160,7 @@ public class b {
                 }
             }
             if (z) {
-                this.myO.dAT().fF(this.myO.cTT());
+                this.myN.dAU().fF(this.myN.cTU());
             }
         }
     }

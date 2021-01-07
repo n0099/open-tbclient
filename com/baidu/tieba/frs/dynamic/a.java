@@ -60,8 +60,8 @@ public class a implements c {
                         bz bzVar = new bz();
                         bzVar.setUserMap(this.userMap);
                         bzVar.a(threadInfo);
-                        bzVar.bsq();
-                        bzVar.bqS();
+                        bzVar.bsr();
+                        bzVar.bqT();
                         if (bzVar.getType() == bz.eSL || bzVar.getType() == bz.eTi || bzVar.getType() == bz.eTo || bzVar.getType() == bz.eTj || bzVar.getType() == bz.eTs || bzVar.getType() == bz.eTt) {
                             this.threadList.add(bzVar);
                         }

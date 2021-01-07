@@ -55,14 +55,14 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
                 return false;
             }
             stopPlay(true);
-            this.adg = com.baidu.tbadk.core.voice.a.bzd();
-            String CF = com.baidu.tbadk.core.voice.a.CF(this.adg);
+            this.adg = com.baidu.tbadk.core.voice.a.bze();
+            String CE = com.baidu.tbadk.core.voice.a.CE(this.adg);
             if (this.adh == null) {
                 this.adh = new a();
             }
             com.baidu.audiorecorder.lib.voice.a.stop();
             releaseWakeLock();
-            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(CF, i, this.adh);
+            boolean a2 = com.baidu.audiorecorder.lib.voice.a.a(CE, i, this.adh);
             if (a2) {
                 this.adf.onStartedRecorder(true);
                 h.QP = 2;
@@ -99,7 +99,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
             this.mHandle.postDelayed(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.CG(str))) {
+                    if (com.baidu.tbadk.core.voice.a.delFile(com.baidu.tbadk.core.voice.a.CF(str))) {
                     }
                 }
             }, 200L);
@@ -118,7 +118,7 @@ public class e implements com.baidu.tieba.tbadkCore.voice.a {
             new Thread(new Runnable() { // from class: com.baidu.audiorecorder.lib.voice.e.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    final String str2 = com.baidu.tbadk.core.voice.a.b.CI(com.baidu.tbadk.core.voice.a.CH(str)).md5;
+                    final String str2 = com.baidu.tbadk.core.voice.a.b.CH(com.baidu.tbadk.core.voice.a.CG(str)).md5;
                     if (e.this.mHandle != null) {
                         e.this.mHandle.removeCallbacks(e.this.adi);
                         if (StringUtils.isNull(str2)) {

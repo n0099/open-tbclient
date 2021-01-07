@@ -22,11 +22,11 @@ public class ALaCharmInitialize {
                     if (aVar.bsL != null && aVar.bsL.context != null) {
                         TbPageContext tbPageContext = (TbPageContext) IScrollableHelper.getBbPageContext(aVar.bsL.context);
                         if (aVar.bsL.bsN != null && aVar.bsL.bsN.mLiveInfo != null) {
-                            com.baidu.tieba.ala.charm.a.a Hi = new com.baidu.tieba.ala.charm.a.a(tbPageContext).Hh(String.valueOf(aVar.bsL.bsN.mLiveInfo.group_id)).Hi(String.valueOf(aVar.bsL.bsN.mLiveInfo.live_id));
+                            com.baidu.tieba.ala.charm.a.a Hh = new com.baidu.tieba.ala.charm.a.a(tbPageContext).Hg(String.valueOf(aVar.bsL.bsN.mLiveInfo.group_id)).Hh(String.valueOf(aVar.bsL.bsN.mLiveInfo.live_id));
                             if (aVar.bsL.bsN.aKu != null) {
-                                Hi.Hk(String.valueOf(aVar.bsL.bsN.aKu.charmCount)).Hj(String.valueOf(String.valueOf(aVar.bsL.bsN.aKu.userId)));
+                                Hh.Hj(String.valueOf(aVar.bsL.bsN.aKu.charmCount)).Hi(String.valueOf(String.valueOf(aVar.bsL.bsN.aKu.userId)));
                             }
-                            aVar.a(Hi);
+                            aVar.a(Hh);
                         }
                     }
                 }

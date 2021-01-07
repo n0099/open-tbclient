@@ -2,11 +2,11 @@ package com.baidu.poly.a.e;
 
 import android.graphics.Bitmap;
 import android.util.LruCache;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     private LruCache<String, Bitmap> cnW = new a(((int) (Runtime.getRuntime().maxMemory() / 1024)) / 8);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class a extends LruCache<String, Bitmap> {
         a(int i) {
             super(i);

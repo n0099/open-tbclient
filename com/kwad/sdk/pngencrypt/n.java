@@ -7,10 +7,10 @@ import java.nio.charset.Charset;
 public final class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Charset f10815a = Charset.forName("ISO-8859-1");
+    public static Charset f10816a = Charset.forName("ISO-8859-1");
 
     /* renamed from: b  reason: collision with root package name */
-    public static Charset f10816b = Charset.forName("UTF-8");
+    public static Charset f10817b = Charset.forName("UTF-8");
     private static ThreadLocal<Boolean> c = new ThreadLocal<Boolean>() { // from class: com.kwad.sdk.pngencrypt.n.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */

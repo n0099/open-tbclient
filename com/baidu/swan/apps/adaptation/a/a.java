@@ -6,11 +6,11 @@ public abstract class a {
     public abstract void eK(boolean z);
 
     public void eL(boolean z) {
-        com.baidu.swan.apps.storage.c.h.aPH().putBoolean("PREFS_NIGHT_MODE", z);
+        com.baidu.swan.apps.storage.c.h.aPI().putBoolean("PREFS_NIGHT_MODE", z);
     }
 
-    public boolean alD() {
-        return com.baidu.swan.apps.storage.c.h.aPH().getBoolean("PREFS_NIGHT_MODE", false);
+    public boolean alE() {
+        return com.baidu.swan.apps.storage.c.h.aPI().getBoolean("PREFS_NIGHT_MODE", false);
     }
 
     public void a(Object obj, com.baidu.swan.apps.ai.a aVar) {
@@ -19,7 +19,7 @@ public abstract class a {
     public void O(Object obj) {
     }
 
-    public Resources alE() {
+    public Resources alF() {
         return null;
     }
 

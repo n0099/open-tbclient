@@ -27,14 +27,14 @@ public class ce extends cd {
     public class a extends Throwable {
 
         /* renamed from: b  reason: collision with root package name */
-        private int f3829b;
+        private int f3830b;
 
         public a(int i) {
-            this.f3829b = i;
+            this.f3830b = i;
         }
 
         public int a() {
-            return this.f3829b;
+            return this.f3830b;
         }
     }
 

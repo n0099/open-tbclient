@@ -50,7 +50,7 @@ public class RecommendModel extends BdBaseModel {
         registerListener(this.eFZ);
     }
 
-    public void czv() {
+    public void czw() {
         if (!j.isNetworkAvailableForImmediately()) {
             if (this.iLl != null) {
                 this.iLl.a(-1, null);

@@ -120,7 +120,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public Map<String, f> bgc() {
+    public Map<String, f> bgd() {
         HashMap hashMap = new HashMap();
         List<f> a2 = a(f.class, "state =? ", new String[]{Constants.VIA_REPORT_TYPE_SHARE_TO_QQ}, "version_code ASC");
         if (a2 != null && a2.size() > 0) {
@@ -139,7 +139,7 @@ public class b extends a {
     }
 
     @Override // com.baidu.swan.pms.database.a
-    public Map<String, PMSAppInfo> bgd() {
+    public Map<String, PMSAppInfo> bge() {
         HashMap hashMap = new HashMap();
         List<PMSAppInfo> b2 = b(PMSAppInfo.class, null, null, null);
         if (b2 != null && b2.size() > 0) {

@@ -89,7 +89,7 @@ public class b {
                     fVar.setPageId(b.this.mPageId);
                     fVar.setIsAttention(z ? false : true);
                     fVar.setFrom("source_charm_game_live");
-                    com.baidu.live.view.a.Zx().a(item.pay_userid, fVar);
+                    com.baidu.live.view.a.Zy().a(item.pay_userid, fVar);
                 }
             }
         }
@@ -128,7 +128,7 @@ public class b {
         this.mListView.setPullRefresh(this.gQs);
     }
 
-    public void Hl(String str) {
+    public void Hk(String str) {
         String format = String.format(this.mPageContext.getString(a.h.ala_charm_game_live_name), StringHelper.formatTosepara(JavaTypesHelper.toLong(str, 0L)));
         if (this.gQq != null) {
             this.gQq.setText(format);
@@ -173,7 +173,7 @@ public class b {
         this.mListView.completePullRefresh();
     }
 
-    public void bWW() {
+    public void bWX() {
         this.gQw.notifyDataSetChanged();
     }
 

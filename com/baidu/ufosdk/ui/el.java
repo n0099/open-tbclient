@@ -4,20 +4,20 @@ package com.baidu.ufosdk.ui;
 public final class el implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f5846a;
+    final /* synthetic */ FeedbackInputActivity f5847a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ ej f5847b;
+    final /* synthetic */ ej f5848b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public el(ej ejVar, FeedbackInputActivity feedbackInputActivity) {
-        this.f5847b = ejVar;
-        this.f5846a = feedbackInputActivity;
+        this.f5848b = ejVar;
+        this.f5847a = feedbackInputActivity;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        this.f5846a.getApplicationContext();
-        com.baidu.ufosdk.e.a.a(this.f5846a.f, 9);
+        this.f5847a.getApplicationContext();
+        com.baidu.ufosdk.e.a.a(this.f5847a.f, 9);
     }
 }

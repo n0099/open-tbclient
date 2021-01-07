@@ -91,11 +91,11 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, R.string.delete_success);
                                 return;
                             } else {
-                                String string = !TextUtils.isEmpty(bVar.nuu) ? bVar.nuu : ab.this.getString(R.string.delete_fail, new Object[0]);
+                                String string = !TextUtils.isEmpty(bVar.nut) ? bVar.nut : ab.this.getString(R.string.delete_fail, new Object[0]);
                                 if (bVar.mErrCode == 1211066) {
                                     if (ab.this.iyl == null) {
                                         ab.this.iyl = new com.baidu.tbadk.core.dialog.a(ab.this.mPageContext.getPageActivity());
-                                        ab.this.iyl.Bp(string);
+                                        ab.this.iyl.Bo(string);
                                         ab.this.iyl.a(R.string.dialog_known, new a.b() { // from class: com.baidu.tieba.card.ab.6.1
                                             @Override // com.baidu.tbadk.core.dialog.a.b
                                             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
@@ -107,7 +107,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                         ab.this.iyl.jH(true);
                                         ab.this.iyl.b(ab.this.mPageContext);
                                     }
-                                    ab.this.iyl.btX();
+                                    ab.this.iyl.btY();
                                     return;
                                 }
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, string);
@@ -119,10 +119,10 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, ab.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             } else if (dVar.mSuccess) {
-                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.nuu) ? dVar.nuu : ab.this.getString(R.string.mute_success, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.nut) ? dVar.nut : ab.this.getString(R.string.mute_success, new Object[0]));
                                 return;
                             } else {
-                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.nuu) ? dVar.nuu : ab.this.getString(R.string.mute_fail, new Object[0]));
+                                com.baidu.adp.lib.util.l.showToast(ab.this.mContext, !TextUtils.isEmpty(dVar.nut) ? dVar.nut : ab.this.getString(R.string.mute_fail, new Object[0]));
                                 return;
                             }
                         case 2:
@@ -137,7 +137,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                                 com.baidu.adp.lib.util.l.showToast(ab.this.mContext, ab.this.getString(R.string.operation_failed, new Object[0]));
                                 return;
                             } else {
-                                ab.this.aq(gVar.nux);
+                                ab.this.aq(gVar.nuw);
                                 return;
                             }
                         default:
@@ -155,27 +155,27 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                     return;
                 }
                 if (i == 1) {
-                    if (ab.this.alW != null && ab.this.alW.brq() != null) {
-                        if (UtilHelper.isCurrentAccount(ab.this.alW.brq().getUserId())) {
-                            ab.this.cve();
+                    if (ab.this.alW != null && ab.this.alW.brr() != null) {
+                        if (UtilHelper.isCurrentAccount(ab.this.alW.brr().getUserId())) {
+                            ab.this.cvf();
                         } else {
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921515, new com.baidu.tieba.NEGFeedBack.g(1, ab.this.ggJ, ab.this.alW)));
                         }
                     }
                 } else if (i == 2) {
-                    ab.this.cvf();
-                } else if (i == 3) {
                     ab.this.cvg();
+                } else if (i == 3) {
+                    ab.this.cvh();
                 } else if (i == 4) {
                     ab.this.aJ(ab.this.iyo, true);
                 } else if (i == 5) {
-                    ab.this.cvh();
-                } else if (i == 6) {
-                    ab.this.cvj();
-                } else if (i == 7) {
                     ab.this.cvi();
-                } else if (i == 8) {
+                } else if (i == 6) {
                     ab.this.cvk();
+                } else if (i == 7) {
+                    ab.this.cvj();
+                } else if (i == 8) {
+                    ab.this.cvl();
                 }
                 ab.this.yz(i);
             }
@@ -207,34 +207,34 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
     private void createView() {
         if (this.alW != null && this.iyn != null && this.iyk != null) {
             this.iyn.clear();
-            if (com.baidu.tieba.frs.j.a(com.baidu.tieba.frs.j.cEI()) && !com.baidu.tieba.frs.j.cEK()) {
-                if (!this.alW.isBjh() && (this.alW.brq() == null || !this.alW.brq().isForumBusinessAccount() || au.isOn())) {
+            if (com.baidu.tieba.frs.j.a(com.baidu.tieba.frs.j.cEJ()) && !com.baidu.tieba.frs.j.cEL()) {
+                if (!this.alW.isBjh() && (this.alW.brr() == null || !this.alW.brr().isForumBusinessAccount() || au.isOn())) {
                     this.iyn.add(new com.baidu.tbadk.core.dialog.g(1, getString(R.string.delete_page, new Object[0]), this.iyk));
                 }
                 String str = "";
-                if (this.alW.brq() != null) {
-                    str = this.alW.brq().getUserId();
+                if (this.alW.brr() != null) {
+                    str = this.alW.brr().getUserId();
                 }
                 if (!UtilHelper.isCurrentAccount(str)) {
                     this.iyn.add(new com.baidu.tbadk.core.dialog.g(2, getString(R.string.thread_forbid, new Object[0]), this.iyk));
                 }
             }
-            if (com.baidu.tieba.frs.j.cEJ() || com.baidu.tieba.frs.j.cEK()) {
-                this.iyn.add(new com.baidu.tbadk.core.dialog.g(3, getString(this.alW.brl() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.iyk));
+            if (com.baidu.tieba.frs.j.cEK() || com.baidu.tieba.frs.j.cEL()) {
+                this.iyn.add(new com.baidu.tbadk.core.dialog.g(3, getString(this.alW.brm() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.iyk));
             }
-            if (com.baidu.tieba.frs.j.cEJ() || com.baidu.tieba.frs.j.cEL()) {
-                this.iyn.add(new com.baidu.tbadk.core.dialog.g(4, getString(this.alW.brm() == 1 ? R.string.cancel_good : R.string.commit_good, new Object[0]), this.iyk));
+            if (com.baidu.tieba.frs.j.cEK() || com.baidu.tieba.frs.j.cEM()) {
+                this.iyn.add(new com.baidu.tbadk.core.dialog.g(4, getString(this.alW.brn() == 1 ? R.string.cancel_good : R.string.commit_good, new Object[0]), this.iyk));
             }
-            if (com.baidu.tieba.frs.j.cEJ()) {
+            if (com.baidu.tieba.frs.j.cEK()) {
                 this.iyn.add(new com.baidu.tbadk.core.dialog.g(6, getString(R.string.frs_recommend_thread, new Object[0]), this.iyk));
             }
-            if (com.baidu.tieba.frs.j.cEJ() && this.fmV) {
+            if (com.baidu.tieba.frs.j.cEK() && this.fmV) {
                 this.iyn.add(new com.baidu.tbadk.core.dialog.g(7, getString(R.string.frs_move_area_thread, new Object[0]), this.iyk));
             }
-            if (com.baidu.tieba.frs.j.cEJ() || com.baidu.tieba.frs.j.cEK()) {
+            if (com.baidu.tieba.frs.j.cEK() || com.baidu.tieba.frs.j.cEL()) {
                 this.iyn.add(new com.baidu.tbadk.core.dialog.g(8, getString(R.string.frs_forum_bawu_send_broadcast, new Object[0]), this.iyk));
             }
-            if (!com.baidu.tieba.frs.j.cEK() && com.baidu.tieba.frs.b.cDX().cDZ() && this.fmV && (this.alW.brq() == null || !this.alW.brq().isForumBusinessAccount() || au.isOn())) {
+            if (!com.baidu.tieba.frs.j.cEL() && com.baidu.tieba.frs.b.cDY().cEa() && this.fmV && (this.alW.brr() == null || !this.alW.brr().isForumBusinessAccount() || au.isOn())) {
                 this.iyn.add(new com.baidu.tbadk.core.dialog.g(5, getString(R.string.multi_delete, new Object[0]), this.iyk));
             }
             this.iyk.bB(this.iyn);
@@ -254,20 +254,20 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
         createView();
     }
 
-    public void cvc() {
+    public void cvd() {
         if (this.iwC != null && this.iwC.isShowing()) {
             this.iwC.dismiss();
         }
     }
 
-    public void cvd() {
+    public void cve() {
         if (this.iym != null && this.iym.isShowing()) {
             this.iym.dismiss();
         }
     }
 
-    public void cve() {
-        cvc();
+    public void cvf() {
+        cvd();
         if (this.mPageContext != null) {
             if (this.iwC == null) {
                 this.iwC = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
@@ -296,7 +296,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                 this.iwC.jH(true);
                 this.iwC.b(this.mPageContext);
             }
-            this.iwC.btX();
+            this.iwC.btY();
         }
     }
 
@@ -337,8 +337,8 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
             int size = arrayList.size();
             for (int i = 0; i < size; i++) {
                 ak akVar = arrayList.get(i);
-                if (akVar != null && !TextUtils.isEmpty(akVar.bpC()) && akVar.bpD() > 0) {
-                    BlueCheckRadioButton eK2 = eK(String.valueOf(akVar.bpD()), akVar.bpC());
+                if (akVar != null && !TextUtils.isEmpty(akVar.bpD()) && akVar.bpE() > 0) {
+                    BlueCheckRadioButton eK2 = eK(String.valueOf(akVar.bpE()), akVar.bpD());
                     this.iyq.add(eK2);
                     View view = new View(this.mContext);
                     view.setLayoutParams(new LinearLayout.LayoutParams(-1, com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.ds1)));
@@ -389,15 +389,15 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                 com.baidu.tbadk.core.data.y yVar = new com.baidu.tbadk.core.data.y();
                 yVar.type = 2;
                 yVar.tid = this.alW.getTid();
-                if (com.baidu.tieba.frs.j.cEJ()) {
+                if (com.baidu.tieba.frs.j.cEK()) {
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, yVar));
                 } else {
-                    str = aU(gVar.nuu, R.string.set_good_success);
+                    str = aU(gVar.nut, R.string.set_good_success);
                     z = false;
                 }
             } else if (i == 3) {
                 this.alW.oQ(0);
-                str = aU(gVar.nuu, R.string.operation_success);
+                str = aU(gVar.nut, R.string.operation_success);
                 z = false;
             } else if (i == 4) {
                 this.alW.oP(1);
@@ -407,16 +407,16 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921469, yVar2));
             } else if (i == 5) {
                 this.alW.oP(0);
-                str = aU(gVar.nuu, R.string.operation_success);
+                str = aU(gVar.nut, R.string.operation_success);
                 z = false;
             } else {
                 z = false;
             }
             ForumManageModel.e eVar = new ForumManageModel.e();
             eVar.threadId = this.alW.getId();
-            eVar.forumName = this.alW.bru();
+            eVar.forumName = this.alW.brv();
             eVar.forumId = String.valueOf(this.alW.getFid());
-            eVar.nuv = i;
+            eVar.nuu = i;
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_THREAD_MANAGE, eVar));
             if (TextUtils.isEmpty(str)) {
                 str = getString(R.string.operation_success, new Object[0]);
@@ -427,8 +427,8 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
             }
             return;
         }
-        if (gVar != null && !TextUtils.isEmpty(gVar.nuu)) {
-            string = gVar.nuu;
+        if (gVar != null && !TextUtils.isEmpty(gVar.nut)) {
+            string = gVar.nut;
         } else {
             string = getString(R.string.operation_failed, new Object[0]);
         }
@@ -450,29 +450,29 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cvf() {
-        if (this.mContext != null && this.alW != null && this.alW.brq() != null) {
-            String userId = this.alW.brq().getUserId();
-            String userName = this.alW.brq().getUserName();
-            String name_show = this.alW.brq().getName_show();
+    public void cvg() {
+        if (this.mContext != null && this.alW != null && this.alW.brr() != null) {
+            String userId = this.alW.brr().getUserId();
+            String userName = this.alW.brr().getUserName();
+            String name_show = this.alW.brr().getName_show();
             String id = this.alW.getId();
-            String bru = this.alW.bru();
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(this.mContext, String.valueOf(this.alW.getFid()), bru, id, userId, userName, name_show, null, this.alW.brq().getPortrait())));
+            String brv = this.alW.brv();
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(this.mContext, String.valueOf(this.alW.getFid()), brv, id, userId, userName, name_show, null, this.alW.brr().getPortrait())));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Y(JSONArray jSONArray) {
-        if (this.ggJ != null && this.alW != null && this.alW.brq() != null) {
-            String userId = this.alW.brq().getUserId();
+        if (this.ggJ != null && this.alW != null && this.alW.brr() != null) {
+            String userId = this.alW.brr().getUserId();
             String id = this.alW.getId();
-            String bru = this.alW.bru();
+            String brv = this.alW.brv();
             String valueOf = String.valueOf(this.alW.getFid());
             boolean isCurrentAccount = UtilHelper.isCurrentAccount(userId);
             if (jSONArray != null) {
-                this.ggJ.TD(at.S(jSONArray));
+                this.ggJ.TC(at.S(jSONArray));
             }
-            this.ggJ.a(valueOf, bru, id, null, 0, 1, isCurrentAccount, this.alW.getBaijiahaoData());
+            this.ggJ.a(valueOf, brv, id, null, 0, 1, isCurrentAccount, this.alW.getBaijiahaoData());
         }
     }
 
@@ -480,7 +480,7 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
     public void aJ(String str, boolean z) {
         int i;
         if (this.alW != null && this.ggJ != null) {
-            if (this.alW.brm() == 1) {
+            if (this.alW.brn() == 1) {
                 i = 3;
             } else if (z) {
                 i = 6;
@@ -488,60 +488,60 @@ public class ab extends com.baidu.tbadk.core.dialog.i {
                 i = 2;
             }
             String id = this.alW.getId();
-            String bru = this.alW.bru();
-            this.ggJ.c(String.valueOf(this.alW.getFid()), bru, id, i, str);
-        }
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void cvg() {
-        int i;
-        if (this.alW != null && this.ggJ != null) {
-            if (this.alW.brl() == 1) {
-                i = 5;
-            } else {
-                i = 4;
-            }
-            String id = this.alW.getId();
-            String bru = this.alW.bru();
-            this.ggJ.c(String.valueOf(this.alW.getFid()), bru, id, i, null);
+            String brv = this.alW.brv();
+            this.ggJ.c(String.valueOf(this.alW.getFid()), brv, id, i, str);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cvh() {
-        com.baidu.tieba.frs.b.cDX().X(true, false);
+        int i;
+        if (this.alW != null && this.ggJ != null) {
+            if (this.alW.brm() == 1) {
+                i = 5;
+            } else {
+                i = 4;
+            }
+            String id = this.alW.getId();
+            String brv = this.alW.brv();
+            this.ggJ.c(String.valueOf(this.alW.getFid()), brv, id, i, null);
+        }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cvi() {
-        com.baidu.tieba.frs.a.cDQ().X(true, false);
+        com.baidu.tieba.frs.b.cDY().X(true, false);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void cvj() {
+        com.baidu.tieba.frs.a.cDR().X(true, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void cvk() {
         if (this.mPageContext != null && this.alW != null) {
-            BawuThrones cEc = com.baidu.tieba.frs.c.cEb().cEc();
-            if (cEc == null) {
+            BawuThrones cEd = com.baidu.tieba.frs.c.cEc().cEd();
+            if (cEd == null) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921465));
-            } else if (cEc.total_recommend_num.intValue() == cEc.used_recommend_num.intValue()) {
+            } else if (cEd.total_recommend_num.intValue() == cEd.used_recommend_num.intValue()) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921465));
-            } else if (com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_frs_recommend_tip", true)) {
-                com.baidu.tieba.frs.c.cEb().b(this.mPageContext, String.valueOf(this.alW.getFid()), this.alW.getId());
+            } else if (com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_frs_recommend_tip", true)) {
+                com.baidu.tieba.frs.c.cEc().b(this.mPageContext, String.valueOf(this.alW.getFid()), this.alW.getId());
             } else {
-                com.baidu.tieba.frs.c.cEb().eY(String.valueOf(this.alW.getFid()), this.alW.getId());
+                com.baidu.tieba.frs.c.cEc().eY(String.valueOf(this.alW.getFid()), this.alW.getId());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cvk() {
+    public void cvl() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921475, this.alW));
     }
 
     public void dismissAllDialog() {
-        cvc();
         cvd();
+        cve();
         dismiss();
     }
 

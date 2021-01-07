@@ -12,10 +12,10 @@ import java.util.List;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f5340a = "extra_trace_id";
+    public static final String f5341a = "extra_trace_id";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f5341b = "extra_session_id";
+    public static final String f5342b = "extra_session_id";
     public static final String c = "login_type_share";
     public static final String d = "V2_FACE_LOGIN_UIDS_TIMES";
     public static final String e = "FACE_LOGIN_MODEL";
@@ -32,15 +32,15 @@ public class b {
     public class a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ int f5342a;
+        final /* synthetic */ int f5343a;
 
         a(int i) {
-            this.f5342a = i;
+            this.f5343a = i;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            new ShareStorage().a(this.f5342a);
+            new ShareStorage().a(this.f5343a);
             e.c();
             SapiAccountManager.getInstance().getAccountService().refreshOpenidToUid();
         }
@@ -63,10 +63,10 @@ public class b {
         public static final String h = "share_version";
 
         /* renamed from: a  reason: collision with root package name */
-        public int f5344a;
+        public int f5345a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5345b;
+        public String f5346b;
         public String c;
         public String d;
     }

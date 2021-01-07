@@ -61,7 +61,7 @@ public class PbFirstFloorEnterForumAdapter extends com.baidu.adp.widget.ListView
         if (hVar != null) {
             pbFirstFloorEnterForumViewHolder.a(hVar);
         }
-        pbFirstFloorEnterForumViewHolder.bxO();
+        pbFirstFloorEnterForumViewHolder.bxP();
         return view;
     }
 
@@ -70,15 +70,15 @@ public class PbFirstFloorEnterForumAdapter extends com.baidu.adp.widget.ListView
         View bRS;
         View bUk;
         ImageView jNa;
-        CardForumHeadLayout lXj;
-        private h lXk;
+        CardForumHeadLayout lXi;
+        private h lXj;
 
         public PbFirstFloorEnterForumViewHolder(View view) {
             super(view);
-            this.lXj = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
-            if (this.lXj != null) {
-                this.lXj.setOnClickListener(this.lXj);
-                this.lXj.setAfterClickListener(this);
+            this.lXi = (CardForumHeadLayout) ((ViewGroup) view).getChildAt(0);
+            if (this.lXi != null) {
+                this.lXi.setOnClickListener(this.lXi);
+                this.lXi.setAfterClickListener(this);
             }
             this.bUk = ((ViewGroup) view).getChildAt(1);
             this.jNa = (ImageView) ((ViewGroup) view).getChildAt(2);
@@ -87,25 +87,25 @@ public class PbFirstFloorEnterForumAdapter extends com.baidu.adp.widget.ListView
 
         public void a(h hVar) {
             if (hVar != null) {
-                this.lXk = hVar;
-                this.bRS.setVisibility(hVar.lGO ? 0 : 8);
+                this.lXj = hVar;
+                this.bRS.setVisibility(hVar.lGN ? 0 : 8);
                 if (getView() != null) {
-                    getView().setPadding(0, 0, 0, hVar.lGO ? l.getDimens(PbFirstFloorEnterForumAdapter.this.mContext, R.dimen.tbds42) : 0);
+                    getView().setPadding(0, 0, 0, hVar.lGN ? l.getDimens(PbFirstFloorEnterForumAdapter.this.mContext, R.dimen.tbds42) : 0);
                 }
-                this.lXj.setData(hVar.forumName, hVar.lGN, hVar.postNum, hVar.memberNum);
+                this.lXi.setData(hVar.forumName, hVar.lGM, hVar.postNum, hVar.memberNum);
             }
         }
 
-        public void bxO() {
+        public void bxP() {
             WebPManager.a(this.jNa, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0107, null);
             ao.setBackgroundColor(this.bUk, R.color.CAM_X0203);
             ao.setBackgroundColor(this.bRS, R.color.CAM_X0203);
-            this.lXj.onChangeSkinType();
+            this.lXi.onChangeSkinType();
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            TiebaStatic.log(new aq("c13698").dX("tid", this.lXk.tid).dX("fid", this.lXk.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
+            TiebaStatic.log(new aq("c13698").dX("tid", this.lXj.tid).dX("fid", this.lXj.fid).w("uid", TbadkCoreApplication.getCurrentAccountId()));
         }
     }
 }

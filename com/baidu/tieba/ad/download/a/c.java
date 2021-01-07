@@ -3,7 +3,7 @@ package com.baidu.tieba.ad.download.a;
 import com.baidu.tieba.ad.download.state.StopStatus;
 /* loaded from: classes.dex */
 public interface c {
-    void FA(String str);
+    void Fz(String str);
 
     void a(String str, StopStatus stopStatus);
 

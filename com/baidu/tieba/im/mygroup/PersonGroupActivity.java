@@ -85,7 +85,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     public boolean a(GroupInfoData groupInfoData) {
         if (groupInfoData != null && this.kGs == 23003) {
             if (2 == this.kGt) {
-                a(com.baidu.tbadk.game.a.bGd().bGg(), groupInfoData.getGroupId(), groupInfoData.getName());
+                a(com.baidu.tbadk.game.a.bGe().bGh(), groupInfoData.getGroupId(), groupInfoData.getName());
                 return true;
             }
             Intent intent = new Intent();
@@ -108,7 +108,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         aVar.a(R.string.share, new a.b() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                long bv = b.cYx().bv(String.valueOf(j), 1);
+                long bv = b.cYy().bv(String.valueOf(j), 1);
                 MessageUtils.createGroupChatMessage(bv, 9, shareFromGameCenterMsgData.toChatMessageContent(), j);
                 MessageUtils.createGroupChatMessage(bv + 1, 1, game2GroupShareDialogView.getLeaveMsg(), j);
                 aVar2.dismiss();
@@ -126,7 +126,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
                 ((InputMethodManager) PersonGroupActivity.this.getSystemService("input_method")).hideSoftInputFromWindow(game2GroupShareDialogView.getWindowToken(), 2);
             }
         });
-        aVar.b(getPageContext()).btX();
+        aVar.b(getPageContext()).btY();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -255,7 +255,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
             this.kGo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.mygroup.PersonGroupActivity.6
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    PersonGroupActivity.this.cZc();
+                    PersonGroupActivity.this.cZd();
                 }
             });
             this.kGp = (LinearLayout) this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.widget_nb_item_search_group_btn, (View.OnClickListener) null);
@@ -301,7 +301,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cZc() {
+    public void cZd() {
         showProgressBar();
         this.kGz.gO(0L);
     }
@@ -356,7 +356,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public int cZd() {
+    public int cZe() {
         return this.gYJ == 0 ? 0 : 1;
     }
 
@@ -370,11 +370,11 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public String cZe() {
+    public String cZf() {
         return this.kGm;
     }
 
-    public boolean Zp() {
+    public boolean Zq() {
         return this.isHost;
     }
 
@@ -408,7 +408,7 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
         }
     }
 
-    public PersonGroupModel cZf() {
+    public PersonGroupModel cZg() {
         return this.kGz;
     }
 
@@ -435,8 +435,8 @@ public class PersonGroupActivity extends BaseFragmentActivity implements ViewPag
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     protected void onChangeSkinType(int i) {
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        SvgManager.bwq().a(this.kGq, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
-        SvgManager.bwq().a(this.kGr, R.drawable.icon_pure_topbar_establish44_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bwr().a(this.kGq, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bwr().a(this.kGr, R.drawable.icon_pure_topbar_establish44_svg, R.color.CAM_X0105, (SvgManager.SvgResourceStateType) null);
         this.mTabHost.onChangeSkinType(i);
         ao.setBackgroundResource(this.mTabHost, R.color.common_color_10173);
         if (this.kGy != null) {

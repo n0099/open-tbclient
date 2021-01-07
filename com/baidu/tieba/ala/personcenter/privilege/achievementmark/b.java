@@ -88,14 +88,14 @@ public class b extends BaseAdapter {
             if (aVar.xN(0) != null) {
                 com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b xN = aVar.xN(0);
                 c0704b.ibc.setVisibility(0);
-                c0704b.iaZ.setText(xN.cpT() == null ? "" : xN.cpT());
-                if (xN.cpU() != null) {
+                c0704b.iaZ.setText(xN.cpU() == null ? "" : xN.cpU());
+                if (xN.cpV() != null) {
                     c0704b.iba.setDefaultBgResource(R.color.transparent);
-                    c0704b.iba.startLoad(xN.cpU(), 10, false);
+                    c0704b.iba.startLoad(xN.cpV(), 10, false);
                 }
-                c(c0704b.ibb, xN.cpV());
-                b(c0704b.iba, xN.cpV());
-                a(c0704b.ibd, xN.cpZ(), xN.price);
+                c(c0704b.ibb, xN.cpW());
+                b(c0704b.iba, xN.cpW());
+                a(c0704b.ibd, xN.cqa(), xN.price);
                 c0704b.ibc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.1
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -111,14 +111,14 @@ public class b extends BaseAdapter {
             if (aVar.xN(1) != null) {
                 com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b xN2 = aVar.xN(1);
                 c0704b.ibh.setVisibility(0);
-                c0704b.ibe.setText(xN2.cpT() == null ? "" : xN2.cpT());
-                if (xN2.cpU() != null) {
+                c0704b.ibe.setText(xN2.cpU() == null ? "" : xN2.cpU());
+                if (xN2.cpV() != null) {
                     c0704b.ibf.setDefaultBgResource(R.color.transparent);
-                    c0704b.ibf.startLoad(xN2.cpU(), 10, false);
+                    c0704b.ibf.startLoad(xN2.cpV(), 10, false);
                 }
-                c(c0704b.ibg, xN2.cpV());
-                b(c0704b.ibf, xN2.cpV());
-                a(c0704b.ibi, xN2.cpZ(), xN2.price);
+                c(c0704b.ibg, xN2.cpW());
+                b(c0704b.ibf, xN2.cpW());
+                a(c0704b.ibi, xN2.cqa(), xN2.price);
                 c0704b.ibh.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.2
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -134,14 +134,14 @@ public class b extends BaseAdapter {
             if (aVar.xN(2) != null) {
                 com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b xN3 = aVar.xN(2);
                 c0704b.ibm.setVisibility(0);
-                c0704b.ibj.setText(xN3.cpT() == null ? "" : xN3.cpT());
-                if (xN3.cpU() != null) {
+                c0704b.ibj.setText(xN3.cpU() == null ? "" : xN3.cpU());
+                if (xN3.cpV() != null) {
                     c0704b.ibk.setDefaultBgResource(R.color.transparent);
-                    c0704b.ibk.startLoad(xN3.cpU(), 10, false);
+                    c0704b.ibk.startLoad(xN3.cpV(), 10, false);
                 }
-                c(c0704b.ibl, xN3.cpV());
-                b(c0704b.ibk, xN3.cpV());
-                a(c0704b.ibn, xN3.cpZ(), xN3.price);
+                c(c0704b.ibl, xN3.cpW());
+                b(c0704b.ibk, xN3.cpW());
+                a(c0704b.ibn, xN3.cqa(), xN3.price);
                 c0704b.ibm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.b.3
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view2) {
@@ -159,9 +159,9 @@ public class b extends BaseAdapter {
             } else {
                 c0704b.ibo.setVisibility(8);
             }
-            if ((aVar.getType() == 1 || aVar.getType() == 2) && aVar.cpP() != null) {
+            if ((aVar.getType() == 1 || aVar.getType() == 2) && aVar.cpQ() != null) {
                 c0704b.title.setVisibility(0);
-                c0704b.title.setText(aVar.cpP());
+                c0704b.title.setText(aVar.cpQ());
             } else {
                 c0704b.title.setVisibility(8);
             }
@@ -275,7 +275,7 @@ public class b extends BaseAdapter {
             com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][] bVarArr = (com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) Array.newInstance(com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b.class, i, 3);
             for (int i4 = 0; i4 < size; i4++) {
                 bVarArr[i4 / 3][i4 % 3] = list2.get(i4);
-                bVarArr[i4 / 3][i4 % 3].IV(list.get(i3).cpP());
+                bVarArr[i4 / 3][i4 % 3].IU(list.get(i3).cpQ());
             }
             arrayList2.add(bVarArr);
             i2 = i3 + 1;
@@ -319,7 +319,7 @@ public class b extends BaseAdapter {
                         i9 = i10 + 1;
                     }
                     if (((com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) arrayList2.get(i6))[0][0] != null) {
-                        aVar.IV(((com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) arrayList2.get(i6))[0][0].cpP());
+                        aVar.IU(((com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.b[][]) arrayList2.get(i6))[0][0].cpQ());
                     }
                     arrayList.add(aVar);
                     i7 = i8 + 1;

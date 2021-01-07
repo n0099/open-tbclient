@@ -20,7 +20,7 @@ public class c {
     private volatile boolean dYg = false;
     private a dYf = new a();
 
-    public static c aTH() {
+    public static c aTI() {
         if (dYe == null) {
             synchronized (c.class) {
                 if (dYe == null) {
@@ -56,7 +56,7 @@ public class c {
         return vC;
     }
 
-    public String als() {
+    public String alt() {
         String vC = vC("appKey");
         if (TextUtils.isEmpty(vC)) {
             if (com.baidu.swan.config.c.DEBUG) {
@@ -67,10 +67,10 @@ public class c {
         return vC;
     }
 
-    public Set<String> aTI() {
+    public Set<String> aTJ() {
         Set<String> stringSet = this.dYf.getStringSet(SocialOperation.GAME_SIGNATURE, null);
         if (stringSet == null) {
-            if (aTJ()) {
+            if (aTK()) {
                 return this.dYf.getStringSet(SocialOperation.GAME_SIGNATURE, null);
             }
             return null;
@@ -109,7 +109,7 @@ public class c {
         }
         String string = this.dYf.getString(str, "");
         if (TextUtils.isEmpty(string)) {
-            if (aTJ()) {
+            if (aTK()) {
                 String string2 = this.dYf.getString(str, "");
                 if (TextUtils.isEmpty(string2)) {
                     return null;
@@ -121,7 +121,7 @@ public class c {
         return string;
     }
 
-    private synchronized boolean aTJ() {
+    private synchronized boolean aTK() {
         boolean z;
         HashSet hashSet = null;
         synchronized (this) {

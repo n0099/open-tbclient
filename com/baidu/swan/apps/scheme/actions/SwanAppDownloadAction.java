@@ -71,7 +71,7 @@ public class SwanAppDownloadAction extends aa {
             return true;
         } else {
             if (eVar != null) {
-                eVar.aMw().b(context, "mapp_i_app_download", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction.1
+                eVar.aMx().b(context, "mapp_i_app_download", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.SwanAppDownloadAction.1
                     /* JADX DEBUG: Method merged with bridge method */
                     @Override // com.baidu.swan.apps.ao.e.b
                     /* renamed from: a */
@@ -96,7 +96,7 @@ public class SwanAppDownloadAction extends aa {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject, SwanAppDownloadType swanAppDownloadType) {
-        boolean a2 = com.baidu.swan.apps.t.a.aAB().a(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
+        boolean a2 = com.baidu.swan.apps.t.a.aAC().a(context, unitedSchemeEntity, swanAppDownloadType, jSONObject, callbackHandler);
         if (a2) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0, "success");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, unitedSchemeEntity.result);

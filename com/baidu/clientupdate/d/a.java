@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f1722a = null;
+    private static a f1723a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f1723b;
+    private Context f1724b;
     private BroadcastReceiver e;
     private com.baidu.clientupdate.c.a h;
     private com.baidu.clientupdate.a.d i;
@@ -33,18 +33,18 @@ public final class a {
     private String g = null;
 
     private a(Context context) {
-        this.f1723b = context;
-        this.i = com.baidu.clientupdate.a.d.a(this.f1723b);
+        this.f1724b = context;
+        this.i = com.baidu.clientupdate.a.d.a(this.f1724b);
         this.h = com.baidu.clientupdate.c.a.a(context);
     }
 
     public static synchronized a a(Context context) {
         a aVar;
         synchronized (a.class) {
-            if (f1722a == null) {
-                f1722a = new a(context);
+            if (f1723a == null) {
+                f1723a = new a(context);
             }
-            aVar = f1722a;
+            aVar = f1723a;
         }
         return aVar;
     }
@@ -71,7 +71,7 @@ public final class a {
         download.mUrl = appInfo.mDownurl;
         download.mMimeType = "application/vnd.android.package-archive";
         download.mSourceKey = appInfo.mPackageName + "@" + appInfo.mVercode;
-        DownloadManager.getInstance(this.f1723b).start(download);
+        DownloadManager.getInstance(this.f1724b).start(download);
     }
 
     private void a(AppInfo appInfo, String str, boolean z) {
@@ -95,7 +95,7 @@ public final class a {
         download.mUrl = appInfo.mDownurl;
         download.mMimeType = "application/vnd.android.package-archive";
         download.mSourceKey = appInfo.mPackageName + "@" + appInfo.mVercode;
-        DownloadManager.getInstance(this.f1723b).start(download, z);
+        DownloadManager.getInstance(this.f1724b).start(download, z);
     }
 
     private void b(AppInfo appInfo, String str) {
@@ -119,20 +119,20 @@ public final class a {
         download.mUrl = appInfo.mPatchDownUrl;
         download.mMimeType = "patch";
         download.mSourceKey = appInfo.mPackageName + "@" + appInfo.mVercode;
-        DownloadManager.getInstance(this.f1723b).start(download);
+        DownloadManager.getInstance(this.f1724b).start(download);
     }
 
     public static void e() {
         synchronized (a.class) {
-            if (f1722a != null && f1722a.e != null) {
-                f1722a.f1723b.unregisterReceiver(f1722a.e);
+            if (f1723a != null && f1723a.e != null) {
+                f1723a.f1724b.unregisterReceiver(f1723a.e);
             }
         }
     }
 
     private void f() {
         try {
-            File file = new File(com.baidu.util.a.a(this.f1723b).a("lcsdk_xml", "path", ""));
+            File file = new File(com.baidu.util.a.a(this.f1724b).a("lcsdk_xml", "path", ""));
             if (file.exists() && file.isDirectory()) {
                 for (File file2 : file.listFiles()) {
                     file2.delete();

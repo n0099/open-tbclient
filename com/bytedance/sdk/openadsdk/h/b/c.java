@@ -13,21 +13,21 @@ import org.json.JSONObject;
 public class c implements com.bytedance.sdk.openadsdk.h.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<a> f7479b = Collections.synchronizedList(new LinkedList());
+    private final List<a> f7480b = Collections.synchronizedList(new LinkedList());
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f7478a = b.a();
+    private final b f7479a = b.a();
 
     @Override // com.bytedance.sdk.openadsdk.h.b.a
     public void a() {
         com.bytedance.sdk.openadsdk.k.a.a().d(new Runnable() { // from class: com.bytedance.sdk.openadsdk.h.b.c.1
             @Override // java.lang.Runnable
             public void run() {
-                List<a> d = c.this.f7478a.d();
+                List<a> d = c.this.f7479a.d();
                 if (d != null) {
-                    c.this.f7479b.addAll(d);
+                    c.this.f7480b.addAll(d);
                 }
-                c.this.f7478a.c();
+                c.this.f7479a.c();
             }
         }, 5);
     }
@@ -57,14 +57,14 @@ public class c implements com.bytedance.sdk.openadsdk.h.b.a {
     public static class a implements i {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f7481a;
+        public final String f7482a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final JSONObject f7482b;
+        public final JSONObject f7483b;
 
         public a(String str, JSONObject jSONObject) {
-            this.f7481a = str;
-            this.f7482b = jSONObject;
+            this.f7482a = str;
+            this.f7483b = jSONObject;
         }
 
         public static a a(String str) {
@@ -85,13 +85,13 @@ public class c implements com.bytedance.sdk.openadsdk.h.b.a {
         }
 
         public String a() {
-            if (TextUtils.isEmpty(this.f7481a) || this.f7482b == null) {
+            if (TextUtils.isEmpty(this.f7482a) || this.f7483b == null) {
                 return null;
             }
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("localId", this.f7481a);
-                jSONObject.put("event", this.f7482b);
+                jSONObject.put("localId", this.f7482a);
+                jSONObject.put("event", this.f7483b);
             } catch (Throwable th) {
             }
             return jSONObject.toString();
@@ -99,7 +99,7 @@ public class c implements com.bytedance.sdk.openadsdk.h.b.a {
 
         @Override // com.bytedance.sdk.openadsdk.c.i
         public String b() {
-            return this.f7481a;
+            return this.f7482a;
         }
     }
 

@@ -35,8 +35,8 @@ public class BdBaseViewPagerAdapter<T extends n, V extends a> extends PagerAdapt
     public void onClick(View view) {
         b<T, V> bVar;
         a bL = bL(view);
-        if (bL != null && bL.qx() != null && bL.qx().getType() != null && (bVar = this.fqY.get(bL.qx().getType())) != null && bVar.byW() != null) {
-            bVar.byW().c(bL, bL.qx());
+        if (bL != null && bL.qx() != null && bL.qx().getType() != null && (bVar = this.fqY.get(bL.qx().getType())) != null && bVar.byX() != null) {
+            bVar.byX().c(bL, bL.qx());
         }
     }
 

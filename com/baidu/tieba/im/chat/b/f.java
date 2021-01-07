@@ -19,11 +19,11 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes.dex */
 public class f {
-    public static boolean MT(String str) {
+    public static boolean MS(String str) {
         return !TextUtils.isEmpty(str) && "group_intro_change' , 'group_level_up' , 'group_name_change' , 'group_notice_change' , 'dismiss_group' , 'kick_out' , 'group_event_info' , 'group_activitys_change".contains(str);
     }
 
-    public static boolean MU(String str) {
+    public static boolean MT(String str) {
         return !TextUtils.isEmpty(str) && str.equals("apply_join_group");
     }
 
@@ -43,14 +43,14 @@ public class f {
                         j = parseLong;
                     }
                     if (TbadkCoreApplication.getInst().getCustomizedFilter() == null || TbadkCoreApplication.getInst().getCustomizedFilter().a(next)) {
-                        if (MT(next.getCmd())) {
+                        if (MS(next.getCmd())) {
                             linkedList.add(next);
                             if (groupNewsPojo == null) {
                                 groupNewsPojo = next;
                             } else if (parseLong > Long.parseLong(groupNewsPojo.getNotice_id())) {
                                 groupNewsPojo = next;
                             }
-                        } else if (MU(next.getCmd())) {
+                        } else if (MT(next.getCmd())) {
                             linkedList.add(next);
                             if (groupNewsPojo2 == null) {
                                 groupNewsPojo2 = next;
@@ -61,13 +61,13 @@ public class f {
                     }
                 }
             }
-            com.baidu.tieba.im.db.d.cXm().m(linkedList);
+            com.baidu.tieba.im.db.d.cXn().m(linkedList);
             ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
             imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
             imMessageCenterPojo.setIs_hidden(1);
             imMessageCenterPojo.setCustomGroupType(-2);
             imMessageCenterPojo.setPulled_msgId(j);
-            j.cXw().d(imMessageCenterPojo);
+            j.cXx().d(imMessageCenterPojo);
             if (groupNewsPojo != null) {
                 ImMessageCenterPojo imMessageCenterPojo2 = new ImMessageCenterPojo();
                 imMessageCenterPojo2.setGid(String.valueOf(TbEnum.CustomGroupId.GROUP_UPDATE));
@@ -77,7 +77,7 @@ public class f {
                 imMessageCenterPojo2.setLast_content_time(groupNewsPojo.getTime());
                 imMessageCenterPojo2.setLast_content(groupNewsPojo.getContent());
                 imMessageCenterPojo2.setIs_hidden(0);
-                j.cXw().a(imMessageCenterPojo2, 2);
+                j.cXx().a(imMessageCenterPojo2, 2);
             }
             if (groupNewsPojo2 != null) {
                 ImMessageCenterPojo imMessageCenterPojo3 = new ImMessageCenterPojo();
@@ -88,7 +88,7 @@ public class f {
                 imMessageCenterPojo3.setLast_content_time(groupNewsPojo2.getTime());
                 imMessageCenterPojo3.setLast_content(groupNewsPojo2.getContent());
                 imMessageCenterPojo3.setIs_hidden(0);
-                j.cXw().a(imMessageCenterPojo3, 2);
+                j.cXx().a(imMessageCenterPojo3, 2);
             }
             Iterator<GroupNewsPojo> it2 = k.iterator();
             while (it2.hasNext()) {
@@ -143,7 +143,7 @@ public class f {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.f.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean MS(String str) {
+            public boolean MR(String str) {
                 return true;
             }
         }, false);
@@ -174,7 +174,7 @@ public class f {
                 str4 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_NAME);
                 str5 = jSONObject.optString(TbEnum.SystemMessage.KEY_GROUP_NAME);
             }
-            ImMessageCenterPojo br = com.baidu.tieba.im.memorycache.b.cYx().br(str3, 1);
+            ImMessageCenterPojo br = com.baidu.tieba.im.memorycache.b.cYy().br(str3, 1);
             if (br != null) {
                 str5 = br.getGroup_name();
             }

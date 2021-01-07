@@ -13,11 +13,11 @@ public class a {
     private boolean kCc;
     private Page page;
 
-    public boolean cXL() {
+    public boolean cXM() {
         return this.kCc;
     }
 
-    public boolean bNb() {
+    public boolean bNc() {
         return this.geO;
     }
 
@@ -25,7 +25,7 @@ public class a {
         this.geO = z;
     }
 
-    public List<b> cXM() {
+    public List<b> cXN() {
         return this.kCb;
     }
 
@@ -46,11 +46,11 @@ public class a {
         }
     }
 
-    public void cXN() {
+    public void cXO() {
         if (this.kCb != null && this.kCb.size() > 0) {
             for (b bVar : this.kCb) {
                 if (bVar != null) {
-                    l.cXC().d(bVar.cXT().forum_id.longValue(), bVar.cXS() * 100, bVar.cXQ());
+                    l.cXD().d(bVar.cXU().forum_id.longValue(), bVar.cXT() * 100, bVar.cXR());
                 }
             }
         }

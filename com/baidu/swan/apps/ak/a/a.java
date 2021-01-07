@@ -30,7 +30,7 @@ public class a {
     private a() {
     }
 
-    public static a aPY() {
+    public static a aPZ() {
         if (dPk == null) {
             synchronized (a.class) {
                 if (dPk == null) {
@@ -50,7 +50,7 @@ public class a {
         this.dPn = interfaceC0377a;
     }
 
-    public void aPZ() {
+    public void aQa() {
         if (this.mContext == null) {
             c.e("accelerometer", "start error, none context");
         } else if (this.dPp) {
@@ -59,7 +59,7 @@ public class a {
             this.mSensorManager = (SensorManager) this.mContext.getSystemService("sensor");
             if (this.mSensorManager != null) {
                 this.dPm = this.mSensorManager.getDefaultSensor(1);
-                this.mSensorManager.registerListener(aQc(), this.dPm, 1);
+                this.mSensorManager.registerListener(aQd(), this.dPm, 1);
                 this.dPp = true;
                 c.i("accelerometer", "start listen");
                 return;
@@ -68,7 +68,7 @@ public class a {
         }
     }
 
-    public void aQa() {
+    public void aQb() {
         if (!this.dPp) {
             c.w("accelerometer", "has already stop");
             return;
@@ -84,14 +84,14 @@ public class a {
 
     public static void release() {
         if (dPk != null) {
-            dPk.aQb();
+            dPk.aQc();
         }
     }
 
-    private void aQb() {
+    private void aQc() {
         c.i("accelerometer", "release");
         if (this.dPp) {
-            aQa();
+            aQb();
         }
         this.mSensorManager = null;
         this.dPm = null;
@@ -101,7 +101,7 @@ public class a {
         dPk = null;
     }
 
-    private SensorEventListener aQc() {
+    private SensorEventListener aQd() {
         c.i("accelerometer", "get Accelerometer listener");
         if (this.dPl != null) {
             return this.dPl;

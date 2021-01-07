@@ -8,10 +8,10 @@ public abstract class a {
     public void iw(int i) {
     }
 
-    public void atY() {
+    public void atZ() {
     }
 
-    public void arc() {
+    public void ard() {
     }
 
     public void a(com.baidu.swan.pms.model.a aVar) {

@@ -6,10 +6,10 @@ import org.json.JSONObject;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6826a;
+    private int f6827a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6827b;
+    private int f6828b;
     private long c;
     private double d;
     private String e;
@@ -31,19 +31,19 @@ public class s {
     }
 
     public int b() {
-        return this.f6826a;
+        return this.f6827a;
     }
 
     public void b(int i) {
-        this.f6826a = i;
+        this.f6827a = i;
     }
 
     public int c() {
-        return this.f6827b;
+        return this.f6828b;
     }
 
     public void c(int i) {
-        this.f6827b = i;
+        this.f6828b = i;
     }
 
     public long d() {

@@ -44,7 +44,7 @@ public class b implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        bRc();
+        bRd();
         if (this.goJ != null) {
             this.goJ.sendEmptyMessage(1);
         }
@@ -83,7 +83,7 @@ public class b implements Runnable {
         if (this.goI != null) {
             this.goI.a(true, null, this.dmI);
         }
-        bRd();
+        bRe();
     }
 
     private void i(MediaModel mediaModel) {
@@ -148,19 +148,19 @@ public class b implements Runnable {
                 this.goJ.removeMessages(2);
                 this.goJ = null;
             }
-            b.this.bRd();
+            b.this.bRe();
         }
     }
 
-    private void bRc() {
+    private void bRd() {
         this.goK = new a(this.goJ);
-        com.baidu.swan.apps.t.a.aAr().registerActivityLifecycleCallbacks(this.goK);
+        com.baidu.swan.apps.t.a.aAs().registerActivityLifecycleCallbacks(this.goK);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRd() {
+    public void bRe() {
         if (this.goK != null) {
-            com.baidu.swan.apps.t.a.aAr().unregisterActivityLifecycleCallbacks(this.goK);
+            com.baidu.swan.apps.t.a.aAs().unregisterActivityLifecycleCallbacks(this.goK);
             this.goK = null;
         }
     }
@@ -184,7 +184,7 @@ public class b implements Runnable {
                     if ((context instanceof Activity) && !((Activity) context).isFinishing()) {
                         this.goM = new Dialog(this.mReference.get(), R.style.SwanAppCompressDialog);
                         this.goM.setContentView(R.layout.swanapp_progress_dialog);
-                        this.goM.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.t.a.aAN().alD() ? 0 : 8);
+                        this.goM.findViewById(R.id.layer_night).setVisibility(com.baidu.swan.apps.t.a.aAO().alE() ? 0 : 8);
                         this.goM.setCancelable(false);
                         this.goM.show();
                         return;

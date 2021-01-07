@@ -226,8 +226,8 @@ public class d {
         g gVar = new g();
         gVar.w(this.bWu.getPageContext().getPageActivity()).a(this.bWv).a(this.byR.getSchemeCallback());
         gVar.a(this.bWu);
-        a[] aae = gVar.aae();
-        for (a aVar : aae) {
+        a[] aaf = gVar.aaf();
+        for (a aVar : aaf) {
             this.byR.addJavascriptInterface(aVar, aVar.getName());
         }
         this.mContentView.addView(this.byR, new ViewGroup.LayoutParams(-1, -1));

@@ -12,19 +12,19 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class b<T extends i> {
 
     /* renamed from: a  reason: collision with root package name */
-    private g<T> f6517a;
+    private g<T> f6518a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Handler f6518b;
+    private Handler f6519b;
     private AtomicBoolean c;
 
     public b(e<T> eVar, q<T> qVar, g.b bVar, g.a aVar) {
-        this.f6517a = new g<>(eVar, qVar, bVar, aVar);
+        this.f6518a = new g<>(eVar, qVar, bVar, aVar);
         this.c = new AtomicBoolean(false);
     }
 
     public b(e<T> eVar, q<T> qVar, g.b bVar, g.a aVar, g<T> gVar) {
-        this.f6517a = gVar;
+        this.f6518a = gVar;
         this.c = new AtomicBoolean(false);
     }
 
@@ -33,28 +33,28 @@ public class b<T extends i> {
     }
 
     public synchronized void a() {
-        if ((this.c == null || !this.c.get()) && this.f6517a.getLooper() == null && this.c != null && !this.c.get()) {
-            this.f6517a.start();
-            this.f6518b = new Handler(this.f6517a.getLooper(), this.f6517a);
-            Message obtainMessage = this.f6518b.obtainMessage();
+        if ((this.c == null || !this.c.get()) && this.f6518a.getLooper() == null && this.c != null && !this.c.get()) {
+            this.f6518a.start();
+            this.f6519b = new Handler(this.f6518a.getLooper(), this.f6518a);
+            Message obtainMessage = this.f6519b.obtainMessage();
             obtainMessage.what = 5;
-            this.f6518b.sendMessage(obtainMessage);
+            this.f6519b.sendMessage(obtainMessage);
             this.c.set(true);
         }
     }
 
     public void b() {
         this.c.set(false);
-        this.f6517a.quit();
-        this.f6518b.removeCallbacksAndMessages(null);
+        this.f6518a.quit();
+        this.f6519b.removeCallbacksAndMessages(null);
     }
 
     public void a(@NonNull T t) {
         if (this.c.get()) {
-            Message obtainMessage = this.f6518b.obtainMessage();
+            Message obtainMessage = this.f6519b.obtainMessage();
             obtainMessage.what = 1;
             obtainMessage.obj = t;
-            this.f6518b.sendMessage(obtainMessage);
+            this.f6519b.sendMessage(obtainMessage);
         }
     }
 
@@ -62,8 +62,8 @@ public class b<T extends i> {
         return a.e();
     }
 
-    public static C0974b d() {
-        return C0974b.e();
+    public static C1012b d() {
+        return C1012b.e();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -71,17 +71,17 @@ public class b<T extends i> {
     public static class a extends b<com.bytedance.sdk.openadsdk.c.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile a f6519a;
+        private static volatile a f6520a;
 
         public static a e() {
-            if (f6519a == null) {
+            if (f6520a == null) {
                 synchronized (a.class) {
-                    if (f6519a == null) {
-                        f6519a = new a();
+                    if (f6520a == null) {
+                        f6520a = new a();
                     }
                 }
             }
-            return f6519a;
+            return f6520a;
         }
 
         a() {
@@ -104,23 +104,23 @@ public class b<T extends i> {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.bytedance.sdk.openadsdk.c.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0974b extends b<c.a> {
+    public static class C1012b extends b<c.a> {
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile C0974b f6520a;
+        private static volatile C1012b f6521a;
 
-        public static C0974b e() {
-            if (f6520a == null) {
-                synchronized (C0974b.class) {
-                    if (f6520a == null) {
-                        f6520a = new C0974b();
+        public static C1012b e() {
+            if (f6521a == null) {
+                synchronized (C1012b.class) {
+                    if (f6521a == null) {
+                        f6521a = new C1012b();
                     }
                 }
             }
-            return f6520a;
+            return f6521a;
         }
 
-        C0974b() {
+        C1012b() {
         }
 
         @Override // com.bytedance.sdk.openadsdk.c.b

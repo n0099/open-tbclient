@@ -3,11 +3,11 @@ package com.baidu.fsg.base.statistics;
 class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f1990a;
+    final /* synthetic */ d f1991a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f1990a = dVar;
+        this.f1991a = dVar;
     }
 
     @Override // java.lang.Runnable

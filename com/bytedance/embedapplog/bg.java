@@ -39,14 +39,14 @@ public final class bg implements bi {
             if (call != null) {
                 if (call.getInt("code", -1) == 0) {
                     bi.a aVar = new bi.a();
-                    aVar.f6100b = call.getString("id");
+                    aVar.f6101b = call.getString("id");
                     return aVar;
                 }
                 String string = call.getString("message");
                 if (TextUtils.isEmpty(string)) {
                     return null;
                 }
-                Log.e(bh.f6098a, string);
+                Log.e(bh.f6099a, string);
                 return null;
             }
             return null;

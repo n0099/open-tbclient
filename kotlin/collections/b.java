@@ -5,10 +5,10 @@ import java.util.NoSuchElementException;
 @kotlin.e
 /* loaded from: classes5.dex */
 public abstract class b<T> implements Iterator<T> {
-    private State qlE = State.NotReady;
-    private T qlF;
+    private State qnm = State.NotReady;
+    private T qnn;
 
-    protected abstract void eLO();
+    protected abstract void eMs();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -17,14 +17,14 @@ public abstract class b<T> implements Iterator<T> {
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        if (!kotlin.jvm.internal.p.l(this.qlE, State.Failed)) {
-            switch (this.qlE) {
+        if (!kotlin.jvm.internal.p.l(this.qnm, State.Failed)) {
+            switch (this.qnm) {
                 case Done:
                     return false;
                 case Ready:
                     return true;
                 default:
-                    return eLN();
+                    return eMr();
             }
         }
         throw new IllegalArgumentException("Failed requirement.".toString());
@@ -33,26 +33,26 @@ public abstract class b<T> implements Iterator<T> {
     @Override // java.util.Iterator
     public T next() {
         if (hasNext()) {
-            this.qlE = State.NotReady;
-            return this.qlF;
+            this.qnm = State.NotReady;
+            return this.qnn;
         }
         throw new NoSuchElementException();
     }
 
-    private final boolean eLN() {
-        this.qlE = State.Failed;
-        eLO();
-        return kotlin.jvm.internal.p.l(this.qlE, State.Ready);
+    private final boolean eMr() {
+        this.qnm = State.Failed;
+        eMs();
+        return kotlin.jvm.internal.p.l(this.qnm, State.Ready);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final void bQ(T t) {
-        this.qlF = t;
-        this.qlE = State.Ready;
+    public final void bR(T t) {
+        this.qnn = t;
+        this.qnm = State.Ready;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final void done() {
-        this.qlE = State.Done;
+        this.qnm = State.Done;
     }
 }

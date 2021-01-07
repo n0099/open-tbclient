@@ -61,12 +61,12 @@ public class t extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwM() {
+    public int bwN() {
         return this.ffC;
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwN() {
+    public int bwO() {
         return this.ffD;
     }
 
@@ -89,7 +89,7 @@ public class t extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwO() {
+    public int bwP() {
         return this.ffA;
     }
 

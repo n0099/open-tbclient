@@ -14,13 +14,13 @@ import java.util.List;
 public class w implements TTAdNative {
 
     /* renamed from: a  reason: collision with root package name */
-    private final q f7058a = p.f();
+    private final q f7059a = p.f();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f7059b;
+    private final Context f7060b;
 
     public w(Context context) {
-        this.f7059b = context;
+        this.f7060b = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAdNative
@@ -30,7 +30,7 @@ public class w implements TTAdNative {
             try {
                 Method a2 = ah.a("com.bytedance.sdk.openadsdk.TTC5Proxy", "loadFeed", Context.class, AdSlot.class, TTAdNative.FeedAdListener.class);
                 if (a2 != null) {
-                    a2.invoke(null, this.f7059b, adSlot, feedAdListener);
+                    a2.invoke(null, this.f7060b, adSlot, feedAdListener);
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.b("TTAdNativeImpl", "feed component maybe not exist, pls check1", th);
@@ -45,7 +45,7 @@ public class w implements TTAdNative {
             try {
                 Method a2 = ah.a("com.bytedance.sdk.openadsdk.TTC5Proxy", "loadDraw", Context.class, AdSlot.class, TTAdNative.DrawFeedAdListener.class);
                 if (a2 != null) {
-                    a2.invoke(null, this.f7059b, adSlot, drawFeedAdListener);
+                    a2.invoke(null, this.f7060b, adSlot, drawFeedAdListener);
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.b("TTAdNativeImpl", "feed component maybe not exist, pls check2", th);
@@ -57,7 +57,7 @@ public class w implements TTAdNative {
     public void loadNativeAd(final AdSlot adSlot, @NonNull final TTAdNative.NativeAdListener nativeAdListener) {
         if (!a(nativeAdListener)) {
             b(adSlot);
-            this.f7058a.a(adSlot, (com.bytedance.sdk.openadsdk.core.d.m) null, adSlot.getNativeAdType(), new q.b() { // from class: com.bytedance.sdk.openadsdk.core.w.1
+            this.f7059a.a(adSlot, (com.bytedance.sdk.openadsdk.core.d.m) null, adSlot.getNativeAdType(), new q.b() { // from class: com.bytedance.sdk.openadsdk.core.w.1
                 @Override // com.bytedance.sdk.openadsdk.core.q.b
                 public void a(int i, String str) {
                     nativeAdListener.onError(i, str);
@@ -70,7 +70,7 @@ public class w implements TTAdNative {
                         ArrayList arrayList = new ArrayList(c.size());
                         for (com.bytedance.sdk.openadsdk.core.d.l lVar : c) {
                             if (lVar.ai()) {
-                                arrayList.add(new com.bytedance.sdk.openadsdk.core.e.a(w.this.f7059b, lVar, adSlot.getNativeAdType()) { // from class: com.bytedance.sdk.openadsdk.core.w.1.1
+                                arrayList.add(new com.bytedance.sdk.openadsdk.core.e.a(w.this.f7060b, lVar, adSlot.getNativeAdType()) { // from class: com.bytedance.sdk.openadsdk.core.w.1.1
                                 });
                             }
                         }
@@ -95,7 +95,7 @@ public class w implements TTAdNative {
             try {
                 Method a2 = ah.a("com.bytedance.sdk.openadsdk.TTC1Proxy", TrackLoadSettingsAtom.TYPE, Context.class, AdSlot.class, TTAdNative.BannerAdListener.class);
                 if (a2 != null) {
-                    a2.invoke(null, this.f7059b, adSlot, bannerAdListener);
+                    a2.invoke(null, this.f7060b, adSlot, bannerAdListener);
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.b("TTAdNativeImpl", "banner component maybe not exist, pls check", th);
@@ -110,7 +110,7 @@ public class w implements TTAdNative {
             try {
                 Method a2 = ah.a("com.bytedance.sdk.openadsdk.TTC4Proxy", TrackLoadSettingsAtom.TYPE, Context.class, AdSlot.class, TTAdNative.InteractionAdListener.class);
                 if (a2 != null) {
-                    a2.invoke(null, this.f7059b, adSlot, interactionAdListener);
+                    a2.invoke(null, this.f7060b, adSlot, interactionAdListener);
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.b("TTAdNativeImpl", "interaction component maybe not exist, pls check", th);
@@ -125,7 +125,7 @@ public class w implements TTAdNative {
             try {
                 Method a2 = ah.a("com.bytedance.sdk.openadsdk.TTC2Proxy", TrackLoadSettingsAtom.TYPE, Context.class, AdSlot.class, TTAdNative.SplashAdListener.class, Integer.TYPE);
                 if (a2 != null) {
-                    a2.invoke(null, this.f7059b, adSlot, splashAdListener, Integer.valueOf(i));
+                    a2.invoke(null, this.f7060b, adSlot, splashAdListener, Integer.valueOf(i));
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.b("TTAdNativeImpl", "splash component maybe not exist, pls check1", th);
@@ -151,7 +151,7 @@ public class w implements TTAdNative {
             try {
                 Method a2 = ah.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "loadReward", Context.class, AdSlot.class, TTAdNative.RewardVideoAdListener.class);
                 if (a2 != null) {
-                    a2.invoke(null, this.f7059b, adSlot, rewardVideoAdListener);
+                    a2.invoke(null, this.f7060b, adSlot, rewardVideoAdListener);
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.b("TTAdNativeImpl", "reward component maybe not exist, pls check1", th);
@@ -165,7 +165,7 @@ public class w implements TTAdNative {
             try {
                 Method a2 = ah.a("com.bytedance.sdk.openadsdk.TTC3Proxy", "loadFull", Context.class, AdSlot.class, TTAdNative.FullScreenVideoAdListener.class);
                 if (a2 != null) {
-                    a2.invoke(null, this.f7059b, adSlot, fullScreenVideoAdListener);
+                    a2.invoke(null, this.f7060b, adSlot, fullScreenVideoAdListener);
                 }
             } catch (Throwable th) {
                 com.bytedance.sdk.openadsdk.utils.u.b("TTAdNativeImpl", "reward component maybe not exist, pls check2", th);
@@ -179,7 +179,7 @@ public class w implements TTAdNative {
             if (!a(adSlot, false)) {
                 nativeExpressAdListener.onError(110, h.a(110));
             } else {
-                com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f7059b).a(adSlot, 5, nativeExpressAdListener, 5000);
+                com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f7060b).a(adSlot, 5, nativeExpressAdListener, 5000);
             }
         }
     }
@@ -190,7 +190,7 @@ public class w implements TTAdNative {
             if (!a(adSlot, false)) {
                 nativeExpressAdListener.onError(110, h.a(110));
             } else {
-                com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f7059b).a(adSlot, 9, nativeExpressAdListener, 5000);
+                com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f7060b).a(adSlot, 9, nativeExpressAdListener, 5000);
             }
         }
     }
@@ -203,7 +203,7 @@ public class w implements TTAdNative {
                 return;
             }
             adSlot.setNativeAdType(1);
-            com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f7059b).a(adSlot, 1, nativeExpressAdListener, 5000);
+            com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f7060b).a(adSlot, 1, nativeExpressAdListener, 5000);
         }
     }
 
@@ -215,7 +215,7 @@ public class w implements TTAdNative {
                 return;
             }
             adSlot.setNativeAdType(2);
-            com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f7059b).a(adSlot, 2, nativeExpressAdListener, 5000);
+            com.bytedance.sdk.openadsdk.core.nativeexpress.b.a(this.f7060b).a(adSlot, 2, nativeExpressAdListener, 5000);
         }
     }
 

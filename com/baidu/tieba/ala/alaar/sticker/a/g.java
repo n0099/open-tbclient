@@ -39,11 +39,11 @@ public class g {
         MessageManager.getInstance().sendMessage(dVar);
     }
 
-    public static void bTl() {
+    public static void bTm() {
         gvk = false;
     }
 
-    public static boolean bTm() {
+    public static boolean bTn() {
         return gvk;
     }
 }

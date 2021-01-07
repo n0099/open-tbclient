@@ -19,7 +19,7 @@ public class p {
             if (p.this.eHb != null && customResponsedMessage != null) {
                 Object data = customResponsedMessage.getData();
                 if ((data instanceof com.baidu.tieba.tbadkCore.writeModel.e) && ((com.baidu.tieba.tbadkCore.writeModel.e) data).isSuccess) {
-                    p.this.blz();
+                    p.this.blA();
                 }
             }
         }
@@ -33,7 +33,7 @@ public class p {
         }
     };
 
-    public static p bly() {
+    public static p blz() {
         if (eHc == null) {
             synchronized (p.class) {
                 if (eHc == null) {
@@ -56,16 +56,16 @@ public class p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void blz() {
-        if (this.eHb != null && this.eHb.getActivityId() != 0 && this.eHb.bkD() != 0 && this.eHb.getTaskType() == 9) {
+    public void blA() {
+        if (this.eHb != null && this.eHb.getActivityId() != 0 && this.eHb.bkE() != 0 && this.eHb.getTaskType() == 9) {
             try {
                 String valueOf = String.valueOf(this.eHb.getActivityId());
-                String valueOf2 = String.valueOf(this.eHb.bkD());
+                String valueOf2 = String.valueOf(this.eHb.bkE());
                 JSONObject jSONObject = new JSONObject();
                 jSONObject.put(valueOf, valueOf2);
                 CompleteTaskReqMsg completeTaskReqMsg = new CompleteTaskReqMsg(0);
                 completeTaskReqMsg.completeId = jSONObject.toString();
-                JSONObject a2 = com.baidu.tbadk.BdToken.completeTask.c.a(null, this.eHb.getActivityId(), this.eHb.bkD(), this.eHb.getToken());
+                JSONObject a2 = com.baidu.tbadk.BdToken.completeTask.c.a(null, this.eHb.getActivityId(), this.eHb.bkE(), this.eHb.getToken());
                 if (a2 != null) {
                     completeTaskReqMsg.setToken(a2.toString());
                 }

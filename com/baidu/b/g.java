@@ -11,15 +11,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1617a;
+    private Context f1618a;
     private c aft;
 
     public g(Context context, c cVar) {
-        this.f1617a = context;
+        this.f1618a = context;
         this.aft = cVar;
     }
 
@@ -56,12 +56,12 @@ public class g {
     }
 
     private boolean b(String str) {
-        return this.f1617a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
+        return this.f1618a.checkPermission(str, Process.myPid(), Process.myUid()) == 0;
     }
 
     private String c(String str) {
         try {
-            return Settings.System.getString(this.f1617a.getContentResolver(), str);
+            return Settings.System.getString(this.f1618a.getContentResolver(), str);
         } catch (Exception e) {
             com.baidu.b.f.c.a(e);
             return null;
@@ -117,7 +117,7 @@ public class g {
     }
 
     public f cY(String str) {
-        f P = 0 == 0 ? P(this.f1617a) : null;
+        f P = 0 == 0 ? P(this.f1618a) : null;
         if (P == null) {
             P = f.cW(c("com.baidu.deviceid.v2"));
         }

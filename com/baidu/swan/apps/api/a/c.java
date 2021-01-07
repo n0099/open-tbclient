@@ -22,7 +22,7 @@ public abstract class c {
     @NonNull
     protected abstract com.baidu.swan.apps.api.c.b aM(@NonNull JSONObject jSONObject);
 
-    protected abstract boolean anj();
+    protected abstract boolean ank();
 
     /* JADX INFO: Access modifiers changed from: protected */
     public c(@NonNull String str) {
@@ -32,9 +32,9 @@ public abstract class c {
     public com.baidu.swan.apps.api.c.b a(@NonNull JSONObject jSONObject, @NonNull String str, @NonNull d dVar) {
         this.cHJ = dVar;
         if (DEBUG) {
-            Log.d("SwanAutoSyncApiHandler", this.cHI + " is called, can use sync mode: " + anj() + ", params" + jSONObject.toString() + ", callback: " + str);
+            Log.d("SwanAutoSyncApiHandler", this.cHI + " is called, can use sync mode: " + ank() + ", params" + jSONObject.toString() + ", callback: " + str);
         }
-        return anj() ? aL(jSONObject) : m(jSONObject, str);
+        return ank() ? aL(jSONObject) : m(jSONObject, str);
     }
 
     private com.baidu.swan.apps.api.c.b aL(@NonNull JSONObject jSONObject) {

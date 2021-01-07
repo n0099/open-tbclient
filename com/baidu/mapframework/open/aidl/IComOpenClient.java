@@ -6,21 +6,21 @@ import android.os.IBinder;
 import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public interface IComOpenClient extends IInterface {
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static abstract class a extends Binder implements IComOpenClient {
 
         /* renamed from: com.baidu.mapframework.open.aidl.IComOpenClient$a$a  reason: collision with other inner class name */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes3.dex */
         private static class C0260a implements IComOpenClient {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f3110a;
+            private IBinder f3111a;
 
             C0260a(IBinder iBinder) {
-                this.f3110a = iBinder;
+                this.f3111a = iBinder;
             }
 
             @Override // com.baidu.mapframework.open.aidl.IComOpenClient
@@ -30,7 +30,7 @@ public interface IComOpenClient extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.mapframework.open.aidl.IComOpenClient");
                     obtain.writeString(str);
-                    this.f3110a.transact(1, obtain, obtain2, 0);
+                    this.f3111a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {
@@ -53,7 +53,7 @@ public interface IComOpenClient extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    this.f3110a.transact(2, obtain, obtain2, 0);
+                    this.f3111a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -64,7 +64,7 @@ public interface IComOpenClient extends IInterface {
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f3110a;
+                return this.f3111a;
             }
         }
 

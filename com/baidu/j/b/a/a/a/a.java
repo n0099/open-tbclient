@@ -443,11 +443,11 @@ public class a {
         } else if (aVar.getType() == 0) {
             cVar.cfd = "2";
         }
-        com.baidu.j.a.a.a abT = com.baidu.j.b.a.by(context).abT();
-        b abL = abT != null ? abT.abL() : null;
-        if (abL != null) {
-            cVar.portrait = abL.abM();
-            cVar.uid = abL.getUid();
+        com.baidu.j.a.a.a abU = com.baidu.j.b.a.by(context).abU();
+        b abM = abU != null ? abU.abM() : null;
+        if (abM != null) {
+            cVar.portrait = abM.abN();
+            cVar.uid = abM.getUid();
             cVar.name = eVar.name;
         }
         c.C0154c c0154c = new c.C0154c();
@@ -461,18 +461,18 @@ public class a {
             c.d.a aVar2 = new c.d.a();
             aVar2.url = aVar.getUrl();
             aVar2.width = aVar.getWidth();
-            aVar2.height = aVar.abQ();
+            aVar2.height = aVar.abR();
             c.d.a aVar3 = new c.d.a();
             aVar3.url = aVar.getThumbUrl();
-            aVar3.width = aVar.abO();
-            aVar3.height = aVar.abP();
+            aVar3.width = aVar.abP();
+            aVar3.height = aVar.abQ();
             dVar.cfK = aVar2;
             dVar.cfL = aVar3;
             c0154c.cfH = dVar;
         } else if (aVar != null && aVar.getType() == 1) {
             c.f fVar = new c.f();
             fVar.url = aVar.getUrl();
-            fVar.duration = aVar.abR() + "";
+            fVar.duration = aVar.abS() + "";
             c0154c.cfI = fVar;
         }
         cVar.cfh = c0154c;
@@ -490,7 +490,7 @@ public class a {
             com.baidu.j.b.a.a.c.c(context, cVar);
         }
         cVar.content = com.baidu.j.b.a.a.c.a(context, cVar, true);
-        if (abT == null || !abT.isLogin()) {
+        if (abU == null || !abU.isLogin()) {
             return null;
         }
         try {

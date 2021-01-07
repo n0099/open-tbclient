@@ -66,14 +66,14 @@ public class PkRankView extends RelativeLayout {
         this.iml.setPkRankView(this);
         this.imm = (PkRankResultView) this.mView.findViewById(a.f.result_view);
         this.imm.setPkRankView(this);
-        csB();
-        ctf();
+        csC();
+        ctg();
     }
 
-    public void ctb() {
+    public void ctc() {
         if (this.aMh.mLiveInfo.pkId == 0) {
             if (this.isHost) {
-                ctc();
+                ctd();
                 this.imk.yc(1);
                 return;
             }
@@ -81,11 +81,11 @@ public class PkRankView extends RelativeLayout {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (PkRankView.this.aMh.mLiveInfo.pkId == 0) {
-                        PkRankView.this.csB();
+                        PkRankView.this.csC();
                     }
                 }
             }, 6000L);
-        } else if (!getGetPkInfoModel().aLf()) {
+        } else if (!getGetPkInfoModel().aLg()) {
             getGetPkInfoModel().a(this.aMh.aKu.userId, this.aMh.mLiveInfo.pkId, this.aMh.mLiveInfo.room_id, this.aMh.mLiveInfo.live_id, this.isHost ? 1 : 0);
         }
     }
@@ -107,28 +107,28 @@ public class PkRankView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ctc() {
+    public void ctd() {
         this.imk.setVisibility(0);
         this.iml.setVisibility(8);
         this.imm.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void ctd() {
+    public void cte() {
         this.imk.setVisibility(8);
         this.iml.setVisibility(0);
         this.imm.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cte() {
+    public void ctf() {
         this.imk.setVisibility(8);
         this.iml.setVisibility(8);
         this.imm.setVisibility(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csB() {
+    public void csC() {
         this.imk.setVisibility(8);
         this.iml.setVisibility(8);
         this.imm.setVisibility(8);
@@ -245,7 +245,7 @@ public class PkRankView extends RelativeLayout {
         }
     }
 
-    public void ctf() {
+    public void ctg() {
         if (this.imq == null) {
             this.imq = new CustomMessageListener(2913233) { // from class: com.baidu.tieba.ala.view.PkRankView.3
                 /* JADX DEBUG: Method merged with bridge method */
@@ -279,8 +279,8 @@ public class PkRankView extends RelativeLayout {
     public boolean ye(int i) {
         if (this.imp < 10 || this.imp > 30 || i >= 10 || i == 1) {
             if (this.imp == 4 && i < 4) {
-                this.imk.ikD.cpb();
-                this.imk.csv();
+                this.imk.ikD.cpc();
+                this.imk.csw();
                 return false;
             }
             if (i >= 10 && i < 30) {
@@ -304,7 +304,7 @@ public class PkRankView extends RelativeLayout {
 
     public void onDestroy() {
         if (this.imn != null) {
-            this.imn.coY();
+            this.imn.coZ();
         }
         this.imk.onDestroy();
         this.iml.onDestroy();

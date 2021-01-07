@@ -18,7 +18,7 @@ public final class m {
     private static final Executor d;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f6263b;
+    boolean f6264b;
     private final int e;
     private final long f;
     private final Runnable g;
@@ -83,7 +83,7 @@ public final class m {
     public Socket a(a aVar, com.bytedance.sdk.a.b.a.b.g gVar) {
         if (c || Thread.holdsLock(this)) {
             for (com.bytedance.sdk.a.b.a.b.c cVar : this.pnC) {
-                if (cVar.a(aVar, null) && cVar.d() && cVar != gVar.eqG()) {
+                if (cVar.a(aVar, null) && cVar.d() && cVar != gVar.eqH()) {
                     return gVar.b(cVar);
                 }
             }
@@ -97,8 +97,8 @@ public final class m {
         if (!c && !Thread.holdsLock(this)) {
             throw new AssertionError();
         }
-        if (!this.f6263b) {
-            this.f6263b = true;
+        if (!this.f6264b) {
+            this.f6264b = true;
             d.execute(this.g);
         }
         this.pnC.add(cVar);
@@ -107,7 +107,7 @@ public final class m {
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean d(com.bytedance.sdk.a.b.a.b.c cVar) {
         if (c || Thread.holdsLock(this)) {
-            if (cVar.f6161a || this.e == 0) {
+            if (cVar.f6162a || this.e == 0) {
                 this.pnC.remove(cVar);
                 return true;
             }
@@ -139,14 +139,14 @@ public final class m {
             }
             if (j2 >= this.f || i > this.e) {
                 this.pnC.remove(cVar);
-                com.bytedance.sdk.a.b.a.c.a(cVar.eqy());
+                com.bytedance.sdk.a.b.a.c.a(cVar.eqz());
                 return 0L;
             } else if (i > 0) {
                 return this.f - j2;
             } else if (i2 > 0) {
                 return this.f;
             } else {
-                this.f6263b = false;
+                this.f6264b = false;
                 return -1L;
             }
         }
@@ -160,9 +160,9 @@ public final class m {
             if (reference.get() != null) {
                 i++;
             } else {
-                com.bytedance.sdk.a.b.a.g.e.era().a("A connection to " + cVar.eqx().erm().eqk() + " was leaked. Did you forget to close a response body?", ((g.a) reference).f6168a);
+                com.bytedance.sdk.a.b.a.g.e.erb().a("A connection to " + cVar.eqy().ern().eql() + " was leaked. Did you forget to close a response body?", ((g.a) reference).f6169a);
                 list.remove(i);
-                cVar.f6161a = true;
+                cVar.f6162a = true;
                 if (list.isEmpty()) {
                     cVar.e = j - this.f;
                     return 0;

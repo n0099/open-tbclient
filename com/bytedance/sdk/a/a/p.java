@@ -4,20 +4,20 @@ package com.bytedance.sdk.a.a;
 public final class p {
 
     /* renamed from: b  reason: collision with root package name */
-    static long f6149b;
+    static long f6150b;
     static o phQ;
 
     private p() {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static o eqh() {
+    public static o eqi() {
         synchronized (p.class) {
             if (phQ != null) {
                 o oVar = phQ;
                 phQ = oVar.pie;
                 oVar.pie = null;
-                f6149b -= 8192;
+                f6150b -= 8192;
                 return oVar;
             }
             return new o();
@@ -31,11 +31,11 @@ public final class p {
         }
         if (!oVar.d) {
             synchronized (p.class) {
-                if (f6149b + 8192 <= 65536) {
-                    f6149b += 8192;
+                if (f6150b + 8192 <= 65536) {
+                    f6150b += 8192;
                     oVar.pie = phQ;
                     oVar.c = 0;
-                    oVar.f6148b = 0;
+                    oVar.f6149b = 0;
                     phQ = oVar;
                 }
             }

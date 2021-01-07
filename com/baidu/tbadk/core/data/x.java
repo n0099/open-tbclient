@@ -19,11 +19,11 @@ public class x {
     private int ePb;
     private String ePz;
 
-    public String bpu() {
+    public String bpv() {
         return this.ePz;
     }
 
-    public int bpv() {
+    public int bpw() {
         return this.ePb;
     }
 

@@ -14,38 +14,38 @@ import org.json.JSONObject;
 public class co implements ct {
 
     /* renamed from: a  reason: collision with root package name */
-    private static co f14216a;
+    private static co f14217a;
 
     /* renamed from: a  reason: collision with other field name */
-    private int f249a;
+    private int f250a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f250a;
+    private Context f251a;
 
     /* renamed from: a  reason: collision with other field name */
-    private cn f251a;
+    private cn f252a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f252a;
+    private String f253a;
 
     /* renamed from: a  reason: collision with other field name */
-    private HashMap<String, cm> f253a;
+    private HashMap<String, cm> f254a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f14217b;
+    private int f14218b;
 
     /* renamed from: b  reason: collision with other field name */
-    private String f254b;
+    private String f255b;
     private int c;
 
     /* renamed from: c  reason: collision with other field name */
-    private String f255c;
+    private String f256c;
     private int d;
 
     public static synchronized co a() {
         co coVar;
         synchronized (co.class) {
-            coVar = f14216a;
+            coVar = f14217a;
         }
         return coVar;
     }
@@ -53,8 +53,8 @@ public class co implements ct {
     private String a(ArrayList<cl> arrayList, String str) {
         JSONObject jSONObject;
         JSONObject jSONObject2 = new JSONObject();
-        if (!TextUtils.isEmpty(this.f252a)) {
-            jSONObject2.put("imei", cr.a(this.f252a));
+        if (!TextUtils.isEmpty(this.f253a)) {
+            jSONObject2.put("imei", cr.a(this.f253a));
         }
         jSONObject2.put("actionType", str);
         jSONObject2.put("actionTime", System.currentTimeMillis());
@@ -66,11 +66,11 @@ public class co implements ct {
                 jSONObject2.put("adList", new JSONArray((Collection) arrayList2));
                 return Base64.encodeToString(jSONObject2.toString().getBytes(), 2);
             }
-            if (TextUtils.isEmpty(arrayList.get(i2).f246a)) {
+            if (TextUtils.isEmpty(arrayList.get(i2).f247a)) {
                 jSONObject = new JSONObject();
             } else {
                 try {
-                    jSONObject = new JSONObject(arrayList.get(i2).f246a);
+                    jSONObject = new JSONObject(arrayList.get(i2).f247a);
                 } catch (Exception e) {
                     Log.e("com.xiaomi.miui.ads.pushsdk", "content 不是json串");
                     jSONObject = null;
@@ -80,20 +80,20 @@ public class co implements ct {
                 jSONObject = new JSONObject();
             }
             JSONObject jSONObject3 = jSONObject;
-            jSONObject3.put("adId", arrayList.get(i2).f245a);
+            jSONObject3.put("adId", arrayList.get(i2).f246a);
             arrayList2.add(jSONObject3);
             i = i2 + 1;
         }
     }
 
     private void a(cm cmVar) {
-        if (this.f253a.containsKey(cmVar.f14214b)) {
+        if (this.f254a.containsKey(cmVar.f14215b)) {
             return;
         }
-        this.f14217b++;
-        cr.m222a("send: " + this.f14217b);
-        cp cpVar = new cp(this, this.f254b, this.f255c, cmVar);
-        this.f253a.put(cmVar.f14214b, cmVar);
+        this.f14218b++;
+        cr.m233a("send: " + this.f14218b);
+        cp cpVar = new cp(this, this.f255b, this.f256c, cmVar);
+        this.f254a.put(cmVar.f14215b, cmVar);
         cpVar.execute(new String[0]);
     }
 
@@ -101,7 +101,7 @@ public class co implements ct {
         try {
             String a2 = a(arrayList, str);
             String a3 = cr.a(a2);
-            if (m221a(new cm(i, a2, a3))) {
+            if (m232a(new cm(i, a2, a3))) {
                 a(new cm(i, a2, a3));
             }
         } catch (JSONException e) {
@@ -109,8 +109,8 @@ public class co implements ct {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m221a(cm cmVar) {
-        if (cq.a(this.f250a)) {
+    private boolean m232a(cm cmVar) {
+        if (cq.a(this.f251a)) {
             return true;
         }
         b(cmVar);
@@ -119,50 +119,50 @@ public class co implements ct {
 
     private void b(cm cmVar) {
         this.d++;
-        cr.m222a("cacheCount: " + this.d);
-        this.f251a.a(cmVar);
-        this.f251a.a();
+        cr.m233a("cacheCount: " + this.d);
+        this.f252a.a(cmVar);
+        this.f252a.a();
     }
 
     public void a(cl clVar) {
-        if (clVar.f245a <= 0) {
+        if (clVar.f246a <= 0) {
             return;
         }
         ArrayList<cl> arrayList = new ArrayList<>();
         arrayList.add(clVar);
-        a(arrayList, "click", clVar.f14212a);
+        a(arrayList, "click", clVar.f14213a);
     }
 
     @Override // com.xiaomi.push.ct
     public void a(Integer num, cm cmVar) {
-        if (this.f253a.containsKey(cmVar.f14214b)) {
+        if (this.f254a.containsKey(cmVar.f14215b)) {
             if (num.intValue() != 0) {
                 this.c++;
-                cr.m222a("faild: " + this.c + " " + cmVar.f14214b + "  " + this.f253a.size());
+                cr.m233a("faild: " + this.c + " " + cmVar.f14215b + "  " + this.f254a.size());
                 b(cmVar);
             } else {
-                this.f249a++;
-                cr.m222a("success: " + this.f249a);
+                this.f250a++;
+                cr.m233a("success: " + this.f250a);
             }
-            this.f253a.remove(cmVar.f14214b);
+            this.f254a.remove(cmVar.f14215b);
         }
     }
 
     public void b(cl clVar) {
-        if (clVar.f245a <= 0) {
+        if (clVar.f246a <= 0) {
             return;
         }
         ArrayList<cl> arrayList = new ArrayList<>();
         arrayList.add(clVar);
-        a(arrayList, "remove", clVar.f14212a);
+        a(arrayList, "remove", clVar.f14213a);
     }
 
     public void c(cl clVar) {
-        if (clVar.f245a <= 0) {
+        if (clVar.f246a <= 0) {
             return;
         }
         ArrayList<cl> arrayList = new ArrayList<>();
         arrayList.add(clVar);
-        a(arrayList, "received", clVar.f14212a);
+        a(arrayList, "received", clVar.f14213a);
     }
 }

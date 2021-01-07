@@ -129,7 +129,7 @@ public class e extends BaseExpandableListAdapter {
         }
         c group = getGroup(i);
         if (group != null) {
-            bVar.titleTv.setText(at.cutStringWithSuffix(group.cVP(), 15, null));
+            bVar.titleTv.setText(at.cutStringWithSuffix(group.cVQ(), 15, null));
             if (i == 0) {
                 bVar.dividerLine.setVisibility(0);
                 bVar.kvT.setVisibility(8);
@@ -185,8 +185,8 @@ public class e extends BaseExpandableListAdapter {
         if (child == null) {
             return inflate;
         }
-        aVar.krT.setText(com.baidu.tbadk.plugins.b.Ew(at.cutStringWithEllipsisNew(child.getTopicName(), 15)));
-        g(aVar.kvS, child.cVQ().intValue());
+        aVar.krT.setText(com.baidu.tbadk.plugins.b.Ev(at.cutStringWithEllipsisNew(child.getTopicName(), 15)));
+        g(aVar.kvS, child.cVR().intValue());
         a(aVar, inflate, TbadkCoreApplication.getInst().getSkinType());
         return inflate;
     }

@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.TreeSet;
 import org.json.JSONArray;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class a implements AREngineDelegate {
     public static PermissionProxy cCg = null;
     public static int cCh = 0;
@@ -88,7 +88,7 @@ public final class a implements AREngineDelegate {
         }
     }
 
-    public ArBridge aiP() {
+    public ArBridge aiQ() {
         return this.cCi;
     }
 
@@ -261,7 +261,7 @@ public final class a implements AREngineDelegate {
             this.cCq.onPause();
         }
         if (this.cCi.getGameRecorder() != null) {
-            this.cCi.getGameRecorder().acG();
+            this.cCi.getGameRecorder().acH();
         }
     }
 
@@ -271,7 +271,7 @@ public final class a implements AREngineDelegate {
             this.cCq.onResume();
         }
         if (this.cCi.getGameRecorder() != null) {
-            this.cCi.getGameRecorder().acH();
+            this.cCi.getGameRecorder().acI();
         }
     }
 
@@ -322,7 +322,7 @@ public final class a implements AREngineDelegate {
     @Override // com.baidu.smallgame.sdk.delegate.AREngineDelegate
     public long getCurrentRecordProcess() {
         if (this.cCi.getGameRecorder() != null) {
-            return this.cCi.getGameRecorder().acF();
+            return this.cCi.getGameRecorder().acG();
         }
         return 0L;
     }
@@ -432,7 +432,7 @@ public final class a implements AREngineDelegate {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.smallgame.sdk.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class C0359a extends Thread {
         private b cCE;
         private a cCF;
@@ -478,10 +478,10 @@ public final class a implements AREngineDelegate {
         public void run() {
             setName("ARGLThread " + getId());
             if (this.cCF != null) {
-                ArBridge aiP = this.cCF.aiP();
-                if (aiP != null) {
-                    aiP.setGLThreadID(getId());
-                    aiP.smallGameOnInit();
+                ArBridge aiQ = this.cCF.aiQ();
+                if (aiQ != null) {
+                    aiQ.setGLThreadID(getId());
+                    aiQ.smallGameOnInit();
                     this.cCF.initDisplayMetrics();
                 } else {
                     Log.e("EngineLogger", "Render Engine Init Failed. ArBridge is null");
@@ -532,7 +532,7 @@ public final class a implements AREngineDelegate {
             }
         }
 
-        public boolean aiQ() {
+        public boolean aiR() {
             return this.cCF.cCi.mFirstFrameFinished && ((float) (System.currentTimeMillis() - this.cCv)) > minFramesInterval();
         }
 
@@ -629,7 +629,7 @@ public final class a implements AREngineDelegate {
          */
         /* JADX WARN: Code restructure failed: missing block: B:164:0x0389, code lost:
             r0.cCm.onDrawFrame(null);
-            aiR();
+            aiS();
          */
         /* JADX WARN: Code restructure failed: missing block: B:165:0x03a0, code lost:
             if ((r18 - r24.lastUpdateTime) <= 33) goto L64;
@@ -819,10 +819,10 @@ public final class a implements AREngineDelegate {
                         while (!this.mShouldExit) {
                             if (this.cCC.isEmpty()) {
                                 if (ableToDraw()) {
-                                    if (aiQ()) {
+                                    if (aiR()) {
                                         z7 = z12;
                                     } else {
-                                        runnable = aiS();
+                                        runnable = aiT();
                                         if (runnable != null) {
                                             z7 = z12;
                                         }
@@ -962,7 +962,7 @@ public final class a implements AREngineDelegate {
             z8 = z6;
         }
 
-        private void aiR() {
+        private void aiS() {
             this.cCs++;
             if (this.cCt != 0) {
                 float currentTimeMillis = ((float) (System.currentTimeMillis() - this.cCt)) / 1000.0f;
@@ -1062,7 +1062,7 @@ public final class a implements AREngineDelegate {
                 Log.i("EngineLogger", "onPause tid=" + getId());
                 this.mRequestPaused = true;
                 if (this.cCF != null && (this.cCF.cCi.getStuckScreenHandler() instanceof com.baidu.smallgame.sdk.b)) {
-                    ((com.baidu.smallgame.sdk.b) this.cCF.cCi.getStuckScreenHandler()).aiW();
+                    ((com.baidu.smallgame.sdk.b) this.cCF.cCi.getStuckScreenHandler()).aiX();
                 }
                 this.cCo.notifyAll();
                 while (!this.mExited && !this.mPaused) {
@@ -1179,7 +1179,7 @@ public final class a implements AREngineDelegate {
             }
         }
 
-        private Runnable aiS() {
+        private Runnable aiT() {
             Runnable pollFirst;
             synchronized (this.cCo) {
                 pollFirst = (this.cCD.isEmpty() || !this.cCD.first().isTimeout()) ? this.cCB.pollFirst() : this.cCD.pollFirst();
@@ -1188,7 +1188,7 @@ public final class a implements AREngineDelegate {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class d implements Comparable<d>, Runnable {
         private final Runnable cCK;
         private final long mTimestamp;
@@ -1216,7 +1216,7 @@ public final class a implements AREngineDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class c {
         private static String TAG = "GLThreadManager";
         private C0359a cCJ;
@@ -1243,7 +1243,7 @@ public final class a implements AREngineDelegate {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b {
         private a cCF;
         EGLDisplay cCG;

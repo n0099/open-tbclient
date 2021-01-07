@@ -39,37 +39,37 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void c(Context context, Bundle bundle) {
-        com.baidu.swan.apps.adaptation.a.d aAu = com.baidu.swan.apps.t.a.aAu();
-        if (com.baidu.swan.apps.ad.a.a.aIt() || aAu.getSwitch("swan_preload_keep_alive", true)) {
+        com.baidu.swan.apps.adaptation.a.d aAv = com.baidu.swan.apps.t.a.aAv();
+        if (com.baidu.swan.apps.ad.a.a.aIu() || aAv.getSwitch("swan_preload_keep_alive", true)) {
             d(context, bundle);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void d(Context context, Bundle bundle) {
-        a(context, e.aJL().aJP(), bundle);
+        a(context, e.aJM().aJQ(), bundle);
     }
 
     public static void a(Context context, c cVar, Bundle bundle) {
         if (DEBUG) {
-            e.aJL().sc("b4 tryPreload client=" + cVar);
+            e.aJM().sc("b4 tryPreload client=" + cVar);
         }
-        if (ProcessUtils.isMainProcess() && cVar != null && cVar.dwt.isSwanAppProcess() && !cVar.aJw()) {
+        if (ProcessUtils.isMainProcess() && cVar != null && cVar.dwt.isSwanAppProcess() && !cVar.aJx()) {
             b(context, cVar, bundle);
         }
     }
 
     private static void b(final Context context, final c cVar, final Bundle bundle) {
         if (dwr) {
-            com.baidu.swan.games.utils.so.d.bcI();
+            com.baidu.swan.games.utils.so.d.bcJ();
             c(context, cVar, bundle);
             return;
         }
-        com.baidu.swan.apps.adaptation.b.a.c.amC().amD().amA().a(new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.process.messaging.service.b.1
+        com.baidu.swan.apps.adaptation.b.a.c.amD().amE().amB().a(new com.baidu.swan.apps.core.container.a.b() { // from class: com.baidu.swan.apps.process.messaging.service.b.1
             @Override // com.baidu.swan.apps.core.container.a.b
-            public void ajU() {
+            public void ajV() {
                 boolean unused = b.dwr = true;
-                com.baidu.swan.games.utils.so.d.bcJ();
+                com.baidu.swan.games.utils.so.d.bcK();
                 b.c(context, cVar, bundle);
             }
         });
@@ -77,7 +77,7 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void c(final Context context, final c cVar, final Bundle bundle) {
-        SwanLauncher.axd().g(new com.baidu.swan.apps.ao.e.b<Exception>() { // from class: com.baidu.swan.apps.process.messaging.service.b.2
+        SwanLauncher.axe().g(new com.baidu.swan.apps.ao.e.b<Exception>() { // from class: com.baidu.swan.apps.process.messaging.service.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: q */
@@ -89,11 +89,11 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void d(Context context, c cVar, Bundle bundle) {
-        boolean aka = com.baidu.swan.apps.t.a.aAu() != null ? com.baidu.swan.apps.t.a.aAu().aka() : false;
+        boolean akb = com.baidu.swan.apps.t.a.aAv() != null ? com.baidu.swan.apps.t.a.aAv().akb() : false;
         boolean isMainProcess = ProcessUtils.isMainProcess();
         String str = isMainProcess ? "main" : "aiapp";
         long currentTimeMillis = System.currentTimeMillis();
-        if (aka) {
+        if (akb) {
             if (isMainProcess && TextUtils.isEmpty(dwq)) {
                 try {
                     dwq = new WebView(context).getSettings().getUserAgentString();
@@ -119,7 +119,7 @@ public final class b {
             i.onEvent(rp);
         }
         long currentTimeMillis2 = System.currentTimeMillis();
-        if (aka) {
+        if (akb) {
             JSONObject jSONObject2 = new JSONObject();
             try {
                 jSONObject2.put("time", currentTimeMillis2);
@@ -137,15 +137,15 @@ public final class b {
         if (bundle == null) {
             bundle = new Bundle();
         }
-        if (com.baidu.swan.apps.swancore.b.aPK()) {
-            com.baidu.swan.apps.swancore.b.a.aPQ();
+        if (com.baidu.swan.apps.swancore.b.aPL()) {
+            com.baidu.swan.apps.swancore.b.a.aPR();
         }
         bundle.putParcelable("bundle_key_swan_core", com.baidu.swan.apps.swancore.b.lg(0));
         bundle.putParcelable("bundle_key_extension_core", com.baidu.swan.apps.extcore.b.iN(0));
-        bundle.putInt("bundle_key_preload_switch", com.baidu.swan.apps.t.a.aAO().ajP());
+        bundle.putInt("bundle_key_preload_switch", com.baidu.swan.apps.t.a.aAP().ajQ());
         bundle.putLong("bundle_key_preload_launch_time", currentTimeMillis);
-        if (!com.baidu.swan.apps.performance.b.c.akF()) {
-            bundle.putBoolean("bundle_key_v8_ab", com.baidu.swan.apps.t.a.aAu().akg());
+        if (!com.baidu.swan.apps.performance.b.c.akG()) {
+            bundle.putBoolean("bundle_key_v8_ab", com.baidu.swan.apps.t.a.aAv().akh());
         }
         bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
         bundle.putString("bundle_key_preload_src", str);
@@ -156,14 +156,14 @@ public final class b {
     }
 
     public static void O(Bundle bundle) {
-        bundle.putBoolean("bundle_key_v8_ab", com.baidu.swan.apps.t.a.aAu().akg());
+        bundle.putBoolean("bundle_key_v8_ab", com.baidu.swan.apps.t.a.aAv().akh());
     }
 
-    public static String aJt() {
+    public static String aJu() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("master", com.baidu.swan.apps.core.turbo.d.avA().avJ());
-            jSONObject.put("slave", com.baidu.swan.apps.core.turbo.d.avA().avK());
+            jSONObject.put("master", com.baidu.swan.apps.core.turbo.d.avB().avK());
+            jSONObject.put("slave", com.baidu.swan.apps.core.turbo.d.avB().avL());
         } catch (JSONException e) {
             if (DEBUG) {
                 throw new RuntimeException(e);

@@ -36,11 +36,11 @@ public class PkRankMvpView extends RelativeLayout {
 
     private void initView() {
         this.mView = LayoutInflater.from(getContext()).inflate(a.g.sdk_rank_mvp_layout, (ViewGroup) this, true);
-        csR();
-        csB();
+        csS();
+        csC();
     }
 
-    private void csR() {
+    private void csS() {
         this.ilm = (RelativeLayout) this.mView.findViewById(a.f.mvp_layout);
         this.iln = (HeadImageView) this.mView.findViewById(a.f.mvp_head);
         this.ilo = (TextView) this.mView.findViewById(a.f.mvp_name);
@@ -79,7 +79,7 @@ public class PkRankMvpView extends RelativeLayout {
         }
     }
 
-    private void csB() {
+    private void csC() {
         this.ilm.setVisibility(8);
         this.ilq.setVisibility(8);
     }

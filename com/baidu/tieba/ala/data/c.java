@@ -20,11 +20,11 @@ public class c {
         }
     }
 
-    public boolean bXn() {
+    public boolean bXo() {
         return this.gUa != null && this.gUa.status == 5;
     }
 
-    public boolean bXo() {
+    public boolean bXp() {
         return this.gUa != null && this.gUa.status == 4;
     }
 
@@ -32,34 +32,34 @@ public class c {
         return this.gUa != null && (this.gUa.status == 2 || this.gUa.status == 3);
     }
 
-    public boolean bXp() {
+    public boolean bXq() {
         return (this.gUa == null || this.gUb == null || this.gUa.status != 2) ? false : true;
     }
 
-    public boolean bXq() {
+    public boolean bXr() {
         return this.gUb != null && this.gUb.gUc == 1;
     }
 
-    public long bXr() {
+    public long bXs() {
         if (this.gUb != null) {
             return this.gUb.gUd;
         }
         return 0L;
     }
 
-    public boolean bXs() {
+    public boolean bXt() {
         return this.gUb != null && ((this.gUb.gUe && !this.gUb.isFollowed) || (this.gUb.gUf && !this.gUb.gUg));
     }
 
-    public boolean bXt() {
+    public boolean bXu() {
         return this.gUb != null && (this.gUb.gUe || this.gUb.gUf);
     }
 
-    public boolean bXu() {
+    public boolean bXv() {
         return (this.gUb == null || !this.gUb.gUe || this.gUb.isFollowed) ? false : true;
     }
 
-    public boolean bXv() {
+    public boolean bXw() {
         return (this.gUb == null || !this.gUb.gUf || this.gUb.gUg) ? false : true;
     }
 

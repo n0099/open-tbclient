@@ -6,7 +6,7 @@ import com.baidu.swan.apps.storage.b;
 import java.io.File;
 /* loaded from: classes9.dex */
 public class a {
-    public static File dfF = d.aAh();
+    public static File dfF = d.aAi();
     public static String dfG = "swan_core";
     public static String dfH = "extension_core";
     public static String dfI = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
@@ -20,8 +20,8 @@ public class a {
     public static String dfQ = "cloneZip.zip";
     public static String dfR = "clone_zipFiles";
 
-    public static File azq() {
-        File file = new File(b.aPp());
+    public static File azr() {
+        File file = new File(b.aPq());
         if (com.baidu.swan.c.d.ensureDirectoryExist(file)) {
             return file;
         }

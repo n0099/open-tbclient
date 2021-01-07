@@ -26,11 +26,11 @@ public class i {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6900a;
+    private String f6901a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6901b;
+    private String f6902b;
     private boolean c;
     @Nullable
     private String d;
@@ -93,15 +93,15 @@ public class i {
 
     @NonNull
     public TTCustomController d() {
-        if (m.f6907b != null) {
-            return m.f6907b;
+        if (m.f6908b != null) {
+            return m.f6908b;
         }
         return this.q == null ? w : this.q;
     }
 
     @NonNull
     public String e() {
-        return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "app_id", (String) null) : this.f6900a;
+        return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "app_id", (String) null) : this.f6901a;
     }
 
     public void a(@NonNull String str) {
@@ -109,7 +109,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "app_id", str);
         }
-        this.f6900a = str;
+        this.f6901a = str;
         v();
     }
 
@@ -126,7 +126,7 @@ public class i {
 
     @NonNull
     public String f() {
-        return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "name", (String) null) : this.f6901b;
+        return com.bytedance.sdk.openadsdk.multipro.b.b() ? com.bytedance.sdk.openadsdk.multipro.d.a.b("sp_global_info", "name", (String) null) : this.f6902b;
     }
 
     public void b(@NonNull String str) {
@@ -134,7 +134,7 @@ public class i {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_global_info", "name", str);
         }
-        this.f6901b = str;
+        this.f6902b = str;
     }
 
     public boolean g() {
@@ -268,8 +268,8 @@ public class i {
     }
 
     public void n() {
-        e(this.f6900a);
-        f(this.f6901b);
+        e(this.f6901a);
+        f(this.f6902b);
     }
 
     private static void e(String str) {
@@ -382,6 +382,6 @@ public class i {
     }
 
     public boolean u() {
-        return "5001121".equals(this.f6900a);
+        return "5001121".equals(this.f6901a);
     }
 }

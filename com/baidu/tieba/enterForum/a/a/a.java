@@ -20,23 +20,23 @@ public class a {
         }
     }
 
-    public List<String> cyc() {
+    public List<String> cyd() {
         return this.iHk;
     }
 
-    public long cyd() {
+    public long cye() {
         return this.iHi;
     }
 
-    public int cye() {
+    public int cyf() {
         return this.mForumId;
     }
 
-    public long cyf() {
+    public long cyg() {
         return this.iHj;
     }
 
-    public String cyg() {
+    public String cyh() {
         return this.mForumName;
     }
 }

@@ -18,19 +18,19 @@ public class e {
 
     public e(com.baidu.swan.games.f.a aVar) {
         this.cQM = aVar;
-        aZS();
+        aZT();
     }
 
-    private void aZS() {
+    private void aZT() {
         com.baidu.swan.apps.storage.b.c lVar;
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl != null) {
-            lVar = aMl.aDm();
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm != null) {
+            lVar = aMm.aDn();
         } else {
             lVar = new l();
         }
-        this.eim = new f(AppRuntime.getAppContext(), com.baidu.swan.apps.v.f.aDG().aDn(), lVar);
-        this.ein = i.bab();
+        this.eim = new f(AppRuntime.getAppContext(), com.baidu.swan.apps.v.f.aDH().aDo(), lVar);
+        this.ein = i.bac();
     }
 
     @JavascriptInterface
@@ -699,14 +699,14 @@ public class e {
             this.ein.a(new Runnable() { // from class: com.baidu.swan.games.i.e.7
                 @Override // java.lang.Runnable
                 public void run() {
-                    final c aZT = e.this.eim.aZT();
+                    final c aZU = e.this.eim.aZU();
                     e.this.cQM.runOnJSThread(new Runnable() { // from class: com.baidu.swan.games.i.e.7.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (n.a(n.a(aZT, "getSavedFileList:", a2), bVar, (Map<Integer, String>) null, e.this.cQM)) {
+                            if (n.a(n.a(aZU, "getSavedFileList:", a2), bVar, (Map<Integer, String>) null, e.this.cQM)) {
                                 com.baidu.swan.games.i.a.d dVar = new com.baidu.swan.games.i.a.d();
-                                int size = aZT.fileList == null ? 0 : aZT.fileList.size();
-                                dVar.fileList = size == 0 ? new d[0] : (d[]) aZT.fileList.toArray(new d[size]);
+                                int size = aZU.fileList == null ? 0 : aZU.fileList.size();
+                                dVar.fileList = size == 0 ? new d[0] : (d[]) aZU.fileList.toArray(new d[size]);
                                 dVar.errMsg = bVar.errMsg;
                                 n.b(dVar, a2);
                             }

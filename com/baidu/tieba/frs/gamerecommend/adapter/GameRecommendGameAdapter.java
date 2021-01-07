@@ -26,7 +26,7 @@ public class GameRecommendGameAdapter extends k<com.baidu.tieba.e.f, CardFrsGame
         this.jqL = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<CardFrsGameRecommendGameItemView>() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: cKG */
+            /* renamed from: cKH */
             public CardFrsGameRecommendGameItemView makeObject() {
                 CardFrsGameRecommendGameItemView cardFrsGameRecommendGameItemView = new CardFrsGameRecommendGameItemView(GameRecommendGameAdapter.this.mContext);
                 cardFrsGameRecommendGameItemView.setForumId(GameRecommendGameAdapter.this.mForumId);
@@ -70,12 +70,12 @@ public class GameRecommendGameAdapter extends k<com.baidu.tieba.e.f, CardFrsGame
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.f fVar, CardFrsGameRecommendGameHolder cardFrsGameRecommendGameHolder) {
-        if (fVar != null && fVar.cwy() != null) {
+        if (fVar != null && fVar.cwz() != null) {
             int skinType = TbadkCoreApplication.getInst().getSkinType();
-            cardFrsGameRecommendGameHolder.jyt.setText(fVar.cwy().title);
+            cardFrsGameRecommendGameHolder.jyt.setText(fVar.cwz().title);
             cardFrsGameRecommendGameHolder.jyt.setTextColor(ao.getColor(skinType, R.color.CAM_X0105));
             cardFrsGameRecommendGameHolder.jyv.setPageContext(this.mPageContext);
-            cardFrsGameRecommendGameHolder.jyv.setData(fVar.cwy().sub_nodes);
+            cardFrsGameRecommendGameHolder.jyv.setData(fVar.cwz().sub_nodes);
             cardFrsGameRecommendGameHolder.jyu.setMaxOverScrollDistance(cardFrsGameRecommendGameHolder.jyv.getChildItemWidth());
             cardFrsGameRecommendGameHolder.jys.setBackgroundColor(ao.getColor(skinType, R.color.CAM_X0201));
             ao.setBackgroundResource(cardFrsGameRecommendGameHolder.jyn, R.color.CAM_X0205);

@@ -1,15 +1,15 @@
 package com.vivo.push.model;
 
 import android.text.TextUtils;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13956a;
+    private String f13957a;
     private String d;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f13957b = -1;
+    private long f13958b = -1;
     private int c = -1;
     private boolean e = false;
     private boolean f = false;
@@ -18,19 +18,19 @@ public final class b {
         if (TextUtils.isEmpty(str)) {
             throw new IllegalAccessError("PushPackageInfo need a non-null pkgName.");
         }
-        this.f13956a = str;
+        this.f13957a = str;
     }
 
     public final String a() {
-        return this.f13956a;
+        return this.f13957a;
     }
 
     public final long b() {
-        return this.f13957b;
+        return this.f13958b;
     }
 
     public final void a(long j) {
-        this.f13957b = j;
+        this.f13958b = j;
     }
 
     public final boolean c() {
@@ -58,6 +58,6 @@ public final class b {
     }
 
     public final String toString() {
-        return "PushPackageInfo{mPackageName=" + this.f13956a + ", mPushVersion=" + this.f13957b + ", mPackageVersion=" + this.c + ", mInBlackList=" + this.e + ", mPushEnable=" + this.f + "}";
+        return "PushPackageInfo{mPackageName=" + this.f13957a + ", mPushVersion=" + this.f13958b + ", mPackageVersion=" + this.c + ", mInBlackList=" + this.e + ", mPushEnable=" + this.f + "}";
     }
 }

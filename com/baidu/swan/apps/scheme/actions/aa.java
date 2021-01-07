@@ -20,17 +20,17 @@ public abstract class aa extends d<UnitedSchemeBaseDispatcher> {
         super(unitedSchemeBaseDispatcher, str);
     }
 
-    public com.baidu.swan.apps.runtime.e arO() {
-        return com.baidu.swan.apps.runtime.e.aMk();
+    public com.baidu.swan.apps.runtime.e arP() {
+        return com.baidu.swan.apps.runtime.e.aMl();
     }
 
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
         boolean d;
         try {
             if (TextUtils.equals(this.name, str)) {
-                d = a(context, unitedSchemeEntity, callbackHandler, arO());
+                d = a(context, unitedSchemeEntity, callbackHandler, arP());
             } else {
-                d = d(context, unitedSchemeEntity, callbackHandler, str, arO());
+                d = d(context, unitedSchemeEntity, callbackHandler, str, arP());
             }
             return d;
         } catch (Throwable th) {

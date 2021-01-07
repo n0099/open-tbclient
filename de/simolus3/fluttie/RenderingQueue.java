@@ -7,7 +7,7 @@ import java.util.LinkedList;
 import java.util.Set;
 import java.util.concurrent.locks.ReentrantLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class RenderingQueue {
     private LinkedList<FluttieAnimation> backlog = new LinkedList<>();
     private Set<FluttieAnimation> currentlyHandling = new HashSet();

@@ -52,41 +52,41 @@ public class FunDrawVideoAd {
     public class b implements KsDrawAd.AdInteractionListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunDrawVideoAdInteractionListener f8090a;
+        public final /* synthetic */ FunDrawVideoAdInteractionListener f8091a;
 
         public b(FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener) {
-            this.f8090a = funDrawVideoAdInteractionListener;
+            this.f8091a = funDrawVideoAdInteractionListener;
         }
 
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
         public void onAdClicked() {
             m.a("FunDrawVideoAd onAdClicked");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8090a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8091a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onAdClick(FunDrawVideoAd.this.mSid);
             }
             FunDrawVideoAd.this.ripKsAd();
             if (FunDrawVideoAd.this.mRippedKSAd != null) {
-                ((d.a) com.fun.ad.d.pHm).a(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid, FunDrawVideoAd.this.mRippedKSAd.appPackageName, FunDrawVideoAd.this.mRippedKSAd.appDownloadUrl);
+                ((d.a) com.fun.ad.d.pIU).a(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid, FunDrawVideoAd.this.mRippedKSAd.appPackageName, FunDrawVideoAd.this.mRippedKSAd.appDownloadUrl);
                 return;
             }
-            ((d.a) com.fun.ad.d.pHm).a(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid, (String) null, (String) null);
+            ((d.a) com.fun.ad.d.pIU).a(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid, (String) null, (String) null);
         }
 
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
         public void onAdShow() {
             m.a("FunDrawVideoAd onAdShow");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8090a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8091a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onAdShow(FunDrawVideoAd.this.mSid);
             }
-            ((d.a) com.fun.ad.d.pHm).d(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid);
+            ((d.a) com.fun.ad.d.pIU).d(FunDrawVideoAd.this.mSid, FunAdType.KS_DRAW_VIDEO, FunDrawVideoAd.this.mAid);
         }
 
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
         public void onVideoPlayEnd() {
             m.a("FunDrawVideoAd onVideoPlayEnd");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8090a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8091a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoAdComplete(FunDrawVideoAd.this.mSid);
             }
@@ -95,7 +95,7 @@ public class FunDrawVideoAd {
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
         public void onVideoPlayError() {
             m.a("FunDrawVideoAd onVideoPlayError");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8090a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8091a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoError(FunDrawVideoAd.this.mSid, 0, 0);
             }
@@ -104,7 +104,7 @@ public class FunDrawVideoAd {
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
         public void onVideoPlayPause() {
             m.a("FunDrawVideoAd onVideoPlayPause");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8090a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8091a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoAdPaused(FunDrawVideoAd.this.mSid);
             }
@@ -113,7 +113,7 @@ public class FunDrawVideoAd {
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
         public void onVideoPlayResume() {
             m.a("FunDrawVideoAd onVideoPlayResume");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8090a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8091a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoAdContinuePlay(FunDrawVideoAd.this.mSid);
             }
@@ -122,7 +122,7 @@ public class FunDrawVideoAd {
         @Override // com.kwad.sdk.api.KsDrawAd.AdInteractionListener
         public void onVideoPlayStart() {
             m.a("FunDrawVideoAd onVideoPlayStart");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8090a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8091a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoAdStartPlay(FunDrawVideoAd.this.mSid);
             }
@@ -133,16 +133,16 @@ public class FunDrawVideoAd {
     public class c implements TTNativeExpressAd.ExpressVideoAdListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunDrawVideoAdInteractionListener f8092a;
+        public final /* synthetic */ FunDrawVideoAdInteractionListener f8093a;
 
         public c(FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener) {
-            this.f8092a = funDrawVideoAdInteractionListener;
+            this.f8093a = funDrawVideoAdInteractionListener;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
         public void onClickRetry() {
             m.a("FunDrawVideoAd onClickRetry");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8092a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8093a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onClickRetry(FunDrawVideoAd.this.mSid);
             }
@@ -151,7 +151,7 @@ public class FunDrawVideoAd {
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
         public void onProgressUpdate(long j, long j2) {
             m.a("FunDrawVideoAd onProgressUpdate");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8092a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8093a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onProgressUpdate(FunDrawVideoAd.this.mSid, j, j2);
             }
@@ -160,7 +160,7 @@ public class FunDrawVideoAd {
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
         public void onVideoAdComplete() {
             m.a("FunDrawVideoAd onVideoAdComplete");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8092a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8093a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoAdComplete(FunDrawVideoAd.this.mSid);
             }
@@ -169,7 +169,7 @@ public class FunDrawVideoAd {
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
         public void onVideoAdContinuePlay() {
             m.a("FunDrawVideoAd onVideoAdContinuePlay");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8092a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8093a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoAdContinuePlay(FunDrawVideoAd.this.mSid);
             }
@@ -178,7 +178,7 @@ public class FunDrawVideoAd {
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
         public void onVideoAdPaused() {
             m.a("FunDrawVideoAd onVideoAdPaused");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8092a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8093a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoAdPaused(FunDrawVideoAd.this.mSid);
             }
@@ -187,7 +187,7 @@ public class FunDrawVideoAd {
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
         public void onVideoAdStartPlay() {
             m.a("FunDrawVideoAd onVideoAdStartPlay");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8092a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8093a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoAdStartPlay(FunDrawVideoAd.this.mSid);
             }
@@ -196,7 +196,7 @@ public class FunDrawVideoAd {
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
         public void onVideoError(int i, int i2) {
             m.a("FunDrawVideoAd onVideoError errorCode: " + i + ", extraCode: " + i2);
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8092a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8093a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoError(FunDrawVideoAd.this.mSid, i, i2);
             }
@@ -205,7 +205,7 @@ public class FunDrawVideoAd {
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressVideoAdListener
         public void onVideoLoad() {
             m.a("FunDrawVideoAd onVideoLoad");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8092a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8093a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onVideoLoad(FunDrawVideoAd.this.mSid);
             }
@@ -216,40 +216,40 @@ public class FunDrawVideoAd {
     public class d implements TTNativeExpressAd.ExpressAdInteractionListener {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ FunDrawVideoAdInteractionListener f8094a;
+        public final /* synthetic */ FunDrawVideoAdInteractionListener f8095a;
 
         public d(FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener) {
-            this.f8094a = funDrawVideoAdInteractionListener;
+            this.f8095a = funDrawVideoAdInteractionListener;
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
         public void onAdClicked(View view, int i) {
             m.a("FunDrawVideoAd onAdClicked");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8094a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8095a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onAdClick(FunDrawVideoAd.this.mSid);
             }
             if (FunDrawVideoAd.this.mRippedCSJAd != null) {
-                ((d.a) com.fun.ad.d.pHm).a(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid, FunDrawVideoAd.this.mRippedCSJAd.appPackageName, FunDrawVideoAd.this.mRippedCSJAd.appLinkUrl);
+                ((d.a) com.fun.ad.d.pIU).a(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid, FunDrawVideoAd.this.mRippedCSJAd.appPackageName, FunDrawVideoAd.this.mRippedCSJAd.appLinkUrl);
                 return;
             }
-            ((d.a) com.fun.ad.d.pHm).a(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid, (String) null, (String) null);
+            ((d.a) com.fun.ad.d.pIU).a(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid, (String) null, (String) null);
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
         public void onAdShow(View view, int i) {
             m.a("FunDrawVideoAd onAdShow");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8094a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8095a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onAdShow(FunDrawVideoAd.this.mSid);
             }
-            ((d.a) com.fun.ad.d.pHm).d(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid);
+            ((d.a) com.fun.ad.d.pIU).d(FunDrawVideoAd.this.mSid, FunAdType.CSJ_DRAW_VIDEO, FunDrawVideoAd.this.mAid);
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTNativeExpressAd.ExpressAdInteractionListener
         public void onRenderFail(View view, String str, int i) {
             m.a("FunDrawVideoAd onRenderFail");
-            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8094a;
+            FunDrawVideoAdInteractionListener funDrawVideoAdInteractionListener = this.f8095a;
             if (funDrawVideoAdInteractionListener != null) {
                 funDrawVideoAdInteractionListener.onAdError(str, i, str);
             }

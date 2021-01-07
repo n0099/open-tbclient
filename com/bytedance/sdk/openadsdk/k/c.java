@@ -6,25 +6,25 @@ import java.util.UUID;
 public abstract class c implements Comparable<c>, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7622a;
+    private int f7623a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7623b;
+    private String f7624b;
 
     public c(int i) {
-        this.f7622a = -1;
-        this.f7622a = i == -1 ? 5 : i;
-        this.f7623b = UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + String.valueOf(System.nanoTime());
+        this.f7623a = -1;
+        this.f7623a = i == -1 ? 5 : i;
+        this.f7624b = UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + String.valueOf(System.nanoTime());
     }
 
     public c() {
-        this.f7622a = -1;
-        this.f7622a = 5;
-        this.f7623b = UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + String.valueOf(System.nanoTime());
+        this.f7623a = -1;
+        this.f7623a = 5;
+        this.f7624b = UUID.randomUUID().toString() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + String.valueOf(System.nanoTime());
     }
 
     public int a() {
-        return this.f7622a;
+        return this.f7623a;
     }
 
     /* JADX DEBUG: Method merged with bridge method */

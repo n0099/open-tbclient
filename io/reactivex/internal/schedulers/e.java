@@ -2,21 +2,21 @@ package io.reactivex.internal.schedulers;
 
 import io.reactivex.v;
 import java.util.concurrent.ThreadFactory;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class e extends v {
-    private static final RxThreadFactory qji = new RxThreadFactory("RxNewThreadScheduler", Math.max(1, Math.min(10, Integer.getInteger("rx2.newthread-priority", 5).intValue())));
-    final ThreadFactory qjl;
+    private static final RxThreadFactory qkQ = new RxThreadFactory("RxNewThreadScheduler", Math.max(1, Math.min(10, Integer.getInteger("rx2.newthread-priority", 5).intValue())));
+    final ThreadFactory qkT;
 
     public e() {
-        this(qji);
+        this(qkQ);
     }
 
     public e(ThreadFactory threadFactory) {
-        this.qjl = threadFactory;
+        this.qkT = threadFactory;
     }
 
     @Override // io.reactivex.v
-    public v.c eLe() {
-        return new f(this.qjl);
+    public v.c eLI() {
+        return new f(this.qkT);
     }
 }

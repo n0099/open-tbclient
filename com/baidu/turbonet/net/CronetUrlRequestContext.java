@@ -175,7 +175,7 @@ class CronetUrlRequestContext extends TurbonetEngine {
             this.dRh = null;
         }
         CronetLibraryLoader.a(builder.getContext(), builder);
-        nativeSetMinLogLevel(ehH());
+        nativeSetMinLogLevel(ehI());
         synchronized (this.mLock) {
             this.mUrlRequestContextAdapter = nativeCreateRequestContextAdapter(b(builder.getContext(), builder));
             if (this.mUrlRequestContextAdapter == 0) {
@@ -195,12 +195,12 @@ class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     static long b(Context context, TurbonetEngine.Builder builder) {
-        long nativeCreateRequestContextConfig = nativeCreateRequestContextConfig(builder.getUserAgent(), builder.eic(), builder.eii(), "", builder.eih(), false, "", "", "", "", builder.cacheDisabled(), builder.httpCacheMode(), builder.eij(), "", 0L, false);
-        if (builder.eik() != null) {
-            nativeApplyBaiduConfiguration(nativeCreateRequestContextConfig, builder.eik());
-        }
+        long nativeCreateRequestContextConfig = nativeCreateRequestContextConfig(builder.getUserAgent(), builder.eid(), builder.eij(), "", builder.eii(), false, "", "", "", "", builder.cacheDisabled(), builder.httpCacheMode(), builder.eik(), "", 0L, false);
         if (builder.eil() != null) {
-            nativeApplyBaiduConfigDictionary(nativeCreateRequestContextConfig, builder.eil());
+            nativeApplyBaiduConfiguration(nativeCreateRequestContextConfig, builder.eil());
+        }
+        if (builder.eim() != null) {
+            nativeApplyBaiduConfigDictionary(nativeCreateRequestContextConfig, builder.eim());
         }
         return nativeCreateRequestContextConfig;
     }
@@ -277,16 +277,16 @@ class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     private void checkHaveAdapter() throws IllegalStateException {
-        if (!ehG()) {
+        if (!ehH()) {
             throw new IllegalStateException("Engine is shut down.");
         }
     }
 
-    private boolean ehG() {
+    private boolean ehH() {
         return this.mUrlRequestContextAdapter != 0;
     }
 
-    private int ehH() {
+    private int ehI() {
         if (Log.isLoggable("ChromiumNetwork", 2)) {
             return -2;
         }
@@ -411,7 +411,7 @@ class CronetUrlRequestContext extends TurbonetEngine {
         Runnable runnable = new Runnable() { // from class: com.baidu.turbonet.net.CronetUrlRequestContext.4
             @Override // java.lang.Runnable
             public void run() {
-                networkQualityListener.WX(str);
+                networkQualityListener.WW(str);
             }
         };
         if (networkQualityListener.getExecutor() == null) {
@@ -462,14 +462,14 @@ class CronetUrlRequestContext extends TurbonetEngine {
     }
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public boolean ehI() {
-        return this.oKD.ehI();
+    public boolean ehJ() {
+        return this.oKD.ehJ();
     }
 
     @Override // com.baidu.turbonet.net.TurbonetEngine
-    public long ehz() {
+    public long ehA() {
         if (oKz == 0) {
-            oKz = CronetLibraryLoader.ehz();
+            oKz = CronetLibraryLoader.ehA();
         }
         return oKz;
     }

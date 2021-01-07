@@ -6,11 +6,11 @@ public class y {
     private View.OnTouchListener bTP;
     private x fPF;
 
-    public x bJd() {
+    public x bJe() {
         return this.fPF;
     }
 
-    public View.OnTouchListener bJe() {
+    public View.OnTouchListener bJf() {
         return this.bTP;
     }
 }

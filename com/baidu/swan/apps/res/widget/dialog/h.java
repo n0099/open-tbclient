@@ -27,7 +27,7 @@ public class h extends c {
         gP(false);
     }
 
-    public a aLB() {
+    public a aLC() {
         return this.dFi;
     }
 
@@ -59,7 +59,7 @@ public class h extends c {
             return this;
         }
 
-        public h aLp() {
+        public h aLq() {
             this.dFk.setOnCancelListener(this.dFj.mOnCancelListener);
             this.dFk.setOnDismissListener(this.dFj.mOnDismissListener);
             this.dFk.setOnShowListener(this.dFj.dEV);
@@ -67,16 +67,16 @@ public class h extends c {
             return this.dFk;
         }
 
-        public h aLC() {
-            h aLp = aLp();
+        public h aLD() {
+            h aLq = aLq();
             if (this.dEQ) {
-                aLp.getWindow().setType(2003);
+                aLq.getWindow().setType(2003);
             }
             try {
-                aLp.show();
+                aLq.show();
             } catch (WindowManager.BadTokenException e) {
             }
-            return aLp;
+            return aLq;
         }
 
         public a f(int i, DialogInterface.OnClickListener onClickListener) {

@@ -19,13 +19,13 @@ public class SettingTextNormalImageView extends FrameLayout {
     private LinearLayout fAp;
     private ImageView fAu;
     private Context mContext;
-    private TbImageView nde;
+    private TbImageView ndd;
     private TextView textView;
 
     public SettingTextNormalImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bDf();
+        bDg();
         i(attributeSet);
         sk(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -33,15 +33,15 @@ public class SettingTextNormalImageView extends FrameLayout {
     public SettingTextNormalImageView(Context context) {
         super(context);
         this.mContext = context;
-        bDf();
+        bDg();
         sk(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void sk(int i) {
         ao.setViewTextColor(this.textView, R.color.CAM_X0105, 1);
-        SvgManager.bwq().a(this.fAu, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.fAu, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         setBackgroundDrawable(ao.qe(R.color.CAM_X0205));
-        this.nde.invalidate();
+        this.ndd.invalidate();
     }
 
     public void setText(String str) {
@@ -49,16 +49,16 @@ public class SettingTextNormalImageView extends FrameLayout {
     }
 
     public void setLocalIcon(int i) {
-        this.nde.bJL();
-        this.nde.setConrers(0);
-        this.nde.setImageResource(i);
+        this.ndd.bJM();
+        this.ndd.setConrers(0);
+        this.ndd.setImageResource(i);
     }
 
-    private void bDf() {
+    private void bDg() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_normal_image_view, (ViewGroup) this, true);
         this.fAp = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.nde = (TbImageView) findViewById(R.id.icon);
+        this.ndd = (TbImageView) findViewById(R.id.icon);
         this.fAu = (ImageView) findViewById(R.id.arrow);
     }
 

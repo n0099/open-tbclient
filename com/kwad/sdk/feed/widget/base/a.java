@@ -20,11 +20,11 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    protected AdTemplate f10159a;
+    protected AdTemplate f10160a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected AdInfo f10160b;
-    protected InterfaceC1090a c;
+    protected AdInfo f10161b;
+    protected InterfaceC1131a c;
     @NonNull
     protected Context d;
     protected s.a e;
@@ -34,7 +34,7 @@ public abstract class a extends com.kwad.sdk.core.view.b {
 
     /* renamed from: com.kwad.sdk.feed.widget.base.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1090a {
+    public interface InterfaceC1131a {
         void a();
 
         void b();
@@ -74,21 +74,21 @@ public abstract class a extends com.kwad.sdk.core.view.b {
             b2 = new com.kwad.sdk.core.page.widget.a(viewGroup.getContext(), viewGroup);
             viewGroup.addView(b2);
         }
-        b2.setViewCallback(new a.InterfaceC1075a() { // from class: com.kwad.sdk.feed.widget.base.a.2
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1075a
+        b2.setViewCallback(new a.InterfaceC1116a() { // from class: com.kwad.sdk.feed.widget.base.a.2
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1116a
             public void a() {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1075a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1116a
             public void a(View view) {
                 a.this.j();
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1075a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1116a
             public void a(boolean z) {
             }
 
-            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1075a
+            @Override // com.kwad.sdk.core.page.widget.a.InterfaceC1116a
             public void b() {
             }
         });
@@ -125,8 +125,8 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     }
 
     public void a(@NonNull AdTemplate adTemplate) {
-        this.f10159a = adTemplate;
-        this.f10160b = c.j(adTemplate);
+        this.f10160a = adTemplate;
+        this.f10161b = c.j(adTemplate);
     }
 
     @Override // com.kwad.sdk.core.view.b
@@ -175,15 +175,15 @@ public abstract class a extends com.kwad.sdk.core.view.b {
     }
 
     protected void j() {
-        if (!this.f10159a.mPvReported && this.c != null) {
+        if (!this.f10160a.mPvReported && this.c != null) {
             this.c.b();
         }
-        com.kwad.sdk.core.report.b.a(this.f10159a, (JSONObject) null);
+        com.kwad.sdk.core.report.b.a(this.f10160a, (JSONObject) null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void k() {
-        com.kwad.sdk.core.report.b.a(this.f10159a, getTouchCoords());
+        com.kwad.sdk.core.report.b.a(this.f10160a, getTouchCoords());
         if (this.c != null) {
             this.c.a();
         }
@@ -191,7 +191,7 @@ public abstract class a extends com.kwad.sdk.core.view.b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void l() {
-        com.kwad.sdk.core.report.b.a(this.f10159a);
+        com.kwad.sdk.core.report.b.a(this.f10160a);
         if (this.c != null) {
             this.c.c();
         }
@@ -207,8 +207,8 @@ public abstract class a extends com.kwad.sdk.core.view.b {
         super.onMeasure(i, i2);
     }
 
-    public void setAdClickListener(InterfaceC1090a interfaceC1090a) {
-        this.c = interfaceC1090a;
+    public void setAdClickListener(InterfaceC1131a interfaceC1131a) {
+        this.c = interfaceC1131a;
     }
 
     public void setMargin(int i) {

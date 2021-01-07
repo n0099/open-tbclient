@@ -92,7 +92,7 @@ public class c extends a {
         ao.setViewTextColor(this.bjt, R.color.CAM_X0107, 1, skinType);
         ao.setBackgroundColor(this.attachedView, R.color.CAM_X0201);
         if (this.fJh != null) {
-            this.fJh.bxO();
+            this.fJh.bxP();
         }
     }
 

@@ -53,26 +53,26 @@ public class a extends g implements h {
 
     @Override // com.baidu.tieba.ala.b.h
     public void a(g gVar, float f) {
-        if (bWn() != null) {
+        if (bWo() != null) {
             for (int i = 0; i < this.gNQ.length; i++) {
                 if (gVar == this.gNQ[i]) {
                     this.gNR[i] = f;
                 }
             }
-            bWn().a(this, bVV());
+            bWo().a(this, bVW());
         }
     }
 
     @Override // com.baidu.tieba.ala.b.h
     public void a(g gVar) {
-        if (bWn() != null) {
+        if (bWo() != null) {
             for (int i = 0; i < this.gNQ.length; i++) {
                 if (gVar == this.gNQ[i]) {
                     this.gNR[i] = 100.0f;
                     if (vD(i)) {
-                        bWn().a(this);
+                        bWo().a(this);
                     } else {
-                        bWn().a(this, bVV());
+                        bWo().a(this, bVW());
                     }
                 }
             }
@@ -81,12 +81,12 @@ public class a extends g implements h {
 
     @Override // com.baidu.tieba.ala.b.h
     public void b(g gVar) {
-        if (bWn() != null) {
-            bWn().b(gVar);
+        if (bWo() != null) {
+            bWo().b(gVar);
         }
     }
 
-    private float bVV() {
+    private float bVW() {
         float f = 0.0f;
         for (float f2 : this.gNR) {
             f += f2 * this.mFactor;

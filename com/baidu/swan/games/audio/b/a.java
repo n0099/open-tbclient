@@ -18,12 +18,12 @@ public class a {
     private HashMap<String, ArrayList<InterfaceC0529a>> eft = new HashMap<>();
     final ExecutorService efu = Executors.newCachedThreadPool();
     private Object mLock = new Object();
-    private String efv = f.aXE() + f.aXF();
+    private String efv = f.aXF() + f.aXG();
 
     /* renamed from: com.baidu.swan.games.audio.b.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0529a {
-        void aXI();
+        void aXJ();
 
         void lb(String str);
     }
@@ -31,7 +31,7 @@ public class a {
     private a() {
     }
 
-    public static a aXJ() {
+    public static a aXK() {
         if (efs == null) {
             synchronized (a.class) {
                 if (efs == null) {
@@ -55,7 +55,7 @@ public class a {
                 } else if (!file.isDirectory()) {
                     interfaceC0529a.lb(N);
                 } else {
-                    interfaceC0529a.aXI();
+                    interfaceC0529a.aXJ();
                 }
             }
         });
@@ -158,7 +158,7 @@ public class a {
                         }
                         next.lb(str);
                     } else {
-                        next.aXI();
+                        next.aXJ();
                     }
                 }
                 this.eft.remove(str);

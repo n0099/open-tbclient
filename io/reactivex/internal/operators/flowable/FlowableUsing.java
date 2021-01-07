@@ -9,19 +9,19 @@ import io.reactivex.j;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableUsing<T, D> extends g<T> {
     final io.reactivex.b.g<? super D> disposer;
     final boolean eager;
-    final Callable<? extends D> qgI;
-    final h<? super D, ? extends org.a.b<? extends T>> qhE;
+    final Callable<? extends D> qir;
+    final h<? super D, ? extends org.a.b<? extends T>> qjn;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            D call = this.qgI.call();
+            D call = this.qir.call();
             try {
-                ((org.a.b) io.reactivex.internal.functions.a.m(this.qhE.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
+                ((org.a.b) io.reactivex.internal.functions.a.m(this.qjn.apply(call), "The sourceSupplier returned a null Publisher")).subscribe(new UsingSubscriber(cVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.O(th);
                 try {
@@ -38,7 +38,7 @@ public final class FlowableUsing<T, D> extends g<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class UsingSubscriber<T, D> extends AtomicBoolean implements j<T>, d {
         private static final long serialVersionUID = 5904473792286235046L;
         final org.a.c<? super T> actual;

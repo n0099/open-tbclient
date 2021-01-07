@@ -5,17 +5,17 @@ import java.util.List;
 class d implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile d f7636a;
+    private static volatile d f7637a;
 
     public static d b() {
-        if (f7636a == null) {
+        if (f7637a == null) {
             synchronized (d.class) {
-                if (f7636a == null) {
-                    f7636a = new d();
+                if (f7637a == null) {
+                    f7637a = new d();
                 }
             }
         }
-        return f7636a;
+        return f7637a;
     }
 
     private d() {

@@ -5,7 +5,7 @@ import com.baidu.lbsapi.panoramaview.OnTabMarkListener;
 import com.baidu.lbsapi.tools.Point;
 import com.baidu.pano.platform.comjni.JNITool;
 import com.baidu.platform.comapi.map.MapBundleKey;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public abstract class a {
     public static final int MARKERTYPE_IMAGE_RES = 1002;
     public static final int MARKERTYPE_IMAGE_URL = 1001;

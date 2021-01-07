@@ -3,7 +3,7 @@ package com.baidu.mapapi.map;
 import android.graphics.Point;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mapapi.model.LatLngBounds;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class MapStatusUpdateFactory {
     MapStatusUpdateFactory() {
     }
@@ -13,7 +13,7 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(2);
-        mapStatusUpdate.f2843b = latLng;
+        mapStatusUpdate.f2844b = latLng;
         return mapStatusUpdate;
     }
 
@@ -55,7 +55,7 @@ public final class MapStatusUpdateFactory {
         if (latLng == null) {
             return null;
         }
-        mapStatusUpdate.f2843b = latLng;
+        mapStatusUpdate.f2844b = latLng;
         mapStatusUpdate.f = f;
         return mapStatusUpdate;
     }
@@ -78,7 +78,7 @@ public final class MapStatusUpdateFactory {
             return null;
         }
         MapStatusUpdate mapStatusUpdate = new MapStatusUpdate(1);
-        mapStatusUpdate.f2842a = mapStatus;
+        mapStatusUpdate.f2843a = mapStatus;
         return mapStatusUpdate;
     }
 

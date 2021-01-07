@@ -20,7 +20,7 @@ public class OnlineAudienceItemView extends LinearLayout {
     public HeadImageView gRt;
     public TbImageView gRu;
     public TextView gRw;
-    public YuyinALALevelView okg;
+    public YuyinALALevelView okf;
 
     public OnlineAudienceItemView(Context context) {
         this(context, null);
@@ -72,7 +72,7 @@ public class OnlineAudienceItemView extends LinearLayout {
     private void IJ() {
         this.gRt = (HeadImageView) findViewById(a.f.iv_avatar);
         this.gRu = (TbImageView) findViewById(a.f.iv_pendant);
-        this.okg = (YuyinALALevelView) findViewById(a.f.level);
+        this.okf = (YuyinALALevelView) findViewById(a.f.level);
         this.aGM = (TextView) findViewById(a.f.tv_name);
         this.gRw = (TextView) findViewById(a.f.tv_value);
     }

@@ -9,8 +9,8 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.o> {
-    private TbImageView mAW;
-    private TextView mAX;
+    private TbImageView mAV;
+    private TextView mAW;
     private TbPageContext mPageContext;
     private View mRootView;
 
@@ -19,16 +19,16 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         this.mRootView = getView();
         this.mPageContext = tbPageContext;
         this.mRootView.setTag(this);
-        this.mAW = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
-        this.mAX = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
+        this.mAV = (TbImageView) this.mRootView.findViewById(R.id.gift_pic);
+        this.mAW = (TextView) this.mRootView.findViewById(R.id.gift_num_text);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-        ao.setBackgroundResource(this.mAW, R.drawable.item_gift_selector);
-        ao.setBackgroundColor(this.mAX, R.color.common_color_10294);
-        ao.setViewTextColor(this.mAX, R.color.CAM_X0302);
+        ao.setBackgroundResource(this.mAV, R.drawable.item_gift_selector);
+        ao.setBackgroundColor(this.mAW, R.color.common_color_10294);
+        ao.setViewTextColor(this.mAW, R.color.CAM_X0302);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -44,19 +44,19 @@ public class n extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
             return;
         }
         onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        this.mAW.startLoad(oVar.picUrl, 10, false);
+        this.mAV.startLoad(oVar.picUrl, 10, false);
         this.mRootView.setOnClickListener(this);
         if (oVar.giftNum > 0) {
-            this.mAX.setVisibility(0);
+            this.mAW.setVisibility(0);
             if (oVar.giftNum > 99) {
-                this.mAX.setText("99");
+                this.mAW.setText("99");
                 return;
             } else {
-                this.mAX.setText(String.valueOf(oVar.giftNum));
+                this.mAW.setText(String.valueOf(oVar.giftNum));
                 return;
             }
         }
-        this.mAX.setVisibility(8);
+        this.mAW.setVisibility(8);
     }
 
     @Override // android.view.View.OnClickListener

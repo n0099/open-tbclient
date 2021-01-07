@@ -38,27 +38,27 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0933a c0933a;
+        C0971a c0971a;
         if (view == null || view.getTag() == null) {
             view = LayoutInflater.from(this.mContext).inflate(a.g.item_emoticon, viewGroup, false);
-            C0933a c0933a2 = new C0933a();
-            c0933a2.mIconIv = (TbImageView) view.findViewById(a.f.emoticon_icon_iv);
-            c0933a2.gOO = (TextView) view.findViewById(a.f.emoticon_name_tv);
-            c0933a2.mIconIv.setDefaultResource(a.e.loading_ala_audio_emoticon);
-            c0933a2.mIconIv.setDefaultErrorResource(a.e.loading_ala_audio_emoticon);
-            c0933a2.mIconIv.setDefaultBgResource(a.e.loading_ala_audio_emoticon);
-            view.setTag(c0933a2);
-            c0933a = c0933a2;
+            C0971a c0971a2 = new C0971a();
+            c0971a2.mIconIv = (TbImageView) view.findViewById(a.f.emoticon_icon_iv);
+            c0971a2.gOO = (TextView) view.findViewById(a.f.emoticon_name_tv);
+            c0971a2.mIconIv.setDefaultResource(a.e.loading_ala_audio_emoticon);
+            c0971a2.mIconIv.setDefaultErrorResource(a.e.loading_ala_audio_emoticon);
+            c0971a2.mIconIv.setDefaultBgResource(a.e.loading_ala_audio_emoticon);
+            view.setTag(c0971a2);
+            c0971a = c0971a2;
         } else {
-            c0933a = (C0933a) view.getTag();
+            c0971a = (C0971a) view.getTag();
         }
         com.baidu.yuyinala.emoticon.a.a item = getItem(i);
         if (item == null) {
-            c0933a.gOO.setText("");
-            c0933a.mIconIv.startLoad(null, 10, false);
+            c0971a.gOO.setText("");
+            c0971a.mIconIv.startLoad(null, 10, false);
         } else {
-            c0933a.gOO.setText(item.getName());
-            c0933a.mIconIv.startLoad(item.getThumbnailUrl(), 10, false);
+            c0971a.gOO.setText(item.getName());
+            c0971a.mIconIv.startLoad(item.getThumbnailUrl(), 10, false);
         }
         return view;
     }
@@ -70,11 +70,11 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.yuyinala.emoticon.adapter.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public class C0933a {
+    public class C0971a {
         private TextView gOO;
         private TbImageView mIconIv;
 
-        public C0933a() {
+        public C0971a() {
         }
     }
 }

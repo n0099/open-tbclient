@@ -1,38 +1,38 @@
 package com.vivo.push.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class x extends u {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13895a;
+    private String f13896a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f13896b;
+    private long f13897b;
 
     public x(int i) {
         super(i);
     }
 
     public final long f() {
-        return this.f13896b;
+        return this.f13897b;
     }
 
     public final String i() {
-        return this.f13895a;
+        return this.f13896a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public void c(com.vivo.push.a aVar) {
         super.c(aVar);
-        aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.f13895a);
-        aVar.a("notify_id", this.f13896b);
+        aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT", this.f13896a);
+        aVar.a("notify_id", this.f13897b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.vivo.push.b.u, com.vivo.push.y
     public void d(com.vivo.push.a aVar) {
         super.d(aVar);
-        this.f13895a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
-        this.f13896b = aVar.b("notify_id", -1L);
+        this.f13896a = aVar.a("OnVerifyCallBackCommand.EXTRA_SECURITY_CONTENT");
+        this.f13897b = aVar.b("notify_id", -1L);
     }
 }

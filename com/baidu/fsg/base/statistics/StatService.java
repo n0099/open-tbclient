@@ -9,10 +9,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public class StatService {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1978a = "logsender";
+    private static final String f1979a = "logsender";
 
     /* renamed from: b  reason: collision with root package name */
-    private ConcurrentHashMap<String, Long> f1979b;
+    private ConcurrentHashMap<String, Long> f1980b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes6.dex */
@@ -28,18 +28,18 @@ public class StatService {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static StatService f1980a = new StatService();
+        private static StatService f1981a = new StatService();
 
         private a() {
         }
     }
 
     private StatService() {
-        this.f1979b = new ConcurrentHashMap<>();
+        this.f1980b = new ConcurrentHashMap<>();
     }
 
     static StatService a() {
-        return a.f1980a;
+        return a.f1981a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -82,7 +82,7 @@ public class StatService {
     }
 
     public static void a(String str) {
-        a().f1979b.put(str, Long.valueOf(System.currentTimeMillis()));
+        a().f1980b.put(str, Long.valueOf(System.currentTimeMillis()));
     }
 
     public static void b(String str, String str2, Collection<String> collection) {
@@ -107,12 +107,12 @@ public class StatService {
 
     private static ArrayList<String> a(String str, String str2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        Long l = a().f1979b.get(str);
+        Long l = a().f1980b.get(str);
         if (l == null) {
             return null;
         }
         Long valueOf = Long.valueOf(System.currentTimeMillis() - l.longValue());
-        a().f1979b.remove(str);
+        a().f1980b.remove(str);
         arrayList.add(Long.toString(valueOf.longValue()));
         arrayList.add(str2);
         return arrayList;

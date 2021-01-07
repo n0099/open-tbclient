@@ -52,7 +52,7 @@ public class a extends com.kwad.sdk.feed.a.b.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AdTemplate adTemplate, float f) {
-        e.a aVar = this.f10133a.c.get(adTemplate.mUniqueId);
+        e.a aVar = this.f10134a.c.get(adTemplate.mUniqueId);
         if (aVar != null) {
             aVar.a(adTemplate, f);
         }
@@ -68,8 +68,8 @@ public class a extends com.kwad.sdk.feed.a.b.a {
     @Override // com.kwad.sdk.feed.a.b.a, com.kwad.sdk.lib.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f10133a.h;
-        this.c = this.f10133a.f;
+        this.d = this.f10134a.h;
+        this.c = this.f10134a.f;
         this.c.addOnScrollListener(this.e);
     }
 

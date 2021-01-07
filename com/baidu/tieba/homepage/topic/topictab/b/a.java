@@ -71,16 +71,16 @@ public class a extends com.baidu.tieba.card.data.b {
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return this.alW;
     }
 
     @Override // com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a
-    public at boQ() {
-        at boQ = super.boQ();
-        if (boQ != null) {
-            boQ.dD(this.topicId);
+    public at boR() {
+        at boR = super.boR();
+        if (boR != null) {
+            boR.dD(this.topicId);
         }
-        return boQ;
+        return boR;
     }
 }

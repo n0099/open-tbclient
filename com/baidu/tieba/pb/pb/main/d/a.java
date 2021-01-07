@@ -62,12 +62,12 @@ public class a {
             case -3:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_comment30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case -2:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_disagree, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_disagree, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_dislike30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_disliked30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case -1:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_agree, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.c_agree, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_like30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_liked30, ao.getColor(R.color.CAM_X0301), (WebPManager.ResourceStateType) null);
@@ -82,23 +82,23 @@ public class a {
             case 3:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_copy30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case 4:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mark, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mark, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_collect30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_collected30, ao.getColor(R.color.CAM_X0305), (WebPManager.ResourceStateType) null);
             case 5:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.report_text, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.report_text, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_report30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mute_option, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mute_option, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_nospeakingset30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
             case 6:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.report_text, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.report_text, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_report30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_delete30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
@@ -107,20 +107,20 @@ public class a {
             case 8:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_hide30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case 10:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete_post, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete_post, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_delete30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.delete, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_delete30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
             case 11:
                 return WebPManager.a(R.drawable.icon_pure_pb_recommend_block30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             case 12:
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mute, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.mute, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_nospeaking30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
-                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.un_mute, new Object[0]).equals(gVar.bui())) {
+                if (com.baidu.tieba.pb.pb.main.ao.getString(R.string.un_mute, new Object[0]).equals(gVar.buj())) {
                     return WebPManager.a(R.drawable.icon_pure_pb_recommend_nospeakinged30, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
                 }
                 return null;
@@ -190,10 +190,10 @@ public class a {
             return null;
         }
         String str = "";
-        if (postData.dPf() != null) {
-            str = postData.dPf().toString();
+        if (postData.dPg() != null) {
+            str = postData.dPg().toString();
         }
-        SpannableString bI = bI(postData.brq().getName_show() + " : ", ao.getColor(R.color.CAM_X0109));
+        SpannableString bI = bI(postData.brr().getName_show() + " : ", ao.getColor(R.color.CAM_X0109));
         SpannableString bI2 = bI(str, ao.getColor(R.color.CAM_X0107));
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         spannableStringBuilder.append((CharSequence) bI);

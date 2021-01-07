@@ -9,61 +9,61 @@ import com.baidu.tieba.tbadkCore.videoupload.a.d;
 import com.baidu.tieba.tbadkCore.videoupload.a.e;
 /* loaded from: classes.dex */
 public class a {
-    private static int nuR = 524288;
-    private static int nuS = 6144000;
-    private static int nuT = 524288;
-    private g nsP;
-    private com.baidu.tieba.tbadkCore.videoupload.a.b nuU;
+    private static int nuQ = 524288;
+    private static int nuR = 6144000;
+    private static int nuS = 524288;
+    private g nsO;
+    private com.baidu.tieba.tbadkCore.videoupload.a.b nuT;
 
     public a(g gVar) {
-        this.nsP = gVar;
+        this.nsO = gVar;
     }
 
     public VideoFinishResult a(String str, String str2, int i, e eVar) {
         try {
             if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
-                this.nuU = new d(str2, nuT, this.nsP);
+                this.nuT = new d(str2, nuS, this.nsO);
             } else {
-                this.nuU = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, nuR, nuS, this.nsP);
+                this.nuT = new com.baidu.tieba.tbadkCore.videoupload.a.c(str, nuQ, nuR, this.nsO);
             }
-            this.nuU.a(eVar);
-            return this.nuU.bV(str2, i);
+            this.nuT.a(eVar);
+            return this.nuT.bV(str2, i);
         } catch (Exception e) {
             BdLog.e(e.getMessage());
-            if (this.nsP != null) {
-                this.nsP.p(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.l.a.p(e));
+            if (this.nsO != null) {
+                this.nsO.p(ARPMessageType.MSG_TYPE_IMU_MIRROR_DATA, -4399, com.baidu.tieba.l.a.p(e));
             }
             return null;
         }
     }
 
     public void cancelUpload() {
-        if (this.nuU != null) {
-            this.nuU.cancel();
+        if (this.nuT != null) {
+            this.nuT.cancel();
         }
     }
 
     public static void Lf(int i) {
         if (i <= 0) {
-            nuT = 524288;
+            nuS = 524288;
         } else {
-            nuT = i;
+            nuS = i;
         }
     }
 
     public static void Lg(int i) {
         if (i <= 0) {
-            nuR = 524288;
+            nuQ = 524288;
         } else {
-            nuR = i;
+            nuQ = i;
         }
     }
 
     public static void Lh(int i) {
         if (i <= 0) {
-            nuS = 6144000;
+            nuR = 6144000;
         } else {
-            nuS = i;
+            nuR = i;
         }
     }
 }

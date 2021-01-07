@@ -17,10 +17,10 @@ public class c {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    int[] f10237a = null;
+    int[] f10238a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    int f10238b = 0;
+    int f10239b = 0;
     int c = 0;
     final List<b> e = new ArrayList();
     int m = -1;
@@ -38,6 +38,6 @@ public class c {
     }
 
     public int d() {
-        return this.f10238b;
+        return this.f10239b;
     }
 }

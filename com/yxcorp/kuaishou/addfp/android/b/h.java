@@ -8,11 +8,11 @@ import android.text.TextUtils;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f14690a = "iphonesubinfo";
-    private /* synthetic */ f qeS;
+    private final String f14691a = "iphonesubinfo";
+    private /* synthetic */ f qgA;
 
     public h(f fVar) {
-        this.qeS = fVar;
+        this.qgA = fVar;
     }
 
     private String a(String str, String str2) {
@@ -25,7 +25,7 @@ public final class h {
         String str3 = "";
         Parcel obtain = Parcel.obtain();
         Parcel obtain2 = Parcel.obtain();
-        a2 = this.qeS.a(str2);
+        a2 = this.qgA.a(str2);
         if (TextUtils.isEmpty(a2)) {
             return "";
         }
@@ -34,7 +34,7 @@ public final class h {
             context = f.d;
             obtain.writeString(context.getPackageName());
         }
-        a3 = this.qeS.a(str2, str, obtain, obtain2);
+        a3 = this.qgA.a(str2, str, obtain, obtain2);
         if (a3 != null) {
             try {
                 obtain2.readException();

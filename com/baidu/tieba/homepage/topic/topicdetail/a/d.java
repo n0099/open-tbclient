@@ -22,7 +22,7 @@ public class d extends BaseCardInfo {
         if (threadInfo != null) {
             this.eMv = new bz();
             this.eMv.a(threadInfo);
-            this.eMv.bsq();
+            this.eMv.bsr();
         }
     }
 }

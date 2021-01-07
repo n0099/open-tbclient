@@ -20,14 +20,14 @@ public class b {
                 SplashHttpResponse splashHttpResponse = (SplashHttpResponse) httpResponsedMessage;
                 if (!splashHttpResponse.hasError() && splashHttpResponse.getErrno() == 0) {
                     if (b.this.gmO != null) {
-                        b.this.gmO.FZ(splashHttpResponse.getResultMsg());
+                        b.this.gmO.FY(splashHttpResponse.getResultMsg());
                         return;
                     }
                     return;
                 }
                 BdLog.e("Response of splash has error");
                 if (b.this.gmO != null) {
-                    b.this.gmO.Ga(splashHttpResponse.getResultMsg());
+                    b.this.gmO.FZ(splashHttpResponse.getResultMsg());
                     return;
                 }
                 return;
@@ -38,15 +38,15 @@ public class b {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void FZ(String str);
+        void FY(String str);
 
-        void Ga(String str);
+        void FZ(String str);
     }
 
     private b() {
     }
 
-    public static b bPP() {
+    public static b bPQ() {
         return gmN;
     }
 
@@ -57,7 +57,7 @@ public class b {
         SplashHttpRequest.sendRequest(new SplashHttpRequest(tbPageContext.getPageActivity(), adInfo));
     }
 
-    public static String bPQ() {
+    public static String bPR() {
         return "http://baichuan.baidu.com/rs/adpmobile/successdisplaystatistics";
     }
 

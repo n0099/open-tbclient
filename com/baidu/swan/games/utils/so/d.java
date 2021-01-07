@@ -10,22 +10,22 @@ public final class d {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static long eoz = -1;
 
-    public static f bcF() {
-        if (!com.baidu.swan.apps.t.a.aBe().amd()) {
+    public static f bcG() {
+        if (!com.baidu.swan.apps.t.a.aBf().ame()) {
             return com.baidu.swan.apps.core.k.a.fu(false);
         }
-        if (!bcH()) {
+        if (!bcI()) {
             return SoLoader.loadV8EngineSo(AppRuntime.getAppContext());
         }
-        com.baidu.swan.apps.t.a.aBi().bR(a.eoA);
-        return f.bcQ();
+        com.baidu.swan.apps.t.a.aBj().bR(a.eoA);
+        return f.bcR();
     }
 
-    public static boolean bcG() {
+    public static boolean bcH() {
         return SoLoader.load(AppRuntime.getAppContext(), "audioengine");
     }
 
-    private static boolean bcH() {
+    private static boolean bcI() {
         boolean z = a.eoA > -1;
         if (DEBUG) {
             Log.d("SwanSoLoader", "isNeedToLoadNewV8So: " + z);
@@ -33,33 +33,33 @@ public final class d {
         return z;
     }
 
-    public static void bcI() {
-        com.baidu.swan.apps.t.a.aBi().alu();
+    public static void bcJ() {
+        com.baidu.swan.apps.t.a.aBj().alv();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:5:0x0012  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static void bcJ() {
-        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.aJL().aJN().iterator();
+    public static void bcK() {
+        Iterator<com.baidu.swan.apps.process.messaging.service.c> it = com.baidu.swan.apps.process.messaging.service.e.aJM().aJO().iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.process.messaging.service.c next = it.next();
-            if (next.aJy() || next.aJv()) {
+            if (next.aJz() || next.aJw()) {
                 return;
             }
             while (it.hasNext()) {
             }
         }
-        com.baidu.swan.apps.t.a.aBi().alv();
+        com.baidu.swan.apps.t.a.aBj().alw();
     }
 
-    public static String bcK() {
-        return com.baidu.swan.apps.t.a.aBi().bS(a.eoA);
+    public static String bcL() {
+        return com.baidu.swan.apps.t.a.aBj().bS(a.eoA);
     }
 
     public static void Y(Bundle bundle) {
-        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.t.a.aBi().alw());
+        bundle.putLong("bundle_key_new_v8_so_switch", com.baidu.swan.apps.t.a.aBj().alx());
     }
 
     public static void A(Intent intent) {
@@ -71,7 +71,7 @@ public final class d {
         }
     }
 
-    public static long alw() {
+    public static long alx() {
         return a.eoA;
     }
 

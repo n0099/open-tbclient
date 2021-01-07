@@ -59,7 +59,7 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                 if (k.this.kpo != null && k.this.kpo.gBU != null) {
                     k.this.kpo.gBU.stopPlayback();
                 }
-                k.this.cUv();
+                k.this.cUw();
             }
         };
         this.mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.hottopic.adapter.k.13
@@ -91,9 +91,9 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnErrorListener
             public boolean onError(int i, int i2, Object obj) {
                 if (!k.this.kpq) {
-                    BdToast.b(k.this.activity.getPageContext().getPageActivity(), k.this.activity.getPageContext().getResources().getString(R.string.pb_play_error), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
+                    BdToast.b(k.this.activity.getPageContext().getPageActivity(), k.this.activity.getPageContext().getResources().getString(R.string.pb_play_error), R.drawable.icon_pure_toast_mistake40_svg, true).bue();
                 }
-                k.this.cUv();
+                k.this.cUw();
                 return true;
             }
         };
@@ -101,7 +101,7 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                k.this.cUx();
+                k.this.cUy();
             }
         };
         this.kpv = new CustomMessageListener(CmdConfigCustom.PB_REFRESH_VIDEO) { // from class: com.baidu.tieba.hottopic.adapter.k.5
@@ -166,13 +166,13 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                 findViewById.setLayoutParams(layoutParams);
             }
         } else {
-            cUv();
+            cUw();
         }
         return this.kpo;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUv() {
+    public void cUw() {
         if (this.kpo != null && this.kpo.ksB != null && this.kpo.ksE != null) {
             this.kpo.ksB.setVisibility(0);
             this.kpo.ksE.setVisibility(8);
@@ -182,7 +182,7 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
         }
     }
 
-    public void cUw() {
+    public void cUx() {
         this.kpp = false;
     }
 
@@ -217,7 +217,7 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                 }
                 topicMediaHolder.ksB.setTag(Integer.valueOf(i));
                 topicMediaHolder.ksB.setDefaultResource(0);
-                if (!com.baidu.tbadk.core.k.bou().isShowImages()) {
+                if (!com.baidu.tbadk.core.k.bov().isShowImages()) {
                     topicMediaHolder.ksB.setNoImageBottomTextColor(R.color.CAM_X0108);
                     topicMediaHolder.ksB.setNoImageBottomTextPadding(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.ds32));
                     topicMediaHolder.ksB.setNoImageBottomTextSize(TbadkCoreApplication.getInst().getResources().getDimension(R.dimen.fontsize28));
@@ -315,7 +315,7 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
     public void a(final TopicMediaHolder topicMediaHolder, final o oVar) {
         if (com.baidu.adp.lib.util.j.isMobileNet()) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.activity.getPageContext().getPageActivity());
-            aVar.Bp(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
+            aVar.Bo(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
             aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.hottopic.adapter.k.14
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -332,7 +332,7 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.activity.getPageContext()).btX();
+            aVar.b(this.activity.getPageContext()).btY();
             return;
         }
         b(topicMediaHolder, oVar);
@@ -366,11 +366,11 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                     k.this.c(this.kpC);
                 } else if (com.baidu.adp.lib.util.j.isMobileNet()) {
                     com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(k.this.activity.getPageContext().getPageActivity());
-                    aVar.Bp(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
+                    aVar.Bo(TbadkCoreApplication.getInst().getString(R.string.play_video_mobile_tip));
                     aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.hottopic.adapter.k.a.1
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                            a.this.cUy();
+                            a.this.cUz();
                             aVar2.dismiss();
                         }
                     });
@@ -380,15 +380,15 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
                             aVar2.dismiss();
                         }
                     });
-                    aVar.b(k.this.activity.getPageContext()).btX();
+                    aVar.b(k.this.activity.getPageContext()).btY();
                 } else {
-                    cUy();
+                    cUz();
                 }
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void cUy() {
+        public void cUz() {
             if (this.kpB != null && this.kpC != null && this.kpC.gBU != null) {
                 this.kpC.gBU.setPlayMode("2");
                 this.kpC.gBU.setVideoPath(this.kpB.videoUrl);
@@ -440,8 +440,8 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
 
     private void a(TopicMediaHolder topicMediaHolder) {
         if (topicMediaHolder != null && topicMediaHolder.ksC != null && topicMediaHolder.ksD != null) {
-            topicMediaHolder.ksC.aUR();
-            topicMediaHolder.ksD.aUR();
+            topicMediaHolder.ksC.aUS();
+            topicMediaHolder.ksD.aUS();
         }
     }
 
@@ -466,7 +466,7 @@ public class k extends com.baidu.adp.widget.ListView.a<o, TopicMediaHolder> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUx() {
+    public void cUy() {
         if (this.kpo != null && this.kpo.gBU != null && this.kpo.ksG != null && this.kpo.ksH != null) {
             if (this.kpo.gBU.isPlaying()) {
                 this.kpo.gBU.pause();

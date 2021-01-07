@@ -33,7 +33,7 @@ public class PhotoView extends ImageView implements c {
     }
 
     protected void init() {
-        if (this.oZA == null || this.oZA.emZ() == null) {
+        if (this.oZA == null || this.oZA.ena() == null) {
             this.oZA = new d(this);
         }
         if (this.oZB != null) {
@@ -166,11 +166,11 @@ public class PhotoView extends ImageView implements c {
         this.oZA.setOnLongClickListener(onLongClickListener);
     }
 
-    public void setOnPhotoTapListener(d.InterfaceC0947d interfaceC0947d) {
-        this.oZA.setOnPhotoTapListener(interfaceC0947d);
+    public void setOnPhotoTapListener(d.InterfaceC0985d interfaceC0985d) {
+        this.oZA.setOnPhotoTapListener(interfaceC0985d);
     }
 
-    public d.InterfaceC0947d getOnPhotoTapListener() {
+    public d.InterfaceC0985d getOnPhotoTapListener() {
         return this.oZA.getOnPhotoTapListener();
     }
 
@@ -242,7 +242,7 @@ public class PhotoView extends ImageView implements c {
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
-        if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+        if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
             canvas.drawColor(2130706432);
         }
     }

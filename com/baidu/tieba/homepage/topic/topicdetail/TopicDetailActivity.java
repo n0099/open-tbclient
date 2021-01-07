@@ -59,7 +59,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         if (this.mIsFromSchema) {
             setIsAddSwipeBackLayout(false);
         }
-        this.kkJ.getEditor().cJr();
+        this.kkJ.getEditor().cJs();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -74,7 +74,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
     public void onPause() {
         super.onPause();
         if (this.kkJ != null && this.kkJ.getEditor() != null) {
-            this.kkJ.getEditor().bFN();
+            this.kkJ.getEditor().bFO();
         }
     }
 
@@ -109,7 +109,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             Uri uri = (Uri) intent.getParcelableExtra(IntentConfig.KEY_URI);
             String uri2 = uri.toString();
             if (f.r(uri)) {
-                f.bln().e(uri, new f.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.TopicDetailActivity.1
+                f.blo().e(uri, new f.a() { // from class: com.baidu.tieba.homepage.topic.topicdetail.TopicDetailActivity.1
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap) {
                         if (hashMap != null && (hashMap.get(f.eGy) instanceof String)) {
@@ -123,7 +123,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             } else if (!StringUtils.isNull(uri2) && uri2.startsWith("tbtopicdetail://")) {
                 String decode = Uri.decode(uri.getEncodedPath());
                 if (!StringUtils.isNull(decode)) {
-                    LH(decode);
+                    LG(decode);
                     Matcher matcher = Pattern.compile(".*fr=(.*)&topic_id=([\\d]+).*").matcher(decode);
                     if (matcher.find()) {
                         substring = matcher.group(2);
@@ -151,7 +151,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             this.kkJ.hideLoadingView();
             this.kkJ.pU(true);
         } else {
-            this.kkJ.Zi();
+            this.kkJ.Zj();
             this.kkJ.it(false);
             if (this.kkJ != null && this.kkJ.getEditor() != null) {
                 this.kkJ.getEditor().setTopicId(this.eQM);
@@ -167,7 +167,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
             this.kkJ.pU(true);
             return;
         }
-        this.kkJ.Zi();
+        this.kkJ.Zj();
         this.kkJ.setData(aVar);
     }
 
@@ -203,7 +203,7 @@ public class TopicDetailActivity extends BaseActivity<TopicDetailActivity> imple
         return "a024";
     }
 
-    private void LH(String str) {
+    private void LG(String str) {
         if (str.startsWith("//")) {
             str = str.substring(2);
         }

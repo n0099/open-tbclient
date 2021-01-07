@@ -8,11 +8,11 @@ import org.json.JSONObject;
 public class ao implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ArrayList<WeakReference<g>> f6079a = new ArrayList<>(4);
+    private static ArrayList<WeakReference<g>> f6080a = new ArrayList<>(4);
 
     @Override // com.bytedance.embedapplog.g
     public synchronized void onIdLoaded(String str, String str2, String str3) {
-        Iterator<WeakReference<g>> it = f6079a.iterator();
+        Iterator<WeakReference<g>> it = f6080a.iterator();
         while (it.hasNext()) {
             g gVar = it.next().get();
             if (gVar == null) {
@@ -25,7 +25,7 @@ public class ao implements g {
 
     @Override // com.bytedance.embedapplog.g
     public synchronized void onRemoteIdGet(boolean z, String str, String str2, String str3, String str4, String str5, String str6) {
-        Iterator<WeakReference<g>> it = f6079a.iterator();
+        Iterator<WeakReference<g>> it = f6080a.iterator();
         while (it.hasNext()) {
             g gVar = it.next().get();
             if (gVar == null) {
@@ -38,7 +38,7 @@ public class ao implements g {
 
     @Override // com.bytedance.embedapplog.g
     public synchronized void onRemoteConfigGet(boolean z, JSONObject jSONObject) {
-        Iterator<WeakReference<g>> it = f6079a.iterator();
+        Iterator<WeakReference<g>> it = f6080a.iterator();
         while (it.hasNext()) {
             g gVar = it.next().get();
             if (gVar == null) {
@@ -51,7 +51,7 @@ public class ao implements g {
 
     @Override // com.bytedance.embedapplog.g
     public synchronized void onRemoteAbConfigGet(boolean z, JSONObject jSONObject) {
-        Iterator<WeakReference<g>> it = f6079a.iterator();
+        Iterator<WeakReference<g>> it = f6080a.iterator();
         while (it.hasNext()) {
             g gVar = it.next().get();
             if (gVar == null) {
@@ -64,7 +64,7 @@ public class ao implements g {
 
     public synchronized void b(g gVar) {
         if (gVar != null) {
-            f6079a.add(new WeakReference<>(gVar));
+            f6080a.add(new WeakReference<>(gVar));
         }
     }
 }

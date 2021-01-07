@@ -14,14 +14,14 @@ import org.json.JSONObject;
 public class b extends e<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7458a;
+    private String f7459a;
 
     /* renamed from: b  reason: collision with root package name */
-    private x f7459b;
+    private x f7460b;
 
     public b(String str, x xVar) {
-        this.f7459b = xVar;
-        this.f7458a = str;
+        this.f7460b = xVar;
+        this.f7459a = str;
     }
 
     public static void a(q qVar, x xVar) {
@@ -61,10 +61,10 @@ public class b extends e<JSONObject, JSONObject> {
     @Nullable
     public JSONObject a(@NonNull JSONObject jSONObject, @NonNull f fVar) throws Exception {
         x.a aVar = new x.a();
-        aVar.f7160a = NotificationCompat.CATEGORY_CALL;
-        aVar.c = this.f7458a;
+        aVar.f7161a = NotificationCompat.CATEGORY_CALL;
+        aVar.c = this.f7459a;
         aVar.d = jSONObject;
-        JSONObject a2 = this.f7459b.a(aVar, 3);
+        JSONObject a2 = this.f7460b.a(aVar, 3);
         if (i.c().u()) {
             Log.d("OldBridgeSyncMethod", "[JSB-RSP] version: 3 data=" + a2.toString());
         }

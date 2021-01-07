@@ -72,13 +72,13 @@ public class HomePageTabFeedFragment extends BaseFragment implements am, c {
             if (this.kju != null) {
                 this.kju.resume();
             }
-            aqH();
+            aqI();
         } else if (this.kju != null) {
             this.kju.pause();
         }
     }
 
-    private void aqH() {
+    private void aqI() {
         if (isPrimary()) {
             aq aqVar = new aq("c13749");
             aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -90,13 +90,13 @@ public class HomePageTabFeedFragment extends BaseFragment implements am, c {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        s.cva().pv(false);
+        s.cvb().pv(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        s.cva().pv(false);
+        s.cvb().pv(false);
         if (this.kjt != null) {
             this.kjt.destory();
         }
@@ -160,9 +160,9 @@ public class HomePageTabFeedFragment extends BaseFragment implements am, c {
     }
 
     @Override // com.baidu.tieba.homepage.tabfeed.c
-    public void czD() {
+    public void czE() {
         if (this.kjt != null) {
-            this.kjt.bUp();
+            this.kjt.bUq();
         }
     }
 
@@ -170,7 +170,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements am, c {
         if (this.kjt != null) {
             if (this.kju != null && z) {
                 if (this.kjt.hasData()) {
-                    this.kju.czQ();
+                    this.kju.czR();
                     this.kju.lU(true);
                 } else {
                     hideNetRefreshView(this.rootView);
@@ -228,10 +228,10 @@ public class HomePageTabFeedFragment extends BaseFragment implements am, c {
         if (this.kju != null) {
             this.kju.pW(false);
         }
-        super.showLoadingView(view, false, cTK());
+        super.showLoadingView(view, false, cTL());
     }
 
-    private int cTK() {
+    private int cTL() {
         return (l.getEquipmentHeight(getContext()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2;
     }
 
@@ -263,16 +263,16 @@ public class HomePageTabFeedFragment extends BaseFragment implements am, c {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void WE() {
+    public void WF() {
         pV(true);
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUJ() {
+    public void bUK() {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUK() {
+    public void bUL() {
     }
 
     @Override // com.baidu.tieba.frs.am
@@ -284,7 +284,7 @@ public class HomePageTabFeedFragment extends BaseFragment implements am, c {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bxO() {
+    public void bxP() {
         if (this.kju != null) {
             this.kju.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         }

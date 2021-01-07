@@ -36,14 +36,14 @@ public class a {
     private String mPositiveButtonTip;
     private final ViewGroup mRootView;
     private String mTitle;
-    private String ngv;
+    private String ngu;
+    private b ngv;
     private b ngw;
     private b ngx;
-    private b ngy;
     private int mDialogGravity = -1;
     private int mIconResId = -1;
-    private int ngt = R.drawable.btn_blue_bg;
-    private int ngu = R.color.CAM_X0111;
+    private int ngs = R.drawable.btn_blue_bg;
+    private int ngt = R.color.CAM_X0111;
     private boolean mDialogCreated = false;
     private boolean cancelableFlag = true;
 
@@ -58,12 +58,12 @@ public class a {
     }
 
     public a Kq(int i) {
-        this.ngt = i;
+        this.ngs = i;
         return this;
     }
 
     public a Kr(int i) {
-        this.ngu = i;
+        this.ngt = i;
         return this;
     }
 
@@ -82,7 +82,7 @@ public class a {
     public a a(int i, b bVar) {
         if (this.mActivity != null) {
             this.mPositiveButtonTip = this.mActivity.getResources().getString(i);
-            this.ngw = bVar;
+            this.ngv = bVar;
         }
         return this;
     }
@@ -90,7 +90,7 @@ public class a {
     public a b(int i, b bVar) {
         if (this.mActivity != null) {
             this.mNegativeButtonTip = this.mActivity.getResources().getString(i);
-            this.ngx = bVar;
+            this.ngw = bVar;
         }
         return this;
     }
@@ -117,8 +117,8 @@ public class a {
             ImageView imageView = (ImageView) this.mRootView.findViewById(R.id.bdalert_icon);
             TextView textView2 = (TextView) this.mRootView.findViewById(R.id.message);
             Button button = (Button) this.mRootView.findViewById(R.id.yes);
-            ao.setBackgroundResource(button, this.ngt);
-            ao.setViewTextColor(button, this.ngu, 3);
+            ao.setBackgroundResource(button, this.ngs);
+            ao.setViewTextColor(button, this.ngt, 3);
             Button button2 = (Button) this.mRootView.findViewById(R.id.no);
             Button button3 = (Button) this.mRootView.findViewById(R.id.cancel);
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -143,8 +143,8 @@ public class a {
                 z = false;
             } else {
                 button.setText(this.mPositiveButtonTip);
-                if (this.ngw != null) {
-                    button.setOnClickListener(new View$OnClickListenerC0846a(this, this.ngw));
+                if (this.ngv != null) {
+                    button.setOnClickListener(new View$OnClickListenerC0879a(this, this.ngv));
                 }
                 z = true;
             }
@@ -152,17 +152,17 @@ public class a {
                 z2 = false;
             } else {
                 button2.setText(this.mNegativeButtonTip);
-                if (this.ngx != null) {
-                    button2.setOnClickListener(new View$OnClickListenerC0846a(this, this.ngx));
+                if (this.ngw != null) {
+                    button2.setOnClickListener(new View$OnClickListenerC0879a(this, this.ngw));
                 }
                 z2 = true;
             }
-            if (TextUtils.isEmpty(this.ngv)) {
+            if (TextUtils.isEmpty(this.ngu)) {
                 z3 = false;
             } else {
-                button3.setText(this.ngv);
-                if (this.ngy != null) {
-                    button3.setOnClickListener(new View$OnClickListenerC0846a(this, this.ngy));
+                button3.setText(this.ngu);
+                if (this.ngx != null) {
+                    button3.setOnClickListener(new View$OnClickListenerC0879a(this, this.ngx));
                 }
                 z3 = true;
             }
@@ -279,7 +279,7 @@ public class a {
         return this;
     }
 
-    public a dLi() {
+    public a dLj() {
         return xL(true);
     }
 
@@ -291,19 +291,19 @@ public class a {
 
     /* renamed from: com.baidu.tieba.sharewrite.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private class View$OnClickListenerC0846a implements View.OnClickListener {
-        private final a ngA;
-        private final b ngB;
+    private class View$OnClickListenerC0879a implements View.OnClickListener {
+        private final b ngA;
+        private final a ngz;
 
-        public View$OnClickListenerC0846a(a aVar, b bVar) {
-            this.ngA = aVar;
-            this.ngB = bVar;
+        public View$OnClickListenerC0879a(a aVar, b bVar) {
+            this.ngz = aVar;
+            this.ngA = bVar;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (this.ngB != null) {
-                this.ngB.a(this.ngA);
+            if (this.ngA != null) {
+                this.ngA.a(this.ngz);
             }
         }
     }

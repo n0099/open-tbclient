@@ -48,7 +48,7 @@ public class d {
         create();
     }
 
-    public static d aXm() {
+    public static d aXn() {
         if (eeD == null) {
             synchronized (d.class) {
                 if (eeD == null) {
@@ -64,13 +64,13 @@ public class d {
     }
 
     private void create() {
-        aXn();
+        aXo();
         hZ(true);
         startMonitor();
         this.eeI = new c();
     }
 
-    private void aXn() {
+    private void aXo() {
         if (this.eeE == null) {
             this.eeE = new HandlerThread("anti_addiction_monitor");
             this.eeE.start();
@@ -84,34 +84,34 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public Activity getActivity() {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null || aMl.aMe() == null) {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm == null || aMm.aMf() == null) {
             return null;
         }
-        return aMl.aMe();
+        return aMm.aMf();
     }
 
     public synchronized void startMonitor() {
-        if (isOpen() && !this.eeF.aXr()) {
+        if (isOpen() && !this.eeF.aXs()) {
             this.mStartTime = System.currentTimeMillis();
-            this.eeF.aXq();
+            this.eeF.aXr();
         }
     }
 
-    public synchronized void aXo() {
+    public synchronized void aXp() {
         if (isOpen()) {
             hZ(false);
         }
-        this.eeF.aXo();
+        this.eeF.aXp();
     }
 
-    public void aXp() {
+    public void aXq() {
         com.baidu.swan.games.b.a.b(new a.InterfaceC0531a() { // from class: com.baidu.swan.games.b.d.1
             @Override // com.baidu.swan.games.b.a.InterfaceC0531a
             public void onSuccess() {
                 Activity activity = d.this.getActivity();
                 if (activity != null) {
-                    com.baidu.swan.apps.res.widget.b.d.u(activity, a.h.swan_game_anti_addiction_success).aLS();
+                    com.baidu.swan.apps.res.widget.b.d.u(activity, a.h.swan_game_anti_addiction_success).aLT();
                 }
             }
 
@@ -187,7 +187,7 @@ public class d {
     public boolean mw(int i) {
         this.aZg = i;
         if (1 == i) {
-            aXo();
+            aXp();
             return false;
         }
         return true;
@@ -220,7 +220,7 @@ public class d {
                     this.eeI.a(activity, activity.getString(a.h.swan_game_anti_addiction_dialog_message), activity.getString(a.h.swan_game_anti_addiction_dialog_auth), true, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.games.b.d.3
                         @Override // android.content.DialogInterface.OnClickListener
                         public void onClick(DialogInterface dialogInterface, int i2) {
-                            d.this.aXp();
+                            d.this.aXq();
                         }
                     });
                     return;
@@ -245,7 +245,7 @@ public class d {
     }
 
     private synchronized void destroy() {
-        this.eeF.aXo();
+        this.eeF.aXp();
         if (this.eeE != null) {
             this.eeE.quitSafely();
             this.eeE = null;
@@ -277,24 +277,24 @@ public class d {
             switch (message.what) {
                 case 1:
                     d.this.hZ(false);
-                    aXq();
+                    aXr();
                     return;
                 default:
                     return;
             }
         }
 
-        void aXq() {
+        void aXr() {
             if (1 != d.this.aZg) {
                 sendEmptyMessageDelayed(1, d.this.eeH);
             }
         }
 
-        void aXo() {
+        void aXp() {
             removeCallbacksAndMessages(null);
         }
 
-        boolean aXr() {
+        boolean aXs() {
             return hasMessages(1);
         }
     }

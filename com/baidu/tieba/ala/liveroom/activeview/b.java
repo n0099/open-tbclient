@@ -146,17 +146,17 @@ public class b implements com.baidu.live.liveroom.b.a {
         }
 
         @Override // com.baidu.tieba.ala.liveroom.activeview.b.a
+        public void HV(String str) {
+            b.this.Ic(str);
+        }
+
+        @Override // com.baidu.tieba.ala.liveroom.activeview.b.a
         public void HW(String str) {
-            b.this.Id(str);
+            b.this.Ia(str);
         }
 
         @Override // com.baidu.tieba.ala.liveroom.activeview.b.a
         public void HX(String str) {
-            b.this.Ib(str);
-        }
-
-        @Override // com.baidu.tieba.ala.liveroom.activeview.b.a
-        public void HY(String str) {
             SchemeUtils.openScheme(str);
         }
 
@@ -196,7 +196,7 @@ public class b implements com.baidu.live.liveroom.b.a {
         @Override // com.baidu.tieba.ala.liveroom.activeview.b.a
         public void nz(boolean z) {
             if (z) {
-                b.this.cbv();
+                b.this.cbw();
             }
         }
     };
@@ -235,11 +235,11 @@ public class b implements com.baidu.live.liveroom.b.a {
 
     /* loaded from: classes11.dex */
     public interface a {
+        void HV(String str);
+
         void HW(String str);
 
         void HX(String str);
-
-        void HY(String str);
 
         void b(View view, p pVar, int i);
 
@@ -260,7 +260,7 @@ public class b implements com.baidu.live.liveroom.b.a {
         MessageManager.getInstance().registerListener(this.gPs);
     }
 
-    public void Ia(String str) {
+    public void HZ(String str) {
         this.hpX = str;
     }
 
@@ -284,9 +284,9 @@ public class b implements com.baidu.live.liveroom.b.a {
         j(xVar);
         if (this.aGe != null) {
             this.hpK = com.baidu.live.d.Ba().getString("ala_active_view_click_info", "");
-            ccC();
             ccD();
-            bIm();
+            ccE();
+            bIn();
         }
     }
 
@@ -300,7 +300,7 @@ public class b implements com.baidu.live.liveroom.b.a {
                     jSONObject = new JSONObject(bVar.getContent());
                 }
                 if (jSONObject != null && "fullscreen".equals(jSONObject.optString("content_type")) && J(bVar)) {
-                    Ib(jSONObject.optString("url"));
+                    Ia(jSONObject.optString("url"));
                 }
             } catch (JSONException e) {
             }
@@ -308,15 +308,15 @@ public class b implements com.baidu.live.liveroom.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Ib(String str) {
+    public void Ia(String str) {
         if (!TextUtils.isEmpty(str)) {
             if (this.hpV) {
                 BdLog.d("清屏状态不显示全屏弹框");
                 return;
             }
-            ccI();
             ccJ();
-            this.hpJ.HV(str);
+            ccK();
+            this.hpJ.HU(str);
         }
     }
 
@@ -337,7 +337,7 @@ public class b implements com.baidu.live.liveroom.b.a {
         }
     }
 
-    private void ccC() {
+    private void ccD() {
         if (this.hpQ == null) {
             this.hpQ = new HttpMessageListener(1021122) { // from class: com.baidu.tieba.ala.liveroom.activeview.b.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -345,7 +345,7 @@ public class b implements com.baidu.live.liveroom.b.a {
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
                     if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021122 && (httpResponsedMessage instanceof GetLiveActivityHttpResponseMessage)) {
                         if (b.this.aGe == null || b.this.aGe.mLiveInfo == null || b.this.aGe.mLiveInfo.mAlaLiveSwitchData == null || !b.this.aGe.mLiveInfo.mAlaLiveSwitchData.isActivityPollingUnabled()) {
-                            b.this.ccE();
+                            b.this.ccF();
                         }
                         if (httpResponsedMessage.getError() == 0) {
                             GetLiveActivityHttpResponseMessage getLiveActivityHttpResponseMessage = (GetLiveActivityHttpResponseMessage) httpResponsedMessage;
@@ -380,14 +380,14 @@ public class b implements com.baidu.live.liveroom.b.a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913275, zVar));
     }
 
-    private void ccD() {
+    private void ccE() {
         if (this.hpR == null) {
             this.hpR = new CustomMessageListener(2913132) { // from class: com.baidu.tieba.ala.liveroom.activeview.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.live.adp.framework.listener.MessageListener
                 public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                     if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof String)) {
-                        b.this.Id((String) customResponsedMessage.getData());
+                        b.this.Ic((String) customResponsedMessage.getData());
                     }
                 }
             };
@@ -405,11 +405,11 @@ public class b implements com.baidu.live.liveroom.b.a {
                 }
             }
         }
-        cbw();
+        cbx();
         if (this.hpJ != null) {
             this.hpJ.resume();
         }
-        bIm();
+        bIn();
     }
 
     public void onStop() {
@@ -425,8 +425,8 @@ public class b implements com.baidu.live.liveroom.b.a {
         if (this.hpJ != null) {
             this.hpJ.pause();
         }
-        ccF();
-        cbt();
+        ccG();
+        cbu();
     }
 
     @Override // com.baidu.live.liveroom.b.a
@@ -480,9 +480,9 @@ public class b implements com.baidu.live.liveroom.b.a {
         return i2;
     }
 
-    public void Ic(String str) {
+    public void Ib(String str) {
         if (f.SV().ik(str)) {
-            bIm();
+            bIn();
         }
     }
 
@@ -505,7 +505,7 @@ public class b implements com.baidu.live.liveroom.b.a {
             this.hpS.removeCallbacksAndMessages(null);
         }
         f.SV().release();
-        cbt();
+        cbu();
         if (this.hpO != null) {
             this.hpO.clear();
         }
@@ -560,7 +560,7 @@ public class b implements com.baidu.live.liveroom.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bIm() {
+    public void bIn() {
         if (this.aGe != null) {
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isActivityPollingUnabled()) {
                 com.baidu.live.af.d.SS().a(this.aGe.aKQ.userId, this.aGe.aKu.userId, this.aGe.mLiveInfo.room_id, this.aGe.mLiveInfo.live_id, this.aGe.mLiveInfo.pubShowId);
@@ -569,7 +569,7 @@ public class b implements com.baidu.live.liveroom.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ccE() {
+    public void ccF() {
         if (this.mRunning) {
             if (this.hpS == null) {
                 this.hpS = new HandlerC0671b(this);
@@ -578,11 +578,11 @@ public class b implements com.baidu.live.liveroom.b.a {
                 this.hpT = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.activeview.b.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        b.this.bIm();
+                        b.this.bIn();
                     }
                 };
             }
-            ccF();
+            ccG();
             if (this.aMk <= 0) {
                 this.aMk = 5;
             }
@@ -590,7 +590,7 @@ public class b implements com.baidu.live.liveroom.b.a {
         }
     }
 
-    private void ccF() {
+    private void ccG() {
         if (this.hpS != null && this.hpT != null) {
             this.hpS.removeCallbacks(this.hpT);
         }
@@ -680,7 +680,7 @@ public class b implements com.baidu.live.liveroom.b.a {
     private void k(int i, List<p> list) {
         Set<Integer> set;
         if (list == null || list.isEmpty()) {
-            ccG();
+            ccH();
             wE(i);
             return;
         }
@@ -697,10 +697,10 @@ public class b implements com.baidu.live.liveroom.b.a {
         if (cVar != null && cVar.hpZ != null && a2) {
             cVar.hpZ.a(wD(i));
         }
-        ccH();
+        ccI();
     }
 
-    private void ccG() {
+    private void ccH() {
         if (this.hpW != null) {
             Iterator<com.baidu.live.j.b> it = this.hpP.iterator();
             while (it.hasNext()) {
@@ -711,7 +711,7 @@ public class b implements com.baidu.live.liveroom.b.a {
         }
     }
 
-    private void ccH() {
+    private void ccI() {
         if (this.hpW != null) {
             for (int i = 1; i <= 2; i++) {
                 AlaActiveRootView wD = wD(i);
@@ -812,9 +812,9 @@ public class b implements com.baidu.live.liveroom.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbv() {
+    public void cbw() {
         if (Build.VERSION.SDK_INT >= 19) {
-            cbx();
+            cby();
             if (this.hpS == null) {
                 this.hpS = new HandlerC0671b(this);
             }
@@ -824,18 +824,18 @@ public class b implements com.baidu.live.liveroom.b.a {
         }
     }
 
-    private void cbt() {
+    private void cbu() {
         if (this.hmy != null) {
             this.hmy.clear();
         }
         if (this.hpS != null) {
             this.hpS.removeMessages(1000);
         }
-        cbu();
+        cbv();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbw() {
+    public void cbx() {
         String str;
         boolean z;
         int size;
@@ -858,7 +858,7 @@ public class b implements com.baidu.live.liveroom.b.a {
                 if (wD != null) {
                     View lastChild = wD.getLastChild();
                     if (lastChild instanceof AlaActiveBannerView) {
-                        z = ((AlaActiveBannerView) lastChild).HZ(str) | z2;
+                        z = ((AlaActiveBannerView) lastChild).HY(str) | z2;
                         i2++;
                         z2 = z;
                     }
@@ -870,12 +870,12 @@ public class b implements com.baidu.live.liveroom.b.a {
             if (z2) {
                 this.hpS.sendEmptyMessageDelayed(1000, 1000L);
             } else {
-                cbt();
+                cbu();
             }
         }
     }
 
-    private void cbx() {
+    private void cby() {
         if (this.hmy == null) {
             this.hmy = new ArrayList();
         }
@@ -894,7 +894,7 @@ public class b implements com.baidu.live.liveroom.b.a {
         MessageManager.getInstance().registerListener(this.hmz);
     }
 
-    private void cbu() {
+    private void cbv() {
         if (this.hmz != null) {
             MessageManager.getInstance().unRegisterListener(this.hmz);
             this.hmz = null;
@@ -951,17 +951,17 @@ public class b implements com.baidu.live.liveroom.b.a {
             }
             String a2 = com.baidu.live.utils.b.a(i, str, this.isHost, str5, str4, str3, str2, this.hpX);
             if (i == 2) {
-                Id(a2);
+                Ic(a2);
             } else {
                 SchemeUtils.openScheme(a2);
             }
         }
     }
 
-    public void Id(String str) {
+    public void Ic(String str) {
         int i = 2;
-        ccI();
         ccJ();
+        ccK();
         if (!this.hpU) {
             i = 0;
         } else if (UtilHelper.getRealScreenOrientation(this.mPageContext.getPageActivity()) != 2) {
@@ -970,13 +970,13 @@ public class b implements com.baidu.live.liveroom.b.a {
         this.hpJ.aI(str, i);
     }
 
-    private void ccI() {
+    private void ccJ() {
         if (this.hpJ == null) {
             this.hpJ = new com.baidu.tieba.ala.liveroom.a.a(this.mPageContext.getPageActivity());
         }
     }
 
-    private void ccJ() {
+    private void ccK() {
         this.hpJ.setHost(this.isHost);
         if (this.aGe != null && this.aGe.mLiveInfo != null) {
             this.hpJ.g(this.aGe.mLiveInfo.user_id, this.aGe.mLiveInfo.getNameShow(), this.aGe.aKu != null ? this.aGe.aKu.portrait : null);
@@ -1095,7 +1095,7 @@ public class b implements com.baidu.live.liveroom.b.a {
         public void handleMessage(Message message) {
             super.handleMessage(message);
             if (this.hmE.get() != null && message.what == 1000) {
-                this.hmE.get().cbw();
+                this.hmE.get().cbx();
             }
         }
     }

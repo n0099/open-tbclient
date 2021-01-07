@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class FlutterBoost {
     private static boolean sInit;
     static FlutterBoost sInstance = null;
@@ -44,7 +44,7 @@ public class FlutterBoost {
     private boolean mEnterActivityCreate = false;
     private long FlutterPostFrameCallTime = 0;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public interface BoostLifecycleListener {
         void beforeCreateEngine();
 
@@ -175,7 +175,7 @@ public class FlutterBoost {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class ConfigBuilder {
         private BoostLifecycleListener lifecycleListener;
         private Application mApp;

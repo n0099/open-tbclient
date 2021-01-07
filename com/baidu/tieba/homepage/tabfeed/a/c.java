@@ -27,9 +27,9 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                 if (c.this.kfX.gpU != view) {
                     if (view != c.this.kfX.hnz.getCommentContainer()) {
                         if (view != c.this.kfX.its.getCommentContainer()) {
-                            if (c.this.kfX.cuF() != null && view.getId() == c.this.kfX.cuF().getId()) {
+                            if (c.this.kfX.cuG() != null && view.getId() == c.this.kfX.cuG().getId()) {
                                 i = 2;
-                            } else if (c.this.kfX.cuG() != null && view.getId() == c.this.kfX.cuG().getId()) {
+                            } else if (c.this.kfX.cuH() != null && view.getId() == c.this.kfX.cuH().getId()) {
                                 i = 2;
                             }
                         }
@@ -40,7 +40,7 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
                     i = 1;
                 }
                 if (i != 0) {
-                    com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, c.this.fJu, jVar.cvm(), i);
+                    com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, c.this.fJu, jVar.cvn(), i);
                 }
                 com.baidu.tieba.homepage.tabfeed.b.a(view, jVar, c.this.mTabName);
             }
@@ -67,12 +67,12 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, CardViewHolder<com.baidu.tieba.card.k> cardViewHolder) {
         jVar.yA(jVar.position + 1);
-        com.baidu.tieba.card.k cvG = cardViewHolder.cvG();
-        cvG.yx(i + 1);
-        cvG.a(jVar);
-        cvG.c(this.iKM);
-        cvG.b(this.ggi);
-        com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, this.fJu, jVar.cvm());
+        com.baidu.tieba.card.k cvH = cardViewHolder.cvH();
+        cvH.yx(i + 1);
+        cvH.a(jVar);
+        cvH.c(this.iKM);
+        cvH.b(this.ggi);
+        com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, this.fJu, jVar.cvn());
         com.baidu.tieba.homepage.tabfeed.b.a(jVar, this.mTabName);
         return cardViewHolder.getView();
     }

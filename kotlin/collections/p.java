@@ -12,7 +12,7 @@ public class p extends o {
         return iterable instanceof Collection ? ((Collection) iterable).size() : i;
     }
 
-    private static final <T> boolean o(Collection<? extends T> collection) {
+    private static final <T> boolean p(Collection<? extends T> collection) {
         return collection.size() > 2 && (collection instanceof ArrayList);
     }
 
@@ -22,7 +22,7 @@ public class p extends o {
             return (Collection) iterable;
         }
         if (iterable instanceof Collection) {
-            return o((Collection) iterable) ? n.f(iterable) : (Collection) iterable;
+            return p((Collection) iterable) ? n.f(iterable) : (Collection) iterable;
         }
         return n.f(iterable);
     }

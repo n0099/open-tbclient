@@ -74,9 +74,9 @@ public class PkRankEnterView extends RelativeLayout {
         this.ikE.a(new a.InterfaceC0648a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.1
             @Override // com.baidu.tieba.ala.g.a.InterfaceC0648a
             public void fI(long j) {
-                PkRankEnterView.this.ikD.cpb();
-                PkRankEnterView.this.csA();
-                if (!PkRankEnterView.this.gTH.getGetPkInfoModel().aLf()) {
+                PkRankEnterView.this.ikD.cpc();
+                PkRankEnterView.this.csB();
+                if (!PkRankEnterView.this.gTH.getGetPkInfoModel().aLg()) {
                     PkRankEnterView.this.gTH.getGetPkInfoModel().a(PkRankEnterView.this.gTH.aMh.aKu.userId, j, PkRankEnterView.this.gTH.aMh.mLiveInfo.room_id, PkRankEnterView.this.gTH.aMh.mLiveInfo.live_id, PkRankEnterView.this.gTH.isHost ? 1 : 0);
                 }
             }
@@ -87,9 +87,9 @@ public class PkRankEnterView extends RelativeLayout {
         });
         this.ikF.a(new k.a() { // from class: com.baidu.tieba.ala.view.PkRankEnterView.2
             @Override // com.baidu.tieba.ala.g.k.a
-            public void coW() {
-                PkRankEnterView.this.ikD.cpb();
-                PkRankEnterView.this.csv();
+            public void coX() {
+                PkRankEnterView.this.ikD.cpc();
+                PkRankEnterView.this.csw();
                 PkRankEnterView.this.yc(1);
             }
 
@@ -111,16 +111,16 @@ public class PkRankEnterView extends RelativeLayout {
                     e.printStackTrace();
                 }
                 UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_PK_RANK, "pk_competition_start_pk", "author_liveroom", "match_success").setContentExt(jSONObject));
-                if (!PkRankEnterView.this.gTH.getGetPkInfoModel().aLf()) {
+                if (!PkRankEnterView.this.gTH.getGetPkInfoModel().aLg()) {
                     PkRankEnterView.this.gTH.getGetPkInfoModel().a(PkRankEnterView.this.gTH.aMh.aKu.userId, j, PkRankEnterView.this.gTH.aMh.mLiveInfo.room_id, PkRankEnterView.this.gTH.aMh.mLiveInfo.live_id, PkRankEnterView.this.gTH.isHost ? 1 : 0);
                 }
-                PkRankEnterView.this.csv();
+                PkRankEnterView.this.csw();
             }
 
             @Override // com.baidu.tieba.ala.g.p.a
-            public void cpc() {
+            public void cpd() {
                 PkRankEnterView.this.yc(3);
-                PkRankEnterView.this.csv();
+                PkRankEnterView.this.csw();
             }
 
             @Override // com.baidu.tieba.ala.g.p.a
@@ -139,24 +139,24 @@ public class PkRankEnterView extends RelativeLayout {
         this.status = i;
         if (this.gTH.ye(i)) {
             if (!this.gTH.isHost) {
-                this.gTH.ctc();
+                this.gTH.ctd();
                 setVisibility(8);
                 return;
             }
-            this.gTH.ctc();
-            csB();
+            this.gTH.ctd();
+            csC();
             switch (i) {
                 case 0:
-                    csw();
-                    break;
-                case 1:
                     csx();
                     break;
-                case 2:
+                case 1:
                     csy();
                     break;
-                case 3:
+                case 2:
                     csz();
+                    break;
+                case 3:
+                    csA();
                     break;
             }
             this.ikt = i;
@@ -165,20 +165,20 @@ public class PkRankEnterView extends RelativeLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void am(ArrayList<String> arrayList) {
-        if (this.ikG == null || !this.ikG.csu()) {
+        if (this.ikG == null || !this.ikG.csv()) {
             this.ikG = new i(arrayList, this.ikw, this.ikB);
             this.ikG.sN();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void csv() {
+    public void csw() {
         if (this.ikG != null) {
-            this.ikG.cpb();
+            this.ikG.cpc();
         }
     }
 
-    private void csw() {
+    private void csx() {
         yd(10);
         this.ikv.setVisibility(0);
         this.ikv.setImageResource(a.e.pk_rank_enter_view_again);
@@ -198,7 +198,7 @@ public class PkRankEnterView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csx() {
+    public void csy() {
         this.gTH.imp = 1;
         this.status = 1;
         this.ikt = 1;
@@ -219,7 +219,7 @@ public class PkRankEnterView extends RelativeLayout {
         });
     }
 
-    private void csy() {
+    private void csz() {
         this.ikw.setVisibility(0);
         this.iku.setImageResource(a.e.pk_rank_enter_view_black_bg);
         this.ikz.setVisibility(0);
@@ -233,7 +233,7 @@ public class PkRankEnterView extends RelativeLayout {
         });
     }
 
-    private void csz() {
+    private void csA() {
         yd(10);
         this.ikv.setVisibility(0);
         this.ikv.setImageResource(a.e.pk_rank_enter_view_fail);
@@ -287,8 +287,8 @@ public class PkRankEnterView extends RelativeLayout {
                 @Override // com.baidu.tieba.ala.e.a
                 public void onFinish() {
                     PkRankEnterView.this.ikC.cancelTimer();
-                    PkRankEnterView.this.csB();
-                    PkRankEnterView.this.csx();
+                    PkRankEnterView.this.csC();
+                    PkRankEnterView.this.csy();
                 }
             });
             this.ikC.startTimer();
@@ -296,7 +296,7 @@ public class PkRankEnterView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csA() {
+    public void csB() {
         if (this.ikC != null) {
             this.ikC.cancelTimer();
             this.ikC = null;
@@ -304,10 +304,10 @@ public class PkRankEnterView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void csB() {
+    public void csC() {
         setVisibility(0);
         if (this.ikt != this.status) {
-            csA();
+            csB();
         }
         this.ikw.setVisibility(8);
         this.ikz.setVisibility(8);
@@ -319,18 +319,18 @@ public class PkRankEnterView extends RelativeLayout {
 
     public void onDestroy() {
         if (this.ikD != null) {
-            this.ikD.cpa();
+            this.ikD.cpb();
         }
         if (this.ikE != null) {
-            this.ikE.coQ();
+            this.ikE.coR();
         }
         if (this.ikF != null) {
-            this.ikF.coV();
+            this.ikF.coW();
         }
         if (this.gTH.getGetPkInfoModel() != null) {
-            this.gTH.getGetPkInfoModel().coY();
+            this.gTH.getGetPkInfoModel().coZ();
         }
-        csA();
+        csB();
     }
 
     public void setPkRankView(PkRankView pkRankView) {
@@ -339,11 +339,11 @@ public class PkRankEnterView extends RelativeLayout {
 
     public void d(JSONObject jSONObject, int i) {
         if (this.gTH.ye(i) && i == 4) {
-            this.ikD.cpb();
-            csv();
-            csA();
-            this.gTH.ctc();
+            this.ikD.cpc();
+            csw();
             csB();
+            this.gTH.ctd();
+            csC();
             this.ikt = i;
             this.status = i;
             ef(jSONObject);

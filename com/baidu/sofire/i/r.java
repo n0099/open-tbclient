@@ -34,22 +34,22 @@ import okhttp3.Response;
 public final class r {
 
     /* renamed from: b  reason: collision with root package name */
-    private static SSLSocketFactory f5558b;
+    private static SSLSocketFactory f5559b;
     private static final byte[] c = new byte[1024];
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f5559a;
+    private Context f5560a;
 
     public r(Context context) {
-        this.f5559a = context;
+        this.f5560a = context;
     }
 
     private OkHttpClient a() {
         OkHttpClient.Builder builder = new OkHttpClient.Builder();
         try {
-            if (f5558b != null) {
+            if (f5559b != null) {
                 builder.hostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                builder.sslSocketFactory(f5558b);
+                builder.sslSocketFactory(f5559b);
             } else {
                 SSLContext sSLContext = SSLContext.getInstance("TLS");
                 TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
@@ -59,9 +59,9 @@ public final class r {
                     throw new IllegalStateException("Unexpected default trust managers:" + Arrays.toString(trustManagers));
                 }
                 sSLContext.init(null, new TrustManager[]{new a((X509TrustManager) trustManagers[0])}, new SecureRandom());
-                f5558b = sSLContext.getSocketFactory();
+                f5559b = sSLContext.getSocketFactory();
                 builder.hostnameVerifier(org.apache.http.conn.ssl.SSLSocketFactory.STRICT_HOSTNAME_VERIFIER);
-                builder.sslSocketFactory(f5558b);
+                builder.sslSocketFactory(f5559b);
             }
         } catch (Throwable th) {
             e.a();
@@ -84,12 +84,12 @@ public final class r {
     private Request b(String str, byte[] bArr) {
         try {
             MediaType parse = MediaType.parse("application/x-www-form-urlencoded; charset=utf-8");
-            String str2 = e.g(this.f5559a)[0];
+            String str2 = e.g(this.f5560a)[0];
             Request.Builder url = new Request.Builder().url(str);
             if (bArr != null) {
                 url.post(RequestBody.create(parse, bArr));
             }
-            return url.addHeader("User-Agent", "eos/" + str2 + "/" + y.a(this.f5559a) + "/3.4.4.1").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*").addHeader("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry()).addHeader("x-device-id", p.a(h.b(this.f5559a))).build();
+            return url.addHeader("User-Agent", "eos/" + str2 + "/" + y.a(this.f5560a) + "/3.4.4.1").addHeader("Pragma", "no-cache").addHeader("Accept", "*/*").addHeader("Accept-Language", Locale.getDefault().getLanguage() + Constants.ACCEPT_TIME_SEPARATOR_SERVER + Locale.getDefault().getCountry()).addHeader("x-device-id", p.a(h.b(this.f5560a))).build();
         } catch (Throwable th) {
             e.a();
             return null;
@@ -155,16 +155,16 @@ public final class r {
     public class a implements X509TrustManager {
 
         /* renamed from: b  reason: collision with root package name */
-        private X509TrustManager f5562b;
+        private X509TrustManager f5563b;
 
         a(X509TrustManager x509TrustManager) {
-            this.f5562b = null;
-            this.f5562b = x509TrustManager;
+            this.f5563b = null;
+            this.f5563b = x509TrustManager;
         }
 
         @Override // javax.net.ssl.X509TrustManager
         public final void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
-            this.f5562b.checkClientTrusted(x509CertificateArr, str);
+            this.f5563b.checkClientTrusted(x509CertificateArr, str);
         }
 
         /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
@@ -172,7 +172,7 @@ public final class r {
         public final void checkServerTrusted(X509Certificate[] x509CertificateArr, String str) throws CertificateException {
             com.baidu.sofire.b.a();
             try {
-                this.f5562b.checkServerTrusted(x509CertificateArr, str);
+                this.f5563b.checkServerTrusted(x509CertificateArr, str);
                 com.baidu.sofire.b.a();
             } catch (Throwable th) {
                 e.a();
@@ -180,7 +180,7 @@ public final class r {
                     if ((th2 instanceof CertificateExpiredException) || (th2 instanceof CertificateNotYetValidException)) {
                         HashMap hashMap = new HashMap();
                         hashMap.put("0", Long.valueOf(System.currentTimeMillis()));
-                        e.a(r.this.f5559a.getApplicationContext(), "1003121", hashMap);
+                        e.a(r.this.f5560a.getApplicationContext(), "1003121", hashMap);
                         return;
                     }
                 }
@@ -193,7 +193,7 @@ public final class r {
 
         @Override // javax.net.ssl.X509TrustManager
         public final X509Certificate[] getAcceptedIssuers() {
-            return this.f5562b.getAcceptedIssuers();
+            return this.f5563b.getAcceptedIssuers();
         }
     }
 

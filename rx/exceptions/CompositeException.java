@@ -131,8 +131,8 @@ public final class CompositeException extends RuntimeException {
                 appendStackTrace(sb, it.next(), "\t");
                 i = i2 + 1;
             } else {
-                synchronized (aVar.eNJ()) {
-                    aVar.bK(sb.toString());
+                synchronized (aVar.eOn()) {
+                    aVar.bL(sb.toString());
                 }
                 return;
             }
@@ -153,9 +153,9 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
     public static abstract class a {
-        abstract void bK(Object obj);
+        abstract void bL(Object obj);
 
-        abstract Object eNJ();
+        abstract Object eOn();
 
         a() {
         }
@@ -164,39 +164,39 @@ public final class CompositeException extends RuntimeException {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
     public static final class b extends a {
-        private final PrintStream qgl;
+        private final PrintStream qhT;
 
         b(PrintStream printStream) {
-            this.qgl = printStream;
+            this.qhT = printStream;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object eNJ() {
-            return this.qgl;
+        Object eOn() {
+            return this.qhT;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bK(Object obj) {
-            this.qgl.println(obj);
+        void bL(Object obj) {
+            this.qhT.println(obj);
         }
     }
 
     /* loaded from: classes15.dex */
     static final class c extends a {
-        private final PrintWriter qgm;
+        private final PrintWriter qhU;
 
         c(PrintWriter printWriter) {
-            this.qgm = printWriter;
+            this.qhU = printWriter;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        Object eNJ() {
-            return this.qgm;
+        Object eOn() {
+            return this.qhU;
         }
 
         @Override // rx.exceptions.CompositeException.a
-        void bK(Object obj) {
-            this.qgm.println(obj);
+        void bL(Object obj) {
+            this.qhU.println(obj);
         }
     }
 

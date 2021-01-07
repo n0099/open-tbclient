@@ -29,7 +29,7 @@ class a implements b.a {
     }
 
     @Override // com.baidu.swan.apps.env.c.b.a
-    public String axE() {
+    public String axF() {
         return this.ddm;
     }
 
@@ -45,14 +45,14 @@ class a implements b.a {
 
     private void update() throws JSONException {
         PMSAppInfo yN;
-        if (isValid() && (yN = com.baidu.swan.pms.database.a.bgb().yN(this.ddm)) != null) {
+        if (isValid() && (yN = com.baidu.swan.pms.database.a.bgc().yN(this.ddm)) != null) {
             this.ddn.put("app_name", yN.appName);
             this.ddn.put("pkg_vername", yN.versionName);
             this.ddn.put("pkg_vercode", yN.versionCode);
             this.ddn.put("create_time", yN.createTime);
             this.ddn.put("last_launch_time", yN.getLastLaunchTime());
-            this.ddn.put("launch_count", yN.aRG());
-            this.ddn.put("install_src", yN.auu());
+            this.ddn.put("launch_count", yN.aRH());
+            this.ddn.put("install_src", yN.auv());
         }
     }
 }

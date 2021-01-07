@@ -27,15 +27,15 @@ import java.util.LinkedList;
 public class a extends BaseAdapter {
     private GridView dlY;
     private Context mContext;
-    private BaseActivity obS;
+    private BaseActivity obR;
     private b fEW = new b();
     private EditorTools fDw = null;
     private int fEZ = 13;
-    private int ocg = 6;
-    private boolean och = false;
+    private int ocf = 6;
+    private boolean ocg = false;
     private LinkedList<ImageFileInfo> chosedFiles = null;
-    private InterfaceC0877a oci = new InterfaceC0877a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
-        @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0877a
+    private InterfaceC0915a och = new InterfaceC0915a() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.1
+        @Override // com.baidu.tieba.write.view.PhotoLiveView.a.InterfaceC0915a
         public void MF(int i) {
             if (a.this.chosedFiles != null) {
                 if (a.this.chosedFiles.size() - 1 >= i) {
@@ -56,9 +56,9 @@ public class a extends BaseAdapter {
                         a.this.fDw.b(new com.baidu.tbadk.editortools.a(1, 2, null));
                     }
                 }
-                a.this.dZd();
-                ((WriteActivity) a.this.obS).q(a.this.chosedFiles);
-                a.this.dZa();
+                a.this.dZe();
+                ((WriteActivity) a.this.obR).q(a.this.chosedFiles);
+                a.this.dZb();
                 a.this.notifyDataSetChanged();
                 a.this.dlY.invalidateViews();
             }
@@ -67,21 +67,21 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.write.view.PhotoLiveView.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    protected interface InterfaceC0877a {
+    protected interface InterfaceC0915a {
         void MF(int i);
     }
 
-    public void dZa() {
+    public void dZb() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
-            dZb();
-        } else if (this.chosedFiles.size() < this.ocg) {
+            dZc();
+        } else if (this.chosedFiles.size() < this.ocf) {
             if (this.chosedFiles.size() <= 0 || !this.chosedFiles.get(this.chosedFiles.size() - 1).getFilePath().startsWith("android.resource://")) {
-                dZb();
+                dZc();
             }
         }
     }
 
-    private void dZb() {
+    private void dZc() {
         ImageFileInfo imageFileInfo = new ImageFileInfo();
         imageFileInfo.setFilePath("android.resource://" + this.mContext.getPackageName() + "/" + R.drawable.btn_addpic_n);
         imageFileInfo.setTempFile(true);
@@ -92,14 +92,14 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public boolean dZc() {
+    public boolean dZd() {
         if (this.chosedFiles == null || this.chosedFiles.size() == 0) {
             return false;
         }
         return this.chosedFiles.get(this.chosedFiles.size() + (-1)).getFilePath().startsWith("android.resource://");
     }
 
-    public void dZd() {
+    public void dZe() {
         if (this.chosedFiles != null && this.chosedFiles.size() > 0) {
             int size = this.chosedFiles.size() - 1;
             if (this.chosedFiles.get(size).getFilePath().startsWith("android.resource://")) {
@@ -110,10 +110,10 @@ public class a extends BaseAdapter {
 
     public a(BaseActivity baseActivity, WriteImagesInfo writeImagesInfo, GridView gridView) {
         this.mContext = null;
-        this.obS = null;
+        this.obR = null;
         this.dlY = null;
-        this.obS = baseActivity;
-        this.mContext = this.obS.getActivity();
+        this.obR = baseActivity;
+        this.mContext = this.obR.getActivity();
         this.dlY = gridView;
     }
 
@@ -156,7 +156,7 @@ public class a extends BaseAdapter {
         if (writeImagesInfo.getChosedFiles() != null && writeImagesInfo.size() > 0) {
             this.chosedFiles.addAll(writeImagesInfo.getChosedFiles());
         }
-        dZa();
+        dZb();
         notifyDataSetInvalidated();
     }
 
@@ -211,12 +211,12 @@ public class a extends BaseAdapter {
                 boolean z2;
                 int indexOfChild = viewGroup.indexOfChild(view2);
                 if (indexOfChild >= 0) {
-                    if (z && (a.this.obS instanceof WriteActivity)) {
+                    if (z && (a.this.obR instanceof WriteActivity)) {
                         if (a.this.chosedFiles != null && a.this.chosedFiles.size() > 0) {
                             a.this.chosedFiles.remove(a.this.chosedFiles.size() - 1);
                         }
-                        ((WriteActivity) a.this.obS).q(a.this.chosedFiles);
-                        ((WriteActivity) a.this.obS).e((com.baidu.tbadk.editortools.a) null);
+                        ((WriteActivity) a.this.obR).q(a.this.chosedFiles);
+                        ((WriteActivity) a.this.obR).e((com.baidu.tbadk.editortools.a) null);
                         return;
                     }
                     ImageFileInfo imageFileInfo2 = (ImageFileInfo) a.this.getItem(indexOfChild);
@@ -229,10 +229,10 @@ public class a extends BaseAdapter {
                     if (!z2) {
                         l.showLongToast(a.this.mContext, R.string.editor_mutiiamge_image_error);
                     } else if (a.this.fDw != null) {
-                        if (a.this.dZc()) {
-                            a.this.dZd();
+                        if (a.this.dZd()) {
+                            a.this.dZe();
                         }
-                        ((WriteActivity) a.this.obS).q(a.this.chosedFiles);
+                        ((WriteActivity) a.this.obR).q(a.this.chosedFiles);
                         a.this.fDw.b(new com.baidu.tbadk.editortools.a(15, 0, Integer.valueOf(indexOfChild)));
                     }
                 }
@@ -241,8 +241,8 @@ public class a extends BaseAdapter {
         imageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.write.view.PhotoLiveView.a.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                if (a.this.oci != null) {
-                    a.this.oci.MF(i);
+                if (a.this.och != null) {
+                    a.this.och.MF(i);
                 }
             }
         });
@@ -250,6 +250,6 @@ public class a extends BaseAdapter {
     }
 
     public void ME(int i) {
-        this.ocg = i;
+        this.ocf = i;
     }
 }

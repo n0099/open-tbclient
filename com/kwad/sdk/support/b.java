@@ -25,10 +25,10 @@ public final class b {
     private static final Lock f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Paint f11048a = new Paint(6);
+    private static final Paint f11049a = new Paint(6);
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Paint f11049b = new Paint(7);
+    private static final Paint f11050b = new Paint(7);
     private static final Paint d = new Paint(7);
 
     /* loaded from: classes5.dex */
@@ -109,7 +109,7 @@ public final class b {
         f.lock();
         try {
             Canvas canvas = new Canvas(a3);
-            canvas.drawCircle(f2, f2, f2, f11049b);
+            canvas.drawCircle(f2, f2, f2, f11050b);
             canvas.drawBitmap(a2, (Rect) null, rectF, c);
             canvas.drawCircle(f2, f2, f2 - 0.0f, d);
             a(canvas);

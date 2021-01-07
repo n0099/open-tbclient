@@ -31,7 +31,7 @@ public class a {
         }
     }
 
-    public static a bzq() {
+    public static a bzr() {
         if (fss == null) {
             synchronized (a.class) {
                 if (fss == null) {
@@ -42,15 +42,15 @@ public class a {
         return fss;
     }
 
-    public boolean bzr() {
+    public boolean bzs() {
         return this.fsr;
     }
 
-    public int bzs() {
+    public int bzt() {
         return this.fst;
     }
 
-    public String bzt() {
+    public String bzu() {
         return this.fsr ? "pub_env=" + this.fst + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR : "";
     }
 }

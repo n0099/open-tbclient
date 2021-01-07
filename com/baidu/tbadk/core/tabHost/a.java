@@ -24,7 +24,7 @@ public class a {
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass1) aVar, str, i);
             if (a.this.mTabHost == null || aVar == null || !aVar.isValidNow()) {
-                a.this.bvv();
+                a.this.bvw();
                 return;
             }
             FragmentTabWidget fragmentTabWidget = a.this.mTabHost.getFragmentTabWidget();
@@ -56,16 +56,16 @@ public class a {
             String str = (String) pair.first;
             String str2 = (String) pair.second;
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(str2)) {
-                BF(str2);
+                BE(str2);
             } else if (!TextUtils.isEmpty(str)) {
-                BF(str);
+                BE(str);
             } else {
-                bvv();
+                bvw();
             }
         }
     }
 
-    private void BF(String str) {
+    private void BE(String str) {
         d.mx().a(str, 10, this.fba, getBdUniqueId());
     }
 
@@ -78,7 +78,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bvv() {
+    public void bvw() {
         if (this.mTabHost != null && this.mTabHost.getFragmentTabWidget() != null) {
             this.mTabHost.getFragmentTabWidget().setBackGroundDrawableResId(this.mBackgroundColorResId);
             ao.setBackgroundColor(this.mTabHost.getFragmentTabWidget(), this.mBackgroundColorResId);

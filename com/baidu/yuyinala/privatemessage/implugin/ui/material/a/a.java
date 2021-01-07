@@ -103,10 +103,10 @@ public class a extends Dialog implements DialogInterface {
         if (!TextUtils.isEmpty(this.oXQ)) {
             this.oXL.setText(this.oXQ);
         }
-        emJ();
+        emK();
     }
 
-    public void emI() {
+    public void emJ() {
         super.cancel();
         AB(true);
     }
@@ -130,6 +130,6 @@ public class a extends Dialog implements DialogInterface {
         });
     }
 
-    private void emJ() {
+    private void emK() {
     }
 }

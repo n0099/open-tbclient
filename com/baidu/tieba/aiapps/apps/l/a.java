@@ -38,14 +38,14 @@ public class a implements com.baidu.swan.veloce.a {
     }
 
     @Override // com.baidu.swan.veloce.a
-    public void bjp() {
-        p.aRq();
-        p.aRp();
+    public void bjq() {
         p.aRr();
+        p.aRq();
+        p.aRs();
         try {
             new UnitedSchemeMainDispatcher();
-            SwanLauncher.axd();
-            e.aJL();
+            SwanLauncher.axe();
+            e.aJM();
         } catch (Exception e) {
         }
     }

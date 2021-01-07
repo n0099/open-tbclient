@@ -13,7 +13,7 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
     private static b cDn;
     private static Context mContext;
@@ -174,11 +174,11 @@ public class b {
         return aVar == null ? "" : aVar.id;
     }
 
-    public List ajd() {
+    public List aje() {
         return this.cDp;
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
         public Integer cDr;
         public String id;

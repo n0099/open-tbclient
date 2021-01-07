@@ -22,7 +22,7 @@ public class a extends BdBaseModel {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaFeedBackReasonListResponse) && a.this.bOt != null) {
-                List<com.baidu.live.tieba.yuyinala.c.a> aj = a.this.aj(((AlaFeedBackReasonListResponse) httpResponsedMessage).Xo());
+                List<com.baidu.live.tieba.yuyinala.c.a> aj = a.this.aj(((AlaFeedBackReasonListResponse) httpResponsedMessage).Xp());
                 if (!ListUtils.isEmpty(aj)) {
                     a.this.bOt.ai(aj);
                 } else {
@@ -46,11 +46,11 @@ public class a extends BdBaseModel {
     public a(TbPageContext tbPageContext, InterfaceC0227a interfaceC0227a) {
         this.mPageContext = tbPageContext;
         this.bOt = interfaceC0227a;
-        Xp();
+        Xq();
         MessageManager.getInstance().registerListener(this.bOw);
     }
 
-    private void Xp() {
+    private void Xq() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031040, com.baidu.live.a.aAH + "ala/audio/tipOff/getTipOffType");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -68,16 +68,16 @@ public class a extends BdBaseModel {
         int size = list.size();
         for (int i = 0; i < size; i++) {
             com.baidu.live.tieba.yuyinala.c.a aVar = list.get(i);
-            if (aVar.Xn() == 1) {
+            if (aVar.Xo() == 1) {
                 arrayList.add(aVar);
-            } else if (aVar.Xn() == 0 && !this.bOu) {
+            } else if (aVar.Xo() == 0 && !this.bOu) {
                 arrayList.add(aVar);
             }
         }
         return arrayList;
     }
 
-    public void Xq() {
+    public void Xr() {
         HttpMessage httpMessage = new HttpMessage(1031040);
         httpMessage.addParam("live_id", this.mLiveId);
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -103,7 +103,7 @@ public class a extends BdBaseModel {
         this.mRoomId = str2;
     }
 
-    public List<com.baidu.live.tieba.yuyinala.c.a> Xr() {
+    public List<com.baidu.live.tieba.yuyinala.c.a> Xs() {
         ArrayList arrayList = new ArrayList();
         int length = this.bOv.length;
         for (int i = 0; i < length; i++) {

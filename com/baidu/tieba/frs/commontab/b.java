@@ -70,7 +70,7 @@ public class b {
                     if (b.this.hasMore) {
                         b.this.gCf.showLoading();
                         b.this.gCf.setOnClickListener(null);
-                        b.this.jnQ.ctu();
+                        b.this.jnQ.ctv();
                         return;
                     }
                     b.this.gCf.setText(b.this.jnQ.getResources().getString(R.string.list_has_no_more));
@@ -91,7 +91,7 @@ public class b {
                 if (b.this.iOh != null) {
                     b.this.iOh.b(b.this.Yc.getFirstVisiblePosition(), b.this.Yc.getLastVisiblePosition(), this.flr, true);
                 }
-                s.cva().pv(true);
+                s.cvb().pv(true);
             }
         }
 
@@ -156,7 +156,7 @@ public class b {
             this.gCf.setTextSize(R.dimen.tbfontsize33);
             this.gCf.setTextColor(ao.getColor(R.color.CAM_X0107));
             this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
-            this.gCf.bxC();
+            this.gCf.bxD();
             this.joo = new a(this.jnQ, this.Yc, frsViewData, this.jnQ.tabType == 16);
             lU(false);
             if (this.iOh == null) {
@@ -164,12 +164,12 @@ public class b {
             }
             this.iOh.ID(1);
             this.iOh.setUniqueId(this.jnQ.getUniqueId());
-            if (cIq()) {
+            if (cIr()) {
                 this.joq = new RelativeLayout(this.jnQ.getContext());
                 this.joq.setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
                 this.jor = new com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.a(this.jnQ, this.joq);
                 this.Yc.addHeaderView(this.joq, 0);
-                this.jor.setData(cIr());
+                this.jor.setData(cIs());
             }
             if (this.jnQ.tabType == 16) {
                 this.jos = new ah(this.jnQ);
@@ -179,7 +179,7 @@ public class b {
         }
     }
 
-    private boolean cIq() {
+    private boolean cIr() {
         return this.jnQ != null && (this.jnQ.isGeneralTab == 1 || this.jnQ.tabType == 16);
     }
 
@@ -239,7 +239,7 @@ public class b {
             if (this.iOh != null) {
                 this.iOh.b(this.Yc.getFirstVisiblePosition(), this.Yc.getLastVisiblePosition(), false, true);
             }
-            if (cIq() && this.jor != null) {
+            if (cIr() && this.jor != null) {
                 this.jor.ki(this.jnQ.getSortType());
                 this.jor.setFid(this.jnQ.forumId);
             }
@@ -253,7 +253,7 @@ public class b {
         }
     }
 
-    private List<FrsTabInfo> cIr() {
+    private List<FrsTabInfo> cIs() {
         ArrayList arrayList = new ArrayList();
         FrsTabInfo.Builder builder = new FrsTabInfo.Builder();
         builder.tab_id = 2;
@@ -285,13 +285,13 @@ public class b {
 
     public void resume() {
         if (this.iOh != null) {
-            this.iOh.dew();
+            this.iOh.dex();
         }
     }
 
     public void pause() {
         if (this.iOh != null) {
-            this.iOh.dev();
+            this.iOh.dew();
         }
     }
 
@@ -301,14 +301,14 @@ public class b {
         }
     }
 
-    public void cHN() {
+    public void cHO() {
         t tVar = new t();
         tVar.tabId = this.jnQ.tabId;
         tVar.geO = false;
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921449, tVar));
     }
 
-    public void KQ(String str) {
+    public void KP(String str) {
         bz bzVar;
         if (!StringUtils.isNull(str) && this.jop != null && !x.isEmpty(this.jop.threadList)) {
             Iterator<n> it = this.jop.threadList.iterator();
@@ -334,7 +334,7 @@ public class b {
         }
     }
 
-    public void cEF() {
+    public void cEG() {
         this.Yc.scrollToPosition(0);
     }
 
@@ -348,11 +348,11 @@ public class b {
         }
     }
 
-    public BdTypeRecyclerView cIs() {
+    public BdTypeRecyclerView cIt() {
         return this.Yc;
     }
 
-    public i cGd() {
+    public i cGe() {
         return this.iOh;
     }
 

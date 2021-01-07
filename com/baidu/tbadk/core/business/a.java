@@ -41,7 +41,7 @@ public class a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.eMV != null) {
-                a.this.eMV.bnU();
+                a.this.eMV.bnV();
                 a.this.mDialog.dismiss();
             }
         }
@@ -50,7 +50,7 @@ public class a {
     /* renamed from: com.baidu.tbadk.core.business.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
     public interface InterfaceC0576a {
-        void bnU();
+        void bnV();
 
         void onCancel();
     }
@@ -68,7 +68,7 @@ public class a {
         this.eMV = interfaceC0576a;
     }
 
-    public a boG() {
+    public a boH() {
         if (!this.mDialogCreated) {
             this.mDialogCreated = true;
             this.mRootView = this.blI.findViewById(R.id.root_dialog_view);
@@ -84,14 +84,14 @@ public class a {
         return this;
     }
 
-    public a boH() {
+    public a boI() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }
         this.mDialog = new AlertDialog.Builder(this.mActivity).create();
         this.mDialog.setCanceledOnTouchOutside(this.cancelableFlag);
         g.showDialog(this.mDialog, this.mActivity);
-        bom();
+        bon();
         onChangeSkinType();
         Window window = this.mDialog.getWindow();
         if (this.mDialogGravity == -1) {
@@ -117,7 +117,7 @@ public class a {
         return this;
     }
 
-    private void bom() {
+    private void bon() {
         if (this.eMQ != null) {
             this.eMR.setText(this.eMQ.title);
             this.eMS.setText(this.eMQ.subTitle);

@@ -23,7 +23,7 @@ public class cf extends ch {
             jSONObject.put("ab_client", this.pgJ.J());
         }
         if (!TextUtils.isEmpty(this.pgJ.t())) {
-            if (au.f6085b) {
+            if (au.f6086b) {
                 au.a("init config has abversion:" + this.pgJ.t(), null);
             }
             jSONObject.put("ab_version", this.pgJ.t());

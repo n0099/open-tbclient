@@ -16,10 +16,10 @@ import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.X509TrustManager;
 /* loaded from: classes4.dex */
 public class e {
-    private static final e pkY = eqX();
+    private static final e pkY = eqY();
     private static final Logger pkL = Logger.getLogger(z.class.getName());
 
-    public static e era() {
+    public static e erb() {
         return pkY;
     }
 
@@ -91,22 +91,22 @@ public class e {
     public com.bytedance.sdk.a.b.a.i.c b(SSLSocketFactory sSLSocketFactory) {
         X509TrustManager a2 = a(sSLSocketFactory);
         if (a2 == null) {
-            throw new IllegalStateException("Unable to extract the trust manager on " + era() + ", sslSocketFactory is " + sSLSocketFactory.getClass());
+            throw new IllegalStateException("Unable to extract the trust manager on " + erb() + ", sslSocketFactory is " + sSLSocketFactory.getClass());
         }
         return a(a2);
     }
 
-    private static e eqX() {
-        e eqX = a.eqX();
-        if (eqX == null) {
-            b eqZ = b.eqZ();
-            if (eqZ == null) {
-                e eqX2 = c.eqX();
-                return eqX2 == null ? new e() : eqX2;
+    private static e eqY() {
+        e eqY = a.eqY();
+        if (eqY == null) {
+            b era = b.era();
+            if (era == null) {
+                e eqY2 = c.eqY();
+                return eqY2 == null ? new e() : eqY2;
             }
-            return eqZ;
+            return era;
         }
-        return eqX;
+        return eqY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -117,7 +117,7 @@ public class e {
             w wVar = list.get(i);
             if (wVar != w.HTTP_1_0) {
                 cVar.PM(wVar.toString().length());
-                cVar.YH(wVar.toString());
+                cVar.YG(wVar.toString());
             }
         }
         return cVar.q();

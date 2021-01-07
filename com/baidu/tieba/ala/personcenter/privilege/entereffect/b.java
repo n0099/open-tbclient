@@ -38,7 +38,7 @@ public class b {
     };
     private a icJ = new a() { // from class: com.baidu.tieba.ala.personcenter.privilege.entereffect.b.2
         @Override // com.baidu.tieba.ala.personcenter.privilege.entereffect.b.a
-        public void cqf() {
+        public void cqg() {
             b.a(b.this);
             if (b.this.icG != null) {
                 if (b.this.icG.type != 1 || b.this.icH > 0) {
@@ -56,7 +56,7 @@ public class b {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void cqf();
+        void cqg();
     }
 
     static /* synthetic */ int a(b bVar) {
@@ -117,7 +117,7 @@ public class b {
             this.icD.addView(this.icF, layoutParams);
         }
         this.icF.setData(alaEnterEffectData);
-        this.icF.cqd();
+        this.icF.cqe();
     }
 
     public void onDestory() {

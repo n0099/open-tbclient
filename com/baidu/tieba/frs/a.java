@@ -26,11 +26,11 @@ public class a {
         this.jdM = new ArrayList();
     }
 
-    public static a cDQ() {
-        return C0732a.jdS;
+    public static a cDR() {
+        return C0739a.jdS;
     }
 
-    public boolean cDR() {
+    public boolean cDS() {
         return this.jdN;
     }
 
@@ -46,7 +46,7 @@ public class a {
         this.jdO = i;
     }
 
-    public int cDS() {
+    public int cDT() {
         return this.jdO;
     }
 
@@ -60,11 +60,11 @@ public class a {
         }
     }
 
-    public List<FrsTabInfo> cDT() {
+    public List<FrsTabInfo> cDU() {
         return this.jdP;
     }
 
-    public List<bz> cDU() {
+    public List<bz> cDV() {
         return this.jdM;
     }
 
@@ -112,7 +112,7 @@ public class a {
         try {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FRS_MOVE_AREA);
             JSONArray jSONArray = new JSONArray();
-            for (bz bzVar : cDQ().cDU()) {
+            for (bz bzVar : cDR().cDV()) {
                 if (bzVar != null) {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("thread_id", bzVar.getId());
@@ -122,14 +122,14 @@ public class a {
                 }
             }
             httpMessage.addParam("threads", jSONArray.toString());
-            httpMessage.addParam("forum_id", cDQ().getForumId());
+            httpMessage.addParam("forum_id", cDR().getForumId());
             MessageManager.getInstance().sendMessage(httpMessage);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public void cDV() {
+    public void cDW() {
         if (!com.baidu.tbadk.core.util.x.isEmpty(this.jdM)) {
             this.jdM.clear();
             if (this.jdR != null) {
@@ -169,7 +169,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.frs.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0732a {
+    public static class C0739a {
         private static a jdS = new a();
     }
 }

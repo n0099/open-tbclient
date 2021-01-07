@@ -28,9 +28,9 @@ public class i extends f<PointF> {
         h hVar = (h) aVar;
         Path a2 = hVar.a();
         if (a2 == null) {
-            return aVar.f8300a;
+            return aVar.f8301a;
         }
-        if (this.f8257b == null || (pointF = (PointF) this.f8257b.a(hVar.d, hVar.e.floatValue(), hVar.f8300a, hVar.f8301b, c(), f, f())) == null) {
+        if (this.f8258b == null || (pointF = (PointF) this.f8258b.a(hVar.d, hVar.e.floatValue(), hVar.f8301a, hVar.f8302b, c(), f, f())) == null) {
             if (this.e != hVar) {
                 this.f = new PathMeasure(a2, false);
                 this.e = hVar;

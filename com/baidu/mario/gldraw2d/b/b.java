@@ -3,7 +3,7 @@ package com.baidu.mario.gldraw2d.b;
 import android.opengl.EGL14;
 import android.opengl.EGLSurface;
 import android.util.Log;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class b {
     protected static final String TAG = b.class.getSimpleName();
     protected a cgw;

@@ -32,11 +32,11 @@ public class a extends com.baidu.adp.widget.ListView.a<bm, ThreadCardViewHolder<
     private String mTabName;
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cTL() {
+    public void cTM() {
         this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumSquareActivityConfig(this.mPageContext.getPageActivity(), this.mClassName)));
         aq aqVar = new aq("c13757");
         aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-        aqVar.bwn();
+        aqVar.bwo();
     }
 
     public a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
@@ -44,13 +44,13 @@ public class a extends com.baidu.adp.widget.ListView.a<bm, ThreadCardViewHolder<
         this.amZ = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.cTL();
+                a.this.cTM();
             }
         };
         this.ana = new PullLeftRefreshLayout.a() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.2
             @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.a
-            public void bKt() {
-                a.this.cTL();
+            public void bKu() {
+                a.this.cTM();
             }
         };
         this.aks = new com.baidu.tbadk.h.f<bl>() { // from class: com.baidu.tieba.homepage.tabfeed.a.a.3
@@ -58,7 +58,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bm, ThreadCardViewHolder<
             @Override // com.baidu.tbadk.h.f
             public void a(View view, bl blVar, int i, long j) {
                 if (blVar == null) {
-                    a.this.cTL();
+                    a.this.cTM();
                     return;
                 }
                 String forumName = blVar.getForumName();
@@ -121,7 +121,7 @@ public class a extends com.baidu.adp.widget.ListView.a<bm, ThreadCardViewHolder<
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 

@@ -88,7 +88,7 @@ public class a extends aa {
                     }
                 }
                 if (f >= 0.0f && f <= 1.0f) {
-                    com.baidu.swan.apps.ak.d.b.a.aQf().b(activity, f);
+                    com.baidu.swan.apps.ak.d.b.a.aQg().b(activity, f);
                     z = true;
                     break;
                 } else {
@@ -100,7 +100,7 @@ public class a extends aa {
             case 1:
                 jSONObject = new JSONObject();
                 try {
-                    jSONObject.put("value", com.baidu.swan.apps.ak.d.b.a.aQf().M(activity));
+                    jSONObject.put("value", com.baidu.swan.apps.ak.d.b.a.aQg().M(activity));
                     z = true;
                     break;
                 } catch (JSONException e2) {
@@ -115,7 +115,7 @@ public class a extends aa {
                     return false;
                 }
                 try {
-                    com.baidu.swan.apps.ak.d.b.a.aQf().h(activity, optParamsAsJo.getBoolean("keepScreenOn"));
+                    com.baidu.swan.apps.ak.d.b.a.aQg().h(activity, optParamsAsJo.getBoolean("keepScreenOn"));
                     z = true;
                     break;
                 } catch (JSONException e3) {

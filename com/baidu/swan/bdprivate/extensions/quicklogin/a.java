@@ -12,7 +12,7 @@ public class a {
     private boolean hasHistory;
     private int loginMode;
 
-    public int aTq() {
+    public int aTr() {
         return this.loginMode;
     }
 
@@ -20,7 +20,7 @@ public class a {
         this.loginMode = i;
     }
 
-    public boolean aTr() {
+    public boolean aTs() {
         return this.dXs;
     }
 
@@ -28,7 +28,7 @@ public class a {
         this.dXs = z;
     }
 
-    public String aTs() {
+    public String aTt() {
         return this.encryptPhoneNum;
     }
 
@@ -36,7 +36,7 @@ public class a {
         this.encryptPhoneNum = str;
     }
 
-    public boolean aTt() {
+    public boolean aTu() {
         return this.hasHistory;
     }
 
@@ -48,7 +48,7 @@ public class a {
         this.dXt = str;
     }
 
-    public String aTu() {
+    public String aTv() {
         String str = this.dXt;
         char c = 65535;
         switch (str.hashCode()) {
@@ -85,7 +85,7 @@ public class a {
         return this.dXu;
     }
 
-    public String aTv() {
+    public String aTw() {
         String str = this.dXt;
         char c = 65535;
         switch (str.hashCode()) {

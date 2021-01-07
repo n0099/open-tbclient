@@ -7,17 +7,17 @@ import com.win.opensdk.by;
 final class cc implements by.a {
     @Override // com.win.opensdk.by.a
     @NonNull
-    public final Bitmap h(int i, int i2, Bitmap.Config config) {
+    public final Bitmap j(int i, int i2, Bitmap.Config config) {
         return Bitmap.createBitmap(i, i2, config);
     }
 
     @Override // com.win.opensdk.by.a
-    public final byte[] Tb(int i) {
+    public final byte[] Tr(int i) {
         return new byte[i];
     }
 
     @Override // com.win.opensdk.by.a
-    public final int[] Tc(int i) {
+    public final int[] Ts(int i) {
         return new int[i];
     }
 }

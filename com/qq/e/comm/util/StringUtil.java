@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class StringUtil {
     public static boolean isEmpty(String str) {
         return str == null || str.trim().length() == 0;

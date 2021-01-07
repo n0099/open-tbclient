@@ -16,8 +16,8 @@ public class d extends a {
     private TextView aZY;
     private View cDU;
     private TextView hFc;
-    private BarImageView oqk;
-    private AlaLoadingButton oql;
+    private BarImageView oqj;
+    private AlaLoadingButton oqk;
 
     public d(@NonNull Context context) {
         super(context);
@@ -40,35 +40,35 @@ public class d extends a {
             }
         });
         this.aZY = (TextView) findViewById(a.f.tv_guide_folllow_tip);
-        this.oqk = (BarImageView) findViewById(a.f.iv_avatar);
+        this.oqj = (BarImageView) findViewById(a.f.iv_avatar);
         this.hFc = (TextView) findViewById(a.f.ala_live_name);
-        this.oqk.setShowOval(true);
-        this.oqk.setBorderColor(getContext().getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
-        this.oqk.setAutoChangeStyle(false);
-        this.oql = (AlaLoadingButton) findViewById(a.f.tv_confirm);
-        this.oql.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.h.d.2
+        this.oqj.setShowOval(true);
+        this.oqj.setBorderColor(getContext().getResources().getColor(a.c.sdk_cp_bg_line_k_alpha10_1));
+        this.oqj.setAutoChangeStyle(false);
+        this.oqk = (AlaLoadingButton) findViewById(a.f.tv_confirm);
+        this.oqk.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.h.d.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (d.this.oqc != null) {
-                    d.this.oqc.onConfirm();
+                if (d.this.oqb != null) {
+                    d.this.oqb.onConfirm();
                 }
             }
         });
-        this.hEM = this.oql.getText().toString();
-        ciS();
+        this.hEM = this.oqk.getText().toString();
+        ciT();
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.h.a
     public void Ni(int i) {
-        if (this.oql != null) {
-            this.oql.setStatus(i);
+        if (this.oqk != null) {
+            this.oqk.setStatus(i);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.h.a
     public void p(String str, String str2, String str3) {
-        ciR();
-        this.oqk.startLoad(str, 25, false, false);
+        ciS();
+        this.oqj.startLoad(str, 25, false, false);
         this.hFc.setText(str2);
         if (!TextUtils.isEmpty(str3)) {
             this.aZY.setText(str3);
@@ -77,7 +77,7 @@ public class d extends a {
         show();
     }
 
-    private void ciS() {
+    private void ciT() {
         if (com.baidu.live.af.a.SE().bwi != null && com.baidu.live.af.a.SE().bwi.aOM == null) {
         }
     }
@@ -86,7 +86,7 @@ public class d extends a {
         setOnDismissListener(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.yuyinala.liveroom.h.d.3
             @Override // android.content.DialogInterface.OnDismissListener
             public void onDismiss(DialogInterface dialogInterface) {
-                d.this.ciR();
+                d.this.ciS();
             }
         });
     }
@@ -99,9 +99,9 @@ public class d extends a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciR() {
-        if (this.oqk != null) {
-            this.oqk.stopLoad();
+    public void ciS() {
+        if (this.oqj != null) {
+            this.oqj.stopLoad();
         }
     }
 }

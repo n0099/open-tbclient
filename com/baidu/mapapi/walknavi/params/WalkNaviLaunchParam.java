@@ -5,25 +5,25 @@ import com.baidu.platform.comapi.walknavi.e.c;
 import com.baidu.platform.comapi.walknavi.e.d;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class WalkNaviLaunchParam {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f3106a;
+    private LatLng f3107a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LatLng f3107b;
+    private LatLng f3108b;
     private a c;
     private a d;
     private List<a> e = new LinkedList();
     private int f;
 
     public LatLng getStartPt() {
-        return this.f3106a;
+        return this.f3107a;
     }
 
     public LatLng getEndPt() {
-        return this.f3107b;
+        return this.f3108b;
     }
 
     public a getStartNodeInfo() {
@@ -43,12 +43,12 @@ public class WalkNaviLaunchParam {
     }
 
     public WalkNaviLaunchParam stPt(LatLng latLng) {
-        this.f3106a = latLng;
+        this.f3107a = latLng;
         return this;
     }
 
     public WalkNaviLaunchParam endPt(LatLng latLng) {
-        this.f3107b = latLng;
+        this.f3108b = latLng;
         return this;
     }
 

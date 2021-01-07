@@ -47,9 +47,9 @@ public class a implements View.OnClickListener {
     /* renamed from: com.baidu.tieba.ala.live.guess.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0664a {
-        void caw();
-
         void cax();
+
+        void cay();
     }
 
     public a(Context context) {
@@ -123,23 +123,23 @@ public class a implements View.OnClickListener {
     public void show() {
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && this.mDialog != null) {
             this.mDialog.show();
-            this.hia.setText(caE());
-            caD();
+            this.hia.setText(caF());
+            caE();
         }
     }
 
-    private void caD() {
+    private void caE() {
         if (this.hio == this.hil) {
             this.hih.setImageResource(a.e.ala_guess_success);
             this.hig.setText(a.h.ala_guess_congratulate);
             if (this.hiq != null) {
-                this.hiq.caw();
+                this.hiq.cax();
             }
         } else {
             this.hih.setImageResource(a.e.ala_guess_failure);
             this.hig.setText(a.h.ala_guess_regret);
             if (this.hiq != null) {
-                this.hiq.cax();
+                this.hiq.cay();
             }
         }
         if (this.hil == 0) {
@@ -195,13 +195,13 @@ public class a implements View.OnClickListener {
         this.hie.setRightFirstString(str2);
     }
 
-    private SpannableStringBuilder caE() {
+    private SpannableStringBuilder caF() {
         if (this.hip == null) {
             this.hip = new DecimalFormat("0.00");
         }
-        String caF = caF();
+        String caG = caG();
         int length = "人均".length();
-        String str = "人均" + caF + "元";
+        String str = "人均" + caG + "元";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         this.hib = new ForegroundColorSpan(this.mContext.getResources().getColor(a.c.ala_guess_bonus));
         int length2 = (str.length() - length) + 1;
@@ -211,12 +211,12 @@ public class a implements View.OnClickListener {
         return spannableStringBuilder;
     }
 
-    private String caF() {
+    private String caG() {
         String str = this.hii + "";
         if (Math.abs(this.hii) <= 1.0E-6d) {
             return "0";
         }
-        if (!HN(str) && isDecimal(str)) {
+        if (!HM(str) && isDecimal(str)) {
             return this.hip.format(this.hii);
         }
         return ((int) this.hii) + "";
@@ -226,7 +226,7 @@ public class a implements View.OnClickListener {
         return this.mDialog.isShowing();
     }
 
-    private boolean HN(String str) {
+    private boolean HM(String str) {
         return Pattern.compile("^[-\\+]?[\\d]*$").matcher(str).matches();
     }
 

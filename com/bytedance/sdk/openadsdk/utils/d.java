@@ -16,10 +16,10 @@ import java.util.concurrent.TimeUnit;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f7865a = 1800000;
+    private static long f7866a = 1800000;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Handler f7866b = new Handler(Looper.getMainLooper());
+    private static Handler f7867b = new Handler(Looper.getMainLooper());
 
     @Nullable
     public static c a(Context context) {
@@ -27,13 +27,13 @@ public class d {
             return null;
         }
         Context a2 = context == null ? com.bytedance.sdk.openadsdk.core.p.a() : context.getApplicationContext();
-        f7865a = com.bytedance.sdk.openadsdk.core.p.h().m() * 60 * 1000;
+        f7866a = com.bytedance.sdk.openadsdk.core.p.h().m() * 60 * 1000;
         return !b(a2) ? c(a2) : d(a2);
     }
 
     private static boolean b(Context context) {
         long longValue = com.bytedance.sdk.openadsdk.core.d.a(context).b("lbstime", -1L).longValue();
-        return longValue == -1 || System.currentTimeMillis() - longValue > f7865a;
+        return longValue == -1 || System.currentTimeMillis() - longValue > f7866a;
     }
 
     @Nullable
@@ -148,14 +148,14 @@ public class d {
     public static class b implements Callable<Location> {
 
         /* renamed from: a  reason: collision with root package name */
-        private LocationManager f7875a;
+        private LocationManager f7876a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f7876b;
+        private String f7877b;
 
         public b(LocationManager locationManager, String str) {
-            this.f7875a = locationManager;
-            this.f7876b = str;
+            this.f7876a = locationManager;
+            this.f7877b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -163,7 +163,7 @@ public class d {
         /* renamed from: a */
         public Location call() throws Exception {
             long currentTimeMillis = System.currentTimeMillis();
-            Location lastKnownLocation = this.f7875a.getLastKnownLocation(this.f7876b);
+            Location lastKnownLocation = this.f7876a.getLastKnownLocation(this.f7877b);
             u.b("AdLocationUtils", "location:" + lastKnownLocation + ",getLastKnownLocation use time :" + (System.currentTimeMillis() - currentTimeMillis));
             return lastKnownLocation;
         }
@@ -224,7 +224,7 @@ public class d {
                 String b2 = b(locationManager);
                 if (!TextUtils.isEmpty(b2)) {
                     locationManager.requestSingleUpdate(b2, locationListener, Looper.getMainLooper());
-                    f7866b.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.5
+                    f7867b.postDelayed(new Runnable() { // from class: com.bytedance.sdk.openadsdk.utils.d.5
                         @Override // java.lang.Runnable
                         public void run() {
                             d.b(locationManager, locationListener);

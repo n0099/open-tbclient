@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class d {
     public static void a(AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aVA()) {
+            for (String str : adElementInfo.aVB()) {
                 a(a(str, (b) null), bVar);
             }
         }
@@ -29,7 +29,7 @@ public class d {
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2) {
         if (adElementInfo != null) {
-            for (String str : adElementInfo.aVC()) {
+            for (String str : adElementInfo.aVD()) {
                 a(a(str, bVar), bVar2);
             }
         }
@@ -55,8 +55,8 @@ public class d {
     }
 
     public static void a(b bVar, AdElementInfo adElementInfo, com.baidu.swan.game.ad.a.b bVar2, final a.d dVar) {
-        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aVv())) {
-            String a2 = a(adElementInfo.aVv(), bVar);
+        if (adElementInfo != null && !TextUtils.isEmpty(adElementInfo.aVw())) {
+            String a2 = a(adElementInfo.aVw(), bVar);
             ResponseCallback<a> responseCallback = new ResponseCallback<a>() { // from class: com.baidu.swan.game.ad.c.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.searchbox.http.callback.ResponseCallback

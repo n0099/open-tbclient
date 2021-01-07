@@ -1,5 +1,5 @@
 package com.tencent.turingfd.sdk.ams.au;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface s {
     boolean a();
 }

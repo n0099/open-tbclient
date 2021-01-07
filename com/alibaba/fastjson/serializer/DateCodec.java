@@ -17,7 +17,7 @@ import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.TimeZone;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class DateCodec extends AbstractDateDeserializer implements ObjectDeserializer, ObjectSerializer {
     public static final DateCodec instance = new DateCodec();
 

@@ -14,11 +14,11 @@ public class a {
         return this.thumbUrl;
     }
 
-    public int abO() {
+    public int abP() {
         return this.ceZ;
     }
 
-    public int abP() {
+    public int abQ() {
         return this.cfa;
     }
 
@@ -34,11 +34,11 @@ public class a {
         return this.width;
     }
 
-    public int abQ() {
+    public int abR() {
         return this.ceX;
     }
 
-    public int abR() {
+    public int abS() {
         return this.ceY;
     }
 }

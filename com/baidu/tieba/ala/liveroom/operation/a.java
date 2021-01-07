@@ -107,9 +107,9 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 String str = null;
                 int i = 3000;
-                if (com.baidu.tieba.ala.liveroom.v.b.cnp().bwr != null) {
-                    str = com.baidu.tieba.ala.liveroom.v.b.cnp().bwr.aKL;
-                    i = com.baidu.tieba.ala.liveroom.v.b.cnp().bwr.duration;
+                if (com.baidu.tieba.ala.liveroom.v.b.cnq().bwr != null) {
+                    str = com.baidu.tieba.ala.liveroom.v.b.cnq().bwr.aKL;
+                    i = com.baidu.tieba.ala.liveroom.v.b.cnq().bwr.duration;
                 }
                 if (!TextUtils.isEmpty(str)) {
                     a.this.b(str, 1000L, i);
@@ -170,7 +170,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                a.this.cmL();
+                a.this.cmM();
             }
         };
         MessageManager.getInstance().registerListener(this.hLB);
@@ -236,7 +236,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 });
             }
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRotaryTableUnabled()) {
-                cmF();
+                cmG();
             }
             if (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isShareBtnUnabled() && this.hLu.hLR != null) {
                 this.hLu.hLR.setVisibility(8);
@@ -293,7 +293,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                 this.hLu.hMf.setVisibility(8);
             } else {
                 this.hLu.hMf.setVisibility(0);
-                cmE();
+                cmF();
             }
             if (xVar.aLf.aPG == 2) {
                 this.hLu.hMg.setVisibility(0);
@@ -311,20 +311,20 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
                         cVar.url = xVar.aLf.aPJ;
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
                     }
-                    a.this.cmD();
+                    a.this.cmE();
                 }
             });
         }
     }
 
-    public void cmC() {
+    public void cmD() {
         if (this.hLu != null && this.hLu.hMg != null) {
             this.hLu.hMg.setVisibility(8);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmD() {
+    public void cmE() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("task_from", "task_icon");
@@ -334,7 +334,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", UbcStatConstant.Value.VALUE_DAILY_TASK_BUTTON_CLICK).setContentExt(jSONObject));
     }
 
-    private void cmE() {
+    private void cmF() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", UbcStatConstant.Value.VALUE_DAILY_TASK_BUTTON_SHOW));
     }
 
@@ -354,7 +354,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    private void cmF() {
+    private void cmG() {
         ch chVar;
         if (this.hLx != null) {
             this.hLu.hMn.removeOnLayoutChangeListener(this.hLx);
@@ -379,7 +379,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             this.hLx = new View.OnLayoutChangeListener() { // from class: com.baidu.tieba.ala.liveroom.operation.a.8
                 @Override // android.view.View.OnLayoutChangeListener
                 public void onLayoutChange(View view, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
-                    a.this.cmG();
+                    a.this.cmH();
                 }
             };
             this.hLu.hMn.addOnLayoutChangeListener(this.hLx);
@@ -397,7 +397,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmG() {
+    public void cmH() {
         if (this.hLu != null && this.hLu.hMn != null && this.hLu.hMn.getVisibility() == 0) {
             this.hLu.hMn.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.operation.a.10
                 @Override // java.lang.Runnable
@@ -433,7 +433,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void cmH() {
+    public void cmI() {
         if (this.hLu != null && this.hLu.hMn != null && this.hLx != null) {
             this.hLu.hMn.removeOnLayoutChangeListener(this.hLx);
         }
@@ -448,7 +448,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
             ((ViewGroup) this.hLu.hIy.getParent()).removeView(this.hLu.hIy);
         }
         if (this.hLu != null) {
-            this.hLu.cft();
+            this.hLu.cfu();
         }
     }
 
@@ -515,7 +515,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         this.otherParams = str;
     }
 
-    public void cmI() {
+    public void cmJ() {
         if (this.hLu != null) {
             this.hLu.setMsgLayoutWidth(false);
             this.hLu.hMq.setVisibility(8);
@@ -524,7 +524,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void cmJ() {
+    public void cmK() {
         if (this.hLu != null) {
             this.hLu.setMsgLayoutWidth(true);
             this.hLu.hMq.setVisibility(0);
@@ -540,18 +540,18 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     public void l(int i, int i2, int i3) {
         if (this.hLu != null) {
             if (i3 == 2) {
-                cmJ();
+                cmK();
             } else if (i3 == 1) {
-                cmI();
+                cmJ();
             }
-            cmG();
-            cmK();
+            cmH();
+            cmL();
         }
     }
 
-    private void cmK() {
+    private void cmL() {
         if (this.hLu != null) {
-            this.hLu.bnO();
+            this.hLu.bnP();
         }
     }
 
@@ -635,7 +635,7 @@ public class a extends com.baidu.tieba.ala.liveroom.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmL() {
+    public void cmM() {
         if (this.hLu != null && this.hLu.hMo != null) {
             this.hLu.hMo.setScaleX(1.1f);
             this.hLu.hMo.setScaleY(1.1f);

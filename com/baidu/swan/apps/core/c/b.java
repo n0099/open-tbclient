@@ -7,8 +7,8 @@ import java.util.HashMap;
 public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public static void arq() {
-        e ob = f.aDG().ob(f.aDG().asD());
+    public static void arr() {
+        e ob = f.aDH().ob(f.aDH().asE());
         if (ob != null) {
             com.baidu.swan.apps.console.c.i("ConsoleMessageHelper", "send full San request");
             ob.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
@@ -26,6 +26,6 @@ public class b {
     private static void bz(String str, String str2) {
         HashMap hashMap = new HashMap(1);
         hashMap.put("data", str2);
-        f.aDG().a(f.aDG().aDj().amt(), new com.baidu.swan.apps.event.a.b(str, hashMap));
+        f.aDH().a(f.aDH().aDk().amu(), new com.baidu.swan.apps.event.a.b(str, hashMap));
     }
 }

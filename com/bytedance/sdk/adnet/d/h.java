@@ -16,21 +16,21 @@ import javax.net.ssl.X509TrustManager;
 public class h extends SSLSocketFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final X509TrustManager f6355a;
+    public static final X509TrustManager f6356a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f6356b;
+    private static final String[] f6357b;
     private SSLSocketFactory ppI;
 
     static {
         if (Build.VERSION.SDK_INT >= 26) {
-            f6356b = new String[]{"TLSv1", "TLSv1.1", "TLSv1.2"};
+            f6357b = new String[]{"TLSv1", "TLSv1.1", "TLSv1.2"};
         } else if (Build.VERSION.SDK_INT >= 16) {
-            f6356b = new String[]{"SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"};
+            f6357b = new String[]{"SSLv3", "TLSv1", "TLSv1.1", "TLSv1.2"};
         } else {
-            f6356b = new String[]{"SSLv3", "TLSv1"};
+            f6357b = new String[]{"SSLv3", "TLSv1"};
         }
-        f6355a = new X509TrustManager() { // from class: com.bytedance.sdk.adnet.d.h.1
+        f6356a = new X509TrustManager() { // from class: com.bytedance.sdk.adnet.d.h.1
             @Override // javax.net.ssl.X509TrustManager
             public void checkClientTrusted(X509Certificate[] x509CertificateArr, String str) {
             }
@@ -48,14 +48,14 @@ public class h extends SSLSocketFactory {
 
     private static void a(Socket socket) {
         if (socket instanceof SSLSocket) {
-            ((SSLSocket) socket).setEnabledProtocols(f6356b);
+            ((SSLSocket) socket).setEnabledProtocols(f6357b);
         }
     }
 
     public h() {
         try {
             SSLContext sSLContext = SSLContext.getInstance("TLS");
-            sSLContext.init(null, new TrustManager[]{f6355a}, new SecureRandom());
+            sSLContext.init(null, new TrustManager[]{f6356a}, new SecureRandom());
             this.ppI = sSLContext.getSocketFactory();
         } catch (Exception e) {
             Log.e("TLSSocketFactory", "TLSSocketFactory error: ", e);

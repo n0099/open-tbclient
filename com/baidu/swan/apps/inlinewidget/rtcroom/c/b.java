@@ -15,11 +15,9 @@ public interface b extends c {
 
     void a(com.baidu.swan.apps.inlinewidget.rtcroom.model.b bVar);
 
-    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> azD();
+    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.c> azE();
 
-    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> azE();
-
-    void azF();
+    ArrayList<com.baidu.swan.apps.inlinewidget.rtcroom.model.a> azF();
 
     void azG();
 
@@ -28,6 +26,8 @@ public interface b extends c {
     void azI();
 
     void azJ();
+
+    void azK();
 
     void ch(long j);
 

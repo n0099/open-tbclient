@@ -35,12 +35,12 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, Card
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.e.d dVar, CardViewHolder<com.baidu.tieba.card.f> cardViewHolder) {
-        if (cardViewHolder.cvG() == null) {
+        if (cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().a(dVar);
-        cardViewHolder.cvG().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        cardViewHolder.cvG().a(new f.a() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.d.1
+        cardViewHolder.cvH().a(dVar);
+        cardViewHolder.cvH().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
+        cardViewHolder.cvH().a(new f.a() { // from class: com.baidu.tieba.frs.gamerecommend.adapter.d.1
             @Override // com.baidu.tieba.card.f.a
             public void b(View view2, BaseCardInfo baseCardInfo) {
                 if (d.this.jye != null) {
@@ -48,7 +48,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.e.d, Card
                 }
             }
         });
-        return cardViewHolder.cvG().getView();
+        return cardViewHolder.cvH().getView();
     }
 
     public void d(aa aaVar) {

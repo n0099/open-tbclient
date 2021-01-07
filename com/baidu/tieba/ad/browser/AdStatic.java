@@ -74,15 +74,15 @@ public class AdStatic {
         intentFilter.addAction("android.intent.action.PACKAGE_REMOVED");
         intentFilter.addDataScheme("package");
         TbadkCoreApplication.getInst().registerReceiver(new AppNotificationReceiver(), intentFilter);
-        com.baidu.tieba.ad.a.bOF().a(cVar);
+        com.baidu.tieba.ad.a.bOG().a(cVar);
         SwitchManager.getInstance().addSwitchData(new b("switch_mbaidu_startup", 1, null));
-        bnW();
         bnX();
         bnY();
+        bnZ();
     }
 
-    private static void bnW() {
-        com.baidu.tieba.ad.a.bOF().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
+    private static void bnX() {
+        com.baidu.tieba.ad.a.bOG().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.3
             @Override // com.baidu.tieba.recapp.i.a
             public int d(Context context, String[] strArr) {
                 Bundle parserQuery;
@@ -225,7 +225,7 @@ public class AdStatic {
     public static void a(Context context, String str, String str2, Bundle bundle) {
         TiebaStatic.eventStat(context, "url_1", null);
         String realUrl = getRealUrl(str);
-        if (!Fr(realUrl) && bOG() && Ft(GlobalConstants.SEARCHBOX_PACKAGE_NAME) && Fs(realUrl) && eJQ) {
+        if (!Fq(realUrl) && bOH() && Fs(GlobalConstants.SEARCHBOX_PACKAGE_NAME) && Fr(realUrl) && eJQ) {
             TiebaStatic.eventStat(context, "url_2", null);
             b(context, str, str2, bundle);
             return;
@@ -233,19 +233,19 @@ public class AdStatic {
         c(context, str, str2, bundle);
     }
 
-    private static boolean Fr(String str) {
+    private static boolean Fq(String str) {
         return str != null;
     }
 
-    private static boolean bOG() {
+    private static boolean bOH() {
         return SwitchManager.getInstance().findType("switch_mbaidu_startup") == 1;
     }
 
-    private static boolean Fs(String str) {
+    private static boolean Fr(String str) {
         return str.startsWith("http://") || str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX) || !str.contains("://");
     }
 
-    private static boolean Ft(String str) {
+    private static boolean Fs(String str) {
         try {
             PackageInfo packageInfo = TbadkCoreApplication.getInst().getPackageManager().getPackageInfo(str, 1);
             if (packageInfo == null) {
@@ -279,8 +279,8 @@ public class AdStatic {
         a.f(context, As(str), str2, bundle);
     }
 
-    private static void bnX() {
-        com.baidu.tieba.ad.a.bOF().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
+    private static void bnY() {
+        com.baidu.tieba.ad.a.bOG().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.4
             @Override // com.baidu.tieba.recapp.i.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {
@@ -351,8 +351,8 @@ public class AdStatic {
         });
     }
 
-    private static void bnY() {
-        com.baidu.tieba.ad.a.bOF().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
+    private static void bnZ() {
+        com.baidu.tieba.ad.a.bOG().a(new i.a() { // from class: com.baidu.tieba.ad.browser.AdStatic.5
             @Override // com.baidu.tieba.recapp.i.a
             public int d(Context context, String[] strArr) {
                 if (strArr == null || strArr[0] == null) {

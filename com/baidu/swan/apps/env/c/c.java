@@ -26,7 +26,7 @@ public final class c implements b {
         this.dds = c0441b == null ? new b.C0441b() : c0441b;
     }
 
-    public static c axF() {
+    public static c axG() {
         return a((b.C0441b) null);
     }
 
@@ -34,7 +34,7 @@ public final class c implements b {
         return new c(c0441b);
     }
 
-    public b.C0441b axG() {
+    public b.C0441b axH() {
         return this.dds;
     }
 
@@ -52,7 +52,7 @@ public final class c implements b {
         return this;
     }
 
-    public int axH() {
+    public int axI() {
         return this.dds.ddr == 0 ? this.dds.ddq : this.dds.ddr;
     }
 
@@ -60,7 +60,7 @@ public final class c implements b {
         if (isValid() && !TextUtils.isEmpty(str) && !a(this.dds.ddp.get(str))) {
             a oD = a.oD(str);
             if (a(oD)) {
-                this.dds.ddp.put(oD.axE(), oD);
+                this.dds.ddp.put(oD.axF(), oD);
             }
         }
         return this;
@@ -79,7 +79,7 @@ public final class c implements b {
     }
 
     @NonNull
-    private JSONArray axI() {
+    private JSONArray axJ() {
         JSONArray jSONArray = new JSONArray();
         try {
             Cursor T = com.baidu.swan.apps.database.a.b.T("", 400);
@@ -111,7 +111,7 @@ public final class c implements b {
         return jSONArray;
     }
 
-    public void axJ() {
+    public void axK() {
         if (ddo) {
             Log.i("PurgerStatistic", "performReport: " + this.dds);
         }
@@ -119,14 +119,14 @@ public final class c implements b {
             ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.env.c.c.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    c.this.axK();
+                    c.this.axL();
                 }
             }, "PurgerStatistic", 3);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axK() {
+    public void axL() {
         String str;
         b.a value;
         synchronized (this.dds) {
@@ -135,8 +135,8 @@ public final class c implements b {
                 e eVar = new e();
                 eVar.mFrom = GameWebViewJavascriptInterface.JAVASCRIPT_INTERFACE_NAME;
                 eVar.mSource = "NA";
-                int axH = axH();
-                eVar.mType = String.valueOf(axH);
+                int axI = axI();
+                eVar.mType = String.valueOf(axI);
                 JSONArray jSONArray = new JSONArray();
                 for (Map.Entry<String, b.a> entry : this.dds.ddp.entrySet()) {
                     if (!TextUtils.isEmpty(entry.getKey()) && (value = entry.getValue()) != null && value.isValid()) {
@@ -144,8 +144,8 @@ public final class c implements b {
                     }
                 }
                 eVar.t("purged_list", jSONArray);
-                if (7 == axH) {
-                    eVar.t("history_list", axI());
+                if (7 == axI) {
+                    eVar.t("history_list", axJ());
                 }
                 if (ddo) {
                     JSONObject jSONObject = eVar.toJSONObject();

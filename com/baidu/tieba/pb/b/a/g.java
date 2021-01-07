@@ -7,26 +7,26 @@ import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes8.dex */
 public class g implements c {
     private String color;
-    private SpannableStringBuilder mdW;
-    private int mdX;
+    private SpannableStringBuilder mdV;
+    private int mdW;
     private int textSize;
 
     public g() {
-        this.mdX = 0;
+        this.mdW = 0;
         this.textSize = -1;
-        this.mdW = new SpannableStringBuilder();
+        this.mdV = new SpannableStringBuilder();
     }
 
     public g(Context context, ExcContent excContent) {
-        this.mdX = 0;
+        this.mdW = 0;
         this.textSize = -1;
         if (excContent != null) {
-            this.mdW = new SpannableStringBuilder();
+            this.mdV = new SpannableStringBuilder();
             if (excContent != null) {
-                this.mdW.append((CharSequence) excContent.text);
+                this.mdV.append((CharSequence) excContent.text);
             }
             if (excContent.align != null) {
-                this.mdX = excContent.align.intValue();
+                this.mdW = excContent.align.intValue();
             }
             if (!StringUtils.isNull(excContent.color)) {
                 this.color = excContent.color;
@@ -42,7 +42,7 @@ public class g implements c {
 
     public void t(CharSequence charSequence) {
         if (charSequence != null) {
-            this.mdW.append(charSequence);
+            this.mdV.append(charSequence);
         }
     }
 
@@ -52,21 +52,21 @@ public class g implements c {
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public CharSequence duY() {
+    public CharSequence duZ() {
+        return this.mdV;
+    }
+
+    public int dvb() {
         return this.mdW;
     }
 
-    public int dva() {
-        return this.mdX;
-    }
-
-    public String dvb() {
+    public String dvc() {
         return this.color;
     }
 
     @Override // com.baidu.tieba.pb.b.a.c
-    public boolean duZ() {
-        return (this.mdX > 0 && this.mdX < 3) || !StringUtils.isNull(this.color);
+    public boolean dva() {
+        return (this.mdW > 0 && this.mdW < 3) || !StringUtils.isNull(this.color);
     }
 
     public int getTextSize() {

@@ -48,8 +48,8 @@ public class c {
         this.jDK = new FrsSmartLoadMoreModel(frsFragment, kVar);
         this.jDK.a(this.jDL);
         this.jDJ.a(this.jDL);
-        this.jfi = frsFragment.cEZ();
-        this.jfA = frsFragment.cEU();
+        this.jfi = frsFragment.cFa();
+        this.jfA = frsFragment.cEV();
         this.jDK.setSortType(this.jfA.getSortType());
         this.jDJ.setSortType(this.jfA.getSortType());
     }
@@ -60,18 +60,18 @@ public class c {
 
     public ArrayList<com.baidu.adp.widget.ListView.n> a(boolean z, boolean z2, ArrayList<com.baidu.adp.widget.ListView.n> arrayList, com.baidu.tieba.tbadkCore.data.f fVar, boolean z3, boolean z4) {
         if (this.jfA != null) {
-            boolean cMn = this.jDI.cEU().cMn();
-            if (this.jfA.cMo()) {
-                return this.jDK.a(z, cMn, arrayList, z3, z4);
+            boolean cMo = this.jDI.cEV().cMo();
+            if (this.jfA.cMp()) {
+                return this.jDK.a(z, cMo, arrayList, z3, z4);
             }
-            return this.jDJ.a(z, cMn, z2, arrayList, fVar);
+            return this.jDJ.a(z, cMo, z2, arrayList, fVar);
         }
         return arrayList;
     }
 
     public void resetData() {
         if (this.jfA != null) {
-            if (this.jfA.cMo()) {
+            if (this.jfA.cMp()) {
                 this.jDK.resetData();
             } else {
                 this.jDJ.resetData();
@@ -80,7 +80,7 @@ public class c {
     }
 
     public boolean dF(List<Long> list) {
-        if (this.jfA == null || this.jfA.cMo()) {
+        if (this.jfA == null || this.jfA.cMp()) {
             return false;
         }
         return this.jDJ.dF(list);
@@ -90,48 +90,48 @@ public class c {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
         if (this.jfA != null && this.jfi != null && frsViewData != null) {
             this.jDI.jfo = System.currentTimeMillis();
-            if (this.jfA.cMo()) {
-                if (this.jDK.cFa() == 1 && !this.jfA.isLoading()) {
+            if (this.jfA.cMp()) {
+                if (this.jDK.cFb() == 1 && !this.jfA.isLoading()) {
                     this.jDK.setSortType(this.jfA.getSortType());
-                    this.jDK.cLT();
+                    this.jDK.cLU();
                     int pn = this.jDK.getPn();
                     this.jDK.setPn(pn);
                     this.jfA.Bt(pn + 1);
                 }
-            } else if (this.jfA.cMe() == 1) {
+            } else if (this.jfA.cMf() == 1) {
                 if (!this.jDJ.isLoading && !this.jfA.isLoading()) {
                     int pn2 = this.jDJ.getPn();
                     if (this.jDJ.dF(frsViewData.getThreadListIds())) {
-                        this.jDJ.cLT();
+                        this.jDJ.cLU();
                         this.jDJ.setSortType(this.jfA.getSortType());
                         this.jDJ.a(com.baidu.adp.lib.f.b.toLong(str2, 0L), frsViewData.getThreadListIds(), str, pn2, frsViewData.isBrandForum);
-                    } else if (this.jDJ.cFa() == 1) {
-                        this.jDJ.cLT();
+                    } else if (this.jDJ.cFb() == 1) {
+                        this.jDJ.cLU();
                         this.jDJ.setPn(pn2);
                         this.jfA.Bt(pn2 + 1);
                         this.jDJ.loadingDone = false;
                         this.jDJ.loadIndex = 0;
                     }
                 }
-            } else if (!this.jfA.cMg()) {
-                this.jfA.cvK();
+            } else if (!this.jfA.cMh()) {
+                this.jfA.cvL();
             }
         }
     }
 
-    public int cFa() {
+    public int cFb() {
         if (this.jfA == null) {
             return -1;
         }
-        if (this.jfA.cMo()) {
-            return this.jDK.cFa();
+        if (this.jfA.cMp()) {
+            return this.jDK.cFb();
         }
-        return this.jDJ.cFa();
+        return this.jDJ.cFb();
     }
 
     public void setHasMore(int i) {
         if (this.jfA != null) {
-            if (this.jfA.cMo()) {
+            if (this.jfA.cMp()) {
                 this.jDK.setHasMore(i);
             } else {
                 this.jDJ.setHasMore(i);
@@ -143,7 +143,7 @@ public class c {
         if (this.jfA == null) {
             return 1;
         }
-        if (this.jfA.cMo()) {
+        if (this.jfA.cMp()) {
             return this.jDK.getPn();
         }
         return this.jDJ.getPn();
@@ -151,7 +151,7 @@ public class c {
 
     public void setPn(int i) {
         if (this.jfA != null) {
-            if (this.jfA.cMo()) {
+            if (this.jfA.cMp()) {
                 this.jDK.setPn(i);
             } else {
                 this.jDJ.setPn(i);
@@ -160,16 +160,16 @@ public class c {
     }
 
     public ArrayList<com.baidu.adp.widget.ListView.n> getDataList() {
-        return this.jfA.cMo() ? this.jDK.getDataList() : this.jfA.cMi();
+        return this.jfA.cMp() ? this.jDK.getDataList() : this.jfA.cMj();
     }
 
-    public FrsSmartLoadMoreModel cLW() {
+    public FrsSmartLoadMoreModel cLX() {
         return this.jDK;
     }
 
     public void d(com.baidu.adp.widget.ListView.n nVar) {
         if (nVar != null) {
-            if (this.jfA.cMo()) {
+            if (this.jfA.cMp()) {
                 this.jDK.d(nVar);
             } else {
                 this.jDJ.d(nVar);

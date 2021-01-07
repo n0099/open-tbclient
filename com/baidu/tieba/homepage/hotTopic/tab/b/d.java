@@ -23,7 +23,7 @@ public class d extends com.baidu.tbadk.core.data.a {
         this.kdI.add(new c());
     }
 
-    public List<c> cSD() {
+    public List<c> cSE() {
         return this.kdI;
     }
 
@@ -37,12 +37,12 @@ public class d extends com.baidu.tbadk.core.data.a {
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at boQ() {
+    public at boR() {
         return null;
     }
 }

@@ -56,10 +56,10 @@ public class v extends a<com.baidu.tbadk.core.data.a> {
         a(1, new a.b() { // from class: com.baidu.card.v.1
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0090a c0090a) {
-                if (v.this.ahi != null && v.this.ahi.boO() != null) {
-                    com.baidu.tieba.card.m.Jo(v.this.ahi.boO().getId());
-                    com.baidu.tieba.card.m.a(v.this.air.mTitle, v.this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    com.baidu.tieba.card.m.a(v.this.air.aia, v.this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                if (v.this.ahi != null && v.this.ahi.boP() != null) {
+                    com.baidu.tieba.card.m.Jn(v.this.ahi.boP().getId());
+                    com.baidu.tieba.card.m.a(v.this.air.mTitle, v.this.ahi.boP().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    com.baidu.tieba.card.m.a(v.this.air.aia, v.this.ahi.boP().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }

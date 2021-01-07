@@ -13,7 +13,7 @@ import com.kwad.sdk.utils.aq;
 public class c extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f8791b;
+    private ImageView f8792b;
     private ViewGroup c;
     private ViewGroup d;
     private TextView e;
@@ -70,7 +70,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
         public void c() {
             super.c();
             c.this.k = true;
-            if (c.this.f8791b.getVisibility() == 0) {
+            if (c.this.f8792b.getVisibility() == 0) {
                 c.this.r();
             }
         }
@@ -173,20 +173,20 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        AdTemplate adTemplate = this.f8692a.j;
+        AdTemplate adTemplate = this.f8693a.j;
         this.j = com.kwad.sdk.core.response.b.d.c(com.kwad.sdk.core.response.b.c.k(adTemplate)).longValue();
         if (this.j < 30000 || com.kwad.sdk.core.response.b.d.F(adTemplate.photoInfo)) {
             return;
         }
         this.i = true;
-        this.h = this.f8692a.m;
+        this.h = this.f8693a.m;
         f();
         g();
-        a(this.f8692a.l.getSourceType() == 0 ? 1.0f : 0.0f);
+        a(this.f8693a.l.getSourceType() == 0 ? 1.0f : 0.0f);
         this.g.setOnSeekBarChangeListener(this.q);
-        this.f8692a.f8702b.add(this.n);
+        this.f8693a.f8703b.add(this.n);
         this.h.a(this.p);
-        this.f8692a.e.add(this.o);
+        this.f8693a.e.add(this.o);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -197,9 +197,9 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
         if (this.i) {
             this.g.setOnSeekBarChangeListener(null);
             this.g.setVisibility(8);
-            this.f8692a.f8702b.remove(this.n);
+            this.f8693a.f8703b.remove(this.n);
             this.h.b(this.p);
-            this.f8692a.e.remove(this.o);
+            this.f8693a.e.remove(this.o);
         }
     }
 
@@ -207,7 +207,7 @@ public class c extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8791b = (ImageView) b(R.id.ksad_video_control_button);
+        this.f8792b = (ImageView) b(R.id.ksad_video_control_button);
         this.c = (ViewGroup) b(R.id.ksad_video_bottom_container);
         this.d = (ViewGroup) b(R.id.ksad_video_seek_tip_layout);
         this.e = (TextView) b(R.id.ksad_video_seek_progress);

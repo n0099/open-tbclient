@@ -18,7 +18,7 @@ public class a implements b {
         this.fKy = z;
     }
 
-    public boolean bHb() {
+    public boolean bHc() {
         return this.fKA;
     }
 
@@ -26,7 +26,7 @@ public class a implements b {
         this.fKA = z;
     }
 
-    public boolean bHc() {
+    public boolean bHd() {
         return this.fKB;
     }
 
@@ -34,7 +34,7 @@ public class a implements b {
         this.fKB = z;
     }
 
-    public boolean bHd() {
+    public boolean bHe() {
         return this.fKC;
     }
 

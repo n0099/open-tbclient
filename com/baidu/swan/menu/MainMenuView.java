@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.menu.f;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class MainMenuView extends BaseMenuView {
     private View dDI;
     private RecyclerView eur;
@@ -57,7 +57,7 @@ public class MainMenuView extends BaseMenuView {
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean aFO() {
+    public boolean aFP() {
         return this.euv != null && this.euv.size() > 1;
     }
 
@@ -123,7 +123,7 @@ public class MainMenuView extends BaseMenuView {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfi() {
+    public void bfj() {
         if (this.eus != null) {
             this.eus.notifyDataSetChanged();
         }

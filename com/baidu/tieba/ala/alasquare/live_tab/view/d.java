@@ -132,7 +132,7 @@ public class d extends com.baidu.tieba.card.b<i> {
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationRepeat(Animator animator) {
-                d.this.bVg();
+                d.this.bVh();
             }
         });
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -182,15 +182,15 @@ public class d extends com.baidu.tieba.card.b<i> {
         this.gGC = iVar.gCT.gCP;
         if (!x.isEmpty(this.gGC)) {
             startAnim();
-            bVg();
+            bVh();
         }
     }
 
     public void mF(boolean z) {
         if (this.gGx != null) {
             if (z) {
-                if (!com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), false)) {
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), true);
+                if (!com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), false)) {
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), true);
                     this.gGx.setVisibility(0);
                     return;
                 }
@@ -219,7 +219,7 @@ public class d extends com.baidu.tieba.card.b<i> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVg() {
+    public void bVh() {
         if (this.gGi != null && !x.isEmpty(this.gGC)) {
             this.gGB++;
             if (this.gGC.size() > this.gGB) {
@@ -254,14 +254,14 @@ public class d extends com.baidu.tieba.card.b<i> {
                 TiebaStatic.log("c13553");
             }
         } else if (view == this.gGo) {
-            String string = com.baidu.tbadk.core.sharedPref.b.bvq().getString("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播");
+            String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("show_live_forum_url", "http://tieba.baidu.com/f?kw=百度直播");
             string = (StringUtils.isNull(string) || !string.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) ? "http://tieba.baidu.com/f?kw=百度直播" : "http://tieba.baidu.com/f?kw=百度直播";
             if (!string.contains("?")) {
                 string = string + "?default_tab_id=1&call_from=15";
             } else if (!string.contains("&default_tab_id=")) {
                 string = string + "&default_tab_id=1&call_from=15";
             }
-            be.bwu().a(this.mTbPageContext, new String[]{string}, true);
+            be.bwv().a(this.mTbPageContext, new String[]{string}, true);
             TiebaStatic.log("c13554");
         } else if (view == this.gGr) {
             if (bg.checkUpIsLogin(this.mContext)) {
@@ -269,18 +269,18 @@ public class d extends com.baidu.tieba.card.b<i> {
             }
             TiebaStatic.log("c13555");
         } else if (view == this.gGu) {
-            bVh();
+            bVi();
             TiebaStatic.log("c13617");
         }
     }
 
-    private void bVh() {
+    private void bVi() {
         Plugin plugin2;
         if (Build.VERSION.SDK_INT < 21) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getTbPageContext().getPageActivity());
             aVar.setAutoNight(false);
             aVar.oZ(R.string.prompt);
-            aVar.Bp(getContext().getResources().getString(R.string.disallow_open_live_by_android_v5_0));
+            aVar.Bo(getContext().getResources().getString(R.string.disallow_open_live_by_android_v5_0));
             aVar.setTitleShowCenter(true);
             aVar.setMessageShowCenter(true);
             aVar.a(R.string.know, new a.b() { // from class: com.baidu.tieba.ala.alasquare.live_tab.view.d.2
@@ -289,17 +289,17 @@ public class d extends com.baidu.tieba.card.b<i> {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(getTbPageContext()).btX();
+            aVar.b(getTbPageContext()).btY();
         } else if (bg.checkUpIsLogin(getTbPageContext().getPageActivity())) {
             if (this.gGE == null) {
                 this.gGE = new com.baidu.tieba.ueg.d(getTbPageContext());
             }
-            if (!this.gGE.dSY()) {
+            if (!this.gGE.dSZ()) {
                 if (!BdBaseApplication.getInst().isDebugMode() && (plugin2 = PluginCenter.getInstance().getPlugin("com.baidu.tieba.pluginAla")) != null && !plugin2.isLoaded()) {
                     l.showToast(getTbPageContext().getPageActivity(), R.string.plugin_config_not_found);
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), true);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount("square_live_publish_live_has_showed"), true);
                 this.gGx.setVisibility(8);
                 o(getTbPageContext());
             }

@@ -50,11 +50,11 @@ class g {
         return this.mId;
     }
 
-    public String bip() {
+    public String biq() {
         return this.eBb;
     }
 
-    public String biq() {
+    public String bir() {
         return this.eBc;
     }
 
@@ -66,11 +66,11 @@ class g {
         return this.mType;
     }
 
-    public String bir() {
+    public String bis() {
         return this.eBe;
     }
 
-    public int bis() {
+    public int bit() {
         return this.mRate;
     }
 
@@ -78,11 +78,11 @@ class g {
         return this.mCategory;
     }
 
-    public int bit() {
+    public int biu() {
         return this.eBf;
     }
 
-    public int biu() {
+    public int biv() {
         return this.eBg;
     }
 
@@ -90,7 +90,7 @@ class g {
         this.eBh = str;
     }
 
-    public String biv() {
+    public String biw() {
         return this.eBh;
     }
 

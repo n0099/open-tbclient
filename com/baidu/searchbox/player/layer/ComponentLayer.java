@@ -119,9 +119,8 @@ public abstract class ComponentLayer<T extends ViewGroup> extends AbsLayer imple
         }
     }
 
-    /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.searchbox.player.layer.AbsLayer
-    public void handleLayerMessage(Message message) {
+    protected void handleLayerMessage(Message message) {
         super.handleLayerMessage(message);
         Iterator<AbsComponent> it = this.mComponents.iterator();
         while (it.hasNext()) {

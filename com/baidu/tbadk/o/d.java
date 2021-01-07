@@ -181,7 +181,7 @@ public class d implements com.baidu.adp.plugin.packageManager.pluginServerConfig
             boolean z = pluginNetConfigInfosArr[0] != null;
             String str = null;
             if (this.cmJ != null && !this.cmJ.isNetSuccess()) {
-                str = this.cmJ.bvR();
+                str = this.cmJ.bvS();
                 if (this.cmJ.getServerErrorCode() != 0) {
                     str = str + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.cmJ.getErrorString();
                 }

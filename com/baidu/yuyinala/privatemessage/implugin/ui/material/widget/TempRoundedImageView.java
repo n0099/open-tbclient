@@ -104,7 +104,7 @@ public class TempRoundedImageView extends ImageView {
             canvas.drawColor(1056964607);
             canvas.drawRoundRect(new RectF(this.mWidth, this.mHeight, this.mWidth, this.mHeight), this.cornerRadius, this.cornerRadius, this.mPaint);
         }
-        if (this.oYU && ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+        if (this.oYU && ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
             this.mPaint = new Paint();
             this.mPaint.setAntiAlias(true);
             canvas.drawColor(-1240132331);
@@ -227,7 +227,7 @@ public class TempRoundedImageView extends ImageView {
     public void setImageResource(int i) {
         if (this.oYT != i) {
             this.oYT = i;
-            this.mDrawable = emS();
+            this.mDrawable = emT();
             updateDrawableAttrs();
             super.setImageDrawable(this.mDrawable);
         }
@@ -239,7 +239,7 @@ public class TempRoundedImageView extends ImageView {
         setImageDrawable(getDrawable());
     }
 
-    private Drawable emS() {
+    private Drawable emT() {
         Drawable drawable = null;
         Resources resources = getResources();
         if (resources == null) {

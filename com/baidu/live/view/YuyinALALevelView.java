@@ -69,12 +69,12 @@ public class YuyinALALevelView extends LinearLayout {
         ap(bVar.live_mark_info_new);
         aq(bVar.live_mark_info_new);
         removeAllViews();
-        ZR();
-        setupLevelIconImage(bVar.live_mark_info_new, bVar.level_id);
-        Zv();
-        ZQ();
         ZS();
-        Zt();
+        setupLevelIconImage(bVar.live_mark_info_new, bVar.level_id);
+        Zw();
+        ZR();
+        ZT();
+        Zu();
     }
 
     public void am(List<AlaLiveMarkData> list) {
@@ -189,12 +189,12 @@ public class YuyinALALevelView extends LinearLayout {
         am(alaLiveUserInfoData.live_mark_info_new);
         aq(alaLiveUserInfoData.live_mark_info_new);
         removeAllViews();
-        ZR();
-        setupLevelIconImage(alaLiveUserInfoData.live_mark_info_new, alaLiveUserInfoData.levelId);
-        Zv();
-        ZQ();
         ZS();
-        Zt();
+        setupLevelIconImage(alaLiveUserInfoData.live_mark_info_new, alaLiveUserInfoData.levelId);
+        Zw();
+        ZR();
+        ZT();
+        Zu();
     }
 
     public void setData4Yuyin(cz czVar) {
@@ -212,11 +212,11 @@ public class YuyinALALevelView extends LinearLayout {
         if (czVar.level_id > 0) {
             setupLevelIconImage(czVar.live_mark_info_new, czVar.level_id);
         }
-        Zv();
-        Zt();
-        ZR();
-        ZQ();
+        Zw();
+        Zu();
         ZS();
+        ZR();
+        ZT();
     }
 
     public void an(List<AlaLiveMarkData> list) {
@@ -311,7 +311,7 @@ public class YuyinALALevelView extends LinearLayout {
         }
     }
 
-    private void Zt() {
+    private void Zu() {
         if (this.bTq == null || this.bTq.type != 2) {
             a(this.bTj);
         } else if (TextUtils.isEmpty(this.bTq.mark_pic)) {
@@ -334,7 +334,7 @@ public class YuyinALALevelView extends LinearLayout {
         }
     }
 
-    private void Zv() {
+    private void Zw() {
         if (this.bTr == null || this.bTr.type != 105) {
             a(this.bTs);
         } else if (TextUtils.isEmpty(this.bTr.mark_pic)) {
@@ -357,7 +357,7 @@ public class YuyinALALevelView extends LinearLayout {
         }
     }
 
-    private void ZQ() {
+    private void ZR() {
         if (this.bVw == null || this.bVw.type != 103) {
             a(this.bVt);
         } else if (TextUtils.isEmpty(this.bVw.mark_pic)) {
@@ -382,7 +382,7 @@ public class YuyinALALevelView extends LinearLayout {
         }
     }
 
-    private void ZR() {
+    private void ZS() {
         if (this.bVy == null || this.bVy.type != 300) {
             a(this.bVv);
         } else if (TextUtils.isEmpty(this.bVy.mark_pic)) {
@@ -406,7 +406,7 @@ public class YuyinALALevelView extends LinearLayout {
         }
     }
 
-    private void ZS() {
+    private void ZT() {
         if (this.bVx == null || this.bVx.type != 104) {
             a(this.bVu);
         } else if (TextUtils.isEmpty(this.bVx.mark_pic)) {

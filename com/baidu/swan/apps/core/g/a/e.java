@@ -41,11 +41,11 @@ public class e implements c {
         }
     }
 
-    public boolean atS() {
+    public boolean atT() {
         return this.cWM;
     }
 
-    public boolean atT() {
+    public boolean atU() {
         return this.cWO;
     }
 
@@ -58,9 +58,9 @@ public class e implements c {
                 Log.w("SwanAppMasterProvider", "prefetch appId is empty");
             }
         } else if (this.cWN) {
-            com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-            if (aMl != null) {
-                if (TextUtils.equals(str, aMl.getAppId())) {
+            com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+            if (aMm != null) {
+                if (TextUtils.equals(str, aMm.getAppId())) {
                     this.cWL.a(str, bVar);
                     if (DEBUG) {
                         Log.w("SwanAppMasterProvider", "prefetch after app start - " + str);
@@ -114,7 +114,7 @@ public class e implements c {
         }
         if (DEBUG) {
             Log.i("SwanAppMasterProvider", "get right master cost - " + (System.currentTimeMillis() - currentTimeMillis) + "ms");
-            Log.i("SwanAppMasterProvider", "final master id - " + this.cWL.atP().amt());
+            Log.i("SwanAppMasterProvider", "final master id - " + this.cWL.atQ().amu());
         }
         return this.cWL;
     }
@@ -123,7 +123,7 @@ public class e implements c {
         this.cWL = dVar;
         this.cWL.nE(str);
         this.cWN = true;
-        atW();
+        atX();
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
         this.cWJ.e(Collections.singletonList(dVar));
         if (DEBUG) {
@@ -131,16 +131,16 @@ public class e implements c {
         }
     }
 
-    public boolean atU() {
+    public boolean atV() {
         return this.cWN;
     }
 
-    public d atV() {
+    public d atW() {
         if (this.cWN) {
             return this.cWL;
         }
         if (DEBUG) {
-            Log.w("SwanAppMasterProvider", "master not final confirmed, has default - " + atT());
+            Log.w("SwanAppMasterProvider", "master not final confirmed, has default - " + atU());
             Log.w("SwanAppMasterProvider", Log.getStackTraceString(new RuntimeException("throw by debug")));
         }
         return null;
@@ -156,10 +156,10 @@ public class e implements c {
         synchronized (this.mLock) {
             this.cWK.clear();
         }
-        a.atM();
+        a.atN();
     }
 
-    private void atW() {
+    private void atX() {
         if (!this.cWK.isEmpty() && this.cWN) {
             synchronized (this.mLock) {
                 Iterator<com.baidu.swan.apps.event.a.a> it = this.cWK.iterator();
@@ -168,14 +168,14 @@ public class e implements c {
                     if (DEBUG) {
                         Log.d("SwanAppMasterProvider", "dispatchPendingEvents event: " + next.cKK);
                     }
-                    com.baidu.swan.apps.core.turbo.d.avA().b(next);
+                    com.baidu.swan.apps.core.turbo.d.avB().b(next);
                 }
                 this.cWK.clear();
             }
         }
     }
 
-    public boolean atX() {
+    public boolean atY() {
         return this.cWF;
     }
 

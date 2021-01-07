@@ -1,7 +1,7 @@
 package com.baidu.platform.comapi.wnplatform.i;
 
 import com.baidu.mapapi.walknavi.model.RouteGuideKind;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static String a(RouteGuideKind routeGuideKind) {
         switch (routeGuideKind) {

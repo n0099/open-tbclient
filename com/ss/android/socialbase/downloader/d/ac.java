@@ -27,7 +27,7 @@ public interface ac extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ac)) {
                 return (ac) queryLocalInterface;
             }
-            return new C1206a(iBinder);
+            return new C1247a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -72,18 +72,18 @@ public interface ac extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.ac$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1206a implements ac {
+        private static class C1247a implements ac {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13405a;
+            private IBinder f13406a;
 
-            C1206a(IBinder iBinder) {
-                this.f13405a = iBinder;
+            C1247a(IBinder iBinder) {
+                this.f13406a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13405a;
+                return this.f13406a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.ac
@@ -101,7 +101,7 @@ public interface ac extends IInterface {
                     }
                     obtain.writeString(str);
                     obtain.writeString(str2);
-                    this.f13405a.transact(1, obtain, obtain2, 0);
+                    this.f13406a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -116,7 +116,7 @@ public interface ac extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
                     obtain.writeInt(z ? 1 : 0);
-                    this.f13405a.transact(2, obtain, obtain2, 0);
+                    this.f13406a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {
@@ -131,7 +131,7 @@ public interface ac extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadNotificationEventAidlListener");
-                    this.f13405a.transact(3, obtain, obtain2, 0);
+                    this.f13406a.transact(3, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readString();
                 } finally {

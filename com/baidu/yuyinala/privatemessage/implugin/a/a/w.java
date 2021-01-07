@@ -55,7 +55,7 @@ public class w extends e {
             Spannable c = com.baidu.yuyinala.privatemessage.implugin.util.f.c(context, this.oTA.getText());
             if (c != null) {
                 this.oTA.setText(c);
-                this.oTA.setMovementMethod(com.baidu.yuyinala.privatemessage.implugin.ui.common.a.elQ());
+                this.oTA.setMovementMethod(com.baidu.yuyinala.privatemessage.implugin.ui.common.a.elR());
                 this.oTA.setFocusable(false);
                 this.oTA.setClickable(false);
                 this.oTA.setLongClickable(false);

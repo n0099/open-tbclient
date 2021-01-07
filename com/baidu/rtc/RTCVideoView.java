@@ -29,7 +29,7 @@ public class RTCVideoView extends SurfaceViewRenderer {
         this.cye = null;
     }
 
-    public boolean aip() {
+    public boolean aiq() {
         return false;
     }
 
@@ -57,7 +57,7 @@ public class RTCVideoView extends SurfaceViewRenderer {
             }
             this.cye.onFrame(l.a(videoFrame));
         }
-        if (aip()) {
+        if (aiq()) {
             b(l.a(videoFrame));
         } else {
             super.onFrame(videoFrame);

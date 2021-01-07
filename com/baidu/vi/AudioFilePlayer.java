@@ -1,11 +1,11 @@
 package com.baidu.vi;
 
 import android.media.MediaPlayer;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class AudioFilePlayer {
 
     /* renamed from: a  reason: collision with root package name */
-    private MediaPlayer f5907a = new MediaPlayer();
+    private MediaPlayer f5908a = new MediaPlayer();
 
     private AudioFilePlayer() {
     }

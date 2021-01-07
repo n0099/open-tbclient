@@ -10,7 +10,7 @@ public class u extends com.baidu.swan.c.i {
         private static final u eBX = new u();
     }
 
-    public static u biV() {
+    public static u biW() {
         return a.eBX;
     }
 }

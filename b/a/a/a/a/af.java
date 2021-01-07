@@ -6,19 +6,19 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class af extends ac {
     public static final af Bl = new af(Collections.emptyList(), 0, 0);
 
     /* renamed from: b  reason: collision with root package name */
-    public final List f1053b;
+    public final List f1054b;
     public final long c;
     private final int d;
 
     public af(List list, long j, int i) {
         this.c = j;
         this.d = i;
-        this.f1053b = new ArrayList(list);
+        this.f1054b = new ArrayList(list);
     }
 
     private static String a(List list) {
@@ -92,6 +92,6 @@ public final class af extends ac {
     }
 
     public final String toString() {
-        return "TxWifiInfo[time=" + this.c + ", wifiStatus=" + this.d + ", size=" + this.f1053b.size() + ", list=" + a(this.f1053b) + "]";
+        return "TxWifiInfo[time=" + this.c + ", wifiStatus=" + this.d + ", size=" + this.f1054b.size() + ", list=" + a(this.f1054b) + "]";
     }
 }

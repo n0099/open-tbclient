@@ -200,7 +200,7 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
             }
             return;
         }
-        this.mDownloadTasks.add(new h(this.guS, bSZ(), this));
+        this.mDownloadTasks.add(new h(this.guS, bTa(), this));
     }
 
     private List<i> getMultiThreadRecords(long j) {
@@ -216,7 +216,7 @@ public class e implements e.a, com.baidu.tieba.ala.alaar.sticker.download.a.f, g
         return arrayList;
     }
 
-    private i bSZ() {
+    private i bTa() {
         return new i(0, this.mTag, this.guV.getUri(), 0L);
     }
 

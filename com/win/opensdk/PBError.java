@@ -6,7 +6,7 @@ public class PBError {
     private int java;
 
     /* renamed from: java  reason: collision with other field name */
-    private String f6java;
+    private String f7java;
     public static final PBError NO_FILL = new PBError(2001, "NO FILL");
     public static final PBError TIMEOUT = new PBError(2002, "TIME OUT");
     public static final PBError LOAD_TOO_FREQUENTLY = new PBError(2003, "LOAD TOO FREQUENTLY");
@@ -22,7 +22,7 @@ public class PBError {
 
     public PBError(int i, String str) {
         this.java = i;
-        this.f6java = str;
+        this.f7java = str;
     }
 
     public int getCode() {
@@ -34,15 +34,15 @@ public class PBError {
     }
 
     public String getMsg() {
-        return this.f6java;
+        return this.f7java;
     }
 
     public void setMsg(String str) {
-        this.f6java = str;
+        this.f7java = str;
     }
 
     @NonNull
     public String toString() {
-        return "PBError{code=" + this.java + ", msg='" + this.f6java + "'}";
+        return "PBError{code=" + this.java + ", msg='" + this.f7java + "'}";
     }
 }

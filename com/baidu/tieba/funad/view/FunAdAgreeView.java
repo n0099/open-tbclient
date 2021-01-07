@@ -31,7 +31,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.data.e;
 import com.xiaomi.mipush.sdk.Constants;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorListener {
     private View.OnClickListener akV;
     private int cardType;
@@ -62,7 +62,7 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
     private int mSkinType;
     private CustomMessageListener mThreadAgreeChangedListener;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes15.dex */
     public interface a {
         void f(View view, boolean z);
     }
@@ -296,12 +296,12 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
         this.fgG.setOnClickListener(this.mOnClickListener);
         this.fgI = new e();
         this.fgI.uniqueId = getPageId();
-        bxh();
+        bxi();
         setAgreeAnimationResource();
         setResourceId(R.raw.lottie_card_agree, R.raw.lottie_disagree);
     }
 
-    private void bxh() {
+    private void bxi() {
         LinearLayout linearLayout = new LinearLayout(getContext());
         this.fgU = linearLayout;
         linearLayout.setOrientation(0);
@@ -505,14 +505,14 @@ public class FunAdAgreeView extends LinearLayout implements Animator.AnimatorLis
                                     this.fgH.hasAgree = true;
                                     this.fgH.agreeNum++;
                                     jV(true);
-                                    com.baidu.tieba.o.a.dEA().F(getTbPageContext());
+                                    com.baidu.tieba.o.a.dEB().F(getTbPageContext());
                                 }
                             } else {
                                 this.fgH.agreeType = 2;
                                 this.fgH.hasAgree = true;
                                 this.fgH.agreeNum++;
                                 jV(true);
-                                com.baidu.tieba.o.a.dEA().F(getTbPageContext());
+                                com.baidu.tieba.o.a.dEB().F(getTbPageContext());
                             }
                             c bV = d.bV(this);
                             if (bV != null) {

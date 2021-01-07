@@ -6,10 +6,10 @@ import com.ss.android.socialbase.downloader.g.c;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Notification f13549a;
+    protected Notification f13550a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f13550b;
+    private int f13551b;
     private long c;
     private long d;
     private String e;
@@ -21,19 +21,19 @@ public abstract class a {
     public abstract void a(com.ss.android.socialbase.downloader.e.a aVar, boolean z);
 
     public a(int i, String str) {
-        this.f13550b = i;
+        this.f13551b = i;
         this.e = str;
     }
 
     public void a(c cVar) {
         if (cVar != null) {
-            this.f13550b = cVar.g();
+            this.f13551b = cVar.g();
             this.e = cVar.i();
         }
     }
 
     public int a() {
-        return this.f13550b;
+        return this.f13551b;
     }
 
     public long b() {
@@ -86,8 +86,8 @@ public abstract class a {
     }
 
     public void c(Notification notification) {
-        if (this.f13550b != 0 && notification != null) {
-            b.eJw().a(this.f13550b, this.f, notification);
+        if (this.f13551b != 0 && notification != null) {
+            b.eKa().a(this.f13551b, this.f, notification);
         }
     }
 
@@ -108,7 +108,7 @@ public abstract class a {
         this.i = z;
     }
 
-    public Notification eJv() {
-        return this.f13549a;
+    public Notification eJZ() {
+        return this.f13550a;
     }
 }

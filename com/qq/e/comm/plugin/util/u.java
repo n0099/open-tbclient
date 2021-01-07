@@ -3,14 +3,14 @@ package com.qq.e.comm.plugin.util;
 import android.text.TextUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private JSONObject f12889a;
+    private JSONObject f12890a;
 
     public u() {
-        this.f12889a = new JSONObject();
+        this.f12890a = new JSONObject();
     }
 
     public u(String str) {
@@ -19,30 +19,30 @@ public class u {
             try {
                 if (!str.trim().isEmpty() && !str.toLowerCase().equals("null")) {
                     jSONObject = new JSONObject(str);
-                    this.f12889a = jSONObject;
+                    this.f12890a = jSONObject;
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
-                this.f12889a = new JSONObject();
+                this.f12890a = new JSONObject();
                 return;
             }
         }
         jSONObject = new JSONObject();
-        this.f12889a = jSONObject;
+        this.f12890a = jSONObject;
     }
 
     public u(JSONObject jSONObject) {
         if (jSONObject == null) {
-            this.f12889a = new JSONObject();
+            this.f12890a = new JSONObject();
         } else {
-            this.f12889a = jSONObject;
+            this.f12890a = jSONObject;
         }
     }
 
     public u a(String str, int i) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                this.f12889a.put(str, i);
+                this.f12890a.put(str, i);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -53,7 +53,7 @@ public class u {
     public u a(String str, long j) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                this.f12889a.put(str, j);
+                this.f12890a.put(str, j);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -64,7 +64,7 @@ public class u {
     public u a(String str, Object obj) {
         try {
             if (!TextUtils.isEmpty(str) && obj != null) {
-                this.f12889a.put(str, obj);
+                this.f12890a.put(str, obj);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -75,7 +75,7 @@ public class u {
     public u a(String str, String str2) {
         try {
             if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                this.f12889a.put(str, str2);
+                this.f12890a.put(str, str2);
             }
         } catch (JSONException e) {
             e.printStackTrace();
@@ -84,10 +84,10 @@ public class u {
     }
 
     public JSONObject a() {
-        return this.f12889a;
+        return this.f12890a;
     }
 
     public String toString() {
-        return this.f12889a.toString();
+        return this.f12890a.toString();
     }
 }

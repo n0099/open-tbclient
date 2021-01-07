@@ -11,18 +11,18 @@ public class a {
         if (j <= 0 || j >= 259200) {
             j = 0;
         }
-        g.bhy().edit().putLong("max_age" + i, j).apply();
+        g.bhz().edit().putLong("max_age" + i, j).apply();
     }
 
     public static void l(int i, long j) {
-        g.bhy().edit().putLong("latest_update_time" + i, j).apply();
+        g.bhz().edit().putLong("latest_update_time" + i, j).apply();
     }
 
     private static long nC(int i) {
-        return g.bhy().getLong("max_age" + i, 0L);
+        return g.bhz().getLong("max_age" + i, 0L);
     }
 
     public static long nD(int i) {
-        return g.bhy().getLong("latest_update_time" + i, 0L);
+        return g.bhz().getLong("latest_update_time" + i, 0L);
     }
 }

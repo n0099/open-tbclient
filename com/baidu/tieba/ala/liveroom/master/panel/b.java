@@ -34,13 +34,13 @@ public class b extends Dialog {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cln();
-
         void clo();
 
         void clp();
 
         void clq();
+
+        void clr();
 
         void ov(boolean z);
 
@@ -72,13 +72,13 @@ public class b extends Dialog {
                     } else if (i == 4) {
                         b.this.hJq.oy(z2);
                     } else if (i == 5) {
-                        b.this.hJq.cln();
-                    } else if (i == 6) {
                         b.this.hJq.clo();
-                    } else if (i == 7) {
+                    } else if (i == 6) {
                         b.this.hJq.clp();
-                    } else if (i == 8) {
+                    } else if (i == 7) {
                         b.this.hJq.clq();
+                    } else if (i == 8) {
+                        b.this.hJq.clr();
                     }
                 }
             }
@@ -98,11 +98,11 @@ public class b extends Dialog {
         super.onCreate(bundle);
         StatusBarUtil.from(this).setTransparentStatusbar(true).process();
         createView();
+        clz();
         cly();
-        clx();
     }
 
-    private void clx() {
+    private void cly() {
         this.hJn.addView(this.hJo);
         View view = new View(getContext());
         view.setBackgroundColor(getContext().getResources().getColor(a.c.sdk_white_alpha10));
@@ -130,7 +130,7 @@ public class b extends Dialog {
         }
     }
 
-    private void cly() {
+    private void clz() {
         Display defaultDisplay = ((WindowManager) getContext().getSystemService("window")).getDefaultDisplay();
         int navigationBarHeight = m.getNavigationBarHeight(getContext());
         WindowManager.LayoutParams attributes = getWindow().getAttributes();
@@ -186,7 +186,7 @@ public class b extends Dialog {
         this.hJp.a(4, z ? (short) 1 : (short) 2);
     }
 
-    public void clz() {
+    public void clA() {
         this.hJp.notifyDataSetChanged();
     }
 }

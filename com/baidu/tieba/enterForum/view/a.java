@@ -53,13 +53,13 @@ public class a extends PopupWindow {
                 } else if (view == a.this.iOU && a.this.iOR != null) {
                     a.this.iOR.fx(2);
                 }
-                a.this.Xf();
+                a.this.Xg();
             }
         };
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.view.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                a.this.Xf();
+                a.this.Xg();
             }
         };
         this.mContext = context;
@@ -70,19 +70,19 @@ public class a extends PopupWindow {
         setBackgroundDrawable(new ColorDrawable(0));
     }
 
-    private View czW() {
-        czX();
+    private View czX() {
+        czY();
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         FrameLayout frameLayout2 = new FrameLayout(this.mContext);
         this.bNP = frameLayout2;
         frameLayout.addView(frameLayout2);
         frameLayout.addView(this.iOS);
         this.bNP.setOnClickListener(this.mOnClickListener);
-        com.baidu.tbadk.core.util.f.a.bwT().qI(R.color.CAM_X0901).qD(l.getDimens(this.mContext, R.dimen.tbds10)).qE(R.color.CAM_X0804).qF(l.getDimens(this.mContext, R.dimen.tbds21)).qG(0).qH(l.getDimens(this.mContext, R.dimen.tbds4)).bz(this.iOS);
+        com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0901).qD(l.getDimens(this.mContext, R.dimen.tbds10)).qE(R.color.CAM_X0804).qF(l.getDimens(this.mContext, R.dimen.tbds21)).qG(0).qH(l.getDimens(this.mContext, R.dimen.tbds4)).bz(this.iOS);
         return frameLayout;
     }
 
-    private void czX() {
+    private void czY() {
         this.iOS = LayoutInflater.from(this.mContext).inflate(R.layout.layout_sort_select, (ViewGroup) null);
         this.iOT = (TextView) this.iOS.findViewById(R.id.sort_type_level_text);
         com.baidu.tbadk.core.elementsMaven.c.bv(this.iOT).pE(R.string.F_X01);
@@ -95,7 +95,7 @@ public class a extends PopupWindow {
     public void setData(List<h> list, int i) {
         if (list != null) {
             this.iOV = i;
-            View czW = czW();
+            View czX = czX();
             for (h hVar : list) {
                 if (hVar.sortType == 1) {
                     this.iOT.setText(hVar.iGQ);
@@ -110,7 +110,7 @@ public class a extends PopupWindow {
                     ao.setViewTextColor(this.iOT, R.color.CAM_X0108);
                 }
             }
-            setContentView(czW);
+            setContentView(czX);
         }
     }
 
@@ -122,7 +122,7 @@ public class a extends PopupWindow {
         if (view != null) {
             if (Build.VERSION.SDK_INT < 24) {
                 if (g.showPopupWindowAsDropDown(this, view)) {
-                    aFQ();
+                    aFR();
                     return;
                 }
                 return;
@@ -130,7 +130,7 @@ public class a extends PopupWindow {
             int[] iArr = new int[2];
             view.getLocationInWindow(iArr);
             if (g.showPopupWindowAtLocation(this, view, 0, iArr[0] - this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds44), iArr[1] + view.getHeight() + this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds20))) {
-                aFQ();
+                aFR();
             }
         }
     }
@@ -141,19 +141,19 @@ public class a extends PopupWindow {
 
     @Override // android.widget.PopupWindow
     public void dismiss() {
-        Xf();
+        Xg();
     }
 
-    public void Xf() {
-        Xi();
+    public void Xg() {
+        Xj();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Xg() {
+    public void Xh() {
         super.dismiss();
     }
 
-    private void aFQ() {
+    private void aFR() {
         TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         translateAnimation.setDuration(350L);
         translateAnimation.setInterpolator(new DecelerateInterpolator());
@@ -164,7 +164,7 @@ public class a extends PopupWindow {
         this.bNP.startAnimation(alphaAnimation);
     }
 
-    private void Xi() {
+    private void Xj() {
         if (!k.isFastDoubleClick()) {
             TranslateAnimation translateAnimation = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, 0.0f, 1, -1.0f);
             translateAnimation.setDuration(350L);
@@ -184,7 +184,7 @@ public class a extends PopupWindow {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    a.this.Xg();
+                    a.this.Xh();
                 }
             });
             this.iOS.startAnimation(translateAnimation);
@@ -200,6 +200,6 @@ public class a extends PopupWindow {
             ao.setViewTextColor(this.iOU, R.color.CAM_X0105);
             ao.setViewTextColor(this.iOT, R.color.CAM_X0108);
         }
-        com.baidu.tbadk.core.util.f.a.bwT().qI(R.color.CAM_X0901).qD(l.getDimens(this.mContext, R.dimen.tbds10)).qE(R.color.CAM_X0804).qF(l.getDimens(this.mContext, R.dimen.tbds21)).qG(0).qH(l.getDimens(this.mContext, R.dimen.tbds4)).bz(this.iOS);
+        com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0901).qD(l.getDimens(this.mContext, R.dimen.tbds10)).qE(R.color.CAM_X0804).qF(l.getDimens(this.mContext, R.dimen.tbds21)).qG(0).qH(l.getDimens(this.mContext, R.dimen.tbds4)).bz(this.iOS);
     }
 }

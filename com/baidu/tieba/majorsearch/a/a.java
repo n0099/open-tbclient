@@ -36,20 +36,20 @@ public class a {
         this.mRootView = LayoutInflater.from(this.lgQ).inflate(R.layout.search_major_main, (ViewGroup) null);
         this.lgQ.setContentView(this.mRootView);
         this.lhc = new com.baidu.tieba.majorsearch.a(this.mRootView, this.lgQ);
-        dgG();
-        dgt();
-        this.esI = "";
         dgH();
+        dgu();
+        this.esI = "";
+        dgI();
     }
 
-    public void dgG() {
+    public void dgH() {
         View.OnFocusChangeListener onFocusChangeListener = new View.OnFocusChangeListener() { // from class: com.baidu.tieba.majorsearch.a.a.1
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
                 if (!z) {
                     l.hideSoftKeyPad(a.this.lgQ.getPageContext().getPageActivity(), view);
                 } else {
-                    a.this.dgH();
+                    a.this.dgI();
                 }
             }
         };
@@ -57,7 +57,7 @@ public class a {
             @Override // android.widget.TextView.OnEditorActionListener
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == 3) {
-                    a.this.dgH();
+                    a.this.dgI();
                     return true;
                 }
                 return false;
@@ -76,7 +76,7 @@ public class a {
             public void afterTextChanged(Editable editable) {
                 if (editable != null) {
                     a.this.esI = editable.toString();
-                    a.this.dgH();
+                    a.this.dgI();
                     a.this.lhc.pi(!StringUtils.isNull(editable.toString()));
                 }
             }
@@ -86,10 +86,10 @@ public class a {
         this.lhc.d(textWatcher);
     }
 
-    private void dgt() {
+    private void dgu() {
         SearchMajorResultItemAdapter.a aVar = new SearchMajorResultItemAdapter.a() { // from class: com.baidu.tieba.majorsearch.a.a.4
             @Override // com.baidu.tieba.majorsearch.adapter.SearchMajorResultItemAdapter.a
-            public void Or(String str) {
+            public void Oq(String str) {
                 Intent intent = new Intent();
                 intent.putExtra(IntentConfig.SEARCH_MAJOR_NAME, str);
                 a.this.lgQ.Z(intent);
@@ -112,7 +112,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dgH() {
+    public void dgI() {
         if (this.lgQ != null) {
             if (j.isNetWorkAvailable()) {
                 if (this.esI != null) {
@@ -123,8 +123,8 @@ public class a {
             } else if (this.lhc != null) {
                 d(new ErrorData());
                 this.lgQ.getRefreshView().sP(R.drawable.new_pic_emotion_05);
-                this.lgQ.showNetRefreshViewNoClick(this.lhc.dgD(), null);
-                this.lgQ.getRefreshView().Eh(this.lgQ.getString(R.string.im_error_default));
+                this.lgQ.showNetRefreshViewNoClick(this.lhc.dgE(), null);
+                this.lgQ.getRefreshView().Eg(this.lgQ.getString(R.string.im_error_default));
             }
         }
     }
@@ -151,7 +151,7 @@ public class a {
         this.lhc.onChangeSkinType(i);
     }
 
-    public com.baidu.tieba.majorsearch.a dgI() {
+    public com.baidu.tieba.majorsearch.a dgJ() {
         return this.lhc;
     }
 }

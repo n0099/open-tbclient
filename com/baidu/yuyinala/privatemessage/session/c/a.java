@@ -48,8 +48,8 @@ public class a extends com.baidu.yuyinala.privatemessage.model.a {
             }
         } else if (i != 4) {
             this.pdP = true;
-            this.pdQ.a(new a.InterfaceC0951a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
-                @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0951a
+            this.pdQ.a(new a.InterfaceC0989a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.c.a.1
+                @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0989a
                 public void a(a.b<ChatSession> bVar2) {
                     a.this.pdP = false;
                     if (bVar2 != null) {

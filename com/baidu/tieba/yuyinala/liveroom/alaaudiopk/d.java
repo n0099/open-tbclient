@@ -2,12 +2,12 @@ package com.baidu.tieba.yuyinala.liveroom.alaaudiopk;
 /* loaded from: classes11.dex */
 public class d {
     public int activity_stage;
-    public int onA;
-    public String onB;
-    public a onC;
-    public int onD;
-    public int onE = 0;
-    public int onF = 500;
+    public String onA;
+    public a onB;
+    public int onC;
+    public int onD = 0;
+    public int onE = 500;
+    public int onx;
     public int ony;
     public int onz;
 
@@ -15,9 +15,9 @@ public class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f5631a;
+        public String f5632a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f5632b;
+        public String f5633b;
     }
 }

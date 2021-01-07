@@ -22,7 +22,7 @@ public class b {
     private int total_num;
     private String url;
 
-    public int boZ() {
+    public int bpa() {
         return this.aXp;
     }
 
@@ -30,11 +30,11 @@ public class b {
         return this.status;
     }
 
-    public int bpa() {
+    public int bpb() {
         return this.eNl;
     }
 
-    public int bpb() {
+    public int bpc() {
         return this.aUT;
     }
 
@@ -42,11 +42,11 @@ public class b {
         return this.url;
     }
 
-    public int bpc() {
+    public int bpd() {
         return this.total_num;
     }
 
-    public boolean bpd() {
+    public boolean bpe() {
         return this.eNo;
     }
 

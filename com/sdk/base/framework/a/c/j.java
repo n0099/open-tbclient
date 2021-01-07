@@ -6,10 +6,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 final class j implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private final AtomicInteger f13086a = new AtomicInteger(1);
+    private final AtomicInteger f13087a = new AtomicInteger(1);
 
     @Override // java.util.concurrent.ThreadFactory
     public final Thread newThread(Runnable runnable) {
-        return new Thread(runnable, "PriorityExecutor #" + this.f13086a.getAndIncrement());
+        return new Thread(runnable, "PriorityExecutor #" + this.f13087a.getAndIncrement());
     }
 }

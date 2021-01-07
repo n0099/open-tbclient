@@ -54,7 +54,7 @@ public class c extends WebChromeClient {
         }
 
         public boolean dP(String str, String str2) {
-            return !TextUtils.isEmpty(str2) && p.Bz(str) && str2.startsWith("ctieba://");
+            return !TextUtils.isEmpty(str2) && p.By(str) && str2.startsWith("ctieba://");
         }
 
         public String dQ(String str, String str2) {

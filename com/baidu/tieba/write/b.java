@@ -15,36 +15,36 @@ import tbclient.SimpleForum;
 public class b implements com.baidu.tieba.c.c {
     private c.a iIF;
     private int mPrivateThread;
-    private com.baidu.tieba.write.transmit.model.a nWQ;
-    private List<SimpleForum> nWR;
-    private boolean nWS;
+    private com.baidu.tieba.write.transmit.model.a nWP;
+    private List<SimpleForum> nWQ;
+    private boolean nWR;
     private ArrayList<TransmitForumData> grW = new ArrayList<>();
-    private a.InterfaceC0876a nWT = new a.InterfaceC0876a() { // from class: com.baidu.tieba.write.b.1
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0876a
+    private a.InterfaceC0914a nWS = new a.InterfaceC0914a() { // from class: com.baidu.tieba.write.b.1
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0914a
         public void onError() {
-            b.this.dXP();
+            b.this.dXQ();
         }
 
-        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0876a
+        @Override // com.baidu.tieba.write.transmit.model.a.InterfaceC0914a
         public void t(List<SimpleForum> list, int i) {
-            b.this.nWR = list;
+            b.this.nWQ = list;
             b.this.mPrivateThread = i;
-            b.this.cwi();
+            b.this.cwj();
         }
     };
 
     public b() {
         BdUniqueId gen = BdUniqueId.gen();
-        this.nWQ = new com.baidu.tieba.write.transmit.model.a(gen);
-        this.nWQ.a(this.nWT);
-        this.nWQ.setRequestId(gen);
+        this.nWP = new com.baidu.tieba.write.transmit.model.a(gen);
+        this.nWP.a(this.nWS);
+        this.nWP.setRequestId(gen);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwi() {
+    public void cwj() {
         this.grW.clear();
-        if (x.getCount(this.nWR) > 0) {
-            for (SimpleForum simpleForum : this.nWR) {
+        if (x.getCount(this.nWQ) > 0) {
+            for (SimpleForum simpleForum : this.nWQ) {
                 if (simpleForum != null && simpleForum.id != null && simpleForum.id.longValue() > 0 && !StringUtils.isNull(simpleForum.name)) {
                     TransmitForumData transmitForumData = new TransmitForumData(simpleForum.id.longValue(), simpleForum.name, false, 1, simpleForum.avatar);
                     transmitForumData.tabItemDatas = new ArrayList<>();
@@ -63,22 +63,22 @@ public class b implements com.baidu.tieba.c.c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXP() {
-        if (!this.nWS) {
+    public void dXQ() {
+        if (!this.nWR) {
             if (this.iIF != null) {
                 this.iIF.a(null, false, 2, 0);
             }
-            this.nWS = true;
+            this.nWR = true;
         }
     }
 
     @Override // com.baidu.tieba.c.c
-    public void cwb() {
-        if (this.iIF != null && this.nWQ != null) {
-            this.nWS = false;
-            this.nWQ.setThreadTitle(null);
-            this.nWQ.setThreadContent(null);
-            this.nWQ.loadData();
+    public void cwc() {
+        if (this.iIF != null && this.nWP != null) {
+            this.nWR = false;
+            this.nWP.setThreadTitle(null);
+            this.nWP.setThreadContent(null);
+            this.nWP.loadData();
         }
     }
 

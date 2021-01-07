@@ -53,7 +53,7 @@ public class a implements View.OnClickListener {
         this.hhs = (TextView) this.mRootView.findViewById(a.f.tvLevelUpTipLebel);
     }
 
-    private void caf() {
+    private void cag() {
         MessageManager.getInstance().registerListener(this.aYs);
     }
 
@@ -82,7 +82,7 @@ public class a implements View.OnClickListener {
             window.setBackgroundDrawableResource(17170445);
             window.setContentView(this.mRootView);
         }
-        caf();
+        cag();
     }
 
     public void dismiss() {

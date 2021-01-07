@@ -17,13 +17,13 @@ public interface c {
 
     void a(BigInteger bigInteger, JSONObject jSONObject);
 
-    void aia();
-
     void aib();
 
     void aic();
 
     void aid();
+
+    void aie();
 
     void b(BaiduRtcRoom.RtcLiveTransferMode rtcLiveTransferMode, String str);
 

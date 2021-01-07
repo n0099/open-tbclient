@@ -19,13 +19,13 @@ public class SettingTextImageView extends FrameLayout {
     private LinearLayout fAp;
     private ImageView fAu;
     private Context mContext;
-    private HeadImageView ndd;
+    private HeadImageView ndc;
     private TextView textView;
 
     public SettingTextImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bDf();
+        bDg();
         i(attributeSet);
         sk(TbadkCoreApplication.getInst().getSkinType());
     }
@@ -33,26 +33,26 @@ public class SettingTextImageView extends FrameLayout {
     public SettingTextImageView(Context context) {
         super(context);
         this.mContext = context;
-        bDf();
+        bDg();
         sk(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void sk(int i) {
         setBackgroundDrawable(ao.qe(R.color.CAM_X0205));
         ao.setViewTextColor(this.textView, R.color.CAM_X0105, 1);
-        SvgManager.bwq().a(this.fAu, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        this.ndd.invalidate();
-    }
-
-    public void dKd() {
-        if (this.ndd != null) {
-            this.ndd.setVisibility(8);
-        }
+        SvgManager.bwr().a(this.fAu, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        this.ndc.invalidate();
     }
 
     public void dKe() {
-        if (this.ndd != null) {
-            this.ndd.setVisibility(0);
+        if (this.ndc != null) {
+            this.ndc.setVisibility(8);
+        }
+    }
+
+    public void dKf() {
+        if (this.ndc != null) {
+            this.ndc.setVisibility(0);
         }
     }
 
@@ -62,20 +62,20 @@ public class SettingTextImageView extends FrameLayout {
 
     public void setIcon(String str, boolean z) {
         if (z) {
-            this.ndd.startLoad(str, 26, false);
+            this.ndc.startLoad(str, 26, false);
         } else {
-            this.ndd.startLoad(str, 12, false);
+            this.ndc.startLoad(str, 12, false);
         }
     }
 
     public void recycle() {
     }
 
-    private void bDf() {
+    private void bDg() {
         LayoutInflater.from(this.mContext).inflate(R.layout.setting_text_image_view, (ViewGroup) this, true);
         this.fAp = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
-        this.ndd = (HeadImageView) findViewById(R.id.icon);
+        this.ndc = (HeadImageView) findViewById(R.id.icon);
         this.fAu = (ImageView) findViewById(R.id.arrow);
     }
 

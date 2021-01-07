@@ -11,6 +11,6 @@ public class c extends BaseCardInfo {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return (this.eMv == null || this.eMv.brJ() == null || this.eMv.brJ().live_type != 1) ? gXe : gXf;
+        return (this.eMv == null || this.eMv.brK() == null || this.eMv.brK().live_type != 1) ? gXe : gXf;
     }
 }

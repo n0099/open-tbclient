@@ -21,8 +21,8 @@ public class HttpDnsResolver {
         if (!Aegon.isInitialized() || list == null) {
             return;
         }
-        Aegon.eDm();
-        com.kuaishou.aegon.a.a.b(com.kuaishou.aegon.httpdns.a.gQ(list));
+        Aegon.eDQ();
+        com.kuaishou.aegon.a.a.b(com.kuaishou.aegon.httpdns.a.gR(list));
     }
 
     public static native void nativeIncreasePriority(String[] strArr);
@@ -42,8 +42,8 @@ public class HttpDnsResolver {
 
     public static List<ResolvedIP> resolve(String str) {
         if (Aegon.isInitialized()) {
-            Aegon.eDm();
-            List<ResolvedIP> list = (List) com.kuaishou.aegon.a.a.a(b.ZW(str));
+            Aegon.eDQ();
+            List<ResolvedIP> list = (List) com.kuaishou.aegon.a.a.a(b.ZX(str));
             return list == null ? new ArrayList() : list;
         }
         return new ArrayList();
@@ -58,8 +58,8 @@ public class HttpDnsResolver {
 
     public static void updateConfig(String str) {
         if (Aegon.isInitialized()) {
-            Aegon.eDm();
-            com.kuaishou.aegon.a.a.b(c.ZX(str));
+            Aegon.eDQ();
+            com.kuaishou.aegon.a.a.b(c.ZY(str));
         }
     }
 }

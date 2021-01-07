@@ -6,6 +6,6 @@ class c {
     public com.baidu.p.a.a.c oPt;
 
     public c(Context context) {
-        this.oPt = new d(context).ejY();
+        this.oPt = new d(context).ejZ();
     }
 }

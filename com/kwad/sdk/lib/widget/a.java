@@ -6,17 +6,17 @@ import android.text.TextPaint;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f10730a = -1.0f;
+    private float f10731a = -1.0f;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f10731b = 10.0f;
+    private float f10732b = 10.0f;
     private float c = 1.0f;
     private float d = 0.0f;
     private float e = 1.0f;
 
     /* renamed from: com.kwad.sdk.lib.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1110a {
+    public interface InterfaceC1151a {
         CharSequence a();
 
         TextPaint b();

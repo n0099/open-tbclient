@@ -8,11 +8,11 @@ public class m extends com.kwad.sdk.core.network.d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(h.a aVar, long j) {
         JSONArray jSONArray = new JSONArray();
-        for (com.kwad.sdk.core.g.a.f fVar : aVar.f9560a) {
+        for (com.kwad.sdk.core.g.a.f fVar : aVar.f9561a) {
             com.kwad.sdk.utils.o.a(jSONArray, fVar.toJson());
         }
         a("impInfo", jSONArray);
-        a("contentInfo", aVar.f9561b);
+        a("contentInfo", aVar.f9562b);
         a(URLPackage.KEY_TREND_ID, j);
     }
 

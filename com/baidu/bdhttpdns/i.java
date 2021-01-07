@@ -34,7 +34,7 @@ public final class i {
     private static c afP;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f1632b = true;
+    private static boolean f1633b = true;
     private String d;
     private int o;
     private String c = "180.76.76.200";
@@ -63,7 +63,7 @@ public final class i {
         private String c;
 
         /* renamed from: a  reason: collision with root package name */
-        public boolean f1633a = false;
+        public boolean f1634a = false;
         private boolean f = false;
 
         public b(String str, d dVar, a aVar) {
@@ -178,7 +178,7 @@ public final class i {
                     }
                     Map a3 = i.this.a(a2, this.c, this.afQ);
                     if (a3.get("isSignExpired").equals(true)) {
-                        this.f1633a = true;
+                        this.f1634a = true;
                         if (httpsURLConnection != null) {
                             httpsURLConnection.disconnect();
                         }
@@ -250,7 +250,7 @@ public final class i {
         @Override // java.lang.Runnable
         public void run() {
             a();
-            if (this.f1633a) {
+            if (this.f1634a) {
                 l.a("Retry for %s(%s).", this.afQ.toString(), this.c);
                 a();
             }
@@ -293,16 +293,16 @@ public final class i {
     public class e {
 
         /* renamed from: b  reason: collision with root package name */
-        private final ArrayList<String> f1636b;
+        private final ArrayList<String> f1637b;
         private final long c;
 
         public e(ArrayList<String> arrayList, long j) {
-            this.f1636b = arrayList;
+            this.f1637b = arrayList;
             this.c = j;
         }
 
         public ArrayList<String> a() {
-            return this.f1636b;
+            return this.f1637b;
         }
 
         public long b() {
@@ -615,12 +615,12 @@ public final class i {
         this.m = com.baidu.bdhttpdns.e.f(str);
         if (this.m == null) {
             this.m = str;
-            f1632b = false;
+            f1633b = false;
         }
     }
 
     String e() {
-        return !f1632b ? this.m : com.baidu.bdhttpdns.e.g(this.m);
+        return !f1633b ? this.m : com.baidu.bdhttpdns.e.g(this.m);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

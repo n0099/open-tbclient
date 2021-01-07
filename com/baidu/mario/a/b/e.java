@@ -5,14 +5,14 @@ import android.media.MediaFormat;
 import android.media.MediaMuxer;
 import android.util.Log;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class e {
     private static final String TAG = e.class.getSimpleName();
     private f chy;
     private MediaMuxer cil;
     private volatile boolean cim = false;
 
-    public boolean adq() {
+    public boolean adr() {
         return this.cim;
     }
 
@@ -51,7 +51,7 @@ public class e {
         return i;
     }
 
-    public synchronized void adr() {
+    public synchronized void ads() {
         boolean z = true;
         synchronized (this) {
             try {
@@ -79,7 +79,7 @@ public class e {
         return false;
     }
 
-    public synchronized void ads() {
+    public synchronized void adt() {
         boolean z = false;
         synchronized (this) {
             try {
@@ -95,7 +95,7 @@ public class e {
         }
     }
 
-    public void adt() {
+    public void adu() {
         if (!this.cim) {
             this.cil.release();
             this.cil = null;

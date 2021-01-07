@@ -67,7 +67,7 @@ public class c extends a {
 
     @NonNull
     private Bitmap j(@NonNull Bitmap bitmap) {
-        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.aAr());
+        float density = 1.0f / ah.getDensity(com.baidu.swan.apps.t.a.aAs());
         Matrix matrix = new Matrix();
         matrix.postScale(density, density);
         return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);

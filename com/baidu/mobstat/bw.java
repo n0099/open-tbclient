@@ -46,10 +46,10 @@ import org.json.JSONObject;
 public class bw {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f3811a = null;
+    private static String f3812a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f3812b = null;
+    private static String f3813b = null;
     private static String c = null;
     private static final Pattern d = Pattern.compile("\\s*|\t|\r|\n");
 
@@ -590,7 +590,7 @@ public class bw {
 
     private static String y(Context context) {
         String str;
-        String str2 = f3811a;
+        String str2 = f3812a;
         if (str2 == null) {
             try {
                 List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -608,7 +608,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f3811a = str;
+            f3812a = str;
             return str;
         }
         return str2;
@@ -635,7 +635,7 @@ public class bw {
     }
 
     public static String u(Context context) {
-        String str = f3812b;
+        String str = f3813b;
         if (str == null) {
             String y = y(context);
             str = b(context, y);
@@ -645,7 +645,7 @@ public class bw {
             if (str == null) {
                 str = "";
             }
-            f3812b = str;
+            f3813b = str;
         }
         return str;
     }

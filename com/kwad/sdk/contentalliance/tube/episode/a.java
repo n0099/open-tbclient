@@ -23,10 +23,10 @@ import java.io.Serializable;
 public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private TubeEpisodeDetailParam f9248a;
+    private TubeEpisodeDetailParam f9249a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f9249b;
+    private ImageView f9250b;
     private SceneImpl c;
 
     public static void a(Context context, TubeEpisodeDetailParam tubeEpisodeDetailParam) {
@@ -41,28 +41,28 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
     private boolean a() {
         Serializable serializableExtra = getIntent().getSerializableExtra("KEY_TUBE_EPISODE_DETAIL_PARAM");
         if (serializableExtra instanceof TubeEpisodeDetailParam) {
-            this.f9248a = (TubeEpisodeDetailParam) serializableExtra;
-            this.c = new SceneImpl(this.f9248a.mEntryScene);
+            this.f9249a = (TubeEpisodeDetailParam) serializableExtra;
+            this.c = new SceneImpl(this.f9249a.mEntryScene);
             URLPackage uRLPackage = new URLPackage(String.valueOf(hashCode()), 5);
-            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f9248a.mTubeId);
+            uRLPackage.putParams(URLPackage.KEY_TUBE_ID, this.f9249a.mTubeId);
             this.c.setUrlPackage(uRLPackage);
         }
-        return (this.f9248a == null || this.f9248a.mEntryScene == 0) ? false : true;
+        return (this.f9249a == null || this.f9249a.mEntryScene == 0) ? false : true;
     }
 
     private void b() {
-        this.f9249b = (ImageView) findViewById(R.id.ksad_tube_episode_detail_back);
+        this.f9250b = (ImageView) findViewById(R.id.ksad_tube_episode_detail_back);
         if (d.a(getActivity())) {
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f9249b.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f9250b.getLayoutParams();
             marginLayoutParams.topMargin = ao.a((Context) getActivity());
-            this.f9249b.setLayoutParams(marginLayoutParams);
+            this.f9250b.setLayoutParams(marginLayoutParams);
         }
-        this.f9249b.setOnClickListener(this);
+        this.f9250b.setOnClickListener(this);
     }
 
     private void c() {
-        g a2 = g.a(new KsScene.Builder(this.f9248a.mEntryScene).build());
-        a2.getArguments().putSerializable("KEY_TUBE_EPISODE_DETAIL_PARAM", this.f9248a);
+        g a2 = g.a(new KsScene.Builder(this.f9249a.mEntryScene).build());
+        a2.getArguments().putSerializable("KEY_TUBE_EPISODE_DETAIL_PARAM", this.f9249a);
         getSupportFragmentManager().beginTransaction().replace(R.id.ksad_fragment_container, a2).commitAllowingStateLoss();
     }
 
@@ -74,7 +74,7 @@ public class a extends IFragmentActivityProxy implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (this.f9249b == view) {
+        if (this.f9250b == view) {
             e.d(this.c);
             onBackPressed();
         }

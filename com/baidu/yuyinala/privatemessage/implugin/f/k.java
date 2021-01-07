@@ -28,7 +28,7 @@ public class k {
         return oUI;
     }
 
-    public Map<Long, h> elr() {
+    public Map<Long, h> els() {
         return oUJ;
     }
 

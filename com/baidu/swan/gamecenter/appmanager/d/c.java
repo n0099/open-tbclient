@@ -23,11 +23,11 @@ public class c {
                 bVar.mValue = str3;
                 bVar.packageName = str;
                 bVar.mAppVersion = ak.getVersionName();
-                if (e.aMl() != null) {
-                    b.a aMo = e.aMl().aMo();
-                    bVar.mFrom = h.kX(aMo.getAppFrameType());
-                    bVar.mAppId = aMo.getAppId();
-                    bVar.mSource = aMo.aCv();
+                if (e.aMm() != null) {
+                    b.a aMp = e.aMm().aMp();
+                    bVar.mFrom = h.kX(aMp.getAppFrameType());
+                    bVar.mAppId = aMp.getAppId();
+                    bVar.mSource = aMp.aCw();
                 }
                 bVar.mErrorCode = str4;
                 h.a("1245", bVar);

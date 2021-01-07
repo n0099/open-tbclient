@@ -27,7 +27,7 @@ public class e {
                 com.baidu.tbadk.coreExtra.c.a.f(e.this.mContext);
                 TiebaStatic.log(new aq("c13705").an("obj_type", 1));
             } else if (view.getId() == e.this.ghE.getId()) {
-                com.baidu.tbadk.core.sharedPref.b.bvq().putLong("key_im_open_notification_close_time", System.currentTimeMillis());
+                com.baidu.tbadk.core.sharedPref.b.bvr().putLong("key_im_open_notification_close_time", System.currentTimeMillis());
                 if (e.this.kPX != null) {
                     e.this.kPX.onClose();
                 }
@@ -62,7 +62,7 @@ public class e {
 
     public void onChangeSkinType(int i) {
         ao.setBackgroundColor(this.mView, R.color.CAM_X0206);
-        SvgManager.bwq().a(this.ghE, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.ghE, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         ao.setViewTextColor(this.kPV, R.color.CAM_X0107);
     }
 

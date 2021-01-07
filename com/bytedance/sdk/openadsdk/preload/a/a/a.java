@@ -6,10 +6,10 @@ import java.util.List;
 public class a extends Exception {
 
     /* renamed from: a  reason: collision with root package name */
-    private List<Throwable> f7715a;
+    private List<Throwable> f7716a;
 
     public a(List<Throwable> list) {
-        this.f7715a = list;
+        this.f7716a = list;
         if (list != null && !list.isEmpty()) {
             ArrayList arrayList = new ArrayList();
             for (Throwable th : list) {

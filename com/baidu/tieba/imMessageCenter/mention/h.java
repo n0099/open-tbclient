@@ -11,23 +11,23 @@ public class h {
     private int chat = 0;
     private int kOs = 0;
 
-    public int dbe() {
+    public int dbf() {
         return this.kOp;
     }
 
-    public int dbf() {
+    public int dbg() {
         return this.kOq;
     }
 
-    public int dbg() {
+    public int dbh() {
         return this.kOr;
     }
 
-    public int dbh() {
+    public int dbi() {
         return this.fans;
     }
 
-    public int dbi() {
+    public int dbj() {
         return this.kOs;
     }
 

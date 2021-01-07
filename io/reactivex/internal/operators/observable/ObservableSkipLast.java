@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.observable;
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
 import java.util.ArrayDeque;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ObservableSkipLast<T> extends a<T, T> {
     final int skip;
 
@@ -12,7 +12,7 @@ public final class ObservableSkipLast<T> extends a<T, T> {
         this.source.subscribe(new SkipLastObserver(uVar, this.skip));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class SkipLastObserver<T> extends ArrayDeque<T> implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = -3807491841935125653L;
         final u<? super T> actual;

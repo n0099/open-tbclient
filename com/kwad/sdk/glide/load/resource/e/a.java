@@ -9,25 +9,25 @@ import java.io.ByteArrayOutputStream;
 public class a implements e<Bitmap, byte[]> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Bitmap.CompressFormat f10623a;
+    private final Bitmap.CompressFormat f10624a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f10624b;
+    private final int f10625b;
 
     public a() {
         this(Bitmap.CompressFormat.JPEG, 100);
     }
 
     public a(@NonNull Bitmap.CompressFormat compressFormat, int i) {
-        this.f10623a = compressFormat;
-        this.f10624b = i;
+        this.f10624a = compressFormat;
+        this.f10625b = i;
     }
 
     @Override // com.kwad.sdk.glide.load.resource.e.e
     @Nullable
     public s<byte[]> a(@NonNull s<Bitmap> sVar, @NonNull com.kwad.sdk.glide.load.e eVar) {
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-        sVar.e().compress(this.f10623a, this.f10624b, byteArrayOutputStream);
+        sVar.e().compress(this.f10624a, this.f10625b, byteArrayOutputStream);
         sVar.d_();
         return new com.kwad.sdk.glide.load.resource.a.b(byteArrayOutputStream.toByteArray());
     }

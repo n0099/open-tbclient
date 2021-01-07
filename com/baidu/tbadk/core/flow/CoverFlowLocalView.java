@@ -106,7 +106,7 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
                 this.eZs.setCurrentItem(0, false);
                 this.eZt.setPosition(0.0f);
                 if (this.eZA) {
-                    buI();
+                    buJ();
                     return;
                 }
                 return;
@@ -115,7 +115,7 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
             this.eZt.setCount(size);
             this.eZs.setCurrentItem(0, false);
             this.eZt.setPosition(0.0f);
-            buJ();
+            buK();
         }
     }
 
@@ -125,7 +125,7 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
             this.eZu = aVar.tI();
             this.eZu.g(this.eZt);
             aVar.tH().b(this.eZs);
-            this.mCustomView = aVar.buH();
+            this.mCustomView = aVar.buI();
             if (this.mCustomView != null) {
                 removeAllViews();
                 addView(this.eZs);
@@ -135,15 +135,15 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
         }
     }
 
-    public void buI() {
-        buK();
-    }
-
     public void buJ() {
-        this.eZx.removeMessages(1);
+        buL();
     }
 
     public void buK() {
+        this.eZx.removeMessages(1);
+    }
+
+    public void buL() {
         this.eZx.removeMessages(1);
         this.eZx.sendEmptyMessageDelayed(1, this.eZE);
     }
@@ -156,7 +156,7 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
 
     public void setMarqueenTime(long j) {
         this.eZE = j;
-        buK();
+        buL();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -171,7 +171,7 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    CoverFlowLocalView.this.buL();
+                    CoverFlowLocalView.this.buM();
                     return;
                 default:
                     return;
@@ -180,7 +180,7 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buL() {
+    public void buM() {
         int count;
         if (this.eZs != null && this.eZv != null && (count = this.eZv.getCount()) > 1) {
             int currentItem = this.eZs.getCurrentItem();
@@ -197,7 +197,7 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean buM() {
+    public boolean buN() {
         int count;
         if (this.eZv == null || !this.eZr || (count = this.eZv.getCount()) <= 1) {
             return false;
@@ -270,14 +270,14 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
                 switch (i) {
                     case 0:
                         if (CoverFlowLocalView.this.eZA) {
-                            CoverFlowLocalView.this.buN();
+                            CoverFlowLocalView.this.buO();
                             return;
                         }
                         return;
                     case 1:
                         if (!CoverFlowLocalView.this.eZz) {
-                            CoverFlowLocalView.this.buJ();
-                            CoverFlowLocalView.this.buM();
+                            CoverFlowLocalView.this.buK();
+                            CoverFlowLocalView.this.buN();
                             return;
                         }
                         return;
@@ -307,9 +307,9 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void buN() {
-        if (buM()) {
-            buK();
+    public void buO() {
+        if (buN()) {
+            buL();
         }
     }
 
@@ -331,7 +331,7 @@ public class CoverFlowLocalView<T extends com.baidu.tbadk.core.flow.a.a> extends
             int intValue;
             com.baidu.tbadk.core.flow.a.a pQ;
             if (CoverFlowLocalView.this.eZB != null && (view.getTag() instanceof Integer) && (pQ = CoverFlowLocalView.this.eZv.pQ((intValue = ((Integer) view.getTag()).intValue()))) != null) {
-                CoverFlowLocalView.this.eZB.e(intValue, pQ.bpm());
+                CoverFlowLocalView.this.eZB.e(intValue, pQ.bpn());
             }
         }
     }

@@ -2,11 +2,11 @@ package com.baidu.mapapi.cloud;
 
 import com.baidu.mobads.interfaces.IXAdRequestInfo;
 import com.baidu.webkit.internal.ETAG;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public abstract class BaseSearchInfo {
 
     /* renamed from: a  reason: collision with root package name */
-    String f2770a;
+    String f2771a;
     public String ak;
     public int geoTableId;
     public String sn;
@@ -14,7 +14,7 @@ public abstract class BaseSearchInfo {
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
         StringBuilder sb = new StringBuilder();
-        sb.append(this.f2770a);
+        sb.append(this.f2771a);
         sb.append("?");
         if (this.ak == null || this.ak.equals("") || this.ak.length() > 50) {
             return null;

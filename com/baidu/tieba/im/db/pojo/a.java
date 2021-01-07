@@ -24,11 +24,11 @@ public class a {
         this.unReadCount = i;
     }
 
-    public String cXK() {
+    public String cXL() {
         return this.groupHead;
     }
 
-    public void Nn(String str) {
+    public void Nm(String str) {
         this.groupHead = str;
     }
 
@@ -48,7 +48,7 @@ public class a {
         this.userType = i;
     }
 
-    public long cWL() {
+    public long cWM() {
         return this.dbH;
     }
 

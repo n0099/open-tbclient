@@ -87,7 +87,7 @@ public class TextureRenderView extends TextureView implements com.baidu.swan.vid
     @Override // android.view.View
     protected void onMeasure(int i, int i2) {
         this.eCQ.aF(i, i2);
-        setMeasuredDimension(this.eCQ.bjs(), this.eCQ.bjt());
+        setMeasuredDimension(this.eCQ.bjt(), this.eCQ.bju());
     }
 
     public void setCurrentMediaPlayerCode(int i) {
@@ -133,7 +133,7 @@ public class TextureRenderView extends TextureView implements com.baidu.swan.vid
         }
 
         @Override // com.baidu.swan.videoplayer.a.b
-        public com.baidu.swan.videoplayer.a bjr() {
+        public com.baidu.swan.videoplayer.a bjs() {
             return this.eCU;
         }
 

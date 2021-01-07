@@ -99,10 +99,10 @@ public class o extends h {
         a(1, new a.b() { // from class: com.baidu.card.o.2
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0090a c0090a) {
-                if (o.this.ahi != null && o.this.ahi.boO() != null && !o.this.td().booleanValue()) {
-                    com.baidu.tieba.card.m.Jo(o.this.ahi.boO().getId());
-                    com.baidu.tieba.card.m.a(o.this.ahV.mTitle, o.this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
-                    com.baidu.tieba.card.m.a(o.this.ahV.aia, o.this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                if (o.this.ahi != null && o.this.ahi.boP() != null && !o.this.td().booleanValue()) {
+                    com.baidu.tieba.card.m.Jn(o.this.ahi.boP().getId());
+                    com.baidu.tieba.card.m.a(o.this.ahV.mTitle, o.this.ahi.boP().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                    com.baidu.tieba.card.m.a(o.this.ahV.aia, o.this.ahi.boP().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 }
                 return false;
             }

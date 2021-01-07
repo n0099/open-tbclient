@@ -77,17 +77,17 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public View cKi() {
+    public View cKj() {
         return this.jvS;
     }
 
-    public void cKj() {
+    public void cKk() {
         if (this.jvS != null) {
             this.jvS.setVisibility(0);
         }
     }
 
-    public void cKk() {
+    public void cKl() {
         if (this.jvS != null) {
             this.jvS.setVisibility(8);
         }
@@ -100,19 +100,19 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
         }
     }
 
-    public void cKl() {
+    public void cKm() {
         if (this.jvP != null) {
             this.jvP.setData(this.mData);
         }
     }
 
-    public void cKm() {
+    public void cKn() {
         if (this.Yc != null) {
             this.Yc.setVisibility(0);
         }
     }
 
-    public void cKn() {
+    public void cKo() {
         if (this.Yc != null) {
             this.Yc.setVisibility(8);
         }
@@ -120,7 +120,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
 
     public void a(h hVar) {
         this.gDQ = hVar;
-        hVar.bGt().setOnClickListener(this);
+        hVar.bGu().setOnClickListener(this);
     }
 
     private void a(NavigationBar navigationBar) {
@@ -132,11 +132,11 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(this.jvT, this.jvT);
         layoutParams.rightMargin = this.jvU;
         this.jvO.setLayoutParams(layoutParams);
-        SvgManager.bwq().a(this.aiG, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        cKo();
+        SvgManager.bwr().a(this.aiG, R.drawable.icon_pure_topbar_more44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        cKp();
     }
 
-    private void cKo() {
+    private void cKp() {
         int i = -1;
         HashMap<String, Integer> baseSwitchs = SwitchManager.getInstance().getBaseSwitchs();
         if (baseSwitchs != null && baseSwitchs.containsKey("is_disable_forumrule_share")) {
@@ -167,7 +167,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
         this.jtU = null;
     }
 
-    public void Lf(String str) {
+    public void Le(String str) {
         if (this.jvQ != null && !StringUtils.isNull(str)) {
             this.jvQ.d(this.Yc);
             this.jvQ.setTitle(str);
@@ -180,21 +180,21 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
         }
     }
 
-    public void Lg(String str) {
+    public void Lf(String str) {
         if (this.jvR != null) {
             this.jvR.b(this.Yc);
-            this.jvR.La(str);
+            this.jvR.KZ(str);
         }
     }
 
-    public void cKp() {
+    public void cKq() {
         if (this.jvR != null) {
             this.jvR.c(this.Yc);
         }
     }
 
     public void addTitle(String str) {
-        Lf(str);
+        Le(str);
     }
 
     public void c(com.baidu.tieba.frs.forumRule.b.b bVar) {
@@ -211,7 +211,7 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
     }
 
     public void remove() {
-        cKp();
+        cKq();
         hideTitle();
     }
 
@@ -226,9 +226,9 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
                 int i = -1;
                 String str = "";
                 String str2 = "";
-                if (this.mForumRuleDetailData != null && this.mForumRuleDetailData.cJC() != null) {
-                    i = this.mForumRuleDetailData.cJC().forum_id.intValue();
-                    str2 = this.mForumRuleDetailData.cJC().forum_name;
+                if (this.mForumRuleDetailData != null && this.mForumRuleDetailData.cJD() != null) {
+                    i = this.mForumRuleDetailData.cJD().forum_id.intValue();
+                    str2 = this.mForumRuleDetailData.cJD().forum_name;
                 }
                 if (this.mForumRuleDetailData != null) {
                     str = this.mForumRuleDetailData.getTitle();
@@ -239,9 +239,9 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
                 shareItem.content = String.format(this.jtU.getResources().getString(R.string.forum_rules_share_text), str2);
                 shareItem.linkUrl = str3;
                 shareItem.fxA = false;
-                if (this.mForumRuleDetailData != null && !StringUtils.isNull(this.mForumRuleDetailData.cJC().avatar)) {
-                    shareItem.imageUri = Uri.parse(this.mForumRuleDetailData.cJC().avatar);
-                    shareItem.bCG();
+                if (this.mForumRuleDetailData != null && !StringUtils.isNull(this.mForumRuleDetailData.cJD().avatar)) {
+                    shareItem.imageUri = Uri.parse(this.mForumRuleDetailData.cJD().avatar);
+                    shareItem.bCH();
                 }
                 shareItem.fxu = str;
                 shareItem.fxv = str3;
@@ -257,8 +257,8 @@ public class c extends d<ForumRulesShowActivity> implements View.OnClickListener
                 this.jtU.sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, shareDialogConfig));
             } else if (view.getId() == R.id.navigationBarGoBack) {
                 this.jtU.finish();
-            } else if (this.gDQ != null && view.getId() == this.gDQ.bGt().getId()) {
-                this.jtU.cJy();
+            } else if (this.gDQ != null && view.getId() == this.gDQ.bGu().getId()) {
+                this.jtU.cJz();
             }
         }
     }

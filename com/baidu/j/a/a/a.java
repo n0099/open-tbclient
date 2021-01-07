@@ -3,7 +3,7 @@ package com.baidu.j.a.a;
 public interface a {
     void a(c cVar);
 
-    b abL();
+    b abM();
 
     boolean isLogin();
 

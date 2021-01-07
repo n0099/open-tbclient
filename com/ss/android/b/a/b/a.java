@@ -29,10 +29,10 @@ public class a {
     private long Q;
 
     /* renamed from: a  reason: collision with root package name */
-    public final AtomicBoolean f13219a;
+    public final AtomicBoolean f13220a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final AtomicBoolean f13220b;
+    public final AtomicBoolean f13221b;
     private long c;
     private long d;
     private String e;
@@ -66,8 +66,8 @@ public class a {
         this.v = 0;
         this.C = false;
         this.E = false;
-        this.f13219a = new AtomicBoolean(false);
-        this.f13220b = new AtomicBoolean(false);
+        this.f13220a = new AtomicBoolean(false);
+        this.f13221b = new AtomicBoolean(false);
         this.M = -1L;
     }
 
@@ -83,20 +83,20 @@ public class a {
         this.v = 0;
         this.C = false;
         this.E = false;
-        this.f13219a = new AtomicBoolean(false);
-        this.f13220b = new AtomicBoolean(false);
+        this.f13220a = new AtomicBoolean(false);
+        this.f13221b = new AtomicBoolean(false);
         this.M = -1L;
         this.c = cVar.d();
         this.d = cVar.g();
         this.e = cVar.u();
         this.g = cVar.v();
-        this.r = cVar.eET();
+        this.r = cVar.eFx();
         this.p = cVar.t();
         this.m = cVar.r();
         this.n = cVar.s();
         this.h = cVar.a();
-        if (cVar.eER() != null) {
-            this.i = cVar.eER().a();
+        if (cVar.eFv() != null) {
+            this.i = cVar.eFv().a();
         }
         this.j = cVar.A();
         this.o = cVar.h();
@@ -332,7 +332,7 @@ public class a {
         this.M = j;
     }
 
-    public long eFd() {
+    public long eFH() {
         return this.M;
     }
 
@@ -380,7 +380,7 @@ public class a {
         this.L = z;
     }
 
-    public long eFe() {
+    public long eFI() {
         return this.P;
     }
 
@@ -388,11 +388,11 @@ public class a {
         this.P = j;
     }
 
-    public long eFf() {
+    public long eFJ() {
         return this.Q;
     }
 
-    public void iU(long j) {
+    public void iX(long j) {
         this.Q = j;
     }
 
@@ -432,7 +432,7 @@ public class a {
         this.N = z;
     }
 
-    public JSONObject eFg() {
+    public JSONObject eFK() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("mId", this.c);
@@ -452,8 +452,8 @@ public class a {
             jSONObject.put("mEventRefer", this.G);
             jSONObject.put("mDownloadUrl", this.h);
             jSONObject.put("mEnableBackDialog", this.t);
-            jSONObject.put("hasSendInstallFinish", this.f13219a.get());
-            jSONObject.put("hasSendDownloadFailedFinally", this.f13220b.get());
+            jSONObject.put("hasSendInstallFinish", this.f13220a.get());
+            jSONObject.put("hasSendDownloadFailedFinally", this.f13221b.get());
             jSONObject.put("mLastFailedErrCode", this.A);
             jSONObject.put("mLastFailedErrMsg", this.B);
             jSONObject.put("mOpenUrl", this.i);
@@ -502,8 +502,8 @@ public class a {
             aVar.f(jSONObject.optString("mEventRefer"));
             aVar.g(jSONObject.optString("mDownloadUrl"));
             aVar.c(jSONObject.optBoolean("mEnableBackDialog"));
-            aVar.f13219a.set(jSONObject.optBoolean("hasSendInstallFinish"));
-            aVar.f13220b.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
+            aVar.f13220a.set(jSONObject.optBoolean("hasSendInstallFinish"));
+            aVar.f13221b.set(jSONObject.optBoolean("hasSendDownloadFailedFinally"));
             aVar.d(jSONObject.optInt("mLastFailedErrCode"));
             aVar.a(jSONObject.optString("mLastFailedErrMsg"));
             aVar.h(jSONObject.optString("mOpenUrl"));
@@ -518,7 +518,7 @@ public class a {
             aVar.c(com.ss.android.a.a.e.a.C(jSONObject, "mCancelInstallTime"));
             aVar.c(jSONObject.optInt("mLastFailedResumeCount"));
             aVar.j(jSONObject.optString("downloadFinishReason"));
-            aVar.iU(jSONObject.optLong("clickDownloadSize"));
+            aVar.iX(jSONObject.optLong("clickDownloadSize"));
             aVar.h(jSONObject.optLong("clickDownloadTime"));
             aVar.k(jSONObject.optString("mMimeType"));
             aVar.f(jSONObject.optBoolean("mIsUpdateDownload"));
@@ -535,19 +535,19 @@ public class a {
         return aVar;
     }
 
-    public com.ss.android.b.a.a.c eFh() {
-        c.a aaH = new c.a().iS(this.c).iT(this.d).aaD(this.e).aaE(this.g).fa(this.r).BD(this.p).RN(this.m).aaJ(this.n).aaG(this.h).RM(this.j).aaI(this.I).aaH(this.o);
+    public com.ss.android.b.a.a.c eFL() {
+        c.a aaI = new c.a().iV(this.c).iW(this.d).aaE(this.e).aaF(this.g).fa(this.r).BD(this.p).Sd(this.m).aaK(this.n).aaH(this.h).Sc(this.j).aaJ(this.I).aaI(this.o);
         if (!TextUtils.isEmpty(this.i)) {
-            aaH.a(new com.ss.android.a.a.d.b(this.i, null, null));
+            aaI.a(new com.ss.android.a.a.d.b(this.i, null, null));
         }
-        return aaH.eFc();
+        return aaI.eFG();
     }
 
-    public com.ss.android.b.a.a.b eFi() {
-        return new b.a().aas(this.F).aaA(this.G).BC(this.H).eFb();
+    public com.ss.android.b.a.a.b eFM() {
+        return new b.a().aat(this.F).aaB(this.G).BC(this.H).eFF();
     }
 
-    public com.ss.android.b.a.a.a eFj() {
-        return new a.C1190a().Bw(this.t).RJ(this.k).RK(this.l).eFa();
+    public com.ss.android.b.a.a.a eFN() {
+        return new a.C1231a().Bw(this.t).RZ(this.k).Sa(this.l).eFE();
     }
 }

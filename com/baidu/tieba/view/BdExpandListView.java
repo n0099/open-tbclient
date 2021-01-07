@@ -23,12 +23,12 @@ public class BdExpandListView extends BdTypeListView {
     private Handler mHandler;
     private int mOriginalHeight;
     private final Scroller mScroller;
-    private b nQZ;
-    public a nRa;
-    private long nRb;
-    private boolean nRc;
-    private Runnable nRd;
-    private int nRe;
+    private b nQY;
+    public a nQZ;
+    private long nRa;
+    private boolean nRb;
+    private Runnable nRc;
+    private int nRd;
     private float startY;
     private final int touchSlop;
 
@@ -42,17 +42,17 @@ public class BdExpandListView extends BdTypeListView {
     }
 
     public void setStarForum(boolean z) {
-        this.nRc = z;
+        this.nRb = z;
     }
 
     public BdExpandListView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.isExpanding = false;
-        this.nRb = 0L;
+        this.nRa = 0L;
         this.gdt = 0L;
         this.mHandler = new Handler();
-        this.nRc = false;
-        this.nRd = new Runnable() { // from class: com.baidu.tieba.view.BdExpandListView.1
+        this.nRb = false;
+        this.nRc = new Runnable() { // from class: com.baidu.tieba.view.BdExpandListView.1
             @Override // java.lang.Runnable
             public void run() {
                 if (BdExpandListView.this.mOriginalHeight > 0) {
@@ -61,7 +61,7 @@ public class BdExpandListView extends BdTypeListView {
                 }
             }
         };
-        this.nRe = 0;
+        this.nRd = 0;
         this.mContext = context;
         this.mScroller = new Scroller(this.mContext);
         this.touchSlop = ViewConfiguration.get(context).getScaledTouchSlop();
@@ -76,7 +76,7 @@ public class BdExpandListView extends BdTypeListView {
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        if (this.nRc) {
+        if (this.nRb) {
             return super.dispatchTouchEvent(motionEvent);
         }
         int action = motionEvent.getAction();
@@ -87,7 +87,7 @@ public class BdExpandListView extends BdTypeListView {
             this.currentY = motionEvent.getY();
             switch (action) {
                 case 0:
-                    this.nRb = System.currentTimeMillis() - this.gdt;
+                    this.nRa = System.currentTimeMillis() - this.gdt;
                     this.gdt = System.currentTimeMillis();
                     this.isExpanding = false;
                     setClickEventEnabled(true);
@@ -96,7 +96,7 @@ public class BdExpandListView extends BdTypeListView {
                     }
                     int height = this.mExpandView.getHeight();
                     this.startY = this.currentY;
-                    this.nQZ = new b(0, height, 0, this.expandDis + height);
+                    this.nQY = new b(0, height, 0, this.expandDis + height);
                     break;
                 case 1:
                 case 3:
@@ -104,26 +104,26 @@ public class BdExpandListView extends BdTypeListView {
                         setClickEventEnabled(false);
                         scrollCallback();
                         this.isExpanding = false;
-                    } else if (this.nRa != null) {
-                        this.nRa.onNotExpanding();
+                    } else if (this.nQZ != null) {
+                        this.nQZ.onNotExpanding();
                     }
-                    this.mHandler.removeCallbacks(this.nRd);
-                    this.mHandler.postDelayed(this.nRd, 200L);
+                    this.mHandler.removeCallbacks(this.nRc);
+                    this.mHandler.postDelayed(this.nRc, 200L);
                     break;
                 case 2:
                     float f = this.currentY - this.startY;
-                    if (this.mExpandView.getParent() == this && this.nQZ != null && this.mExpandView.isShown() && this.mExpandView.getTop() >= 0 && Math.abs(f) >= this.touchSlop && this.nRb > 400) {
-                        int scrollY = this.nQZ.getScrollY(this.currentY - this.startY);
-                        if (scrollY > this.nQZ.startY && scrollY <= this.nQZ.endY) {
+                    if (this.mExpandView.getParent() == this && this.nQY != null && this.mExpandView.isShown() && this.mExpandView.getTop() >= 0 && Math.abs(f) >= this.touchSlop && this.nRa > 400) {
+                        int scrollY = this.nQY.getScrollY(this.currentY - this.startY);
+                        if (scrollY > this.nQY.startY && scrollY <= this.nQY.endY) {
                             this.isExpanding = true;
                             setClickEventEnabled(false);
                             this.mExpandView.setLayoutParams(new AbsListView.LayoutParams(this.mExpandView.getWidth(), scrollY));
-                            controllTheStaticProgress(scrollY - this.nQZ.startY);
+                            controllTheStaticProgress(scrollY - this.nQY.startY);
                             break;
-                        } else if (scrollY <= this.nQZ.startY) {
+                        } else if (scrollY <= this.nQY.startY) {
                             this.isExpanding = false;
                             break;
-                        } else if (scrollY > this.nQZ.endY) {
+                        } else if (scrollY > this.nQY.endY) {
                             this.isExpanding = true;
                             setClickEventEnabled(false);
                             break;
@@ -165,30 +165,30 @@ public class BdExpandListView extends BdTypeListView {
     }
 
     public void scrollCallback() {
-        if (this.nQZ != null) {
-            if (this.mExpandView.getHeight() >= this.nQZ.endY - (this.expandDis / 2)) {
+        if (this.nQY != null) {
+            if (this.mExpandView.getHeight() >= this.nQY.endY - (this.expandDis / 2)) {
                 doRefresh();
-            } else if (this.nRa != null) {
-                this.nRa.onNotExpanding();
+            } else if (this.nQZ != null) {
+                this.nQZ.onNotExpanding();
             }
-            this.mScroller.startScroll(0, this.mExpandView.getHeight(), 0, this.nQZ.startY - this.mExpandView.getHeight(), 200);
+            this.mScroller.startScroll(0, this.mExpandView.getHeight(), 0, this.nQY.startY - this.mExpandView.getHeight(), 200);
             invalidate();
         }
     }
 
     public void doRefresh() {
-        if (this.nRa != null) {
-            this.nRa.onRefresh();
+        if (this.nQZ != null) {
+            this.nQZ.onRefresh();
         }
     }
 
     public void setPersonListRefreshListener(a aVar) {
-        this.nRa = aVar;
+        this.nQZ = aVar;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView
     public void startPullRefresh() {
-        if (this.nRc) {
+        if (this.nRb) {
             super.startPullRefresh();
             return;
         }
@@ -201,8 +201,8 @@ public class BdExpandListView extends BdTypeListView {
             this.mScroller.startScroll(0, getOriginalHeight() + this.expandDis, 0, -this.expandDis, 200);
             doRefresh();
             invalidate();
-            this.mHandler.removeCallbacks(this.nRd);
-            this.mHandler.postDelayed(this.nRd, 200L);
+            this.mHandler.removeCallbacks(this.nRc);
+            this.mHandler.postDelayed(this.nRc, 200L);
             this.isExpanding = false;
         }
     }
@@ -216,12 +216,12 @@ public class BdExpandListView extends BdTypeListView {
 
     @Override // android.view.View
     public void computeScroll() {
-        if (this.nRc) {
+        if (this.nRb) {
             super.computeScroll();
         } else if (this.mScroller.computeScrollOffset()) {
             int currY = this.mScroller.getCurrY();
-            if (Math.abs(this.nRe - currY) > this.touchSlop * 2) {
-                this.nRe = currY;
+            if (Math.abs(this.nRd - currY) > this.touchSlop * 2) {
+                this.nRd = currY;
                 this.mExpandView.setLayoutParams(new AbsListView.LayoutParams(this.mExpandView.getWidth(), currY));
             }
         } else {
@@ -232,8 +232,8 @@ public class BdExpandListView extends BdTypeListView {
 
     private void controllTheStaticProgress(float f) {
         float f2 = 360.0f - ((f * 360.0f) / this.expandDis);
-        if (this.nRa != null) {
-            this.nRa.onExpandingDegree(f2);
+        if (this.nQZ != null) {
+            this.nQZ.onExpandingDegree(f2);
         }
     }
 

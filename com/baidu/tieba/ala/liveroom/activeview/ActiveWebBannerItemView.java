@@ -67,11 +67,11 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
             public void jk(String str) {
                 if (!TextUtils.isEmpty(str) && ActiveWebBannerItemView.this.hpr != null) {
                     if (ActiveWebBannerItemView.this.aU(str, "fullscreen")) {
-                        ActiveWebBannerItemView.this.hpr.HX(str);
-                    } else if (ActiveWebBannerItemView.this.aU(str, UbcStatConstant.KEY_CONTENT_ROOM)) {
                         ActiveWebBannerItemView.this.hpr.HW(str);
+                    } else if (ActiveWebBannerItemView.this.aU(str, UbcStatConstant.KEY_CONTENT_ROOM)) {
+                        ActiveWebBannerItemView.this.hpr.HV(str);
                     } else {
-                        ActiveWebBannerItemView.this.hpr.HY(str);
+                        ActiveWebBannerItemView.this.hpr.HX(str);
                     }
                 }
             }
@@ -143,8 +143,8 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
             }
         }).a(getSchemeCallback()).b(this.bWS);
         this.bWH = new ArrayList();
-        com.baidu.live.view.web.a[] aae = gVar.aae();
-        for (com.baidu.live.view.web.a aVar : aae) {
+        com.baidu.live.view.web.a[] aaf = gVar.aaf();
+        for (com.baidu.live.view.web.a aVar : aaf) {
             this.bWH.add(aVar.getName());
             this.bWG.addJavascriptInterface(aVar, aVar.getName());
         }
@@ -156,7 +156,7 @@ public class ActiveWebBannerItemView extends FrameLayout implements c {
         }
     }
 
-    public boolean cbD() {
+    public boolean cbE() {
         return this.hmR;
     }
 

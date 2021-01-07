@@ -13,12 +13,12 @@ public abstract class a<T extends com.baidu.swan.apps.extcore.model.b.a> {
         this.ddH = t;
     }
 
-    public File axP() {
-        return this.ddH.ayb();
+    public File axQ() {
+        return this.ddH.ayc();
     }
 
     @NonNull
     public File cd(long j) {
-        return new File(axP(), String.valueOf(j));
+        return new File(axQ(), String.valueOf(j));
     }
 }

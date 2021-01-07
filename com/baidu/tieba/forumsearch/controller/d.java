@@ -52,7 +52,7 @@ public class d {
         this.jdh = aVar;
     }
 
-    public void KC(String str) {
+    public void KB(String str) {
         if (!StringUtils.isNull(str)) {
             if (!l.isNetOk()) {
                 this.mPageContext.showToast(R.string.neterror);

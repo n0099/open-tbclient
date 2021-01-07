@@ -26,7 +26,7 @@ import android.view.ViewParent;
 import android.view.animation.AccelerateDecelerateInterpolator;
 import android.widget.CompoundButton;
 import com.baidu.poly.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SwitchButton extends CompoundButton {
     private static int[] cpL = {16842912, 16842910, 16842919};
     private static int[] cpM = {-16842912, 16842910, 16842919};
@@ -86,14 +86,14 @@ public class SwitchButton extends CompoundButton {
     private CharSequence cqz;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a extends View.BaseSavedState {
         public static final Parcelable.Creator<a> CREATOR = new C0322a();
         CharSequence cqN;
         CharSequence cqO;
 
         /* renamed from: com.baidu.poly.widget.SwitchButton$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         static class C0322a implements Parcelable.Creator<a> {
             C0322a() {
             }
@@ -256,7 +256,7 @@ public class SwitchButton extends CompoundButton {
         }
     }
 
-    private void afO() {
+    private void afP() {
         ViewParent parent = getParent();
         if (parent != null) {
             parent.requestDisallowInterceptTouchEvent(true);
@@ -787,7 +787,7 @@ public class SwitchButton extends CompoundButton {
                                 return false;
                             }
                         } else {
-                            afO();
+                            afP();
                         }
                     }
                     this.cqv = x2;

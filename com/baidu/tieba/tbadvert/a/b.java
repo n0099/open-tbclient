@@ -9,7 +9,7 @@ public class b {
     public long endTime;
     public int id;
     public String linkUrl;
-    public String nwn;
+    public String nwm;
     public long showTime = IMConnection.RETRY_DELAY_TIMES;
     public int showType;
     public long startTime;
@@ -23,12 +23,12 @@ public class b {
             this.endTime = jSONObject.optLong("end_time", 0L);
             this.showType = jSONObject.optInt(RecordVideoActivityConfig.SHOW_TYPE, 0);
             this.eUv = jSONObject.optInt("show_status", 0);
-            this.nwn = jSONObject.optString("resource_url");
+            this.nwm = jSONObject.optString("resource_url");
             this.linkUrl = jSONObject.optString("link_url");
         }
     }
 
-    public boolean dRc() {
+    public boolean dRd() {
         return this.showType == 1;
     }
 

@@ -19,7 +19,7 @@ public class b {
         this.iFw = cVar;
     }
 
-    public com.baidu.tbadk.editortools.emotiontool.c cxk() {
+    public com.baidu.tbadk.editortools.emotiontool.c cxl() {
         return this.iFw;
     }
 
@@ -27,7 +27,7 @@ public class b {
         this.iFt = emotionGroupType;
     }
 
-    public EmotionGroupType cxl() {
+    public EmotionGroupType cxm() {
         return this.iFt;
     }
 
@@ -43,7 +43,7 @@ public class b {
         this.column = i;
     }
 
-    public int cxm() {
+    public int cxn() {
         return this.column;
     }
 
@@ -51,7 +51,7 @@ public class b {
         this.iFy = i;
     }
 
-    public int cxn() {
+    public int cxo() {
         return this.iFy;
     }
 
@@ -59,7 +59,7 @@ public class b {
         this.iFx = i;
     }
 
-    public int cxo() {
+    public int cxp() {
         return this.iFx;
     }
 
@@ -67,7 +67,7 @@ public class b {
         this.iFu = i;
     }
 
-    public int cxp() {
+    public int cxq() {
         return this.iFu;
     }
 
@@ -75,7 +75,7 @@ public class b {
         this.bOI = i;
     }
 
-    public int cxq() {
+    public int cxr() {
         return this.bOI;
     }
 
@@ -95,7 +95,7 @@ public class b {
         this.iFv = i;
     }
 
-    public int cxr() {
+    public int cxs() {
         return this.iFv;
     }
 }

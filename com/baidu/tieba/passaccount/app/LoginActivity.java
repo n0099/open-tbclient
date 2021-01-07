@@ -79,8 +79,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             LoginActivity.this.closeLoadingDialog();
             if (!TbadkCoreApplication.getInst().shouldNeedCheckUserNameDialog() || !TextUtils.isEmpty(accountData.getAccount())) {
                 LoginActivity.this.o(accountData);
-                if (d.bmy()) {
-                    c.bkT().bkU();
+                if (d.bmz()) {
+                    c.bkU().bkV();
                     return;
                 }
                 return;
@@ -111,13 +111,13 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         LoginActivityConfig.lastStartActivityTime = System.currentTimeMillis();
-        cyY();
-        dls();
+        cyZ();
         dlt();
+        dlu();
         TiebaStatic.log(new aq("c12947").dX(TiebaInitialize.Params.OBJ_URL, this.lCu));
     }
 
-    private void cyY() {
+    private void cyZ() {
         Intent intent = getIntent();
         this.mClose = intent.getBooleanExtra("close", false);
         this.lCv = intent.getIntExtra(LoginActivityConfig.JUMP_AFTER_DESTROY, -1);
@@ -128,7 +128,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         this.lCy = intent.getBooleanExtra(LoginActivityConfig.IS_FROM_AIAPP, false);
     }
 
-    protected void dls() {
+    protected void dlt() {
         try {
             SapiAccountManager.getInstance().getConfignation();
         } catch (Exception e) {
@@ -139,29 +139,29 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             confignation.setAgreeDangerousProtocol(true);
         }
         MessageManager.getInstance().runTask(CmdConfigCustom.CMD_INIT_RIM_SDK, (Class) null);
-        PassManagerStatic.dlE();
+        PassManagerStatic.dlF();
         SapiConfiguration confignation2 = SapiAccountManager.getInstance().getConfignation();
         if (confignation2 != null && confignation2.fastLoginFeatureList != null) {
             confignation2.fastLoginFeatureList.clear();
-            confignation2.fastLoginFeatureList.addAll(PassManagerStatic.dlC());
+            confignation2.fastLoginFeatureList.addAll(PassManagerStatic.dlD());
         }
-        dlw();
-        if (dlu()) {
+        dlx();
+        if (dlv()) {
             Gz(this.lCx);
         } else {
-            dfk();
+            dfl();
         }
     }
 
-    private void dlt() {
+    private void dlu() {
         sendMessage(new CustomMessage(2921438, TbadkCoreApplication.getInst().getApp()));
     }
 
-    private boolean dlu() {
+    private boolean dlv() {
         return this.lCx == 1 || this.lCx == 2 || this.lCx == 3;
     }
 
-    private void dfk() {
+    private void dfl() {
         PassportSDK passportSDK = PassportSDK.getInstance();
         WebLoginDTO webLoginDTO = new WebLoginDTO();
         webLoginDTO.finishActivityAfterSuc = false;
@@ -175,7 +175,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 LoginActivity.this.lCq = webAuthResult;
                 LoginActivity.this.lCr = webAuthResult.activity;
                 com.baidu.tbadk.core.d.a.a("account", -1L, 0, "login_pass_success", 0, "", new Object[0]);
-                LoginActivity.this.dlv();
+                LoginActivity.this.dlw();
                 LoginActivity.this.lCt = 0;
             }
 
@@ -218,7 +218,7 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
             public void onSuccess(WebAuthResult webAuthResult) {
                 LoginActivity.this.lCq = webAuthResult;
                 LoginActivity.this.lCr = webAuthResult.activity;
-                LoginActivity.this.dlv();
+                LoginActivity.this.dlw();
                 LoginActivity.this.lCt = 0;
             }
 
@@ -271,8 +271,8 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
         int intExtra = getIntent().getIntExtra("locate_type", -1);
         if (intExtra != -1) {
             i = intExtra;
-        } else if (com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(SharedPrefConfig.ACCOUNT_FIRST_LOGIN + TbadkCoreApplication.getCurrentAccount(), true)) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.ACCOUNT_FIRST_LOGIN + TbadkCoreApplication.getCurrentAccount(), false);
+        } else if (com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(SharedPrefConfig.ACCOUNT_FIRST_LOGIN + TbadkCoreApplication.getCurrentAccount(), true)) {
+            com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.ACCOUNT_FIRST_LOGIN + TbadkCoreApplication.getCurrentAccount(), false);
         }
         com.baidu.tbadk.core.e.b.d(this.lCr, i, false);
         if (this.lCq != null) {
@@ -288,14 +288,14 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dlv() {
+    public void dlw() {
         MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(true));
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             if (this.gis != null) {
                 this.gis.cancel();
             }
-            this.gis = a.bov().a(session.username, session.bduss, "", null, this.giO);
+            this.gis = a.bow().a(session.username, session.bduss, "", null, this.giO);
         }
     }
 
@@ -356,17 +356,17 @@ public class LoginActivity extends BaseActivity<LoginActivity> {
                 }
             });
         }
-        this.fso.bDb();
+        this.fso.bDc();
         this.fso.setAccountData(accountData);
-        this.fso.bCX();
+        this.fso.bCY();
     }
 
-    private boolean dlw() {
+    private boolean dlx() {
         if (!at.isEmpty(this.lCw)) {
-            String BN = n.BN(this.lCw);
-            if (!at.isEmpty(BN) && n.BL(BN)) {
+            String BM = n.BM(this.lCw);
+            if (!at.isEmpty(BM) && n.BK(BM)) {
                 if (SapiAccountManager.getInstance().getConfignation() != null) {
-                    SapiAccountManager.getInstance().getConfignation().skin = BN;
+                    SapiAccountManager.getInstance().getConfignation().skin = BM;
                 }
                 return true;
             }

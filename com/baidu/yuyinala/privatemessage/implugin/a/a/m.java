@@ -30,7 +30,7 @@ public class m extends d {
         this.oTr = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_audio);
         this.mContentView = this.mConvertView.findViewById(a.f.bd_im_chating_msg_content_layout);
         this.oTu = (ImageView) this.mConvertView.findViewById(a.f.bd_im_chating_msg_audio_status);
-        this.mtx = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.mtw = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
         this.oSo = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         if (true == z) {
             this.oTu.setVisibility(4);
@@ -87,9 +87,9 @@ public class m extends d {
         } else {
             this.oTu.setVisibility(0);
         }
-        eld();
+        ele();
     }
 
-    private void eld() {
+    private void ele() {
     }
 }

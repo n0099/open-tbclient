@@ -39,7 +39,7 @@ public class BdBaseImageView extends ImageView {
 
     @Override // android.view.View
     public void draw(Canvas canvas) {
-        if (aJW()) {
+        if (aJX()) {
             z.a(getContext(), getDrawable());
             this.don = z.dd(getContext());
             this.dxd = false;
@@ -49,18 +49,18 @@ public class BdBaseImageView extends ImageView {
 
     @Override // android.widget.ImageView
     public void setImageAlpha(int i) {
-        if (aJX()) {
+        if (aJY()) {
             z.a(getContext(), getDrawable(), i);
         } else {
             super.setImageAlpha(i);
         }
     }
 
-    private boolean aJW() {
+    private boolean aJX() {
         return this.dxd || this.don != z.dd(getContext());
     }
 
-    private boolean aJX() {
+    private boolean aJY() {
         return Color.alpha(z.dd(getContext())) != 0;
     }
 }

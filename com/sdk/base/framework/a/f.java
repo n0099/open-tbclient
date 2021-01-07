@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Void> implements com.sdk.base.framework.a.b.c {
 
     /* renamed from: b  reason: collision with root package name */
-    private static d f13095b = new d();
+    private static d f13096b = new d();
     private com.sdk.base.framework.b.b<T> d;
     private String e;
     private String f;
@@ -24,7 +24,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
     private j<T> p;
     private long q;
     private long c = d.a();
-    private g g = g.f13096a;
+    private g g = g.f13097a;
     private boolean i = true;
     private String k = null;
     private boolean l = false;
@@ -48,13 +48,13 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         try {
         } catch (Throwable th) {
             com.sdk.base.framework.f.g.a.b(th.toString());
-            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.f13078a);
+            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：" + th.toString(), this.f13079a);
             if (this.h > 0) {
                 this.h--;
                 kVar = a(hVar, httpURLConnection);
             }
         }
-        if (!d.b(this.e) || (a2 = f13095b.a(this.f)) == null) {
+        if (!d.b(this.e) || (a2 = f13096b.a(this.f)) == null) {
             if (this.m.booleanValue() && this.l) {
                 File file = new File(this.k);
                 long length = (file.isFile() && file.exists()) ? file.length() : 0L;
@@ -82,7 +82,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
             if (httpURLConnection != null) {
                 i = httpURLConnection.getResponseCode();
                 String str = "net请求host：" + httpURLConnection.getURL().getHost() + "\n net请求path：" + httpURLConnection.getURL().getPath() + "\n  net请求码：" + i;
-                Boolean bool = this.f13078a;
+                Boolean bool = this.f13079a;
                 if (str == null) {
                     str = "";
                 }
@@ -90,8 +90,8 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     Log.d("PriorityAsyncTask", str);
                 }
             }
-            if (this.f13078a.booleanValue()) {
-                com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "响应返回：code=" + i + ";耗时=" + (System.currentTimeMillis() - this.q), this.f13078a);
+            if (this.f13079a.booleanValue()) {
+                com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "响应返回：code=" + i + ";耗时=" + (System.currentTimeMillis() - this.q), this.f13079a);
             }
             if (i < 300) {
                 if (httpURLConnection != null) {
@@ -109,7 +109,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                         new com.sdk.base.framework.a.b.d();
                         obj = com.sdk.base.framework.a.b.d.a(httpURLConnection, this, "UTF-8");
                         if (d.b(this.e)) {
-                            f13095b.a(this.f, (String) obj, this.c);
+                            f13096b.a(this.f, (String) obj, this.c);
                         }
                     }
                 }
@@ -125,7 +125,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                     if (com.sdk.base.framework.a.a.c.b(headerField2).booleanValue()) {
                         if ("/ctcnet/gctcmc.do".equals(path)) {
                             com.sdk.base.framework.f.b.a.b(SDKManager.getContext(), "ctc", headerField2);
-                            com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "mdb Cookie cache", this.f13078a);
+                            com.sdk.base.framework.a.a.c.a("PriorityAsyncTask", "mdb Cookie cache", this.f13079a);
                         }
                         a2.setRequestProperty(SM.COOKIE, headerField2);
                     } else {
@@ -141,11 +141,11 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 }
             }
             com.sdk.base.framework.f.g.a.b("服务异常 ResponseCode = " + i);
-            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "服务异常 ResponseCode = " + i, this.f13078a);
+            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "服务异常 ResponseCode = " + i, this.f13079a);
             return new k<>(0, "服务端数据格式出错", false);
         } catch (Exception e) {
             com.sdk.base.framework.f.g.a.b(e.toString());
-            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e.toString(), this.f13078a);
+            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", e.toString(), this.f13079a);
             return new k<>(1, "网络访问异常", false);
         }
     }
@@ -226,7 +226,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
                 }
             } catch (Exception e) {
                 com.sdk.base.framework.f.g.a.b(e.toString());
-                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：\n" + e.toString(), this.f13078a);
+                com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", "网络访问异常：\n" + e.toString(), this.f13079a);
                 Object[] objArr2 = new Object[3];
                 objArr2[r2] = 3;
                 Integer valueOf = Integer.valueOf((int) CmdConfigSocket.CMD_SUBPB_FLOOR);
@@ -249,7 +249,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         try {
             a(true);
         } catch (Throwable th) {
-            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", th.getMessage(), this.f13078a);
+            com.sdk.base.framework.a.a.c.b("PriorityAsyncTask", th.getMessage(), this.f13079a);
         }
     }
 
@@ -261,7 +261,7 @@ public final class f<T> extends com.sdk.base.framework.a.c.c<Object, Object, Voi
         }
         switch (((Integer) objArr[0]).intValue()) {
             case 1:
-                this.g = g.f13097b;
+                this.g = g.f13098b;
                 return;
             case 2:
                 if (objArr.length == 3) {

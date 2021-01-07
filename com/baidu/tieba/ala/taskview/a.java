@@ -145,12 +145,12 @@ public class a implements com.baidu.live.ai.b {
         this.hgB.setImageAssetsFolder("images/");
         this.hgB.setVisibility(4);
         this.hgB.addAnimatorListener(this.ihE);
-        crR();
+        crS();
         MessageManager.getInstance().registerListener(this.iho);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crQ() {
+    public void crR() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913220));
     }
 
@@ -169,7 +169,7 @@ public class a implements com.baidu.live.ai.b {
         return this.otherParams;
     }
 
-    private void crR() {
+    private void crS() {
         this.ihy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.taskview.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -180,11 +180,11 @@ public class a implements com.baidu.live.ai.b {
                     alaStaticItem.addParams("other_params", a.this.NL());
                     AlaStaticsManager.getInst().onStatic(alaStaticItem);
                 }
-                a.this.crT();
+                a.this.crU();
                 if (!TbadkCoreApplication.isLogin()) {
                     ViewHelper.skipToLoginActivity(a.this.mContext);
                 } else {
-                    a.this.crQ();
+                    a.this.crR();
                 }
             }
         });
@@ -214,8 +214,8 @@ public class a implements com.baidu.live.ai.b {
                     if (this.gNK) {
                         this.ihy.setVisibility(0);
                         pd(true);
-                        crU();
-                        crS();
+                        crV();
+                        crT();
                         return;
                     }
                     pd(false);
@@ -230,16 +230,16 @@ public class a implements com.baidu.live.ai.b {
         pd(false);
     }
 
-    private void crS() {
+    private void crT() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1394, "display", "liveroom", "petal_show"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crT() {
+    public void crU() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_clk"));
     }
 
-    private void crU() {
+    private void crV() {
         if (TbConfig.FLOWER_GUIDE_STATUS == 1) {
             this.ihy.post(new Runnable() { // from class: com.baidu.tieba.ala.taskview.a.4
                 @Override // java.lang.Runnable

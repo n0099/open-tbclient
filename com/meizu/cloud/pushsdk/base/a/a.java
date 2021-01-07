@@ -5,10 +5,10 @@ import java.util.HashMap;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashMap<String, Class<?>> f11519a = new HashMap<>();
+    private static HashMap<String, Class<?>> f11520a = new HashMap<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private Class<?> f11520b;
+    private Class<?> f11521b;
     private String c;
     private Object d;
 
@@ -38,16 +38,16 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Class<?> a() throws ClassNotFoundException {
-        if (this.f11520b != null) {
-            return this.f11520b;
+        if (this.f11521b != null) {
+            return this.f11521b;
         }
         if (this.d != null) {
             return this.d.getClass();
         }
-        Class<?> cls = f11519a.get(this.c);
+        Class<?> cls = f11520a.get(this.c);
         if (cls == null) {
             Class<?> cls2 = Class.forName(this.c);
-            f11519a.put(this.c, cls2);
+            f11520a.put(this.c, cls2);
             return cls2;
         }
         return cls;

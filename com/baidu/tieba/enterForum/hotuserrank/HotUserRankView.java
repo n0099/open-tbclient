@@ -66,7 +66,7 @@ public class HotUserRankView {
                     HotUserRankView.this.iJr.showToast(R.string.load_error_retry);
                     return;
                 }
-                be.bwu().b(HotUserRankView.this.iJr.getPageContext(), new String[]{HotUserRankView.this.iJj});
+                be.bwv().b(HotUserRankView.this.iJr.getPageContext(), new String[]{HotUserRankView.this.iJj});
                 if (HotUserRankView.this.ghk.getVisibility() == 0) {
                     aq aqVar = new aq("c13658");
                     aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
@@ -87,8 +87,8 @@ public class HotUserRankView {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            if (HotUserRankView.this.gzV.get(i) != null && ((a) HotUserRankView.this.gzV.get(i)).iJE != null && ((a) HotUserRankView.this.gzV.get(i)).iJE.cza() != null) {
-                HotUserRankView.this.iJv.b(((a) HotUserRankView.this.gzV.get(i)).iJE.cza().getPageData());
+            if (HotUserRankView.this.gzV.get(i) != null && ((a) HotUserRankView.this.gzV.get(i)).iJE != null && ((a) HotUserRankView.this.gzV.get(i)).iJE.czb() != null) {
+                HotUserRankView.this.iJv.b(((a) HotUserRankView.this.gzV.get(i)).iJE.czb().getPageData());
                 aq aqVar = new aq("c13657");
                 aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
                 aqVar.dX("resource_id", ((a) HotUserRankView.this.gzV.get(i)).title);
@@ -239,7 +239,7 @@ public class HotUserRankView {
         ao.setBackgroundColor(this.ghk, R.color.CAM_X0207);
         ao.k(this.iJx, R.color.CAM_X0105, R.color.cp_cont_b_alpha50);
         this.iJv.onChangeSkinType(i);
-        Drawable a2 = SvgManager.bwq().a(R.drawable.svg_icon_pure_toast_complete24, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
+        Drawable a2 = SvgManager.bwr().a(R.drawable.svg_icon_pure_toast_complete24, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
         int dimens = l.getDimens(this.iJr, R.dimen.tbds63);
         int dimens2 = l.getDimens(this.iJr, R.dimen.tbds2);
         if (a2 != null) {
@@ -247,7 +247,7 @@ public class HotUserRankView {
             this.iJz.setCompoundDrawables(a2, null, null, null);
         }
         this.iJz.setCompoundDrawablePadding(l.getDimens(this.iJr, R.dimen.tbds9));
-        com.baidu.tbadk.core.util.f.a.bwT().qI(R.color.CAM_X0901).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.iJr, R.dimen.tbds21)).qG(0).qH(0).bz(this.iJy);
+        com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0901).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.iJr, R.dimen.tbds21)).qG(0).qH(0).bz(this.iJy);
         ao.setBackgroundResource(this.iJs, R.drawable.hot_user_rank_tab_cover_left);
         ao.setBackgroundResource(this.iJt, R.drawable.hot_user_rank_tab_cover_right);
         this.iJA.setVisibility(i != 0 ? 8 : 0);

@@ -15,7 +15,7 @@ public class b extends c<a> {
     private b() {
     }
 
-    public static b eot() {
+    public static b eou() {
         if (pdA == null) {
             synchronized (b.class) {
                 if (pdA == null) {

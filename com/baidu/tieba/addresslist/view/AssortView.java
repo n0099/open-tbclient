@@ -18,9 +18,9 @@ public class AssortView extends View {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void FF(String str);
+        void FE(String str);
 
-        void bPg();
+        void bPh();
     }
 
     public AssortView(Context context) {
@@ -81,13 +81,13 @@ public class AssortView extends View {
                 case 0:
                     this.mPosition = y;
                     if (this.gms != null) {
-                        this.gms.FF(c.fwQ[this.mPosition]);
+                        this.gms.FE(c.fwQ[this.mPosition]);
                         return true;
                     }
                     return true;
                 case 1:
                     if (this.gms != null) {
-                        this.gms.bPg();
+                        this.gms.bPh();
                     }
                     this.mPosition = -1;
                     return true;
@@ -95,7 +95,7 @@ public class AssortView extends View {
                     if (this.mPosition != y) {
                         this.mPosition = y;
                         if (this.gms != null) {
-                            this.gms.FF(c.fwQ[this.mPosition]);
+                            this.gms.FE(c.fwQ[this.mPosition]);
                             return true;
                         }
                         return true;
@@ -107,7 +107,7 @@ public class AssortView extends View {
         }
         this.mPosition = -1;
         if (this.gms != null) {
-            this.gms.bPg();
+            this.gms.bPh();
             return true;
         }
         return true;

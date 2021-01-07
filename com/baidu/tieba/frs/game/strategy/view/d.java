@@ -75,7 +75,7 @@ public class d {
         return this.mRootView;
     }
 
-    public NavigationBar bYq() {
+    public NavigationBar bYr() {
         return this.mNavigationBar;
     }
 
@@ -108,9 +108,9 @@ public class d {
         this.jxx.onDestory();
     }
 
-    public void bVE() {
+    public void bVF() {
         if (this.jxx != null) {
-            this.jxx.bVE();
+            this.jxx.bVF();
         }
     }
 }

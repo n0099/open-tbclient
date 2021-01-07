@@ -14,10 +14,10 @@ public class SelectForumStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(SelectForumConfig.class, SelectForumActivity.class);
-        bNX();
+        bNY();
     }
 
-    private static void bNX() {
+    private static void bNY() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_SELECT_FORUM_ATTENTION, TbConfig.SERVER_ADDRESS + Config.FORUM_LIKE_ADDRESS);
         tbHttpMessageTask.setResponsedClass(AttentionResMsg.class);
         tbHttpMessageTask.setIsNeedTbs(true);

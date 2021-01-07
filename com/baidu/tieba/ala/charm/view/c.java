@@ -49,7 +49,7 @@ public class c {
     public c(ALaCharmCardActivity aLaCharmCardActivity) {
         this.gPq = aLaCharmCardActivity;
         initView();
-        bXc();
+        bXd();
     }
 
     private void initView() {
@@ -67,7 +67,7 @@ public class c {
                     if (dVar instanceof com.baidu.tieba.ala.charm.a) {
                         com.baidu.tieba.ala.charm.a aVar = (com.baidu.tieba.ala.charm.a) dVar;
                         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
-                            String vI = com.baidu.tieba.ala.charm.g.vI(aVar.bWM());
+                            String vI = com.baidu.tieba.ala.charm.g.vI(aVar.bWN());
                             if (c.this.aLL) {
                                 alaStaticItem = new AlaStaticItem(SdkStaticKeys.ACCESS_MASTER_CHARMLIST);
                             } else {
@@ -77,7 +77,7 @@ public class c {
                             alaStaticItem.addParams(SdkStaticKeys.KEY_CHARM_TYPE, vI);
                             AlaStaticsManager.getInst().onStatic(alaStaticItem);
                         }
-                        aVar.bWL().bXb();
+                        aVar.bWM().bXc();
                     }
                 }
             }
@@ -93,7 +93,7 @@ public class c {
         return this.mRootView;
     }
 
-    private void bXc() {
+    private void bXd() {
         AlaStaticItem alaStaticItem;
         Intent intent = this.gPq.getIntent();
         String stringExtra = intent.getStringExtra("user_id");
@@ -108,13 +108,13 @@ public class c {
         String stringExtra9 = intent.getStringExtra("login_user_portrait");
         this.otherParams = intent.getStringExtra(IntentConfig.OTHER_PARAMS);
         this.gRg = new com.baidu.tieba.ala.charm.e(this.gPq);
-        this.gRg.Hb(stringExtra4).mT(this.aLL).Hc(stringExtra5).Hd(stringExtra6).He(stringExtra2).Hf(stringExtra7).createView();
+        this.gRg.Ha(stringExtra4).mT(this.aLL).Hb(stringExtra5).Hc(stringExtra6).Hd(stringExtra2).He(stringExtra7).createView();
         this.aHo.add(this.gRg);
         com.baidu.tieba.ala.charm.a aVar = new com.baidu.tieba.ala.charm.a(this.gPq, 3);
-        aVar.GW(stringExtra3).GT(stringExtra4).GR(stringExtra).mS(this.aLL).GU(stringExtra5).GS(stringExtra2).GV(stringExtra6).GX(stringExtra7).GY(stringExtra8).GZ(stringExtra9).Ha(this.otherParams).createView();
+        aVar.GV(stringExtra3).GS(stringExtra4).GQ(stringExtra).mS(this.aLL).GT(stringExtra5).GR(stringExtra2).GU(stringExtra6).GW(stringExtra7).GX(stringExtra8).GY(stringExtra9).GZ(this.otherParams).createView();
         this.aHo.add(aVar);
         com.baidu.tieba.ala.charm.a aVar2 = new com.baidu.tieba.ala.charm.a(this.gPq, 2);
-        aVar2.GW(stringExtra3).GT(stringExtra4).GR(stringExtra).mS(this.aLL).GU(stringExtra5).GS(stringExtra2).GV(stringExtra6).GX(stringExtra7).GY(stringExtra8).GZ(stringExtra9).Ha(this.otherParams).createView();
+        aVar2.GV(stringExtra3).GS(stringExtra4).GQ(stringExtra).mS(this.aLL).GT(stringExtra5).GR(stringExtra2).GU(stringExtra6).GW(stringExtra7).GX(stringExtra8).GY(stringExtra9).GZ(this.otherParams).createView();
         this.aHo.add(aVar2);
         this.aHr.setData(this.aHo);
         if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
@@ -128,7 +128,7 @@ public class c {
             AlaStaticsManager.getInst().onStatic(alaStaticItem);
         }
         if (this.aHo != null && this.aHo.size() > 0 && (this.aHo.get(0) instanceof com.baidu.tieba.ala.charm.a)) {
-            ((com.baidu.tieba.ala.charm.a) this.aHo.get(0)).bWL().bXb();
+            ((com.baidu.tieba.ala.charm.a) this.aHo.get(0)).bWM().bXc();
         }
     }
 

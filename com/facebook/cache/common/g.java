@@ -1,7 +1,7 @@
 package com.facebook.cache.common;
 
 import android.net.Uri;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class g implements b {
     final String mKey;
 
@@ -23,6 +23,7 @@ public class g implements b {
         return false;
     }
 
+    @Override // com.facebook.cache.common.b
     public int hashCode() {
         return this.mKey.hashCode();
     }
@@ -33,7 +34,7 @@ public class g implements b {
     }
 
     @Override // com.facebook.cache.common.b
-    public String etj() {
+    public String etn() {
         return this.mKey;
     }
 }

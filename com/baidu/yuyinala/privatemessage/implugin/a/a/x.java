@@ -69,6 +69,6 @@ public class x extends e {
         if (TextUtils.isEmpty(covers)) {
             covers = signleGraphicTextMsg.getCover();
         }
-        ImageLoader.getInstance().displayImage(covers, this.jNe, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
+        ImageLoader.getInstance().displayImage(covers, this.jNe, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
     }
 }

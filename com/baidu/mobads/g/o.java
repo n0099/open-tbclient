@@ -12,10 +12,10 @@ import java.util.Observer;
 public class o implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3381a;
+    private Context f3382a;
 
     /* renamed from: b  reason: collision with root package name */
-    private URL f3382b;
+    private URL f3383b;
     private String c;
     private final e d;
     private a e;
@@ -30,16 +30,16 @@ public class o implements Observer {
     }
 
     public o(Context context, URL url, e eVar, a aVar) {
-        this.f3382b = null;
+        this.f3383b = null;
         this.c = null;
         this.g = new p(this);
-        this.f3382b = url;
+        this.f3383b = url;
         this.d = eVar;
         a(context, aVar);
     }
 
     public o(Context context, String str, e eVar, a aVar) {
-        this.f3382b = null;
+        this.f3383b = null;
         this.c = null;
         this.g = new p(this);
         this.c = str;
@@ -48,14 +48,14 @@ public class o implements Observer {
     }
 
     private void a(Context context, a aVar) {
-        this.f3381a = context;
+        this.f3382a = context;
         this.e = aVar;
-        this.f = this.f3381a.getSharedPreferences("__xadsdk_downloaded__version__", 0);
+        this.f = this.f3382a.getSharedPreferences("__xadsdk_downloaded__version__", 0);
         this.f.registerOnSharedPreferenceChangeListener(this.g);
     }
 
     public void a(String str, String str2) {
-        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f3381a).createSimpleFileDownloader(this.c != null ? new URL(this.c) : this.f3382b, str, str2, false);
+        IOAdDownloader createSimpleFileDownloader = XAdSDKFoundationFacade.getInstance().getDownloaderManager(this.f3382a).createSimpleFileDownloader(this.c != null ? new URL(this.c) : this.f3383b, str, str2, false);
         createSimpleFileDownloader.addObserver(this);
         createSimpleFileDownloader.start();
         SharedPreferences.Editor edit = this.f.edit();

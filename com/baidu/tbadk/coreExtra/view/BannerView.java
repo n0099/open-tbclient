@@ -40,9 +40,9 @@ public class BannerView extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bCP();
-
         void bCQ();
+
+        void bCR();
     }
 
     public void setBannerType(String str) {
@@ -78,7 +78,7 @@ public class BannerView extends RelativeLayout {
                     BannerView.this.mIsClose = true;
                     BannerView.this.setVisibility(8);
                     if (BannerView.this.fyx != null) {
-                        BannerView.this.fyx.bCQ();
+                        BannerView.this.fyx.bCR();
                         return;
                     }
                     return;
@@ -88,7 +88,7 @@ public class BannerView extends RelativeLayout {
                 }
                 if (BannerView.this.fyx == null) {
                     if (!TextUtils.isEmpty(BannerView.this.link)) {
-                        be.bwu().b(BannerView.this.eXu, new String[]{BannerView.this.link});
+                        be.bwv().b(BannerView.this.eXu, new String[]{BannerView.this.link});
                         if (!BannerView.this.link.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) || !"frs_banner".equals(BannerView.this.type)) {
                             if (BannerView.this.link.startsWith(UrlSchemaHelper.SCHEMA_TYPE_GAME_DETAIL) && "enterforum_banner".equals(BannerView.this.type)) {
                                 TiebaStatic.eventStat(BannerView.this.eXu.getPageActivity(), "enterforum_banner", "click", 1, "ref_id", TbadkCoreStatisticKey.REF_TYPE_MAINTAB_AD, "ref_type", "603");
@@ -101,7 +101,7 @@ public class BannerView extends RelativeLayout {
                     }
                     return;
                 }
-                BannerView.this.fyx.bCP();
+                BannerView.this.fyx.bCQ();
             }
         };
         init(context);
@@ -169,7 +169,7 @@ public class BannerView extends RelativeLayout {
         this.fyt.setBackgroundColor(i);
     }
 
-    public boolean bCN() {
+    public boolean bCO() {
         return this.fyv;
     }
 
@@ -182,7 +182,7 @@ public class BannerView extends RelativeLayout {
         this.fyv = false;
     }
 
-    public void bCO() {
+    public void bCP() {
         this.fyr.postInvalidate();
     }
 }

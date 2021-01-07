@@ -17,12 +17,12 @@ public class a implements j {
     };
 
     @Override // com.baidu.swan.apps.adaptation.b.j
-    public i amA() {
-        return com.baidu.swan.apps.core.container.a.a.aru();
+    public i amB() {
+        return com.baidu.swan.apps.core.container.a.a.arv();
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.j
-    public h amB() {
+    public h amC() {
         return this.cFF;
     }
 }

@@ -10,7 +10,7 @@ import com.fun.ad.sdk.FunAdSdk;
 public final class d {
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f8075b = false;
+    public static boolean f8076b = false;
     public static boolean c = false;
     public static boolean d = false;
     public static boolean e = false;
@@ -18,7 +18,7 @@ public final class d {
     public static boolean g;
     public static boolean h;
     public static long i;
-    public static b pHm = new a();
+    public static b pIU = new a();
 
     /* loaded from: classes15.dex */
     public static class a implements b {
@@ -123,14 +123,14 @@ public final class d {
             case 2:
                 return g.d;
             case 3:
-                return g.f8079b;
+                return g.f8080b;
             default:
                 return null;
         }
     }
 
     public static void a(FunAdConfig funAdConfig) {
-        f8075b = funAdConfig.isVideoSoundEnable();
+        f8076b = funAdConfig.isVideoSoundEnable();
         c = funAdConfig.isVideoDataFlowAutoStart();
         d = funAdConfig.isReportAdMaterials();
         e = funAdConfig.isLogEnabled();

@@ -97,7 +97,7 @@ public class MainBottomLiveTabFragment extends BaseFragment {
             Fragment item = this.gzU.getItem(0);
             if (item instanceof AlaLiveTabFragment) {
                 AlaLiveTabFragment alaLiveTabFragment = (AlaLiveTabFragment) item;
-                if (alaLiveTabFragment.bUG()) {
+                if (alaLiveTabFragment.bUH()) {
                     alaLiveTabFragment.setUserVisibleHint(true);
                 }
             }

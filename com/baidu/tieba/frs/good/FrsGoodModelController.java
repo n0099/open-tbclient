@@ -59,7 +59,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cLD() {
+    public void cLE() {
         this.jCI.cancelLoadData();
     }
 
@@ -97,7 +97,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         bundle.putBoolean(FrsActivityConfig.GOOD, true);
     }
 
-    public boolean cLE() {
+    public boolean cLF() {
         FrsRequestData frsRequestData = (FrsRequestData) FrsRequestData.objectWithJson(FrsRequestData.jsonWithObject(this.jCJ), FrsRequestData.class);
         frsRequestData.setPn(1);
         a(frsRequestData, 3);
@@ -125,7 +125,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
             int equipmentWidth = l.getEquipmentWidth(this.jCH.getPageContext().getPageActivity());
             int equipmentHeight = l.getEquipmentHeight(this.jCH.getPageContext().getPageActivity());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
-            int i2 = au.bwr().bws() ? 2 : 1;
+            int i2 = au.bws().bwt() ? 2 : 1;
             frsRequestData.setScrW(equipmentWidth);
             frsRequestData.setScrH(equipmentHeight);
             frsRequestData.setScrDip(f);
@@ -145,7 +145,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
             }
             frsRequestData.setUpdateType(this.mType);
             frsRequestData.setNeedCache(false);
-            cLG();
+            cLH();
         }
     }
 
@@ -157,7 +157,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
                 this.jCJ = frsRequestData;
                 this.mPn = this.jCJ.getPn();
                 this.jfa = this.jCJ.getKw();
-                this.jCH.Lv(this.jfa);
+                this.jCH.Lu(this.jfa);
                 this.jCH.setFrom(this.mFrom);
                 this.jCH.setPn(this.mPn);
                 this.jCH.setFlag(this.mFlag);
@@ -178,7 +178,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
             fVar.isSuccess = !mvcSocketResponsedMessage.hasError();
             fVar.errorCode = mvcSocketResponsedMessage.getError();
             fVar.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            fVar.npe = mvcSocketResponsedMessage.getDownSize();
+            fVar.npd = mvcSocketResponsedMessage.getDownSize();
             this.jCK = fVar;
             FrsRequestData frsRequestData2 = null;
             m data = mvcSocketResponsedMessage.getData();
@@ -223,7 +223,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
             fVar.isSuccess = !mvcHttpResponsedMessage.hasError();
             fVar.errorCode = mvcHttpResponsedMessage.getError();
             fVar.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            fVar.npe = mvcHttpResponsedMessage.getDownSize();
+            fVar.npd = mvcHttpResponsedMessage.getDownSize();
             this.jCK = fVar;
             FrsRequestData frsRequestData2 = null;
             m data = mvcHttpResponsedMessage.getData();
@@ -257,7 +257,7 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         }
     }
 
-    public void cFy() {
+    public void cFz() {
         if (this.jeH != null && this.jeH.getForum() != null && this.jeH.getForum().getBannerListData() != null) {
             String lastIds = this.jeH.getForum().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
@@ -270,28 +270,28 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
         return this.mType;
     }
 
-    public FrsViewData cLF() {
+    public FrsViewData cLG() {
         return this.jeH;
     }
 
-    private void cLG() {
+    private void cLH() {
         this.iKz = System.currentTimeMillis();
         this.jCI.loadData();
     }
 
-    public long czf() {
+    public long czg() {
         return this.iKC;
     }
 
-    public long czg() {
+    public long czh() {
         return this.iKA;
     }
 
-    public long czh() {
+    public long czi() {
         return this.iKB;
     }
 
-    public long czi() {
+    public long czj() {
         return this.iKz;
     }
 
@@ -301,10 +301,10 @@ public class FrsGoodModelController extends BdBaseModel implements NetModel.b<Fr
 
     public void loadData(int i) {
         this.jCM = i;
-        cLE();
+        cLF();
     }
 
-    public boolean cLH() {
+    public boolean cLI() {
         return this.jCM < 100;
     }
 

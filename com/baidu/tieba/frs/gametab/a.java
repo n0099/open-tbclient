@@ -13,7 +13,7 @@ public class a {
         return this.tabId;
     }
 
-    public boolean cLe() {
+    public boolean cLf() {
         return 1 == this.jAR;
     }
 }

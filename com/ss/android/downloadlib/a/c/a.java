@@ -11,20 +11,20 @@ import java.io.File;
 public class a implements af {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13243a;
+    private int f13244a;
 
     public void a(int i) {
-        this.f13243a = i;
+        this.f13244a = i;
     }
 
     @Override // com.ss.android.socialbase.downloader.d.af
     public boolean a(long j, long j2, ae aeVar) {
-        com.ss.android.socialbase.downloader.k.a SR = com.ss.android.socialbase.downloader.k.a.SR(this.f13243a);
-        if (!a(SR)) {
+        com.ss.android.socialbase.downloader.k.a Th = com.ss.android.socialbase.downloader.k.a.Th(this.f13244a);
+        if (!a(Th)) {
             return false;
         }
         long currentTimeMillis = System.currentTimeMillis();
-        d.eFu().c();
+        d.eFY().c();
         File externalStorageDirectory = Environment.getExternalStorageDirectory();
         long a2 = a(externalStorageDirectory.toString());
         a();
@@ -32,7 +32,7 @@ public class a implements af {
         long currentTimeMillis2 = System.currentTimeMillis() - currentTimeMillis;
         long j3 = 0;
         if (a3 < j2) {
-            j3 = b(SR);
+            j3 = b(Th);
             if (j3 > 0) {
                 a3 = a(externalStorageDirectory.toString());
             }
@@ -52,13 +52,13 @@ public class a implements af {
         if (aVar.a("clear_space_use_disk_handler", 0) != 1) {
             return false;
         }
-        return System.currentTimeMillis() - d.eFu().b() >= aVar.a("clear_space_min_time_interval", 600000L);
+        return System.currentTimeMillis() - d.eFY().b() >= aVar.a("clear_space_min_time_interval", 600000L);
     }
 
     private void a() {
-        com.ss.android.a.a.a.e eFM = j.eFM();
-        if (eFM != null) {
-            eFM.a();
+        com.ss.android.a.a.a.e eGq = j.eGq();
+        if (eGq != null) {
+            eGq.a();
         }
         c.a();
         c.b();
@@ -81,14 +81,14 @@ public class a implements af {
     }
 
     private void a(long j, long j2, long j3, long j4, long j5) {
-        com.ss.android.socialbase.downloader.g.c h = f.iA(j.a()).h(this.f13243a);
+        com.ss.android.socialbase.downloader.g.c h = f.iA(j.a()).h(this.f13244a);
         if (h != null) {
             boolean z = false;
             if (j2 > j3) {
                 z = true;
             }
             try {
-                com.ss.android.downloadlib.b.eFk().a(h, j, j2, j3, j4, j5, z);
+                com.ss.android.downloadlib.b.eFO().a(h, j, j2, j3, j4, j5, z);
             } catch (Exception e) {
                 e.printStackTrace();
             }

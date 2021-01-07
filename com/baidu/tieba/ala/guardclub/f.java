@@ -253,7 +253,7 @@ public class f implements View.OnClickListener {
     private void initView() {
         String str;
         this.mRootView = LayoutInflater.from(this.activity).inflate(a.g.view_guardclub_info, (ViewGroup) null);
-        bVU();
+        bVV();
         Is();
         this.gZV.setOnClickListener(this);
         WindowManager windowManager = (WindowManager) this.activity.getSystemService("window");
@@ -359,7 +359,7 @@ public class f implements View.OnClickListener {
 
             @Override // android.text.TextWatcher
             public void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-                f.this.bYH();
+                f.this.bYI();
             }
 
             @Override // android.text.TextWatcher
@@ -369,7 +369,7 @@ public class f implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bYH() {
+    public void bYI() {
         if (this.han != null) {
             if (TextUtils.isEmpty(this.ham.getText())) {
                 this.han.setEnabled(false);
@@ -386,7 +386,7 @@ public class f implements View.OnClickListener {
         }
     }
 
-    private void bVU() {
+    private void bVV() {
         this.gZW = (LinearLayout) this.mRootView.findViewById(a.f.layout_guard_club_info);
         this.gZV = this.mRootView.findViewById(a.f.space_view);
         this.gZN = this.mRootView.findViewById(a.f.layout_guard_info);
@@ -651,7 +651,7 @@ public class f implements View.OnClickListener {
         }
     }
 
-    public void bYI() {
+    public void bYJ() {
         this.gZX.setVisibility(8);
         this.hac.setVisibility(8);
         this.hap.reset();
@@ -788,12 +788,12 @@ public class f implements View.OnClickListener {
                 UtilHelper.showToast(this.activity, "真爱团名每个月只能修改1次哦");
             }
             if (this.bkF != null && this.bkF.bkB == 1) {
-                bYJ();
+                bYK();
             }
         }
     }
 
-    public void HD(String str) {
+    public void HC(String str) {
         if (!TextUtils.isEmpty(str)) {
             this.hab.aGM.setText(str);
             UtilHelper.showToast(this.activity, "修改成功");
@@ -816,13 +816,13 @@ public class f implements View.OnClickListener {
     public void k(int i, String str, String str2) {
         com.baidu.tieba.ala.guardclub.model.c cVar = new com.baidu.tieba.ala.guardclub.model.c();
         cVar.fk(i);
-        cVar.HE(str);
-        cVar.HF(str2);
+        cVar.HD(str);
+        cVar.HE(str2);
         cVar.setParams();
         MessageManager.getInstance().sendMessage(cVar);
     }
 
-    public void bYJ() {
+    public void bYK() {
         this.gZS = (TextView) this.gZR.findViewById(a.f.rename_club_name);
         this.hav.setEnabled(false);
         this.hav.setTextColor(this.gZM.getResources().getColor(a.c.sdk_black_alpha40));

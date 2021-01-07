@@ -3,25 +3,25 @@ package com.qq.e.comm.plugin.util;
 import android.os.SystemClock;
 import com.qq.e.comm.managers.GDTADManager;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class aw {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f12865a;
+    private final int f12866a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f12866b;
+    private final int f12867b;
     private int c;
     private int d;
     private long e = -1;
     private final String f;
 
     public aw(int i, int i2, String str) {
-        this.f12865a = i;
-        this.f12866b = i2;
+        this.f12866a = i;
+        this.f12867b = i2;
         this.f = str;
-        this.c = this.f12865a;
-        this.d = this.f12865a;
+        this.c = this.f12866a;
+        this.d = this.f12866a;
     }
 
     public int a() {
@@ -33,10 +33,10 @@ public final class aw {
             this.e = SystemClock.elapsedRealtime();
             return false;
         }
-        int integer = GDTADManager.getInstance().getSM().getInteger(this.f, this.f12865a);
+        int integer = GDTADManager.getInstance().getSM().getInteger(this.f, this.f12866a);
         if (integer != this.c) {
-            if (integer < this.f12866b) {
-                integer = this.f12866b;
+            if (integer < this.f12867b) {
+                integer = this.f12867b;
             }
             GDTLogger.d("throttling new value:" + integer + " old:" + this.c);
             this.e = SystemClock.elapsedRealtime();

@@ -23,12 +23,12 @@ public class c {
 
     public static HttpUrl lJ(String str) {
         HttpUrl parse = HttpUrl.parse(str);
-        if (d.aMg().aMe() == null) {
+        if (d.aMh().aMf() == null) {
             if (a(parse)) {
                 return parse;
             }
             return null;
-        } else if (com.baidu.swan.apps.ad.a.a.aID() || a(parse)) {
+        } else if (com.baidu.swan.apps.ad.a.a.aIE() || a(parse)) {
             return parse;
         } else {
             return null;
@@ -36,12 +36,12 @@ public class c {
     }
 
     public static boolean a(@Nullable HttpUrl httpUrl) {
-        boolean aNo = com.baidu.swan.apps.af.a.b.aNo();
-        if (!com.baidu.swan.apps.t.a.aAu().akd()) {
-            aNo = false;
+        boolean aNp = com.baidu.swan.apps.af.a.b.aNp();
+        if (!com.baidu.swan.apps.t.a.aAv().ake()) {
+            aNp = false;
         }
         if (httpUrl != null) {
-            return (!aNo || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !cJO.contains(httpUrl.host().toLowerCase());
+            return (!aNp || HttpUrl.defaultPort(httpUrl.scheme()) == httpUrl.port()) && !cJO.contains(httpUrl.host().toLowerCase());
         }
         return false;
     }
@@ -83,7 +83,7 @@ public class c {
         return jSONObject;
     }
 
-    public static String anA() {
-        return ab.aRy();
+    public static String anB() {
+        return ab.aRz();
     }
 }

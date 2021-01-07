@@ -50,7 +50,7 @@ public class b implements com.baidu.live.guardclub.h {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (b.this.aGe != null && b.this.aGe.aKu != null && ViewHelper.checkUpIsLogin(b.this.context)) {
-                b.this.HC("");
+                b.this.HB("");
             }
         }
     };
@@ -94,9 +94,9 @@ public class b implements com.baidu.live.guardclub.h {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof String) {
-                b.this.HC((String) customResponsedMessage.getData());
+                b.this.HB((String) customResponsedMessage.getData());
             } else {
-                b.this.HC("");
+                b.this.HB("");
             }
         }
     };
@@ -104,7 +104,7 @@ public class b implements com.baidu.live.guardclub.h {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            b.this.bYE();
+            b.this.bYF();
         }
     };
     HttpMessageListener gZv = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.guardclub.b.8
@@ -123,7 +123,7 @@ public class b implements com.baidu.live.guardclub.h {
                 GuardClubJoinHttpResponseMessage guardClubJoinHttpResponseMessage = (GuardClubJoinHttpResponseMessage) httpResponsedMessage;
                 if (!httpResponsedMessage.hasError() && httpResponsedMessage.getError() == 0) {
                     if (b.this.gZq != null && b.this.gZq.id == guardClubJoinHttpResponseMessage.bkP) {
-                        b.this.bYF();
+                        b.this.bYG();
                     }
                 } else if (!guardClubJoinHttpResponseMessage.bkS) {
                     guardClubJoinHttpResponseMessage.bkS = true;
@@ -206,7 +206,7 @@ public class b implements com.baidu.live.guardclub.h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void HC(String str) {
+    public void HB(String str) {
         if (this.context != null && this.aGe != null && this.aGe.aKu != null && this.aGe.mLiveInfo != null) {
             long j = this.aGe.aKu.userId;
             long j2 = this.aGe.mLiveInfo.live_id;
@@ -226,18 +226,18 @@ public class b implements com.baidu.live.guardclub.h {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, boolean z, com.baidu.live.guardclub.f fVar, String str2) {
         if (z) {
-            bYD();
+            bYE();
         } else if (fVar.bkX > 0) {
             es(str, str2);
         }
     }
 
-    private void bYD() {
+    private void bYE() {
         this.gZr = new com.baidu.tieba.ala.guardclub.view.a(this.context);
         this.gZr.a(new a.InterfaceC0652a() { // from class: com.baidu.tieba.ala.guardclub.b.2
             @Override // com.baidu.tieba.ala.guardclub.view.a.InterfaceC0652a
             public void onConfirm() {
-                if (b.this.bYE()) {
+                if (b.this.bYF()) {
                     b.this.gZr.dismiss();
                 }
             }
@@ -356,7 +356,7 @@ public class b implements com.baidu.live.guardclub.h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean bYE() {
+    public boolean bYF() {
         long j;
         if (this.gZq == null) {
             return false;
@@ -383,7 +383,7 @@ public class b implements com.baidu.live.guardclub.h {
         MessageManager.getInstance().sendMessage(cVar);
     }
 
-    public void bYF() {
+    public void bYG() {
         if (this.aGe != null && this.aGe.aKu != null) {
             com.baidu.live.guardclub.b bVar = new com.baidu.live.guardclub.b();
             bVar.setAnchorId(this.aGe.aKu.userId);

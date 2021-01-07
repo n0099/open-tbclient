@@ -15,24 +15,24 @@ public class LoadingDialog extends Dialog implements NoProguard {
     public static class Builder implements NoProguard {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f5428a;
+        private Context f5429a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f5429b;
+        private String f5430b;
         private boolean c = true;
         private boolean d = false;
         private boolean e = false;
 
         public Builder(Context context) {
-            this.f5428a = context;
+            this.f5429a = context;
         }
 
         public LoadingDialog createDialog() {
-            View inflate = LayoutInflater.from(this.f5428a).inflate(a.f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
-            LoadingDialog loadingDialog = new LoadingDialog(this.f5428a, a.h.sapi_sdk_loading_dialog);
+            View inflate = LayoutInflater.from(this.f5429a).inflate(a.f.layout_sapi_sdk_loading_dialog, (ViewGroup) null);
+            LoadingDialog loadingDialog = new LoadingDialog(this.f5429a, a.h.sapi_sdk_loading_dialog);
             TextView textView = (TextView) inflate.findViewById(a.e.tipTextView);
             if (this.c) {
-                textView.setText(this.f5429b);
+                textView.setText(this.f5430b);
             } else {
                 textView.setVisibility(8);
             }
@@ -53,7 +53,7 @@ public class LoadingDialog extends Dialog implements NoProguard {
         }
 
         public Builder setMessage(String str) {
-            this.f5429b = str;
+            this.f5430b = str;
             return this;
         }
 

@@ -11,10 +11,10 @@ import java.lang.Thread;
 public class q implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3384a = "";
+    public static String f3385a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private static Thread.UncaughtExceptionHandler f3385b;
+    private static Thread.UncaughtExceptionHandler f3386b;
     private static volatile q c;
     private Context d;
     private a e;
@@ -38,7 +38,7 @@ public class q implements Thread.UncaughtExceptionHandler {
 
     private q(Context context) {
         this.d = context.getApplicationContext();
-        f3385b = Thread.getDefaultUncaughtExceptionHandler();
+        f3386b = Thread.getDefaultUncaughtExceptionHandler();
         new Thread(new r(this)).start();
     }
 
@@ -59,8 +59,8 @@ public class q implements Thread.UncaughtExceptionHandler {
                     this.e.a(a2);
                 }
             }
-            if (f3385b != null) {
-                f3385b.uncaughtException(thread, th);
+            if (f3386b != null) {
+                f3386b.uncaughtException(thread, th);
             }
         } catch (Exception e) {
             XAdSDKFoundationFacade.getInstance().getAdLogger().e(e);
@@ -116,7 +116,7 @@ public class q implements Thread.UncaughtExceptionHandler {
         SharedPreferences.Editor d = d();
         d.putString("key_crash_source", str);
         d.putString("key_crash_trace", str2);
-        d.putString("key_crash_ad", f3384a);
+        d.putString("key_crash_ad", f3385a);
         if (Build.VERSION.SDK_INT >= 9) {
             d.apply();
         } else {

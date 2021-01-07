@@ -4,7 +4,7 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.webkit.ValueCallback;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface f {
     void a(int i);
 

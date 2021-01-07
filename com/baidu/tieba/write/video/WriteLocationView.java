@@ -17,8 +17,8 @@ public class WriteLocationView extends LocationInfoView {
     private LocationModel fFZ;
     private int fGf;
     private final LocationModel.a fGm;
-    private final CustomMessageListener nug;
-    private BaseActivity<?> obS;
+    private final CustomMessageListener nuf;
+    private BaseActivity<?> obR;
 
     public WriteLocationView(Context context) {
         this(context, null);
@@ -29,16 +29,16 @@ public class WriteLocationView extends LocationInfoView {
         this.fGf = 0;
         this.fGm = new LocationModel.a() { // from class: com.baidu.tieba.write.video.WriteLocationView.1
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
-            public void bFH() {
-                WriteLocationView.this.obS.showToast(R.string.no_network_guide);
+            public void bFI() {
+                WriteLocationView.this.obR.showToast(R.string.no_network_guide);
                 WriteLocationView.this.b(0, true, null);
             }
 
             @Override // com.baidu.tieba.tbadkCore.location.LocationModel.a
             public void onFail(String str) {
-                BaseActivity baseActivity = WriteLocationView.this.obS;
+                BaseActivity baseActivity = WriteLocationView.this.obR;
                 if (StringUtils.isNull(str)) {
-                    str = WriteLocationView.this.obS.getResources().getString(R.string.location_fail);
+                    str = WriteLocationView.this.obR.getResources().getString(R.string.location_fail);
                 }
                 baseActivity.showToast(str);
                 WriteLocationView.this.b(0, true, null);
@@ -53,7 +53,7 @@ public class WriteLocationView extends LocationInfoView {
                 }
             }
         };
-        this.nug = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.2
+        this.nuf = new CustomMessageListener(CmdConfigCustom.CMD_SELECT_LOCATION) { // from class: com.baidu.tieba.write.video.WriteLocationView.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {

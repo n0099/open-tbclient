@@ -18,7 +18,7 @@ public class j implements com.baidu.tbadk.mvc.b.j {
     protected ax page = new ax();
     protected h kOx = new h();
 
-    public ArrayList<FeedData> dbl() {
+    public ArrayList<FeedData> dbm() {
         return this.kOw;
     }
 

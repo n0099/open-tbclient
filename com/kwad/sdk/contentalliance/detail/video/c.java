@@ -6,24 +6,24 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f8906a;
+    public long f8907a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f8907b;
+    public long f8908b;
 
     public c() {
-        this.f8907b = -1L;
+        this.f8908b = -1L;
     }
 
     public c(long j) {
-        this.f8907b = -1L;
-        this.f8906a = j;
+        this.f8908b = -1L;
+        this.f8907a = j;
     }
 
     public c(long j, long j2) {
-        this.f8907b = -1L;
-        this.f8906a = j;
-        this.f8907b = j2;
+        this.f8908b = -1L;
+        this.f8907a = j;
+        this.f8908b = j2;
     }
 
     @NonNull

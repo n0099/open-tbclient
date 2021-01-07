@@ -4,7 +4,7 @@ public class a {
     private static a fFS;
     private int mStatus = 0;
 
-    public static a bFl() {
+    public static a bFm() {
         if (fFS == null) {
             synchronized (a.class) {
                 if (fFS == null) {

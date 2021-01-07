@@ -1,5 +1,5 @@
 package com.baidu.searchbox.afx.recode;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class Mp4Info {
     private final int mBitrate;
     private final long mDurationUs;

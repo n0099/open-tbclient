@@ -21,7 +21,7 @@ import java.util.Collections;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class TextTrackImpl extends AbstractTrack {
     TrackMetaData trackMetaData = new TrackMetaData();
     List<Line> subs = new LinkedList();
@@ -124,7 +124,7 @@ public class TextTrackImpl extends AbstractTrack {
         return "sbtl";
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Line {
         long from;
         String text;

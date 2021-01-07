@@ -19,14 +19,14 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14680a;
+    private String f14681a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14681b;
+    private String f14682b;
     private ReentrantLock phb;
 
     private a() {
-        this.f14681b = "";
+        this.f14682b = "";
         this.phb = new ReentrantLock();
     }
 
@@ -59,7 +59,7 @@ public class a {
             if (!TextUtils.isEmpty(str2) && str2.toLowerCase().contains("redmi") && str2.toLowerCase().contains("note 7")) {
                 z = true;
                 if (!z) {
-                    String c2 = Orange.eKw().c();
+                    String c2 = Orange.eLa().c();
                     if (!TextUtils.isEmpty(c2) && !c2.startsWith("KWE")) {
                         return c2;
                     }
@@ -169,18 +169,18 @@ public class a {
         }
     }
 
-    public static a eKx() {
-        return b.qeM;
+    public static a eLb() {
+        return b.qgu;
     }
 
     public final void a(String str) {
-        this.f14680a = str;
+        this.f14681a = str;
     }
 
     public final String b() {
         try {
-            if (!TextUtils.isEmpty(this.f14680a)) {
-                return this.f14680a;
+            if (!TextUtils.isEmpty(this.f14681a)) {
+                return this.f14681a;
             }
         } catch (Throwable th) {
             com.yxcorp.kuaishou.addfp.android.b.b.a(th);
@@ -195,13 +195,13 @@ public class a {
         } catch (Throwable th) {
             try {
                 com.yxcorp.kuaishou.addfp.android.b.b.a(th);
-                this.f14681b = "KWE_PE";
+                this.f14682b = "KWE_PE";
                 this.phb.unlock();
             } finally {
                 this.phb.unlock();
             }
         }
-        if (TextUtils.isEmpty(this.f14681b)) {
+        if (TextUtils.isEmpty(this.f14682b)) {
             JSONObject jSONObject = new JSONObject();
             String str = Build.MODEL;
             jSONObject.put("k27", com.yxcorp.kuaishou.addfp.android.b.e.b(TextUtils.isEmpty(str) ? "KWE_N" : str.replace("=", "").replace(ETAG.ITEM_SEPARATOR, "")));
@@ -213,14 +213,14 @@ public class a {
             jSONObject.put("k102", com.yxcorp.kuaishou.addfp.android.b.e.b(com.yxcorp.kuaishou.addfp.android.b.e.a(new String(Base64.decode("Y2F0IC9wcm9jL3N5cy9rZXJuZWwvcmFuZG9tL2Jvb3RfaWQ=", 0)))));
             jSONObject.put("k57", com.yxcorp.kuaishou.addfp.android.b.e.b(d.b(context)));
             jSONObject.put("k68", com.yxcorp.kuaishou.addfp.android.b.e.b(d.a(context)));
-            jSONObject.put("k105", com.yxcorp.kuaishou.addfp.android.b.e.b(Orange.eKw().b()));
+            jSONObject.put("k105", com.yxcorp.kuaishou.addfp.android.b.e.b(Orange.eLa().b()));
             jSONObject.put("k83", com.yxcorp.kuaishou.addfp.android.b.e.b(d.d(context)));
             jSONObject.put("k86", com.yxcorp.kuaishou.addfp.android.b.e.b(d.e(context)));
             jSONObject.put("k3", com.yxcorp.kuaishou.addfp.android.b.e.b(d.c(context)));
             if (z2) {
-                com.yxcorp.kuaishou.addfp.a.a.b.eKr().c();
+                com.yxcorp.kuaishou.addfp.a.a.b.eKV().c();
             }
-            String str2 = com.yxcorp.kuaishou.addfp.a.f14632a;
+            String str2 = com.yxcorp.kuaishou.addfp.a.f14633a;
             if (TextUtils.isEmpty(str2) || str2.startsWith("KWE")) {
                 str2 = new e(context).c();
             }
@@ -236,15 +236,15 @@ public class a {
             }
             jSONObject.put("k14", com.yxcorp.kuaishou.addfp.android.b.e.b(com.yxcorp.kuaishou.addfp.android.b.b.b() + ":" + String.valueOf(crc32.getValue())));
             com.yxcorp.kuaishou.addfp.android.b.b.b("mimi :" + jSONObject.toString() + " " + jSONObject.toString().getBytes().length + " " + (System.currentTimeMillis() - currentTimeMillis));
-            byte[] b2 = Orange.eKw().b(context, jSONObject.toString().getBytes(), 0);
+            byte[] b2 = Orange.eLa().b(context, jSONObject.toString().getBytes(), 0);
             com.yxcorp.kuaishou.addfp.android.b.b.a("get mini lenth " + b2.length);
-            this.f14681b = URLEncoder.encode(Base64.encodeToString(b2, 0), "utf-8");
-            if (TextUtils.isEmpty(this.f14681b)) {
-                this.f14681b = "KWE_N";
+            this.f14682b = URLEncoder.encode(Base64.encodeToString(b2, 0), "utf-8");
+            if (TextUtils.isEmpty(this.f14682b)) {
+                this.f14682b = "KWE_N";
             }
             com.yxcorp.kuaishou.addfp.android.b.b.b("mini cost : " + (System.currentTimeMillis() - currentTimeMillis));
-            return this.f14681b;
+            return this.f14682b;
         }
-        return this.f14681b;
+        return this.f14682b;
     }
 }

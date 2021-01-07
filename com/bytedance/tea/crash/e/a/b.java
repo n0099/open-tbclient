@@ -17,10 +17,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Application f7933a;
+    private Application f7934a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f7934b;
+    private Context f7935b;
     private String g;
     private long h;
     private String i;
@@ -102,16 +102,16 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(@NonNull Context context) {
-        this.f7934b = context;
-        if (this.f7934b instanceof Application) {
-            this.f7933a = (Application) context;
+        this.f7935b = context;
+        if (this.f7935b instanceof Application) {
+            this.f7934a = (Application) context;
         }
         c();
     }
 
     private void c() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f7933a != null) {
-            this.f7933a.registerActivityLifecycleCallbacks(this.pqa);
+        if (Build.VERSION.SDK_INT >= 14 && this.f7934a != null) {
+            this.f7934a.registerActivityLifecycleCallbacks(this.pqa);
         }
     }
 
@@ -186,7 +186,7 @@ public class b {
         List<ActivityManager.RunningTaskInfo> runningTasks;
         JSONArray jSONArray = new JSONArray();
         try {
-            activityManager = (ActivityManager) this.f7934b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+            activityManager = (ActivityManager) this.f7935b.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         } catch (Exception e) {
         }
         if (activityManager != null && (runningTasks = activityManager.getRunningTasks(5)) != null) {

@@ -159,7 +159,7 @@ public class d {
             this.bxT.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.arF();
+                    d.this.arG();
                 }
             });
             return;
@@ -199,7 +199,7 @@ public class d {
         this.bxT.setVisibility(0);
     }
 
-    public void Zi() {
+    public void Zj() {
         this.bxT.setVisibility(8);
     }
 
@@ -210,14 +210,14 @@ public class d {
             this.gPy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.d.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    d.this.arF();
+                    d.this.arG();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void arF() {
+    public void arG() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913062));
     }
 

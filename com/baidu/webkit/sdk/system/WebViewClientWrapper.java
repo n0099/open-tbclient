@@ -13,7 +13,7 @@ import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 final class WebViewClientWrapper extends WebViewClient {
     static final /* synthetic */ boolean $assertionsDisabled;
     private final com.baidu.webkit.sdk.WebViewClient mClient;

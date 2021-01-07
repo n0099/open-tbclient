@@ -21,7 +21,7 @@ public final class n {
     private long fMS = -1;
     private long fNe = -1;
 
-    public void bHN() {
+    public void bHO() {
         this.fNd = SystemClock.elapsedRealtime();
         this.fNc = Process.getElapsedCpuTime();
     }
@@ -32,10 +32,10 @@ public final class n {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public void bHO() {
+    public void bHP() {
         BufferedReader bufferedReader;
         long j;
-        long bHM = l.bHK().bHM();
+        long bHN = l.bHL().bHN();
         long j2 = -1;
         try {
             try {
@@ -98,13 +98,13 @@ public final class n {
         }
         if (j2 <= 0) {
             this.fMS = this.fNd - j2;
-            this.fNe = this.fMS - bHM;
+            this.fNe = this.fMS - bHN;
         }
     }
 
-    public long bHP() {
+    public long bHQ() {
         if (this.fMS == -1) {
-            bHO();
+            bHP();
         }
         return this.fMS;
     }

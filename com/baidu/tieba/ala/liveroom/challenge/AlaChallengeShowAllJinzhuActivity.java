@@ -186,7 +186,7 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
                 i.af(this.mRootView);
                 r.e(getActivity(), true);
             }
-            Xk();
+            Xl();
         }
     }
 
@@ -216,10 +216,10 @@ public class AlaChallengeShowAllJinzhuActivity extends BaseActivity implements V
     @Override // com.baidu.live.tbadk.BaseActivity, android.app.Activity, android.view.Window.Callback
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        Xk();
+        Xl();
     }
 
-    private void Xk() {
+    private void Xl() {
         Window window = getWindow();
         if (window != null) {
             int[] screenDimensions = BdUtilHelper.getScreenDimensions(getPageContext().getPageActivity());

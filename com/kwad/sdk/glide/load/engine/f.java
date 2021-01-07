@@ -14,10 +14,10 @@ import java.util.Map;
 public final class f<Transcode> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<n.a<?>> f10511a = new ArrayList();
+    private final List<n.a<?>> f10512a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    private final List<com.kwad.sdk.glide.load.c> f10512b = new ArrayList();
+    private final List<com.kwad.sdk.glide.load.c> f10513b = new ArrayList();
     private com.kwad.sdk.glide.e c;
     private Object d;
     private int e;
@@ -56,9 +56,9 @@ public final class f<Transcode> {
         this.o = null;
         this.j = null;
         this.p = null;
-        this.f10511a.clear();
+        this.f10512a.clear();
         this.l = false;
-        this.f10512b.clear();
+        this.f10513b.clear();
         this.m = false;
     }
 
@@ -87,7 +87,7 @@ public final class f<Transcode> {
         List<n.a<?>> n = n();
         int size = n.size();
         for (int i = 0; i < size; i++) {
-            if (n.get(i).f10399a.equals(cVar)) {
+            if (n.get(i).f10400a.equals(cVar)) {
                 return true;
             }
         }
@@ -206,38 +206,38 @@ public final class f<Transcode> {
     public List<n.a<?>> n() {
         if (!this.l) {
             this.l = true;
-            this.f10511a.clear();
+            this.f10512a.clear();
             List c = this.c.d().c(this.d);
             int size = c.size();
             for (int i = 0; i < size; i++) {
                 n.a<?> a2 = ((com.kwad.sdk.glide.load.b.n) c.get(i)).a(this.d, this.e, this.f, this.i);
                 if (a2 != null) {
-                    this.f10511a.add(a2);
+                    this.f10512a.add(a2);
                 }
             }
         }
-        return this.f10511a;
+        return this.f10512a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<com.kwad.sdk.glide.load.c> o() {
         if (!this.m) {
             this.m = true;
-            this.f10512b.clear();
+            this.f10513b.clear();
             List<n.a<?>> n = n();
             int size = n.size();
             for (int i = 0; i < size; i++) {
                 n.a<?> aVar = n.get(i);
-                if (!this.f10512b.contains(aVar.f10399a)) {
-                    this.f10512b.add(aVar.f10399a);
+                if (!this.f10513b.contains(aVar.f10400a)) {
+                    this.f10513b.add(aVar.f10400a);
                 }
-                for (int i2 = 0; i2 < aVar.f10400b.size(); i2++) {
-                    if (!this.f10512b.contains(aVar.f10400b.get(i2))) {
-                        this.f10512b.add(aVar.f10400b.get(i2));
+                for (int i2 = 0; i2 < aVar.f10401b.size(); i2++) {
+                    if (!this.f10513b.contains(aVar.f10401b.get(i2))) {
+                        this.f10513b.add(aVar.f10401b.get(i2));
                     }
                 }
             }
         }
-        return this.f10512b;
+        return this.f10513b;
     }
 }

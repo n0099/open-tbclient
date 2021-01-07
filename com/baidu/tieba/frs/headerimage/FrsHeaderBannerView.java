@@ -79,7 +79,7 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void onClick(View view) {
         TbPageContext<?> tbPageContext = getTbPageContext();
         if (!TextUtils.isEmpty(this.jCX) && tbPageContext != null) {
-            be.bwu().a(tbPageContext, new String[]{this.jCX}, true);
+            be.bwv().a(tbPageContext, new String[]{this.jCX}, true);
         }
     }
 

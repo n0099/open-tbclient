@@ -36,7 +36,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2921386) {
-                    RecommendForumHeaderView.this.czB();
+                    RecommendForumHeaderView.this.czC();
                 }
             }
         };
@@ -48,7 +48,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
                     if (RecommendForumHeaderView.this.iMo == null || RecommendForumHeaderView.this.iMo.getVisibility() == 8) {
                         RecommendForumHeaderView.this.iMq = false;
                     } else {
-                        RecommendForumHeaderView.this.czA();
+                        RecommendForumHeaderView.this.czB();
                     }
                 }
             }
@@ -84,7 +84,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         this.iMo.setVisibility(0);
         this.iMo.setData(list);
         if (!this.iMq) {
-            czA();
+            czB();
             this.iMq = true;
         }
     }
@@ -102,7 +102,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != this.iMo && this.iMp != null) {
-            czB();
+            czC();
         }
     }
 
@@ -113,7 +113,7 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void czA() {
+    public void czB() {
         if (this.iMp == null) {
             this.iMp = new e(this.mPageContext, this.iMo);
             this.iMp.fP(R.drawable.bg_tip_blue_up);
@@ -126,13 +126,13 @@ public class RecommendForumHeaderView extends LinearLayout implements View.OnCli
         }
     }
 
-    public void czB() {
+    public void czC() {
         if (this.iMp != null) {
             this.iMp.VL();
         }
     }
 
-    public void czC() {
+    public void czD() {
         MessageManager.getInstance().unRegisterListener(this.iMr);
     }
 

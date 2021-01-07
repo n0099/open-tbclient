@@ -11,14 +11,14 @@ import com.kwad.sdk.core.imageloader.KSImageLoader;
 public class a extends com.kwad.sdk.draw.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f9978b;
+    private ImageView f9979b;
     private com.kwad.sdk.core.response.model.c c;
     private e d = new f() { // from class: com.kwad.sdk.draw.b.a.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void d() {
             super.d();
-            if (a.this.f9978b.getVisibility() == 0) {
-                a.this.f9978b.setVisibility(8);
+            if (a.this.f9979b.getVisibility() == 0) {
+                a.this.f9979b.setVisibility(8);
             }
         }
     };
@@ -26,21 +26,21 @@ public class a extends com.kwad.sdk.draw.a.a {
         @Override // java.lang.Runnable
         public void run() {
             int width = a.this.l().getWidth();
-            ViewGroup.LayoutParams layoutParams = a.this.f9978b.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = a.this.f9979b.getLayoutParams();
             int c = a.this.c.c();
             int b2 = a.this.c.b();
             if (c == 0 || b2 == 0 || b2 > c) {
                 layoutParams.width = -1;
                 layoutParams.height = -1;
-                a.this.f9978b.setLayoutParams(layoutParams);
+                a.this.f9979b.setLayoutParams(layoutParams);
             } else {
                 layoutParams.width = width;
                 layoutParams.height = (int) (width * (b2 / (c * 1.0f)));
-                a.this.f9978b.setLayoutParams(layoutParams);
-                a.this.f9978b.setScaleType(ImageView.ScaleType.FIT_CENTER);
+                a.this.f9979b.setLayoutParams(layoutParams);
+                a.this.f9979b.setScaleType(ImageView.ScaleType.FIT_CENTER);
             }
-            a.this.f9978b.setImageDrawable(null);
-            KSImageLoader.loadImage(a.this.f9978b, a.this.c.a(), a.this.f9972a.c);
+            a.this.f9979b.setImageDrawable(null);
+            KSImageLoader.loadImage(a.this.f9979b, a.this.c.a(), a.this.f9973a.c);
         }
     };
 
@@ -48,13 +48,13 @@ public class a extends com.kwad.sdk.draw.a.a {
     @Override // com.kwad.sdk.draw.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = com.kwad.sdk.core.response.b.a.U(com.kwad.sdk.core.response.b.c.j(this.f9972a.c));
+        this.c = com.kwad.sdk.core.response.b.a.U(com.kwad.sdk.core.response.b.c.j(this.f9973a.c));
         if (TextUtils.isEmpty(this.c.a())) {
             return;
         }
         l().post(this.e);
-        this.f9978b.setVisibility(0);
-        this.f9972a.e.a(this.d);
+        this.f9979b.setVisibility(0);
+        this.f9973a.e.a(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -62,13 +62,13 @@ public class a extends com.kwad.sdk.draw.a.a {
     public void b_() {
         super.b_();
         l().removeCallbacks(this.e);
-        this.f9972a.e.b(this.d);
+        this.f9973a.e.b(this.d);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9978b = (ImageView) b(R.id.ksad_video_first_frame);
+        this.f9979b = (ImageView) b(R.id.ksad_video_first_frame);
     }
 }

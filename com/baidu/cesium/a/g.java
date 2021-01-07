@@ -2,18 +2,18 @@ package com.baidu.cesium.a;
 
 import com.baidu.cesium.a.i;
 import java.lang.reflect.Method;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 final class g extends f {
     private a anK;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Class<?> f1666a;
+        private Class<?> f1667a;
 
         /* renamed from: b  reason: collision with root package name */
-        private Method f1667b;
+        private Method f1668b;
         private Method c;
 
         private a() {
@@ -31,9 +31,9 @@ final class g extends f {
 
         private void a() {
             try {
-                this.f1666a = Class.forName(i.a(d.a()), true, Object.class.getClassLoader());
-                this.f1667b = i.a(this.f1666a, i.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                this.c = i.a(this.f1666a, i.a(d.c()), null);
+                this.f1667a = Class.forName(i.a(d.a()), true, Object.class.getClassLoader());
+                this.f1668b = i.a(this.f1667a, i.a(d.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
+                this.c = i.a(this.f1667a, i.a(d.c()), null);
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -42,7 +42,7 @@ final class g extends f {
         /* JADX INFO: Access modifiers changed from: private */
         public void a(Object obj, byte[] bArr, int i, int i2) {
             try {
-                this.f1667b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
+                this.f1668b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
             } catch (Exception e) {
                 throw new i.a("");
             }
@@ -50,7 +50,7 @@ final class g extends f {
 
         /* JADX INFO: Access modifiers changed from: private */
         public Object b() {
-            return this.f1666a.newInstance();
+            return this.f1667a.newInstance();
         }
     }
 

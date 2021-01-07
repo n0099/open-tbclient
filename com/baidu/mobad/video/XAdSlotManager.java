@@ -9,18 +9,18 @@ import java.util.HashMap;
 public class XAdSlotManager {
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, IXAdProd> f3286a = new HashMap<>();
+    private HashMap<String, IXAdProd> f3287a = new HashMap<>();
 
     public Boolean containsAdSlot(String str) {
-        return Boolean.valueOf(this.f3286a.containsKey(str));
+        return Boolean.valueOf(this.f3287a.containsKey(str));
     }
 
     public void addAdSlot(IXAdProd iXAdProd) {
-        this.f3286a.put(iXAdProd.getId(), iXAdProd);
+        this.f3287a.put(iXAdProd.getId(), iXAdProd);
     }
 
     public IXAdProd retrieveAdSlotById(String str) {
-        return this.f3286a.get(str);
+        return this.f3287a.get(str);
     }
 
     public IXLinearAdSlot retrievePrerollAdSlot() {
@@ -45,8 +45,8 @@ public class XAdSlotManager {
 
     public ArrayList<IXAdProd> retrieveAdSlotsByType(IXAdConstants4PDK.SlotType slotType) {
         ArrayList<IXAdProd> arrayList = new ArrayList<>();
-        for (String str : this.f3286a.keySet()) {
-            IXAdProd iXAdProd = this.f3286a.get(str);
+        for (String str : this.f3287a.keySet()) {
+            IXAdProd iXAdProd = this.f3287a.get(str);
             if (iXAdProd.getType() == slotType) {
                 arrayList.add(iXAdProd);
             }

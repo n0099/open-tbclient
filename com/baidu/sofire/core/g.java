@@ -7,25 +7,25 @@ import com.xiaomi.mipush.sdk.Constants;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f5512a;
+    public String f5513a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f5513b;
+    public String f5514b;
     public String c;
     public IntentFilter d;
 
     public g(String str, IntentFilter intentFilter, String str2, String str3) {
-        this.f5512a = str;
+        this.f5513a = str;
         this.d = intentFilter;
-        this.f5513b = str2;
+        this.f5514b = str2;
         this.c = str3;
     }
 
     public final boolean a(g gVar) {
         if (gVar != null) {
             try {
-                if (!TextUtils.isEmpty(gVar.f5512a) && !TextUtils.isEmpty(gVar.f5513b) && !TextUtils.isEmpty(gVar.c)) {
-                    if (gVar.f5512a.equals(this.f5512a) && gVar.f5513b.equals(this.f5513b) && gVar.c.equals(this.c)) {
+                if (!TextUtils.isEmpty(gVar.f5513a) && !TextUtils.isEmpty(gVar.f5514b) && !TextUtils.isEmpty(gVar.c)) {
+                    if (gVar.f5513a.equals(this.f5513a) && gVar.f5514b.equals(this.f5514b) && gVar.c.equals(this.c)) {
                         if (gVar.d == null || this.d == null) {
                             return true;
                         }
@@ -43,7 +43,7 @@ public final class g {
 
     public final String toString() {
         try {
-            return "PluginloaderIntentFilter:" + this.f5512a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.f5513b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d;
+            return "PluginloaderIntentFilter:" + this.f5513a + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.f5514b + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.c + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.d;
         } catch (Throwable th) {
             return "";
         }

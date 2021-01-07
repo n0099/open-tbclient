@@ -23,15 +23,15 @@ public class f {
                     if (f.this.XZ == null) {
                         f.this.XZ = new com.baidu.tbadk.n.a.a("anim_switch_trans_frs");
                     }
-                    f.this.XZ.bHQ();
+                    f.this.XZ.bHR();
                 }
             } else if (i == 2) {
                 f.this.showContentView();
                 if (f.this.XZ != null && TbSingleton.getInstance().isEnableBenchmark() && !TbSingleton.getInstance().isAnimFpsComputed("anim_switch_trans_frs")) {
-                    f.this.XZ.bHR();
+                    f.this.XZ.bHS();
                 }
             } else if (i == 0) {
-                f.this.cNb();
+                f.this.cNc();
             }
         }
     };
@@ -50,16 +50,16 @@ public class f {
         this.jHJ.a(this.jHK);
     }
 
-    public void cMZ() {
+    public void cNa() {
         if (this.mParent != null) {
-            cNb();
+            cNc();
             this.mParent.addView(this.jHA.mRootView);
-            cNa();
-            this.jHJ.cMP();
+            cNb();
+            this.jHJ.cMQ();
         }
     }
 
-    public void cEm() {
+    public void cEn() {
         if (this.mParent != null) {
             hide();
         }
@@ -73,7 +73,7 @@ public class f {
             return;
         }
         showContentView();
-        this.jHJ.cMQ();
+        this.jHJ.cMR();
     }
 
     public static boolean U(Intent intent) {
@@ -90,7 +90,7 @@ public class f {
         }
     }
 
-    private void cNa() {
+    private void cNb() {
         View findViewById;
         if (this.mParent != null && (this.mParent.getChildAt(0) instanceof SwipeBackLayout)) {
             this.mParent.getChildAt(0).setVisibility(8);
@@ -101,7 +101,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cNb() {
+    public void cNc() {
         ViewParent parent = this.jHA.mRootView.getParent();
         if (parent instanceof ViewGroup) {
             ((ViewGroup) parent).removeView(this.jHA.mRootView);

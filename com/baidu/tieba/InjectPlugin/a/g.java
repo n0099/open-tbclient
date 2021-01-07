@@ -21,11 +21,11 @@ public class g {
         return this.pageContext;
     }
 
-    public b bMU() {
+    public b bMV() {
         return this.geG;
     }
 
-    public int bMV() {
+    public int bMW() {
         return this.geF;
     }
 }

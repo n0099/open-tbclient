@@ -34,13 +34,13 @@ public class ChangeTextViewSpace extends TextView {
 
     public void setSpacing(float f) {
         this.dWI = f;
-        aTe();
+        aTf();
     }
 
     @Override // android.widget.TextView
     public void setText(CharSequence charSequence, TextView.BufferType bufferType) {
         this.dWJ = charSequence;
-        aTe();
+        aTf();
     }
 
     @Override // android.widget.TextView
@@ -48,7 +48,7 @@ public class ChangeTextViewSpace extends TextView {
         return this.dWJ;
     }
 
-    private void aTe() {
+    private void aTf() {
         if (this != null && this.dWJ != null) {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < this.dWJ.length(); i++) {

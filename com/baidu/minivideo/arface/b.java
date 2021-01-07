@@ -49,7 +49,7 @@ public final class b {
         DuMixARConfig.setAppId(str);
         DuMixARConfig.setAPIKey(str2);
         DuMixARConfig.setSecretKey(str3);
-        com.baidu.minivideo.arface.b.e.aek().init(mAppContext);
+        com.baidu.minivideo.arface.b.e.ael().init(mAppContext);
         a(cVar);
     }
 
@@ -57,7 +57,7 @@ public final class b {
         com.baidu.minivideo.arface.c.a.b(eVar);
     }
 
-    public static File adK() {
+    public static File adL() {
         if (ckf == null) {
             ckf = new File(com.baidu.minivideo.arface.a.bz(mAppContext));
         }
@@ -65,10 +65,10 @@ public final class b {
     }
 
     public static void a(a aVar) {
-        h.aep().a(aVar);
+        h.aeq().a(aVar);
     }
 
-    public static com.baidu.minivideo.arface.a.b adL() {
+    public static com.baidu.minivideo.arface.a.b adM() {
         return ckb;
     }
 
@@ -80,11 +80,11 @@ public final class b {
     public static void a(Context context, a aVar) {
         cke = aVar;
         if (!c.ckm) {
-            ckc = com.baidu.minivideo.arface.utils.e.aeJ();
+            ckc = com.baidu.minivideo.arface.utils.e.aeK();
         } else {
             com.baidu.minivideo.arface.utils.a bF = com.baidu.minivideo.arface.utils.a.bF(context);
-            adM();
-            bF.a("file:///android_asset/arsource/", new File(c.adV()), false);
+            adN();
+            bF.a("file:///android_asset/arsource/", new File(c.adW()), false);
             ckc = bF;
         }
         ckc.a(bA(context));
@@ -100,8 +100,8 @@ public final class b {
                 if (b.ckc == gVar) {
                     if (b.isDebug()) {
                         StringBuilder append = new StringBuilder().append(i).append(" loadFaceAssets with: ").append(i == 2).append(", (");
-                        b.adM();
-                        b.d(append.append(c.adV()).toString());
+                        b.adN();
+                        b.d(append.append(c.adW()).toString());
                     }
                     if (i == 2) {
                         if (b.cke != null) {
@@ -120,8 +120,8 @@ public final class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static String H(String str, boolean z) {
-        adM();
-        File file = new File(c.adX());
+        adN();
+        File file = new File(c.adY());
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("loc", str);
@@ -139,23 +139,23 @@ public final class b {
         Log.e("DuAr_DuController", "ar->" + str);
     }
 
-    public static c adM() {
+    public static c adN() {
         return cka;
     }
 
     public static void a(c cVar) {
-        File aes;
+        File aet;
         cka = cVar;
-        if (cka == null && (aes = h.aep().aes()) != null) {
-            cka = new c(aes.getAbsolutePath());
+        if (cka == null && (aet = h.aeq().aet()) != null) {
+            cka = new c(aet.getAbsolutePath());
         }
     }
 
-    public static boolean adN() {
+    public static boolean adO() {
         return cki;
     }
 
-    public static String adO() {
+    public static String adP() {
         return ckj;
     }
 
@@ -174,12 +174,12 @@ public final class b {
     /* JADX INFO: Access modifiers changed from: protected */
     public static DefaultParams b(EGLContext eGLContext) {
         c cVar = cka;
-        String adW = c.adW();
+        String adX = c.adX();
         if (isDebug()) {
-            d("getDuMixDefaultParams EGLContext: " + eGLContext + ", modelPath: " + adW);
+            d("getDuMixDefaultParams EGLContext: " + eGLContext + ", modelPath: " + adX);
         }
         DefaultParams defaultParams = new DefaultParams();
-        defaultParams.setFaceAlgoModelPath(adW);
+        defaultParams.setFaceAlgoModelPath(adX);
         if (eGLContext != null) {
             defaultParams.setUseTextureIO(true);
             defaultParams.setShareContext(eGLContext);
@@ -215,7 +215,7 @@ public final class b {
         }
     }
 
-    public static synchronized com.baidu.minivideo.arface.bean.b adP() {
+    public static synchronized com.baidu.minivideo.arface.bean.b adQ() {
         com.baidu.minivideo.arface.bean.b au;
         synchronized (b.class) {
             au = (ckh == null || ckh.length() <= 0) ? null : com.baidu.minivideo.arface.bean.b.au(ckh);
@@ -223,7 +223,7 @@ public final class b {
         return au;
     }
 
-    public static synchronized JSONObject adQ() {
+    public static synchronized JSONObject adR() {
         JSONObject jSONObject;
         synchronized (b.class) {
             jSONObject = ckh;

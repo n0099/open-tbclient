@@ -103,9 +103,9 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             if (!a.this.hfZ) {
-                ObjectAnimator cab = a.this.cab();
-                if (cab != null && !cab.isRunning()) {
-                    cab.start();
+                ObjectAnimator cac = a.this.cac();
+                if (cac != null && !cac.isRunning()) {
+                    cac.start();
                 }
                 a.this.mHandler.postDelayed(this, 2000L);
             }
@@ -119,9 +119,9 @@ public class a {
                     a.this.mHandler.removeCallbacks(this);
                     return;
                 }
-                ObjectAnimator caa = a.this.caa();
-                if (caa != null && !caa.isRunning()) {
-                    caa.start();
+                ObjectAnimator cab = a.this.cab();
+                if (cab != null && !cab.isRunning()) {
+                    cab.start();
                 }
                 a.this.mHandler.postDelayed(this, 1500L);
             }
@@ -164,7 +164,7 @@ public class a {
     private List<m> mList = new ArrayList();
     private Handler mHandler = new Handler();
 
-    public View bZT() {
+    public View bZU() {
         return this.hgC;
     }
 
@@ -320,23 +320,23 @@ public class a {
                 this.hgt.setDuration(1000L);
                 this.hgt.setStartDelay(1000L);
             }
-            ObjectAnimator bZZ = bZZ();
-            ValueAnimator bZY = bZY();
-            ObjectAnimator bZX = bZX();
             ObjectAnimator caa = caa();
+            ValueAnimator bZZ = bZZ();
+            ObjectAnimator bZY = bZY();
+            ObjectAnimator cab = cab();
+            ObjectAnimator bZX = bZX();
             ObjectAnimator bZW = bZW();
-            ObjectAnimator bZV = bZV();
             this.baG = new AnimatorSet();
             this.hgy = new ArrayList();
-            this.hgy.add(bZZ);
+            this.hgy.add(caa);
+            this.hgy.add(bZX);
             this.hgy.add(bZW);
-            this.hgy.add(bZV);
             if (this.hgt != null) {
                 this.hgy.add(this.hgt);
             }
-            this.hgy.add(caa);
+            this.hgy.add(cab);
+            this.hgy.add(bZZ);
             this.hgy.add(bZY);
-            this.hgy.add(bZX);
             this.baG.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.headline.view.a.18
                 @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
@@ -362,14 +362,14 @@ public class a {
                 this.aKS = mVar;
                 this.hgH = this.aKS.aJL;
                 this.hfX = this.aKS.endTime - this.aKS.serverTime;
-                bZU();
+                bZV();
                 a(this.aKS, true);
             }
             this.mList.clear();
         }
     }
 
-    private void bZU() {
+    private void bZV() {
         this.hgF = true;
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.headline.view.a.19
             @Override // java.lang.Runnable
@@ -383,7 +383,7 @@ public class a {
         });
     }
 
-    private ObjectAnimator bZV() {
+    private ObjectAnimator bZW() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hgd, "alpha", 0.1f, 1.0f);
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setDuration(300L);
@@ -405,7 +405,7 @@ public class a {
         return ofFloat;
     }
 
-    private ObjectAnimator bZW() {
+    private ObjectAnimator bZX() {
         ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.hgd, "translationX", 0.0f, this.hgd.getWidth());
         ofFloat.setInterpolator(new LinearInterpolator());
         ofFloat.setDuration(300L);
@@ -429,7 +429,7 @@ public class a {
         return ofFloat;
     }
 
-    private ObjectAnimator bZX() {
+    private ObjectAnimator bZY() {
         if (this.hgx == null) {
             this.hgx = ObjectAnimator.ofFloat(this.hgi, "alpha", 1.0f, 0.0f);
             this.hgx.setDuration(300L);
@@ -438,7 +438,7 @@ public class a {
         return this.hgx;
     }
 
-    private ValueAnimator bZY() {
+    private ValueAnimator bZZ() {
         ValueAnimator ofInt = ValueAnimator.ofInt(0, this.hgj.getMeasuredWidth() - this.hgd.getMeasuredWidth());
         ofInt.setInterpolator(new AccelerateInterpolator());
         ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.headline.view.a.4
@@ -456,7 +456,7 @@ public class a {
         return ofInt;
     }
 
-    private ObjectAnimator bZZ() {
+    private ObjectAnimator caa() {
         if (this.hgw == null) {
             this.hgw = ObjectAnimator.ofFloat(this.hgi, "translationX", -this.mScreenWidth, 0.0f);
             this.hgw.setDuration(1000L);
@@ -474,7 +474,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ObjectAnimator caa() {
+    public ObjectAnimator cab() {
         if (this.hgu == null) {
             this.hgu = ObjectAnimator.ofFloat(this.hgp, "translationX", 0.0f, this.hgz);
             this.hgu.setDuration(800L);
@@ -518,7 +518,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ObjectAnimator cab() {
+    public ObjectAnimator cac() {
         int width;
         if (this.hgs == null) {
             return null;
@@ -621,7 +621,7 @@ public class a {
         }
     }
 
-    public void cac() {
+    public void cad() {
         if (this.hga != null && this.hga.getVisibility() != 0) {
             if (this.DEBUG) {
                 Log.e(">>>>>>", "setEntryViewVisibility");
@@ -668,7 +668,7 @@ public class a {
                     this.aKS = mVar;
                     this.hgH = mVar.aJL;
                     this.hfX = mVar.endTime - mVar.serverTime;
-                    bZU();
+                    bZV();
                     a(this.aKS, true);
                     if (this.DEBUG) {
                         Log.e(">>>>>>", "1 setData countdownTime:" + this.hfX + " mCurScore:" + this.hgH + "info.endTime:" + mVar.endTime + " info.serverTime:" + mVar.serverTime);
@@ -690,7 +690,7 @@ public class a {
                         }
                     }
                     N(true, true);
-                    bZU();
+                    bZV();
                     a(this.aKS, false);
                 }
             }

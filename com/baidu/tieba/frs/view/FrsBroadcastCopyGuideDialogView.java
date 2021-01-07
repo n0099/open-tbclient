@@ -44,6 +44,6 @@ public class FrsBroadcastCopyGuideDialogView extends LinearLayout {
         ao.setViewTextColor(this.iFV, R.color.CAM_X0107);
         ao.setViewTextColor(this.jiT, R.color.CAM_X0302);
         ao.setImageResource(this.jOf, R.drawable.pic_frs_guide_copylink);
-        com.baidu.tbadk.core.util.f.a.bwU().qq(0).qr(R.color.CAM_X0211).ai(l.getDimens(this.mContext, R.dimen.tbds30)).ah(l.getDimens(this.mContext, R.dimen.tbds30)).ag(l.getDimens(this.mContext, R.dimen.tbds32)).af(l.getDimens(this.mContext, R.dimen.tbds32)).bz(this.mRootView);
+        com.baidu.tbadk.core.util.f.a.bwV().qq(0).qr(R.color.CAM_X0211).ai(l.getDimens(this.mContext, R.dimen.tbds30)).ah(l.getDimens(this.mContext, R.dimen.tbds30)).ag(l.getDimens(this.mContext, R.dimen.tbds32)).af(l.getDimens(this.mContext, R.dimen.tbds32)).bz(this.mRootView);
     }
 }

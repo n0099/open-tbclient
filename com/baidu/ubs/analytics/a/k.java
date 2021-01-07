@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 final class k {
-    private SQLiteDatabase oOc = f.ejz().awv();
+    private SQLiteDatabase oOc = f.ejA().aww();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public final void a(l lVar) {

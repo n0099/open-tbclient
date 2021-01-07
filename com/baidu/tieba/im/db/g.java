@@ -15,7 +15,7 @@ public class g {
     private static volatile SQLiteDatabase database = null;
     public static HashMap<String, SQLiteDatabase> kBq = new HashMap<>();
 
-    public static synchronized SQLiteDatabase cXq() {
+    public static synchronized SQLiteDatabase cXr() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (g.class) {
             try {
@@ -44,13 +44,13 @@ public class g {
         return sQLiteDatabase;
     }
 
-    public static LinkedList<String> cXr() {
+    public static LinkedList<String> cXs() {
         Cursor cursor = null;
-        SQLiteDatabase cXq = cXq();
+        SQLiteDatabase cXr = cXr();
         LinkedList<String> linkedList = new LinkedList<>();
-        if (cXq != null) {
+        if (cXr != null) {
             try {
-                cursor = cXq.rawQuery("select * from sqlite_master where type='table'", null);
+                cursor = cXr.rawQuery("select * from sqlite_master where type='table'", null);
                 if (cursor != null) {
                     cursor.moveToFirst();
                     while (cursor.moveToNext()) {
@@ -67,20 +67,20 @@ public class g {
         return linkedList;
     }
 
-    public static void Nj(String str) {
+    public static void Ni(String str) {
         try {
             if (!TextUtils.isEmpty(str)) {
-                h.cXs().cXt();
-                Iterator<String> it = cXr().iterator();
+                h.cXt().cXu();
+                Iterator<String> it = cXs().iterator();
                 while (it.hasNext()) {
                     String next = it.next();
                     if (next != null) {
                         if (next.equals("tb_message_center")) {
                             ContentValues contentValues = new ContentValues();
                             contentValues.put("is_hidden", (Integer) 1);
-                            h.cXs().b("tb_message_center", contentValues, null, null);
+                            h.cXt().b("tb_message_center", contentValues, null, null);
                         } else if (!next.equals("tb_new_friends")) {
-                            h.cXs().b(next, (String) null, (String[]) null);
+                            h.cXt().b(next, (String) null, (String[]) null);
                         }
                     }
                 }
@@ -89,7 +89,7 @@ public class g {
             TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
             e.printStackTrace();
         } finally {
-            h.cXs().cXu();
+            h.cXt().cXv();
         }
     }
 }

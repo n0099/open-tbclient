@@ -51,63 +51,63 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0767a c0767a;
-        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0767a)) {
+        C0776a c0776a;
+        if (view == null || view.getTag() == null || !(view.getTag() instanceof C0776a)) {
             view = LayoutInflater.from(this.kGH.getActivity()).inflate(R.layout.tab_my_group_item, viewGroup, false);
-            c0767a = new C0767a();
-            c0767a.kGJ = (LinearLayout) view.findViewById(R.id.click_head);
-            c0767a.kGP = (ImageView) view.findViewById(R.id.diver_top);
-            c0767a.kGQ = (ImageView) view.findViewById(R.id.diver_buttom_px);
-            c0767a.kGR = (ImageView) view.findViewById(R.id.diver_top_px);
-            c0767a.kGK = (GroupImageView) view.findViewById(R.id.item_head);
-            c0767a.kGL = (TextView) view.findViewById(R.id.item_group_name);
-            c0767a.kGM = (TextView) view.findViewById(R.id.item_group_num);
-            c0767a.kGN = (TextView) view.findViewById(R.id.item_introduce);
-            c0767a.kGO = (TextView) view.findViewById(R.id.isCreator);
-            c0767a.kGS = (ImageView) view.findViewById(R.id.item_grade1);
-            c0767a.kGT = (ImageView) view.findViewById(R.id.item_grade2);
-            c0767a.kGU = (ImageView) view.findViewById(R.id.item_grade3);
-            c0767a.kGV = new ImageView[4];
-            c0767a.kGV[1] = c0767a.kGS;
-            c0767a.kGV[2] = c0767a.kGT;
-            c0767a.kGV[3] = c0767a.kGU;
-            view.setTag(c0767a);
+            c0776a = new C0776a();
+            c0776a.kGJ = (LinearLayout) view.findViewById(R.id.click_head);
+            c0776a.kGP = (ImageView) view.findViewById(R.id.diver_top);
+            c0776a.kGQ = (ImageView) view.findViewById(R.id.diver_buttom_px);
+            c0776a.kGR = (ImageView) view.findViewById(R.id.diver_top_px);
+            c0776a.kGK = (GroupImageView) view.findViewById(R.id.item_head);
+            c0776a.kGL = (TextView) view.findViewById(R.id.item_group_name);
+            c0776a.kGM = (TextView) view.findViewById(R.id.item_group_num);
+            c0776a.kGN = (TextView) view.findViewById(R.id.item_introduce);
+            c0776a.kGO = (TextView) view.findViewById(R.id.isCreator);
+            c0776a.kGS = (ImageView) view.findViewById(R.id.item_grade1);
+            c0776a.kGT = (ImageView) view.findViewById(R.id.item_grade2);
+            c0776a.kGU = (ImageView) view.findViewById(R.id.item_grade3);
+            c0776a.kGV = new ImageView[4];
+            c0776a.kGV[1] = c0776a.kGS;
+            c0776a.kGV[2] = c0776a.kGT;
+            c0776a.kGV[3] = c0776a.kGU;
+            view.setTag(c0776a);
         } else {
-            c0767a = (C0767a) view.getTag();
+            c0776a = (C0776a) view.getTag();
         }
         GroupInfoData groupInfoData = this.kGI.get(i);
-        c0767a.kGK.setTag(null);
-        c0767a.kGK.setDrawBorder(true);
-        c0767a.kGK.setPlaceHolder(1);
+        c0776a.kGK.setTag(null);
+        c0776a.kGK.setDrawBorder(true);
+        c0776a.kGK.setPlaceHolder(1);
         if (groupInfoData != null) {
             String portrait = groupInfoData.getPortrait();
             if (!TextUtils.isEmpty(portrait)) {
-                c0767a.kGK.startLoad(portrait, 10, false);
+                c0776a.kGK.startLoad(portrait, 10, false);
             } else {
-                c0767a.kGK.startLoad("", 10, false);
+                c0776a.kGK.startLoad("", 10, false);
             }
-            c0767a.kGJ.setOnClickListener(this.kGH);
-            c0767a.kGJ.setTag(groupInfoData);
-            c0767a.kGP.setVisibility(8);
-            c0767a.kGR.setVisibility(8);
-            c0767a.kGQ.setVisibility(0);
-            c0767a.kGL.setText(groupInfoData.getName());
-            c0767a.kGM.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
-            c0767a.kGN.setText(groupInfoData.getIntro());
+            c0776a.kGJ.setOnClickListener(this.kGH);
+            c0776a.kGJ.setTag(groupInfoData);
+            c0776a.kGP.setVisibility(8);
+            c0776a.kGR.setVisibility(8);
+            c0776a.kGQ.setVisibility(0);
+            c0776a.kGL.setText(groupInfoData.getName());
+            c0776a.kGM.setText(groupInfoData.getMemberNum() + "/" + groupInfoData.getMaxMemberNum());
+            c0776a.kGN.setText(groupInfoData.getIntro());
             if (groupInfoData.getIsGroupManager() == 1) {
-                c0767a.kGO.setVisibility(0);
+                c0776a.kGO.setVisibility(0);
             } else {
-                c0767a.kGO.setVisibility(8);
+                c0776a.kGO.setVisibility(8);
             }
-            a(c0767a.kGV, groupInfoData.getGrade());
+            a(c0776a.kGV, groupInfoData.getGrade());
         }
         this.kGH.getBaseFragmentActivity().getLayoutMode().setNightMode(TbadkApplication.getInst().getSkinType() == 1);
         this.kGH.getBaseFragmentActivity().getLayoutMode().onModeChanged(view);
         if (groupInfoData != null && groupInfoData.isMemGroup()) {
-            ao.setViewTextColor(c0767a.kGL, R.color.common_color_10009, 1);
-            ao.setImageResource(c0767a.kGS, R.drawable.icon_vip_grade_big_small_s);
-            ao.setImageResource(c0767a.kGT, R.drawable.icon_vip_grade_big_small_s);
-            ao.setImageResource(c0767a.kGU, R.drawable.icon_vip_grade_big_small_s);
+            ao.setViewTextColor(c0776a.kGL, R.color.common_color_10009, 1);
+            ao.setImageResource(c0776a.kGS, R.drawable.icon_vip_grade_big_small_s);
+            ao.setImageResource(c0776a.kGT, R.drawable.icon_vip_grade_big_small_s);
+            ao.setImageResource(c0776a.kGU, R.drawable.icon_vip_grade_big_small_s);
         }
         return view;
     }
@@ -128,7 +128,7 @@ public class a extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.im.mygroup.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    static class C0767a {
+    static class C0776a {
         LinearLayout kGJ;
         GroupImageView kGK;
         TextView kGL;
@@ -143,7 +143,7 @@ public class a extends BaseAdapter {
         ImageView kGU;
         ImageView[] kGV;
 
-        C0767a() {
+        C0776a() {
         }
     }
 }

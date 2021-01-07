@@ -14,10 +14,10 @@ public class a extends UniversalPlayer {
     public a(Context context, String str) {
         super(context);
         this.iRg = str;
-        cAJ();
+        cAK();
     }
 
-    public void cAJ() {
+    public void cAK() {
         setOption(CyberPlayerManager.OPT_IS_LIVE_VIDEO, "true");
         HashMap hashMap = new HashMap();
         hashMap.put(CyberPlayerManager.STAGE_INFO_TYPE, SoUtils.SO_EVENT_ID_DEFAULT);

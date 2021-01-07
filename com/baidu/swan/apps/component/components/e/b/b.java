@@ -39,7 +39,7 @@ public final class b extends com.baidu.swan.apps.component.a.b.a<SimpleDraweeVie
     /* renamed from: a */
     public void ax(@NonNull SimpleDraweeView simpleDraweeView) {
         super.ax(simpleDraweeView);
-        simpleDraweeView.getHierarchy().b(p.b.pxB);
+        simpleDraweeView.getHierarchy().b(p.b.pxI);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

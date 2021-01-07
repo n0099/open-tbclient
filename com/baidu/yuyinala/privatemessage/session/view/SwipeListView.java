@@ -29,7 +29,7 @@ public class SwipeListView extends ListView {
         setMotionEventSplittingEnabled(false);
     }
 
-    public void eoy() {
+    public void eoz() {
         int i = 0;
         while (true) {
             try {
@@ -58,7 +58,7 @@ public class SwipeListView extends ListView {
 
     @Override // android.widget.AbsListView, android.view.View
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        eoy();
+        eoz();
         return super.onTouchEvent(motionEvent);
     }
 

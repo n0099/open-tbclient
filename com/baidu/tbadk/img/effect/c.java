@@ -11,7 +11,7 @@ public class c {
     private static c fJd = new c();
     private final HashMap<String, Class<? extends b>> imageActions = new HashMap<>();
 
-    public static c bGr() {
+    public static c bGs() {
         return fJd;
     }
 

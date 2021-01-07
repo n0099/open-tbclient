@@ -13,11 +13,11 @@ public final class c {
     private c() {
     }
 
-    public static c amC() {
+    public static c amD() {
         return a.cFH;
     }
 
-    public j amD() {
+    public j amE() {
         return new com.baidu.swan.apps.adaptation.b.a.a();
     }
 }

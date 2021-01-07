@@ -14,7 +14,7 @@ public class a extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.apps.extco
     private static volatile a ddD;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a axL() {
+    public static a axM() {
         if (ddD == null) {
             synchronized (a.class) {
                 if (ddD == null) {
@@ -31,10 +31,10 @@ public class a extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.apps.extco
 
     @Override // com.baidu.swan.apps.extcore.b.b
     @Nullable
-    public ExtensionCore avW() {
+    public ExtensionCore avX() {
         ExtensionCore extensionCore;
         if (ProcessUtils.isMainProcess()) {
-            extensionCore = axT();
+            extensionCore = axU();
         } else {
             Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0442a.class, null).mResult;
             bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -43,7 +43,7 @@ public class a extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.apps.extco
                 Log.d("ExtCore-AppsManager", "getExtensionCore:" + ProcessUtils.getCurProcessName() + " extension core: " + extensionCore);
             }
         }
-        if (extensionCore != null && com.baidu.swan.apps.ad.a.a.aIt() && extensionCore.extensionCoreVersionCode < 4294967297L) {
+        if (extensionCore != null && com.baidu.swan.apps.ad.a.a.aIu() && extensionCore.extensionCoreVersionCode < 4294967297L) {
             return com.baidu.swan.apps.ad.a.a.d(extensionCore);
         }
         return extensionCore;
@@ -55,24 +55,24 @@ public class a extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.apps.extco
         @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
         public Bundle execCall(Bundle bundle) {
             Bundle bundle2 = new Bundle();
-            bundle2.putParcelable("aiapps_extension_core", axM());
+            bundle2.putParcelable("aiapps_extension_core", axN());
             return bundle2;
         }
 
-        private ExtensionCore axM() {
-            ExtensionCore axT = axN().axT();
-            if (!axT.isAvailable()) {
-                axN().axQ();
-                return axN().axT();
+        private ExtensionCore axN() {
+            ExtensionCore axU = axO().axU();
+            if (!axU.isAvailable()) {
+                axO().axR();
+                return axO().axU();
             }
-            return axT;
+            return axU;
         }
 
-        private com.baidu.swan.apps.extcore.b.b axN() {
-            return b.iM(ajk());
+        private com.baidu.swan.apps.extcore.b.b axO() {
+            return b.iM(ajl());
         }
 
-        protected int ajk() {
+        protected int ajl() {
             return 0;
         }
     }

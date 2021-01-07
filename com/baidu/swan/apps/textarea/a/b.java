@@ -38,32 +38,32 @@ public class b extends aa {
             e.printStackTrace();
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "model parse exception:", e);
         }
-        SwanAppActivity aDq = f.aDG().aDq();
-        if (aDq == null) {
+        SwanAppActivity aDr = f.aDH().aDr();
+        if (aDr == null) {
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "activity is null when add textarea");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "activity is null when add textarea");
             return false;
         }
-        com.baidu.swan.apps.core.d.f ajs = f.aDG().ajs();
-        if (ajs == null) {
+        com.baidu.swan.apps.core.d.f ajt = f.aDH().ajt();
+        if (ajt == null) {
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "fragmentManager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragmentManager is null");
             return false;
         }
-        com.baidu.swan.apps.core.d.e asU = ajs.asU();
-        if (asU == null) {
+        com.baidu.swan.apps.core.d.e asV = ajt.asV();
+        if (asV == null) {
             com.baidu.swan.apps.console.c.e("OpenTextAreaAction", "fragment is null when add input");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment is null when add input");
             return false;
         }
-        com.baidu.swan.apps.component.b.c aow = new com.baidu.swan.apps.component.components.textarea.a(context, bVar, aDq, asU, new a.InterfaceC0411a() { // from class: com.baidu.swan.apps.textarea.a.b.1
+        com.baidu.swan.apps.component.b.c aox = new com.baidu.swan.apps.component.components.textarea.a(context, bVar, aDr, asV, new a.InterfaceC0411a() { // from class: com.baidu.swan.apps.textarea.a.b.1
             @Override // com.baidu.swan.apps.component.components.textarea.a.InterfaceC0411a
             public void a(String str, String str2, JSONObject jSONObject) {
                 b.this.a(str, str2, callbackHandler, 0, jSONObject);
             }
-        }).aow();
-        if (!aow.isSuccess()) {
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, aow.msg);
+        }).aox();
+        if (!aox.isSuccess()) {
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, aox.msg);
             return false;
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));

@@ -7,25 +7,25 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class a {
     private C0094a anQ;
     private Context d;
 
     /* renamed from: com.baidu.cesium.e.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public final class C0094a {
         private C0094a aor;
 
         /* renamed from: b  reason: collision with root package name */
-        private File f1698b;
+        private File f1699b;
         private String c;
         private boolean e;
 
         C0094a(File file) {
             this.e = false;
             this.e = true;
-            this.f1698b = file;
+            this.f1699b = file;
             this.c = file.getName();
         }
 
@@ -49,16 +49,16 @@ public class a {
         }
 
         public File b() {
-            File file = this.f1698b;
+            File file = this.f1699b;
             if (file == null) {
                 file = this.aor == null ? new File(a.this.a(), this.c) : new File(this.aor.b(), this.c);
-                this.f1698b = file;
+                this.f1699b = file;
             }
             return file;
         }
 
         public File b(String str) {
-            return new File(this.f1698b, str);
+            return new File(this.f1699b, str);
         }
 
         public String c() {

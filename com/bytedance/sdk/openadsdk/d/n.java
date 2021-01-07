@@ -3,7 +3,7 @@ package com.bytedance.sdk.openadsdk.d;
 public final class n extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final n f7297a = new n();
+    public static final n f7298a = new n();
 
     public int hashCode() {
         return n.class.hashCode();

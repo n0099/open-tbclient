@@ -17,7 +17,7 @@ public class b {
         public static b ciu = new b();
     }
 
-    public static b adu() {
+    public static b adv() {
         return a.ciu;
     }
 

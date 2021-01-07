@@ -93,13 +93,13 @@ public class TbWebChromeClient extends WebChromeClient {
 
     @Override // android.webkit.WebChromeClient
     public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        if (!y.CQ(str) && str2.startsWith("tiebaapp")) {
+        if (!y.CP(str) && str2.startsWith("tiebaapp")) {
             com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-            cVar.Ts(com.baidu.tieba.tbadkCore.e.a.g.Tz(str2));
+            cVar.Tr(com.baidu.tieba.tbadkCore.e.a.g.Ty(str2));
             cVar.setStatus(301);
-            callJsMethod(webView, cVar.cxa(), cVar.dPM());
+            callJsMethod(webView, cVar.cxb(), cVar.dPN());
         }
-        if (!y.CQ(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
+        if (!y.CP(str) || this.callback == null || !this.callback.onJsPrompt(str2, jsPromptResult)) {
             jsPromptResult.cancel();
         }
         return true;

@@ -26,7 +26,7 @@ public class a implements c {
         this.mState = i;
     }
 
-    public int bOV() {
+    public int bOW() {
         return this.mState;
     }
 
@@ -46,17 +46,17 @@ public class a implements c {
         return remove;
     }
 
-    public boolean bOW() {
+    public boolean bOX() {
         return this.gjR.isEmpty();
     }
 
-    public void bOX() {
+    public void bOY() {
         if (this.gjQ != null) {
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bOQ().d(this.gjQ);
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bOR().d(this.gjQ);
             this.gjP.j(710, this.gjQ.mPackageName, d.getExtInfo());
             d.extra().setStatus(DownloadStatus.STATUS_INSTALL_SUCCESS);
             d.extra().setPercent(100);
-            if (!bOW()) {
+            if (!bOX()) {
                 for (d dVar : this.gjR) {
                     dVar.f(this.gjQ);
                 }
@@ -64,10 +64,10 @@ public class a implements c {
         }
     }
 
-    public void bOY() {
+    public void bOZ() {
         if (this.gjQ != null) {
-            com.baidu.tieba.ad.download.d.bOQ().d(this.gjQ).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bOW()) {
+            com.baidu.tieba.ad.download.d.bOR().d(this.gjQ).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bOX()) {
                 for (d dVar : this.gjR) {
                     dVar.g(this.gjQ);
                 }
@@ -76,10 +76,10 @@ public class a implements c {
     }
 
     @Override // com.baidu.tieba.ad.download.a.c
-    public void FA(String str) {
+    public void Fz(String str) {
         if (this.gjQ != null) {
-            com.baidu.tieba.ad.download.d.bOQ().d(this.gjQ).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
-            if (!bOW()) {
+            com.baidu.tieba.ad.download.d.bOR().d(this.gjQ).extra().setStatus(DownloadStatus.STATUS_DOWNLOADING);
+            if (!bOX()) {
                 for (d dVar : this.gjR) {
                     dVar.e(this.gjQ);
                 }
@@ -90,8 +90,8 @@ public class a implements c {
     @Override // com.baidu.tieba.ad.download.a.c
     public void aA(String str, int i) {
         if (this.gjQ != null) {
-            com.baidu.tieba.ad.download.d.bOQ().d(this.gjQ).extra().setStatus(DownloadStatus.STATUS_PAUSED);
-            if (!bOW()) {
+            com.baidu.tieba.ad.download.d.bOR().d(this.gjQ).extra().setStatus(DownloadStatus.STATUS_PAUSED);
+            if (!bOX()) {
                 for (d dVar : this.gjR) {
                     dVar.b(this.gjQ, this.mPercent);
                 }
@@ -102,8 +102,8 @@ public class a implements c {
     @Override // com.baidu.tieba.ad.download.a.c
     public void a(String str, StopStatus stopStatus) {
         if (this.gjQ != null) {
-            com.baidu.tieba.ad.download.d.bOQ().d(this.gjQ).extra().setStatus(DownloadStatus.STATUS_NONE);
-            if (!bOW()) {
+            com.baidu.tieba.ad.download.d.bOR().d(this.gjQ).extra().setStatus(DownloadStatus.STATUS_NONE);
+            if (!bOX()) {
                 for (d dVar : this.gjR) {
                     dVar.a(this.gjQ, stopStatus);
                 }
@@ -114,12 +114,12 @@ public class a implements c {
     @Override // com.baidu.tieba.ad.download.a.c
     public void onSuccess(String str, String str2) {
         if (this.gjQ != null) {
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bOQ().d(this.gjQ);
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bOR().d(this.gjQ);
             this.gjP.j(704, this.gjQ.mPackageName, d.getExtInfo());
             d.extra().setStatus(DownloadStatus.STATUS_SUCCESS);
             d.extra().setPercent(100);
-            com.baidu.tieba.ad.download.d.bOQ().d(this.gjQ).extra().setDownloadPath(str2);
-            if (!bOW()) {
+            com.baidu.tieba.ad.download.d.bOR().d(this.gjQ).extra().setDownloadPath(str2);
+            if (!bOX()) {
                 for (d dVar : this.gjR) {
                     dVar.a(this.gjQ, str2, false);
                 }
@@ -131,8 +131,8 @@ public class a implements c {
     public void aB(String str, int i) {
         if (this.gjQ != null) {
             this.mPercent = i;
-            com.baidu.tieba.ad.download.d.bOQ().d(this.gjQ).extra().setPercent(i);
-            if (!bOW()) {
+            com.baidu.tieba.ad.download.d.bOR().d(this.gjQ).extra().setPercent(i);
+            if (!bOX()) {
                 for (d dVar : this.gjR) {
                     dVar.a(this.gjQ, this.mPercent);
                 }

@@ -66,7 +66,7 @@ public class a {
         }
     }
 
-    public void HL(String str) {
+    public void HK(String str) {
         if (!StringUtils.isNull(str)) {
             if (this.hhm != null && this.hhm.getCount() <= 0) {
                 this.hhk.setVisibility(8);

@@ -57,7 +57,7 @@ public class c {
     }
 
     private void initView() {
-        bIk();
+        bIl();
         this.lgA = (LinearLayoutDetectsSoftKeyboard) this.mRootView.findViewById(R.id.search_container);
         this.lgA.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.mainentrance.view.c.1
             @Override // android.view.View.OnTouchListener
@@ -77,13 +77,13 @@ public class c {
         this.lfA = (FrameLayout) this.mRootView.findViewById(R.id.frame_layout);
         this.mNoDataView = NoDataViewFactory.a(this.mContext, null, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, (int) this.mContext.getResources().getDimension(R.dimen.ds200)), null, null);
         this.lfA.addView(this.mNoDataView, 0);
-        dgi();
-        dfK();
         dgj();
+        dfL();
         dgk();
+        dgl();
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar = (NavigationBar) this.mRootView.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.showBottomLine();
         this.lgG = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.square_search_navigation_view, (View.OnClickListener) null);
@@ -131,9 +131,9 @@ public class c {
             this.ioT.setHintTextColor(ao.getColor(R.color.CAM_X0110));
         }
         this.mNavigationBar.onChangeSkinType(fVar, i);
-        SvgManager.bwq().a(this.fiW, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.fiW, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         ao.setNavbarTitleColor(this.ioT, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        SvgManager.bwq().a(this.gZe, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bwr().a(this.gZe, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         ao.setBackgroundResource(this.lfA, R.color.CAM_X0201);
         ao.setViewTextColor(this.ioU, R.color.CAM_X0302, 1);
         tJ(this.lgE);
@@ -145,51 +145,51 @@ public class c {
         }
     }
 
-    private void dgi() {
+    private void dgj() {
         this.lgC = (QuickWebView) this.mRootView.findViewById(R.id.search_history_webview);
         this.lgC.xj(true);
         this.lgD = this.mRootView.findViewById(R.id.search_webview_mask);
     }
 
-    private void dfK() {
+    private void dfL() {
         this.lfI = (BdListView) this.mRootView.findViewById(R.id.home_lv_search_suggest);
         this.lfK = new com.baidu.tieba.mainentrance.searchSuggestList.b(this.mContext, null);
         this.lgF = new com.baidu.tieba.mainentrance.searchSuggestList.a(this.mContext, null);
     }
 
-    private void dgj() {
+    private void dgk() {
         this.lgB = (QuickWebView) this.mRootView.findViewById(R.id.search_result_webview);
         this.lgB.xj(true);
     }
 
-    private void dgk() {
+    private void dgl() {
         this.ioT.setText("");
         this.ioT.requestFocus();
         this.ioU.setText(this.mContext.getString(R.string.cancel));
     }
 
-    public void dgl() {
+    public void dgm() {
         this.lgC.setVisibility(0);
         this.lfI.setVisibility(8);
         this.lgB.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void dfV() {
+    public void dfW() {
         this.lfI.setVisibility(8);
         this.lgC.setVisibility(8);
         this.lgB.setVisibility(8);
         this.mNoDataView.setVisibility(0);
     }
 
-    public void dfT() {
+    public void dfU() {
         this.lfI.setVisibility(0);
         this.lgC.setVisibility(8);
         this.lgB.setVisibility(8);
         this.mNoDataView.setVisibility(8);
     }
 
-    public void dgm() {
+    public void dgn() {
         this.lfI.setVisibility(8);
         this.lgC.setVisibility(8);
         this.lgB.setVisibility(0);
@@ -200,13 +200,13 @@ public class c {
         this.fiW.setVisibility(z ? 0 : 8);
     }
 
-    public void Op(String str) {
+    public void Oo(String str) {
         if (!StringUtils.isNull(str)) {
             this.ioT.setHint(str);
         }
     }
 
-    public void Oq(String str) {
+    public void Op(String str) {
         if (!StringUtils.isNull(str)) {
             this.ioT.setText(str);
             this.ioT.setSelection(str.length());
@@ -215,8 +215,8 @@ public class c {
 
     public void o(List<String> list, String str) {
         if (!x.isEmpty(list)) {
-            dfT();
-            this.lfK.Oj(str);
+            dfU();
+            this.lfK.Oi(str);
             this.lfK.setData(list);
             this.lfI.setAdapter((ListAdapter) this.lfK);
         }
@@ -224,8 +224,8 @@ public class c {
 
     public void p(List<ForumInfo> list, String str) {
         if (!x.isEmpty(list) && !TextUtils.isEmpty(str)) {
-            dfT();
-            this.lgF.Oj(str);
+            dfU();
+            this.lgF.Oi(str);
             this.lgF.eP(list);
             this.lfI.setAdapter((ListAdapter) this.lgF);
         }
@@ -276,23 +276,23 @@ public class c {
         this.lgB.setOnLoadUrlListener(bVar);
     }
 
-    public EditText dgn() {
+    public EditText dgo() {
         return this.ioT;
     }
 
-    public TextView dgo() {
+    public TextView dgp() {
         return this.ioU;
     }
 
-    public QuickWebView dgp() {
+    public QuickWebView dgq() {
         return this.lgB;
     }
 
-    public QuickWebView dgq() {
+    public QuickWebView dgr() {
         return this.lgC;
     }
 
-    public boolean dgr() {
+    public boolean dgs() {
         return this.lfI.getVisibility() == 0;
     }
 

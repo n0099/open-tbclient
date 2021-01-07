@@ -211,7 +211,7 @@ public class c implements i {
         }
 
         @Override // com.baidu.tieba.ala.liveroom.challenge.b.b.a
-        public boolean cfx() {
+        public boolean cfy() {
             return c.this.huU;
         }
     };
@@ -263,14 +263,14 @@ public class c implements i {
     @Override // com.baidu.live.challenge.i
     public void DL() {
         if (this.huG != null) {
-            this.huG.cgg();
+            this.huG.cgh();
         }
     }
 
     @Override // com.baidu.live.challenge.i
     public void DM() {
         if (this.huG != null) {
-            this.huG.cgh();
+            this.huG.cgi();
         }
     }
 
@@ -309,7 +309,7 @@ public class c implements i {
 
     @Override // com.baidu.live.challenge.i
     public void gh(String str) {
-        this.huG.Il(str);
+        this.huG.Ik(str);
     }
 
     @Override // com.baidu.live.challenge.i
@@ -387,7 +387,7 @@ public class c implements i {
         this.huG.bs(z);
     }
 
-    private void cfw() {
+    private void cfx() {
         if (this.huF != null) {
             this.huF.clear();
         }
@@ -397,9 +397,9 @@ public class c implements i {
     public void DC() {
         this.huU = true;
         if (this.huG != null) {
-            this.huG.cgc();
+            this.huG.cgd();
         }
-        cfw();
+        cfx();
     }
 
     @Override // com.baidu.live.challenge.i
@@ -407,7 +407,7 @@ public class c implements i {
         if (this.huG != null) {
             this.huG.onDestroy();
         }
-        cfw();
+        cfx();
     }
 
     @Override // com.baidu.live.challenge.i

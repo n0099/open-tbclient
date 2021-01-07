@@ -5,10 +5,10 @@ import com.bytedance.sdk.adnet.e.a;
 public final class TTAdConfig {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6377a;
+    private String f6378a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6378b;
+    private String f6379b;
     private boolean c;
     private String d;
     private String e;
@@ -38,19 +38,19 @@ public final class TTAdConfig {
     }
 
     public String getAppId() {
-        return this.f6377a;
+        return this.f6378a;
     }
 
     public void setAppId(String str) {
-        this.f6377a = str;
+        this.f6378a = str;
     }
 
     public String getAppName() {
-        return this.f6378b;
+        return this.f6379b;
     }
 
     public void setAppName(String str) {
-        this.f6378b = str;
+        this.f6379b = str;
     }
 
     public boolean isPaid() {
@@ -185,10 +185,10 @@ public final class TTAdConfig {
     public static class Builder {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6379a;
+        private String f6380a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f6380b;
+        private String f6381b;
         private String d;
         private String e;
         private int[] j;
@@ -207,12 +207,12 @@ public final class TTAdConfig {
         private boolean q = false;
 
         public Builder appId(String str) {
-            this.f6379a = str;
+            this.f6380a = str;
             return this;
         }
 
         public Builder appName(String str) {
-            this.f6380b = str;
+            this.f6381b = str;
             return this;
         }
 
@@ -304,8 +304,8 @@ public final class TTAdConfig {
 
         public TTAdConfig build() {
             TTAdConfig tTAdConfig = new TTAdConfig();
-            tTAdConfig.setAppId(this.f6379a);
-            tTAdConfig.setAppName(this.f6380b);
+            tTAdConfig.setAppId(this.f6380a);
+            tTAdConfig.setAppName(this.f6381b);
             tTAdConfig.setPaid(this.c);
             tTAdConfig.setKeywords(this.d);
             tTAdConfig.setData(this.e);

@@ -76,7 +76,7 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
         this.hiH = aVar.hiN;
     }
 
-    public void atC() {
+    public void atD() {
         if (this.hiG != null) {
             this.hiG.LH();
             this.his = new AlertDialog.Builder(this.mContext, a.i.guess_theme_dialog).create();
@@ -92,7 +92,7 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
                 this.his.setOnKeyListener(this.hiH);
             }
             JK();
-            caH();
+            caI();
             registerListener();
             return;
         }
@@ -118,7 +118,7 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
         }
     }
 
-    private void caH() {
+    private void caI() {
         this.mRootView = (ViewGroup) LayoutInflater.from(this.mContext).inflate(a.g.ala_guess_dialog, (ViewGroup) null);
         this.hiy = (TimeCountTextView) this.mRootView.findViewById(a.f.txt_center_number);
         this.hiz = (MagicProgressCircle) this.mRootView.findViewById(a.f.circle_guess_progress);
@@ -182,17 +182,17 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
     @Override // com.baidu.live.guess.b
     public void show() {
         if (this.his == null) {
-            atC();
+            atD();
         }
         if (!isShowing()) {
             this.fln = true;
             ShowUtil.showDialog(this.his, this.mContext);
             this.his.setContentView(this.mRootView);
-            caI();
+            caJ();
         }
     }
 
-    private void caI() {
+    private void caJ() {
         this.hiz.ay(100.0f).wl(this.hiA * 1000).startAnim();
         this.hiy.a(this.hiA * 1000, IMConnection.RETRY_DELAY_TIMES, new TimeCountTextView.a() { // from class: com.baidu.tieba.ala.live.guess.a.c.2
             @Override // com.baidu.tieba.ala.live.guess.widget.TimeCountTextView.a
@@ -313,7 +313,7 @@ public class c implements View.OnClickListener, com.baidu.live.guess.b {
         public c ap(Activity activity) {
             this.context = activity;
             c cVar = new c(this, this.context);
-            cVar.atC();
+            cVar.atD();
             return cVar;
         }
     }

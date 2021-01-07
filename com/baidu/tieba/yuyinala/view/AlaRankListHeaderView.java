@@ -81,7 +81,7 @@ public class AlaRankListHeaderView extends LinearLayout {
             public void onClick(View view) {
                 if (AlaRankListHeaderView.this.oIi != null) {
                     Intent intent = AlaRankListHeaderView.this.oIg.getIntent();
-                    boolean jm = com.baidu.live.aq.a.aam().jm(intent.getStringExtra("uk"));
+                    boolean jm = com.baidu.live.aq.a.aan().jm(intent.getStringExtra("uk"));
                     long longExtra = intent.getLongExtra("live_id", 0L);
                     try {
                         if (!String.valueOf(longExtra).equals(AlaRankListHeaderView.this.oIi.liveId)) {
@@ -93,8 +93,8 @@ public class AlaRankListHeaderView extends LinearLayout {
                                     xVar.aLl.aVu = AlaRankListHeaderView.this.oIi.aVu;
                                     MessageManager.getInstance().dispatchResponsedMessage(new YuyinShowRoomDialogMessage(new ShowRoomCard(xVar)));
                                 } else {
-                                    if (com.baidu.live.aq.a.aam().isApplying()) {
-                                        com.baidu.live.aq.a.aam().aav();
+                                    if (com.baidu.live.aq.a.aan().isApplying()) {
+                                        com.baidu.live.aq.a.aan().aaw();
                                     }
                                     String stringExtra = intent.getStringExtra("room_id");
                                     String stringExtra2 = intent.getStringExtra("portrait");

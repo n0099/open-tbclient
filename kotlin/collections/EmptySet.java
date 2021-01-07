@@ -46,7 +46,7 @@ public final class EmptySet implements Serializable, Set {
 
     @Override // java.util.Set, java.util.Collection
     public Object[] toArray() {
-        return kotlin.jvm.internal.n.q(this);
+        return kotlin.jvm.internal.n.r(this);
     }
 
     @Override // java.util.Set, java.util.Collection
@@ -106,7 +106,7 @@ public final class EmptySet implements Serializable, Set {
 
     @Override // java.util.Set, java.util.Collection, java.lang.Iterable
     public Iterator iterator() {
-        return v.qlN;
+        return v.qnv;
     }
 
     private final Object readResolve() {

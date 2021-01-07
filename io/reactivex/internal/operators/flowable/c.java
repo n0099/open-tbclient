@@ -4,7 +4,7 @@ import io.reactivex.b.h;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.ScalarSubscription;
 import java.util.concurrent.Callable;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class c {
     public static <T, R> boolean a(org.a.b<T> bVar, org.a.c<? super R> cVar, h<? super T, ? extends org.a.b<? extends R>> hVar) {
         if (bVar instanceof Callable) {

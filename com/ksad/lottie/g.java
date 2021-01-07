@@ -7,10 +7,10 @@ import androidx.annotation.RestrictTo;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f8324a;
+    private final int f8325a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f8325b;
+    private final int f8326b;
     private final String c;
     private final String d;
     private final String e;
@@ -19,8 +19,8 @@ public class g {
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public g(int i, int i2, String str, String str2, String str3) {
-        this.f8324a = i;
-        this.f8325b = i2;
+        this.f8325a = i;
+        this.f8326b = i2;
         this.c = str;
         this.d = str2;
         this.e = str3;

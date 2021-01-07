@@ -59,7 +59,7 @@ public class a extends d<ForumDetailActivity> {
         this.mNavigationBar.showBottomLine();
         this.gCe = (NoNetworkView) this.kCO.findViewById(R.id.no_network_view);
         this.kCS = (CustomScrollView) this.kCO.findViewById(R.id.scoll_view);
-        this.kCS.setOnTouchListener(new View$OnTouchListenerC0763a());
+        this.kCS.setOnTouchListener(new View$OnTouchListenerC0772a());
         this.kCT = (ItemHeaderView) this.kCO.findViewById(R.id.item_header);
         this.kCU = (ItemInfoView) this.kCO.findViewById(R.id.item_info);
         this.kCV = (ItemMsgManage) this.kCO.findViewById(R.id.item_msg_manage);
@@ -112,7 +112,7 @@ public class a extends d<ForumDetailActivity> {
         this.kCY.e(this.kCO);
     }
 
-    public void cYj() {
+    public void cYk() {
         if (this.kCZ == null) {
             this.kCZ = new com.baidu.tbadk.core.dialog.a(this.kCO.getPageContext().getPageActivity());
             this.kCZ.pa(R.string.officical_bar_info_clean_alert);
@@ -130,10 +130,10 @@ public class a extends d<ForumDetailActivity> {
                 }
             });
         }
-        this.kCZ.b(getPageContext()).btX();
+        this.kCZ.b(getPageContext()).btY();
     }
 
-    public NoNetworkView cYk() {
+    public NoNetworkView cYl() {
         return this.gCe;
     }
 
@@ -168,8 +168,8 @@ public class a extends d<ForumDetailActivity> {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.im.forum.detail.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class View$OnTouchListenerC0763a implements View.OnTouchListener {
-        private View$OnTouchListenerC0763a() {
+    public class View$OnTouchListenerC0772a implements View.OnTouchListener {
+        private View$OnTouchListenerC0772a() {
         }
 
         @Override // android.view.View.OnTouchListener

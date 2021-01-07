@@ -16,7 +16,7 @@ public class e {
     private String eyi = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_dialog_msg);
     private String eyj = AppRuntime.getAppContext().getString(e.a.swan_launch_failed_default_toast_msg);
 
-    public static e bhl() {
+    public static e bhm() {
         if (eyg == null) {
             synchronized (e.class) {
                 if (eyg == null) {

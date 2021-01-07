@@ -6,15 +6,15 @@ import kotlin.collections.z;
 /* loaded from: classes5.dex */
 public final class j extends z {
     private boolean hasNext;
-    private final long qmB;
-    private final long qmD;
-    private long qmE;
+    private final long qoj;
+    private final long qol;
+    private long qom;
 
     public j(long j, long j2, long j3) {
         boolean z = true;
-        this.qmB = j3;
-        this.qmD = j2;
-        if (this.qmB > 0) {
+        this.qoj = j3;
+        this.qol = j2;
+        if (this.qoj > 0) {
             if (j > j2) {
                 z = false;
             }
@@ -22,7 +22,7 @@ public final class j extends z {
             z = false;
         }
         this.hasNext = z;
-        this.qmE = this.hasNext ? j : this.qmD;
+        this.qom = this.hasNext ? j : this.qol;
     }
 
     @Override // java.util.Iterator
@@ -31,15 +31,15 @@ public final class j extends z {
     }
 
     @Override // kotlin.collections.z
-    public long eCt() {
-        long j = this.qmE;
-        if (j == this.qmD) {
+    public long eCX() {
+        long j = this.qom;
+        if (j == this.qol) {
             if (!this.hasNext) {
                 throw new NoSuchElementException();
             }
             this.hasNext = false;
         } else {
-            this.qmE += this.qmB;
+            this.qom += this.qoj;
         }
         return j;
     }

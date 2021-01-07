@@ -8,7 +8,7 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.e> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
     private static final String TAG = f.class.getSimpleName();
 
-    public static f bej() {
+    public static f bek() {
         return new f();
     }
 
@@ -18,7 +18,7 @@ public class f extends com.baidu.swan.impl.map.a.a<com.baidu.swan.apps.w.a.e> {
             com.baidu.swan.apps.console.c.e("map", "model is invalid");
             return false;
         }
-        com.baidu.swan.impl.map.c.a.Z(a(eVar)).beq();
+        com.baidu.swan.impl.map.c.a.Z(a(eVar)).ber();
         com.baidu.swan.apps.console.c.i("map", "OpenLocationAction end");
         return true;
     }

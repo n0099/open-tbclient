@@ -96,7 +96,7 @@ public class b extends BaseAdapter {
         return view;
     }
 
-    public void coF() {
+    public void coG() {
         if (this.hTf != null) {
             int size = this.hTf.size();
             for (int i = 0; i < size; i++) {

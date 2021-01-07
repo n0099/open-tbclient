@@ -127,19 +127,19 @@ public final class b {
         ekc = z;
     }
 
-    public static boolean baG() {
+    public static boolean baH() {
         return ekc;
     }
 
-    public static void baH() {
+    public static void baI() {
         ekd = 0;
     }
 
-    public static int baI() {
+    public static int baJ() {
         return ekd;
     }
 
-    public static long baJ() {
+    public static long baK() {
         return eke;
     }
 

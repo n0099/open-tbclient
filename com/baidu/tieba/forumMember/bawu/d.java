@@ -8,16 +8,16 @@ public class d {
     private l<byte[]> jaF;
 
     public d() {
-        bhY();
+        bhZ();
     }
 
-    public void bhY() {
+    public void bhZ() {
         if (this.jaF == null) {
-            this.jaF = com.baidu.tbadk.core.c.a.btS().Bm("tb.bawu_team_info");
+            this.jaF = com.baidu.tbadk.core.c.a.btT().Bl("tb.bawu_team_info");
         }
     }
 
-    public byte[] Kv(String str) {
+    public byte[] Ku(String str) {
         l.b<byte[]> by = (this.jaF == null || str == null) ? null : this.jaF.by(str);
         if (by == null || by.value == null) {
             return null;
@@ -27,7 +27,7 @@ public class d {
 
     public void m(String str, byte[] bArr) {
         if (!StringUtils.isNull(str)) {
-            bhY();
+            bhZ();
             this.jaF.set(str, bArr, TbConfig.MILLS_7DAYS);
         }
     }

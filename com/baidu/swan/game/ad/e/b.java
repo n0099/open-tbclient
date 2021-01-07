@@ -24,10 +24,10 @@ public class b implements com.baidu.swan.game.ad.a.b {
     public void a(String str, ResponseCallback<AdResponseInfo> responseCallback) {
         this.ecK = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
         if (this.ecK) {
-            com.baidu.swan.a.c.a.bfE().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).build().executeAsync(responseCallback);
+            com.baidu.swan.a.c.a.bfF().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).build().executeAsync(responseCallback);
             return;
         }
-        com.baidu.swan.a.c.a.bfE().getRequest().url(str).build().executeAsync(responseCallback);
+        com.baidu.swan.a.c.a.bfF().getRequest().url(str).build().executeAsync(responseCallback);
     }
 
     @Override // com.baidu.swan.game.ad.a.b
@@ -55,10 +55,10 @@ public class b implements com.baidu.swan.game.ad.a.b {
         };
         this.ecK = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
         if (this.ecK) {
-            com.baidu.swan.a.c.a.bfE().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).build().executeAsync(responseCallback);
+            com.baidu.swan.a.c.a.bfF().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).build().executeAsync(responseCallback);
             return;
         }
-        com.baidu.swan.a.c.a.bfE().getRequest().url(str).build().executeAsync(responseCallback);
+        com.baidu.swan.a.c.a.bfF().getRequest().url(str).build().executeAsync(responseCallback);
     }
 
     @Override // com.baidu.swan.game.ad.a.b
@@ -68,7 +68,7 @@ public class b implements com.baidu.swan.game.ad.a.b {
             aVar.method = "POST";
             aVar.url = "https://pimlog.baidu.com/mapp/advlog";
             aVar.requestBody = RequestBody.create(MediaType.get(AbstractBceClient.DEFAULT_CONTENT_TYPE), str);
-            com.baidu.swan.a.c.a.bfE().b(aVar);
+            com.baidu.swan.a.c.a.bfF().b(aVar);
         }
     }
 
@@ -76,19 +76,19 @@ public class b implements com.baidu.swan.game.ad.a.b {
     public void b(String str, ResponseCallback<com.baidu.swan.game.ad.c.a> responseCallback) {
         this.ecK = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
         if (this.ecK) {
-            com.baidu.swan.a.c.a.bfE().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).build().executeAsync(responseCallback);
+            com.baidu.swan.a.c.a.bfF().getRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).build().executeAsync(responseCallback);
             return;
         }
-        com.baidu.swan.a.c.a.bfE().getRequest().url(str).build().executeAsync(responseCallback);
+        com.baidu.swan.a.c.a.bfF().getRequest().url(str).build().executeAsync(responseCallback);
     }
 
     @Override // com.baidu.swan.game.ad.a.b
     public void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback) {
         this.ecK = str.startsWith(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
         if (this.ecK) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bfE().postRequest().url(str)).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bfF().postRequest().url(str)).cookieManager(com.baidu.swan.apps.t.a.aAR().alU())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
             return;
         }
-        ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bfE().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
+        ((PostBodyRequest.PostBodyRequestBuilder) com.baidu.swan.a.c.a.bfF().postRequest().url(str)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(responseCallback);
     }
 }

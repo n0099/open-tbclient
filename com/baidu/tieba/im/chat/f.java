@@ -87,7 +87,7 @@ public class f {
 
     public void a(com.baidu.adp.lib.b.a aVar) {
         for (MsgCommonItemAdapter msgCommonItemAdapter : this.boM) {
-            if (msgCommonItemAdapter.cWx()) {
+            if (msgCommonItemAdapter.cWy()) {
                 msgCommonItemAdapter.a(aVar);
             }
         }
@@ -95,7 +95,7 @@ public class f {
 
     public void setOnItemViewLongClickListener(com.baidu.adp.lib.b.b bVar) {
         for (MsgCommonItemAdapter msgCommonItemAdapter : this.boM) {
-            if (msgCommonItemAdapter.cWw()) {
+            if (msgCommonItemAdapter.cWx()) {
                 msgCommonItemAdapter.setOnItemViewLongClickListener(bVar);
             }
         }

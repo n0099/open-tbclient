@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.io.Reader;
 import java.io.StringReader;
 import java.math.BigDecimal;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public final class JSONReaderScanner extends JSONLexerBase {
     private static final ThreadLocal<char[]> BUF_LOCAL = new ThreadLocal<>();
     private char[] buf;

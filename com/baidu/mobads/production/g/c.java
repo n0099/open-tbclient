@@ -12,11 +12,11 @@ import java.util.Observer;
 public class c implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3486a;
+    final /* synthetic */ a f3487a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(a aVar) {
-        this.f3486a = aVar;
+        this.f3487a = aVar;
     }
 
     @Override // java.util.Observer
@@ -28,19 +28,19 @@ public class c implements Observer {
         if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.COMPLETED) {
             Log.e("XAbstractAdProdTemplate", "download complete");
             if (Looper.myLooper() != Looper.getMainLooper()) {
-                context = this.f3486a.y;
+                context = this.f3487a.y;
                 new Handler(context.getMainLooper()).post(new d(this));
                 return;
             }
-            a aVar = this.f3486a;
+            a aVar = this.f3487a;
             StringBuilder sb = new StringBuilder();
-            str = this.f3486a.A;
+            str = this.f3487a.A;
             StringBuilder append = sb.append(str);
-            str2 = this.f3486a.B;
+            str2 = this.f3487a.B;
             aVar.f(append.append(str2).toString());
         } else if (iOAdDownloader.getState() == IOAdDownloader.DownloadStatus.ERROR) {
             Log.e("XAbstractAdProdTemplate", "download error");
-            this.f3486a.a("开屏因为3d背景图片下载失败跳过");
+            this.f3487a.a("开屏因为3d背景图片下载失败跳过");
         }
     }
 }

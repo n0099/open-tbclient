@@ -13,7 +13,7 @@ public class h {
         this.activityId = i;
     }
 
-    public int bEd() {
+    public int bEe() {
         return this.fCx;
     }
 
@@ -21,11 +21,11 @@ public class h {
         this.fCx = i;
     }
 
-    public String bEe() {
+    public String bEf() {
         return this.activityNum;
     }
 
-    public void Dz(String str) {
+    public void Dy(String str) {
         this.activityNum = str;
     }
 }

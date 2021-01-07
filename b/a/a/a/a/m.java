@@ -8,12 +8,12 @@ import android.os.Build;
 import android.provider.Settings;
 import android.telephony.TelephonyManager;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class m {
     private static m At = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f1066b = -1;
+    private int f1067b = -1;
     private int c = -1;
     private int d = 1;
 

@@ -44,8 +44,8 @@ public class c {
         this.mContext = context;
     }
 
-    public void diQ() {
-        if (!this.epJ && isMainProcess() && diR()) {
+    public void diR() {
+        if (!this.epJ && isMainProcess() && diS()) {
             if (this.mHandlerThread == null) {
                 this.mHandlerThread = new HandlerThread("splash-thread");
                 this.mHandlerThread.start();
@@ -68,7 +68,7 @@ public class c {
                 this.lrI = new Runnable() { // from class: com.baidu.tieba.m.c.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        c.this.Pc(c.this.mContext.getString(R.string.data_init));
+                        c.this.Pb(c.this.mContext.getString(R.string.data_init));
                     }
                 };
             }
@@ -108,7 +108,7 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Pc(String str) {
+    public void Pb(String str) {
         if (this.lrG == null) {
             this.lrG = new b(this.mContext);
             this.lrG.setTextSize(1, 18.0f);
@@ -152,7 +152,7 @@ public class c {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private boolean diR() {
+    private boolean diS() {
         List<String> gG = gG(this.mContext);
         if (gG == null || gG.size() == 0) {
             return false;

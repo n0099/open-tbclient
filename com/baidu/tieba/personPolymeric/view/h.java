@@ -9,11 +9,11 @@ import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class h extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.j> implements View.OnClickListener {
     private View gHR;
+    private TextView mAl;
     private TextView mAm;
-    private TextView mAn;
-    private ImageView mAo;
+    private ImageView mAn;
     private View mRootView;
-    private com.baidu.tieba.personPolymeric.b.c muN;
+    private com.baidu.tieba.personPolymeric.b.c muM;
 
     public h(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -23,10 +23,10 @@ public class h extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     private void init(View view) {
         this.mRootView = view.findViewById(R.id.card_privacy_setting_rootview);
         this.gHR = view.findViewById(R.id.top_divider_line);
-        this.mAo = (ImageView) view.findViewById(R.id.lock_img);
-        this.mAm = (TextView) view.findViewById(R.id.one_public_tv);
-        this.mAn = (TextView) view.findViewById(R.id.card_hint_txt);
-        this.mAm.setOnClickListener(this);
+        this.mAn = (ImageView) view.findViewById(R.id.lock_img);
+        this.mAl = (TextView) view.findViewById(R.id.one_public_tv);
+        this.mAm = (TextView) view.findViewById(R.id.card_hint_txt);
+        this.mAl.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.card.b
@@ -34,9 +34,9 @@ public class h extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mSkinType != i) {
             ao.setBackgroundResource(this.mRootView, R.color.CAM_X0201);
             ao.setBackgroundResource(this.gHR, R.color.CAM_X0205);
-            ao.setViewTextColor(this.mAn, R.color.CAM_X0109, 1);
-            ao.setImageResource(this.mAo, R.drawable.pic_pop_key);
-            ao.setViewTextColor(this.mAm, R.color.CAM_X0304, 1);
+            ao.setViewTextColor(this.mAm, R.color.CAM_X0109, 1);
+            ao.setImageResource(this.mAn, R.drawable.pic_pop_key);
+            ao.setViewTextColor(this.mAl, R.color.CAM_X0304, 1);
         }
         this.mSkinType = i;
     }
@@ -66,13 +66,13 @@ public class h extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
     }
 
     public void b(com.baidu.tieba.personPolymeric.b.c cVar) {
-        this.muN = cVar;
+        this.muM = cVar;
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view != null && this.muN != null && view == this.mAm) {
-            this.muN.dzH();
+        if (view != null && this.muM != null && view == this.mAl) {
+            this.muM.dzI();
         }
     }
 }

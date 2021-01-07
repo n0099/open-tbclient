@@ -89,7 +89,7 @@ public class b {
 
     public void d(AlaLastLiveroomInfo alaLastLiveroomInfo) {
         if (alaLastLiveroomInfo != null) {
-            cfq();
+            cfr();
             this.aWT.startLoad(alaLastLiveroomInfo.getLastAnchorPortrait(), 10, false);
             this.hut = alaLastLiveroomInfo;
         }
@@ -136,7 +136,7 @@ public class b {
         this.mValueAnimator.start();
     }
 
-    private void cfq() {
+    private void cfr() {
         if (this.aWT != null) {
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.aWT.getLayoutParams();
             if (Build.VERSION.SDK_INT >= 17) {
@@ -147,7 +147,7 @@ public class b {
         }
     }
 
-    public void cfr() {
+    public void cfs() {
         if (this.hut != null && this.hut.getLastLiveId() > 0 && this.mContext != null) {
             if (this.hut.getIsAudio() == 1) {
                 YuyinAlaLiveRoomActivityConfig yuyinAlaLiveRoomActivityConfig = new YuyinAlaLiveRoomActivityConfig(this.mContext.getPageActivity());
@@ -197,7 +197,7 @@ public class b {
         release();
     }
 
-    private RelativeLayout.LayoutParams cfs() {
+    private RelativeLayout.LayoutParams cft() {
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(12);
         layoutParams.bottomMargin = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds204);
@@ -206,7 +206,7 @@ public class b {
 
     public void aH(ViewGroup viewGroup) {
         if (this.mView != null && viewGroup != null && this.mView.getParent() == null) {
-            viewGroup.addView(this.mView, cfs());
+            viewGroup.addView(this.mView, cft());
             if (UtilHelper.getRealScreenOrientation(this.mContext.getPageActivity()) == 2) {
                 hide();
             } else {
@@ -219,7 +219,7 @@ public class b {
         }
     }
 
-    public void cft() {
+    public void cfu() {
         release();
     }
 
@@ -235,7 +235,7 @@ public class b {
         }
     }
 
-    public void cfu() {
+    public void cfv() {
         if (this.mValueAnimator != null && this.mValueAnimator.isRunning()) {
             this.mValueAnimator.cancel();
         }

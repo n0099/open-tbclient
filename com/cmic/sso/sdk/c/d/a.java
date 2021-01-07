@@ -3,22 +3,22 @@ package com.cmic.sso.sdk.c.d;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8014a;
+    private int f8015a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f8015b;
+    private String f8016b;
 
     private a(int i, String str) {
-        this.f8014a = i;
-        this.f8015b = str;
+        this.f8015a = i;
+        this.f8016b = str;
     }
 
     public int a() {
-        return this.f8014a;
+        return this.f8015a;
     }
 
     public String b() {
-        return this.f8015b;
+        return this.f8016b;
     }
 
     public static a PY(int i) {

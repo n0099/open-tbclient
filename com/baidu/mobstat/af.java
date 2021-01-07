@@ -10,17 +10,17 @@ import org.json.JSONArray;
 public class af {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile boolean f3684a = true;
+    private static volatile boolean f3685a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f3685b = false;
+    private static volatile boolean f3686b = false;
 
     public static boolean a() {
-        return f3685b;
+        return f3686b;
     }
 
     public static void a(String str) {
-        f3685b = true;
+        f3686b = true;
         am.a().a(str);
     }
 
@@ -29,7 +29,7 @@ public class af {
     }
 
     public static boolean b() {
-        return f3684a;
+        return f3685a;
     }
 
     public static JSONArray c() {

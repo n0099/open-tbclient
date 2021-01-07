@@ -35,7 +35,7 @@ public class b implements com.baidu.tbadk.editortools.noConflictPanel.a {
         if (i == this.fFt.getVisibility()) {
             return true;
         }
-        return bFh() && i == 0;
+        return bFi() && i == 0;
     }
 
     public int[] Y(int i, int i2) {
@@ -52,7 +52,7 @@ public class b implements com.baidu.tbadk.editortools.noConflictPanel.a {
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public boolean bFh() {
+    public boolean bFi() {
         return this.fFx;
     }
 
@@ -62,12 +62,12 @@ public class b implements com.baidu.tbadk.editortools.noConflictPanel.a {
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void aiZ() {
+    public void aja() {
         throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
     }
 
     @Override // com.baidu.tbadk.editortools.noConflictPanel.a
-    public void aja() {
+    public void ajb() {
         this.cDR = true;
     }
 

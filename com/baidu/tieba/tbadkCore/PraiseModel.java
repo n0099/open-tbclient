@@ -14,11 +14,11 @@ public class PraiseModel extends BdBaseModel {
     private static final String glS = TbConfig.SERVER_ADDRESS + TbConfig.COMMON_PRAISE_URL;
     private static TbHttpMessageTask task = new TbHttpMessageTask(1001600, glS);
     private final HttpMessageListener glT;
-    private a nqv;
+    private a nqu;
 
     /* loaded from: classes.dex */
     public interface a {
-        void FO(String str);
+        void FN(String str);
 
         void onLoadFailed(int i, String str);
     }
@@ -30,7 +30,7 @@ public class PraiseModel extends BdBaseModel {
 
     public PraiseModel(TbPageContext tbPageContext, a aVar) {
         super(tbPageContext);
-        this.nqv = null;
+        this.nqu = null;
         this.glT = new HttpMessageListener(1001600) { // from class: com.baidu.tieba.tbadkCore.PraiseModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -38,22 +38,22 @@ public class PraiseModel extends BdBaseModel {
                 if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1001600) {
                     int statusCode = httpResponsedMessage.getStatusCode();
                     if (statusCode != 200 || !(httpResponsedMessage instanceof PraiseResponseMessage)) {
-                        if (PraiseModel.this.nqv != null) {
-                            PraiseModel.this.nqv.onLoadFailed(statusCode, null);
+                        if (PraiseModel.this.nqu != null) {
+                            PraiseModel.this.nqu.onLoadFailed(statusCode, null);
                             return;
                         }
                         return;
                     }
                     PraiseResponseMessage praiseResponseMessage = (PraiseResponseMessage) httpResponsedMessage;
                     if (praiseResponseMessage.getError() == 0) {
-                        PraiseModel.this.nqv.FO(praiseResponseMessage.getErrMsg());
-                    } else if (PraiseModel.this.nqv != null) {
-                        PraiseModel.this.nqv.onLoadFailed(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
+                        PraiseModel.this.nqu.FN(praiseResponseMessage.getErrMsg());
+                    } else if (PraiseModel.this.nqu != null) {
+                        PraiseModel.this.nqu.onLoadFailed(praiseResponseMessage.getError(), praiseResponseMessage.getErrMsg());
                     }
                 }
             }
         };
-        this.nqv = aVar;
+        this.nqu = aVar;
     }
 
     public void registerListener() {

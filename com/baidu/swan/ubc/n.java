@@ -31,7 +31,7 @@ public class n {
         init(com.baidu.swan.ubc.e.getContext());
     }
 
-    public static n biJ() {
+    public static n biK() {
         if (eBr == null) {
             synchronized (n.class) {
                 if (eBr == null) {
@@ -49,16 +49,16 @@ public class n {
             } else {
                 this.mContext = context.getApplicationContext();
             }
-            this.eBu = com.baidu.swan.config.b.aTE().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
+            this.eBu = com.baidu.swan.config.b.aTF().getInt(QuickPersistConfigConst.KEY_FLOW_HANDLE, 0);
             if (this.eBu > 1073741823) {
                 this.eBu -= 1073741823;
             } else {
                 this.eBu = 1073741823 + this.eBu;
             }
-            if (com.baidu.swan.ubc.e.bin() == null || com.baidu.swan.ubc.e.bin().alz() == null) {
+            if (com.baidu.swan.ubc.e.bio() == null || com.baidu.swan.ubc.e.bio().alA() == null) {
                 this.mExecutorService = Executors.newSingleThreadExecutor();
             } else {
-                this.mExecutorService = com.baidu.swan.ubc.e.bin().alz();
+                this.mExecutorService = com.baidu.swan.ubc.e.bio().alA();
             }
             this.mExecutorService.execute(new g());
             this.eBs = Executors.newSingleThreadExecutor();
@@ -119,7 +119,7 @@ public class n {
         Flow flow = new Flow(str, this.eBu, i);
         if (this.eAJ != null && !this.eAJ.aj(str, i)) {
             flow.setValid(false);
-        } else if ((i & 16) != 0 && !com.baidu.swan.ubc.e.bin().qX(str)) {
+        } else if ((i & 16) != 0 && !com.baidu.swan.ubc.e.bio().qX(str)) {
             flow.setValid(false);
         } else {
             if (this.eAJ != null && this.eAJ.zr(str) > 0) {
@@ -157,7 +157,7 @@ public class n {
                 @Override // java.lang.Runnable
                 public void run() {
                     if (n.this.eBt != null) {
-                        n.this.eBt.bie();
+                        n.this.eBt.bif();
                     }
                 }
             });
@@ -195,12 +195,12 @@ public class n {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bih() {
+    public void bii() {
         this.mExecutorService.execute(new Runnable() { // from class: com.baidu.swan.ubc.n.4
             @Override // java.lang.Runnable
             public void run() {
                 if (n.this.eBt != null) {
-                    n.this.eBt.bih();
+                    n.this.eBt.bii();
                 }
             }
         });
@@ -231,9 +231,9 @@ public class n {
         @Override // java.lang.Runnable
         public void run() {
             Process.setThreadPriority(10);
-            n.this.eAJ = com.baidu.swan.ubc.d.bij();
+            n.this.eAJ = com.baidu.swan.ubc.d.bik();
             n.this.eBt = new com.baidu.swan.ubc.c(n.this.mContext);
-            n.this.eBt.bii();
+            n.this.eBt.bij();
         }
     }
 
@@ -266,7 +266,7 @@ public class n {
         @Override // java.lang.Runnable
         public void run() {
             if (n.this.eBt != null) {
-                this.eBA.biD();
+                this.eBA.biE();
                 if (!TextUtils.isEmpty(n.this.eAJ.zq(this.eBA.getId()))) {
                     this.eBA.setCategory(n.this.eAJ.zq(this.eBA.getId()));
                 }
@@ -284,7 +284,7 @@ public class n {
         private k eBB;
 
         d(Flow flow, String str) {
-            this.eBB = new k(flow.getId(), flow.getHandle(), str, flow.getOption(), flow.biF());
+            this.eBB = new k(flow.getId(), flow.getHandle(), str, flow.getOption(), flow.biG());
             this.eBB.dw(flow.getStartTime());
             this.eBB.zz("1");
             n.d(n.this);
@@ -299,7 +299,7 @@ public class n {
         @Override // java.lang.Runnable
         public void run() {
             if (n.this.eBt != null) {
-                this.eBB.biD();
+                this.eBB.biE();
                 if (!TextUtils.isEmpty(n.this.eAJ.zq(this.eBB.getId()))) {
                     this.eBB.setCategory(n.this.eAJ.zq(this.eBB.getId()));
                 }

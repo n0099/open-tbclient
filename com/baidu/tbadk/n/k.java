@@ -13,9 +13,9 @@ public class k {
     private long fMr;
     private boolean aze = false;
     private long fMq = 86400;
-    private long fMo = com.baidu.tbadk.core.sharedPref.b.bvq().getLong(fMp, 0);
+    private long fMo = com.baidu.tbadk.core.sharedPref.b.bvr().getLong(fMp, 0);
 
-    public static k bHF() {
+    public static k bHG() {
         if (fMs == null) {
             synchronized (k.class) {
                 if (fMs == null) {
@@ -46,17 +46,17 @@ public class k {
             if (0 == this.fMo || currentTimeMillis - this.fMo >= this.fMr) {
                 this.fMo = currentTimeMillis;
                 BdBaseApplication.getInst().setStartSmallFlowTime(this.fMo);
-                com.baidu.tbadk.core.sharedPref.b.bvq().putLong(fMp, this.fMo);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putLong(fMp, this.fMo);
             }
         } else {
             this.fMo = 0L;
             BdBaseApplication.getInst().setStartSmallFlowTime(0L);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putLong(fMp, this.fMo);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putLong(fMp, this.fMo);
         }
         this.aze = z;
         BdBaseApplication.getInst().setIsSmallFlow(z);
         if (BdStatisticsManager.getInstance().isMainProcess()) {
-            l.bHK().bHL();
+            l.bHL().bHM();
         }
     }
 
@@ -79,7 +79,7 @@ public class k {
         return "2G";
     }
 
-    public long bHG() {
+    public long bHH() {
         try {
             Runtime runtime = Runtime.getRuntime();
             return (runtime.totalMemory() - runtime.freeMemory()) / 1048576;
@@ -282,7 +282,7 @@ public class k {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public String bHH() {
+    public String bHI() {
         BufferedReader bufferedReader;
         Process process;
         String str = null;

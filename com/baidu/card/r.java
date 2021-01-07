@@ -32,7 +32,7 @@ public class r extends as {
         this.ahC = (RoundCornerFrameLayout) this.mRootView.findViewById(R.id.frame_video);
         this.ahZ = (InterviewLiveLayout) this.mRootView.findViewById(R.id.frame_interview_no_video);
         this.akg = ti();
-        this.akg.dBx().setBackgroundResource(R.color.transparent);
+        this.akg.dBy().setBackgroundResource(R.color.transparent);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -58,9 +58,9 @@ public class r extends as {
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
         this.ahi = aVar;
-        if (this.ahi != null && this.ahi.boO() != null) {
-            bz boO = aVar.boO();
-            if (boO.brH() != null) {
+        if (this.ahi != null && this.ahi.boP() != null) {
+            bz boP = aVar.boP();
+            if (boP.brI() != null) {
                 this.ahZ.setVisibility(8);
                 this.ahC.setVisibility(0);
                 this.aia.setVisibility(8);
@@ -71,8 +71,8 @@ public class r extends as {
             this.ahZ.setVisibility(0);
             this.aia.setVisibility(0);
             this.ahZ.D(aVar);
-            ay.a(this.mTitle, boO);
-            ay.a(this.aia, this.mTitle, boO, ahY);
+            ay.a(this.mTitle, boP);
+            ay.a(this.aia, this.mTitle, boP, ahY);
         }
     }
 

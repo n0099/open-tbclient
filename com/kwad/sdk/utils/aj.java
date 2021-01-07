@@ -5,10 +5,10 @@ import android.os.SystemClock;
 public class aj {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f11075a;
+    private long f11076a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f11076b;
+    private long f11077b;
     private boolean c;
 
     public aj() {
@@ -16,37 +16,37 @@ public class aj {
     }
 
     private void g() {
-        this.f11075a = 0L;
-        this.f11076b = -1L;
+        this.f11076a = 0L;
+        this.f11077b = -1L;
     }
 
     public void a() {
         g();
         this.c = true;
-        this.f11076b = SystemClock.elapsedRealtime();
+        this.f11077b = SystemClock.elapsedRealtime();
     }
 
     public void b() {
-        if (this.c && this.f11076b < 0) {
-            this.f11076b = SystemClock.elapsedRealtime();
+        if (this.c && this.f11077b < 0) {
+            this.f11077b = SystemClock.elapsedRealtime();
         }
     }
 
     public void c() {
-        if (this.c && this.f11076b > 0) {
-            this.f11075a += SystemClock.elapsedRealtime() - this.f11076b;
-            this.f11076b = -1L;
+        if (this.c && this.f11077b > 0) {
+            this.f11076a += SystemClock.elapsedRealtime() - this.f11077b;
+            this.f11077b = -1L;
         }
     }
 
     public long d() {
         if (this.c) {
             this.c = false;
-            if (this.f11076b > 0) {
-                this.f11075a += SystemClock.elapsedRealtime() - this.f11076b;
-                this.f11076b = -1L;
+            if (this.f11077b > 0) {
+                this.f11076a += SystemClock.elapsedRealtime() - this.f11077b;
+                this.f11077b = -1L;
             }
-            return this.f11075a;
+            return this.f11076a;
         }
         return 0L;
     }
@@ -56,6 +56,6 @@ public class aj {
     }
 
     public long f() {
-        return this.f11075a;
+        return this.f11076a;
     }
 }

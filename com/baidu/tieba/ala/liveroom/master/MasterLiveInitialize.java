@@ -10,15 +10,15 @@ import com.baidu.tieba.ala.liveroom.messages.GuardClubInfoRenameResponseMessage;
 /* loaded from: classes11.dex */
 public class MasterLiveInitialize {
     static {
-        clt();
         clu();
-    }
-
-    private static void clt() {
-        TbadkCoreApplication.getInst().RegisterIntent(AlaMasterLiveRoomActivityConfig.class, AlaMasterLiveRoomActivity.class);
+        clv();
     }
 
     private static void clu() {
+        TbadkCoreApplication.getInst().RegisterIntent(AlaMasterLiveRoomActivityConfig.class, AlaMasterLiveRoomActivity.class);
+    }
+
+    private static void clv() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021231, TbConfig.SERVER_HOST + "liveserver/guardClub/updateClubName");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

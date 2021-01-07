@@ -20,7 +20,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.g, com.baidu.swan.c.b, android.content.SharedPreferences
     public void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        if (aPE()) {
+        if (aPF()) {
             super.registerOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         } else {
             log();
@@ -29,7 +29,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.g, com.baidu.swan.c.b, android.content.SharedPreferences
     public void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener) {
-        if (aPE()) {
+        if (aPF()) {
             super.unregisterOnSharedPreferenceChangeListener(onSharedPreferenceChangeListener);
         } else {
             log();
@@ -38,7 +38,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putString(String str, String str2) {
-        if (aPE() || ul(str)) {
+        if (aPF() || ul(str)) {
             super.putString(str, str2);
         } else {
             log();
@@ -48,7 +48,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putStringSet(String str, Set<String> set) {
-        if (aPE() || ul(str)) {
+        if (aPF() || ul(str)) {
             super.putStringSet(str, set);
         } else {
             log();
@@ -58,7 +58,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putInt(String str, int i) {
-        if (aPE() || ul(str)) {
+        if (aPF() || ul(str)) {
             super.putInt(str, i);
         } else {
             log();
@@ -68,7 +68,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putLong(String str, long j) {
-        if (aPE() || ul(str)) {
+        if (aPF() || ul(str)) {
             super.putLong(str, j);
         } else {
             log();
@@ -78,7 +78,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putFloat(String str, float f) {
-        if (aPE() || ul(str)) {
+        if (aPF() || ul(str)) {
             super.putFloat(str, f);
         } else {
             log();
@@ -88,7 +88,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor putBoolean(String str, boolean z) {
-        if (aPE() || ul(str)) {
+        if (aPF() || ul(str)) {
             super.putBoolean(str, z);
         } else {
             log();
@@ -98,7 +98,7 @@ public class a extends b {
 
     @Override // com.baidu.swan.apps.storage.c.b, com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences.Editor
     public SharedPreferences.Editor remove(String str) {
-        if (aPE() || ul(str)) {
+        if (aPF() || ul(str)) {
             super.remove(str);
         } else {
             log();

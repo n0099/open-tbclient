@@ -68,11 +68,11 @@ public class h {
             }
             httpMessage.addHeader("needSig", "1");
             MessageManager.getInstance().sendMessage(httpMessage);
-            this.jnn.cHS();
+            this.jnn.cHT();
         }
     }
 
-    public void cIb() {
+    public void cIc() {
         if (this.fcZ != null) {
             this.fcZ.cancel();
         }

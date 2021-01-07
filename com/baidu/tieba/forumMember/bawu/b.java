@@ -10,11 +10,11 @@ public class b implements i {
     private boolean jaq = false;
 
     @Override // com.baidu.tieba.forumMember.bawu.i
-    public int cDi() {
+    public int cDj() {
         return 1;
     }
 
-    public ArrayList<BawuRoleInfoPub> cDj() {
+    public ArrayList<BawuRoleInfoPub> cDk() {
         return this.mMembers;
     }
 
@@ -30,7 +30,7 @@ public class b implements i {
         this.jap = z;
     }
 
-    public boolean cDk() {
+    public boolean cDl() {
         return this.jaq;
     }
 
@@ -38,11 +38,11 @@ public class b implements i {
         this.jaq = z;
     }
 
-    public String cDl() {
+    public String cDm() {
         return this.jar;
     }
 
-    public void Ku(String str) {
+    public void Kt(String str) {
         this.jar = str;
     }
 }

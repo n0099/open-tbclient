@@ -36,7 +36,7 @@ public class f extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> imple
             /* renamed from: b */
             public void a(View view, bz bzVar) {
                 if (view != null && bzVar != null) {
-                    BdToast.b(f.this.mContext, f.this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
+                    BdToast.b(f.this.mContext, f.this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bue();
                 }
             }
         };
@@ -93,7 +93,7 @@ public class f extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> imple
         a(new com.baidu.adp.widget.ListView.w() { // from class: com.baidu.tieba.frs.entelechy.adapter.f.2
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, com.baidu.adp.widget.ListView.n nVar2, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                BdToast.b(f.this.mContext, f.this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
+                BdToast.b(f.this.mContext, f.this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bue();
             }
         });
         threadCardViewHolder.tz();
@@ -124,7 +124,7 @@ public class f extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> imple
         threadCardViewHolder.b((ThreadCardViewHolder) bzVar);
         threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         threadCardViewHolder.ty().a(this.hnl);
-        bzVar.bsE();
+        bzVar.bsF();
         return threadCardViewHolder.getView();
     }
 
@@ -138,7 +138,7 @@ public class f extends com.baidu.tieba.frs.k<bz, ThreadCardViewHolder<bz>> imple
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 

@@ -11,7 +11,7 @@ public class ce {
     private static a phI;
 
     /* renamed from: a  reason: collision with root package name */
-    String f6119a;
+    String f6120a;
     private long g;
     private int h;
     private long i = -1;
@@ -32,7 +32,7 @@ public class ce {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized ah epz() {
+    public synchronized ah epA() {
         return this.phH;
     }
 
@@ -63,14 +63,14 @@ public class ce {
     }
 
     private synchronized void a(ac acVar, ArrayList<ac> arrayList, boolean z) {
-        long j = acVar instanceof a ? -1L : acVar.f6073a;
-        this.f6119a = UUID.randomUUID().toString();
-        f = this.phv.epM();
+        long j = acVar instanceof a ? -1L : acVar.f6074a;
+        this.f6120a = UUID.randomUUID().toString();
+        f = this.phv.epN();
         this.i = j;
         this.j = z;
         this.k = 0L;
-        if (au.f6085b) {
-            au.a("startSession, " + this.f6119a + ", hadUi:" + z + " data:" + acVar, null);
+        if (au.f6086b) {
+            au.a("startSession, " + this.f6120a + ", hadUi:" + z + " data:" + acVar, null);
         }
         if (z) {
             Calendar calendar = Calendar.getInstance();
@@ -90,18 +90,18 @@ public class ce {
         }
         if (j != -1) {
             ah ahVar = new ah();
-            ahVar.c = this.f6119a;
-            ahVar.f6074b = a(this.phv);
-            ahVar.f6073a = this.i;
+            ahVar.c = this.f6120a;
+            ahVar.f6075b = a(this.phv);
+            ahVar.f6074a = this.i;
             ahVar.i = this.phu.d();
             ahVar.h = this.phu.c();
             if (this.phv.v()) {
-                ahVar.e = b.eoR();
-                ahVar.f = b.eoP();
+                ahVar.e = b.eoS();
+                ahVar.f = b.eoQ();
             }
             arrayList.add(ahVar);
             this.phH = ahVar;
-            if (au.f6085b) {
+            if (au.f6086b) {
                 au.a("gen launch, " + ahVar.c + ", hadUi:" + z, null);
             }
         }
@@ -125,10 +125,10 @@ public class ce {
         } else if (!this.j && b2) {
             a(acVar, arrayList, true);
             z = true;
-        } else if (this.k != 0 && acVar.f6073a > this.k + this.phv.epK()) {
+        } else if (this.k != 0 && acVar.f6074a > this.k + this.phv.epL()) {
             a(acVar, arrayList, b2);
             z = true;
-        } else if (this.i > acVar.f6073a + 7200000) {
+        } else if (this.i > acVar.f6074a + 7200000) {
             a(acVar, arrayList, b2);
             z = true;
         } else {
@@ -137,23 +137,23 @@ public class ce {
         if (z2) {
             aj ajVar = (aj) acVar;
             if (ajVar.i()) {
-                this.g = acVar.f6073a;
+                this.g = acVar.f6074a;
                 this.k = 0L;
                 arrayList.add(acVar);
                 if (TextUtils.isEmpty(ajVar.i)) {
-                    if (this.phG != null && (ajVar.f6073a - this.phG.f6073a) - this.phG.h < 500) {
+                    if (this.phG != null && (ajVar.f6074a - this.phG.f6074a) - this.phG.h < 500) {
                         ajVar.i = this.phG.j;
-                    } else if (this.phF != null && (ajVar.f6073a - this.phF.f6073a) - this.phF.h < 500) {
+                    } else if (this.phF != null && (ajVar.f6074a - this.phF.f6074a) - this.phF.h < 500) {
                         ajVar.i = this.phF.j;
                     }
                 }
             } else {
-                Bundle L = L(acVar.f6073a, 0L);
+                Bundle L = L(acVar.f6074a, 0L);
                 if (L != null) {
                     b.j("play_session", L);
                 }
                 this.g = 0L;
-                this.k = ajVar.f6073a;
+                this.k = ajVar.f6074a;
                 arrayList.add(acVar);
                 if (ajVar.j()) {
                     this.phF = ajVar;
@@ -172,11 +172,11 @@ public class ce {
     public void c(ac acVar) {
         if (acVar != null) {
             acVar.d = this.phu.f();
-            acVar.c = this.f6119a;
-            acVar.f6074b = a(this.phv);
+            acVar.c = this.f6120a;
+            acVar.f6075b = a(this.phv);
             if (this.phv.v()) {
-                acVar.e = b.eoR();
-                acVar.f = b.eoP();
+                acVar.e = b.eoS();
+                acVar.f = b.eoQ();
             }
         }
     }
@@ -197,11 +197,11 @@ public class ce {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a epA() {
+    public static a epB() {
         if (phI == null) {
             phI = new a();
         }
-        phI.f6073a = System.currentTimeMillis();
+        phI.f6074a = System.currentTimeMillis();
         return phI;
     }
 }

@@ -50,7 +50,7 @@ public class FrsFoldingView extends LinearLayout {
         this.jIZ = (FrameLayout) this.mRootView.findViewById(R.id.permanent_layout);
         this.jJa = (FrameLayout) this.mRootView.findViewById(R.id.collapsible_layout);
         this.jJb = (ImageView) this.mRootView.findViewById(R.id.folding_arrow);
-        SvgManager.bwq().a(this.jJb, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.jJb, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 
     private void setupListener() {
@@ -58,18 +58,18 @@ public class FrsFoldingView extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (FrsFoldingView.this.jIW) {
-                    FrsFoldingView.this.cNr();
+                    FrsFoldingView.this.cNs();
                     FrsFoldingView.this.jIW = false;
                     return;
                 }
-                FrsFoldingView.this.cNs();
+                FrsFoldingView.this.cNt();
                 FrsFoldingView.this.jIW = true;
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cNr() {
+    public void cNs() {
         this.jIX = (LinearLayout.LayoutParams) this.jJa.getLayoutParams();
         final ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.2
@@ -87,7 +87,7 @@ public class FrsFoldingView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cNs() {
+    public void cNt() {
         this.jIX = (LinearLayout.LayoutParams) this.jJa.getLayoutParams();
         final ValueAnimator ofFloat = ValueAnimator.ofFloat(1.0f, 0.0f);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.frs.vc.FrsFoldingView.3
@@ -118,6 +118,6 @@ public class FrsFoldingView extends LinearLayout {
     }
 
     public void onChangeSkinType() {
-        SvgManager.bwq().a(this.jJb, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.jJb, R.drawable.icon_pure_unfold12_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
     }
 }

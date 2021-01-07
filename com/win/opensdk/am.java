@@ -8,22 +8,22 @@ public final class am {
     int java = 101;
 
     /* renamed from: java  reason: collision with other field name */
-    public String f23java;
-    JSONObject qcR;
+    public String f24java;
+    JSONObject qez;
 
-    public final void abK(String str) {
+    public final void abL(String str) {
         JSONObject jSONObject = new JSONObject(str);
         this.java = jSONObject.optInt(Constants.KEYS.RET);
-        this.f23java = jSONObject.optString("msg");
+        this.f24java = jSONObject.optString("msg");
         String optString = jSONObject.optString("data");
         try {
-            optString = bc.abN(optString);
+            optString = bc.abO(optString);
         } catch (Exception e) {
         }
         if (!TextUtils.isEmpty(optString)) {
-            this.qcR = new JSONObject(optString);
+            this.qez = new JSONObject(optString);
         } else {
-            this.qcR = new JSONObject();
+            this.qez = new JSONObject();
         }
     }
 }

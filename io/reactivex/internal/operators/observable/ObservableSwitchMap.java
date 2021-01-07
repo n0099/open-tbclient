@@ -7,7 +7,7 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ObservableSwitchMap<T, R> extends a<T, R> {
     final int bufferSize;
     final boolean delayErrors;
@@ -20,7 +20,7 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class SwitchMapObserver<T, R> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         static final SwitchMapInnerObserver<Object, Object> CANCELLED = new SwitchMapInnerObserver<>(null, -1, 1);
         private static final long serialVersionUID = -3491074160481096299L;
@@ -215,7 +215,7 @@ public final class ObservableSwitchMap<T, R> extends a<T, R> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class SwitchMapInnerObserver<T, R> extends AtomicReference<io.reactivex.disposables.b> implements u<R> {
         private static final long serialVersionUID = 3837284832786408377L;
         volatile boolean done;

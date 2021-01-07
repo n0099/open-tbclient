@@ -32,7 +32,7 @@ class c {
         return d > 1000000.0d ? String.format("%.2fMbps", Double.valueOf(1.0E-6d * d)) : d > 1000.0d ? String.format("%.0fKbps", Double.valueOf(0.001d * d)) : String.format("%.0fbps", Double.valueOf(d));
     }
 
-    public String aiN() {
+    public String aiO() {
         return s(this.cCa);
     }
 

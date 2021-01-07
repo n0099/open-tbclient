@@ -40,12 +40,12 @@ public class a {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021221 && (httpResponsedMessage instanceof WatchFinishHttpResponseMessage) && !httpResponsedMessage.hasError()) {
-                c cmO = ((WatchFinishHttpResponseMessage) httpResponsedMessage).cmO();
-                if (cmO.isSuccess() && !TextUtils.isEmpty(cmO.taskId)) {
+                c cmP = ((WatchFinishHttpResponseMessage) httpResponsedMessage).cmP();
+                if (cmP.isSuccess() && !TextUtils.isEmpty(cmP.taskId)) {
                     if (a.this.hMJ != null) {
                         MessageManager.getInstance().unRegisterListener(a.this.hMJ);
                     }
-                    a.this.a(UbcStatisticLiveKey.KEY_ID_1396, "click", "task_succ", cmO.taskId, cmO.hNc);
+                    a.this.a(UbcStatisticLiveKey.KEY_ID_1396, "click", "task_succ", cmP.taskId, cmP.hNc);
                 }
             }
         }
@@ -68,10 +68,10 @@ public class a {
     }
 
     static {
-        ccf();
+        ccg();
     }
 
-    public void aLS() {
+    public void aLT() {
         if (this.mDialog == null) {
             this.mDialog = new Dialog(this.mContext, a.i.PlayLevelDialog);
             JK();
@@ -97,7 +97,7 @@ public class a {
     }
 
     public void xw(int i) {
-        aLS();
+        aLT();
         try {
             this.hMG.postDelayed(this.hMI, i * 1000);
         } catch (Exception e) {
@@ -140,7 +140,7 @@ public class a {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private static void ccf() {
+    private static void ccg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021221, TbConfig.SERVER_QUANMIN_ADDRESS + "pubshow/task/Jumplivequizticket");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

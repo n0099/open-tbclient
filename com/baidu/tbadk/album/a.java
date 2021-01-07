@@ -41,7 +41,7 @@ public class a {
         this.count++;
     }
 
-    public ImageFileInfo bnp() {
+    public ImageFileInfo bnq() {
         if (this.eJj instanceof ImageFileInfo) {
             return (ImageFileInfo) this.eJj;
         }
@@ -52,7 +52,7 @@ public class a {
         this.eJj = mediaFileInfo;
     }
 
-    public MediaFileInfo bnq() {
+    public MediaFileInfo bnr() {
         return this.eJj;
     }
 

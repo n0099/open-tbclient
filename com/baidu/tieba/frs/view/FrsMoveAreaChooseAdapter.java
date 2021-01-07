@@ -18,7 +18,7 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
     private int ghh;
     private FrsMoveAreaChooseView jOk;
     private int jOm = -1;
-    private List<FrsTabInfo> jOl = com.baidu.tieba.frs.a.cDQ().cDT();
+    private List<FrsTabInfo> jOl = com.baidu.tieba.frs.a.cDR().cDU();
     private SparseArray<FrsTabInfo> jOn = new SparseArray<>();
 
     public FrsMoveAreaChooseAdapter(FrsMoveAreaChooseView frsMoveAreaChooseView) {
@@ -30,8 +30,8 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
                 int i2 = i;
                 if (i2 < this.jOl.size()) {
                     FrsTabInfo frsTabInfo = this.jOl.get(i2);
-                    if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cDQ().cDS() || frsTabInfo.tab_type.intValue() == 3)) {
-                        if (frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cDQ().cDS()) {
+                    if (frsTabInfo != null && (frsTabInfo.is_general_tab.intValue() == 0 || frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cDR().cDT() || frsTabInfo.tab_type.intValue() == 3)) {
+                        if (frsTabInfo.tab_id.intValue() == com.baidu.tieba.frs.a.cDR().cDT()) {
                             this.ghh = i2;
                         }
                         this.jOn.append(i2, frsTabInfo);
@@ -44,11 +44,11 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
         }
     }
 
-    public int cPg() {
+    public int cPh() {
         return this.ghh;
     }
 
-    public int cPh() {
+    public int cPi() {
         return this.jOm;
     }
 
@@ -85,10 +85,10 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
             if (this.jOn.get(intValue) != null) {
                 if (this.jOk != null && this.jOk.getContext() != null && this.jOk.getParent() != null) {
                     if (intValue == this.ghh) {
-                        new BdTopToast(this.jOk.getContext()).yW(false).UY(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aR((ViewGroup) this.jOk.getParent());
+                        new BdTopToast(this.jOk.getContext()).yW(false).UX(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_cur_tip)).aR((ViewGroup) this.jOk.getParent());
                         return;
                     } else {
-                        new BdTopToast(this.jOk.getContext()).yW(false).UY(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aR((ViewGroup) this.jOk.getParent());
+                        new BdTopToast(this.jOk.getContext()).yW(false).UX(TbadkCoreApplication.getInst().getString(R.string.frs_move_area_move_no_tip)).aR((ViewGroup) this.jOk.getParent());
                         return;
                     }
                 }
@@ -107,19 +107,19 @@ public class FrsMoveAreaChooseAdapter extends RecyclerView.Adapter<a> implements
             com.baidu.tbadk.core.view.commonBtn.c cVar = new com.baidu.tbadk.core.view.commonBtn.c();
             cVar.rs(R.color.CAM_X0304);
             tBSpecificationBtn.setConfig(cVar);
-            tBSpecificationBtn.bxO();
+            tBSpecificationBtn.bxP();
             tBSpecificationBtn.setUseDisableState(false);
         } else if (this.jOn.get(i) != null) {
             com.baidu.tbadk.core.view.commonBtn.c cVar2 = new com.baidu.tbadk.core.view.commonBtn.c();
             cVar2.ru(R.color.CAM_X0105);
             tBSpecificationBtn.setConfig(cVar2);
-            tBSpecificationBtn.bxO();
+            tBSpecificationBtn.bxP();
             tBSpecificationBtn.setUseDisableState(true);
         } else {
             com.baidu.tbadk.core.view.commonBtn.c cVar3 = new com.baidu.tbadk.core.view.commonBtn.c();
             cVar3.ru(R.color.CAM_X0105);
             tBSpecificationBtn.setConfig(cVar3);
-            tBSpecificationBtn.bxO();
+            tBSpecificationBtn.bxP();
             tBSpecificationBtn.setUseDisableState(false);
         }
     }

@@ -15,11 +15,11 @@ import com.baidu.live.sdk.a;
 public class MarqueeView extends TextView {
     private boolean mPaused;
     private Scroller mScroller;
+    private int opr;
     private int ops;
-    private int opu;
-    private boolean opv;
+    private boolean opu;
+    private int opv;
     private int opw;
-    private int opx;
 
     public MarqueeView(Context context) {
         this(context, null);
@@ -31,17 +31,17 @@ public class MarqueeView extends TextView {
 
     public MarqueeView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.opu = 0;
+        this.ops = 0;
         this.mPaused = true;
-        this.opv = true;
+        this.opu = true;
         b(context, attributeSet, i);
     }
 
     private void b(Context context, AttributeSet attributeSet, int i) {
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a.j.MarqueeView);
-        this.ops = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_interval, 10000);
-        this.opw = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_mode, 100);
-        this.opx = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_first_delay, 1000);
+        this.opr = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_interval, 10000);
+        this.opv = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_mode, 100);
+        this.opw = obtainStyledAttributes.getInt(a.j.MarqueeView_scroll_first_delay, 1000);
         obtainStyledAttributes.recycle();
         setSingleLine();
         setEllipsize(null);
@@ -50,39 +50,39 @@ public class MarqueeView extends TextView {
     public void setContent(String str) {
         if (TextUtils.isEmpty(str) || !TextUtils.equals(str, getText())) {
             setText(str);
-            cHO();
+            cHP();
         }
     }
 
-    public void cHO() {
-        this.opu = 0;
+    public void cHP() {
+        this.ops = 0;
         this.mPaused = true;
-        this.opv = true;
-        ecF();
+        this.opu = true;
+        ecG();
     }
 
-    public void ecF() {
+    public void ecG() {
         if (this.mPaused) {
             setHorizontallyScrolling(true);
             if (this.mScroller == null) {
                 this.mScroller = new Scroller(getContext(), new LinearInterpolator());
                 setScroller(this.mScroller);
             }
-            int ecG = ecG();
-            final int i = ecG - this.opu;
-            final int intValue = Double.valueOf(((this.ops * i) * 1.0d) / ecG).intValue();
-            if (this.opv) {
+            int ecH = ecH();
+            final int i = ecH - this.ops;
+            final int intValue = Double.valueOf(((this.opr * i) * 1.0d) / ecH).intValue();
+            if (this.opu) {
                 SafeHandler.getInst().postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.liveroom.datingnavigation.MarqueeView.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        MarqueeView.this.mScroller.startScroll(MarqueeView.this.opu, 0, i, 0, intValue);
+                        MarqueeView.this.mScroller.startScroll(MarqueeView.this.ops, 0, i, 0, intValue);
                         MarqueeView.this.invalidate();
                         MarqueeView.this.mPaused = false;
                     }
-                }, this.opx);
+                }, this.opw);
                 return;
             }
-            this.mScroller.startScroll(this.opu, 0, i, 0, intValue);
+            this.mScroller.startScroll(this.ops, 0, i, 0, intValue);
             invalidate();
             this.mPaused = false;
         }
@@ -95,7 +95,7 @@ public class MarqueeView extends TextView {
         }
     }
 
-    private int ecG() {
+    private int ecH() {
         TextPaint paint = getPaint();
         Rect rect = new Rect();
         String charSequence = getText().toString();
@@ -107,38 +107,38 @@ public class MarqueeView extends TextView {
     public void computeScroll() {
         super.computeScroll();
         if (this.mScroller != null && this.mScroller.isFinished() && !this.mPaused) {
-            if (this.opw == 101) {
+            if (this.opv == 101) {
                 stopScroll();
                 return;
             }
             this.mPaused = true;
-            this.opu = getWidth() * (-1);
-            this.opv = false;
-            ecF();
+            this.ops = getWidth() * (-1);
+            this.opu = false;
+            ecG();
         }
     }
 
     public int getRndDuration() {
-        return this.ops;
+        return this.opr;
     }
 
     public void setRndDuration(int i) {
-        this.ops = i;
+        this.opr = i;
     }
 
     public void setScrollMode(int i) {
-        this.opw = i;
+        this.opv = i;
     }
 
     public int getScrollMode() {
-        return this.opw;
+        return this.opv;
     }
 
     public void setScrollFirstDelay(int i) {
-        this.opx = i;
+        this.opw = i;
     }
 
     public int getScrollFirstDelay() {
-        return this.opx;
+        return this.opw;
     }
 }

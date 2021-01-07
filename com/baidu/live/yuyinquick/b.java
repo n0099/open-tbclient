@@ -108,14 +108,14 @@ public class b implements e {
             @Override // com.baidu.live.yuyinquick.a.InterfaceC0250a
             public void onShow() {
                 if (b.this.ceT != null) {
-                    b.this.ceT.ZZ();
+                    b.this.ceT.aaa();
                 }
             }
 
             @Override // com.baidu.live.yuyinquick.a.InterfaceC0250a
             public void onDismiss() {
                 if (b.this.ceT != null) {
-                    b.this.ceT.aaa();
+                    b.this.ceT.aab();
                 }
             }
 

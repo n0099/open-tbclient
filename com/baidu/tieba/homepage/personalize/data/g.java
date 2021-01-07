@@ -28,7 +28,7 @@ public class g extends com.baidu.tieba.card.data.b implements p {
     }
 
     @Override // com.baidu.tieba.card.data.p
-    public boolean cvw() {
+    public boolean cvx() {
         return false;
     }
 

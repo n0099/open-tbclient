@@ -112,11 +112,11 @@ public class f extends b<com.baidu.tieba.e.d> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.e.d dVar) {
-        if (dVar != null && dVar.cww() != null) {
-            if (!TextUtils.isEmpty(dVar.cww().title)) {
-                this.iuu.setText(dVar.cww().title);
+        if (dVar != null && dVar.cwx() != null) {
+            if (!TextUtils.isEmpty(dVar.cwx().title)) {
+                this.iuu.setText(dVar.cwx().title);
             }
-            List<bz> list = dVar.cww().sub_nodes;
+            List<bz> list = dVar.cwx().sub_nodes;
             if (com.baidu.tbadk.core.util.x.getCount(list) >= 1) {
                 this.iuz = new com.baidu.tieba.e.a();
                 this.iuz.setData(list.get(0));
@@ -148,29 +148,29 @@ public class f extends b<com.baidu.tieba.e.d> {
                 if (this.iuE != null) {
                     this.iuE.b(view, this.iuz);
                 }
-                Z(this.iuz.boO());
+                Z(this.iuz.boP());
             }
         } else if (view == this.iux.getView()) {
             if (this.iuA != null) {
                 if (this.iuE != null) {
                     this.iuE.b(view, this.iuA);
                 }
-                Z(this.iuA.boO());
+                Z(this.iuA.boP());
             }
         } else if (view == this.iuy.getView() && this.iuB != null) {
             if (this.iuE != null) {
                 this.iuE.b(view, this.iuB);
             }
-            Z(this.iuB.boO());
+            Z(this.iuB.boP());
         }
     }
 
     private void Z(bz bzVar) {
-        PbActivityConfig createFromThreadCfg = new PbActivityConfig(getTbPageContext().getPageActivity()).createFromThreadCfg(bzVar, null, m.brc(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
+        PbActivityConfig createFromThreadCfg = new PbActivityConfig(getTbPageContext().getPageActivity()).createFromThreadCfg(bzVar, null, m.brd(), RequestResponseCode.REQUEST_FRS_TO_PB, true, false, false);
         createFromThreadCfg.setForumId(String.valueOf(bzVar.getFid()));
-        createFromThreadCfg.setForumName(bzVar.bru());
+        createFromThreadCfg.setForumName(bzVar.brv());
         createFromThreadCfg.setStartFrom(0);
-        m.Jo(bzVar.getTid());
+        m.Jn(bzVar.getTid());
         getTbPageContext().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createFromThreadCfg));
     }
 

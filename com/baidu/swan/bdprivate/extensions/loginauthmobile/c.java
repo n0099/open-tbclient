@@ -14,7 +14,7 @@ public class c {
         }
     }
 
-    public static com.baidu.swan.apps.a.a aTi() {
+    public static com.baidu.swan.apps.a.a aTj() {
         return dWS == null ? dWT : dWS;
     }
 

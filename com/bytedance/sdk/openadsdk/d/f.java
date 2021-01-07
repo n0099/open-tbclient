@@ -22,10 +22,10 @@ public final class f {
     private static final com.bytedance.sdk.openadsdk.d.c.a<?> r = com.bytedance.sdk.openadsdk.d.c.a.b(Object.class);
 
     /* renamed from: a  reason: collision with root package name */
-    final List<w> f7287a;
+    final List<w> f7288a;
 
     /* renamed from: b  reason: collision with root package name */
-    final com.bytedance.sdk.openadsdk.d.b.d f7288b;
+    final com.bytedance.sdk.openadsdk.d.b.d f7289b;
     final e c;
     final Map<Type, h<?>> d;
     final boolean e;
@@ -47,14 +47,14 @@ public final class f {
     private final com.bytedance.sdk.openadsdk.d.b.a.d v;
 
     public f() {
-        this(com.bytedance.sdk.openadsdk.d.b.d.f7252a, d.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, u.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
+        this(com.bytedance.sdk.openadsdk.d.b.d.f7253a, d.IDENTITY, Collections.emptyMap(), false, false, false, true, false, false, false, u.DEFAULT, null, 2, 2, Collections.emptyList(), Collections.emptyList(), Collections.emptyList());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(com.bytedance.sdk.openadsdk.d.b.d dVar, e eVar, Map<Type, h<?>> map, boolean z, boolean z2, boolean z3, boolean z4, boolean z5, boolean z6, boolean z7, u uVar, String str, int i, int i2, List<w> list, List<w> list2, List<w> list3) {
         this.s = new ThreadLocal<>();
         this.t = new ConcurrentHashMap();
-        this.f7288b = dVar;
+        this.f7289b = dVar;
         this.c = eVar;
         this.d = map;
         this.u = new com.bytedance.sdk.openadsdk.d.b.c(map);
@@ -73,7 +73,7 @@ public final class f {
         this.q = list2;
         ArrayList arrayList = new ArrayList();
         arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.Y);
-        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.h.f7183a);
+        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.h.f7184a);
         arrayList.add(dVar);
         arrayList.addAll(list3);
         arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.D);
@@ -103,20 +103,20 @@ public final class f {
         arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.W);
         arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.N);
         arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.d);
-        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.c.f7173a);
+        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.c.f7174a);
         arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.U);
-        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.k.f7194a);
-        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.j.f7192a);
+        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.k.f7195a);
+        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.j.f7193a);
         arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.S);
-        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.a.f7167a);
-        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.f7204b);
+        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.a.f7168a);
+        arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.f7205b);
         arrayList.add(new com.bytedance.sdk.openadsdk.d.b.a.b(this.u));
         arrayList.add(new com.bytedance.sdk.openadsdk.d.b.a.g(this.u, z2));
         this.v = new com.bytedance.sdk.openadsdk.d.b.a.d(this.u);
         arrayList.add(this.v);
         arrayList.add(com.bytedance.sdk.openadsdk.d.b.a.n.Z);
         arrayList.add(new com.bytedance.sdk.openadsdk.d.b.a.i(this.u, eVar, dVar, this.v));
-        this.f7287a = Collections.unmodifiableList(arrayList);
+        this.f7288a = Collections.unmodifiableList(arrayList);
     }
 
     private v<Number> a(boolean z) {
@@ -270,7 +270,7 @@ public final class f {
                 try {
                     a<?> aVar2 = new a<>();
                     map.put(aVar, aVar2);
-                    for (w wVar : this.f7287a) {
+                    for (w wVar : this.f7288a) {
                         vVar = wVar.a(this, aVar);
                         if (vVar != null) {
                             aVar2.a((v<?>) vVar);
@@ -295,11 +295,11 @@ public final class f {
     }
 
     public <T> v<T> a(w wVar, com.bytedance.sdk.openadsdk.d.c.a<T> aVar) {
-        if (!this.f7287a.contains(wVar)) {
+        if (!this.f7288a.contains(wVar)) {
             wVar = this.v;
         }
         boolean z = false;
-        for (w wVar2 : this.f7287a) {
+        for (w wVar2 : this.f7288a) {
             if (!z) {
                 if (wVar2 == wVar) {
                     z = true;
@@ -319,7 +319,7 @@ public final class f {
     }
 
     public String a(Object obj) {
-        return obj == null ? a((l) n.f7297a) : a(obj, obj.getClass());
+        return obj == null ? a((l) n.f7298a) : a(obj, obj.getClass());
     }
 
     public String a(Object obj, Type type) {
@@ -486,36 +486,36 @@ public final class f {
     public static class a<T> extends v<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        private v<T> f7293a;
+        private v<T> f7294a;
 
         a() {
         }
 
         public void a(v<T> vVar) {
-            if (this.f7293a != null) {
+            if (this.f7294a != null) {
                 throw new AssertionError();
             }
-            this.f7293a = vVar;
+            this.f7294a = vVar;
         }
 
         @Override // com.bytedance.sdk.openadsdk.d.v
         public T b(com.bytedance.sdk.openadsdk.d.d.a aVar) throws IOException {
-            if (this.f7293a == null) {
+            if (this.f7294a == null) {
                 throw new IllegalStateException();
             }
-            return this.f7293a.b(aVar);
+            return this.f7294a.b(aVar);
         }
 
         @Override // com.bytedance.sdk.openadsdk.d.v
         public void a(com.bytedance.sdk.openadsdk.d.d.c cVar, T t) throws IOException {
-            if (this.f7293a == null) {
+            if (this.f7294a == null) {
                 throw new IllegalStateException();
             }
-            this.f7293a.a(cVar, t);
+            this.f7294a.a(cVar, t);
         }
     }
 
     public String toString() {
-        return "{serializeNulls:" + this.e + ",factories:" + this.f7287a + ",instanceCreators:" + this.u + "}";
+        return "{serializeNulls:" + this.e + ",factories:" + this.f7288a + ",instanceCreators:" + this.u + "}";
     }
 }

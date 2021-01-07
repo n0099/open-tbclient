@@ -12,7 +12,7 @@ public class d {
     private d() {
     }
 
-    public static d bbE() {
+    public static d bbF() {
         if (ene == null) {
             synchronized (d.class) {
                 if (ene == null) {
@@ -31,11 +31,11 @@ public class d {
     }
 
     @NonNull
-    public GameRecorderController bbF() {
+    public GameRecorderController bbG() {
         if (DEBUG) {
             Log.i("GameRecorderManager", "getRecorderController:" + this.ejU);
         }
-        return this.ejU == null ? GameRecorderController.bbD() : this.ejU;
+        return this.ejU == null ? GameRecorderController.bbE() : this.ejU;
     }
 
     public void h(GameRecorderController gameRecorderController) {
@@ -45,18 +45,18 @@ public class d {
         }
     }
 
-    public boolean bbG() {
+    public boolean bbH() {
         if (DEBUG) {
             Log.i("GameRecorderManager", "isGamePause:" + this.enf);
         }
         return this.enf;
     }
 
-    public void bbH() {
+    public void bbI() {
         this.enf = true;
     }
 
-    public void bbI() {
+    public void bbJ() {
         this.enf = false;
     }
 }

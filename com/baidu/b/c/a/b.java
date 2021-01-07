@@ -2,7 +2,7 @@ package com.baidu.b.c.a;
 
 import java.lang.reflect.Array;
 import java.security.InvalidKeyException;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class b implements a {
     private static int[] g;
     private static int[] h;
@@ -23,7 +23,7 @@ public final class b implements a {
     private static final byte[] w = new byte[30];
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f1593b = false;
+    private boolean f1594b = false;
     private boolean c = false;
     private Object[] d = null;
     private int[] e = null;
@@ -178,14 +178,14 @@ public final class b implements a {
             this.e[2] = i6;
             this.e[3] = i7;
         }
-        this.f1593b = length >= 13;
+        this.f1594b = length >= 13;
         this.c = length == 15;
         this.f = (length - 1) * 4;
     }
 
     static final boolean a(int i2) {
-        for (int i3 = 0; i3 < f1592a.length; i3++) {
-            if (i2 == f1592a[i3]) {
+        for (int i3 = 0; i3 < f1593a.length; i3++) {
+            if (i2 == f1593a[i3]) {
                 return true;
             }
         }
@@ -405,7 +405,7 @@ public final class b implements a {
         int i23 = ((bArr[i21] & 255) << 16) | (bArr[i19] << 24) | ((bArr[i22] & 255) << 8) | (bArr[i22 + 1] & 255);
         int i24 = 8;
         int i25 = i23 ^ this.e[7];
-        if (this.f1593b) {
+        if (this.f1594b) {
             int i26 = this.e[8] ^ (((o[i8 >>> 24] ^ p[(i25 >>> 16) & 255]) ^ q[(i20 >>> 8) & 255]) ^ r[i14 & 255]);
             int i27 = (((o[i14 >>> 24] ^ p[(i8 >>> 16) & 255]) ^ q[(i25 >>> 8) & 255]) ^ r[i20 & 255]) ^ this.e[9];
             int i28 = (((o[i20 >>> 24] ^ p[(i14 >>> 16) & 255]) ^ q[(i8 >>> 8) & 255]) ^ r[i25 & 255]) ^ this.e[10];

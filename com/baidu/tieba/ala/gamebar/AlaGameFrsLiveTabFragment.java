@@ -78,7 +78,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
             if (customResponsedMessage != null && !TextUtils.isEmpty((String) customResponsedMessage.getData())) {
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2 && "FrsGameLive".equals(split[0]) && 2 == Integer.valueOf(split[1]).intValue()) {
-                    AlaGameFrsLiveTabFragment.this.bVE();
+                    AlaGameFrsLiveTabFragment.this.bVF();
                 }
             }
         }
@@ -114,7 +114,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
                 }
             }
         });
-        bYp();
+        bYq();
         linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
         this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         ao.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.CAM_X0204);
@@ -135,7 +135,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         registerListener(CmdConfigCustom.CMD_FORCE_REFRESH, this.gIn, getBaseFragmentActivity().getUniqueId());
     }
 
-    public void bVE() {
+    public void bVF() {
         if (this.mTabHost != null) {
             FragmentTabHost.b pV = this.mTabHost.pV(this.mTabHost.getCurrentTabIndex());
             if (pV != null) {
@@ -157,11 +157,11 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
                 this.gYJ = 0;
                 this.mTabHost.setCurrentTab(0);
             }
-            String string = b.bvq().getString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, null);
+            String string = b.bvr().getString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, null);
             if (!TextUtils.isEmpty(string)) {
-                this.mTabHost.setCurrentTab(Hq(string));
+                this.mTabHost.setCurrentTab(Hp(string));
             }
-            b.bvq().putString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, "");
+            b.bvr().putString(SharedPrefConfig.SQUARE_JUMP_TAB_NAME, "");
         }
         if (isAdded() && this.mTabHost != null && (this.mTabHost.getCurrentFragment() instanceof BaseFragment)) {
             ((BaseFragment) this.mTabHost.getCurrentFragment()).setPrimary(isPrimary());
@@ -231,7 +231,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return e.bHs().getMaxCostFromServer();
+                return e.bHt().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b
@@ -254,7 +254,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
         return null;
     }
 
-    private int Hq(String str) {
+    private int Hp(String str) {
         return (!"live".equals(str) && "dynamic".equals(str)) ? 1 : 0;
     }
 
@@ -282,8 +282,8 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
                     if (message != null && message.getTag() != null && message.getTag().equals(AlaGameFrsLiveTabFragment.this.getUniqueId())) {
                         ArrayList arrayList = new ArrayList();
                         ArrayList arrayList2 = new ArrayList();
-                        if (ajVar.cED() != null) {
-                            for (com.baidu.tbadk.mainTab.b bVar : ajVar.cED()) {
+                        if (ajVar.cEE() != null) {
+                            for (com.baidu.tbadk.mainTab.b bVar : ajVar.cEE()) {
                                 if (bVar.getFragmentTabStructure().frag != null) {
                                     arrayList.add(bVar.getFragmentTabStructure().frag);
                                     arrayList2.add(Integer.valueOf(bVar.getFragmentTabStructure().type));
@@ -349,14 +349,14 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
 
     public void setForumName(String str) {
         this.forumName = str;
-        bYp();
+        bYq();
     }
 
     public void setForumGameLabel(String str) {
         this.forumGameLabel = str;
     }
 
-    private void bYp() {
+    private void bYq() {
         if (this.mNavigationBar != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(R.string.forum));
@@ -365,7 +365,7 @@ public class AlaGameFrsLiveTabFragment extends BaseFragment implements ViewPager
     }
 
     @Override // com.baidu.tieba.frs.ap
-    public NavigationBar bYq() {
+    public NavigationBar bYr() {
         return this.mNavigationBar;
     }
 }

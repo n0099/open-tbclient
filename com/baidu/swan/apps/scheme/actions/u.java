@@ -26,7 +26,7 @@ public class u extends aa {
         }
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         com.baidu.swan.apps.performance.h.D("postMessage", "PostEvent start");
-        com.baidu.swan.apps.v.f.aDG().a(oG, true);
+        com.baidu.swan.apps.v.f.aDH().a(oG, true);
         com.baidu.swan.apps.performance.h.D("postMessage", "PostEvent end.");
         return true;
     }

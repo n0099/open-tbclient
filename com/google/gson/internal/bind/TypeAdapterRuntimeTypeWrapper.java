@@ -10,12 +10,12 @@ import java.lang.reflect.TypeVariable;
 /* loaded from: classes5.dex */
 public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
     private final TypeAdapter<T> delegate;
-    private final Gson pMq;
+    private final Gson pNY;
     private final Type type;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TypeAdapterRuntimeTypeWrapper(Gson gson, TypeAdapter<T> typeAdapter, Type type) {
-        this.pMq = gson;
+        this.pNY = gson;
         this.delegate = typeAdapter;
         this.type = type;
     }
@@ -30,7 +30,7 @@ public final class TypeAdapterRuntimeTypeWrapper<T> extends TypeAdapter<T> {
         TypeAdapter<T> typeAdapter = this.delegate;
         Type b2 = b(this.type, t);
         if (b2 != this.type) {
-            typeAdapter = this.pMq.getAdapter(com.google.gson.b.a.r(b2));
+            typeAdapter = this.pNY.getAdapter(com.google.gson.b.a.r(b2));
             if ((typeAdapter instanceof ReflectiveTypeAdapterFactory.Adapter) && !(this.delegate instanceof ReflectiveTypeAdapterFactory.Adapter)) {
                 typeAdapter = this.delegate;
             }

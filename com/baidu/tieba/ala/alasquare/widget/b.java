@@ -78,15 +78,15 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == getView() && this.gLB != null && !StringUtils.isNull(this.gLB.activity_url)) {
-            GN(this.gLB.activity_url);
+            GM(this.gLB.activity_url);
         }
     }
 
-    private void GN(String str) {
+    private void GM(String str) {
         if (TextUtils.isEmpty(str)) {
             l.showToast(this.mTbPageContext.getPageActivity(), R.string.url_is_null);
         } else {
-            be.bwu().a(this.mTbPageContext, "", new String[]{str}, false, null, true);
+            be.bwv().a(this.mTbPageContext, "", new String[]{str}, false, null, true);
         }
     }
 
@@ -107,7 +107,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.c>
             this.gLH = (LinearLayout) view.findViewById(R.id.llActiveInfoPanel);
             this.gLb = (RelativeLayout) view.findViewById(R.id.rlSquareLivePanel);
             this.gLF.setTypeface(Typeface.defaultFromStyle(1));
-            this.gKY.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bVO());
+            this.gKY.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bVP());
         }
     }
 }

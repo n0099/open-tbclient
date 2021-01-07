@@ -86,7 +86,7 @@ public class b {
         }
     }
 
-    public void bUp() {
+    public void bUq() {
         this.jUI = false;
         CH(this.pn + 1);
     }

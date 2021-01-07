@@ -19,11 +19,11 @@ public class b extends g {
         super(-1);
         if (list != null && !list.isEmpty()) {
             this.exI = new LinkedHashSet();
-            Map<String, PMSAppInfo> bgd = com.baidu.swan.pms.database.a.bgb().bgd();
-            Map<String, com.baidu.swan.pms.model.f> bgc = com.baidu.swan.pms.database.a.bgb().bgc();
+            Map<String, PMSAppInfo> bge = com.baidu.swan.pms.database.a.bgc().bge();
+            Map<String, com.baidu.swan.pms.model.f> bgd = com.baidu.swan.pms.database.a.bgc().bgd();
             for (a aVar2 : list) {
                 if (aVar2 != null && !TextUtils.isEmpty(aVar2.getBundleId())) {
-                    a(bgd, bgc, aVar2, aVar);
+                    a(bge, bgd, aVar2, aVar);
                     this.exI.add(aVar2);
                 }
             }
@@ -34,12 +34,12 @@ public class b extends g {
         super(-1);
         if (collection != null && !collection.isEmpty()) {
             this.exI = new LinkedHashSet();
-            Map<String, PMSAppInfo> bgd = com.baidu.swan.pms.database.a.bgb().bgd();
-            Map<String, com.baidu.swan.pms.model.f> bgc = com.baidu.swan.pms.database.a.bgb().bgc();
+            Map<String, PMSAppInfo> bge = com.baidu.swan.pms.database.a.bgc().bge();
+            Map<String, com.baidu.swan.pms.model.f> bgd = com.baidu.swan.pms.database.a.bgc().bgd();
             for (String str : collection) {
                 if (!TextUtils.isEmpty(str)) {
                     a aVar2 = new a(str);
-                    a(bgd, bgc, aVar2, aVar);
+                    a(bge, bgd, aVar2, aVar);
                     this.exI.add(aVar2);
                 }
             }
@@ -74,7 +74,7 @@ public class b extends g {
     }
 
     @Nullable
-    public Set<a> bgQ() {
+    public Set<a> bgR() {
         return this.exI;
     }
 
@@ -104,7 +104,7 @@ public class b extends g {
             return this.exJ;
         }
 
-        public long bgR() {
+        public long bgS() {
             return this.exK;
         }
 
@@ -112,7 +112,7 @@ public class b extends g {
             return this.mCategory;
         }
 
-        public long bgS() {
+        public long bgT() {
             return this.exL;
         }
 

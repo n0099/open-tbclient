@@ -23,11 +23,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.http.HttpHost;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class b implements FlutterPlugin, MethodChannel.MethodCallHandler {
     private HashMap<String, a> cmY = new HashMap<>();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         boolean cancelLoadData();
     }

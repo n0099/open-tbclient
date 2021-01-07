@@ -43,7 +43,7 @@ public class b {
         this.name = str;
     }
 
-    public int cXd() {
+    public int cXe() {
         return this.kAZ;
     }
 
@@ -67,7 +67,7 @@ public class b {
         this.content = str;
     }
 
-    public List<b> cXe() {
+    public List<b> cXf() {
         return this.sub_menu;
     }
 

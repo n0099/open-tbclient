@@ -17,12 +17,12 @@ public class a {
             this.fFt.setVisibility(8);
         }
         if (!z && this.fFv != null) {
-            bFi();
+            bFj();
             this.fFv = null;
         }
     }
 
-    private void bFi() {
+    private void bFj() {
         this.fFt.setVisibility(4);
         com.baidu.tbadk.editortools.noConflictPanel.b.b.bS(this.fFv);
     }

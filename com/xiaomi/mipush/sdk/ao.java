@@ -8,32 +8,32 @@ import android.text.TextUtils;
 public class ao implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ Context f14106a;
+    final /* synthetic */ Context f14107a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ an f126a;
+    final /* synthetic */ an f127a;
 
     /* renamed from: a  reason: collision with other field name */
-    final /* synthetic */ String[] f127a;
+    final /* synthetic */ String[] f128a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ao(an anVar, String[] strArr, Context context) {
-        this.f126a = anVar;
-        this.f127a = strArr;
-        this.f14106a = context;
+        this.f127a = anVar;
+        this.f128a = strArr;
+        this.f14107a = context;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        for (int i = 0; i < this.f127a.length; i++) {
+        for (int i = 0; i < this.f128a.length; i++) {
             try {
-                if (!TextUtils.isEmpty(this.f127a[i])) {
+                if (!TextUtils.isEmpty(this.f128a[i])) {
                     if (i > 0) {
                         Thread.sleep(((long) ((Math.random() * 2.0d) + 1.0d)) * 1000);
                     }
-                    PackageInfo packageInfo = this.f14106a.getPackageManager().getPackageInfo(this.f127a[i], 4);
+                    PackageInfo packageInfo = this.f14107a.getPackageManager().getPackageInfo(this.f128a[i], 4);
                     if (packageInfo != null) {
-                        this.f126a.a(this.f14106a, packageInfo);
+                        this.f127a.a(this.f14107a, packageInfo);
                     }
                 }
             } catch (Throwable th) {

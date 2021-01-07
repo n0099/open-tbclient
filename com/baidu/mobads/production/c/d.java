@@ -9,7 +9,7 @@ import java.util.HashMap;
 public class d extends com.baidu.mobads.vo.d {
     public d(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType) {
         super(context, activity, slotType);
-        this.f3562b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
+        this.f3563b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/cpro/ui/mads.php");
         a("androidfeed");
     }
 

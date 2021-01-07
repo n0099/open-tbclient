@@ -20,14 +20,14 @@ public class YuyinAlaRoomNormalGiftView extends YuyinAlaRoomBaseGiftView {
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView
-    protected void abC() {
+    protected void abD() {
         if (this.ccW != null) {
             this.ccW.s(this.cae);
         }
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView
-    protected void abD() {
+    protected void abE() {
         if (this.ccW != null) {
             this.ccW.t(getLastShowGift());
         }
@@ -38,7 +38,7 @@ public class YuyinAlaRoomNormalGiftView extends YuyinAlaRoomBaseGiftView {
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomBaseGiftView
-    protected void abE() {
+    protected void abF() {
         if (this.ccW != null) {
             this.ccW.u(getLastShowGift());
         }

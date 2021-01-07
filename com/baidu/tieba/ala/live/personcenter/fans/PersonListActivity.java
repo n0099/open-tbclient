@@ -38,13 +38,13 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
             if (!StringUtils.isNull(str)) {
                 PersonListActivity.this.showToast(str);
             }
-            PersonListActivity.this.cbj();
+            PersonListActivity.this.cbk();
         }
 
         @Override // com.baidu.tieba.ala.live.personcenter.fans.f.a
         public e a(e eVar, boolean z) {
-            if (eVar == null || ListUtils.isEmpty(eVar.bqi())) {
-                PersonListActivity.this.cbj();
+            if (eVar == null || ListUtils.isEmpty(eVar.bqj())) {
+                PersonListActivity.this.cbk();
                 return null;
             }
             PersonListActivity.this.mListView.setVisibility(0);
@@ -69,7 +69,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
                     fVar.setPageId(PersonListActivity.this.getUniqueId());
                     fVar.setIsAttention(z ? false : true);
                     fVar.setFrom("source_person_card");
-                    com.baidu.live.view.a.Zx().a(aVar.userId, fVar);
+                    com.baidu.live.view.a.Zy().a(aVar.userId, fVar);
                 }
             }
         }
@@ -132,7 +132,7 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     @Override // androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onSaveInstanceState(Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        bundle.putBoolean("follow", this.hlp.cbk());
+        bundle.putBoolean("follow", this.hlp.cbl());
         bundle.putString("user_id", this.hlp.getId());
         bundle.putInt("user_sex", this.hlq);
     }
@@ -162,11 +162,11 @@ public class PersonListActivity extends BaseActivity<PersonListActivity> {
     }
 
     private void loadData() {
-        this.hlp.cbl();
+        this.hlp.cbm();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbj() {
+    public void cbk() {
         this.hlm.setVisibility(0);
         this.mListView.setVisibility(8);
         if (this.hlp.getId() != null && this.hlp.getId().equals(TbadkCoreApplication.getCurrentAccount())) {

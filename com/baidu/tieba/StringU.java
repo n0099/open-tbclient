@@ -26,7 +26,7 @@ public class StringU {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public static String Fi(String str) {
+    public static String Fh(String str) {
         String str2;
         String str3 = "";
         if (ghp && !TextUtils.isEmpty(str)) {

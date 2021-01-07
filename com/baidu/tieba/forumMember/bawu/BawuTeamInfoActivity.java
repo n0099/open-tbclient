@@ -48,8 +48,8 @@ public class BawuTeamInfoActivity extends BaseActivity<BawuTeamInfoActivity> {
                         return;
                     }
                     BawuTeamInfoActivity.this.showToast(str);
-                    if (BawuTeamInfoActivity.this.jaA.cDm()) {
-                        BawuTeamInfoActivity.this.jaA.cDn();
+                    if (BawuTeamInfoActivity.this.jaA.cDn()) {
+                        BawuTeamInfoActivity.this.jaA.cDo();
                         return;
                     }
                     return;

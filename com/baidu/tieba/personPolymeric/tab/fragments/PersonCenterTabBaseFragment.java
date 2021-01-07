@@ -9,7 +9,7 @@ import com.baidu.tieba.personPolymeric.view.l;
 import tbclient.User;
 /* loaded from: classes8.dex */
 public abstract class PersonCenterTabBaseFragment extends BaseFragment {
-    private l mze;
+    private l mzd;
 
     public abstract void d(User user);
 
@@ -21,30 +21,30 @@ public abstract class PersonCenterTabBaseFragment extends BaseFragment {
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void showNetRefreshView(View view, String str, boolean z) {
-        if (this.mze == null) {
-            this.mze = new l(getPageContext().getPageActivity(), getNetRefreshListener());
-            this.mze.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
-            this.mze.setSubText(null);
-            this.mze.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
-            this.mze.showRefreshButton();
-            this.mze.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+        if (this.mzd == null) {
+            this.mzd = new l(getPageContext().getPageActivity(), getNetRefreshListener());
+            this.mzd.setTitle(getPageContext().getResources().getString(R.string.refresh_view_title_text));
+            this.mzd.setSubText(null);
+            this.mzd.setButtonText(getPageContext().getResources().getString(R.string.refresh_view_button_text));
+            this.mzd.showRefreshButton();
+            this.mzd.getAttachedView().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
         }
-        this.mze.onChangeSkinType();
-        this.mze.attachView(view, z);
+        this.mzd.onChangeSkinType();
+        this.mzd.attachView(view, z);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void hideNetRefreshView(View view) {
-        if (this.mze != null) {
-            this.mze.dettachView(view);
+        if (this.mzd != null) {
+            this.mzd.dettachView(view);
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mze != null) {
-            this.mze.onChangeSkinType();
+        if (this.mzd != null) {
+            this.mzd.onChangeSkinType();
         }
     }
 

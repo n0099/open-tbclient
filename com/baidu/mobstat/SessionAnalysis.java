@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class SessionAnalysis {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3668a = false;
+    private boolean f3669a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, a> f3669b = new HashMap();
+    private Map<String, a> f3670b = new HashMap();
     private a c = new a();
     private a d = new a();
     private boolean e = false;
@@ -98,7 +98,7 @@ public class SessionAnalysis {
     }
 
     public void onSessionStart(Context context, long j, boolean z) {
-        if (!this.f3668a) {
+        if (!this.f3669a) {
             DataCore.instance().init(context);
             try {
                 Thread.sleep(IMConnection.RETRY_DELAY_TIMES);
@@ -109,7 +109,7 @@ public class SessionAnalysis {
                 i = this.k.getLaunchType(context);
             }
             a(context, j, z, true, i);
-            this.f3668a = true;
+            this.f3669a = true;
         }
     }
 
@@ -125,7 +125,7 @@ public class SessionAnalysis {
                 this.e = true;
             }
             a2.c = true;
-            a2.f3671b = j;
+            a2.f3672b = j;
         }
     }
 
@@ -137,7 +137,7 @@ public class SessionAnalysis {
                 bc.c().c("[WARNING] 遗漏StatService.onPageStart(), 请检查邻近页面埋点: " + str);
                 return;
             }
-            a(context, a2.f3670a, str, a2.f3671b, j, str2, "", str3, false, extraInfo, z);
+            a(context, a2.f3671a, str, a2.f3672b, j, str2, "", str3, false, extraInfo, z);
             b(str);
             this.f = j;
         }
@@ -155,8 +155,8 @@ public class SessionAnalysis {
                 this.e = true;
             }
             aVar.c = true;
-            aVar.f3670a = str;
-            aVar.f3671b = j;
+            aVar.f3671a = str;
+            aVar.f3672b = j;
         }
     }
 
@@ -170,7 +170,7 @@ public class SessionAnalysis {
             }
             return;
         }
-        a(context, aVar.f3670a, str, aVar.f3671b, j, str2, str3, str, z, extraInfo, false);
+        a(context, aVar.f3671a, str, aVar.f3672b, j, str2, str3, str, z, extraInfo, false);
         aVar.c = false;
         this.f = j;
     }
@@ -184,8 +184,8 @@ public class SessionAnalysis {
             }
             a(context, this.f, j, 2, 2);
             a2.c = true;
-            a2.f3670a = str;
-            a2.f3671b = j;
+            a2.f3671a = str;
+            a2.f3672b = j;
         }
     }
 
@@ -196,7 +196,7 @@ public class SessionAnalysis {
                 bc.c().c("[WARNING] 遗漏StatService.onResume(Fragment), 请检查邻近页面埋点: " + str);
                 return;
             }
-            a(context, a2.f3670a, str, a2.f3671b, j, str2, str3, null, false, null, false);
+            a(context, a2.f3671a, str, a2.f3672b, j, str2, str3, null, false, null, false);
             b(str);
             this.f = j;
         }
@@ -224,10 +224,10 @@ public class SessionAnalysis {
     }
 
     private a a(String str) {
-        if (!this.f3669b.containsKey(str)) {
-            this.f3669b.put(str, new a(str));
+        if (!this.f3670b.containsKey(str)) {
+            this.f3670b.put(str, new a(str));
         }
-        return this.f3669b.get(str);
+        return this.f3670b.get(str);
     }
 
     private void a(Context context, long j, boolean z, boolean z2, int i) {
@@ -285,8 +285,8 @@ public class SessionAnalysis {
     }
 
     private void b(String str) {
-        if (!TextUtils.isEmpty(str) && this.f3669b.containsKey(str)) {
-            this.f3669b.remove(str);
+        if (!TextUtils.isEmpty(str) && this.f3670b.containsKey(str)) {
+            this.f3670b.remove(str);
         }
     }
 
@@ -299,17 +299,17 @@ public class SessionAnalysis {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        String f3670a;
+        String f3671a;
 
         /* renamed from: b  reason: collision with root package name */
-        long f3671b;
+        long f3672b;
         boolean c = false;
 
         public a() {
         }
 
         public a(String str) {
-            this.f3670a = str;
+            this.f3671a = str;
         }
     }
 }

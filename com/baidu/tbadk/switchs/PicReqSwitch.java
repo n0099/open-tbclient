@@ -23,7 +23,7 @@ public class PicReqSwitch extends a {
 
     @Override // com.baidu.adp.lib.featureSwitch.a
     protected int getDefaultType() {
-        return b.bvq().getInt("key_pic_req_switch", 0);
+        return b.bvr().getInt("key_pic_req_switch", 0);
     }
 
     @Override // com.baidu.adp.lib.featureSwitch.a

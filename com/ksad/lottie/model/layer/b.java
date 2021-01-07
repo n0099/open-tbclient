@@ -71,7 +71,7 @@ public class b extends a {
     public void a(@FloatRange(from = 0.0d, to = 1.0d) float f) {
         super.a(f);
         if (this.e != null) {
-            f = (this.e.e().floatValue() * 1000.0f) / this.f8393b.r().c();
+            f = (this.e.e().floatValue() * 1000.0f) / this.f8394b.r().c();
         }
         if (this.c.b() != 0.0f) {
             f /= this.c.b();
@@ -87,7 +87,7 @@ public class b extends a {
         super.a(rectF, matrix);
         this.g.set(0.0f, 0.0f, 0.0f, 0.0f);
         for (int size = this.f.size() - 1; size >= 0; size--) {
-            this.f.get(size).a(this.g, this.f8392a);
+            this.f.get(size).a(this.g, this.f8393a);
             if (rectF.isEmpty()) {
                 rectF.set(this.g);
             } else {

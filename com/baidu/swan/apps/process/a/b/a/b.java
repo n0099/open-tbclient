@@ -9,7 +9,7 @@ public class b extends a<Bundle> {
         this.dvC = str;
     }
 
-    public String aIP() {
+    public String aIQ() {
         return this.dvC;
     }
 }

@@ -7,10 +7,10 @@ import com.ksad.lottie.a.b.o;
 public class l implements com.ksad.lottie.model.content.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final e f8345a;
+    private final e f8346a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final m<PointF, PointF> f8346b;
+    private final m<PointF, PointF> f8347b;
     private final g c;
     private final b d;
     private final d e;
@@ -24,8 +24,8 @@ public class l implements com.ksad.lottie.model.content.b {
     }
 
     public l(e eVar, m<PointF, PointF> mVar, g gVar, b bVar, d dVar, @Nullable b bVar2, @Nullable b bVar3) {
-        this.f8345a = eVar;
-        this.f8346b = mVar;
+        this.f8346a = eVar;
+        this.f8347b = mVar;
         this.c = gVar;
         this.d = bVar;
         this.e = dVar;
@@ -40,11 +40,11 @@ public class l implements com.ksad.lottie.model.content.b {
     }
 
     public e a() {
-        return this.f8345a;
+        return this.f8346a;
     }
 
     public m<PointF, PointF> b() {
-        return this.f8346b;
+        return this.f8347b;
     }
 
     public g c() {

@@ -4,15 +4,15 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class e extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f4650a;
+    final /* synthetic */ d f4651a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f4650a = dVar;
+        this.f4651a = dVar;
     }
 
     @Override // android.os.Handler
@@ -37,47 +37,47 @@ public class e extends Handler {
             int i4 = message.arg2;
             if (i4 == 1 || i4 == 0) {
                 if (i3 != 0) {
-                    cVar = this.f4650a.f4648a;
+                    cVar = this.f4651a.f4649a;
                     if (cVar != null) {
-                        cVar2 = this.f4650a.f4648a;
+                        cVar2 = this.f4651a.f4649a;
                         cVar2.a(i3);
                     }
-                    aVar = this.f4650a.f4649b;
+                    aVar = this.f4651a.f4650b;
                     if (aVar != null) {
-                        aVar2 = this.f4650a.f4649b;
+                        aVar2 = this.f4651a.f4650b;
                         aVar2.a(i3);
                         return;
                     }
                     return;
                 }
                 com.baidu.platform.comapi.wnplatform.model.b U = com.baidu.platform.comapi.walknavi.b.a().U();
-                d dVar = this.f4650a;
-                i = this.f4650a.d;
+                d dVar = this.f4651a;
+                i = this.f4651a.d;
                 a2 = dVar.a(i);
-                i2 = this.f4650a.d;
+                i2 = this.f4651a.d;
                 U.a(a2, i2);
-                cVar3 = this.f4650a.f4648a;
+                cVar3 = this.f4651a.f4649a;
                 if (cVar3 != null) {
-                    cVar4 = this.f4650a.f4648a;
+                    cVar4 = this.f4651a.f4649a;
                     cVar4.b();
                 }
-                aVar3 = this.f4650a.f4649b;
+                aVar3 = this.f4651a.f4650b;
                 if (aVar3 != null) {
-                    aVar4 = this.f4650a.f4649b;
+                    aVar4 = this.f4651a.f4650b;
                     aVar4.a();
                 }
             }
         } else if (message.what == 2008 && com.baidu.platform.comapi.wnplatform.a.a().f()) {
-            bVar = this.f4650a.c;
+            bVar = this.f4651a.c;
             if (bVar != null && !com.baidu.platform.comapi.walknavi.b.a().h()) {
-                if (com.baidu.platform.comapi.walknavi.b.a().U().a(this.f4650a.a())) {
-                    this.f4650a.f = true;
-                    bVar3 = this.f4650a.c;
+                if (com.baidu.platform.comapi.walknavi.b.a().U().a(this.f4651a.a())) {
+                    this.f4651a.f = true;
+                    bVar3 = this.f4651a.c;
                     bVar3.b();
                     return;
                 }
-                this.f4650a.f = false;
-                bVar2 = this.f4650a.c;
+                this.f4651a.f = false;
+                bVar2 = this.f4651a.c;
                 bVar2.a(message.arg1);
             }
         }

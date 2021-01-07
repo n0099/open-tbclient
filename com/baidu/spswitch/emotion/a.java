@@ -19,7 +19,7 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static a cDe;
     private Thread cDf;
@@ -34,7 +34,7 @@ public class a {
         init(i);
     }
 
-    public static a ajb() {
+    public static a ajc() {
         if (cDe == null) {
             synchronized (a.class) {
                 if (cDe == null) {
@@ -54,7 +54,7 @@ public class a {
                 a.this.cDg = new Handler() { // from class: com.baidu.spswitch.emotion.a.1.1
                     @Override // android.os.Handler
                     public void handleMessage(Message message) {
-                        a.this.cDh.execute(a.this.ajc());
+                        a.this.cDh.execute(a.this.ajd());
                         Log.d("EmotionLoader", "thread poop execute one task, task queue size: " + a.this.mTasks.size());
                         try {
                             a.this.cDk.acquire();
@@ -132,7 +132,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public Runnable ajc() {
+    public Runnable ajd() {
         return this.mTasks.removeLast();
     }
 }

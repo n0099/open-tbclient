@@ -29,7 +29,7 @@ public class e {
                 for (friendList friendlist : listdata.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.Dd(this.mKey);
+                    aVar.Dc(this.mKey);
                     this.gkQ.add(aVar);
                 }
             }
@@ -44,7 +44,7 @@ public class e {
                 for (friendList friendlist : robotslist.friend_list) {
                     com.baidu.tbadk.coreExtra.relationship.a aVar = new com.baidu.tbadk.coreExtra.relationship.a();
                     aVar.a(friendlist);
-                    aVar.Dd(this.mKey);
+                    aVar.Dc(this.mKey);
                     this.gkQ.add(aVar);
                 }
             }

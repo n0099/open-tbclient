@@ -23,7 +23,7 @@ public class a {
 
     public void startMonitor() {
         if (this.mData == null) {
-            this.mData = b.apS().apT();
+            this.mData = b.apT().apU();
             com.baidu.swan.apps.console.c.i("PropertyLogcat", "Start monitor logcat");
         }
         if (this.cPT == null) {
@@ -50,15 +50,15 @@ public class a {
         }
     }
 
-    public String apR() {
+    public String apS() {
         if (this.mData != null) {
-            b.apS().recycle();
+            b.apT().recycle();
             this.mData = null;
             com.baidu.swan.apps.console.c.i("PropertyLogcat", "Stop monitor logcat");
         }
         d.closeSafely(this.cPU);
         this.cPU = null;
-        return com.baidu.swan.apps.storage.b.cG(getFilePath(), e.aMm());
+        return com.baidu.swan.apps.storage.b.cG(getFilePath(), e.aMn());
     }
 
     /* renamed from: com.baidu.swan.apps.console.property.a$a  reason: collision with other inner class name */
@@ -102,6 +102,6 @@ public class a {
     }
 
     private String getFilePath() {
-        return com.baidu.swan.apps.storage.b.ac(e.aMm(), this.agL, TbConfig.TMP_LOG_DIR_NAME);
+        return com.baidu.swan.apps.storage.b.ac(e.aMn(), this.agL, TbConfig.TMP_LOG_DIR_NAME);
     }
 }

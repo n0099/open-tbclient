@@ -48,14 +48,14 @@ public class d implements View.OnClickListener {
     private View mRootView;
     private TextView mTitleTextView;
     private View mView;
-    private h oqB;
-    private TextView oqK;
-    private i oqL;
+    private h oqA;
+    private TextView oqJ;
+    private i oqK;
 
     public d(Context context) {
         this.mContext = context;
         initDialog();
-        this.oqL = new i(this.mContext);
+        this.oqK = new i(this.mContext);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -69,12 +69,12 @@ public class d implements View.OnClickListener {
             this.fJv.setText(str2);
         }
         if (z) {
-            this.oqK.setVisibility(0);
+            this.oqJ.setVisibility(0);
             this.eLG.setVisibility(0);
             this.mView.setVisibility(0);
             return;
         }
-        this.oqK.setVisibility(8);
+        this.oqJ.setVisibility(8);
         this.eLG.setVisibility(8);
         this.mView.setVisibility(8);
     }
@@ -85,16 +85,16 @@ public class d implements View.OnClickListener {
             this.mDialog.show();
             this.mRootView.setVisibility(8);
             if (this.aGe != null && this.aGe.aLl != null) {
-                this.oqL.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.d.1
+                this.oqK.a(new i.a() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.d.1
                     @Override // com.baidu.tieba.yuyinala.liveroom.introduce.i.a
                     public void a(AlaGetRoomPlayIntroduceHttpResponseMessage alaGetRoomPlayIntroduceHttpResponseMessage) {
                         boolean z = true;
-                        d.this.oqB = alaGetRoomPlayIntroduceHttpResponseMessage.ecZ();
-                        boolean jo = o.eff().jo(o.eff().aar());
+                        d.this.oqA = alaGetRoomPlayIntroduceHttpResponseMessage.eda();
+                        boolean jo = o.efg().jo(o.efg().aas());
                         if (d.this.aGe == null || d.this.aGe.aKQ == null || (d.this.aGe.aKQ.userType != 1 && (d.this.aGe.aKQ.userType != 2 || !jo))) {
                             z = false;
                         }
-                        d.this.J(d.this.oqB.oqS, d.this.oqB.oqT, z);
+                        d.this.J(d.this.oqA.oqR, d.this.oqA.oqS, z);
                         d.this.mRootView.setVisibility(0);
                     }
 
@@ -104,7 +104,7 @@ public class d implements View.OnClickListener {
                         d.this.dismiss();
                     }
                 });
-                this.oqL.request(this.aGe.aLl.aVu);
+                this.oqK.request(this.aGe.aLl.aVu);
             }
         }
     }
@@ -121,8 +121,8 @@ public class d implements View.OnClickListener {
         if (view == this.mRootView || view == this.eLG) {
             dismiss();
         }
-        if (view == this.oqK && this.oqB != null) {
-            new c(this.mContext).b(this.aGe, this.mTitleTextView.getText().toString().trim(), this.oqB.oqT);
+        if (view == this.oqJ && this.oqA != null) {
+            new c(this.mContext).b(this.aGe, this.mTitleTextView.getText().toString().trim(), this.oqA.oqS);
             dismiss();
         }
     }
@@ -158,7 +158,7 @@ public class d implements View.OnClickListener {
         this.mRootView = LayoutInflater.from(this.mDialog.getContext()).inflate(a.g.yuyin_room_introduce_dialog_common_alert, (ViewGroup) null);
         this.mDialog.setContentView(this.mRootView);
         this.mTitleTextView = (TextView) this.mRootView.findViewById(a.f.tv_title);
-        this.oqK = (TextView) this.mRootView.findViewById(a.f.tv_modify);
+        this.oqJ = (TextView) this.mRootView.findViewById(a.f.tv_modify);
         this.eLG = (ImageView) this.mRootView.findViewById(a.f.iv_close);
         this.fJv = (TextView) this.mRootView.findViewById(a.f.tv_content);
         this.mView = this.mRootView.findViewById(a.f.view_line);
@@ -166,7 +166,7 @@ public class d implements View.OnClickListener {
         ((RelativeLayout.LayoutParams) this.mPanelLayout.getLayoutParams()).setMargins(0, BdUtilHelper.getScreenSize((Activity) this.mContext).widthPixels / 3, 0, 0);
         this.mRootView.setOnClickListener(this);
         this.eLG.setOnClickListener(this);
-        this.oqK.setOnClickListener(this);
+        this.oqJ.setOnClickListener(this);
         MessageManager.getInstance().registerListener(this.bih);
     }
 }

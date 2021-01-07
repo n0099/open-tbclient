@@ -5,7 +5,7 @@ import com.baidu.tieba.R;
 public class a {
     public static int gLA;
 
-    public static int bVO() {
+    public static int bVP() {
         int[] iArr = {R.color.common_color_10313, R.color.common_color_10314, R.color.common_color_10315, R.color.common_color_10316, R.color.common_color_10317};
         int length = gLA % iArr.length;
         int i = iArr[length];

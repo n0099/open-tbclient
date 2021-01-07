@@ -10,10 +10,10 @@ public class PassportViewManager implements NoProguard {
     private static PassportViewManager d;
 
     /* renamed from: a  reason: collision with root package name */
-    private TitleBtnCallback f4809a;
+    private TitleBtnCallback f4810a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TitleViewModule f4810b = null;
+    private TitleViewModule f4811b = null;
 
     /* loaded from: classes3.dex */
     public static class TitleViewModule implements NoProguard {
@@ -63,7 +63,7 @@ public class PassportViewManager implements NoProguard {
     }
 
     public void configTitle(TitleViewModule titleViewModule) {
-        this.f4810b = titleViewModule;
+        this.f4811b = titleViewModule;
         if (titleViewModule.bgColor == Integer.MAX_VALUE) {
             titleViewModule.bgColor = -1;
         }
@@ -73,20 +73,20 @@ public class PassportViewManager implements NoProguard {
     }
 
     public TitleBtnCallback getTitleBtnCallback() {
-        return this.f4809a;
+        return this.f4810a;
     }
 
     public TitleViewModule getTitleViewModule() {
-        return this.f4810b;
+        return this.f4811b;
     }
 
     public void release() {
-        this.f4809a = null;
-        this.f4810b = null;
+        this.f4810a = null;
+        this.f4811b = null;
         SapiWebView.statLoadLogin = null;
     }
 
     public void setTitleBtnCallback(TitleBtnCallback titleBtnCallback) {
-        this.f4809a = titleBtnCallback;
+        this.f4810a = titleBtnCallback;
     }
 }

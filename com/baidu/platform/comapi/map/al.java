@@ -7,12 +7,12 @@ import android.view.SurfaceView;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.concurrent.Semaphore;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class al implements ad {
     private static final Semaphore e = new Semaphore(1);
 
     /* renamed from: b  reason: collision with root package name */
-    protected boolean f4301b;
+    protected boolean f4302b;
     private int c;
     private a d;
     private WeakReference<SurfaceView> h;
@@ -20,14 +20,14 @@ public class al implements ad {
     private final WeakReference<al> g = new WeakReference<>(this);
 
     /* renamed from: a  reason: collision with root package name */
-    protected ak f4300a = null;
+    protected ak f4301a = null;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class a extends Thread {
 
         /* renamed from: b  reason: collision with root package name */
-        private WeakReference<al> f4303b;
+        private WeakReference<al> f4304b;
         private boolean d;
         private boolean f;
         private ak k;
@@ -42,9 +42,9 @@ public class al implements ad {
         private int i = 1;
 
         public a(WeakReference<al> weakReference) {
-            this.f4303b = weakReference;
+            this.f4304b = weakReference;
             al alVar = weakReference.get();
-            this.k = alVar.f4300a;
+            this.k = alVar.f4301a;
             this.l = alVar.a();
         }
 
@@ -321,7 +321,7 @@ public class al implements ad {
     @Override // com.baidu.platform.comapi.map.ad
     public void a(ak akVar) {
         c();
-        this.f4300a = akVar;
+        this.f4301a = akVar;
         this.d = new a(this.g);
         this.d.start();
     }
@@ -373,7 +373,7 @@ public class al implements ad {
 
     @Override // com.baidu.platform.comapi.map.ad
     public void i() {
-        if (this.f4301b && this.f4300a != null) {
+        if (this.f4302b && this.f4301a != null) {
             int a2 = this.d != null ? this.d.a() : 1;
             this.d = new a(this.g);
             if (a2 != 1) {
@@ -381,7 +381,7 @@ public class al implements ad {
             }
             this.d.start();
         }
-        this.f4301b = false;
+        this.f4302b = false;
     }
 
     @Override // com.baidu.platform.comapi.map.ad
@@ -389,7 +389,7 @@ public class al implements ad {
         if (this.d != null) {
             this.d.e();
         }
-        this.f4301b = true;
+        this.f4302b = true;
     }
 
     @Override // android.view.SurfaceHolder.Callback

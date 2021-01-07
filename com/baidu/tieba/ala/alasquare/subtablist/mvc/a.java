@@ -40,11 +40,11 @@ public class a {
             }
             if (a.this.gKM != null) {
                 if (!z) {
-                    a.this.gKM.bUD();
+                    a.this.gKM.bUE();
                     return;
                 }
-                a.this.gKN.bVK();
-                a.this.gKM.bVL();
+                a.this.gKN.bVL();
+                a.this.gKM.bVM();
             }
         }
     };
@@ -65,7 +65,7 @@ public class a {
                     a.this.gKM.vs(8);
                     return;
                 }
-                a.this.gKM.Zi();
+                a.this.gKM.Zj();
                 a.this.gKM.vs(0);
             }
         }
@@ -158,8 +158,8 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(TbPageContext<?> tbPageContext, bz bzVar, String str) {
-        if (tbPageContext != null && bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
-            aq w = new aq("c12116").w("obj_id", bzVar.brJ().live_id);
+        if (tbPageContext != null && bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
+            aq w = new aq("c12116").w("obj_id", bzVar.brK().live_id);
             if (!StringUtils.isNull(this.entryName)) {
                 w.dX("locate_type", this.entryName);
             }
@@ -167,15 +167,15 @@ public class a {
             boolean z = false;
             String str2 = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bzVar.brq().getUserId();
+                String userId = bzVar.brr().getUserId();
                 str2 = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str2);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
+            alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (bz bzVar2 : this.gKN.bVD()) {
+            for (bz bzVar2 : this.gKN.bVE()) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(V(bzVar2));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "square_category", str2, z, "颜值".equals(str) ? str : null, null)));
@@ -184,8 +184,8 @@ public class a {
 
     private AlaLiveInfoCoreData V(bz bzVar) {
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
-        alaLiveInfoCoreData.userName = bzVar.brq().getUserName();
+        alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
+        alaLiveInfoCoreData.userName = bzVar.brr().getUserName();
         return alaLiveInfoCoreData;
     }
 

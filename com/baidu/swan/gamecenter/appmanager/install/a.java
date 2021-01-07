@@ -154,56 +154,56 @@ public class a {
     }
 
     public static void hX(boolean z) {
-        h.aPH().edit().putBoolean("install_guide_switch_key", z).apply();
+        h.aPI().edit().putBoolean("install_guide_switch_key", z).apply();
     }
 
-    public static boolean aWZ() {
-        return h.aPH().getBoolean("install_guide_switch_key", true);
+    public static boolean aXa() {
+        return h.aPI().getBoolean("install_guide_switch_key", true);
     }
 
-    public static void aXa() {
-        h.aPH().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
+    public static void aXb() {
+        h.aPI().edit().putLong("install_authorize_guide_time_key", System.currentTimeMillis()).apply();
     }
 
-    public static long aXb() {
-        return h.aPH().getLong("install_authorize_guide_time_key", 0L);
+    public static long aXc() {
+        return h.aPI().getLong("install_authorize_guide_time_key", 0L);
     }
 
-    public static void aXc() {
-        h.aPH().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
+    public static void aXd() {
+        h.aPI().edit().putLong("install_continue_guide_time_key", System.currentTimeMillis()).apply();
     }
 
-    public static long aXd() {
-        return h.aPH().getLong("install_continue_guide_time_key", 0L);
+    public static long aXe() {
+        return h.aPI().getLong("install_continue_guide_time_key", 0L);
     }
 
     public static boolean wF(String str) {
-        return (System.currentTimeMillis() / 86400000) - ((TextUtils.equals(str, "authorize") ? aXb() : aXd()) / 86400000) > 0;
+        return (System.currentTimeMillis() / 86400000) - ((TextUtils.equals(str, "authorize") ? aXc() : aXe()) / 86400000) > 0;
     }
 
-    public static String azi() {
+    public static String azj() {
         return (Build.VERSION.SDK_INT < 26 || AppRuntime.getAppContext().getPackageManager().canRequestPackageInstalls()) ? "continue" : "authorize";
     }
 
     public static boolean wG(String str) {
-        return aWZ() && wF(str) && aXe() < aXg();
+        return aXa() && wF(str) && aXf() < aXh();
     }
 
-    public static int aXe() {
-        return h.aPH().getInt("install_guide_count_key", 0);
+    public static int aXf() {
+        return h.aPI().getInt("install_guide_count_key", 0);
     }
 
-    public static void aXf() {
-        h.aPH().edit().putInt("install_guide_count_key", h.aPH().getInt("install_guide_count_key", 0) + 1).apply();
+    public static void aXg() {
+        h.aPI().edit().putInt("install_guide_count_key", h.aPI().getInt("install_guide_count_key", 0) + 1).apply();
     }
 
-    public static int aXg() {
-        return h.aPH().getInt("install_guide_max_count_key", 3);
+    public static int aXh() {
+        return h.aPI().getInt("install_guide_max_count_key", 3);
     }
 
     public static void mv(int i) {
         if (i > 0) {
-            h.aPH().edit().putInt("install_guide_max_count_key", i).apply();
+            h.aPI().edit().putInt("install_guide_max_count_key", i).apply();
         }
     }
 }

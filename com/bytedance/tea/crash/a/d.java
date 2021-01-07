@@ -13,14 +13,14 @@ public class d implements Runnable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private long f7912a = a();
+    private long f7913a = a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
         this.ppO = cVar;
         com.bytedance.tea.crash.e.g.a(2L);
-        com.bytedance.tea.crash.e.f.esA().a(4500L, this.d);
-        com.bytedance.tea.crash.e.f.esA().a(5000L, this, 40, 5000L);
+        com.bytedance.tea.crash.e.f.esB().a(4500L, this.d);
+        com.bytedance.tea.crash.e.f.esB().a(5000L, this, 40, 5000L);
     }
 
     @Override // java.lang.Runnable

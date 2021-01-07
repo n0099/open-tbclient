@@ -19,7 +19,7 @@ public class a {
     private boolean jAa;
     private String jzK;
     private FrsGameSubPbActivity jzW;
-    private InterfaceC0741a jzX;
+    private InterfaceC0748a jzX;
     private int mForumId;
     private String jzY = "0";
     private int jzZ = 1;
@@ -85,7 +85,7 @@ public class a {
 
     /* renamed from: com.baidu.tieba.frs.gamesubpb.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    public interface InterfaceC0741a {
+    public interface InterfaceC0748a {
         void a(boolean z, int i, String str, d dVar);
 
         void a(boolean z, int i, String str, boolean z2, boolean z3, b bVar, List<n> list);
@@ -103,34 +103,34 @@ public class a {
         this.jzW = frsGameSubPbActivity;
         this.mForumId = i;
         this.jzK = str;
-        cKT();
         cKU();
         cKV();
+        cKW();
     }
 
-    private void cKT() {
+    private void cKU() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003379, TbConfig.SERVER_ADDRESS + "game/client/selectSubComment");
         tbHttpMessageTask.setResponsedClass(FrsSelectSubCommentReponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         this.jzW.registerListener(1003379, this.jAb);
     }
 
-    private void cKU() {
+    private void cKV() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003380, TbConfig.SERVER_ADDRESS + "game/client/addSubComment");
         tbHttpMessageTask.setResponsedClass(FrsAddSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         this.jzW.registerListener(1003380, this.jAc);
     }
 
-    private void cKV() {
+    private void cKW() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003381, TbConfig.SERVER_ADDRESS + "game/client/deleteSubComment");
         tbHttpMessageTask.setResponsedClass(FrsDeleteSubCommentResponseMessage.class);
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
         this.jzW.registerListener(1003381, this.jAd);
     }
 
-    public void a(InterfaceC0741a interfaceC0741a) {
-        this.jzX = interfaceC0741a;
+    public void a(InterfaceC0748a interfaceC0748a) {
+        this.jzX = interfaceC0748a;
     }
 
     public void mH(boolean z) {
@@ -146,7 +146,7 @@ public class a {
         }
     }
 
-    public void Li(String str) {
+    public void Lh(String str) {
         this.jzY = str;
     }
 }

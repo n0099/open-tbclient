@@ -42,9 +42,9 @@ public class f implements com.baidu.live.ab.a {
         reset(true);
         if (viewGroup instanceof PendantParentView) {
             this.gqh = (PendantParentView) viewGroup;
-            bRi();
+            bRj();
         }
-        bWN();
+        bWO();
     }
 
     @Override // com.baidu.live.ab.a
@@ -93,7 +93,7 @@ public class f implements com.baidu.live.ab.a {
         Id();
     }
 
-    private void bWN() {
+    private void bWO() {
         if (this.gQa == null) {
             this.gQa = new CustomMessageListener(2913221) { // from class: com.baidu.tieba.ala.charm.f.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -108,14 +108,14 @@ public class f implements com.baidu.live.ab.a {
         }
     }
 
-    private void bWO() {
+    private void bWP() {
         if (this.gQa != null) {
             MessageManager.getInstance().unRegisterListener(this.gQa);
             this.gQa = null;
         }
     }
 
-    private void bRi() {
+    private void bRj() {
         this.gqi = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.charm.f.2
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
@@ -188,7 +188,7 @@ public class f implements com.baidu.live.ab.a {
             return false;
         }
         if (this.gqi == null) {
-            bRi();
+            bRj();
         }
         if (this.gPW == null || (this.gqi != null && this.gqi.indexOfChild(this.gPW) < 0)) {
             this.gPW = new RedPacketCharmView(this.mContext);
@@ -196,13 +196,13 @@ public class f implements com.baidu.live.ab.a {
             this.gPW.setCallback(new RedPacketCharmView.a() { // from class: com.baidu.tieba.ala.charm.f.3
                 @Override // com.baidu.tieba.ala.charm.RedPacketCharmView.a
                 public void vG(int i2) {
-                    f.this.Hg("show");
+                    f.this.Hf("show");
                 }
             });
             this.gPW.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.charm.f.4
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    f.this.bWP();
+                    f.this.bWQ();
                 }
             });
         }
@@ -233,7 +233,7 @@ public class f implements com.baidu.live.ab.a {
                 }
                 break;
             case 3:
-                bWQ();
+                bWR();
                 fc(0L);
                 this.gPW.vH(4);
                 break;
@@ -251,14 +251,14 @@ public class f implements com.baidu.live.ab.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWP() {
+    public void bWQ() {
         if (this.aGe != null && this.gPX != null) {
             cb cbVar = new cb();
             cbVar.aSC = this.gPX.id;
             cbVar.liveId = String.valueOf(this.aGe.mLiveInfo.live_id);
             cbVar.aLV = String.valueOf(this.aGe.aKu.userId);
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, cbVar));
-            Hg("click");
+            Hf("click");
         }
     }
 
@@ -267,7 +267,7 @@ public class f implements com.baidu.live.ab.a {
     }
 
     private void fb(long j) {
-        bWQ();
+        bWR();
         this.gPY = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.ala.charm.f.5
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
@@ -322,7 +322,7 @@ public class f implements com.baidu.live.ab.a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913133, Long.valueOf(j)));
     }
 
-    private void bWQ() {
+    private void bWR() {
         if (this.gPY != null) {
             this.gPY.cancel();
         }
@@ -330,11 +330,11 @@ public class f implements com.baidu.live.ab.a {
 
     private void reset(boolean z) {
         if (z) {
-            bWO();
+            bWP();
         }
         this.gPZ = true;
         this.gPX = null;
-        bWQ();
+        bWR();
         mv(z);
     }
 
@@ -351,7 +351,7 @@ public class f implements com.baidu.live.ab.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Hg(String str) {
+    public void Hf(String str) {
         if (this.gPX != null && this.gPW != null) {
             AlaStatsItem alaStatsItem = new AlaStatsItem();
             alaStatsItem.addValue("redpacketId", this.gPX.id);

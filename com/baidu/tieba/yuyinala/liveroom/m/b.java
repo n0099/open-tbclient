@@ -15,41 +15,41 @@ public class b {
     private CustomMessageListener bXd;
     private PopupWindow.OnDismissListener gMZ;
     private Activity mContext;
-    private c orO;
+    private c orN;
 
     public b(Activity activity) {
         this.mContext = activity;
-        aaf();
+        aag();
     }
 
     public void ie(String str) {
-        this.orO = new c(this.mContext);
-        this.orO.setOnDismissListener(this.gMZ);
-        this.orO.getWebView().setBackgroundColor(ih(str));
+        this.orN = new c(this.mContext);
+        this.orN.setOnDismissListener(this.gMZ);
+        this.orN.getWebView().setBackgroundColor(ih(str));
         g gVar = new g();
-        gVar.w(this.mContext).a(this.orO).a(this.orO.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] aae = gVar.aae();
-        for (com.baidu.live.view.web.a aVar : aae) {
-            this.orO.getWebView().addJavascriptInterface(aVar, aVar.getName());
+        gVar.w(this.mContext).a(this.orN).a(this.orN.getWebView().getSchemeCallback());
+        com.baidu.live.view.web.a[] aaf = gVar.aaf();
+        for (com.baidu.live.view.web.a aVar : aaf) {
+            this.orN.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.orO.GB(str);
+        this.orN.GA(str);
     }
 
     public void resume() {
-        if (this.orO != null && this.orO.isShowing() && this.orO.getWebView() != null) {
-            this.orO.getWebView().onResume();
+        if (this.orN != null && this.orN.isShowing() && this.orN.getWebView() != null) {
+            this.orN.getWebView().onResume();
         }
     }
 
     public void pause() {
-        if (this.orO != null && this.orO.isShowing() && this.orO.getWebView() != null) {
-            this.orO.getWebView().onPause();
+        if (this.orN != null && this.orN.isShowing() && this.orN.getWebView() != null) {
+            this.orN.getWebView().onPause();
         }
     }
 
     public void dismiss() {
-        if (this.orO != null) {
-            this.orO.aag();
+        if (this.orN != null) {
+            this.orN.aah();
         }
     }
 
@@ -62,13 +62,13 @@ public class b {
         MessageManager.getInstance().unRegisterListener(this.bXd);
     }
 
-    private void aaf() {
+    private void aag() {
         this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.m.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.orO != null && b.this.orO.isShowing()) {
-                    b.this.orO.dismiss();
+                if (b.this.orN != null && b.this.orN.isShowing()) {
+                    b.this.orN.dismiss();
                 }
             }
         };

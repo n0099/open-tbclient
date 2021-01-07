@@ -120,7 +120,7 @@ public final class l extends aa {
                 p.n(string, "taskId");
                 p.n(optString, TiebaInitialize.LogFields.REASON);
                 webSocketManager.close(string, optInt, optString);
-                eVar.aMA().qU(string);
+                eVar.aMB().qU(string);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             } catch (Exception e) {
@@ -129,15 +129,15 @@ public final class l extends aa {
                 if (aa.DEBUG) {
                     Log.d("websocket", "close --- " + e.getMessage());
                 }
-                k aMA = eVar.aMA();
+                k aMB = eVar.aMB();
                 p.n(string, "taskId");
-                aMA.qU(string);
+                aMB.qU(string);
                 return false;
             }
         } catch (Throwable th) {
-            k aMA2 = eVar.aMA();
+            k aMB2 = eVar.aMB();
             p.n(string, "taskId");
-            aMA2.qU(string);
+            aMB2.qU(string);
             throw th;
         }
     }
@@ -199,7 +199,7 @@ public final class l extends aa {
             return false;
         }
         JSONObject jSONObject3 = new JSONObject();
-        if (!eVar.aMA().aGE()) {
+        if (!eVar.aMB().aGF()) {
             jSONObject3.put(BaseJsonData.TAG_ERRNO, "1");
         } else {
             String string = jSONObject.getString("url");
@@ -229,7 +229,7 @@ public final class l extends aa {
                         WebSocketTask connect = WebSocketManager.INSTANCE.connect(fromJSON, a(jSONObject2, callbackHandler));
                         jSONObject3.put(BaseJsonData.TAG_ERRNO, "0");
                         jSONObject3.put("task", connect.toJSON());
-                        eVar.aMA().a(connect);
+                        eVar.aMB().a(connect);
                         break;
                     } catch (Exception e2) {
                         com.baidu.swan.apps.console.c.e("websocket", e2.getMessage());
@@ -319,8 +319,8 @@ public final class l extends aa {
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onClose(JSONObject jSONObject) {
-            com.baidu.swan.apps.runtime.e arO;
-            k aMA;
+            com.baidu.swan.apps.runtime.e arP;
+            k aMB;
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("code", jSONObject != null ? jSONObject.optInt("code") : 0);
             jSONObject2.put(TiebaInitialize.LogFields.REASON, (jSONObject == null || (r0 = jSONObject.optString(TiebaInitialize.LogFields.REASON, "")) == null) ? "" : "");
@@ -333,16 +333,16 @@ public final class l extends aa {
                 callbackHandler.handleSchemeDispatchCallback(this.drQ, jSONObject3.toString());
             }
             String string = jSONObject != null ? jSONObject.getString(Message.TASK_ID) : null;
-            if (string == null || (arO = l.this.arO()) == null || (aMA = arO.aMA()) == null) {
+            if (string == null || (arP = l.this.arP()) == null || (aMB = arP.aMB()) == null) {
                 return;
             }
-            aMA.qU(string);
+            aMB.qU(string);
         }
 
         @Override // com.baidu.searchbox.websocket.IWebSocketListener
         public void onError(Throwable th, JSONObject jSONObject) {
-            com.baidu.swan.apps.runtime.e arO;
-            k aMA;
+            com.baidu.swan.apps.runtime.e arP;
+            k aMB;
             p.o(th, "t");
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("errMsg", th.getMessage());
@@ -355,10 +355,10 @@ public final class l extends aa {
                 callbackHandler.handleSchemeDispatchCallback(this.drR, jSONObject3.toString());
             }
             String string = jSONObject != null ? jSONObject.getString(Message.TASK_ID) : null;
-            if (string == null || (arO = l.this.arO()) == null || (aMA = arO.aMA()) == null) {
+            if (string == null || (arP = l.this.arP()) == null || (aMB = arP.aMB()) == null) {
                 return;
             }
-            aMA.qU(string);
+            aMB.qU(string);
         }
     }
 

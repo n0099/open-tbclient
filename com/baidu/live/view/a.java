@@ -45,7 +45,7 @@ public class a {
     private a() {
     }
 
-    public static a Zx() {
+    public static a Zy() {
         if (bTt == null) {
             synchronized (a.class) {
                 if (bTt == null) {
@@ -342,12 +342,12 @@ public class a {
             if (strArr[i] != null && !com.baidu.live.utils.f.iN(strArr[i])) {
                 strArr[i] = ExtraParamsManager.getDecryptUserId(strArr[i]);
             }
-            if (Zy() != null && Zy().equals(strArr[i])) {
+            if (Zz() != null && Zz().equals(strArr[i])) {
                 UpdateAttentionMessage.UpdateAttentionData updateAttentionData = new UpdateAttentionMessage.UpdateAttentionData();
                 updateAttentionData.isSucc = true;
                 updateAttentionData.errorString = null;
                 updateAttentionData.isAttention = true;
-                updateAttentionData.toUid = Zy();
+                updateAttentionData.toUid = Zz();
                 updateAttentionData.isGod = false;
                 updateAttentionData.isShowMessage = false;
                 UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(updateAttentionData);
@@ -358,7 +358,7 @@ public class a {
         }
     }
 
-    public String Zy() {
+    public String Zz() {
         return this.mUserId;
     }
 

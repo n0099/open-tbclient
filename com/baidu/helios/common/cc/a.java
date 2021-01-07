@@ -8,14 +8,14 @@ import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.LongBuffer;
 import java.util.Arrays;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class a implements Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final /* synthetic */ boolean f2488a;
+    static final /* synthetic */ boolean f2489a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f2489b = 6;
+    private static final int f2490b = 6;
     private static final int c = 64;
     private static final int d = 63;
     private static final long e = -1;
@@ -26,7 +26,7 @@ public class a implements Serializable, Cloneable {
     private transient boolean i;
 
     static {
-        f2488a = !a.class.desiredAssertionStatus();
+        f2489a = !a.class.desiredAssertionStatus();
         f = new ObjectStreamField[]{new ObjectStreamField("bits", long[].class)};
     }
 
@@ -128,13 +128,13 @@ public class a implements Serializable, Cloneable {
     }
 
     private void h() {
-        if (!f2488a && this.h != 0 && this.g[this.h - 1] == 0) {
+        if (!f2489a && this.h != 0 && this.g[this.h - 1] == 0) {
             throw new AssertionError();
         }
-        if (!f2488a && (this.h < 0 || this.h > this.g.length)) {
+        if (!f2489a && (this.h < 0 || this.h > this.g.length)) {
             throw new AssertionError();
         }
-        if (!f2488a && this.h != this.g.length && this.g[this.h] != 0) {
+        if (!f2489a && this.h != this.g.length && this.g[this.h] != 0) {
             throw new AssertionError();
         }
     }

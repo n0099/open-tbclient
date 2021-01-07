@@ -7,14 +7,14 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
 import android.os.SystemClock;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f6055a;
+    private static Context f6056a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f6056b = false;
+    private static boolean f6057b = false;
     private static b pgm = null;
     private static a pgn = null;
     private static c pgo = null;
@@ -76,7 +76,7 @@ public class b {
     }
 
     public static void c() {
-        f6056b = "1".equals(a("persist.sys.identifierid.supported", "0"));
+        f6057b = "1".equals(a("persist.sys.identifierid.supported", "0"));
     }
 
     private static void f() {
@@ -105,9 +105,9 @@ public class b {
     public static b hM(Context context) {
         if (pgm == null) {
             pgm = new b();
-            f6055a = context;
+            f6056a = context;
             f();
-            pgn = new a(f6055a);
+            pgn = new a(f6056a);
             c();
         }
         return pgm;
@@ -120,7 +120,7 @@ public class b {
             }
             a(1, str);
             if (pgp == null && m != null) {
-                a(f6055a, 1, str);
+                a(f6056a, 1, str);
             }
             return m;
         }
@@ -168,7 +168,7 @@ public class b {
     }
 
     public boolean a() {
-        return f6056b;
+        return f6057b;
     }
 
     public String b() {
@@ -178,7 +178,7 @@ public class b {
             }
             a(0, (String) null);
             if (pgo == null) {
-                a(f6055a, 0, null);
+                a(f6056a, 0, null);
             }
             return l;
         }
@@ -192,7 +192,7 @@ public class b {
             }
             a(2, str);
             if (pgq == null && n != null) {
-                a(f6055a, 2, str);
+                a(f6056a, 2, str);
             }
             return n;
         }

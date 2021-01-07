@@ -13,13 +13,13 @@ public class b extends a {
 
     @Override // java.lang.Runnable
     public void run() {
-        String e = h.esE().e();
+        String e = h.esF().e();
         if (TextUtils.isEmpty(e) || "0".equals(e)) {
             a(c());
             j.a("[DeviceIdTask] did is null, continue check.");
             return;
         }
-        h.esG().a(e);
+        h.esH().a(e);
         j.a("[DeviceIdTask] did is " + e);
     }
 }

@@ -11,19 +11,19 @@ import com.qq.e.comm.pi.ADI;
 import com.qq.e.comm.pi.POFactory;
 import com.qq.e.comm.util.AdError;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class AbstractAD<T extends ADI> {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f11708a = false;
+    private volatile boolean f11709a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile boolean f11709b = false;
+    private volatile boolean f11710b = false;
     private T c;
     private BrowserType d;
     private DownAPPConfirmPolicy e;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface BasicADListener {
         void onNoAD(AdError adError);
     }
@@ -38,7 +38,7 @@ public abstract class AbstractAD<T extends ADI> {
     /* JADX INFO: Access modifiers changed from: protected */
     public final void a(final Context context, final String str, final String str2, final BasicADListener basicADListener) {
         if (a.a(context)) {
-            this.f11709b = true;
+            this.f11710b = true;
             GDTADManager.INIT_EXECUTOR.execute(new Runnable() { // from class: com.qq.e.ads.AbstractAD.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -56,12 +56,12 @@ public abstract class AbstractAD<T extends ADI> {
                             public void run() {
                                 try {
                                     if (pOFactory == null) {
-                                        AbstractAD.this.f11708a = true;
+                                        AbstractAD.this.f11709a = true;
                                         AbstractAD.this.a(basicADListener, 200102);
                                         return;
                                     }
                                     AbstractAD.this.c = AbstractAD.this.a(context, pOFactory, str, str2);
-                                    AbstractAD.this.f11708a = true;
+                                    AbstractAD.this.f11709a = true;
                                     if (AbstractAD.this.d != null) {
                                         AbstractAD.this.setBrowserType(AbstractAD.this.d);
                                     }
@@ -71,7 +71,7 @@ public abstract class AbstractAD<T extends ADI> {
                                     AbstractAD.this.a((AbstractAD) AbstractAD.this.c);
                                 } catch (Throwable th) {
                                     GDTLogger.e("Exception while init Core", th);
-                                    AbstractAD.this.f11708a = true;
+                                    AbstractAD.this.f11709a = true;
                                     AbstractAD.this.a(basicADListener, 2001);
                                 }
                             }
@@ -110,12 +110,12 @@ public abstract class AbstractAD<T extends ADI> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean b() {
-        return this.f11708a;
+        return this.f11709a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public final boolean c() {
-        return this.f11709b;
+        return this.f11710b;
     }
 
     public void setBrowserType(BrowserType browserType) {

@@ -32,8 +32,8 @@ public class a implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        aEV();
         aEW();
+        aEX();
         u(this.dnU);
         com.baidu.swan.apps.media.chooser.model.a aVar = new com.baidu.swan.apps.media.chooser.model.a();
         aVar.qy(d.ak(AppRuntime.getAppContext(), this.dhe));
@@ -41,7 +41,7 @@ public class a implements Runnable {
         this.dnU.add(0, aVar);
         Iterator<com.baidu.swan.apps.media.chooser.model.a> it = this.dnU.iterator();
         while (it.hasNext()) {
-            Collections.sort(it.next().aEL());
+            Collections.sort(it.next().aEM());
         }
         if (this.mHandler != null) {
             Message obtainMessage = this.mHandler.obtainMessage(0);
@@ -55,7 +55,7 @@ public class a implements Runnable {
     /* JADX WARN: Type inference failed for: r1v1, types: [android.net.Uri] */
     /* JADX WARN: Type inference failed for: r1v2 */
     /* JADX WARN: Type inference failed for: r1v4, types: [java.io.Closeable] */
-    private void aEV() {
+    private void aEW() {
         Cursor cursor;
         if (!TextUtils.equals(this.dhe, "video")) {
             ?? r1 = MediaStore.Images.Media.EXTERNAL_CONTENT_URI;
@@ -122,7 +122,7 @@ public class a implements Runnable {
     /* JADX WARN: Type inference failed for: r1v0, types: [java.lang.String] */
     /* JADX WARN: Type inference failed for: r1v1, types: [java.io.Closeable] */
     /* JADX WARN: Type inference failed for: r1v2 */
-    private void aEW() {
+    private void aEX() {
         Cursor cursor;
         ?? r1 = "Image";
         try {
@@ -203,7 +203,7 @@ public class a implements Runnable {
         Iterator<com.baidu.swan.apps.media.chooser.model.a> it = arrayList.iterator();
         while (it.hasNext()) {
             com.baidu.swan.apps.media.chooser.model.a next = it.next();
-            next.cp(new File(next.aER()).lastModified());
+            next.cp(new File(next.aES()).lastModified());
         }
         Collections.sort(arrayList);
     }

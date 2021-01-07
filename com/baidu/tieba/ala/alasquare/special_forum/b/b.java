@@ -15,7 +15,7 @@ public class b extends a {
 
     public b(TbPageContext tbPageContext) {
         super(tbPageContext);
-        bVG();
+        bVH();
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
@@ -43,8 +43,8 @@ public class b extends a {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void bVH() {
-        super.bVH();
+    public void bVI() {
+        super.bVI();
         if (this.fhd != null) {
             FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.fhd.getLayoutParams();
             layoutParams.width = this.mScreenWidth;

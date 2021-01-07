@@ -29,9 +29,9 @@ public class s extends h {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.boO() != null && aVar.boO().btx() != null) {
+        if (aVar != null && aVar.boP() != null && aVar.boP().bty() != null) {
             this.aib.setVisibility(0);
-            this.aib.setData(aVar.boO().btx(), 13);
+            this.aib.setData(aVar.boP().bty(), 13);
             return;
         }
         this.aib.setVisibility(8);

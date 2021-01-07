@@ -16,9 +16,9 @@ public interface d {
 
         boolean Nt();
 
-        void ZZ();
-
         void aaa();
+
+        void aab();
     }
 
     void Id();

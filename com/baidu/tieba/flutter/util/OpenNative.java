@@ -370,7 +370,7 @@ public class OpenNative {
                 }
             }
             if (map.containsKey("from")) {
-                d.El((String) map.get("from"));
+                d.Ek((String) map.get("from"));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, videoMiddlePageActivityConfig));
         }
@@ -393,7 +393,7 @@ public class OpenNative {
     private static void openNativeCustomVideo(Context context, Map<String, Object> map) {
         String str = (String) map.get("videoUrl");
         SimpleVideoPlayActivityConfig.a aVar = new SimpleVideoPlayActivityConfig.a();
-        aVar.AL(str).AK(str);
+        aVar.AK(str).AJ(str);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, aVar.eT(context)));
     }
 
@@ -580,7 +580,7 @@ public class OpenNative {
             pbActivityConfig.setUnKnowPbType((String) map.get(PbActivityConfig.KEY_UNKNOW_PB_TYPE));
         }
         if (map.containsKey("enter_type")) {
-            d.El((String) map.get("enter_type"));
+            d.Ek((String) map.get("enter_type"));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
     }
@@ -629,7 +629,7 @@ public class OpenNative {
             }
         }
         if (map.containsKey(FrsActivityConfig.FRS_CALL_FROM)) {
-            d.El((String) map.get(FrsActivityConfig.FRS_CALL_FROM));
+            d.Ek((String) map.get(FrsActivityConfig.FRS_CALL_FROM));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalCfg));
     }
@@ -650,7 +650,7 @@ public class OpenNative {
         }
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                be.bwu().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
+                be.bwv().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{str});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());
@@ -769,13 +769,13 @@ public class OpenNative {
                 str = arrayList.get(arrayList.size() - 1);
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).ot(((Integer) map.get("index")).intValue()).AE((String) map.get("forum_name")).AF((String) map.get("forum_id")).AG((String) map.get("thread_id")).ji(true).AH(str).jj(true).jk(true);
+            aVar.x(arrayList).ot(((Integer) map.get("index")).intValue()).AD((String) map.get("forum_name")).AE((String) map.get("forum_id")).AF((String) map.get("thread_id")).ji(true).AG(str).jj(true).jk(true);
             ImageViewerConfig eS = aVar.eS(context);
             eS.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, false);
             eS.getIntent().putExtra("from", "index");
             if (map.containsKey("enter_type")) {
-                d.El((String) map.get("enter_type"));
-                g.publishEvent(new PrePageKeyEvent(d.bHm()));
+                d.Ek((String) map.get("enter_type"));
+                g.publishEvent(new PrePageKeyEvent(d.bHn()));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eS));
         }
@@ -816,7 +816,7 @@ public class OpenNative {
                 i = i2 + 1;
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).ot(((Integer) map.get("index")).intValue()).AE(str3).AF(str2).AG(str4).ji(true).AH(str).jj(true).d(concurrentHashMap).jk(true);
+            aVar.x(arrayList).ot(((Integer) map.get("index")).intValue()).AD(str3).AE(str2).AF(str4).ji(true).AG(str).jj(true).d(concurrentHashMap).jk(true);
             ImageViewerConfig eS = aVar.eS(context);
             eS.getIntent().putExtra(ImageViewerConfig.IS_SHOW_HOST, true);
             if (map.get("from") != null && (map.get("from") instanceof String)) {
@@ -825,8 +825,8 @@ public class OpenNative {
                 eS.getIntent().putExtra("from", "index");
             }
             if (map.containsKey("enter_type")) {
-                d.El((String) map.get("enter_type"));
-                g.publishEvent(new PrePageKeyEvent(d.bHm()));
+                d.Ek((String) map.get("enter_type"));
+                g.publishEvent(new PrePageKeyEvent(d.bHn()));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, eS));
         }
@@ -892,7 +892,7 @@ public class OpenNative {
     private static void openNativeCreateForumPage(Context context, Map<String, Object> map) {
         try {
             if (TbadkApplication.getInst().getCurrentActivity() != null) {
-                be.bwu().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                be.bwv().b(((TbPageContextSupport) TbadkApplication.getInst().getCurrentActivity()).getPageContext(), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
             }
         } catch (Exception e) {
             BdLog.e("openPageByUrl fail:" + e.toString());

@@ -48,7 +48,7 @@ public class a extends com.baidu.tbadk.core.dialog.a {
         br(this.mRootView);
     }
 
-    public void Ck(String str) {
+    public void Cj(String str) {
         this.fff = str;
     }
 

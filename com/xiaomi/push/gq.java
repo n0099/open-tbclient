@@ -12,25 +12,25 @@ import org.xmlpull.v1.XmlPullParserFactory;
 public class gq {
 
     /* renamed from: a  reason: collision with root package name */
-    private static gq f14362a;
+    private static gq f14363a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Map<String, Object> f484a = new ConcurrentHashMap();
+    private Map<String, Object> f485a = new ConcurrentHashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, Object> f14363b = new ConcurrentHashMap();
+    private Map<String, Object> f14364b = new ConcurrentHashMap();
 
     private gq() {
-        m341a();
+        m352a();
     }
 
     public static synchronized gq a() {
         gq gqVar;
         synchronized (gq.class) {
-            if (f14362a == null) {
-                f14362a = new gq();
+            if (f14363a == null) {
+                f14363a = new gq();
             }
-            gqVar = f14362a;
+            gqVar = f14363a;
         }
         return gqVar;
     }
@@ -45,7 +45,7 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private ClassLoader[] m339a() {
+    private ClassLoader[] m350a() {
         ClassLoader[] classLoaderArr = {gq.class.getClassLoader(), Thread.currentThread().getContextClassLoader()};
         ArrayList arrayList = new ArrayList();
         for (ClassLoader classLoader : classLoaderArr) {
@@ -57,14 +57,14 @@ public class gq {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public Object m340a(String str, String str2) {
-        return this.f484a.get(a(str, str2));
+    public Object m351a(String str, String str2) {
+        return this.f485a.get(a(str, str2));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    protected void m341a() {
+    protected void m352a() {
         try {
-            for (ClassLoader classLoader : m339a()) {
+            for (ClassLoader classLoader : m350a()) {
                 Enumeration<URL> resources = classLoader.getResources("META-INF/smack.providers");
                 while (resources.hasMoreElements()) {
                     InputStream openStream = resources.nextElement().openStream();
@@ -85,13 +85,13 @@ public class gq {
                                 newPullParser.next();
                                 String nextText3 = newPullParser.nextText();
                                 String a2 = a(nextText, nextText2);
-                                if (!this.f14363b.containsKey(a2)) {
+                                if (!this.f14364b.containsKey(a2)) {
                                     try {
                                         Class<?> cls = Class.forName(nextText3);
                                         if (go.class.isAssignableFrom(cls)) {
-                                            this.f14363b.put(a2, cls.newInstance());
+                                            this.f14364b.put(a2, cls.newInstance());
                                         } else if (gh.class.isAssignableFrom(cls)) {
-                                            this.f14363b.put(a2, cls);
+                                            this.f14364b.put(a2, cls);
                                         }
                                     } catch (ClassNotFoundException e) {
                                         e.printStackTrace();
@@ -108,13 +108,13 @@ public class gq {
                                 newPullParser.next();
                                 String nextText6 = newPullParser.nextText();
                                 String a3 = a(nextText4, nextText5);
-                                if (!this.f484a.containsKey(a3)) {
+                                if (!this.f485a.containsKey(a3)) {
                                     try {
                                         Class<?> cls2 = Class.forName(nextText6);
                                         if (gp.class.isAssignableFrom(cls2)) {
-                                            this.f484a.put(a3, cls2.newInstance());
+                                            this.f485a.put(a3, cls2.newInstance());
                                         } else if (gk.class.isAssignableFrom(cls2)) {
-                                            this.f484a.put(a3, cls2);
+                                            this.f485a.put(a3, cls2);
                                         }
                                     } catch (ClassNotFoundException e2) {
                                         e2.printStackTrace();
@@ -139,6 +139,6 @@ public class gq {
         if (!(obj instanceof gp) && !(obj instanceof Class)) {
             throw new IllegalArgumentException("Provider must be a PacketExtensionProvider or a Class instance.");
         }
-        this.f484a.put(a(str, str2), obj);
+        this.f485a.put(a(str, str2), obj);
     }
 }

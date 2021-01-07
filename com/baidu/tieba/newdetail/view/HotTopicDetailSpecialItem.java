@@ -118,7 +118,7 @@ public class HotTopicDetailSpecialItem extends RelativeLayout implements View.On
             ao.setViewTextColor(this.kss, R.color.CAM_X0105);
             ao.setViewTextColor(this.akS, R.color.CAM_X0109);
             ao.setViewTextColor(this.kdW, R.color.CAM_X0101);
-            this.kdV.setImageDrawable(SvgManager.bwq().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+            this.kdV.setImageDrawable(SvgManager.bwr().a(R.drawable.ic_icon_pure_video_play12_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
             this.kdK = i;
         }
     }

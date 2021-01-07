@@ -28,7 +28,7 @@ public class b<T> implements d<T> {
         this.list = null;
     }
 
-    public static b ahA() {
+    public static b ahB() {
         return new b();
     }
 }

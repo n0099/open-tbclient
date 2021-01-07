@@ -11,7 +11,7 @@ import java.util.Map;
 public final class e extends com.bytedance.sdk.openadsdk.d.d.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Reader f7176b = new Reader() { // from class: com.bytedance.sdk.openadsdk.d.b.a.e.1
+    private static final Reader f7177b = new Reader() { // from class: com.bytedance.sdk.openadsdk.d.b.a.e.1
         @Override // java.io.Reader
         public int read(char[] cArr, int i, int i2) throws IOException {
             throw new AssertionError();

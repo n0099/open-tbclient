@@ -21,7 +21,7 @@ public class c {
         return this.nickName;
     }
 
-    public boolean Zp() {
+    public boolean Zq() {
         return this.isHost;
     }
 

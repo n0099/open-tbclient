@@ -13,32 +13,32 @@ public class b implements com.baidu.j.a.c.a {
     public void a(Context context, String str, String str2, int i, int i2, final com.baidu.j.a.c.b bVar) {
         try {
             this.cgq++;
-            if (aca()) {
+            if (acb()) {
                 long parseLong = Long.parseLong(str);
                 long parseLong2 = Long.parseLong(str2);
                 com.baidu.j.b.a by = com.baidu.j.b.a.by(context);
-                c jy = ((com.baidu.j.b.a.a.b) by.abS()).jy(str2);
+                c jy = ((com.baidu.j.b.a.a.b) by.abT()).jy(str2);
                 if (jy != null) {
-                    BIMConversation abX = ((com.baidu.j.b.a.a) jy).abX();
+                    BIMConversation abY = ((com.baidu.j.b.a.a) jy).abY();
                     a aVar = new a();
                     aVar.num = i;
                     aVar.roomId = parseLong;
                     aVar.cgo = i2;
                     aVar.sourceType = 0;
-                    com.baidu.j.a.a.a abT = by.abT();
-                    if (abT != null && abT.isLogin() && abT.abL() != null) {
+                    com.baidu.j.a.a.a abU = by.abU();
+                    if (abU != null && abU.isLogin() && abU.abM() != null) {
                         try {
-                            aVar.uid = Long.parseLong(by.abT().abL().getUid());
+                            aVar.uid = Long.parseLong(by.abU().abM().getUid());
                         } catch (Exception e) {
                             aVar.uid = 0L;
                         }
                     }
-                    com.baidu.j.b.b abW = by.abW();
-                    if (abW != null) {
-                        aVar.appVersion = abW.appVersion;
-                        aVar.cuid = abW.cuid;
+                    com.baidu.j.b.b abX = by.abX();
+                    if (abX != null) {
+                        aVar.appVersion = abX.appVersion;
+                        aVar.cuid = abX.cuid;
                     }
-                    abX.sendQuizOpts(parseLong, parseLong2, 1000, aVar.toJson(), new IMcastSetListener() { // from class: com.baidu.j.b.b.b.1
+                    abY.sendQuizOpts(parseLong, parseLong2, 1000, aVar.toJson(), new IMcastSetListener() { // from class: com.baidu.j.b.b.b.1
                         @Override // com.baidu.android.imsdk.mcast.IMcastSetListener
                         public void onResult(int i3, long j, long j2) {
                             if (bVar != null) {
@@ -59,7 +59,7 @@ public class b implements com.baidu.j.a.c.a {
         }
     }
 
-    private boolean aca() {
+    private boolean acb() {
         if (this.cgp == 0) {
             this.cgp = System.currentTimeMillis();
         }

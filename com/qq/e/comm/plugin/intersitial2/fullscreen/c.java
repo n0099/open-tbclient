@@ -4,7 +4,7 @@ import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import com.qq.e.comm.plugin.n.i;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends com.qq.e.comm.plugin.s.a implements i {
     private JSONObject J;
     private int K;
@@ -57,7 +57,7 @@ public class c extends com.qq.e.comm.plugin.s.a implements i {
     }
 
     public String f() {
-        return this.f12742a;
+        return this.f12743a;
     }
 
     public String g() {

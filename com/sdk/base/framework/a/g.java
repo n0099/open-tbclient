@@ -5,17 +5,17 @@ package com.sdk.base.framework.a;
 public final class g {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f13096a = new g("WAITING", 0, 0);
+    public static final g f13097a = new g("WAITING", 0, 0);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f13097b = new g("STARTED", 1, 1);
+    public static final g f13098b = new g("STARTED", 1, 1);
     public static final g c = new g("LOADING", 2, 2);
     public static final g d = new g("FAILURE", 3, 3);
     public static final g e = new g("CANCELLED", 4, 4);
     public static final g f = new g("SUCCESS", 5, 5);
 
     static {
-        g[] gVarArr = {f13096a, f13097b, c, d, e, f};
+        g[] gVarArr = {f13097a, f13098b, c, d, e, f};
     }
 
     private g(String str, int i, int i2) {

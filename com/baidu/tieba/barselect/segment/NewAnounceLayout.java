@@ -40,8 +40,8 @@ public class NewAnounceLayout extends CardBasicLayout {
         this.onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.barselect.segment.NewAnounceLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                new aq("c13447").bwn();
-                if (NewAnounceLayout.this.irV != null && NewAnounceLayout.this.irV.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.irV.ctK()) && NewAnounceLayout.this.irV.ctM() != 2) {
+                new aq("c13447").bwo();
+                if (NewAnounceLayout.this.irV != null && NewAnounceLayout.this.irV.getTid() != 0 && !TextUtils.isEmpty(NewAnounceLayout.this.irV.ctL()) && NewAnounceLayout.this.irV.ctN() != 2) {
                     PbActivityConfig pbActivityConfig = new PbActivityConfig(NewAnounceLayout.this.mContext);
                     pbActivityConfig.createNormalCfg(NewAnounceLayout.this.irV.getTid() + "", (String) null, (String) null, true);
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, pbActivityConfig));
@@ -93,10 +93,10 @@ public class NewAnounceLayout extends CardBasicLayout {
             this.irZ.setPadding(0, 0, 0, 0);
             this.isa.setPadding(0, 0, 0, 0);
         }
-        Jm(this.irV.ctK());
+        Jl(this.irV.ctL());
     }
 
-    private void Jm(String str) {
+    private void Jl(String str) {
         if (str == null || TextUtils.isEmpty(str)) {
             this.irY.setVisibility(8);
             this.irX.setText(getResources().getString(R.string.empty_announce));
@@ -128,7 +128,7 @@ public class NewAnounceLayout extends CardBasicLayout {
             } else if (this.irW != null) {
                 this.irW.setBackgroundColor(0);
             }
-            if (TextUtils.isEmpty(this.irV.ctK())) {
+            if (TextUtils.isEmpty(this.irV.ctL())) {
                 ao.setViewTextColor(this.irX, R.color.CAM_X0109, 1, i);
             } else {
                 ao.setViewTextColor(this.irX, R.color.CAM_X0105, 1, i);

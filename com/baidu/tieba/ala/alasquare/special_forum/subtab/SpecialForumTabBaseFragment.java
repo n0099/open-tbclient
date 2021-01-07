@@ -26,7 +26,7 @@ public abstract class SpecialForumTabBaseFragment extends BaseFragment {
 
     protected abstract void notifyDataSetChanged();
 
-    public void bVE() {
+    public void bVF() {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment

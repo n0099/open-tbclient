@@ -20,7 +20,7 @@ import org.json.JSONObject;
 public final class Md5Utils {
 
     /* renamed from: a  reason: collision with root package name */
-    private static char[] f2033a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    private static char[] f2034a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     private Md5Utils() {
     }
@@ -142,8 +142,8 @@ public final class Md5Utils {
             if (i > 0 && ch != null) {
                 stringBuffer.append(ch.charValue());
             }
-            stringBuffer.append(f2033a[i2]);
-            stringBuffer.append(f2033a[i3]);
+            stringBuffer.append(f2034a[i2]);
+            stringBuffer.append(f2034a[i3]);
         }
         return stringBuffer.toString();
     }

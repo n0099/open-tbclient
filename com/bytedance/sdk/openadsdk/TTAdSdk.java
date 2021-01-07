@@ -13,7 +13,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public final class TTAdSdk {
 
     /* renamed from: a  reason: collision with root package name */
-    private static AtomicBoolean f6384a = new AtomicBoolean(false);
+    private static AtomicBoolean f6385a = new AtomicBoolean(false);
 
     public static TTAdManager init(Context context, TTAdConfig tTAdConfig) {
         z.a((Object) context, "Context is null, please check.");
@@ -22,9 +22,9 @@ public final class TTAdSdk {
         if (tTAdConfig != null) {
             updatePaid(tTAdConfig.isPaid());
         }
-        if (!f6384a.get()) {
+        if (!f6385a.get()) {
             a(context, tTAdConfig);
-            f6384a.set(true);
+            f6385a.set(true);
         }
         return getAdManager();
     }
@@ -37,8 +37,8 @@ public final class TTAdSdk {
         if (tTAdConfig.getHttpStack() != null) {
             e.a(tTAdConfig.getHttpStack());
         }
-        m.f6906a = tTAdConfig.isAsyncInit();
-        m.f6907b = tTAdConfig.getCustomController();
+        m.f6907a = tTAdConfig.isAsyncInit();
+        m.f6908b = tTAdConfig.getCustomController();
         if (tTAdConfig.isDebug()) {
             u.b();
         }

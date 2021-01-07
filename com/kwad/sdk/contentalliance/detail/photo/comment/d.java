@@ -12,15 +12,15 @@ import java.util.List;
 public class d extends RecyclerView.Adapter<h> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f8749a;
+    protected Context f8750a;
     private long c;
 
     /* renamed from: b  reason: collision with root package name */
-    protected List<PhotoComment> f8750b = new ArrayList();
+    protected List<PhotoComment> f8751b = new ArrayList();
     private List<b> d = new ArrayList();
 
     public d(@NonNull Context context, @NonNull e eVar) {
-        this.f8749a = context;
+        this.f8750a = context;
         a(eVar.d());
         if (eVar.d() == null) {
             return;
@@ -33,8 +33,8 @@ public class d extends RecyclerView.Adapter<h> {
             }
             PhotoComment photoComment = eVar.d().get(i2);
             b bVar = new b();
-            bVar.f8746a = photoComment;
-            bVar.f8747b = eVar.a();
+            bVar.f8747a = photoComment;
+            bVar.f8748b = eVar.a();
             bVar.c = eVar.c();
             bVar.e = i2;
             bVar.g = ag.c(photoComment.content);
@@ -57,7 +57,7 @@ public class d extends RecyclerView.Adapter<h> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: a */
     public h onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new h(new com.kwad.sdk.contentalliance.detail.photo.newui.a.a(this.f8749a));
+        return new h(new com.kwad.sdk.contentalliance.detail.photo.newui.a.a(this.f8750a));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -69,15 +69,15 @@ public class d extends RecyclerView.Adapter<h> {
 
     public void a(List<PhotoComment> list) {
         if (list != null) {
-            this.f8750b.clear();
-            this.f8750b.addAll(list);
+            this.f8751b.clear();
+            this.f8751b.addAll(list);
             notifyDataSetChanged();
         }
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
-        return this.f8750b.size();
+        return this.f8751b.size();
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter

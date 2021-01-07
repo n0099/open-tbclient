@@ -22,7 +22,7 @@ public class GuardClubRankInfoView extends RelativeLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void bZl();
+        void bZm();
     }
 
     public GuardClubRankInfoView(Context context, AttributeSet attributeSet) {
@@ -83,7 +83,7 @@ public class GuardClubRankInfoView extends RelativeLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (GuardClubRankInfoView.this.hed != null) {
-                    GuardClubRankInfoView.this.hed.bZl();
+                    GuardClubRankInfoView.this.hed.bZm();
                 }
             }
         });

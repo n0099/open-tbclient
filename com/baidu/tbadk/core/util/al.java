@@ -41,7 +41,7 @@ public class al {
                     } else {
                         z = true;
                         if (updateAttentionMessage.getError() == 3250013) {
-                            BdToast.a(al.this.eXu.getPageActivity(), updateAttentionMessage.getErrorString(), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bud();
+                            BdToast.a(al.this.eXu.getPageActivity(), updateAttentionMessage.getErrorString(), R.drawable.icon_pure_toast_mistake40_svg, 3000, false).bue();
                         } else {
                             AntiHelper.a(al.this.eXu.getPageActivity(), data.fuV);
                         }
@@ -84,7 +84,7 @@ public class al {
             if (this.fda == null || this.fda.isAttention) {
                 return true;
             }
-            bwe();
+            bwf();
             return false;
         } else if (i == fcY) {
             com.baidu.adp.lib.util.l.showToast(this.eXu.getPageActivity(), R.string.reason_cannot_reply_thread);
@@ -113,14 +113,14 @@ public class al {
         this.fda = attentionHostData;
     }
 
-    private void bwe() {
+    private void bwf() {
         if (this.adc == null) {
             this.adc = new com.baidu.tbadk.core.dialog.a(this.eXu.getPageActivity());
             this.adc.pa(R.string.message_privacy_fans_can_reply);
             this.adc.a(R.string.attention_and_reply, new a.b() { // from class: com.baidu.tbadk.core.util.al.1
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                    al.this.bwf();
+                    al.this.bwg();
                     al.this.adc.dismiss();
                 }
             });
@@ -133,17 +133,17 @@ public class al {
             this.adc.setAutoNight(true);
             this.adc.b(this.eXu);
         }
-        this.adc.btX();
+        this.adc.btY();
     }
 
     public void a(bs bsVar) {
         if (bsVar != null && !StringUtils.isNull(bsVar.title) && !StringUtils.isNull(bsVar.eRZ) && !StringUtils.isNull(bsVar.eSa)) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.eXu.getPageActivity());
-            aVar.Bp(bsVar.title);
+            aVar.Bo(bsVar.title);
             aVar.a(bsVar.eSa, new a.b() { // from class: com.baidu.tbadk.core.util.al.3
                 @Override // com.baidu.tbadk.core.dialog.a.b
                 public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                    al.this.bwf();
+                    al.this.bwg();
                     aVar2.dismiss();
                 }
             });
@@ -155,14 +155,14 @@ public class al {
             });
             aVar.setAutoNight(true);
             aVar.b(this.eXu);
-            aVar.btX();
+            aVar.btY();
             return;
         }
-        bwe();
+        bwf();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bwf() {
+    public void bwg() {
         if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
             this.eXu.showToast(R.string.network_ungeilivable);
         } else if (this.fda != null && bg.checkUpIsLogin(this.eXu.getPageActivity())) {

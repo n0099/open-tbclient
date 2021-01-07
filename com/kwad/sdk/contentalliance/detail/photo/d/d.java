@@ -7,17 +7,17 @@ import com.kwad.sdk.core.response.model.PhotoInfo;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f8765a;
+    private long f8766a;
 
     /* renamed from: b  reason: collision with root package name */
-    private PhotoInfo f8766b;
+    private PhotoInfo f8767b;
     private AdTemplate c;
     private long d;
 
     public d(@NonNull AdTemplate adTemplate, long j) {
         this.c = adTemplate;
-        this.f8765a = com.kwad.sdk.core.response.b.c.e(adTemplate);
-        this.f8766b = com.kwad.sdk.core.response.b.c.k(adTemplate);
+        this.f8766a = com.kwad.sdk.core.response.b.c.e(adTemplate);
+        this.f8767b = com.kwad.sdk.core.response.b.c.k(adTemplate);
         this.d = j;
     }
 
@@ -26,6 +26,6 @@ public class d {
     }
 
     public long b() {
-        return com.kwad.sdk.core.response.b.d.k(this.f8766b);
+        return com.kwad.sdk.core.response.b.d.k(this.f8767b);
     }
 }

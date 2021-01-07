@@ -3,7 +3,7 @@ package com.baidu.poly.a.d;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.widget.ImageView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a implements c {
     private static a cnK;
     private static e cnL;
@@ -18,7 +18,7 @@ public class a implements c {
         cnL = new e();
     }
 
-    public static com.baidu.poly.a.e.b afs() {
+    public static com.baidu.poly.a.e.b aft() {
         if (cnM == null) {
             cnM = new com.baidu.poly.a.e.b();
         }

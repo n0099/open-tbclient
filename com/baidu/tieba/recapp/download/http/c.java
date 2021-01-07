@@ -17,8 +17,8 @@ public class c {
     private static String Nc;
     private static String sUid;
     private long Ni;
-    private g mNZ;
-    private d mOa;
+    private g mNY;
+    private d mNZ;
 
     public void init() {
         System.setProperty("http.keepAlive", "false");
@@ -38,33 +38,33 @@ public class c {
     }
 
     public i b(String str, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.mNZ = new g();
-        a(this.mNZ, z);
-        this.mNZ.dFk().setUrl(str);
-        this.mOa = new d(this.mNZ);
-        this.mOa.d(i, i3, i4);
-        return this.mNZ.dFl();
+        this.mNY = new g();
+        a(this.mNY, z);
+        this.mNY.dFl().setUrl(str);
+        this.mNZ = new d(this.mNY);
+        this.mNZ.d(i, i3, i4);
+        return this.mNY.dFm();
     }
 
     public i b(String str, List<BasicNameValuePair> list, boolean z, int i, int i2, LinkedList<BasicNameValuePair> linkedList) throws Exception {
-        this.mNZ = new g();
-        a(this.mNZ, z);
-        this.mNZ.dFk().setUrl(str);
+        this.mNY = new g();
+        a(this.mNY, z);
+        this.mNY.dFl().setUrl(str);
         if (list != null) {
             for (BasicNameValuePair basicNameValuePair : list) {
-                this.mNZ.dFk().addPostData(basicNameValuePair);
+                this.mNY.dFl().addPostData(basicNameValuePair);
             }
         }
         if (linkedList != null) {
             Iterator<BasicNameValuePair> it = linkedList.iterator();
             while (it.hasNext()) {
                 BasicNameValuePair next = it.next();
-                this.mNZ.dFk().u(next.getName(), next.getValue());
+                this.mNY.dFl().u(next.getName(), next.getValue());
             }
         }
-        this.mOa = new d(this.mNZ);
-        this.mOa.f(i, i2, -1);
-        return this.mNZ.dFl();
+        this.mNZ = new d(this.mNY);
+        this.mNZ.f(i, i2, -1);
+        return this.mNY.dFm();
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2) {
@@ -72,11 +72,11 @@ public class c {
     }
 
     public boolean a(String str, String str2, boolean z, int i, int i2, int i3, int i4, LinkedList<BasicNameValuePair> linkedList, j jVar, boolean z2, boolean z3) {
-        this.mNZ = new g();
-        b(this.mNZ);
-        this.mNZ.dFk().setUrl(str);
-        this.mOa = new d(this.mNZ);
-        return this.mOa.a(str2, jVar, i, i2, i3, i4, z2, z3);
+        this.mNY = new g();
+        b(this.mNY);
+        this.mNY.dFl().setUrl(str);
+        this.mNZ = new d(this.mNY);
+        return this.mNZ.a(str2, jVar, i, i2, i3, i4, z2, z3);
     }
 
     public c() {
@@ -84,54 +84,54 @@ public class c {
     }
 
     public void cancel() {
-        if (this.mOa != null) {
-            this.mOa.cancel();
+        if (this.mNZ != null) {
+            this.mNZ.cancel();
         }
     }
 
     public boolean isCanceled() {
-        if (this.mOa != null) {
-            return this.mOa.isCancel();
+        if (this.mNZ != null) {
+            return this.mNZ.isCancel();
         }
         return false;
     }
 
     public void setCancel() {
-        if (this.mOa != null) {
-            this.mOa.setCancel();
+        if (this.mNZ != null) {
+            this.mNZ.setCancel();
         }
     }
 
-    public g dFj() {
-        return this.mNZ;
+    public g dFk() {
+        return this.mNY;
     }
 
     private void a(g gVar, boolean z) {
         if (gVar != null) {
             if (!TextUtils.isEmpty(MZ)) {
-                gVar.dFk().u(SM.COOKIE, MZ);
+                gVar.dFl().u(SM.COOKIE, MZ);
             } else {
-                gVar.dFk().u(SM.COOKIE, "");
+                gVar.dFl().u(SM.COOKIE, "");
             }
             if (!TextUtils.isEmpty(sUid)) {
-                gVar.dFk().u("client_user_token", sUid);
+                gVar.dFl().u("client_user_token", sUid);
             }
             if (!TextUtils.isEmpty(Na)) {
-                gVar.dFk().u("User-Agent", Na);
+                gVar.dFl().u("User-Agent", Na);
             }
             if (z) {
-                gVar.dFk().u(Headers.ACCEPT_ENCODING, "gzip");
+                gVar.dFl().u(Headers.ACCEPT_ENCODING, "gzip");
             } else {
-                gVar.dFk().u(Headers.ACCEPT_ENCODING, "");
+                gVar.dFl().u(Headers.ACCEPT_ENCODING, "");
             }
             if (Nb) {
-                gVar.dFk().u(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+                gVar.dFl().u(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
             } else {
-                gVar.dFk().u(HTTP.CONN_DIRECTIVE, "close");
+                gVar.dFl().u(HTTP.CONN_DIRECTIVE, "close");
             }
-            gVar.dFk().u("client_logid", String.valueOf(this.Ni));
+            gVar.dFl().u("client_logid", String.valueOf(this.Ni));
             if (!TextUtils.isEmpty(Nc)) {
-                gVar.dFk().u("cuid", Nc);
+                gVar.dFl().u("cuid", Nc);
             }
         }
     }

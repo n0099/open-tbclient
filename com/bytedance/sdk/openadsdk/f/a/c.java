@@ -6,7 +6,7 @@ import androidx.annotation.NonNull;
 public abstract class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    w f7412a = super.b();
+    w f7413a = super.b();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(@NonNull p pVar, @NonNull s sVar) throws Exception;

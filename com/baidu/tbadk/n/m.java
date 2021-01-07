@@ -8,12 +8,12 @@ import java.util.Map;
 /* loaded from: classes.dex */
 public class m extends j {
     public void a(h hVar) {
-        if (k.bHF().isSmallFlow()) {
+        if (k.bHG().isSmallFlow()) {
             com.baidu.adp.lib.stats.a pi = pi();
             pi.append("action", "time");
             pi.append("ishttp", hVar.fLU ? "1" : "0");
             pi.append("issuccess", hVar.isSuccess ? "1" : "0");
-            pi.append("nettype", k.bHF().getNetType());
+            pi.append("nettype", k.bHG().getNetType());
             pi.append("wt", String.valueOf(hVar.fLR));
             pi.append("qt", String.valueOf(hVar.cmK));
             pi.append("connt", String.valueOf(hVar.fLK));
@@ -65,20 +65,20 @@ public class m extends j {
     }
 
     public void a(b bVar) {
-        if (bVar != null && k.bHF().isSmallFlow()) {
+        if (bVar != null && k.bHG().isSmallFlow()) {
             com.baidu.adp.lib.stats.a pi = pi();
             pi.append("action", "fluency");
             pi.append(AlaRecorderLog.KEY_CANERA_START_FPS, String.valueOf(bVar.getFps()));
             BdStatisticsManager.getInstance().performance(this.subType, pi);
             com.baidu.adp.lib.stats.a pi2 = pi();
             pi2.append("action", "mem");
-            pi2.append("memp", String.valueOf(k.bHF().bHG()));
+            pi2.append("memp", String.valueOf(k.bHG().bHH()));
             BdStatisticsManager.getInstance().performance(this.subType, pi2);
         }
     }
 
     public void a(h hVar, boolean z) {
-        if (k.bHF().isSmallFlow()) {
+        if (k.bHG().isSmallFlow()) {
             if (!z || hVar.fLZ > 0) {
                 if (z || hVar.fMa > 0) {
                     com.baidu.adp.lib.stats.a pi = pi();
@@ -90,7 +90,7 @@ public class m extends j {
                     }
                     pi.append("ishttp", hVar.fLU ? "1" : "0");
                     pi.append("issuccess", hVar.isSuccess ? "1" : "0");
-                    pi.append("nettype", k.bHF().getNetType());
+                    pi.append("nettype", k.bHG().getNetType());
                     pi.append("qt", String.valueOf(hVar.cmK));
                     pi.append("connt", String.valueOf(hVar.fLK));
                     pi.append("rwt", String.valueOf(hVar.fLL));
@@ -115,7 +115,7 @@ public class m extends j {
     }
 
     public void a(h hVar, int i) {
-        if (k.bHF().isSmallFlow() && hVar.fMb > 0) {
+        if (k.bHG().isSmallFlow() && hVar.fMb > 0) {
             com.baidu.adp.lib.stats.a pi = pi();
             pi.append("action", "time");
             pi.append("pct", String.valueOf(hVar.fMb));

@@ -11,7 +11,7 @@ import rx.internal.operators.v;
 import rx.schedulers.Schedulers;
 /* loaded from: classes15.dex */
 public class h<T> {
-    final a<T> qqJ;
+    final a<T> qsr;
 
     /* loaded from: classes15.dex */
     public interface a<T> extends rx.functions.b<i<? super T>> {
@@ -19,7 +19,7 @@ public class h<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public h(a<T> aVar) {
-        this.qqJ = rx.c.c.b(aVar);
+        this.qsr = rx.c.c.b(aVar);
     }
 
     public static <T> h<T> a(a<T> aVar) {
@@ -27,11 +27,11 @@ public class h<T> {
     }
 
     private static <T> d<T> a(h<T> hVar) {
-        return d.a((d.a) new v(hVar.qqJ));
+        return d.a((d.a) new v(hVar.qsr));
     }
 
-    public static <T> h<T> bX(T t) {
-        return rx.internal.util.h.cf(t);
+    public static <T> h<T> bY(T t) {
+        return rx.internal.util.h.cg(t);
     }
 
     public final h<T> e(g gVar) {
@@ -41,11 +41,11 @@ public class h<T> {
         if (gVar == null) {
             throw new NullPointerException("scheduler is null");
         }
-        return a(new u(this.qqJ, gVar));
+        return a(new u(this.qsr, gVar));
     }
 
-    public final k eNq() {
-        return a(Actions.eNL(), Actions.eNM());
+    public final k eNU() {
+        return a(Actions.eOp(), Actions.eOq());
     }
 
     public final k a(final rx.functions.b<? super T> bVar, final rx.functions.b<Throwable> bVar2) {
@@ -81,13 +81,13 @@ public class h<T> {
             throw new IllegalArgumentException("te is null");
         }
         try {
-            rx.c.c.a(this, this.qqJ).call(iVar);
+            rx.c.c.a(this, this.qsr).call(iVar);
             return rx.c.c.c(iVar);
         } catch (Throwable th) {
             rx.exceptions.a.O(th);
             try {
                 iVar.onError(rx.c.c.ae(th));
-                return rx.subscriptions.e.ePi();
+                return rx.subscriptions.e.ePM();
             } catch (Throwable th2) {
                 rx.exceptions.a.O(th2);
                 RuntimeException runtimeException = new RuntimeException("Error occurred attempting to subscribe [" + th.getMessage() + "] and then again while trying to pass to onError.", th2);
@@ -135,7 +135,7 @@ public class h<T> {
         });
     }
 
-    public final d<T> eNC() {
+    public final d<T> eOg() {
         return a(this);
     }
 
@@ -143,7 +143,7 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onError is null");
         }
-        return a(new r(this, Actions.eNL(), new rx.functions.b<Throwable>() { // from class: rx.h.3
+        return a(new r(this, Actions.eOp(), new rx.functions.b<Throwable>() { // from class: rx.h.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // rx.functions.b
             public void call(Throwable th) {
@@ -156,11 +156,11 @@ public class h<T> {
         if (bVar == null) {
             throw new IllegalArgumentException("onSuccess is null");
         }
-        return a(new r(this, bVar, Actions.eNL()));
+        return a(new r(this, bVar, Actions.eOp()));
     }
 
     public final h<T> b(long j, TimeUnit timeUnit, g gVar) {
-        return a(new q(this.qqJ, j, timeUnit, gVar));
+        return a(new q(this.qsr, j, timeUnit, gVar));
     }
 
     public final h<T> i(long j, TimeUnit timeUnit) {

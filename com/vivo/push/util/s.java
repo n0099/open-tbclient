@@ -17,11 +17,11 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Boolean f13996a;
+    private static Boolean f13997a;
 
     public static com.vivo.push.model.b a(Context context) {
         com.vivo.push.model.b bVar;
@@ -110,7 +110,7 @@ public final class s {
         String str;
         try {
             try {
-                cursor = context.getContentResolver().query(com.vivo.push.z.f14014a, null, null, null, null);
+                cursor = context.getContentResolver().query(com.vivo.push.z.f14015a, null, null, null, null);
                 if (cursor != null) {
                     boolean z = false;
                     str = null;
@@ -409,14 +409,14 @@ public final class s {
     public static boolean d(Context context) {
         ProviderInfo resolveContentProvider;
         String str = null;
-        if (f13996a != null) {
-            return f13996a.booleanValue();
+        if (f13997a != null) {
+            return f13997a.booleanValue();
         }
         if (context != null && !TextUtils.isEmpty("com.vivo.push.sdk.service.SystemPushConfig") && (resolveContentProvider = context.getPackageManager().resolveContentProvider("com.vivo.push.sdk.service.SystemPushConfig", 128)) != null) {
             str = resolveContentProvider.packageName;
         }
         Boolean valueOf = Boolean.valueOf("BCC35D4D3606F154F0402AB7634E8490C0B244C2675C3C6238986987024F0C02".equals(f(context, str)));
-        f13996a = valueOf;
+        f13997a = valueOf;
         return valueOf.booleanValue();
     }
 }

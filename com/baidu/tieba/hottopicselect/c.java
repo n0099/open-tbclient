@@ -20,7 +20,7 @@ public class c {
         this.type = i;
     }
 
-    public String cVP() {
+    public String cVQ() {
         return this.title;
     }
 

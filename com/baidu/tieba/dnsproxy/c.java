@@ -57,7 +57,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
             e.printStackTrace();
         }
         if (collectionArr != null && collectionArr.length == 1 && (collection = collectionArr[0]) != null) {
-            String cwB = new a().cwB();
+            String cwC = new a().cwC();
             StringBuilder sb2 = new StringBuilder();
             for (String str3 : collection) {
                 if (sb2.length() > 0) {
@@ -65,7 +65,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                 }
                 sb2.append(str3);
             }
-            String str4 = "http://" + cwB + "/domains/resolve?domains=" + ((Object) sb2) + "&t=" + System.currentTimeMillis();
+            String str4 = "http://" + cwC + "/domains/resolve?domains=" + ((Object) sb2) + "&t=" + System.currentTimeMillis();
             com.baidu.adp.lib.network.http.e eVar = new com.baidu.adp.lib.network.http.e();
             com.baidu.adp.lib.network.http.c cVar = new com.baidu.adp.lib.network.http.c(eVar);
             eVar.lV().setUrl(str4);
@@ -114,7 +114,7 @@ public class c extends BdAsyncTask<Collection<String>, HashMap<String, List<DnsP
                             }
                         }
                     }
-                    b.cwD().g(hashSet);
+                    b.cwE().g(hashSet);
                     publishProgress(hashMap3);
                     a2.setForever("dnsproxycachedata", str);
                     sb = sb4;

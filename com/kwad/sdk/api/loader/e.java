@@ -22,10 +22,10 @@ import org.json.JSONObject;
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8494a;
+    private String f8495a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f8495b;
+    private String f8496b;
     private int c;
 
     /* loaded from: classes5.dex */
@@ -37,13 +37,13 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(String str) {
-        this.f8495b = str;
-        this.f8494a = str;
+        this.f8496b = str;
+        this.f8495a = str;
     }
 
     private String a() {
         Context context = Loader.get().getContext();
-        int i = com.kwad.sdk.api.a.f8473a;
+        int i = com.kwad.sdk.api.a.f8474a;
         int i2 = -1;
         String valueOf = String.valueOf(Loader.get().a(context));
         IKsAdSDK ksAdSDKImpl = Loader.get().getKsAdSDKImpl();
@@ -159,10 +159,10 @@ class e {
 
     @Nullable
     private HttpURLConnection b() {
-        if (TextUtils.isEmpty(this.f8494a)) {
+        if (TextUtils.isEmpty(this.f8495a)) {
             return null;
         }
-        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f8494a, 10000, 30000, false);
+        HttpURLConnection httpURLConnection = (HttpURLConnection) a(this.f8495a, 10000, 30000, false);
         httpURLConnection.setRequestMethod("POST");
         httpURLConnection.setDoOutput(true);
         httpURLConnection.setInstanceFollowRedirects(true);
@@ -190,7 +190,7 @@ class e {
                         throw new RuntimeException("response code = " + responseCode);
                     } else {
                         if (this.c < 21) {
-                            this.f8494a = b2.getHeaderField(Headers.LOCATION);
+                            this.f8495a = b2.getHeaderField(Headers.LOCATION);
                             this.c++;
                             b(aVar);
                         }

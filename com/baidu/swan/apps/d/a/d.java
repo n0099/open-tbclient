@@ -16,7 +16,7 @@ public final class d {
     private d() {
     }
 
-    public final void amR() {
-        a.ad(com.baidu.swan.apps.t.a.aAr(), "");
+    public final void amS() {
+        a.ad(com.baidu.swan.apps.t.a.aAs(), "");
     }
 }

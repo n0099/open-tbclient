@@ -13,24 +13,24 @@ import com.baidu.live.tbadk.statics.AlaStaticKeys;
 public final class n extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    ImageView f5671a;
+    ImageView f5672a;
 
     /* renamed from: b  reason: collision with root package name */
-    Handler f5672b;
+    Handler f5673b;
     Context c;
     TextView d;
 
     public n(Context context, ImageView imageView, Handler handler) {
         this.d = null;
-        this.f5671a = imageView;
-        this.f5672b = handler;
+        this.f5672a = imageView;
+        this.f5673b = handler;
         this.c = context;
     }
 
     public n(Context context, TextView textView, Handler handler) {
         this.d = null;
         this.d = textView;
-        this.f5672b = handler;
+        this.f5673b = handler;
         this.c = context;
     }
 
@@ -46,17 +46,17 @@ public final class n extends Handler {
                 this.d.setText(spannableString.toString());
                 return;
             }
-            this.f5671a.setImageBitmap(bitmap);
+            this.f5672a.setImageBitmap(bitmap);
             if (bitmap.getHeight() > bitmap.getWidth()) {
-                this.f5671a.setMaxWidth(i.a(this.c, 80.0f));
-                this.f5671a.setMaxHeight(i.a(this.c, 120.0f));
+                this.f5672a.setMaxWidth(i.a(this.c, 80.0f));
+                this.f5672a.setMaxHeight(i.a(this.c, 120.0f));
             } else {
-                this.f5671a.setMaxWidth(i.a(this.c, 120.0f));
-                this.f5671a.setMaxHeight(i.a(this.c, 80.0f));
+                this.f5672a.setMaxWidth(i.a(this.c, 120.0f));
+                this.f5672a.setMaxHeight(i.a(this.c, 80.0f));
             }
         }
-        if (this.f5672b != null) {
-            this.f5672b.obtainMessage(6).sendToTarget();
+        if (this.f5673b != null) {
+            this.f5673b.obtainMessage(6).sendToTarget();
         }
     }
 }

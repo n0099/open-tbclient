@@ -14,11 +14,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     protected abstract void initView();
 
     @Override // com.baidu.tieba.im.chat.c
-    public void cWu() {
-        cWp();
+    public void cWv() {
+        cWq();
     }
 
-    public void cWp() {
+    public void cWq() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -34,11 +34,11 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         if (this.kxD != null) {
             this.kxD.setImageUploadUIProgressCallback(this.kxI);
         }
-        bZG();
+        bZH();
         if (a((c) this)) {
             loadDraft();
-            cWn();
-            h.kxB = m.bIP();
+            cWo();
+            h.kxB = m.bIQ();
         }
     }
 
@@ -56,7 +56,7 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         }
         initView();
         adjustResizeForSoftInput(R.color.common_color_10022, false);
-        bZG();
+        bZH();
         if (a((c) this)) {
             loadDraft();
         }
@@ -77,12 +77,12 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
         super.onResume();
         if (this.kxC != null) {
             this.kxC.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-            cWk();
+            cWl();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cWk() {
+    public void cWl() {
         if (TbadkCoreApplication.getInst().isHeadsetModeOn()) {
             this.kxC.showReceiver();
         } else {
@@ -98,14 +98,14 @@ public abstract class MsglistActivity<T> extends TalkableActivity<T> implements 
     @Override // com.baidu.tieba.im.chat.TalkableActivity, com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        cWo();
-    }
-
-    /* JADX INFO: Access modifiers changed from: protected */
-    public void cWn() {
+        cWp();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void cWo() {
+    }
+
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void cWp() {
     }
 }

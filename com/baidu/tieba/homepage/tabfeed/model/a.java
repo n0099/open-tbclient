@@ -18,23 +18,23 @@ public class a {
         c cVar = new c();
         cVar.geO = z;
         cVar.hasMore = aVar.hasMore();
-        cVar.kkj = aVar.cTP();
-        cVar.kkk = aVar.cTQ();
-        ArrayList<bz> czG = aVar.czG();
+        cVar.kkj = aVar.cTQ();
+        cVar.kkk = aVar.cTR();
+        ArrayList<bz> czH = aVar.czH();
         if (z) {
-            if (!x.isEmpty(czG)) {
+            if (!x.isEmpty(czH)) {
                 this.kko.clear();
-                this.kko.addAll(czG);
+                this.kko.addAll(czH);
             }
-        } else if (!x.isEmpty(czG)) {
-            this.kko.addAll(czG);
+        } else if (!x.isEmpty(czH)) {
+            this.kko.addAll(czH);
         }
         ArrayList<n> arrayList = new ArrayList<>();
         arrayList.addAll(this.kko);
-        a(arrayList, aVar.cTN());
         a(arrayList, aVar.cTO());
-        a(arrayList, aVar.cTR());
+        a(arrayList, aVar.cTP());
         a(arrayList, aVar.cTS());
+        a(arrayList, aVar.cTT());
         cVar.kki = aK(arrayList);
         return cVar;
     }
@@ -57,32 +57,32 @@ public class a {
                     by byVar2 = new by();
                     byVar2.eMv = bzVar;
                     byVar2.position = i;
-                    if (bzVar.bto()) {
+                    if (bzVar.btp()) {
                         byVar2.eSv = true;
-                    } else if (bzVar.bsy() == 1) {
+                    } else if (bzVar.bsz() == 1) {
                         byVar2.eSt = true;
                         byVar2.eSI = imageWidthAndHeight[0];
                         byVar2.eSJ = imageWidthAndHeight[1];
-                    } else if (bzVar.bsy() >= 2) {
+                    } else if (bzVar.bsz() >= 2) {
                         byVar2.eSu = true;
                     } else {
                         byVar2.eSr = true;
                     }
                     arrayList2.add(byVar2);
-                    if (bzVar.btx() != null) {
+                    if (bzVar.bty() != null) {
                         by byVar3 = new by();
                         byVar3.eSD = true;
                         byVar3.eMv = bzVar;
                         byVar3.position = i;
                         arrayList2.add(byVar3);
                     }
-                    if (!x.isEmpty(bzVar.btA()) || !x.isEmpty(bzVar.btB())) {
+                    if (!x.isEmpty(bzVar.btB()) || !x.isEmpty(bzVar.btC())) {
                         by byVar4 = new by();
                         byVar4.eMv = bzVar;
                         byVar4.position = i;
-                        if (x.getCount(bzVar.btA()) + x.getCount(bzVar.btB()) == 1) {
+                        if (x.getCount(bzVar.btB()) + x.getCount(bzVar.btC()) == 1) {
                             byVar4.eSF = true;
-                        } else if (x.getCount(bzVar.btA()) + x.getCount(bzVar.btB()) > 1) {
+                        } else if (x.getCount(bzVar.btB()) + x.getCount(bzVar.btC()) > 1) {
                             byVar4.eSG = true;
                         }
                         arrayList2.add(byVar4);
@@ -108,7 +108,7 @@ public class a {
                     byVar8.position = i;
                     byVar8.eSy = true;
                     arrayList2.add(byVar8);
-                    if (bzVar.btx() != null) {
+                    if (bzVar.bty() != null) {
                         by byVar9 = new by();
                         byVar9.eSD = true;
                         byVar9.eMv = bzVar;
@@ -125,7 +125,7 @@ public class a {
                     byVar11.eMv = bzVar;
                     byVar11.position = i;
                     arrayList2.add(byVar11);
-                } else if (bzVar.getType() == bz.eTa && bzVar.bpX()) {
+                } else if (bzVar.getType() == bz.eTa && bzVar.bpY()) {
                     bzVar.position = i;
                     arrayList2.add(bzVar);
                 } else if (j.ad(bzVar)) {

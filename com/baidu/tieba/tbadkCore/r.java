@@ -4,19 +4,19 @@ import tbclient.FrsPage.GconAccount;
 /* loaded from: classes.dex */
 public class r {
     private String menu_name;
-    private boolean nqg;
+    private boolean nqf;
 
-    public boolean dOp() {
-        return this.nqg;
+    public boolean dOq() {
+        return this.nqf;
     }
 
-    public String dOq() {
+    public String dOr() {
         return this.menu_name;
     }
 
     public void a(GconAccount gconAccount) {
         if (gconAccount != null) {
-            this.nqg = gconAccount.has_account.intValue() == 1;
+            this.nqf = gconAccount.has_account.intValue() == 1;
             this.menu_name = gconAccount.menu_name;
         }
     }

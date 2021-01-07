@@ -45,15 +45,15 @@ public class c {
         this.gmj = onClickListener;
     }
 
-    public void Lm(String str) {
+    public void Ll(String str) {
         this.jAV = str;
     }
 
-    public void Ln(String str) {
+    public void Lm(String str) {
         this.jAX = str;
     }
 
-    public void crK() {
+    public void crL() {
         if (this.bRX != null) {
             this.bRX.setVisibility(0);
             if (this.gIm != null) {
@@ -81,7 +81,7 @@ public class c {
                 }
             });
             if (this.jAU == null) {
-                this.jAU = cLg();
+                this.jAU = cLh();
             }
             dVar.a(this.jAU);
             dVar.ap(R.anim.frs_guide_tip_enter);
@@ -92,14 +92,14 @@ public class c {
         }
     }
 
-    public void cLf() {
+    public void cLg() {
         if (this.gIm != null) {
             this.gIm.d(this.bRX);
             this.bRX.setVisibility(8);
         }
     }
 
-    private com.baidu.adp.lib.guide.b cLg() {
+    private com.baidu.adp.lib.guide.b cLh() {
         return new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.frs.gametab.c.3
             @Override // com.baidu.adp.lib.guide.b
             public View getView(LayoutInflater layoutInflater) {
@@ -142,7 +142,7 @@ public class c {
                         }
                     }
                 });
-                com.baidu.tbadk.core.util.f.a.bwT().qI(R.color.CAM_X0207).qD(l.getDimens(c.this.mActivity, R.dimen.tbds21)).qE(R.color.CAM_X0803).qC(4369).qF(l.getDimens(c.this.mActivity, R.dimen.tbds10)).qG(0).qH(l.getDimens(c.this.mActivity, R.dimen.tbds5)).bz(findViewById);
+                com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0207).qD(l.getDimens(c.this.mActivity, R.dimen.tbds21)).qE(R.color.CAM_X0803).qC(4369).qF(l.getDimens(c.this.mActivity, R.dimen.tbds10)).qG(0).qH(l.getDimens(c.this.mActivity, R.dimen.tbds5)).bz(findViewById);
                 return inflate;
             }
 
@@ -168,7 +168,7 @@ public class c {
         };
     }
 
-    public void cLh() {
+    public void cLi() {
         if (this.bRX != null) {
             this.bRX.setVisibility(0);
             if (this.gIm != null) {
@@ -197,7 +197,7 @@ public class c {
                 }
             });
             if (this.jAU == null) {
-                this.jAU = cLi();
+                this.jAU = cLj();
             }
             dVar.a(this.jAU);
             dVar.ap(R.anim.frs_guide_tip_enter);
@@ -209,7 +209,7 @@ public class c {
         }
     }
 
-    private com.baidu.adp.lib.guide.b cLi() {
+    private com.baidu.adp.lib.guide.b cLj() {
         return new com.baidu.adp.lib.guide.b() { // from class: com.baidu.tieba.frs.gametab.c.6
             @Override // com.baidu.adp.lib.guide.b
             public View getView(LayoutInflater layoutInflater) {

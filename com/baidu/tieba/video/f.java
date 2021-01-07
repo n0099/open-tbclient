@@ -11,60 +11,60 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.model.VideoHolyCardModel;
 /* loaded from: classes.dex */
 public class f {
-    private static f nFG;
+    private static f nFF;
     private VideoHolyCardModel.a lqL = new VideoHolyCardModel.a() { // from class: com.baidu.tieba.video.f.2
         @Override // com.baidu.tieba.model.VideoHolyCardModel.a
         public void onResult(boolean z) {
-            f.this.nFI = z;
+            f.this.nFH = z;
         }
     };
-    private VideoHolyCardModel nFH;
+    private VideoHolyCardModel nFG;
+    private boolean nFH;
     private boolean nFI;
-    private boolean nFJ;
 
-    public static f dTD() {
-        if (nFG == null) {
+    public static f dTE() {
+        if (nFF == null) {
             synchronized (f.class) {
-                if (nFG == null) {
-                    nFG = new f();
+                if (nFF == null) {
+                    nFF = new f();
                 }
             }
         }
-        return nFG;
+        return nFF;
     }
 
-    public boolean dTE() {
-        return this.nFI;
+    public boolean dTF() {
+        return this.nFH;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dTF() {
-        if (this.nFH == null) {
-            this.nFH = new VideoHolyCardModel();
-            this.nFH.a(this.lqL);
+    public void dTG() {
+        if (this.nFG == null) {
+            this.nFG = new VideoHolyCardModel();
+            this.nFG.a(this.lqL);
         }
-        this.nFH.dix();
+        this.nFG.diy();
     }
 
     public void gY(Context context) {
-        if (this.nFI && !this.nFJ) {
+        if (this.nFH && !this.nFI) {
             l.showToast(context, R.string.free_data_tips);
-            this.nFJ = true;
+            this.nFI = true;
         }
     }
 
     private f() {
+        dTH();
         dTG();
-        dTF();
     }
 
-    private void dTG() {
+    private void dTH() {
         MessageManager.getInstance().registerListener(new CustomMessageListener(MessageConfig.CMD_NETWORK_CHANGED) { // from class: com.baidu.tieba.video.f.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (j.isMobileNet()) {
-                    f.this.dTF();
+                    f.this.dTG();
                 }
             }
         });

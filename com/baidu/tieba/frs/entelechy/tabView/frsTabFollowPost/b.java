@@ -28,34 +28,34 @@ public class b {
     private FrsTabSortSwitchButton.a jre = new FrsTabSortSwitchButton.a() { // from class: com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.b.1
         @Override // com.baidu.tieba.frs.entelechy.tabView.frsTabFollowPost.view.FrsTabSortSwitchButton.a
         public boolean AL(int i) {
-            if (com.baidu.tieba.frs.b.cDX().cDR() || com.baidu.tieba.frs.a.cDQ().cDR()) {
+            if (com.baidu.tieba.frs.b.cDY().cDS() || com.baidu.tieba.frs.a.cDR().cDS()) {
                 return false;
             }
             if (!j.isNetworkAvailableForImmediately()) {
                 b.this.jhE.showToast(R.string.neterror);
                 return false;
-            } else if (b.this.jhE.cEU() == null || b.this.jhE.cEZ() == null) {
+            } else if (b.this.jhE.cEV() == null || b.this.jhE.cFa() == null) {
                 return false;
             } else {
                 if (b.this.jrd == i) {
                     return true;
                 }
-                b.this.jhE.cEU().Bz(b.this.jrc.AO(b.this.jrd));
+                b.this.jhE.cEV().Bz(b.this.jrc.AO(b.this.jrd));
                 b.this.jrd = i;
                 if (b.this.jrd != 7) {
-                    z.bJg();
-                    e.dQs();
+                    z.bJh();
+                    e.dQt();
                 } else {
-                    e.dQr();
+                    e.dQs();
                 }
-                b.this.jhE.cEU().By(b.this.jrc.AO(b.this.jrd));
-                if (d.bmY()) {
+                b.this.jhE.cEV().By(b.this.jrc.AO(b.this.jrd));
+                if (d.bmZ()) {
                     com.baidu.tbadk.a.b.a.om(b.this.jrc.AO(b.this.jrd));
                 }
-                b.this.jhE.cEU().ro(true);
-                b.this.jhE.cEZ().startPullRefresh();
-                b.this.jhE.cEU().rn(true);
-                b.this.cJh();
+                b.this.jhE.cEV().ro(true);
+                b.this.jhE.cFa().startPullRefresh();
+                b.this.jhE.cEV().rn(true);
+                b.this.cJi();
                 return true;
             }
         }
@@ -65,12 +65,12 @@ public class b {
         this.fPy = str;
     }
 
-    public FrsTabSortSwitchButton cJi() {
+    public FrsTabSortSwitchButton cJj() {
         return this.jrc;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJh() {
+    public void cJi() {
         aq aqVar = new aq("c11437");
         aqVar.an("obj_type", this.jrc.AO(this.jrd));
         aqVar.dX("fid", this.fPy);

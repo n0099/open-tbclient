@@ -37,23 +37,23 @@ public class a extends d<AddGroupActivity> {
         initUI();
     }
 
-    public View cZC() {
+    public View cZD() {
         return this.kHU;
     }
 
-    public View cZD() {
+    public View cZE() {
         return this.kHV;
     }
 
-    public View cZE() {
+    public View cZF() {
         return this.kHT;
     }
 
-    public View cZF() {
+    public View cZG() {
         return this.kHW;
     }
 
-    public void cZG() {
+    public void cZH() {
         if (this.editText != null) {
             this.editText.setText("");
         }

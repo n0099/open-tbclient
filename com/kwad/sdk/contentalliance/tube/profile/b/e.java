@@ -14,7 +14,7 @@ import java.util.Set;
 public class e extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.contentalliance.tube.profile.c f9272b;
+    private com.kwad.sdk.contentalliance.tube.profile.c f9273b;
     private Set<com.kwad.sdk.contentalliance.tube.profile.e> c;
     private LottieAnimationView d;
     private ViewGroup e;
@@ -61,7 +61,7 @@ public class e extends com.kwad.sdk.contentalliance.tube.profile.a.a {
 
     private void c(int i) {
         this.e.setVisibility(0);
-        if (!com.ksad.download.d.b.a(o()) || i == com.kwad.sdk.core.network.f.f9620a.k) {
+        if (!com.ksad.download.d.b.a(o()) || i == com.kwad.sdk.core.network.f.f9621a.k) {
             h();
         } else if (i == com.kwad.sdk.core.network.f.j.k) {
             q();
@@ -121,14 +121,14 @@ public class e extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     @Override // com.kwad.sdk.contentalliance.tube.profile.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f9252a.e;
-        this.f9272b = new com.kwad.sdk.contentalliance.tube.profile.c(this.f9252a.f, this.f9252a.c.getTubeId(), this.j);
-        this.f9272b.a();
+        this.c = this.f9253a.e;
+        this.f9273b = new com.kwad.sdk.contentalliance.tube.profile.c(this.f9253a.f, this.f9253a.c.getTubeId(), this.j);
+        this.f9273b.a();
         this.k.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.tube.profile.b.e.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.l = true;
-                e.this.f9272b.a();
+                e.this.f9273b.a();
             }
         });
     }
@@ -137,7 +137,7 @@ public class e extends com.kwad.sdk.contentalliance.tube.profile.a.a {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9272b.b();
+        this.f9273b.b();
         g();
     }
 

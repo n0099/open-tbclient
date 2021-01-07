@@ -19,12 +19,12 @@ public class c implements SoUtils.a {
             if (DEBUG) {
                 Log.d("SoUbcDefaultImpl", "reportSoLoadInfo: " + str3);
             }
-            new c.a(10007).tu(str).tw(str3).tv(com.baidu.swan.apps.runtime.e.aMm()).axJ();
+            new c.a(10007).tu(str).tw(str3).tv(com.baidu.swan.apps.runtime.e.aMn()).axK();
         }
     }
 
     private String yu(String str) {
-        File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(com.baidu.swan.apps.t.a.aAr(), str);
+        File findSoFilesInLibrary = SoLoader.findSoFilesInLibrary(com.baidu.swan.apps.t.a.aAs(), str);
         return String.format(Locale.CHINA, "[%s:%s,size:%d]", str, findSoFilesInLibrary == null ? null : findSoFilesInLibrary.getAbsolutePath(), Long.valueOf(findSoFilesInLibrary == null ? 0L : findSoFilesInLibrary.length()));
     }
 }

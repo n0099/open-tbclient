@@ -15,24 +15,24 @@ import java.util.Set;
 public class w<Data> implements n<Uri, Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<String> f10424a = Collections.unmodifiableSet(new HashSet(Arrays.asList("file", "android.resource", "content")));
+    private static final Set<String> f10425a = Collections.unmodifiableSet(new HashSet(Arrays.asList("file", "android.resource", "content")));
 
     /* renamed from: b  reason: collision with root package name */
-    private final c<Data> f10425b;
+    private final c<Data> f10426b;
 
     /* loaded from: classes5.dex */
     public static final class a implements o<Uri, AssetFileDescriptor>, c<AssetFileDescriptor> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ContentResolver f10426a;
+        private final ContentResolver f10427a;
 
         public a(ContentResolver contentResolver) {
-            this.f10426a = contentResolver;
+            this.f10427a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.b.w.c
         public com.kwad.sdk.glide.load.a.d<AssetFileDescriptor> a(Uri uri) {
-            return new com.kwad.sdk.glide.load.a.a(this.f10426a, uri);
+            return new com.kwad.sdk.glide.load.a.a(this.f10427a, uri);
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
@@ -45,15 +45,15 @@ public class w<Data> implements n<Uri, Data> {
     public static class b implements o<Uri, ParcelFileDescriptor>, c<ParcelFileDescriptor> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ContentResolver f10427a;
+        private final ContentResolver f10428a;
 
         public b(ContentResolver contentResolver) {
-            this.f10427a = contentResolver;
+            this.f10428a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.b.w.c
         public com.kwad.sdk.glide.load.a.d<ParcelFileDescriptor> a(Uri uri) {
-            return new com.kwad.sdk.glide.load.a.i(this.f10427a, uri);
+            return new com.kwad.sdk.glide.load.a.i(this.f10428a, uri);
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
@@ -72,15 +72,15 @@ public class w<Data> implements n<Uri, Data> {
     public static class d implements o<Uri, InputStream>, c<InputStream> {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ContentResolver f10428a;
+        private final ContentResolver f10429a;
 
         public d(ContentResolver contentResolver) {
-            this.f10428a = contentResolver;
+            this.f10429a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.b.w.c
         public com.kwad.sdk.glide.load.a.d<InputStream> a(Uri uri) {
-            return new com.kwad.sdk.glide.load.a.n(this.f10428a, uri);
+            return new com.kwad.sdk.glide.load.a.n(this.f10429a, uri);
         }
 
         @Override // com.kwad.sdk.glide.load.b.o
@@ -91,18 +91,18 @@ public class w<Data> implements n<Uri, Data> {
     }
 
     public w(c<Data> cVar) {
-        this.f10425b = cVar;
+        this.f10426b = cVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public n.a<Data> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return new n.a<>(new com.kwad.sdk.glide.f.b(uri), this.f10425b.a(uri));
+        return new n.a<>(new com.kwad.sdk.glide.f.b(uri), this.f10426b.a(uri));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.b.n
     public boolean a(@NonNull Uri uri) {
-        return f10424a.contains(uri.getScheme());
+        return f10425a.contains(uri.getScheme());
     }
 }

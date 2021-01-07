@@ -8,45 +8,45 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static List<AdTemplate> f9107a;
+    private static List<AdTemplate> f9108a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile a f9108b;
+    private static volatile a f9109b;
 
     private a() {
     }
 
     public static a a() {
-        if (f9108b == null) {
+        if (f9109b == null) {
             synchronized (a.class) {
-                if (f9108b == null) {
-                    f9108b = new a();
+                if (f9109b == null) {
+                    f9109b = new a();
                 }
             }
         }
-        return f9108b;
+        return f9109b;
     }
 
     public void a(List<AdTemplate> list) {
         if (list == null || list.isEmpty()) {
             return;
         }
-        if (f9107a == null) {
-            f9107a = new ArrayList();
+        if (f9108a == null) {
+            f9108a = new ArrayList();
         }
-        f9107a.clear();
-        f9107a.addAll(list);
+        f9108a.clear();
+        f9108a.addAll(list);
     }
 
     @Nullable
     public List<AdTemplate> b() {
-        return f9107a;
+        return f9108a;
     }
 
     public void c() {
-        if (f9107a != null) {
-            f9107a.clear();
+        if (f9108a != null) {
+            f9108a.clear();
         }
-        f9107a = null;
+        f9108a = null;
     }
 }

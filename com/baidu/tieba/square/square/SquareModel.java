@@ -11,9 +11,9 @@ public class SquareModel extends BdBaseModel<Object> {
     private long iKC;
     private long iKz;
     private long mTimeStamp;
-    private b nnR;
-    private h nnS;
-    private a nnT;
+    private b nnQ;
+    private h nnR;
+    private a nnS;
 
     /* loaded from: classes8.dex */
     public interface a {
@@ -22,38 +22,38 @@ public class SquareModel extends BdBaseModel<Object> {
 
     public SquareModel(TbPageContext<Object> tbPageContext) {
         super(tbPageContext);
+        this.nnQ = null;
         this.nnR = null;
         this.nnS = null;
-        this.nnT = null;
         this.iKz = 0L;
         this.iKA = 0L;
         this.iKB = 0L;
         this.iKC = 0L;
-        this.nnS = new h();
-    }
-
-    public long czf() {
-        return this.iKC;
+        this.nnR = new h();
     }
 
     public long czg() {
-        return this.iKA;
+        return this.iKC;
     }
 
     public long czh() {
-        return this.iKB;
+        return this.iKA;
     }
 
     public long czi() {
+        return this.iKB;
+    }
+
+    public long czj() {
         return this.iKz;
     }
 
-    public h dNP() {
-        return this.nnS;
+    public h dNQ() {
+        return this.nnR;
     }
 
     public void a(a aVar) {
-        this.nnT = aVar;
+        this.nnS = aVar;
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -63,40 +63,40 @@ public class SquareModel extends BdBaseModel<Object> {
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
-        if (this.nnR != null) {
-            this.nnR.cancel();
+        if (this.nnQ != null) {
+            this.nnQ.cancel();
             return false;
         }
         return false;
     }
 
-    public boolean dNQ() {
+    public boolean dNR() {
         return KD(1);
     }
 
-    public boolean dNR() {
+    public boolean dNS() {
         return KD(0);
     }
 
     public boolean KD(int i) {
-        if (this.nnR != null) {
+        if (this.nnQ != null) {
             return false;
         }
-        this.nnR = new b(i);
-        this.nnR.execute(new Object[0]);
+        this.nnQ = new b(i);
+        this.nnQ.execute(new Object[0]);
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes8.dex */
     public class b extends BdAsyncTask<Object, h, h> {
-        private int nnV;
-        private com.baidu.tieba.square.a.a nnU = null;
-        private l<String> nnW = null;
+        private int nnU;
+        private com.baidu.tieba.square.a.a nnT = null;
+        private l<String> nnV = null;
 
         public b(int i) {
-            this.nnV = 1;
-            this.nnV = i;
+            this.nnU = 1;
+            this.nnU = i;
             setPriority(3);
         }
 
@@ -108,10 +108,10 @@ public class SquareModel extends BdBaseModel<Object> {
             h hVar;
             String str;
             h hVar2;
-            this.nnU = new com.baidu.tieba.square.a.a();
-            this.nnW = com.baidu.tbadk.core.c.a.btS().Bn("tb.square");
-            if (this.nnV == 0) {
-                str = this.nnW.get("square_cache_key");
+            this.nnT = new com.baidu.tieba.square.a.a();
+            this.nnV = com.baidu.tbadk.core.c.a.btT().Bm("tb.square");
+            if (this.nnU == 0) {
+                str = this.nnV.get("square_cache_key");
                 if (str == null) {
                     return null;
                 }
@@ -121,8 +121,8 @@ public class SquareModel extends BdBaseModel<Object> {
                 if (hVar.isEmpty()) {
                     SquareModel.this.mTimeStamp = 0L;
                 }
-                if (!hVar.dNJ()) {
-                    this.nnV = 1;
+                if (!hVar.dNK()) {
+                    this.nnU = 1;
                 } else {
                     return hVar;
                 }
@@ -130,33 +130,33 @@ public class SquareModel extends BdBaseModel<Object> {
                 hVar = null;
                 str = null;
             }
-            if (this.nnV == 1) {
+            if (this.nnU == 1) {
                 SquareModel.this.iKz = System.currentTimeMillis();
-                this.nnU.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
-                str = this.nnU.dNm();
-                SquareModel.this.iKA = this.nnU.dNn();
-                SquareModel.this.iKB = this.nnU.dNo();
+                this.nnT.addPostData("prevtime", SquareModel.this.mTimeStamp + "");
+                str = this.nnT.dNn();
+                SquareModel.this.iKA = this.nnT.dNo();
+                SquareModel.this.iKB = this.nnT.dNp();
                 SquareModel.this.iKC = System.currentTimeMillis();
             }
             String str2 = str;
-            if (this.nnU.isRequestSuccess()) {
+            if (this.nnT.isRequestSuccess()) {
                 h hVar3 = new h();
                 hVar3.parserJson(str2);
                 Long valueOf = Long.valueOf(hVar3.getTimeStamp());
                 if (valueOf.longValue() > SquareModel.this.mTimeStamp) {
-                    this.nnW.set("square_cache_key", str2, 86400000L);
+                    this.nnV.set("square_cache_key", str2, 86400000L);
                     hVar2 = hVar3;
                 } else {
-                    String str3 = this.nnW.get("square_cache_key");
+                    String str3 = this.nnV.get("square_cache_key");
                     if (str3 != null) {
                         h hVar4 = new h();
                         hVar4.parserJson(str3);
-                        hVar4.bk(hVar3.dNM());
+                        hVar4.bk(hVar3.dNN());
                         hVar4.setTimeStamp(valueOf.longValue());
-                        this.nnW.set("square_cache_key", hVar4.dNN(), 86400000L);
+                        this.nnV.set("square_cache_key", hVar4.dNO(), 86400000L);
                         hVar2 = hVar4;
                     } else {
-                        this.nnW.set("square_cache_key", str2, 86400000L);
+                        this.nnV.set("square_cache_key", str2, 86400000L);
                         hVar2 = hVar3;
                     }
                 }
@@ -170,10 +170,10 @@ public class SquareModel extends BdBaseModel<Object> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public void cancel() {
             super.cancel();
-            if (this.nnU != null) {
-                this.nnU.cancel();
+            if (this.nnT != null) {
+                this.nnT.cancel();
             }
-            SquareModel.this.nnR = null;
+            SquareModel.this.nnQ = null;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -181,14 +181,14 @@ public class SquareModel extends BdBaseModel<Object> {
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         public void onPostExecute(h hVar) {
-            SquareModel.this.nnR = null;
-            SquareModel.this.nnS = hVar;
-            if (SquareModel.this.nnT != null) {
-                if (this.nnV == 0 || this.nnU.isRequestSuccess()) {
-                    SquareModel.this.nnT.a(true, null, hVar);
+            SquareModel.this.nnQ = null;
+            SquareModel.this.nnR = hVar;
+            if (SquareModel.this.nnS != null) {
+                if (this.nnU == 0 || this.nnT.isRequestSuccess()) {
+                    SquareModel.this.nnS.a(true, null, hVar);
                     return;
                 }
-                SquareModel.this.nnT.a(false, this.nnU.bos(), hVar);
+                SquareModel.this.nnS.a(false, this.nnT.bot(), hVar);
             }
         }
     }

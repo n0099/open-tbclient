@@ -4,29 +4,29 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Color;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class j implements BaseNotifyLayoutAdapter {
 
     /* renamed from: a  reason: collision with root package name */
-    private Resources f13987a;
+    private Resources f13988a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13988b;
+    private String f13989b;
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final void init(Context context) {
-        this.f13988b = context.getPackageName();
-        this.f13987a = context.getResources();
+        this.f13989b = context.getPackageName();
+        this.f13988a = context.getResources();
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getNotificationLayout() {
-        return this.f13987a.getIdentifier("push_notify", "layout", this.f13988b);
+        return this.f13988a.getIdentifier("push_notify", "layout", this.f13989b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
     public final int getSuitIconId() {
-        return k.g ? this.f13987a.getIdentifier("notify_icon_rom30", "id", this.f13988b) : k.f ? this.f13987a.getIdentifier("notify_icon_rom20", "id", this.f13988b) : this.f13987a.getIdentifier("notify_icon", "id", this.f13988b);
+        return k.g ? this.f13988a.getIdentifier("notify_icon_rom30", "id", this.f13989b) : k.f ? this.f13988a.getIdentifier("notify_icon_rom20", "id", this.f13989b) : this.f13988a.getIdentifier("notify_icon", "id", this.f13989b);
     }
 
     @Override // com.vivo.push.util.BaseNotifyLayoutAdapter
@@ -39,7 +39,7 @@ public final class j implements BaseNotifyLayoutAdapter {
             i = 0;
         }
         if (i > 0) {
-            return this.f13987a.getColor(i);
+            return this.f13988a.getColor(i);
         }
         if (k.g) {
             return -1;

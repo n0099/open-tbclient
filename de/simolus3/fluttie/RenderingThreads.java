@@ -5,7 +5,7 @@ import androidx.annotation.RequiresApi;
 import com.baidu.adp.lib.util.BdLog;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class RenderingThreads implements Runnable {
     private List<Thread> threads = new ArrayList();
     private RenderingQueue queue = new RenderingQueue();

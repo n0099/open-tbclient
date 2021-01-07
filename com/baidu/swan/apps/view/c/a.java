@@ -21,7 +21,7 @@ public class a implements g.c {
             a(gVar);
             ViewGroup viewGroup = (ViewGroup) gVar.findViewById(16908290);
             if (viewGroup != null) {
-                if (com.baidu.swan.apps.t.a.aAN().alD()) {
+                if (com.baidu.swan.apps.t.a.aAO().alE()) {
                     e(viewGroup, bVar.dEd);
                 } else {
                     K(viewGroup);

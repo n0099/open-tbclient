@@ -27,10 +27,10 @@ import java.util.Observer;
 public class b implements Observer {
 
     /* renamed from: a  reason: collision with root package name */
-    private static NotificationManager f3435a;
+    private static NotificationManager f3436a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f3436b = 10091;
+    private static int f3437b = 10091;
     private static HashMap<String, b> g = new HashMap<>();
     private com.baidu.mobads.command.a c;
     private Context d;
@@ -69,8 +69,8 @@ public class b implements Observer {
         synchronized (b.class) {
             b bVar = g.get(str);
             if (bVar == null || bVar.a() == null) {
-                i = f3436b;
-                f3436b = i + 1;
+                i = f3437b;
+                f3437b = i + 1;
             } else {
                 i = bVar.a().f;
             }
@@ -81,8 +81,8 @@ public class b implements Observer {
     public b(Context context, com.baidu.mobads.command.a aVar) {
         this.c = null;
         XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdApkDownloaderObserver", "observer created");
-        if (f3435a == null) {
-            f3435a = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
+        if (f3436a == null) {
+            f3436a = (NotificationManager) context.getSystemService(ActionJsonData.TAG_NOTIFICATION);
         }
         this.d = context.getApplicationContext();
         this.c = aVar;
@@ -95,8 +95,8 @@ public class b implements Observer {
         IOAdDownloader iOAdDownloader = (IOAdDownloader) observable;
         this.c.g = iOAdDownloader.getState();
         String fileName = XAdSDKFoundationFacade.getInstance().getURIUitls().getFileName(iOAdDownloader.getOutputPath());
-        if (!this.c.f3350b.equals(fileName)) {
-            this.c.f3350b = fileName;
+        if (!this.c.f3351b.equals(fileName)) {
+            this.c.f3351b = fileName;
         }
         if (this.c.g == IOAdDownloader.DownloadStatus.DOWNLOADING) {
             if (this.c.d < 0) {
@@ -123,7 +123,7 @@ public class b implements Observer {
             boolean z = this.c.l;
             if (z) {
                 XAdSDKFoundationFacade.getInstance().getAdLogger().d("OAdApkDownloaderObserver", "launch installing .............");
-                String str = this.c.c + this.c.f3350b;
+                String str = this.c.c + this.c.f3351b;
                 if (!this.c.i.contains(".")) {
                     this.c.i = XAdSDKFoundationFacade.getInstance().getPackageUtils().getLocalApkFileInfo(this.d, str).packageName;
                 }
@@ -166,8 +166,8 @@ public class b implements Observer {
     public Notification b(IOAdDownloader iOAdDownloader) {
         String str;
         int i = 17301634;
-        String str2 = this.c.f3349a;
-        String str3 = "正在下载 " + this.c.f3349a;
+        String str2 = this.c.f3350a;
+        String str3 = "正在下载 " + this.c.f3350a;
         String str4 = "";
         if (this.c.g == IOAdDownloader.DownloadStatus.COMPLETED) {
             str2 = this.c.g.getMessage() + ": " + str2;
@@ -200,7 +200,7 @@ public class b implements Observer {
         intent.putExtra("pausedManually", iOAdDownloader.isPausedManually());
         intent.putExtra("status", this.c.g.getCode());
         intent.putExtra("pk", this.c.i);
-        intent.putExtra("localApkPath", this.c.c + this.c.f3350b);
+        intent.putExtra("localApkPath", this.c.c + this.c.f3351b);
         intent.putExtra("title", str2);
         intent.addFlags(268435456);
         intent.setAction(Long.toString(System.currentTimeMillis()));

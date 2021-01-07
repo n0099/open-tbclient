@@ -47,11 +47,11 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     private void initData(Bundle bundle) {
         this.kzm = getIntent().getIntExtra("forum_id", 0);
         MessageManager.getInstance().sendMessage(new RequestLocalHistoryMessage(String.valueOf(this.kzm)));
-        beR();
+        beS();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void beR() {
+    public void beS() {
         int i = 0;
         if (this.mDataList != null && !this.mDataList.isEmpty()) {
             i = this.mDataList.get(this.mDataList.size() - 1).id;
@@ -134,8 +134,8 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
                     new Handler().post(new Runnable() { // from class: com.baidu.tieba.im.chat.officialBar.OfficialBarHistoryActivity.a.1
                         @Override // java.lang.Runnable
                         public void run() {
-                            if (!OfficialBarHistoryActivity.this.kzn.cWM()) {
-                                OfficialBarHistoryActivity.this.beR();
+                            if (!OfficialBarHistoryActivity.this.kzn.cWN()) {
+                                OfficialBarHistoryActivity.this.beS();
                             }
                         }
                     });
@@ -147,7 +147,7 @@ public class OfficialBarHistoryActivity extends BaseActivity<OfficialBarHistoryA
     @Override // com.baidu.adp.widget.ListView.BdListView.e
     public void onScrollToBottom() {
         if (!this.gBA) {
-            beR();
+            beS();
         }
     }
 }

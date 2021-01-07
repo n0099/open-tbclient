@@ -92,7 +92,7 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
         this.iPZ.setItemAnimator(new DefaultItemAnimator());
         this.iPZ.addItemDecoration(new SpaceItemDecoration(dimens2, dimens, dimens2));
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.iPZ.getLayoutParams();
-        if (d.bmE()) {
+        if (d.bmF()) {
             layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds39);
         } else {
             layoutParams.bottomMargin = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.tbds22);
@@ -127,7 +127,7 @@ public class ConcernRecommendLayout extends LinearLayout implements q {
             this.amY = R.color.CAM_X0105;
         }
         this.jZt.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
-        this.jZt.setData(brVar.bqD());
+        this.jZt.setData(brVar.bqE());
         this.jZt.notifyDataSetChanged();
     }
 

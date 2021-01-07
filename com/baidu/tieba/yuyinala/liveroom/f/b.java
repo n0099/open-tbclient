@@ -7,7 +7,7 @@ import com.baidu.tieba.yuyinala.liveroom.views.d;
 public class b {
     private TbPageContext mPageContext;
     private View mRootView;
-    private com.baidu.tieba.yuyinala.liveroom.views.b ooP;
+    private com.baidu.tieba.yuyinala.liveroom.views.b ooO;
 
     public b(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -15,59 +15,59 @@ public class b {
     }
 
     private void init() {
-        this.ooP = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
-        this.mRootView = this.ooP.getView();
+        this.ooO = new com.baidu.tieba.yuyinala.liveroom.views.b(this.mPageContext);
+        this.mRootView = this.ooO.getView();
     }
 
     public View getView() {
         return this.mRootView;
     }
 
-    public boolean chm() {
-        return this.ooP.chm();
-    }
-
     public boolean chn() {
-        return this.ooP.chn();
-    }
-
-    public String getLiveTitle() {
-        return this.ooP.getLiveTitle();
+        return this.ooO.chn();
     }
 
     public boolean cho() {
-        return this.ooP.cho();
+        return this.ooO.cho();
+    }
+
+    public String getLiveTitle() {
+        return this.ooO.getLiveTitle();
     }
 
     public boolean chp() {
-        return this.ooP.chp();
+        return this.ooO.chp();
     }
 
-    public String chr() {
-        return this.ooP.chr();
+    public boolean chq() {
+        return this.ooO.chq();
+    }
+
+    public String chs() {
+        return this.ooO.chs();
     }
 
     public void a(d.b bVar) {
-        this.ooP.a(bVar);
+        this.ooO.a(bVar);
     }
 
     public void a(d.a aVar) {
-        this.ooP.a(aVar);
+        this.ooO.a(aVar);
     }
 
-    public void Ip(String str) {
-        this.ooP.Ip(str);
+    public void Io(String str) {
+        this.ooO.Io(str);
     }
 
-    public void chu() {
-        if (this.ooP != null) {
-            this.ooP.chu();
+    public void chv() {
+        if (this.ooO != null) {
+            this.ooO.chv();
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        if (this.ooP != null) {
-            this.ooP.onKeyboardVisibilityChanged(z);
+        if (this.ooO != null) {
+            this.ooO.onKeyboardVisibilityChanged(z);
         }
     }
 }

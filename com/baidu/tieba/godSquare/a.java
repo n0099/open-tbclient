@@ -45,7 +45,7 @@ public class a {
         }
         this.gAY.setPullRefresh(this.mPullView);
         this.jUx = new com.baidu.tieba.godSquare.adapter.a(this.mActivity.getPageContext(), this.gAY);
-        this.gAY.addAdapters(this.jUx.bUQ());
+        this.gAY.addAdapters(this.jUx.bUR());
         this.gAY.setNextPage(this.gCf);
     }
 
@@ -59,12 +59,12 @@ public class a {
         this.mActivity.hideLoadingView(this.mRootView);
     }
 
-    public void KA(String str) {
+    public void Kz(String str) {
         this.gAY.setVisibility(8);
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void Zi() {
+    public void Zj() {
         this.gAY.setVisibility(0);
         this.mActivity.hideNetRefreshView(this.mRootView);
     }
@@ -83,16 +83,16 @@ public class a {
         this.jUx.notifyDataSetChanged();
     }
 
-    public void cQc() {
+    public void cQd() {
         this.gCf.startLoadData();
     }
 
-    public void cQd() {
+    public void cQe() {
         this.gCf.setText(this.mActivity.getResources().getString(R.string.network_ungeilivable));
         this.gCf.endLoadData();
     }
 
-    public void cQe() {
+    public void cQf() {
         this.gCf.setText(this.mActivity.getResources().getString(R.string.list_no_more));
         this.gCf.endLoadData();
     }

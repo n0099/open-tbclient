@@ -5,14 +5,14 @@ import io.reactivex.internal.subscriptions.BasicQueueSubscription;
 import io.reactivex.internal.subscriptions.EmptySubscription;
 import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import java.util.Iterator;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableFromIterable<T> extends g<T> {
-    final Iterable<? extends T> qhb;
+    final Iterable<? extends T> qiK;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
         try {
-            a(cVar, this.qhb.iterator());
+            a(cVar, this.qiK.iterator());
         } catch (Throwable th) {
             io.reactivex.exceptions.a.O(th);
             EmptySubscription.error(th, cVar);
@@ -34,7 +34,7 @@ public final class FlowableFromIterable<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static abstract class BaseRangeSubscription<T> extends BasicQueueSubscription<T> {
         private static final long serialVersionUID = -2252972430506210021L;
         volatile boolean cancelled;
@@ -95,7 +95,7 @@ public final class FlowableFromIterable<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class IteratorSubscription<T> extends BaseRangeSubscription<T> {
         private static final long serialVersionUID = -6022804456014692607L;
         final org.a.c<? super T> actual;
@@ -208,7 +208,7 @@ public final class FlowableFromIterable<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class IteratorConditionalSubscription<T> extends BaseRangeSubscription<T> {
         private static final long serialVersionUID = -6022804456014692607L;
         final io.reactivex.internal.a.a<? super T> actual;

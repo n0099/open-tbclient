@@ -38,9 +38,9 @@ public class bi {
 
     public void a(com.baidu.tieba.play.o oVar) {
         if (oVar != null) {
-            oVar.mDH = this.recomWeight;
+            oVar.mDG = this.recomWeight;
             oVar.mSource = this.recomSource;
-            oVar.mDL = this.eRF;
+            oVar.mDK = this.eRF;
             oVar.mExtra = this.recomExtra;
         }
     }

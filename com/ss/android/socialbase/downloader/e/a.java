@@ -14,29 +14,29 @@ public class a extends Exception implements Parcelable {
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.os.Parcelable.Creator
-        /* renamed from: Sv */
+        /* renamed from: SL */
         public a[] newArray(int i) {
             return new a[i];
         }
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private int f13438a;
+    private int f13439a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13439b;
+    private String f13440b;
 
     public a() {
     }
 
     public a(int i, String str) {
         super("[d-ex]:" + str);
-        this.f13439b = "[d-ex]:" + str;
-        this.f13438a = i;
+        this.f13440b = "[d-ex]:" + str;
+        this.f13439a = i;
     }
 
     public void a(String str) {
-        this.f13439b = str;
+        this.f13440b = str;
     }
 
     public a(int i, Throwable th) {
@@ -48,16 +48,16 @@ public class a extends Exception implements Parcelable {
     }
 
     public void a(Parcel parcel) {
-        this.f13438a = parcel.readInt();
-        this.f13439b = parcel.readString();
+        this.f13439a = parcel.readInt();
+        this.f13440b = parcel.readString();
     }
 
     public int a() {
-        return this.f13438a;
+        return this.f13439a;
     }
 
     public String b() {
-        return this.f13439b;
+        return this.f13440b;
     }
 
     @Override // android.os.Parcelable
@@ -67,12 +67,12 @@ public class a extends Exception implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f13438a);
-        parcel.writeString(this.f13439b);
+        parcel.writeInt(this.f13439a);
+        parcel.writeString(this.f13440b);
     }
 
     @Override // java.lang.Throwable
     public String toString() {
-        return "BaseException{errorCode=" + this.f13438a + ", errorMsg='" + this.f13439b + "'}";
+        return "BaseException{errorCode=" + this.f13439a + ", errorMsg='" + this.f13440b + "'}";
     }
 }

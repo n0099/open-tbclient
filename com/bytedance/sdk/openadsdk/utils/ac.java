@@ -7,23 +7,23 @@ import android.graphics.drawable.Drawable;
 public final class ac {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7837a = null;
+    private static String f7838a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Resources f7838b = null;
+    private static Resources f7839b = null;
 
     private static String a(Context context) {
-        if (f7837a == null) {
-            f7837a = context.getPackageName();
+        if (f7838a == null) {
+            f7838a = context.getPackageName();
         }
-        return f7837a;
+        return f7838a;
     }
 
     private static int a(Context context, String str, String str2) {
-        if (f7838b == null) {
-            f7838b = context.getResources();
+        if (f7839b == null) {
+            f7839b = context.getResources();
         }
-        return f7838b.getIdentifier(str, str2, a(context));
+        return f7839b.getIdentifier(str, str2, a(context));
     }
 
     public static String a(Context context, String str) {

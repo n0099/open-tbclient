@@ -9,25 +9,25 @@ import androidx.annotation.Nullable;
 public class r implements com.kwad.sdk.glide.load.f<Uri, Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.resource.b.d f10591a;
+    private final com.kwad.sdk.glide.load.resource.b.d f10592a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10592b;
+    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10593b;
 
     public r(com.kwad.sdk.glide.load.resource.b.d dVar, com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar) {
-        this.f10591a = dVar;
-        this.f10592b = eVar;
+        this.f10592a = dVar;
+        this.f10593b = eVar;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.kwad.sdk.glide.load.f
     @Nullable
     public com.kwad.sdk.glide.load.engine.s<Bitmap> a(@NonNull Uri uri, int i, int i2, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        com.kwad.sdk.glide.load.engine.s<Drawable> a2 = this.f10591a.a(uri, i, i2, eVar);
+        com.kwad.sdk.glide.load.engine.s<Drawable> a2 = this.f10592a.a(uri, i, i2, eVar);
         if (a2 == null) {
             return null;
         }
-        return l.a(this.f10592b, a2.e(), i, i2);
+        return l.a(this.f10593b, a2.e(), i, i2);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

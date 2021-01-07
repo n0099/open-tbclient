@@ -24,12 +24,12 @@ public class bm extends v {
     }
 
     @Override // com.baidu.tbadk.core.data.v, com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.v, com.baidu.tbadk.core.data.a
-    public at boQ() {
+    public at boR() {
         return new at();
     }
 
@@ -50,7 +50,7 @@ public class bm extends v {
         }
     }
 
-    public ArrayList<bl> bqw() {
+    public ArrayList<bl> bqx() {
         return this.eRM;
     }
 }

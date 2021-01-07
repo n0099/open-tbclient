@@ -13,7 +13,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g extends com.qq.e.comm.plugin.gdtnativead.f implements com.qq.e.comm.plugin.r.a {
     private JSONObject g;
 
@@ -50,7 +50,7 @@ public class g extends com.qq.e.comm.plugin.gdtnativead.f implements com.qq.e.co
             } catch (JSONException e) {
                 e.printStackTrace();
             }
-            c.a(this.f12315a, this.f);
+            c.a(this.f12316a, this.f);
             a(a2);
         }
     }
@@ -75,7 +75,7 @@ public class g extends com.qq.e.comm.plugin.gdtnativead.f implements com.qq.e.co
     public void loadAd(int i) {
         c.c(this.f);
         this.e = i;
-        com.qq.e.comm.plugin.w.e.a(a(i), new com.qq.e.comm.plugin.w.b(this.c, this.f12315a, this.f12316b), new e.a() { // from class: com.qq.e.comm.plugin.intersitial2.g.1
+        com.qq.e.comm.plugin.w.e.a(a(i), new com.qq.e.comm.plugin.w.b(this.c, this.f12316a, this.f12317b), new e.a() { // from class: com.qq.e.comm.plugin.intersitial2.g.1
             @Override // com.qq.e.comm.plugin.w.e.a
             public void a(com.qq.e.comm.plugin.k.a aVar) {
                 ai.a("LoadGDTNativeExpressADFail", aVar);

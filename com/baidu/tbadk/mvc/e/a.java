@@ -11,7 +11,7 @@ public abstract class a<T> extends b<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public T bHe() {
+    public T bHf() {
         try {
             return this.fKG.newInstance();
         } catch (ExceptionInInitializerError e) {

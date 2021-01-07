@@ -32,15 +32,15 @@ class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static a J(int i, int i2, int i3, int i4) {
-        a cUs = cUs();
-        cUs.type = i;
-        cUs.bJt = i2;
-        cUs.bJu = i3;
-        cUs.bJv = i4;
-        return cUs;
+        a cUt = cUt();
+        cUt.type = i;
+        cUt.bJt = i2;
+        cUt.bJu = i3;
+        cUt.bJv = i4;
+        return cUt;
     }
 
-    private static a cUs() {
+    private static a cUt() {
         a aVar;
         synchronized (bJp) {
             if (bJp.size() > 0) {

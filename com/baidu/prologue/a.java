@@ -7,7 +7,7 @@ import com.baidu.prologue.business.c;
 import com.baidu.prologue.business.d;
 import com.baidu.prologue.business.data.e;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private static a csY = new a();
     private WeakReference<d> csZ;
@@ -20,12 +20,12 @@ public class a {
                 if (a.this.csZ != null && a.this.csZ.get() != null) {
                     com.baidu.prologue.business.e.a(a.this.mContext, eVar, (d) a.this.csZ.get()).build();
                 }
-            } else if (com.baidu.prologue.a.b.a.ctd.get().ago()) {
+            } else if (com.baidu.prologue.a.b.a.ctd.get().agp()) {
                 throw new IllegalStateException("query后物料效验失败");
             } else {
-                com.baidu.prologue.business.data.b.agN();
+                com.baidu.prologue.business.data.b.agO();
                 if (a.this.csZ != null && a.this.csZ.get() != null) {
-                    ((d) a.this.csZ.get()).agF();
+                    ((d) a.this.csZ.get()).agG();
                 }
                 com.baidu.prologue.business.a.a(com.baidu.prologue.a.b.a.ctd.get());
             }
@@ -34,10 +34,10 @@ public class a {
         @Override // com.baidu.prologue.business.c
         public void k(Throwable th) {
             if (a.this.csZ != null && a.this.csZ.get() != null) {
-                ((d) a.this.csZ.get()).agF();
+                ((d) a.this.csZ.get()).agG();
             }
             com.baidu.prologue.business.a.a(com.baidu.prologue.a.b.a.ctd.get());
-            com.baidu.prologue.business.data.b.agN();
+            com.baidu.prologue.business.data.b.agO();
         }
     };
     private Context mContext;
@@ -45,13 +45,13 @@ public class a {
     private a() {
     }
 
-    public static a agc() {
+    public static a agd() {
         return csY;
     }
 
     public void a(Context context, d dVar) {
         if (com.baidu.prologue.a.b.a.ctd.get() == null) {
-            dVar.agF();
+            dVar.agG();
             return;
         }
         this.csZ = new WeakReference<>(dVar);

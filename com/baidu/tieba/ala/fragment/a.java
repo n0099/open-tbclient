@@ -67,9 +67,9 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                         if (a.this.gWD != null) {
                             a.this.gWD.dM(false);
                             if (a.this.gWE == 0) {
-                                a.this.gWD.csm();
+                                a.this.gWD.csn();
                             }
-                            a.this.gWD.Zi();
+                            a.this.gWD.Zj();
                             a.this.gWD.n(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.2.1
                                 @Override // android.view.View.OnClickListener
                                 public void onClick(View view) {
@@ -82,20 +82,20 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                     }
                     a.c(a.this);
                     if (a.this.gWE == 0) {
-                        a.this.gWD.Zi();
+                        a.this.gWD.Zj();
                     }
                     if (obj instanceof AlaGetRankListResponseMessage) {
                         AlaGetRankListResponseMessage alaGetRankListResponseMessage = (AlaGetRankListResponseMessage) obj;
                         if (alaGetRankListResponseMessage.gto == null || alaGetRankListResponseMessage.gto.size() <= 0) {
                             if (a.this.gWD != null) {
-                                a.this.gWD.csm();
+                                a.this.gWD.csn();
                                 return;
                             }
                             return;
                         } else if (a.this.gWD != null) {
                             a.this.gWD.a(alaGetRankListResponseMessage.gto, alaGetRankListResponseMessage.hTB, a.this);
-                            if (a.this.gWD.csl() != null && (a.this.gWD.csl() instanceof h)) {
-                                a.this.gWD.c(a.this.a((h) a.this.gWD.csl(), alaGetRankListResponseMessage.gto));
+                            if (a.this.gWD.csm() != null && (a.this.gWD.csm() instanceof h)) {
+                                a.this.gWD.c(a.this.a((h) a.this.gWD.csm(), alaGetRankListResponseMessage.gto));
                                 return;
                             }
                             return;
@@ -106,35 +106,35 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                     AlaGetUserRankInfoResponseMessage alaGetUserRankInfoResponseMessage = (AlaGetUserRankInfoResponseMessage) obj;
                     if (alaGetUserRankInfoResponseMessage.hTD == null) {
                         if (a.this.gWD != null) {
-                            a.this.gWD.csm();
+                            a.this.gWD.csn();
                         }
                     } else if (a.this.gWD != null) {
-                        a.this.gWD.c(a.this.a(alaGetUserRankInfoResponseMessage.hTD, a.this.gWD.bKW()));
+                        a.this.gWD.c(a.this.a(alaGetUserRankInfoResponseMessage.hTD, a.this.gWD.bKX()));
                     }
                 } else if ((obj instanceof AlaGetHourRankListResponseMessage) && "hour".equals(a.this.grB)) {
                     AlaGetHourRankListResponseMessage alaGetHourRankListResponseMessage = (AlaGetHourRankListResponseMessage) obj;
-                    p coG = alaGetHourRankListResponseMessage.coG();
+                    p coH = alaGetHourRankListResponseMessage.coH();
                     if (alaGetHourRankListResponseMessage.getOrginalMessage() != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag() != null) {
                         if ((a.this.gWG != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gWG.getId()) || (a.this.gWH != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gWH.getId())) {
                             if (!((a.this.gWG != null && alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gWG.getId()) == a.this.gWF) || i == 0 || StringUtils.isNull(str)) {
                                 if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gWG.getId()) {
-                                    a.this.gWI = coG;
+                                    a.this.gWI = coH;
                                     if (a.this.gWF) {
-                                        a.this.gWD.Zi();
+                                        a.this.gWD.Zj();
                                         a.this.a(a.this.gWI);
                                     }
                                     a.this.ne(false);
                                 } else if (alaGetHourRankListResponseMessage.getOrginalMessage().getTag().getId() == a.this.gWH.getId()) {
-                                    a.this.gWJ = coG;
+                                    a.this.gWJ = coH;
                                     if (!a.this.gWF) {
-                                        a.this.gWD.Zi();
+                                        a.this.gWD.Zj();
                                         a.this.a(a.this.gWJ);
                                     }
                                 }
                             } else if (a.this.gWD != null) {
                                 a.this.gWD.dM(false);
-                                a.this.gWD.csm();
-                                a.this.gWD.Zi();
+                                a.this.gWD.csn();
+                                a.this.gWD.Zj();
                                 a.this.gWD.n(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.2.2
                                     @Override // android.view.View.OnClickListener
                                     public void onClick(View view) {
@@ -162,10 +162,10 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                 int i = com.baidu.live.af.a.SE().bwi.aOr;
                 intent.putExtra("ala_live_room_gift_panel_category_id", i);
                 intent.putExtra("ala_live_room_gift_panel_gift_id", i > 0 ? 10185 : -1);
-                a.this.bYn();
+                a.this.bYo();
             } else if ("hour".equals(a.this.grB) || "charm_day".equals(a.this.grB)) {
                 intent.putExtra("ala_live_room_show_panel_key", "ala_live_room_show_gift_panel");
-                a.this.bYn();
+                a.this.bYo();
             }
             if ("hot".equals(a.this.grB)) {
                 intent.putExtra("ala_live_room_show_panel_key", "ala_live_room_show_share_panel");
@@ -208,10 +208,10 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
         if ("hour".equals(this.grB)) {
             MessageManager.getInstance().registerListener(this.gWN);
         }
-        bYm();
+        bYn();
     }
 
-    public View bYm() {
+    public View bYn() {
         this.gWD = new g(this.bWu.getPageContext(), this.grB, this.aMi, this.gWM, this.grC, this.mUserId, this.Ot, this.mPortrait, this.grz);
         ne(true);
         if ("hour".equals(this.grB)) {
@@ -233,12 +233,12 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                         this.gWC.A(SdkStaticKeys.RANK_TYPE_CHARM, this.mUserId);
                     } else {
                         this.gWE--;
-                        this.gWD.csm();
+                        this.gWD.csn();
                     }
                     this.gWC.e(this.grB, this.mUserId, "");
                 } else if (TextUtils.equals(this.grB, "hour")) {
                     if (this.mUserId == 0) {
-                        this.gWD.csm();
+                        this.gWD.csn();
                     }
                     if (z) {
                         this.gWG = BdUniqueId.gen();
@@ -246,15 +246,15 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                         return;
                     }
                     this.gWH = BdUniqueId.gen();
-                    if (this.gWI != null && !TextUtils.isEmpty(this.gWI.Xy())) {
-                        this.gWC.a(this.grB, this.mUserId, StringHelper.getHourRankPreHourString(this.gWI.Xy(), -1), this.gWH);
+                    if (this.gWI != null && !TextUtils.isEmpty(this.gWI.Xz())) {
+                        this.gWC.a(this.grB, this.mUserId, StringHelper.getHourRankPreHourString(this.gWI.Xz(), -1), this.gWH);
                     }
                 }
             }
         } else if (this.gWD != null) {
-            this.gWD.Zi();
+            this.gWD.Zj();
             this.gWD.dM(false);
-            this.gWD.csm();
+            this.gWD.csn();
             this.gWD.n(new View.OnClickListener() { // from class: com.baidu.tieba.ala.fragment.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -272,9 +272,9 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
     public void a(p pVar) {
         if (pVar == null) {
             if (this.gWD != null) {
-                this.gWD.csm();
-                this.gWD.Zi();
-                this.gWD.a(new ArrayList<>(), this.gWI == null ? 0L : this.gWI.bXK(), this);
+                this.gWD.csn();
+                this.gWD.Zj();
+                this.gWD.a(new ArrayList<>(), this.gWI == null ? 0L : this.gWI.bXL(), this);
                 this.gWD.ya(0);
                 this.gWD.dM(false);
                 this.gWD.xZ(8);
@@ -287,27 +287,27 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                 });
             }
         } else if (pVar.getList() == null || pVar.getList().size() <= 0) {
-            this.gWD.Zi();
+            this.gWD.Zj();
             this.gWD.gW(0);
-            this.gWD.a(new ArrayList<>(), pVar.bXK(), this);
+            this.gWD.a(new ArrayList<>(), pVar.bXL(), this);
             this.gWD.ya(0);
             this.gWD.dM(true);
             this.gWD.xZ(8);
             if (this.gWD != null) {
-                pVar.bXM().mZ(this.gWF ? false : true);
-                this.gWD.c(pVar.bXM());
+                pVar.bXN().mZ(this.gWF ? false : true);
+                this.gWD.c(pVar.bXN());
             }
         } else if (pVar.getList() != null && pVar.getList().size() > 0) {
             this.gWD.gW(0);
-            this.gWD.Zi();
+            this.gWD.Zj();
             if (this.gWD != null) {
                 this.gWD.c(pVar);
-                r bXM = pVar.bXM();
+                r bXN = pVar.bXN();
                 if (pVar.getList().size() == 1) {
-                    this.gWD.a(new ArrayList<>(), pVar.bXK(), this);
+                    this.gWD.a(new ArrayList<>(), pVar.bXL(), this);
                     this.gWD.dM(false);
-                    if (bXM != null) {
-                        bXM.bv(true);
+                    if (bXN != null) {
+                        bXN.bv(true);
                     }
                 } else if (pVar.getList().size() > 1) {
                     int size = pVar.getList().size();
@@ -315,16 +315,16 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
                     for (int i = 1; i < size; i++) {
                         arrayList.add(pVar.getList().get(i));
                     }
-                    this.gWD.a(arrayList, pVar.bXK(), this);
-                    if (bXM != null) {
-                        bXM.bv(false);
+                    this.gWD.a(arrayList, pVar.bXL(), this);
+                    if (bXN != null) {
+                        bXN.bv(false);
                     }
                 }
                 this.gWD.ya(0);
                 this.gWD.xZ(0);
                 if (this.gWD != null) {
-                    pVar.bXM().mZ(this.gWF ? false : true);
-                    this.gWD.c(bXM);
+                    pVar.bXN().mZ(this.gWF ? false : true);
+                    this.gWD.c(bXN);
                 }
             }
         }
@@ -345,14 +345,14 @@ public class a implements d, AlaRankListHeaderView.a, AlaRankListHeaderView.b {
         return hVar;
     }
 
-    public void bYn() {
+    public void bYo() {
         if (!this.grC && "hour".equals(this.grB)) {
             LogManager.getCommonLogger().doClickLiveAuthorRankSupportLog(this.beS, "hour", this.otherParams);
         }
     }
 
     @Override // com.baidu.tieba.ala.view.AlaRankListHeaderView.a
-    public void bYo() {
+    public void bYp() {
     }
 
     @Override // com.baidu.tieba.ala.view.AlaRankListHeaderView.b

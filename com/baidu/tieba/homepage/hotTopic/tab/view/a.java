@@ -23,7 +23,7 @@ public class a implements TabLayout.OnTabSelectedListener {
     private TabLayout.OnTabSelectedListener kdc;
     private Context mContext;
 
-    public TabLayout cSE() {
+    public TabLayout cSF() {
         return this.kdJ;
     }
 
@@ -33,10 +33,10 @@ public class a implements TabLayout.OnTabSelectedListener {
 
     public a(Context context) {
         this.mContext = context;
-        cSF();
+        cSG();
     }
 
-    private void cSF() {
+    private void cSG() {
         this.kdJ = (TabLayout) LayoutInflater.from(getContext()).inflate(R.layout.default_tab_layout, (ViewGroup) null);
         this.kdJ.setOnTabSelectedListener(this);
     }

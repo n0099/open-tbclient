@@ -23,7 +23,7 @@ import com.kwad.sdk.utils.ai;
 public class a extends c implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f9758b;
+    private Context f9759b;
     @NonNull
     private AdTemplate c;
     private AdInfo d;
@@ -40,11 +40,11 @@ public class a extends c implements View.OnClickListener {
     private ProgressBar o;
     private ImageView p;
     private ViewGroup q;
-    private InterfaceC1077a r;
+    private InterfaceC1118a r;
 
     /* renamed from: com.kwad.sdk.core.video.videoview.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1077a {
+    public interface InterfaceC1118a {
         void a();
 
         void a(long j);
@@ -54,14 +54,14 @@ public class a extends c implements View.OnClickListener {
 
     public a(Context context, @NonNull AdTemplate adTemplate, @NonNull d dVar) {
         super(context, dVar);
-        this.f9758b = context;
+        this.f9759b = context;
         this.c = adTemplate;
         this.d = com.kwad.sdk.core.response.b.c.j(adTemplate);
         j();
     }
 
     private void j() {
-        LayoutInflater.from(this.f9758b).inflate(R.layout.ksad_feed_video_palyer_controller, (ViewGroup) this, true);
+        LayoutInflater.from(this.f9759b).inflate(R.layout.ksad_feed_video_palyer_controller, (ViewGroup) this, true);
         this.i = (RelativeLayout) findViewById(R.id.ksad_data_flow_container);
         this.k = (TextView) findViewById(R.id.ksad_data_flow_play_tip);
         this.j = (ImageView) findViewById(R.id.ksad_data_flow_play_btn);
@@ -111,7 +111,7 @@ public class a extends c implements View.OnClickListener {
     }
 
     private void o() {
-        this.f9768a.setKsPlayLogParam(new com.kwad.sdk.contentalliance.detail.video.c(com.kwad.sdk.core.response.b.a.k(this.d), System.currentTimeMillis()));
+        this.f9769a.setKsPlayLogParam(new com.kwad.sdk.contentalliance.detail.video.c(com.kwad.sdk.core.response.b.a.k(this.d), System.currentTimeMillis()));
     }
 
     private void setTopBottomVisible(boolean z) {
@@ -209,42 +209,42 @@ public class a extends c implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void d() {
-        if (!this.f9768a.d()) {
-            if (this.f9768a.h() || this.f9768a.f()) {
+        if (!this.f9769a.d()) {
+            if (this.f9769a.h() || this.f9769a.f()) {
                 o();
-                this.f9768a.b();
+                this.f9769a.b();
             }
-        } else if (!com.ksad.download.d.b.a(this.f9758b)) {
+        } else if (!com.ksad.download.d.b.a(this.f9759b)) {
             a();
         } else {
             b();
-            if (com.ksad.download.d.b.b(this.f9758b)) {
+            if (com.ksad.download.d.b.b(this.f9759b)) {
                 o();
-                this.f9768a.a();
+                this.f9769a.a();
             } else if (!this.f && !this.e) {
                 m();
             } else {
                 o();
-                this.f9768a.a();
+                this.f9769a.a();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void e() {
-        this.f9768a.c();
+        this.f9769a.c();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void f() {
-        this.f9768a.k();
+        this.f9769a.k();
     }
 
     @Override // com.kwad.sdk.core.video.videoview.c
     protected void g() {
-        long currentPosition = this.f9768a.getCurrentPosition();
-        long duration = this.f9768a.getDuration();
-        this.o.setSecondaryProgress(this.f9768a.getBufferPercentage());
+        long currentPosition = this.f9769a.getCurrentPosition();
+        long duration = this.f9769a.getDuration();
+        this.o.setSecondaryProgress(this.f9769a.getBufferPercentage());
         this.o.setProgress((int) ((100.0f * ((float) currentPosition)) / ((float) duration)));
         if (this.r != null) {
             this.r.a(currentPosition);
@@ -263,7 +263,7 @@ public class a extends c implements View.OnClickListener {
         this.f = z;
     }
 
-    public void setVideoPlayCallback(InterfaceC1077a interfaceC1077a) {
-        this.r = interfaceC1077a;
+    public void setVideoPlayCallback(InterfaceC1118a interfaceC1118a) {
+        this.r = interfaceC1118a;
     }
 }

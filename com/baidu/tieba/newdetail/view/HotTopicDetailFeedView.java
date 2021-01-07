@@ -179,7 +179,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
     public void it(boolean z) {
         if (this.gLj == null) {
             this.gLj = new g(getContext());
-            this.gLj.bGs();
+            this.gLj.bGt();
             this.gLj.onChangeSkinType();
             this.gLj.setWrapStyle(true);
         }
@@ -215,7 +215,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         this.mRefreshView.getAttachedView().setClickable(false);
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
@@ -263,12 +263,12 @@ public class HotTopicDetailFeedView extends FrameLayout {
 
     public void pause() {
         if (this.iOh != null) {
-            this.iOh.dev();
+            this.iOh.dew();
             this.iOh.tE(false);
         }
     }
 
-    public void Zg() {
+    public void Zh() {
         if (this.jlj != null && this.gCf != null) {
             this.jlj.setNextPage(this.gCf);
             this.gCf.setTextSize(R.dimen.tbfontsize33);
@@ -278,7 +278,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         }
     }
 
-    public void Zh() {
+    public void Zi() {
         if (this.jlj != null && this.gCf != null) {
             this.jlj.setNextPage(this.gCf);
             this.gCf.endLoadData();
@@ -287,7 +287,7 @@ public class HotTopicDetailFeedView extends FrameLayout {
         }
     }
 
-    public void bVF() {
+    public void bVG() {
         if (this.jlj != null && this.gCf != null) {
             this.jlj.setNextPage(null);
             this.gCf.hideEmptyView();

@@ -11,7 +11,7 @@ public class u extends l<v, PbImageAlaRecommendVH> {
     private com.baidu.tieba.pb.data.f pbData;
 
     public u(com.baidu.tieba.pb.videopb.b bVar, BdUniqueId bdUniqueId) {
-        super(bVar, v.lPB);
+        super(bVar, v.lPA);
         this.ked = bdUniqueId;
     }
 
@@ -20,7 +20,7 @@ public class u extends l<v, PbImageAlaRecommendVH> {
     @Override // com.baidu.adp.widget.ListView.a
     /* renamed from: cv */
     public PbImageAlaRecommendVH e(ViewGroup viewGroup) {
-        return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.lLF.getPageContext(), this.ked);
+        return new PbImageAlaRecommendVH(LayoutInflater.from(this.mContext).inflate(R.layout.pb_image_ala_recomment_layout, viewGroup, false), this.lLE.getPageContext(), this.ked);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

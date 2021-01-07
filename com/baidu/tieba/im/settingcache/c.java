@@ -4,7 +4,7 @@ public class c {
     private static volatile c kIE;
     private boolean isAcceptNotify;
 
-    public static c cZL() {
+    public static c cZM() {
         if (kIE == null) {
             synchronized (c.class) {
                 if (kIE == null) {

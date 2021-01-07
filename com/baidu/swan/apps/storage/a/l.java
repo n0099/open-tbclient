@@ -40,12 +40,12 @@ public class l extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "exceed storage item max length");
                 return false;
             } else {
-                com.baidu.swan.apps.storage.c aMv = eVar.aMv();
-                if (aMv.cJ(aX, aW)) {
+                com.baidu.swan.apps.storage.c aMw = eVar.aMw();
+                if (aMw.cJ(aX, aW)) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1003, "exceed storage max length");
                     return false;
                 }
-                aMv.aPr().putString(aX, aW);
+                aMw.aPs().putString(aX, aW);
                 com.baidu.swan.apps.al.e.dQM.update();
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;

@@ -22,16 +22,16 @@ import org.apache.http.protocol.HTTP;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f9419a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
+    private static final String f9420a = ad.a(KsAdSDKImpl.get().getContext()) + "/downloadFileSync/.temp";
 
     /* loaded from: classes5.dex */
     public static class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        final OutputStream f9420a;
+        final OutputStream f9421a;
 
         public a(File file, boolean z) {
-            this.f9420a = new FileOutputStream(file, z);
+            this.f9421a = new FileOutputStream(file, z);
         }
 
         @Override // com.kwad.sdk.core.download.e.c
@@ -44,12 +44,12 @@ public class e {
 
         @Override // com.kwad.sdk.core.download.e.c
         public void a(byte[] bArr, int i, int i2) {
-            this.f9420a.write(bArr, i, i2);
+            this.f9421a.write(bArr, i, i2);
         }
 
         @Override // java.io.Closeable, java.lang.AutoCloseable
         public void close() {
-            this.f9420a.close();
+            this.f9421a.close();
         }
     }
 
@@ -257,7 +257,7 @@ public class e {
             long r8 = java.lang.System.currentTimeMillis()     // Catch: java.lang.Throwable -> L1ed
             r4.<init>(r8)     // Catch: java.lang.Throwable -> L1ed
             java.io.File r8 = new java.io.File     // Catch: java.lang.Throwable -> L1ed
-            java.lang.String r6 = com.kwad.sdk.core.download.e.f9419a     // Catch: java.lang.Throwable -> L1ed
+            java.lang.String r6 = com.kwad.sdk.core.download.e.f9420a     // Catch: java.lang.Throwable -> L1ed
             java.lang.StringBuilder r9 = new java.lang.StringBuilder     // Catch: java.lang.Throwable -> L1ed
             r9.<init>()     // Catch: java.lang.Throwable -> L1ed
             int r4 = r4.nextInt()     // Catch: java.lang.Throwable -> L1ed

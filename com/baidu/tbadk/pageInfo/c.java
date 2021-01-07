@@ -29,7 +29,7 @@ public class c {
         if (fu == null) {
             return null;
         }
-        return fu.bHp();
+        return fu.bHq();
     }
 
     public static TbPageTag fw(Context context) {
@@ -56,11 +56,11 @@ public class c {
     }
 
     public static aq a(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.bHp());
+        return (bVar == null || aqVar == null) ? aqVar : a(aqVar, bVar.getPrePageTag(), bVar.bHq());
     }
 
     public static aq b(aq aqVar, b bVar) {
-        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.bHp());
+        return (bVar == null || aqVar == null) ? aqVar : b(aqVar, bVar.getPrePageTag(), bVar.bHq());
     }
 
     public static aq a(aq aqVar, TbPageTag tbPageTag, TbPageTag tbPageTag2) {
@@ -128,7 +128,7 @@ public class c {
             return null;
         }
         aq aqVar = new aq(str);
-        aqVar.dX("tid", bzVar.getId()).w("fid", bzVar.getFid()).an(IntentConfig.CARD_TYPE, bzVar.bts()).dX(IntentConfig.NID, bzVar.bpO());
+        aqVar.dX("tid", bzVar.getId()).w("fid", bzVar.getFid()).an(IntentConfig.CARD_TYPE, bzVar.btt()).dX(IntentConfig.NID, bzVar.bpP());
         if (bzVar.getBaijiahaoData() != null && !at.isEmpty(bzVar.getBaijiahaoData().oriUgcVid)) {
             aqVar.dX("obj_param6", bzVar.getBaijiahaoData().oriUgcVid);
         }

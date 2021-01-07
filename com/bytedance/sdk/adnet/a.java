@@ -18,7 +18,7 @@ import java.io.File;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f6286b;
+    private static String f6287b;
     private static boolean d = true;
     public static q poD;
     private static b poE;
@@ -34,15 +34,15 @@ public class a {
 
     public static String b(Context context) {
         try {
-            if (TextUtils.isEmpty(f6286b)) {
+            if (TextUtils.isEmpty(f6287b)) {
                 File file = new File(context.getCacheDir(), "VAdNetSdk");
                 file.mkdirs();
-                f6286b = file.getAbsolutePath();
+                f6287b = file.getAbsolutePath();
             }
         } catch (Throwable th) {
             r.a(th, "init adnetsdk default directory error ", new Object[0]);
         }
-        return f6286b;
+        return f6287b;
     }
 
     public static void a(q qVar) {
@@ -53,7 +53,7 @@ public class a {
         poE = bVar;
     }
 
-    public static b esd() {
+    public static b ese() {
         if (poE == null) {
             throw new IllegalArgumentException("sITTNetDepend is null");
         }
@@ -76,7 +76,7 @@ public class a {
         poF = aVar;
     }
 
-    public static com.bytedance.sdk.adnet.c.a ese() {
+    public static com.bytedance.sdk.adnet.c.a esf() {
         return poF;
     }
 
@@ -84,7 +84,7 @@ public class a {
         if (context == null) {
             throw new IllegalArgumentException("tryInitAdTTNet context is null");
         }
-        f.esk().a(context, g.b(context));
+        f.esl().a(context, g.b(context));
         if (g.a(context) || (!g.b(context) && z)) {
             com.bytedance.sdk.adnet.a.a.hX(context).c();
             com.bytedance.sdk.adnet.a.a.hX(context).a();

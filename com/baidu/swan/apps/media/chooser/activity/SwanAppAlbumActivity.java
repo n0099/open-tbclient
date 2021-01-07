@@ -56,7 +56,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         @Override // android.widget.AdapterView.OnItemClickListener
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             if (SwanAppAlbumActivity.this.dmj && !SwanAppAlbumActivity.this.dmk) {
-                SwanAppAlbumActivity.this.aEu();
+                SwanAppAlbumActivity.this.aEv();
             }
             SwanAppAlbumActivity.this.dma.setText(((com.baidu.swan.apps.media.chooser.model.a) SwanAppAlbumActivity.this.dml.get(i)).il());
             ArrayList<MediaModel> arrayList = ((com.baidu.swan.apps.media.chooser.model.a) SwanAppAlbumActivity.this.dml.get(i)).dnT;
@@ -79,12 +79,12 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         ak.fixedOrientation(this, releaseFixedOrientation);
         setContentView(a.g.swanapp_album_layout);
         ah.T(this);
-        aEq();
+        aEr();
         initView();
         initData();
     }
 
-    private void aEq() {
+    private void aEr() {
         if (getIntent() != null) {
             Bundle b2 = u.b(getIntent(), "launchParams");
             d.dhe = u.h(b2, "launchType");
@@ -125,7 +125,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
             @Override // android.view.View.OnTouchListener
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (SwanAppAlbumActivity.this.dmj && !SwanAppAlbumActivity.this.dmk) {
-                    SwanAppAlbumActivity.this.aEu();
+                    SwanAppAlbumActivity.this.aEv();
                     return true;
                 }
                 return true;
@@ -141,19 +141,19 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         p.b(new com.baidu.swan.apps.media.chooser.c.a(d.dhe, this.mHandler), "loadAlbumTask");
     }
 
-    private void aEr() {
+    private void aEs() {
         this.dlZ = new com.baidu.swan.apps.media.chooser.adapter.a(this);
         this.dlY.setAdapter((ListAdapter) this.dlZ);
         this.dlZ.setData(this.dml.get(0).dnT);
         this.dlZ.a(new e() { // from class: com.baidu.swan.apps.media.chooser.activity.SwanAppAlbumActivity.2
             @Override // com.baidu.swan.apps.media.chooser.listener.e
             public void jz(int i) {
-                SwanAppAlbumActivity.this.aEt();
+                SwanAppAlbumActivity.this.aEu();
             }
         });
     }
 
-    private void aEs() {
+    private void aEt() {
         this.dmh.setAdapter((ListAdapter) new b(this, d.dhe, this.dml));
         this.dmh.setOnItemClickListener(this.dmm);
     }
@@ -163,7 +163,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         this.dmi.hI(false);
         this.dml = (ArrayList) obj;
         if (this.dml.size() > 0 && this.dml.get(0) != null) {
-            if (this.dml.get(0).aEL() == null || this.dml.get(0).aEL().size() == 0) {
+            if (this.dml.get(0).aEM() == null || this.dml.get(0).aEM().size() == 0) {
                 this.dmd.setVisibility(8);
             }
             Drawable drawable = getResources().getDrawable(a.e.swanapp_album_up_triangle);
@@ -174,17 +174,17 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
             this.dmd.setVisibility(8);
         }
         this.dmb.setVisibility(0);
+        aEu();
         aEt();
         aEs();
-        aEr();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aEt() {
-        if (com.baidu.swan.apps.media.chooser.b.e.aEP() > 0) {
+    public void aEu() {
+        if (com.baidu.swan.apps.media.chooser.b.e.aEQ() > 0) {
             this.dmb.setTextColor(getResources().getColor(a.c.swanapp_album_select_done_color));
             this.dmc.setTextColor(getResources().getColor(a.c.swanapp_album_bottom_preview_color));
-            this.dmb.setText(getResources().getString(a.h.swanapp_album_selected_done_num, Integer.valueOf(com.baidu.swan.apps.media.chooser.b.e.aEP())));
+            this.dmb.setText(getResources().getString(a.h.swanapp_album_selected_done_num, Integer.valueOf(com.baidu.swan.apps.media.chooser.b.e.aEQ())));
             return;
         }
         this.dmb.setTextColor(getResources().getColor(a.c.swanapp_album_select_done_unable_color));
@@ -197,21 +197,21 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         if (view == this.dma) {
             if (this.dml != null && this.dml.size() > 1 && !this.dmk) {
                 if (this.dmj) {
-                    aEu();
-                } else {
                     aEv();
+                } else {
+                    aEw();
                 }
             }
         } else if (view == this.dmb) {
             Bundle bundle = new Bundle();
             bundle.putBoolean("compressed", d.dlQ);
             bundle.putString("swanAppId", d.dnG);
-            bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.aEO());
+            bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.aEP());
             bundle.putString("swanTmpPath", d.dnJ);
             d.c(this, bundle);
         } else if (view == this.dme) {
             finish();
-        } else if (view == this.dmc && com.baidu.swan.apps.media.chooser.b.e.aEP() > 0) {
+        } else if (view == this.dmc && com.baidu.swan.apps.media.chooser.b.e.aEQ() > 0) {
             Bundle bundle2 = new Bundle();
             bundle2.putString("previewFrom", "bottomPreview");
             bundle2.putInt("previewPosition", 0);
@@ -220,7 +220,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aEu() {
+    public void aEv() {
         if (this.dmj) {
             this.dmk = true;
             Animation loadAnimation = AnimationUtils.loadAnimation(this, a.C0372a.swanapp_album_floating_layer_out_animation);
@@ -249,7 +249,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
         }
     }
 
-    private void aEv() {
+    private void aEw() {
         if (!this.dmj) {
             this.dmf.setVisibility(0);
             this.dmg.setVisibility(0);
@@ -294,7 +294,7 @@ public class SwanAppAlbumActivity extends SwanAppBaseActivity implements View.On
                     if (this.dlZ != null) {
                         this.dlZ.notifyDataSetChanged();
                     }
-                    aEt();
+                    aEu();
                     return;
                 }
                 setResult(-1, intent);

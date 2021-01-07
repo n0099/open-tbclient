@@ -15,7 +15,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
     private ViewGroup d;
     private View e;
@@ -26,20 +26,20 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
     private Map<BaseSplashAd, a> j;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        a.InterfaceC1177a f12807a;
+        a.InterfaceC1218a f12808a;
 
         /* renamed from: b  reason: collision with root package name */
-        boolean f12808b;
+        boolean f12809b;
         boolean c;
         boolean d = false;
         Queue<ADEvent> e = new LinkedList();
 
-        public a(a.InterfaceC1177a interfaceC1177a) {
-            this.f12807a = interfaceC1177a;
+        public a(a.InterfaceC1218a interfaceC1218a) {
+            this.f12808a = interfaceC1218a;
         }
 
         void a() {
@@ -57,45 +57,45 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
             switch (aDEvent.getType()) {
                 case 2:
                     this.e.offer(aDEvent);
-                    if (this.f12807a != null && !this.c) {
+                    if (this.f12808a != null && !this.c) {
                         this.c = true;
-                        this.f12807a.a();
+                        this.f12808a.a();
                     }
-                    if (this.f12807a == null || !this.f12808b) {
+                    if (this.f12808a == null || !this.f12809b) {
                         return;
                     }
-                    this.f12807a.b(aDEvent);
+                    this.f12808a.b(aDEvent);
                     return;
                 case 4:
-                    if (this.f12807a != null) {
-                        this.f12807a.b();
+                    if (this.f12808a != null) {
+                        this.f12808a.b();
                         break;
                     }
                     break;
                 case 6:
-                    if (this.f12807a != null) {
-                        this.f12807a.b(aDEvent);
-                        this.f12807a.c();
+                    if (this.f12808a != null) {
+                        this.f12808a.b(aDEvent);
+                        this.f12808a.c();
                         return;
                     }
                     return;
                 case 7:
-                    this.f12808b = true;
-                    if (this.f12807a != null) {
-                        if (this.f12807a.a(aDEvent)) {
+                    this.f12809b = true;
+                    if (this.f12808a != null) {
+                        if (this.f12808a.a(aDEvent)) {
                             this.d = true;
                         }
                         if (this.d) {
-                            this.f12807a.b(aDEvent);
+                            this.f12808a.b(aDEvent);
                         }
                     }
                     this.e.offer(aDEvent);
                     return;
             }
-            if (!this.f12808b || this.f12807a == null) {
+            if (!this.f12809b || this.f12808a == null) {
                 return;
             }
-            this.f12807a.b(aDEvent);
+            this.f12808a.b(aDEvent);
         }
     }
 
@@ -111,8 +111,8 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
     /* renamed from: a  reason: avoid collision after fix types in other method */
     public int b(final BaseSplashAd baseSplashAd) {
         final long currentTimeMillis = System.currentTimeMillis();
-        a aVar = new a(new a.InterfaceC1177a() { // from class: com.qq.e.comm.plugin.splash.d.1
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+        a aVar = new a(new a.InterfaceC1218a() { // from class: com.qq.e.comm.plugin.splash.d.1
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public void a() {
                 if (d.this.j()) {
                     return;
@@ -123,7 +123,7 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
                 }
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public boolean a(ADEvent aDEvent) {
                 int i;
                 boolean z;
@@ -149,12 +149,12 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
                 return false;
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public void b() {
                 d.this.a((d) baseSplashAd, 70142);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public void b(ADEvent aDEvent) {
                 if (d.this.h == null || !d.this.d((d) baseSplashAd)) {
                     return;
@@ -162,7 +162,7 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
                 d.this.h.onADEvent(aDEvent);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public void c() {
                 d.this.b((d) baseSplashAd, 70132);
             }
@@ -194,7 +194,7 @@ class d extends com.qq.e.comm.plugin.r.a.a<BaseSplashAd> implements NSPVI {
     public BaseSplashAd b(com.qq.e.comm.plugin.r.b.c cVar) {
         if (cVar != null) {
             try {
-                return com.qq.e.comm.plugin.splash.a.a(cVar.e(), this.f12658a, cVar.b(), cVar.g());
+                return com.qq.e.comm.plugin.splash.a.a(cVar.e(), this.f12659a, cVar.b(), cVar.g());
             } catch (Exception e) {
                 a(70152, cVar);
                 e.printStackTrace();

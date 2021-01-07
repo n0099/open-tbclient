@@ -11,7 +11,7 @@ public final class b {
     private ArrayList<com.baidu.swan.apps.ao.e.b<Exception>> dPc = new ArrayList<>();
     private ArrayList<com.baidu.swan.apps.ao.e.b<Exception>> dPd = new ArrayList<>();
 
-    public static b aPU() {
+    public static b aPV() {
         if (dPb == null) {
             synchronized (b.class) {
                 if (dPb == null) {

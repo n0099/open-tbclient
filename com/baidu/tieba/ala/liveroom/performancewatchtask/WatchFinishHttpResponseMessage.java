@@ -22,7 +22,7 @@ public class WatchFinishHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public c cmO() {
+    public c cmP() {
         return this.hML;
     }
 }

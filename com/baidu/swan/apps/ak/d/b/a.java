@@ -19,7 +19,7 @@ public class a {
     private a() {
     }
 
-    public static a aQf() {
+    public static a aQg() {
         return C0379a.dPz;
     }
 

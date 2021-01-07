@@ -29,14 +29,14 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
     private View kdX;
     private BdUniqueId ked;
     private TextView kss;
-    private v lPG;
-    private View lPH;
-    private DynamicUserLikeButton lPI;
+    private v lPF;
+    private View lPG;
+    private DynamicUserLikeButton lPH;
+    private TextView lPI;
     private TextView lPJ;
-    private TextView lPK;
+    private View lPK;
     private View lPL;
-    private View lPM;
-    private NEGFeedBackView lPN;
+    private NEGFeedBackView lPM;
     private TbPageContext pageContext;
     private com.baidu.tieba.pb.data.f pbData;
 
@@ -47,16 +47,16 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
         this.ked = bdUniqueId;
         if (view != null) {
             this.kdX = view.findViewById(R.id.rootLayout);
-            this.lPH = view.findViewById(R.id.top_divider_line);
+            this.lPG = view.findViewById(R.id.top_divider_line);
             this.eKc = (TextView) view.findViewById(R.id.titleView);
-            this.lPI = (DynamicUserLikeButton) view.findViewById(R.id.followBtn);
-            this.lPJ = (TextView) view.findViewById(R.id.alaStateView);
+            this.lPH = (DynamicUserLikeButton) view.findViewById(R.id.followBtn);
+            this.lPI = (TextView) view.findViewById(R.id.alaStateView);
             this.kdS = (TbImageView) view.findViewById(R.id.coverView);
             this.kss = (TextView) view.findViewById(R.id.descView);
-            this.lPK = (TextView) view.findViewById(R.id.hotView);
-            this.lPL = view.findViewById(R.id.hotPoint);
-            this.lPM = view.findViewById(R.id.bottomSpaceView);
-            this.lPI.setTextSize(R.dimen.tbds28);
+            this.lPJ = (TextView) view.findViewById(R.id.hotView);
+            this.lPK = view.findViewById(R.id.hotPoint);
+            this.lPL = view.findViewById(R.id.bottomSpaceView);
+            this.lPH.setTextSize(R.dimen.tbds28);
             this.kdS.setPlaceHolder(2);
             this.kdS.setRadius(com.baidu.adp.lib.util.l.getDimens(view.getContext(), R.dimen.tbds10));
             this.kdS.setConrers(15);
@@ -66,41 +66,41 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
     public void a(v vVar) {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         if (vVar != null) {
-            this.lPG = vVar;
+            this.lPF = vVar;
             this.kdX.setOnClickListener(this);
             this.kdS.startLoad(vVar.cover, 10, false);
             if (vVar.liveStatus == 1 && vVar.liveId > 0) {
-                this.lPJ.setVisibility(0);
+                this.lPI.setVisibility(0);
             } else {
-                this.lPJ.setVisibility(8);
+                this.lPI.setVisibility(8);
             }
             this.kss.setText(vVar.description);
             this.eKc.setText(String.format(this.eKc.getContext().getResources().getString(R.string.pb_ala_name), com.baidu.tbadk.core.util.at.getFixedText(vVar.userName, 7, true)));
-            this.lPK.setText(String.format(this.lPK.getContext().getResources().getString(R.string.pb_ala_audience_count), com.baidu.tbadk.core.util.at.numFormatOverWan(vVar.lPC)));
-            this.lPM.setVisibility(vVar.lPE ? 8 : 0);
-            b(vVar.lPF);
-            dpN();
+            this.lPJ.setText(String.format(this.lPJ.getContext().getResources().getString(R.string.pb_ala_audience_count), com.baidu.tbadk.core.util.at.numFormatOverWan(vVar.lPB)));
+            this.lPL.setVisibility(vVar.lPD ? 8 : 0);
+            b(vVar.lPE);
+            dpO();
         }
     }
 
     private void b(com.baidu.tbadk.core.data.at atVar) {
         if (this.pageContext != null) {
             if (atVar == null) {
-                if (this.lPN != null) {
-                    this.lPN.setVisibility(8);
+                if (this.lPM != null) {
+                    this.lPM.setVisibility(8);
                     return;
                 }
                 return;
             }
-            if (this.lPN == null) {
+            if (this.lPM == null) {
                 int dimens = com.baidu.adp.lib.util.l.getDimens(this.pageContext.getPageActivity(), R.dimen.tbds44);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(com.baidu.adp.lib.util.l.getDimens(this.pageContext.getPageActivity(), R.dimen.tbds130), com.baidu.adp.lib.util.l.getDimens(this.pageContext.getPageActivity(), R.dimen.tbds86));
                 layoutParams.addRule(11);
                 layoutParams.addRule(8, R.id.coverView);
-                this.lPN = new NEGFeedBackView(this.pageContext);
-                this.lPN.setPadding(dimens, dimens, dimens, 0);
-                ((RelativeLayout) this.kdX.findViewById(R.id.contentLayout)).addView(this.lPN, layoutParams);
-                this.lPN.setEventCallback(new NEGFeedBackView.a() { // from class: com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH.1
+                this.lPM = new NEGFeedBackView(this.pageContext);
+                this.lPM.setPadding(dimens, dimens, dimens, 0);
+                ((RelativeLayout) this.kdX.findViewById(R.id.contentLayout)).addView(this.lPM, layoutParams);
+                this.lPM.setEventCallback(new NEGFeedBackView.a() { // from class: com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH.1
                     @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.a
                     public void onNEGFeedbackWindowShow(com.baidu.tbadk.core.data.at atVar2) {
                         TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13858").an("obj_type", 1));
@@ -115,54 +115,54 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
                     }
                 });
             }
-            this.lPN.setVisibility(0);
-            this.lPN.setData(atVar);
-            this.lPN.onChangeSkinType();
+            this.lPM.setVisibility(0);
+            this.lPM.setData(atVar);
+            this.lPM.onChangeSkinType();
         }
     }
 
     private void onChangeSkinType(int i) {
         if (this.akW != i) {
             com.baidu.tbadk.core.util.ao.c(this.kdX, R.color.CAM_X0205, R.color.CAM_X0204, i);
-            com.baidu.tbadk.core.util.ao.setBackgroundColor(this.lPH, R.color.CAM_X0204);
+            com.baidu.tbadk.core.util.ao.setBackgroundColor(this.lPG, R.color.CAM_X0204);
             com.baidu.tbadk.core.util.ao.setViewTextColor(this.kss, R.color.CAM_X0105, 1, i);
             com.baidu.tbadk.core.util.ao.setViewTextColor(this.eKc, R.color.CAM_X0105, 1, i);
-            com.baidu.tbadk.core.util.ao.setViewTextColor(this.lPK, R.color.CAM_X0109, 1, i);
-            com.baidu.tbadk.core.util.ao.setViewTextColor(this.lPJ, R.color.CAM_X0101, 1, i);
-            if (this.lPN != null) {
-                this.lPN.onChangeSkinType();
+            com.baidu.tbadk.core.util.ao.setViewTextColor(this.lPJ, R.color.CAM_X0109, 1, i);
+            com.baidu.tbadk.core.util.ao.setViewTextColor(this.lPI, R.color.CAM_X0101, 1, i);
+            if (this.lPM != null) {
+                this.lPM.onChangeSkinType();
             }
-            this.lPL.setBackgroundDrawable(com.baidu.tbadk.core.util.ao.aO(com.baidu.adp.lib.util.l.getDimens(this.lPL.getContext(), R.dimen.tbds32), com.baidu.tbadk.core.util.ao.getColor(R.color.CAM_X0309)));
-            int dimens = com.baidu.adp.lib.util.l.getDimens(this.lPJ.getContext(), R.dimen.tbds10);
-            com.baidu.tbadk.core.util.f.a.bwU().qq(0).b("TL_BR", R.color.CAM_X0308, R.color.CAM_X0301).ag(dimens).ah(dimens).bz(this.lPJ);
-            this.lPI.onChangeSkinType(i);
+            this.lPK.setBackgroundDrawable(com.baidu.tbadk.core.util.ao.aO(com.baidu.adp.lib.util.l.getDimens(this.lPK.getContext(), R.dimen.tbds32), com.baidu.tbadk.core.util.ao.getColor(R.color.CAM_X0309)));
+            int dimens = com.baidu.adp.lib.util.l.getDimens(this.lPI.getContext(), R.dimen.tbds10);
+            com.baidu.tbadk.core.util.f.a.bwV().qq(0).b("TL_BR", R.color.CAM_X0308, R.color.CAM_X0301).ag(dimens).ah(dimens).bz(this.lPI);
+            this.lPH.onChangeSkinType(i);
         }
         this.akW = i;
     }
 
-    private void dpN() {
-        if (this.lPG == null || this.lPG.eTY == null) {
-            this.lPI.setVisibility(8);
+    private void dpO() {
+        if (this.lPF == null || this.lPF.eTY == null) {
+            this.lPH.setVisibility(8);
             return;
         }
-        this.lPI.setVisibility(0);
+        this.lPH.setVisibility(0);
         if (this.alC == null) {
-            this.alC = new com.baidu.tbadk.core.view.userLike.c(this.pageContext, this.lPI);
+            this.alC = new com.baidu.tbadk.core.view.userLike.c(this.pageContext, this.lPH);
             this.alC.l(this.ked);
         }
-        this.alC.a(this.lPG.eTY);
-        this.lPI.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH.2
+        this.alC.a(this.lPF.eTY);
+        this.lPH.setOnClickEvent(new DynamicUserLikeButton.a() { // from class: com.baidu.tieba.pb.pb.main.PbImageAlaRecommendVH.2
             @Override // com.baidu.tieba.view.DynamicUserLikeButton.a
             public void cQ(View view) {
                 String str;
-                if (PbImageAlaRecommendVH.this.pbData != null && PbImageAlaRecommendVH.this.pbData.getForum() != null && PbImageAlaRecommendVH.this.lPG != null && PbImageAlaRecommendVH.this.lPG.eTY != null) {
+                if (PbImageAlaRecommendVH.this.pbData != null && PbImageAlaRecommendVH.this.pbData.getForum() != null && PbImageAlaRecommendVH.this.lPF != null && PbImageAlaRecommendVH.this.lPF.eTY != null) {
                     com.baidu.tbadk.core.util.aq dX = new com.baidu.tbadk.core.util.aq("c13718").dX("fid", PbImageAlaRecommendVH.this.pbData.getForum().getId()).dX("fname", PbImageAlaRecommendVH.this.pbData.getForum().getName()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", PbImageAlaRecommendVH.this.pbData.getThreadId());
-                    if (PbImageAlaRecommendVH.this.lPG.eTY != null) {
-                        str = PbImageAlaRecommendVH.this.lPG.eTY.getUserId();
+                    if (PbImageAlaRecommendVH.this.lPF.eTY != null) {
+                        str = PbImageAlaRecommendVH.this.lPF.eTY.getUserId();
                     } else {
                         str = "";
                     }
-                    TiebaStatic.log(dX.dX("friend_uid", str).an("obj_type", PbImageAlaRecommendVH.this.lPG.eTY.getIsLike() ? 0 : 1));
+                    TiebaStatic.log(dX.dX("friend_uid", str).an("obj_type", PbImageAlaRecommendVH.this.lPF.eTY.getIsLike() ? 0 : 1));
                 }
             }
         });
@@ -171,9 +171,9 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         int id = view.getId();
-        if (this.lPG != null && id == R.id.rootLayout) {
-            b(this.lPG);
-            c(this.lPG);
+        if (this.lPF != null && id == R.id.rootLayout) {
+            b(this.lPF);
+            c(this.lPF);
         }
     }
 
@@ -190,7 +190,7 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
     }
 
     private void eI(String str, String str2) {
-        be.bwu().b(this.pageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
+        be.bwv().b(this.pageContext, new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
     }
 
     private void c(v vVar) {
@@ -200,10 +200,10 @@ public class PbImageAlaRecommendVH extends TypeAdapter.ViewHolder implements Vie
     }
 
     public void i(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar != null && fVar.getForum() != null && this.lPG != null && !this.lPG.lPD) {
+        if (fVar != null && fVar.getForum() != null && this.lPF != null && !this.lPF.lPC) {
             this.pbData = fVar;
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13708").dX("fid", fVar.getForum().getId()).dX("fname", fVar.getForum().getName()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", fVar.getThreadId()).dX("obj_param1", this.lPG.eTY != null ? this.lPG.eTY.getUserId() : ""));
-            this.lPG.lPD = true;
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c13708").dX("fid", fVar.getForum().getId()).dX("fname", fVar.getForum().getName()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", fVar.getThreadId()).dX("obj_param1", this.lPF.eTY != null ? this.lPF.eTY.getUserId() : ""));
+            this.lPF.lPC = true;
         }
     }
 }

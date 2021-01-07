@@ -44,7 +44,7 @@ public class e extends g {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    protected int cgi() {
+    protected int cgj() {
         return this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds456) * 2;
     }
 
@@ -66,14 +66,14 @@ public class e extends g {
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     protected boolean onBackKeyDown() {
         if (this.hxb != null) {
-            this.hxb.cgw();
+            this.hxb.cgx();
             return true;
         }
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void Im(String str) {
+    public void Il(String str) {
         this.bvS = str;
     }
 
@@ -91,7 +91,7 @@ public class e extends g {
             } else {
                 dVar = (d) this.mListView.getAdapter2().getWrappedAdapter();
             }
-            if (dVar.cgm() == null) {
+            if (dVar.cgn() == null) {
                 dVar.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.e.1
                     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.d.a
                     public void e(com.baidu.live.challenge.d dVar2) {
@@ -122,7 +122,7 @@ public class e extends g {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cgp() {
+    public void cgq() {
         if (this.mListView != null && (this.mListView.getWrappedAdapter() instanceof BaseAdapter)) {
             ((BaseAdapter) this.mListView.getWrappedAdapter()).notifyDataSetChanged();
         }
@@ -176,7 +176,7 @@ public class e extends g {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (e.this.hxb != null) {
-                    e.this.hxb.cgw();
+                    e.this.hxb.cgx();
                 }
             }
         });

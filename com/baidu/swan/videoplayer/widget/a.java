@@ -34,7 +34,7 @@ public class a implements com.baidu.swan.apps.inlinewidget.b.a {
 
     @Override // com.baidu.swan.apps.inlinewidget.d
     @Nullable
-    public String azt() {
+    public String azu() {
         return null;
     }
 
@@ -45,7 +45,7 @@ public class a implements com.baidu.swan.apps.inlinewidget.b.a {
     }
 
     public Context getContext() {
-        return com.baidu.swan.apps.t.a.aAr();
+        return com.baidu.swan.apps.t.a.aAs();
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.b.a

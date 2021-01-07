@@ -84,7 +84,7 @@ public class EfficientProgressBar extends View {
     }
 
     @TargetApi(11)
-    private void aKj() {
+    private void aKk() {
         int width = (getWidth() - getPaddingLeft()) - getPaddingRight();
         float f = -1.0f;
         if (width > 0) {
@@ -146,7 +146,7 @@ public class EfficientProgressBar extends View {
             i = 10000;
         }
         this.dyE = i;
-        aKj();
+        aKk();
         if (z) {
             postInvalidateDelayed(50L);
         } else {

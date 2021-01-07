@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaOnLineHttpResponseMess
 /* loaded from: classes11.dex */
 public class k extends BdBaseModel {
     private TbPageContext mPageContext;
-    private a oEN;
+    private a oEM;
     private HttpMessageListener messageListener = new HttpMessageListener(1031036) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.k.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaOnLineHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == k.this.bwz && k.this.oEN != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaOnLineHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == k.this.bwz && k.this.oEM != null) {
                 AlaOnLineHttpResponseMessage alaOnLineHttpResponseMessage = (AlaOnLineHttpResponseMessage) httpResponsedMessage;
                 if (alaOnLineHttpResponseMessage.getError() != 0 || !alaOnLineHttpResponseMessage.isSuccess()) {
-                    k.this.oEN.onFail(alaOnLineHttpResponseMessage.getError(), alaOnLineHttpResponseMessage.getErrorString());
+                    k.this.oEM.onFail(alaOnLineHttpResponseMessage.getError(), alaOnLineHttpResponseMessage.getErrorString());
                 } else {
-                    k.this.oEN.a(alaOnLineHttpResponseMessage);
+                    k.this.oEM.a(alaOnLineHttpResponseMessage);
                 }
             }
         }
@@ -38,12 +38,12 @@ public class k extends BdBaseModel {
     public k(TbPageContext tbPageContext, a aVar) {
         setUniqueId(this.bwz);
         this.mPageContext = tbPageContext;
-        this.oEN = aVar;
-        bmf();
+        this.oEM = aVar;
+        bmg();
         registerListener(this.messageListener);
     }
 
-    private void bmf() {
+    private void bmg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031036, com.baidu.live.a.aAH + "ala/audio/link/isOnLine");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

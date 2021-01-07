@@ -14,11 +14,11 @@ public abstract class h {
         this.eGW += i;
     }
 
-    public b bls() {
+    public b blt() {
         return this.eGV;
     }
 
-    public long blt() {
+    public long blu() {
         return this.eGW;
     }
 

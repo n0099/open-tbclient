@@ -28,7 +28,7 @@ public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
                     Object tag = view.getTag(m.jcg);
                     if (tag != null && !tag.toString().equals("")) {
-                        be.bwu().b((TbPageContext) com.baidu.adp.base.j.K(m.this.mContext), new String[]{tag.toString()});
+                        be.bwv().b((TbPageContext) com.baidu.adp.base.j.K(m.this.mContext), new String[]{tag.toString()});
                         return;
                     }
                     return;
@@ -62,16 +62,16 @@ public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
                     ao.setViewTextColor(privateMgrApplyViewHolder.jcd, R.color.CAM_X0105, 1);
                     ao.setBackgroundResource(privateMgrApplyViewHolder.jcf, R.drawable.frs_member_manito_bg);
                 }
-                int cDw = nVar.cDw();
+                int cDx = nVar.cDx();
                 String string = this.mContext.getResources().getString(R.string.tbtitle_quota_is_full);
-                if (cDw == -1) {
-                    int cDu = nVar.cDu();
-                    String numberUniformFormat = at.numberUniformFormat(cDu);
-                    if (cDu > 0) {
+                if (cDx == -1) {
+                    int cDv = nVar.cDv();
+                    String numberUniformFormat = at.numberUniformFormat(cDv);
+                    if (cDv > 0) {
                         string = String.format(this.mContext.getResources().getString(R.string.tbtitle_apply_assist_left_num_tip), numberUniformFormat);
                         privateMgrApplyViewHolder.jcf.setOnClickListener(this.mClickListener);
                         privateMgrApplyViewHolder.jce.setText(string);
-                        privateMgrApplyViewHolder.jcf.setTag(jcg, nVar.cDv());
+                        privateMgrApplyViewHolder.jcf.setTag(jcg, nVar.cDw());
                         privateMgrApplyViewHolder.jcf.setEnabled(z);
                         privateMgrApplyViewHolder.jcf.setClickable(z);
                         privateMgrApplyViewHolder.jce.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
@@ -80,25 +80,25 @@ public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
                     z = false;
                     privateMgrApplyViewHolder.jcf.setOnClickListener(this.mClickListener);
                     privateMgrApplyViewHolder.jce.setText(string);
-                    privateMgrApplyViewHolder.jcf.setTag(jcg, nVar.cDv());
+                    privateMgrApplyViewHolder.jcf.setTag(jcg, nVar.cDw());
                     privateMgrApplyViewHolder.jcf.setEnabled(z);
                     privateMgrApplyViewHolder.jcf.setClickable(z);
                     privateMgrApplyViewHolder.jce.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
                     privateMgrApplyViewHolder.mSkinType = this.mSkinType;
                 } else {
-                    if (cDw == 0) {
+                    if (cDx == 0) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_is_assist);
-                    } else if (cDw == 1) {
+                    } else if (cDx == 1) {
                         string = this.mContext.getResources().getString(R.string.tbtitle_assist_applying);
                     } else {
-                        if (cDw == 2) {
+                        if (cDx == 2) {
                             string = this.mContext.getResources().getString(R.string.tbtitle_assist_apply_failed);
                         }
                         z = false;
                     }
                     privateMgrApplyViewHolder.jcf.setOnClickListener(this.mClickListener);
                     privateMgrApplyViewHolder.jce.setText(string);
-                    privateMgrApplyViewHolder.jcf.setTag(jcg, nVar.cDv());
+                    privateMgrApplyViewHolder.jcf.setTag(jcg, nVar.cDw());
                     privateMgrApplyViewHolder.jcf.setEnabled(z);
                     privateMgrApplyViewHolder.jcf.setClickable(z);
                     privateMgrApplyViewHolder.jce.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, ao.getDrawable(R.drawable.icon_arrow12_gray66_right), (Drawable) null);
@@ -121,7 +121,7 @@ public class m extends com.baidu.tieba.frs.k<n, PrivateMgrApplyViewHolder> {
         if (this.fso == null) {
             this.fso = new com.baidu.tbadk.coreExtra.view.b(activity);
         }
-        this.fso.bDb();
+        this.fso.bDc();
         this.fso.setAccountData(accountData);
         this.fso.se(1);
     }

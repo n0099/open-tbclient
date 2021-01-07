@@ -10,11 +10,11 @@ import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, List<String>> f13032a = new HashMap();
+    private Map<String, List<String>> f13033a = new HashMap();
 
     public a(String str) {
         if (TextUtils.isEmpty(str)) {
@@ -31,7 +31,7 @@ class a {
                     for (int i = 0; i < optJSONArray.length(); i++) {
                         arrayList.add(optJSONArray.getString(i));
                     }
-                    this.f13032a.put(next, arrayList);
+                    this.f13033a.put(next, arrayList);
                 }
             }
         } catch (JSONException e) {
@@ -42,7 +42,7 @@ class a {
     public List<String> a(String str) {
         List<String> list;
         synchronized (this) {
-            list = this.f13032a.get(str);
+            list = this.f13033a.get(str);
             if (list == null) {
                 list = new ArrayList<>();
             }
@@ -62,13 +62,13 @@ class a {
                 a2.add(str2);
                 z = true;
             }
-            this.f13032a.put(str, a2);
+            this.f13033a.put(str, a2);
         }
         return z;
     }
 
     @NonNull
     public String toString() {
-        return new JSONObject(this.f13032a).toString();
+        return new JSONObject(this.f13033a).toString();
     }
 }

@@ -12,11 +12,11 @@ public class a {
     }
 
     public c connectSocket(JsObject jsObject) {
-        return new c(bbn(), this.efi).j(jsObject);
+        return new c(bbo(), this.efi).j(jsObject);
     }
 
     @NonNull
-    private b bbn() {
+    private b bbo() {
         if (this.elW == null) {
             this.elW = new b();
         }

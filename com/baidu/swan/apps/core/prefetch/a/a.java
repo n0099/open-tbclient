@@ -16,7 +16,7 @@ public final class a {
     private static final boolean mIsOn;
 
     static {
-        mIsOn = ProcessUtils.isMainProcess() ? nT("swan_prefetch_app_data") : auJ();
+        mIsOn = ProcessUtils.isMainProcess() ? nT("swan_prefetch_app_data") : auK();
         if (DEBUG) {
             Log.i("PrefetchABSwitcher", "prefetch switch - " + mIsOn);
         }
@@ -27,27 +27,27 @@ public final class a {
     }
 
     private static boolean nT(String str) {
-        int auI;
+        int auJ;
         if (DEBUG) {
-            if (com.baidu.swan.apps.ad.a.a.aIt() || (auI = auI()) == 1) {
+            if (com.baidu.swan.apps.ad.a.a.aIu() || (auJ = auJ()) == 1) {
                 return true;
             }
-            if (auI == 0) {
+            if (auJ == 0) {
                 return false;
             }
         }
-        int i = com.baidu.swan.apps.t.a.aAu().getSwitch(str, 0);
+        int i = com.baidu.swan.apps.t.a.aAv().getSwitch(str, 0);
         if (DEBUG) {
             Log.d("PrefetchABSwitcher", str + " value from AB : " + i);
         }
         return i == 1;
     }
 
-    private static int auI() {
+    private static int auJ() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("swan_prefetch_app_data", -1);
     }
 
-    private static boolean auJ() {
+    private static boolean auK() {
         boolean z = false;
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
         DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), C0433a.class, null);
@@ -60,7 +60,7 @@ public final class a {
         return z;
     }
 
-    public static boolean auK() {
+    public static boolean auL() {
         return !ag.uT("3.210.0");
     }
 

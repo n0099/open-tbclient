@@ -1,5 +1,5 @@
 package com.baidu.mapapi.walknavi.model;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public enum WalkRoutePlanError {
     SERVER_UNUSUAL,
     PARSE_FAIL,

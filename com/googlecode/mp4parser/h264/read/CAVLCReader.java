@@ -4,7 +4,7 @@ import com.googlecode.mp4parser.h264.BTree;
 import com.googlecode.mp4parser.h264.Debug;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class CAVLCReader extends BitstreamReader {
     public CAVLCReader(InputStream inputStream) throws IOException {
         super(inputStream);

@@ -21,7 +21,7 @@ public class d {
             int i;
             if (VideoReceiver.ACTION_VOLUME_CHANGED.equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
                 if (d.this.mAudioManager == null) {
-                    d.this.mAudioManager = (AudioManager) com.baidu.swan.apps.t.a.aAr().getSystemService("audio");
+                    d.this.mAudioManager = (AudioManager) com.baidu.swan.apps.t.a.aAs().getSystemService("audio");
                 }
                 for (Map.Entry entry : d.this.dPw.entrySet()) {
                     if (d.this.mAudioManager != null) {
@@ -45,7 +45,7 @@ public class d {
     private d() {
     }
 
-    public static d aQd() {
+    public static d aQe() {
         if (dPv == null) {
             synchronized (d.class) {
                 if (dPv == null) {
@@ -89,9 +89,9 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int aQe() {
+    public int aQf() {
         if (this.mAudioManager == null) {
-            this.mAudioManager = (AudioManager) com.baidu.swan.apps.t.a.aAr().getSystemService("audio");
+            this.mAudioManager = (AudioManager) com.baidu.swan.apps.t.a.aAs().getSystemService("audio");
         }
         if (this.mAudioManager != null) {
             return this.mAudioManager.getStreamMaxVolume(3);
@@ -102,13 +102,13 @@ public class d {
     private void registerReceiver() {
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(VideoReceiver.ACTION_VOLUME_CHANGED);
-        com.baidu.swan.apps.t.a.aAr().registerReceiver(this.dPx, intentFilter);
+        com.baidu.swan.apps.t.a.aAs().registerReceiver(this.dPx, intentFilter);
         this.mIsRegistered = true;
     }
 
     private void unregisterReceiver() {
         try {
-            com.baidu.swan.apps.t.a.aAr().unregisterReceiver(this.dPx);
+            com.baidu.swan.apps.t.a.aAs().unregisterReceiver(this.dPx);
             this.mIsRegistered = false;
         } catch (Exception e) {
             e.printStackTrace();
@@ -117,11 +117,11 @@ public class d {
 
     public static void release() {
         if (dPv != null) {
-            dPv.aQb();
+            dPv.aQc();
         }
     }
 
-    private void aQb() {
+    private void aQc() {
         synchronized (this) {
             this.dPw.clear();
             this.mAudioManager = null;

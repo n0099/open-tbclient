@@ -18,7 +18,7 @@ public class AlaCategoryResponseMessage extends JsonHttpResponsedMessage {
         this.gOW.dG(jSONObject.optJSONObject("data"));
     }
 
-    public b bWF() {
+    public b bWG() {
         return this.gOW;
     }
 }

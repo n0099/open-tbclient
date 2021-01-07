@@ -20,7 +20,7 @@ public class o {
         this.eQH = new ArrayList<>(3);
     }
 
-    public ArrayList<String> bzR() {
+    public ArrayList<String> bzS() {
         return this.eQH;
     }
 

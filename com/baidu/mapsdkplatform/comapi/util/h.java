@@ -19,11 +19,11 @@ import com.tencent.open.SocialOperation;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Context f3223a;
+    public static Context f3224a;
     public static String d;
     private static String h;
     private static String i;
@@ -49,7 +49,7 @@ public class h {
     private static String z = "-1";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int f3224b = Integer.parseInt(Build.VERSION.SDK);
+    public static final int f3225b = Integer.parseInt(Build.VERSION.SDK);
     public static float c = 1.0f;
     private static String A = "";
     private static Map<String, String> B = new HashMap();
@@ -95,14 +95,14 @@ public class h {
         jsonBuilder.putStringValue("net", r);
         jsonBuilder.putStringValue("cuid", A);
         jsonBuilder.key(SocialOperation.GAME_SIGNATURE).arrayValue();
-        byte[] a2 = a(f3223a);
+        byte[] a2 = a(f3224a);
         if (a2 != null) {
             for (byte b2 : a2) {
                 jsonBuilder.value((int) b2);
             }
         }
         jsonBuilder.endArrayValue();
-        jsonBuilder.putStringValue("pcn", f3223a.getPackageName());
+        jsonBuilder.putStringValue("pcn", f3224a.getPackageName());
         jsonBuilder.key("screen_x").value(i());
         jsonBuilder.key("screen_y").value(k());
         jsonBuilder.endObject();
@@ -111,7 +111,7 @@ public class h {
     }
 
     public static void b(Context context) {
-        f3223a = context;
+        f3224a = context;
         if (context.getFilesDir() != null) {
             w = context.getFilesDir().getAbsolutePath();
         }
@@ -133,7 +133,7 @@ public class h {
         B.put("os", AppMD5.encodeUrlParamsValue(l()));
         B.put("dpi", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(m()), Integer.valueOf(m()))));
         B.put("cuid", AppMD5.encodeUrlParamsValue(A));
-        B.put("pcn", AppMD5.encodeUrlParamsValue(f3223a.getPackageName()));
+        B.put("pcn", AppMD5.encodeUrlParamsValue(f3224a.getPackageName()));
         B.put("screen", AppMD5.encodeUrlParamsValue(String.format("%d,%d", Integer.valueOf(i()), Integer.valueOf(k()))));
         if (f != null) {
             f.a();
@@ -184,7 +184,7 @@ public class h {
         c = displayMetrics.density;
         o = (int) displayMetrics.xdpi;
         p = (int) displayMetrics.ydpi;
-        if (f3224b > 3) {
+        if (f3225b > 3) {
             q = displayMetrics.densityDpi;
         } else {
             q = 160;
@@ -222,7 +222,7 @@ public class h {
         jsonBuilder.key("dpi_y").value(m());
         jsonBuilder.putStringValue("net", r);
         jsonBuilder.putStringValue("cuid", A);
-        jsonBuilder.putStringValue("pcn", f3223a.getPackageName());
+        jsonBuilder.putStringValue("pcn", f3224a.getPackageName());
         jsonBuilder.key("screen_x").value(i());
         jsonBuilder.key("screen_y").value(k());
         jsonBuilder.putStringValue("appid", y);
@@ -269,7 +269,7 @@ public class h {
     public static String p() {
         String str;
         try {
-            str = LBSAuthManager.getInstance(f3223a).getCUID();
+            str = LBSAuthManager.getInstance(f3224a).getCUID();
         } catch (Exception e2) {
             str = "";
         }

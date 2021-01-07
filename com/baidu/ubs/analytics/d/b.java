@@ -14,14 +14,14 @@ public final class b {
     private static StringBuffer oOM = new StringBuffer();
 
     static {
-        if (com.baidu.ubs.analytics.d.ejy() != null) {
-            oNT = !a.ejN();
+        if (com.baidu.ubs.analytics.d.ejz() != null) {
+            oNT = !a.ejO();
             oOL = true;
             oOM.append("ABsdkLog-");
             oOM.append(new SimpleDateFormat("yyyy-MM-dd").format(new Date()));
             oOM.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             try {
-                oOM.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.ejy().getContext()).getBytes("UTF-8")));
+                oOM.append(a(com.baidu.ubs.analytics.c.i.k(com.baidu.ubs.analytics.d.ejz().getContext()).getBytes("UTF-8")));
             } catch (UnsupportedEncodingException e) {
                 j.a(e);
             } catch (Exception e2) {
@@ -31,11 +31,11 @@ public final class b {
         }
     }
 
-    public static String ejP() {
+    public static String ejQ() {
         return oOM.toString();
     }
 
-    public static void XN(String str) {
+    public static void XM(String str) {
         if (oNT) {
             Log.w("BaiDuUbs", str);
         }

@@ -52,7 +52,7 @@ public final class i {
         this.egq = str;
     }
 
-    public final Integer aYQ() {
+    public final Integer aYR() {
         return this.egr;
     }
 

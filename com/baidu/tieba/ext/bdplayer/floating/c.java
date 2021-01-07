@@ -10,15 +10,15 @@ public class c {
     public String cover = null;
     public String extra = null;
 
-    public JSONObject cAD() {
+    public JSONObject cAE() {
         return this.gVV;
     }
 
-    public JSONObject cAE() {
+    public JSONObject cAF() {
         return this.gWa;
     }
 
-    public static c JQ(String str) {
+    public static c JP(String str) {
         JSONObject jSONObject;
         try {
             jSONObject = new JSONObject(str);
@@ -37,14 +37,14 @@ public class c {
         cVar.gVV = jSONObject.optJSONObject("extra");
         cVar.gWa = jSONObject.optJSONObject("src");
         try {
+            JSONObject cAF = cVar.cAF();
+            if (cAF != null) {
+                cVar.roomId = cAF.optString("room_id");
+                cVar.cover = cAF.optString("cover");
+            }
             JSONObject cAE = cVar.cAE();
             if (cAE != null) {
-                cVar.roomId = cAE.optString("room_id");
-                cVar.cover = cAE.optString("cover");
-            }
-            JSONObject cAD = cVar.cAD();
-            if (cAD != null) {
-                cVar.extra = cAD.toString();
+                cVar.extra = cAE.toString();
                 return cVar;
             }
             return cVar;

@@ -10,12 +10,12 @@ public class e implements com.baidu.live.liveroom.d.d {
     private String mLiveId;
     private String mRoomId;
     private int mType;
-    private d okB;
-    private YuyinBannedPostListActivity okC;
-    private c okD;
+    private d okA;
+    private YuyinBannedPostListActivity okB;
+    private c okC;
 
     public e(YuyinBannedPostListActivity yuyinBannedPostListActivity, String str, String str2, String str3, int i) {
-        this.okC = yuyinBannedPostListActivity;
+        this.okB = yuyinBannedPostListActivity;
         this.mType = i;
         this.mRoomId = str3;
         this.mLiveId = str;
@@ -23,37 +23,37 @@ public class e implements com.baidu.live.liveroom.d.d {
     }
 
     public void createView() {
-        this.okB = new d(this.okC, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
+        this.okA = new d(this.okB, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
         loadData();
     }
 
     public void loadData() {
-        if (this.okD == null) {
-            this.okD = new c(this.okC.getPageContext().getContext());
-            this.okD.a(new c.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1
+        if (this.okC == null) {
+            this.okC = new c(this.okB.getPageContext().getContext());
+            this.okC.a(new c.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1
                 @Override // com.baidu.tieba.yuyinala.charm.bannedpost.c.a
                 public void a(a aVar) {
-                    if (e.this.okB != null) {
+                    if (e.this.okA != null) {
                         if (aVar == null || aVar.aJx == null || aVar.aJx.size() == 0) {
-                            e.this.okB.dM(true);
+                            e.this.okA.dM(true);
                             return;
                         }
-                        e.this.okB.Zi();
-                        e.this.okB.gp(aVar.aJx);
+                        e.this.okA.Zj();
+                        e.this.okA.gp(aVar.aJx);
                     }
                 }
 
                 @Override // com.baidu.tieba.yuyinala.charm.bannedpost.c.a
                 public void v(int i, String str) {
-                    if (e.this.okB != null) {
-                        e.this.okB.dM(false);
-                        e.this.okB.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1.1
+                    if (e.this.okA != null) {
+                        e.this.okA.dM(false);
+                        e.this.okA.n(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.e.1.1
                             @Override // android.view.View.OnClickListener
                             public void onClick(View view) {
                                 if (BdNetTypeUtil.isNetWorkAvailable()) {
                                     e.this.loadData();
                                 } else {
-                                    e.this.okC.getPageContext().showToast(e.this.okC.getResources().getString(a.h.sdk_no_network_guide));
+                                    e.this.okB.getPageContext().showToast(e.this.okB.getResources().getString(a.h.sdk_no_network_guide));
                                 }
                             }
                         });
@@ -61,15 +61,15 @@ public class e implements com.baidu.live.liveroom.d.d {
                 }
             });
         }
-        this.okD.J(this.mLiveId, this.mGroupId, this.mRoomId, this.mType + "");
+        this.okC.J(this.mLiveId, this.mGroupId, this.mRoomId, this.mType + "");
     }
 
     @Override // com.baidu.live.liveroom.d.d
     public View getPanelView() {
-        if (this.okB == null) {
+        if (this.okA == null) {
             return null;
         }
-        return this.okB.getRootView();
+        return this.okA.getRootView();
     }
 
     @Override // com.baidu.live.liveroom.d.d
@@ -97,8 +97,8 @@ public class e implements com.baidu.live.liveroom.d.d {
 
     @Override // com.baidu.live.liveroom.d.d
     public void onDestroy() {
-        if (this.okD != null) {
-            this.okD.onDestroy();
+        if (this.okC != null) {
+            this.okC.onDestroy();
         }
     }
 

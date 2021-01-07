@@ -11,10 +11,10 @@ import java.net.URL;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13062a = a.class.getName();
+    private static final String f13063a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static Boolean f13063b = Boolean.valueOf(com.sdk.base.framework.c.f.f13118b);
+    private static Boolean f13064b = Boolean.valueOf(com.sdk.base.framework.c.f.f13119b);
     private static ConnectivityManager.NetworkCallback d;
     private HttpURLConnection c;
 
@@ -27,7 +27,7 @@ public class a {
             d = new b(this, url);
             ((ConnectivityManager) context.getSystemService("connectivity")).requestNetwork(build, d);
         } catch (Exception e) {
-            com.sdk.base.framework.a.a.c.b(f13062a, e.toString(), f13063b);
+            com.sdk.base.framework.a.a.c.b(f13063a, e.toString(), f13064b);
         }
     }
 

@@ -39,7 +39,7 @@ public class b implements com.baidu.j.a.a.a {
     }
 
     @Override // com.baidu.j.a.a.a
-    public com.baidu.j.a.a.b abL() {
+    public com.baidu.j.a.a.b abM() {
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo != null) {
             com.baidu.j.a.a.b bVar = new com.baidu.j.a.a.b();

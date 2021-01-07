@@ -10,11 +10,11 @@ import java.util.Set;
 final class a {
     private static final a oOl = new a();
     private boolean ac;
-    private final Set<InterfaceC0926a> oOm = new LinkedHashSet();
+    private final Set<InterfaceC0964a> oOm = new LinkedHashSet();
 
     /* renamed from: com.baidu.ubs.analytics.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public interface InterfaceC0926a {
+    public interface InterfaceC0964a {
         void T();
 
         void U();
@@ -28,19 +28,19 @@ final class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a ejA() {
+    public static a ejB() {
         return oOl;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final Set<InterfaceC0926a> ejB() {
+    public final Set<InterfaceC0964a> ejC() {
         return this.oOm;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void a(InterfaceC0926a interfaceC0926a) {
+    public final void a(InterfaceC0964a interfaceC0964a) {
         synchronized (this.oOm) {
-            this.oOm.add(interfaceC0926a);
+            this.oOm.add(interfaceC0964a);
         }
     }
 

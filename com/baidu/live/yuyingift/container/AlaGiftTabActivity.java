@@ -241,7 +241,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     }
 
     @Override // com.baidu.live.yuyingift.panel.a.InterfaceC0246a
-    public GiftPanelSelectMicrophoneSendView.d aaE() {
+    public GiftPanelSelectMicrophoneSendView.d aaF() {
         if (this.bZn != null) {
             return this.bZn.getSelectMicrophoneList();
         }
@@ -275,9 +275,9 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     }
 
     @Override // com.baidu.live.yuyingift.panel.a.InterfaceC0246a
-    public void aaF() {
+    public void aaG() {
         if (this.bZn != null) {
-            this.bZn.aaF();
+            this.bZn.aaG();
         }
     }
 
@@ -378,15 +378,10 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     }
 
     @Override // com.baidu.live.yuyingift.container.AlaGiftTabView.a
-    public void aaG() {
-        if (this.bZn != null) {
-            this.bZn.abq();
-        }
-    }
-
-    @Override // com.baidu.live.yuyingift.container.AlaGiftTabView.a
     public void aaH() {
-        com.baidu.live.yuyingift.b.a.aaU();
+        if (this.bZn != null) {
+            this.bZn.abr();
+        }
     }
 
     @Override // com.baidu.live.yuyingift.container.AlaGiftTabView.a
@@ -411,8 +406,13 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
 
     @Override // com.baidu.live.yuyingift.container.AlaGiftTabView.a
     public void aaM() {
+        com.baidu.live.yuyingift.b.a.aaZ();
+    }
+
+    @Override // com.baidu.live.yuyingift.container.AlaGiftTabView.a
+    public void aaN() {
         if (this.bZn != null) {
-            this.bZn.abr();
+            this.bZn.abs();
         }
     }
 
@@ -429,9 +429,9 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     }
 
     @Override // com.baidu.live.yuyingift.panel.a.InterfaceC0246a
-    public void aaN() {
+    public void aaO() {
         if (this.bZn != null) {
-            this.bZn.abs();
+            this.bZn.abt();
         }
     }
 
@@ -563,7 +563,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         IJ();
         bF(z);
         bG(z);
-        aaO();
+        aaP();
         bH(z);
         bI(z);
         bJ(z);
@@ -582,13 +582,13 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         ActivityPendingTransitionFactory.enterExitAnimation(getPageContext(), 0);
     }
 
-    private void aaO() {
-        this.bZq.abd();
+    private void aaP() {
+        this.bZq.abe();
         this.bZn.setOnSelectWheatChangeListener(new GiftPanelSelectMicrophoneSendView.b() { // from class: com.baidu.live.yuyingift.container.AlaGiftTabActivity.12
             @Override // com.baidu.live.yuyingift.widget.wheatlist.GiftPanelSelectMicrophoneSendView.b
             public void onChange() {
-                AlaGiftTabActivity.this.bZp.abi();
-                AlaGiftTabActivity.this.aaP();
+                AlaGiftTabActivity.this.bZp.abj();
+                AlaGiftTabActivity.this.aaQ();
             }
         });
         this.bZn.setOnSetDataListener(new GiftPanelSelectMicrophoneSendView.c() { // from class: com.baidu.live.yuyingift.container.AlaGiftTabActivity.13
@@ -600,9 +600,9 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aaP() {
+    public void aaQ() {
         for (SupportXFragment supportXFragment : this.bcv) {
-            ((com.baidu.live.yuyingift.panel.b) supportXFragment).aaP();
+            ((com.baidu.live.yuyingift.panel.b) supportXFragment).aaQ();
         }
     }
 
@@ -735,9 +735,9 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             if (JavaTypesHelper.toInt(str, 0) <= 0) {
                 str = "1";
             }
-            com.baidu.live.yuyingift.panel.b aaQ = AlaGiftTabActivity.this.aaQ();
-            if (aaQ != null && aaQ.caX != null) {
-                aaQ.caX.hq(str);
+            com.baidu.live.yuyingift.panel.b aaR = AlaGiftTabActivity.this.aaR();
+            if (aaR != null && aaR.caX != null) {
+                aaR.caX.hq(str);
             }
         }
     }
@@ -751,9 +751,9 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
         this.bZp.setCallback(new GiftPanelDrawContainerView.a() { // from class: com.baidu.live.yuyingift.container.AlaGiftTabActivity.3
             @Override // com.baidu.live.yuyingift.widget.panel.GiftPanelDrawContainerView.a
             public void ex(int i) {
-                com.baidu.live.yuyingift.panel.b aaQ = AlaGiftTabActivity.this.aaQ();
-                if (aaQ != null && aaQ.caX != null) {
-                    aaQ.caX.eG(i);
+                com.baidu.live.yuyingift.panel.b aaR = AlaGiftTabActivity.this.aaR();
+                if (aaR != null && aaR.caX != null) {
+                    aaR.caX.eG(i);
                 }
             }
 
@@ -820,7 +820,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public com.baidu.live.yuyingift.panel.b aaQ() {
+    public com.baidu.live.yuyingift.panel.b aaR() {
         if (this.bcv == null || this.bZo == null || this.bcv.length <= this.bZo.getSelect() || !(this.bcv[this.bZo.getSelect()] instanceof com.baidu.live.yuyingift.panel.b)) {
             return null;
         }
@@ -911,7 +911,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
             view.setBackgroundColor(0);
             linearLayout.addView(view, new LinearLayout.LayoutParams(-1, IM()));
             this.mContentLayout.addView(linearLayout, 0);
-            simpleDraweeView.setController(com.facebook.drawee.a.a.c.euI().c(simpleDraweeView.getController()).bo(ImageRequestBuilder.aj(Uri.parse(alaLiveGiftUIInfo.getVerticalBgUrl())).a(com.facebook.imagepipeline.common.e.exl()).a(com.facebook.imagepipeline.common.b.exb().e(Bitmap.Config.RGB_565).exj()).eBe()).AX(true).c(new com.facebook.drawee.controller.c<f>() { // from class: com.baidu.live.yuyingift.container.AlaGiftTabActivity.7
+            simpleDraweeView.setController(com.facebook.drawee.a.a.c.euP().c(simpleDraweeView.getController()).bo(ImageRequestBuilder.aj(Uri.parse(alaLiveGiftUIInfo.getVerticalBgUrl())).a(com.facebook.imagepipeline.common.e.exN()).a(com.facebook.imagepipeline.common.b.exD().e(Bitmap.Config.RGB_565).exL()).eBI()).AX(true).c(new com.facebook.drawee.controller.c<f>() { // from class: com.baidu.live.yuyingift.container.AlaGiftTabActivity.7
                 @Override // com.facebook.drawee.controller.c
                 public void f(String str, Object obj) {
                 }
@@ -941,7 +941,7 @@ public class AlaGiftTabActivity extends BaseFragmentActivity implements View.OnT
                 @Override // com.facebook.drawee.controller.c
                 public void hm(String str) {
                 }
-            }).evz());
+            }).evG());
         }
     }
 

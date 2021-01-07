@@ -16,7 +16,7 @@ public class a {
     /* renamed from: com.baidu.swan.apps.res.widget.floatlayer.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0473a {
-        a ajn();
+        a ajo();
     }
 
     public a(@NonNull InterfaceC0473a interfaceC0473a, @NonNull ViewGroup viewGroup, int i) {
@@ -26,13 +26,13 @@ public class a {
     }
 
     public void setMask(boolean z) {
-        Container aLE = aLE();
-        if (aLE != null) {
-            aLE.setClickable(z);
+        Container aLF = aLF();
+        if (aLF != null) {
+            aLF.setClickable(z);
         }
     }
 
-    public boolean aLD() {
+    public boolean aLE() {
         return this.dFq;
     }
 
@@ -41,7 +41,7 @@ public class a {
     }
 
     @Nullable
-    private Container aLE() {
+    private Container aLF() {
         Container container;
         synchronized (this.dFp) {
             int i = 0;
@@ -64,15 +64,15 @@ public class a {
     }
 
     @NonNull
-    private Container aLF() {
-        Container aLE;
+    private Container aLG() {
+        Container aLF;
         int i;
         int i2 = -1;
         int i3 = 0;
         synchronized (this.dFp) {
-            aLE = aLE();
-            if (aLE == null) {
-                aLE = new Container(getContext());
+            aLF = aLF();
+            if (aLF == null) {
+                aLF = new Container(getContext());
                 int height = this.dFp.getHeight() - this.mMarginTop;
                 if (this.dFp instanceof LinearLayout) {
                     i = -height;
@@ -92,11 +92,11 @@ public class a {
                 }
                 LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, i2);
                 layoutParams.setMargins(0, i3, 0, 0);
-                aLE.setLayoutParams(layoutParams);
-                this.dFp.addView(aLE);
+                aLF.setLayoutParams(layoutParams);
+                this.dFp.addView(aLF);
             }
         }
-        return aLE;
+        return aLF;
     }
 
     public void reset() {
@@ -105,10 +105,10 @@ public class a {
 
     public void reset(boolean z) {
         synchronized (this.dFp) {
-            Container aLE = aLE();
-            if (!z || aLE == null || aLE.getChildCount() <= 0) {
-                if (aLE != null) {
-                    this.dFp.removeView(aLE);
+            Container aLF = aLF();
+            if (!z || aLF == null || aLF.getChildCount() <= 0) {
+                if (aLF != null) {
+                    this.dFp.removeView(aLF);
                 }
             }
         }
@@ -116,9 +116,9 @@ public class a {
 
     @Nullable
     public View getView() {
-        Container aLE = aLE();
-        if (aLE != null && aLE.getChildCount() > 0) {
-            return aLE.getChildAt(0);
+        Container aLF = aLF();
+        if (aLF != null && aLF.getChildCount() > 0) {
+            return aLF.getChildAt(0);
         }
         return null;
     }
@@ -126,25 +126,25 @@ public class a {
     public void aM(@NonNull View view) {
         if (view != getView()) {
             reset();
-            aLF().addView(view);
+            aLG().addView(view);
         }
     }
 
     public void c(@NonNull View view, ViewGroup.LayoutParams layoutParams) {
         if (view != getView()) {
             reset();
-            aLF().addView(view, layoutParams);
+            aLG().addView(view, layoutParams);
         }
     }
 
-    public boolean aLG() {
-        Container aLE = aLE();
-        if (aLE == null) {
+    public boolean aLH() {
+        Container aLF = aLF();
+        if (aLF == null) {
             return false;
         }
-        int childCount = aLE.getChildCount();
+        int childCount = aLF.getChildCount();
         for (int i = 0; i < childCount; i++) {
-            View childAt = aLE.getChildAt(i);
+            View childAt = aLF.getChildAt(i);
             if (childAt != null && childAt.getVisibility() == 0) {
                 return true;
             }

@@ -28,17 +28,17 @@ public class FrsAllThreadFragment extends BaseFragment implements ao {
         if (arguments != null) {
             this.forumId = arguments.getString("forum_id", "");
         }
-        cEE();
+        cEF();
         return this.jev;
     }
 
     public void setView(View view) {
         this.jev = view;
         this.jew = (RecyclerView) this.jev.findViewById(R.id.frs_lv_thread);
-        cEE();
+        cEF();
     }
 
-    private void cEE() {
+    private void cEF() {
         if (this.jev != null && (this.jev.getParent() instanceof ViewGroup)) {
             ((ViewGroup) this.jev.getParent()).removeView(this.jev);
             this.jev.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
@@ -46,15 +46,15 @@ public class FrsAllThreadFragment extends BaseFragment implements ao {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void cEF() {
+    public void cEG() {
         if (this.jew != null) {
             this.jew.scrollToPosition(0);
         }
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void bVE() {
-        cEF();
+    public void bVF() {
+        cEG();
         t tVar = new t();
         tVar.tabId = 1;
         tVar.geO = true;

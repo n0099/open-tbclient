@@ -12,24 +12,24 @@ import org.json.JSONException;
 public class n extends XMPushService.i {
 
     /* renamed from: a  reason: collision with root package name */
-    private XMPushService f14610a;
+    private XMPushService f14611a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f998a;
+    private String f999a;
 
     /* renamed from: a  reason: collision with other field name */
-    private byte[] f999a;
+    private byte[] f1000a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f14611b;
+    private String f14612b;
     private String c;
 
     public n(XMPushService xMPushService, String str, String str2, String str3, byte[] bArr) {
         super(9);
-        this.f14610a = xMPushService;
-        this.f998a = str;
-        this.f999a = bArr;
-        this.f14611b = str2;
+        this.f14611a = xMPushService;
+        this.f999a = str;
+        this.f1000a = bArr;
+        this.f14612b = str2;
         this.c = str3;
     }
 
@@ -47,10 +47,10 @@ public class n extends XMPushService.i {
     public void a() {
         k kVar;
         ap.b next;
-        k a2 = l.a((Context) this.f14610a);
+        k a2 = l.a((Context) this.f14611a);
         if (a2 == null) {
             try {
-                kVar = l.a(this.f14610a, this.f998a, this.f14611b, this.c);
+                kVar = l.a(this.f14611a, this.f999a, this.f14612b, this.c);
             } catch (IOException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
                 kVar = a2;
@@ -59,34 +59,34 @@ public class n extends XMPushService.i {
             }
             if (kVar != null) {
                 com.xiaomi.channel.commonutils.logger.b.d("no account for mipush");
-                o.a(this.f14610a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
+                o.a(this.f14611a, ErrorCode.ERROR_AUTHERICATION_ERROR, "no account.");
                 return;
             }
-            Collection<ap.b> m564a = ap.a().m564a("5");
-            if (m564a.isEmpty()) {
-                next = kVar.a(this.f14610a);
-                w.a(this.f14610a, next);
+            Collection<ap.b> m575a = ap.a().m575a("5");
+            if (m575a.isEmpty()) {
+                next = kVar.a(this.f14611a);
+                w.a(this.f14611a, next);
                 ap.a().a(next);
             } else {
-                next = m564a.iterator().next();
+                next = m575a.iterator().next();
             }
-            if (!this.f14610a.m545c()) {
-                this.f14610a.a(true);
+            if (!this.f14611a.m556c()) {
+                this.f14611a.a(true);
                 return;
             }
             try {
-                if (next.f936a == ap.c.binded) {
-                    w.a(this.f14610a, this.f998a, this.f999a);
-                } else if (next.f936a == ap.c.unbind) {
-                    XMPushService xMPushService = this.f14610a;
-                    XMPushService xMPushService2 = this.f14610a;
+                if (next.f937a == ap.c.binded) {
+                    w.a(this.f14611a, this.f999a, this.f1000a);
+                } else if (next.f937a == ap.c.unbind) {
+                    XMPushService xMPushService = this.f14611a;
+                    XMPushService xMPushService2 = this.f14611a;
                     xMPushService2.getClass();
                     xMPushService.a(new XMPushService.a(next));
                 }
                 return;
             } catch (gd e3) {
                 com.xiaomi.channel.commonutils.logger.b.a(e3);
-                this.f14610a.a(10, e3);
+                this.f14611a.a(10, e3);
                 return;
             }
         }

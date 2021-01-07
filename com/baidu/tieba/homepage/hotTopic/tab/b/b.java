@@ -11,7 +11,7 @@ public class b implements n {
         this.kdG = frsTabInfoData;
     }
 
-    public FrsTabInfoData cFJ() {
+    public FrsTabInfoData cFK() {
         return this.kdG;
     }
 

@@ -10,7 +10,7 @@ public class b {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public static com.baidu.swan.apps.extcore.b.b iM(int i) {
-        return i == 1 ? c.axO() : a.axL();
+        return i == 1 ? c.axP() : a.axM();
     }
 
     public static void a(int i, @Nullable com.baidu.swan.apps.ao.e.b<Exception> bVar) {
@@ -22,13 +22,13 @@ public class b {
     }
 
     public static ExtensionCore iN(int i) {
-        return iM(i).avW();
+        return iM(i).avX();
     }
 
     public static String iO(int i) {
-        ExtensionCore avW = iM(i).avW();
-        if (avW != null) {
-            String str = avW.extensionCoreVersionName;
+        ExtensionCore avX = iM(i).avX();
+        if (avX != null) {
+            String str = avX.extensionCoreVersionName;
             return TextUtils.isEmpty(str) ? "" : str;
         }
         return "";
@@ -39,9 +39,9 @@ public class b {
             Log.d("SwanExtCore-Manager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
         }
         if ("com.baidu.searchbox.smartapp".equals(AppRuntime.getAppContext().getPackageName()) || i != i2) {
-            a axL = a.axL();
-            axL.axS().ce(0L);
-            axL.axR().ce(0L);
+            a axM = a.axM();
+            axM.axT().ce(0L);
+            axM.axS().ce(0L);
             com.baidu.swan.apps.extcore.f.a.z(0, true);
             com.baidu.swan.apps.extcore.f.a.z(1, true);
         }

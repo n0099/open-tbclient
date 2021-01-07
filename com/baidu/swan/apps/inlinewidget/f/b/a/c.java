@@ -9,28 +9,28 @@ public class c extends b {
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.b.a.b, com.baidu.swan.apps.inlinewidget.f.b.a.a
-    public void azW() {
+    public void azX() {
         if (this.dhd.pj("video_will_play")) {
             this.dhd.pi("video_play_cancel");
         }
-        azP();
+        azQ();
     }
 
     @Override // com.baidu.swan.apps.inlinewidget.f.b.a.b, com.baidu.swan.apps.inlinewidget.f.b.a.a
     public void fO(boolean z) {
         if (this.dhd.isFinished()) {
-            this.dhd.azQ();
-            com.baidu.swan.apps.inlinewidget.f.b.b.azT();
+            this.dhd.azR();
+            com.baidu.swan.apps.inlinewidget.f.b.b.azU();
             return;
         }
         this.dhd.bO("fmpArrived", z ? "1" : "0");
     }
 
-    private void azP() {
-        this.dhd.azP();
+    private void azQ() {
+        this.dhd.azQ();
         if (this.dhd.pk("fmpArrived")) {
-            this.dhd.azQ();
-            com.baidu.swan.apps.inlinewidget.f.b.b.azT();
+            this.dhd.azR();
+            com.baidu.swan.apps.inlinewidget.f.b.b.azU();
         }
     }
 }

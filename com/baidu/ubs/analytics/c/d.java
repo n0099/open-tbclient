@@ -16,7 +16,7 @@ public final class d {
         this.oOp = new Stack<>();
     }
 
-    public final Stack<WeakReference<Activity>> ejC() {
+    public final Stack<WeakReference<Activity>> ejD() {
         return this.oOp;
     }
 
@@ -40,11 +40,11 @@ public final class d {
                 i = i2 + 1;
             }
         }
-        afN();
+        afO();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final String afN() {
+    public final String afO() {
         StringBuilder sb = new StringBuilder();
         for (int i = 0; i < this.oOp.size(); i++) {
             Activity activity = this.oOp.get(i).get();

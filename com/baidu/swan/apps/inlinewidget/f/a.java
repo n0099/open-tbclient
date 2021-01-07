@@ -41,7 +41,7 @@ final class a extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
                 if (a.this.dfU != null) {
                     a.this.dfU.onCallback(a.this, "onPlayed", null);
                 }
-                j.anN().P(str, true);
+                j.anO().P(str, true);
             }
 
             @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
@@ -50,7 +50,7 @@ final class a extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
                     a.this.dfU.onCallback(a.this, "onPaused", null);
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    j.anN().P(str, false);
+                    j.anO().P(str, false);
                 }
             }
 
@@ -76,7 +76,7 @@ final class a extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
             }
 
             @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
-            public void azO() {
+            public void azP() {
                 if (a.this.dfU != null) {
                     a.this.dfU.onCallback(a.this, "onVideoSizeChanged", null);
                 }
@@ -98,11 +98,11 @@ final class a extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
 
             @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
             public void hm(String str) {
-                j.anN().mj(str);
+                j.anO().mj(str);
             }
         };
         aVar.a(this.dgQ);
-        j.anN().a(aVar);
+        j.anO().a(aVar);
         this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.a());
         this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.b());
         this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.c());
@@ -144,10 +144,10 @@ final class a extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
             }
             return false;
         }
-        int aAc = ((com.baidu.swan.apps.inlinewidget.f.c.a) this.dfV).aAc();
-        if (DEBUG && aAc != 1) {
-            Log.d("LiveInlineController", "isRejectCommand: authorize type => " + ((com.baidu.swan.apps.inlinewidget.f.c.a) this.dfV).aAc() + " command=> " + (command == null ? "" : command.what));
+        int aAd = ((com.baidu.swan.apps.inlinewidget.f.c.a) this.dfV).aAd();
+        if (DEBUG && aAd != 1) {
+            Log.d("LiveInlineController", "isRejectCommand: authorize type => " + ((com.baidu.swan.apps.inlinewidget.f.c.a) this.dfV).aAd() + " command=> " + (command == null ? "" : command.what));
         }
-        return aAc == 2;
+        return aAd == 2;
     }
 }

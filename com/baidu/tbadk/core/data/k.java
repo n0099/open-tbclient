@@ -19,11 +19,11 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
         return this.bTV;
     }
 
-    public String bpl() {
+    public String bpm() {
         return this.eOR;
     }
 
-    public void AO(String str) {
+    public void AN(String str) {
         this.eOR = str;
     }
 
@@ -37,7 +37,7 @@ public class k implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bpm() {
+    public String bpn() {
         return this.eOR;
     }
 }

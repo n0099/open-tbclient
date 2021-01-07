@@ -28,9 +28,9 @@ public abstract class a {
 
     public abstract boolean ak(String str, String str2, String str3);
 
-    public abstract Map<String, f> bgc();
+    public abstract Map<String, f> bgd();
 
-    public abstract Map<String, PMSAppInfo> bgd();
+    public abstract Map<String, PMSAppInfo> bge();
 
     public abstract <T extends e> boolean c(T t);
 
@@ -62,7 +62,7 @@ public abstract class a {
 
     public abstract void yQ(String str);
 
-    public static a bgb() {
+    public static a bgc() {
         if (ews == null) {
             synchronized (a.class) {
                 if (ews == null) {

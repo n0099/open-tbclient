@@ -1,5 +1,5 @@
 package com.baidu.tieba.sdk.b;
 /* loaded from: classes11.dex */
 public interface f {
-    void Oh(String str);
+    void Og(String str);
 }

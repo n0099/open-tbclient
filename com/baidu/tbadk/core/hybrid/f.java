@@ -38,7 +38,7 @@ public class f extends WebViewClient {
     public void onPageFinished(WebView webView, String str) {
         e.debug("page " + str + " load finished.");
         if (!this.fac.contains(str)) {
-            this.eZU.BB(str);
+            this.eZU.BA(str);
         }
         this.fac.clear();
         if (this.fab != null) {

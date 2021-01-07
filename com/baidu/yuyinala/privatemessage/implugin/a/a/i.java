@@ -72,13 +72,13 @@ public class i extends c {
                 this.oSx.setPadding(paddingLeft, 0, paddingRight, this.oSx.getPaddingBottom());
             } else {
                 com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
-                ImageLoader.getInstance().displayImage(cover, this.oSm, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
+                ImageLoader.getInstance().displayImage(cover, this.oSm, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
             }
         }
-        eld();
+        ele();
         super.b(context, chatMsg);
     }
 
-    private void eld() {
+    private void ele() {
     }
 }

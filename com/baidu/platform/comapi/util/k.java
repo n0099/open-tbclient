@@ -4,7 +4,7 @@ import android.content.Context;
 import android.net.NetworkInfo;
 import android.net.Proxy;
 import com.baidu.platform.comjni.engine.NAEngine;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class k {
     /* JADX WARN: Removed duplicated region for block: B:31:0x0081  */
     /* JADX WARN: Removed duplicated region for block: B:54:0x00ee  */

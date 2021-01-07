@@ -75,7 +75,7 @@ public class c extends PopupWindow implements View.OnClickListener {
 
     public void showView() {
         if (!isShowing()) {
-            aFP();
+            aFQ();
             Activity activity = (Activity) this.mContext;
             if (activity != null && !activity.isFinishing() && !activity.isDestroyed()) {
                 this.dqk.setMode();
@@ -89,18 +89,18 @@ public class c extends PopupWindow implements View.OnClickListener {
                         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                         public void onGlobalLayout() {
                             c.this.dqk.nc(contentView.getHeight());
-                            c.this.aFQ();
+                            c.this.aFR();
                             contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         }
                     });
                 } else {
-                    aFQ();
+                    aFR();
                 }
             }
         }
     }
 
-    public void aFP() {
+    public void aFQ() {
         if (this.dqi != null) {
             this.dqi.a(this.dqk);
         }
@@ -111,7 +111,7 @@ public class c extends PopupWindow implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFQ() {
+    public void aFR() {
         this.dqj.setAlpha(0.0f);
         this.dqk.setTranslationY(this.dqk.getHeight());
         ObjectAnimator a2 = com.baidu.swan.menu.c.a(this.dqj, this.dqk);

@@ -25,14 +25,14 @@ public class CrashUploadService extends IntentService {
             String stringExtra2 = intent.getStringExtra("crash_json_value");
             String stringExtra3 = intent.getStringExtra("crash_info_file_path");
             String stringExtra4 = intent.getStringExtra("crash_dump_file_path");
-            com.bytedance.tea.crash.b.a.esw().a(getApplication());
-            if (!TextUtils.isEmpty(stringExtra2) && !TextUtils.isEmpty(stringExtra) && !com.bytedance.tea.crash.b.a.esw().a(stringExtra3) && a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
+            com.bytedance.tea.crash.b.a.esx().a(getApplication());
+            if (!TextUtils.isEmpty(stringExtra2) && !TextUtils.isEmpty(stringExtra) && !com.bytedance.tea.crash.b.a.esx().a(stringExtra3) && a(stringExtra, stringExtra2, stringExtra4, cVar).a()) {
                 if (cVar == com.bytedance.tea.crash.c.NATIVE) {
                     if (!com.bytedance.tea.crash.g.d.c(new File(stringExtra3).getParentFile(), true)) {
-                        com.bytedance.tea.crash.b.a.esw().a(com.bytedance.tea.crash.b.a.a.YY(stringExtra3));
+                        com.bytedance.tea.crash.b.a.esx().a(com.bytedance.tea.crash.b.a.a.YX(stringExtra3));
                     }
                 } else if (!TextUtils.isEmpty(stringExtra3) && !com.bytedance.tea.crash.g.d.a(stringExtra3)) {
-                    com.bytedance.tea.crash.b.a.esw().a(com.bytedance.tea.crash.b.a.a.YY(stringExtra3));
+                    com.bytedance.tea.crash.b.a.esx().a(com.bytedance.tea.crash.b.a.a.YX(stringExtra3));
                 }
             }
         }

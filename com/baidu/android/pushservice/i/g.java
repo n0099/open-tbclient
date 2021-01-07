@@ -16,10 +16,10 @@ import java.util.Enumeration;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static ConnectivityManager f1422a = null;
+    private static ConnectivityManager f1423a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static TelephonyManager f1423b = null;
+    private static TelephonyManager f1424b = null;
 
     public static boolean a(Context context) {
         NetworkInfo c = c(context);
@@ -150,23 +150,23 @@ public class g {
 
     private static ConnectivityManager j(Context context) {
         if (context == null) {
-            return f1422a;
+            return f1423a;
         }
-        if (f1422a == null) {
-            f1422a = (ConnectivityManager) context.getSystemService("connectivity");
+        if (f1423a == null) {
+            f1423a = (ConnectivityManager) context.getSystemService("connectivity");
         }
-        return f1422a;
+        return f1423a;
     }
 
     private static TelephonyManager k(Context context) {
         if (context.checkCallingOrSelfPermission("android.permission.READ_PHONE_STATE") == 0) {
             if (context == null) {
-                return f1423b;
+                return f1424b;
             }
-            if (f1423b == null) {
-                f1423b = (TelephonyManager) context.getSystemService("phone");
+            if (f1424b == null) {
+                f1424b = (TelephonyManager) context.getSystemService("phone");
             }
         }
-        return f1423b;
+        return f1424b;
     }
 }

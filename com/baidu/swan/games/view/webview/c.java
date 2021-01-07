@@ -11,7 +11,7 @@ class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(@NonNull e eVar, @NonNull a.C0551a c0551a) {
-        long j = eVar.aMo().getLong("launch_time", 0L);
+        long j = eVar.aMp().getLong("launch_time", 0L);
         if (j <= 0) {
             if (DEBUG) {
                 Log.d("GameWebViewStatistic", "doH5GameLoadingFinishStats: launchTime is invalid.");
@@ -20,9 +20,9 @@ class c {
             return;
         }
         com.baidu.swan.apps.statistic.a.e eVar2 = new com.baidu.swan.apps.statistic.a.e();
-        eVar2.mFrom = h.kX(eVar.aMo().getAppFrameType());
+        eVar2.mFrom = h.kX(eVar.aMp().getAppFrameType());
         eVar2.mAppId = eVar.getAppId();
-        eVar2.mSource = eVar.aMo().aCv();
+        eVar2.mSource = eVar.aMp().aCw();
         eVar2.mType = "startup";
         eVar2.mPage = c0551a.mGameId;
         eVar2.mValue = c0551a.eqP;

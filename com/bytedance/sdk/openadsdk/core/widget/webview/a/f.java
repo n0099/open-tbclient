@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static p f7137a;
+    private static p f7138a;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [50=4] */
     public static void a() {
@@ -28,8 +28,8 @@ public class f {
                     fileInputStream.read(bArr);
                     p a2 = p.a(new JSONObject(new String(bArr, "utf-8")));
                     if (a2 != null) {
-                        f7137a = a2;
-                        u.b("Version", "old version read success: " + f7137a.b());
+                        f7138a = a2;
+                        u.b("Version", "old version read success: " + f7138a.b());
                     }
                 } catch (Throwable th) {
                     th = th;
@@ -73,7 +73,7 @@ public class f {
     public static synchronized p b() {
         p pVar;
         synchronized (f.class) {
-            pVar = f7137a;
+            pVar = f7138a;
         }
         return pVar;
     }
@@ -82,7 +82,7 @@ public class f {
         synchronized (f.class) {
             if (pVar != null) {
                 if (pVar.e()) {
-                    f7137a = pVar;
+                    f7138a = pVar;
                 }
             }
         }
@@ -91,11 +91,11 @@ public class f {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [108=4] */
     public static void c() {
         FileOutputStream fileOutputStream;
-        if (f7137a == null) {
+        if (f7138a == null) {
             u.b("Version", "version save error1");
             return;
         }
-        String f = f7137a.f();
+        String f = f7138a.f();
         if (TextUtils.isEmpty(f)) {
             u.b("Version", "version save error2");
             return;
@@ -208,7 +208,7 @@ public class f {
                     }
                 }
             }
-            f7137a = null;
+            f7138a = null;
         }
     }
 }

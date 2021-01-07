@@ -5,10 +5,10 @@ import java.util.Map;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f7561a;
+    public int f7562a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7562b;
+    public String f7563b;
     public long c = -1;
     public long d = -1;
     public Map<String, String> e;

@@ -35,19 +35,19 @@ public class b implements CustomMessageTask.CustomRunnable<bz>, y {
             bz data = customMessage.getData();
             if (customMessage.getCmd() == 2921018) {
                 av(data);
-                com.baidu.tieba.frs.b.c.cMI().a(this.jDl, data, 1);
+                com.baidu.tieba.frs.b.c.cMJ().a(this.jDl, data, 1);
                 com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jDl, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921016) {
                 av(data);
-                com.baidu.tieba.frs.b.c.cMI().a(this.jDl, data, 2);
+                com.baidu.tieba.frs.b.c.cMJ().a(this.jDl, data, 2);
                 com.baidu.tieba.frs.b.a.a(data, 2, this.mPageId, this.jDl, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921019) {
                 av(data);
-                com.baidu.tieba.frs.b.c.cMI().a(this.jDl, data, 4);
+                com.baidu.tieba.frs.b.c.cMJ().a(this.jDl, data, 4);
                 com.baidu.tieba.frs.b.a.a(data, 1, this.mPageId, this.jDl, this.mTbPageTag);
             } else if (customMessage.getCmd() == 2921017) {
                 aw(data);
-                com.baidu.tieba.frs.b.c.cMI().a(this.jDl, data);
+                com.baidu.tieba.frs.b.c.cMJ().a(this.jDl, data);
                 com.baidu.tieba.frs.b.a.a(data, this.mPageId, this.jDl, this.mTbPageTag);
             }
         }
@@ -55,18 +55,18 @@ public class b implements CustomMessageTask.CustomRunnable<bz>, y {
     }
 
     private void av(bz bzVar) {
-        if (bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
+        if (bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
             long j = 0;
-            if (bzVar.brJ().user_info != null) {
-                j = bzVar.brJ().user_info.ala_id;
+            if (bzVar.brK().user_info != null) {
+                j = bzVar.brK().user_info.ala_id;
             }
             aq aqVar = new aq("c13615");
-            aqVar.dX("uid", bzVar.brq().getUserId());
+            aqVar.dX("uid", bzVar.brr().getUserId());
             aqVar.w("fid", bzVar.getFid());
             aqVar.dX("ab_tag", bzVar.mRecomAbTag);
-            aqVar.an("obj_type", bzVar.brJ().isChushou ? 2 : 1);
+            aqVar.an("obj_type", bzVar.brK().isChushou ? 2 : 1);
             aqVar.dX("tid", bzVar.getTid());
-            aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bzVar.brJ().live_id);
+            aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bzVar.brK().live_id);
             aqVar.w("star_id", j);
             aqVar.dX("extra", bzVar.mRecomExtra);
             aqVar.dX(VideoPlayActivityConfig.SOURCE_FROM, bzVar.mRecomSource);
@@ -80,18 +80,18 @@ public class b implements CustomMessageTask.CustomRunnable<bz>, y {
     }
 
     private void aw(bz bzVar) {
-        if (bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
+        if (bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
             long j = 0;
-            if (bzVar.brJ().user_info != null) {
-                j = bzVar.brJ().user_info.ala_id;
+            if (bzVar.brK().user_info != null) {
+                j = bzVar.brK().user_info.ala_id;
             }
             aq aqVar = new aq("c13614");
-            aqVar.dX("uid", bzVar.brq().getUserId());
+            aqVar.dX("uid", bzVar.brr().getUserId());
             aqVar.w("fid", bzVar.getFid());
             aqVar.dX("ab_tag", bzVar.mRecomAbTag);
-            aqVar.an("obj_type", bzVar.brJ().isChushou ? 2 : 1);
+            aqVar.an("obj_type", bzVar.brK().isChushou ? 2 : 1);
             aqVar.dX("tid", bzVar.getTid());
-            aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bzVar.brJ().live_id);
+            aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, bzVar.brK().live_id);
             aqVar.w("star_id", j);
             aqVar.dX("extra", bzVar.mRecomExtra);
             aqVar.dX(VideoPlayActivityConfig.SOURCE_FROM, bzVar.mRecomSource);
@@ -100,7 +100,7 @@ public class b implements CustomMessageTask.CustomRunnable<bz>, y {
             } else if (this.jDm == 13) {
                 aqVar.an("obj_locate", 2);
             }
-            s.cva().e(aqVar);
+            s.cvb().e(aqVar);
         }
     }
 

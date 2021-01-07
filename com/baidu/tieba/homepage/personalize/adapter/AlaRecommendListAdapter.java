@@ -140,8 +140,8 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                             aqVar.w("uid", TbadkApplication.getCurrentAccountId());
                             aqVar.an("fid", 0);
                             aqVar.w("tid", jVar.getThreadId());
-                            aqVar.an("obj_type", jVar.bUl());
-                            aqVar.w("star_id", jVar.cTy());
+                            aqVar.an("obj_type", jVar.bUm());
+                            aqVar.w("star_id", jVar.cTz());
                             aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
                             TiebaStatic.log(aqVar);
                         }
@@ -151,8 +151,8 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                         aqVar.w("uid", TbadkApplication.getCurrentAccountId());
                         aqVar.an("fid", 0);
                         aqVar.w("tid", jVar.getThreadId());
-                        aqVar.an("obj_type", jVar.bUl());
-                        aqVar.w("star_id", jVar.cTy());
+                        aqVar.an("obj_type", jVar.bUm());
+                        aqVar.w("star_id", jVar.cTz());
                         aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, liveId);
                         TiebaStatic.log(aqVar);
                         this.kfK.add(Long.valueOf(liveId));
@@ -253,8 +253,8 @@ public class AlaRecommendListAdapter extends RecyclerView.Adapter<AlaUserInfoVie
                 ao.setViewTextColor(this.kfR, R.color.CAM_X0101);
                 ao.setViewTextColor(this.eLt, R.color.CAM_X0105);
                 ao.setImageResource(this.kfS, R.drawable.icon_mask_live);
-                SvgManager.bwq().a(this.kfP, R.drawable.ic_icon_pure_live_stroke, SvgManager.SvgResourceStateType.NORMAL);
-                this.kfR.bxO();
+                SvgManager.bwr().a(this.kfP, R.drawable.ic_icon_pure_live_stroke, SvgManager.SvgResourceStateType.NORMAL);
+                this.kfR.bxP();
                 if (i2 == 1) {
                     ao.setImageResource(this.fio, R.drawable.pic_live_hand_n);
                 } else if (i2 == 2) {

@@ -33,7 +33,7 @@ public class n extends h {
         this.ahR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.card.n.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                PbActivityConfig createNormalCfg = new PbActivityConfig(n.this.mContext).createNormalCfg(n.this.ahi.boO().getTid(), n.this.ahi.boO().bsW().getId() + "", 1, "other");
+                PbActivityConfig createNormalCfg = new PbActivityConfig(n.this.mContext).createNormalCfg(n.this.ahi.boP().getTid(), n.this.ahi.boP().bsX().getId() + "", 1, "other");
                 createNormalCfg.setStartFrom(n.this.ahd.tu());
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createNormalCfg));
                 n.this.ahd.b(new a.C0090a(1));
@@ -54,7 +54,7 @@ public class n extends h {
         a(1, new a.b() { // from class: com.baidu.card.n.3
             @Override // com.baidu.card.a.a.b
             public boolean a(a.C0090a c0090a) {
-                com.baidu.tieba.card.m.a(n.this.ahR.getGodReplyContent(), n.this.ahi.boO().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
+                com.baidu.tieba.card.m.a(n.this.ahR.getGodReplyContent(), n.this.ahi.boP().getId(), R.color.CAM_X0105, R.color.CAM_X0109);
                 return false;
             }
         });
@@ -86,11 +86,11 @@ public class n extends h {
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
         this.ahi = aVar;
-        PostData bsW = aVar.boO().bsW();
-        if (this.ahS != null && bsW != null && bsW.brq() != null && bsW.brq().getUserId() != null) {
-            this.ahS.dX("tid", aVar.boO().tid).dX("post_id", bsW.getId()).dX("uid", bsW.brq().getUserId());
-            com.baidu.tieba.card.s.cva().e(this.ahS);
+        PostData bsX = aVar.boP().bsX();
+        if (this.ahS != null && bsX != null && bsX.brr() != null && bsX.brr().getUserId() != null) {
+            this.ahS.dX("tid", aVar.boP().tid).dX("post_id", bsX.getId()).dX("uid", bsX.brr().getUserId());
+            com.baidu.tieba.card.s.cvb().e(this.ahS);
         }
-        this.ahR.setData(aVar.boO());
+        this.ahR.setData(aVar.boP());
     }
 }

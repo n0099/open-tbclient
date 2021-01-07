@@ -5,7 +5,7 @@ import android.util.JsonReader;
 public class i implements aj<Float> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final i f8272a = new i();
+    public static final i f8273a = new i();
 
     private i() {
     }

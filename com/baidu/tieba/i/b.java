@@ -26,8 +26,8 @@ public class b implements n {
             this.aJx = new ArrayList();
             if (!StringUtils.isNull(this.jRg)) {
                 a aVar = new a();
-                aVar.LO(this.jRg);
-                aVar.LP(this.jRh);
+                aVar.LN(this.jRg);
+                aVar.LO(this.jRh);
                 this.aJx.add(aVar);
             }
             if (!x.isEmpty(esport.billboard)) {
@@ -40,11 +40,11 @@ public class b implements n {
         }
     }
 
-    public int cPB() {
+    public int cPC() {
         return this.izb;
     }
 
-    public List<a> cPC() {
+    public List<a> cPD() {
         return this.aJx;
     }
 

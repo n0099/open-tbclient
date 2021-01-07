@@ -148,7 +148,7 @@ public class SwanAppNetworkUtils {
         return "unknown";
     }
 
-    public static NetType aGC() {
+    public static NetType aGD() {
         String networkClass = getNetworkClass();
         char c = 65535;
         switch (networkClass.hashCode()) {
@@ -222,8 +222,8 @@ public class SwanAppNetworkUtils {
         }
     }
 
-    public static String aGD() {
-        String uZ = ak.uZ(com.baidu.swan.apps.core.turbo.d.avA().avY());
+    public static String aGE() {
+        String uZ = ak.uZ(com.baidu.swan.apps.core.turbo.d.avB().avZ());
         if (TextUtils.isEmpty(uZ)) {
             return "";
         }
@@ -235,12 +235,12 @@ public class SwanAppNetworkUtils {
             Log.d("postJsonRequest", "url:" + str + "\nbody:" + str2);
         }
         if (!TextUtils.isEmpty(str)) {
-            com.baidu.swan.a.c.a.bfE().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
+            com.baidu.swan.a.c.a.bfF().postStringRequest().url(str).cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).mediaType("application/json;charset=utf-8").content(str2).build().executeAsync(responseCallback);
         }
     }
 
     public static void a(@NonNull final a aVar) {
-        com.baidu.swan.apps.process.messaging.client.a.aJh().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.network.SwanAppNetworkUtils.1
+        com.baidu.swan.apps.process.messaging.client.a.aJi().b(null, com.baidu.swan.games.network.d.class, new com.baidu.swan.apps.process.a.b.c.b() { // from class: com.baidu.swan.apps.network.SwanAppNetworkUtils.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.process.a.b.c.a
             public void onEvent(@NonNull com.baidu.swan.apps.process.a.b.a.b bVar) {

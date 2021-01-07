@@ -1,5 +1,5 @@
 package com.qq.e.ads.dfa;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface GDTApk {
     String getAppName();
 

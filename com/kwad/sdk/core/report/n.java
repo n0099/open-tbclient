@@ -56,14 +56,14 @@ public abstract class n extends com.kwad.sdk.core.network.a<o> {
                 e = e3;
                 cVar = doPost;
                 com.kwad.sdk.core.d.a.a(e);
-                if (com.kwad.sdk.a.f8423b.booleanValue()) {
+                if (com.kwad.sdk.a.f8424b.booleanValue()) {
                 }
             }
-            if (doPost.f9617a == 200) {
-                com.kwad.sdk.core.d.a.a("ReportNetwork", "report success actionType:" + b2.f9726b);
+            if (doPost.f9618a == 200) {
+                com.kwad.sdk.core.d.a.a("ReportNetwork", "report success actionType:" + b2.f9727b);
                 a(b2);
                 cVar = doPost;
-                if (com.kwad.sdk.a.f8423b.booleanValue()) {
+                if (com.kwad.sdk.a.f8424b.booleanValue()) {
                     BaseResultData baseResultData = new BaseResultData() { // from class: com.kwad.sdk.core.report.ReportNetwork$1
                         @Override // com.kwad.sdk.core.network.BaseResultData
                         public void parseJson(@Nullable JSONObject jSONObject) {
@@ -72,7 +72,7 @@ public abstract class n extends com.kwad.sdk.core.network.a<o> {
                     };
                     if (cVar != null) {
                         try {
-                            baseResultData.parseJson(new JSONObject(cVar.f9618b));
+                            baseResultData.parseJson(new JSONObject(cVar.f9619b));
                         } catch (JSONException e4) {
                             e4.printStackTrace();
                         }
@@ -88,7 +88,7 @@ public abstract class n extends com.kwad.sdk.core.network.a<o> {
         com.kwad.sdk.core.d.a.a("ReportNetwork", "report fail result is null");
         a(b2);
         cVar = doPost;
-        if (com.kwad.sdk.a.f8423b.booleanValue()) {
+        if (com.kwad.sdk.a.f8424b.booleanValue()) {
         }
     }
 }

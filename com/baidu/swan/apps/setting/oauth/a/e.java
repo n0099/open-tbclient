@@ -13,12 +13,12 @@ public class e extends h<JSONObject> {
     }
 
     @Override // com.baidu.swan.apps.setting.oauth.b
-    protected boolean aNZ() {
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-        if (aMk != null) {
+    protected boolean aOa() {
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl != null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("ma_id", aMk.id);
+                jSONObject.put("ma_id", aMl.id);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -38,6 +38,6 @@ public class e extends h<JSONObject> {
 
     @Override // com.baidu.swan.apps.setting.oauth.a.h
     protected HttpRequest a(h hVar) {
-        return com.baidu.swan.apps.t.a.aAD().i(this.mContext, hVar.aOA());
+        return com.baidu.swan.apps.t.a.aAE().i(this.mContext, hVar.aOB());
     }
 }

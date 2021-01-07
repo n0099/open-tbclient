@@ -18,15 +18,15 @@ public class b {
         this.fKj = aVar2;
     }
 
-    public int bGN() {
+    public int bGO() {
         return this.fKf;
     }
 
-    public com.baidu.tbadk.mvc.b.a bGO() {
+    public com.baidu.tbadk.mvc.b.a bGP() {
         return this.fKh;
     }
 
-    public com.baidu.tbadk.mvc.d.b bGP() {
+    public com.baidu.tbadk.mvc.d.b bGQ() {
         return this.fKi;
     }
 
@@ -42,7 +42,7 @@ public class b {
         this.extra = obj;
     }
 
-    public boolean bGQ() {
+    public boolean bGR() {
         return this.fKg;
     }
 

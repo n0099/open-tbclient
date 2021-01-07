@@ -13,7 +13,7 @@ public class b implements n {
         return jaY;
     }
 
-    public int cDp() {
+    public int cDq() {
         return this.jaZ;
     }
 

@@ -51,19 +51,19 @@ public class b {
             jSONObject.put("type", "0");
             if (!TextUtils.isEmpty(nVar.getContent())) {
                 jSONObject.put("content", nVar.getContent());
-            } else if (nVar.biB() != null) {
-                jSONObject.put("content", nVar.biB().toString());
+            } else if (nVar.biC() != null) {
+                jSONObject.put("content", nVar.biC().toString());
             }
-            if (!TextUtils.isEmpty(nVar.biA())) {
-                jSONObject.put("abtest", nVar.biA());
+            if (!TextUtils.isEmpty(nVar.biB())) {
+                jSONObject.put("abtest", nVar.biB());
             }
             if (!TextUtils.isEmpty(nVar.getCategory())) {
                 jSONObject.put("c", nVar.getCategory());
             }
-            if (nVar.biw()) {
+            if (nVar.bix()) {
                 jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
             }
-            jSONObject.put("idtype", g.eiW().zu(nVar.getId()));
+            jSONObject.put("idtype", g.eiX().zu(nVar.getId()));
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.d("UBCFileData", e.getMessage());
@@ -129,7 +129,7 @@ public class b {
             file.mkdirs();
         }
         File file2 = new File(file, "filequality");
-        if (file2.length() > g.eiW().eiX()) {
+        if (file2.length() > g.eiX().eiY()) {
             if (file2.delete()) {
                 file2 = new File(file, "filequality");
             } else {
@@ -156,7 +156,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void B(Exception exc) {
-        ac.ejo().XD(Log.getStackTraceString(exc));
+        ac.ejp().XC(Log.getStackTraceString(exc));
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [254=4] */

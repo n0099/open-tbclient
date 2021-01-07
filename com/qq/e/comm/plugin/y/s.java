@@ -21,14 +21,14 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f13013a;
+    private Handler f13014a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f13014b;
+    private Context f13015b;
     private m c;
     private q d;
     private Runnable e;
@@ -36,7 +36,7 @@ public class s {
     private Runnable g;
 
     /* renamed from: com.qq.e.comm.plugin.y.s$10  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass10 extends BroadcastReceiver {
         AnonymousClass10() {
         }
@@ -48,60 +48,60 @@ public class s {
     }
 
     /* renamed from: com.qq.e.comm.plugin.y.s$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static /* synthetic */ class AnonymousClass2 {
 
         /* renamed from: a  reason: collision with root package name */
-        static final /* synthetic */ int[] f13017a = new int[b.values().length];
+        static final /* synthetic */ int[] f13018a = new int[b.values().length];
 
         static {
             try {
-                f13017a[b.SDK_INIT.ordinal()] = 1;
+                f13018a[b.SDK_INIT.ordinal()] = 1;
             } catch (NoSuchFieldError e) {
             }
             try {
-                f13017a[b.BACKGROUND.ordinal()] = 2;
+                f13018a[b.BACKGROUND.ordinal()] = 2;
             } catch (NoSuchFieldError e2) {
             }
             try {
-                f13017a[b.ITEM_ADD.ordinal()] = 3;
+                f13018a[b.ITEM_ADD.ordinal()] = 3;
             } catch (NoSuchFieldError e3) {
             }
             try {
-                f13017a[b.PAGE_SWITCH.ordinal()] = 4;
+                f13018a[b.PAGE_SWITCH.ordinal()] = 4;
             } catch (NoSuchFieldError e4) {
             }
             try {
-                f13017a[b.NETWORK_CHANGE.ordinal()] = 5;
+                f13018a[b.NETWORK_CHANGE.ordinal()] = 5;
             } catch (NoSuchFieldError e5) {
             }
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.y.s$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass3 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ com.qq.e.comm.plugin.y.a f13018a;
+        final /* synthetic */ com.qq.e.comm.plugin.y.a f13019a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ n f13019b;
+        final /* synthetic */ n f13020b;
 
         AnonymousClass3(com.qq.e.comm.plugin.y.a aVar, n nVar) {
-            this.f13018a = aVar;
-            this.f13019b = nVar;
+            this.f13019a = aVar;
+            this.f13020b = nVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            this.f13018a.a((com.qq.e.comm.plugin.y.a) this.f13019b);
+            this.f13019a.a((com.qq.e.comm.plugin.y.a) this.f13020b);
             s.this.a(b.ITEM_ADD);
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.y.s$7  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass7 implements Runnable {
         AnonymousClass7() {
         }
@@ -114,7 +114,7 @@ public class s {
     }
 
     /* renamed from: com.qq.e.comm.plugin.y.s$8  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass8 implements Runnable {
         AnonymousClass8() {
         }
@@ -127,7 +127,7 @@ public class s {
     }
 
     /* renamed from: com.qq.e.comm.plugin.y.s$9  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass9 implements Runnable {
         AnonymousClass9() {
         }
@@ -140,14 +140,14 @@ public class s {
     }
 
     @TargetApi(14)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static final class a implements Application.ActivityLifecycleCallbacks {
 
         /* renamed from: a  reason: collision with root package name */
-        private s f13026a;
+        private s f13027a;
 
         public a(s sVar) {
-            this.f13026a = sVar;
+            this.f13027a = sVar;
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -160,8 +160,8 @@ public class s {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityPaused(Activity activity) {
-            s.g(this.f13026a);
-            s.h(this.f13026a);
+            s.g(this.f13027a);
+            s.h(this.f13027a);
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -174,7 +174,7 @@ public class s {
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
         public void onActivityStarted(Activity activity) {
-            this.f13026a.a(b.PAGE_SWITCH);
+            this.f13027a.a(b.PAGE_SWITCH);
         }
 
         @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -182,7 +182,7 @@ public class s {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private enum b {
         SDK_INIT,
         BACKGROUND,
@@ -191,11 +191,11 @@ public class s {
         NETWORK_CHANGE
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static final class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final s f13029a = new s();
+        private static final s f13030a = new s();
     }
 
     private s() {
@@ -220,25 +220,25 @@ public class s {
                 s.this.a(b.BACKGROUND);
             }
         };
-        this.f13014b = GDTADManager.getInstance().getAppContext();
-        this.c = new m(this.f13014b);
-        this.d = new q(this.f13014b);
+        this.f13015b = GDTADManager.getInstance().getAppContext();
+        this.c = new m(this.f13015b);
+        this.d = new q(this.f13015b);
         HandlerThread handlerThread = new HandlerThread("gdt_stat_service");
         handlerThread.start();
         Looper looper = handlerThread.getLooper();
         if (looper != null) {
-            this.f13013a = new Handler(looper);
+            this.f13014a = new Handler(looper);
         } else {
             GDTLogger.e("Create stat handler failed!");
         }
-        if (Build.VERSION.SDK_INT >= 14 && (this.f13014b instanceof Application)) {
+        if (Build.VERSION.SDK_INT >= 14 && (this.f13015b instanceof Application)) {
             ai.a("Stat register activity listener", new Object[0]);
-            ((Application) this.f13014b).registerActivityLifecycleCallbacks(new a(this));
+            ((Application) this.f13015b).registerActivityLifecycleCallbacks(new a(this));
         }
-        a(this.f13014b);
+        a(this.f13015b);
         a(b.SDK_INIT);
-        if (this.f13013a != null) {
-            this.f13013a.post(new Runnable() { // from class: com.qq.e.comm.plugin.y.s.1
+        if (this.f13014a != null) {
+            this.f13014a.post(new Runnable() { // from class: com.qq.e.comm.plugin.y.s.1
                 @Override // java.lang.Runnable
                 public void run() {
                     i.a(s.a(s.this).getApplicationContext()).a();

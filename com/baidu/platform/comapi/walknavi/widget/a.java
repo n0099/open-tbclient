@@ -8,14 +8,14 @@ import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a extends Dialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f4600a;
+    private TextView f4601a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f4601b;
+    private TextView f4602b;
     private TextView c;
     private TextView d;
     private LinearLayout e;
@@ -26,7 +26,7 @@ public class a extends Dialog {
     private boolean j;
 
     /* renamed from: com.baidu.platform.comapi.walknavi.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface InterfaceC0302a {
         void a();
     }
@@ -47,8 +47,8 @@ public class a extends Dialog {
             getWindow().setBackgroundDrawable(new ColorDrawable(0));
         }
         setContentView(a2);
-        this.f4600a = (TextView) a2.findViewById(R.dimen.abc_action_bar_content_inset_material);
-        this.f4601b = (TextView) a2.findViewById(R.dimen.abc_action_bar_default_padding_end_material);
+        this.f4601a = (TextView) a2.findViewById(R.dimen.abc_action_bar_content_inset_material);
+        this.f4602b = (TextView) a2.findViewById(R.dimen.abc_action_bar_default_padding_end_material);
         this.c = (TextView) a2.findViewById(R.dimen.abc_action_bar_overflow_padding_end_material);
         this.d = (TextView) a2.findViewById(R.dimen.abc_action_bar_overflow_padding_start_material);
         this.e = (LinearLayout) a2.findViewById(R.dimen.abc_action_bar_icon_vertical_padding_material);
@@ -57,8 +57,8 @@ public class a extends Dialog {
         this.d.setOnClickListener(new c(this));
         this.i = false;
         this.j = false;
-        this.f4600a.setVisibility(8);
-        this.f4601b.setVisibility(8);
+        this.f4601a.setVisibility(8);
+        this.f4602b.setVisibility(8);
         this.c.setVisibility(8);
         this.d.setVisibility(8);
         this.e.setVisibility(8);
@@ -68,22 +68,22 @@ public class a extends Dialog {
 
     public a a(String str) {
         if (str == null) {
-            this.f4601b.setVisibility(8);
-            this.f4601b.setText("", TextView.BufferType.SPANNABLE);
+            this.f4602b.setVisibility(8);
+            this.f4602b.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f4601b.setVisibility(0);
-            this.f4601b.setText(str, TextView.BufferType.SPANNABLE);
+            this.f4602b.setVisibility(0);
+            this.f4602b.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }
 
     public a b(String str) {
         if (str == null) {
-            this.f4600a.setVisibility(8);
-            this.f4600a.setText("", TextView.BufferType.SPANNABLE);
+            this.f4601a.setVisibility(8);
+            this.f4601a.setText("", TextView.BufferType.SPANNABLE);
         } else {
-            this.f4600a.setVisibility(0);
-            this.f4600a.setText(str, TextView.BufferType.SPANNABLE);
+            this.f4601a.setVisibility(0);
+            this.f4601a.setText(str, TextView.BufferType.SPANNABLE);
         }
         return this;
     }

@@ -20,7 +20,7 @@ public class e {
     private AtomicBoolean oPx = new AtomicBoolean(false);
     private AtomicBoolean oPy = new AtomicBoolean(false);
     private static String TAG = "UnionIDHelper";
-    private static boolean DEBUG = com.baidu.p.a.a.ejW();
+    private static boolean DEBUG = com.baidu.p.a.a.ejX();
     private static final String oPu = d(new byte[]{81, 72, 116, 79, 75, 72, 69, 52, 76, 51, 103, 61}, new byte[]{82, 51, 104, 90, 83, 122, 65, 105, Constants.SHORT_PING_CMD_TYPE, 49, 107, 61});
     private static final String oPv = d(new byte[]{76, 67, 77, 53, 77, 70, 90, 73, 81, 107, 107, 61}, new byte[]{90, 105, 108, 121, 79, 68, 100, 81, 86, 121, 89, 61});
     private static final Object sLock = new Object();
@@ -28,7 +28,7 @@ public class e {
     private e() {
     }
 
-    public static e ejZ() {
+    public static e eka() {
         if (oPw == null) {
             synchronized (e.class) {
                 if (oPw == null) {
@@ -40,8 +40,8 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void eka() {
-        this.oPt = this.oPt.ekd();
+    public void ekb() {
+        this.oPt = this.oPt.eke();
         if (DEBUG) {
             Log.d(TAG, "asyncRequest, requestFromManufacturer done :" + this.oPt.getOAID());
         }
@@ -52,12 +52,12 @@ public class e {
             throw new NullPointerException("param looper not null");
         }
         final a aVar = new a(looper, bVar);
-        if (ekb()) {
+        if (ekc()) {
             aVar.obtainMessage(100, null).sendToTarget();
         } else if (this.oPt != null && this.oPy.get()) {
             if (DEBUG) {
                 Log.d(TAG, "asyncRequest, mIUnionId.getOAID：" + this.oPt.getOAID());
-                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.oPt.eke());
+                Log.d(TAG, "asyncRequest, mIUnionId.isTrackLimited：" + this.oPt.ekf());
                 Log.d(TAG, "asyncRequest, mIUnionId.getStatusCode：" + this.oPt.getStatusCode());
             }
             aVar.obtainMessage(100, this.oPt).sendToTarget();
@@ -79,7 +79,7 @@ public class e {
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, requestFromManufacturer");
                         }
-                        e.this.eka();
+                        e.this.ekb();
                         if (e.DEBUG) {
                             Log.d(e.TAG, "asyncRequest, trySaveFiles！");
                         }
@@ -129,9 +129,9 @@ public class e {
                 this.oPt.Ap(optBoolean);
                 this.oPt.Aq(optBoolean2);
                 this.oPt.OE(optInt);
-                this.oPt.XW(optString);
-                this.oPt.XX(optString2);
-                this.oPt.XY(optString3);
+                this.oPt.XV(optString);
+                this.oPt.XW(optString2);
+                this.oPt.XX(optString3);
                 aVar.oPC = this.oPt;
                 return true;
             }
@@ -152,7 +152,7 @@ public class e {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(@NonNull com.baidu.p.a.a.a aVar) {
-        if (Math.abs(System.currentTimeMillis() - aVar.time) > ekc()) {
+        if (Math.abs(System.currentTimeMillis() - aVar.time) > ekd()) {
             if (DEBUG) {
                 Log.d(TAG, "isExpireTime ：超过缓存有效期");
             }
@@ -189,14 +189,14 @@ public class e {
             String str6 = new String(com.baidu.p.a.c.c.decode("b2FpZA==".getBytes()));
             String str7 = new String(com.baidu.p.a.c.c.decode("YWFpZA==".getBytes()));
             String str8 = new String(com.baidu.p.a.c.c.decode("dmFpZA==".getBytes()));
-            optJSONObject.put(str3, this.oPt.eke());
+            optJSONObject.put(str3, this.oPt.ekf());
             optJSONObject.put(str4, this.oPt.isSupport());
             optJSONObject.put(str5, this.oPt.getStatusCode());
             optJSONObject.put(str6, this.oPt.getOAID());
             optJSONObject.put(str7, this.oPt.getAAID());
             optJSONObject.put(str8, this.oPt.getVAID());
             jSONObject.put(str2, optJSONObject);
-            com.baidu.p.a.c.e.a(XU(jSONObject.toString()), file2, false, sLock);
+            com.baidu.p.a.c.e.a(XT(jSONObject.toString()), file2, false, sLock);
             if (DEBUG) {
                 Log.d(TAG, "trySaveFiles, app: " + jSONObject.toString());
             }
@@ -235,12 +235,12 @@ public class e {
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
-        String XV = XV(a2);
+        String XU = XU(a2);
         if (DEBUG) {
-            Log.d(TAG, "getCacheObject ，json：" + XV);
+            Log.d(TAG, "getCacheObject ，json：" + XU);
         }
         try {
-            JSONObject jSONObject = new JSONObject(XV);
+            JSONObject jSONObject = new JSONObject(XU);
             com.baidu.p.a.a.a aVar = new com.baidu.p.a.a.a();
             a(aVar, jSONObject);
             return aVar;
@@ -261,7 +261,7 @@ public class e {
         return sb.toString();
     }
 
-    static String XU(String str) {
+    static String XT(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -272,7 +272,7 @@ public class e {
         }
     }
 
-    static String XV(String str) {
+    static String XU(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
@@ -318,11 +318,11 @@ public class e {
         }
     }
 
-    private boolean ekb() {
-        return com.baidu.p.a.a.OC(b.ejX());
+    private boolean ekc() {
+        return com.baidu.p.a.a.OC(b.ejY());
     }
 
-    private long ekc() {
-        return com.baidu.p.a.a.OD(b.ejX()) * 60 * 1000;
+    private long ekd() {
+        return com.baidu.p.a.a.OD(b.ejY()) * 60 * 1000;
     }
 }

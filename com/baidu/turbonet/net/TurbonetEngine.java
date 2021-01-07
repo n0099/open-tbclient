@@ -50,7 +50,7 @@ public abstract class TurbonetEngine {
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void a(String str, String str2, int i, int i2, long j, long j2, long j3, long j4);
 
-    public abstract boolean ehI();
+    public abstract boolean ehJ();
 
     abstract boolean isEnabled();
 
@@ -85,13 +85,13 @@ public abstract class TurbonetEngine {
 
         public Builder(Context context) {
             this.mContext = context;
-            Xa("turbonet");
+            WZ("turbonet");
             this.oLE = new JSONObject();
             Ak(false);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void eig() {
+        public void eih() {
             if (this.oLC == null) {
                 if (this.oLD.equals("turbonet")) {
                     System.loadLibrary(this.oLD);
@@ -104,7 +104,7 @@ public abstract class TurbonetEngine {
             this.oLC.loadLibrary(this.oLD);
         }
 
-        public Builder Xa(String str) {
+        public Builder WZ(String str) {
             this.oLD = str;
             return this;
         }
@@ -122,7 +122,7 @@ public abstract class TurbonetEngine {
             }
         }
 
-        public Builder Xb(String str) {
+        public Builder Xa(String str) {
             e(SchemeCollecter.CLASSIFY_BASE, "user_agent", str);
             this.mUserAgent = str;
             return this;
@@ -140,16 +140,16 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean eih() {
+        public boolean eii() {
             return this.mHttp2Enabled;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public boolean eii() {
+        public boolean eij() {
             return this.mQuicEnabled;
         }
 
-        public Builder Xc(String str) {
+        public Builder Xb(String str) {
             if (!new File(str).isDirectory()) {
                 throw new IllegalArgumentException("Storage path must be set to existing directory");
             }
@@ -158,7 +158,7 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String eic() {
+        public String eid() {
             return this.mStoragePath;
         }
 
@@ -168,7 +168,7 @@ public abstract class TurbonetEngine {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public long eij() {
+        public long eik() {
             return this.mHttpCacheMaxSize;
         }
 
@@ -193,30 +193,30 @@ public abstract class TurbonetEngine {
             return this.mNetworkQualityEstimatorEnabled;
         }
 
-        public Builder Xd(String str) {
+        public Builder Xc(String str) {
             e("app", "cuid", str);
             this.oLB = str;
             return this;
         }
 
-        public Builder Xe(String str) {
+        public Builder Xd(String str) {
             e("app", "app_name", str);
             this.mAppName = str;
             return this;
         }
 
-        public Builder Xf(String str) {
+        public Builder Xe(String str) {
             this.oLF = str;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String eik() {
+        public String eil() {
             return this.oLF;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String eil() {
+        public String eim() {
             return this.oLE.toString();
         }
 
@@ -225,7 +225,7 @@ public abstract class TurbonetEngine {
             return this.mContext;
         }
 
-        public TurbonetEngine eim() {
+        public TurbonetEngine ein() {
             String str = "";
             if (Environment.getExternalStorageState().equals("mounted")) {
                 str = Environment.getExternalStorageDirectory().getPath();
@@ -234,7 +234,7 @@ public abstract class TurbonetEngine {
             }
             e(SchemeCollecter.CLASSIFY_BASE, "config_path", str);
             if (getUserAgent() == null) {
-                Xb(c.from(this.mContext));
+                Xa(c.from(this.mContext));
             }
             return TurbonetEngine.a(this);
         }
@@ -274,7 +274,7 @@ public abstract class TurbonetEngine {
         }
     }
 
-    public long ehz() {
+    public long ehA() {
         return 0L;
     }
 }

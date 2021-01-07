@@ -14,7 +14,7 @@ public class e {
     private int ipz;
     private int status = 0;
 
-    public int ctN() {
+    public int ctO() {
         return this.ipy;
     }
 
@@ -22,27 +22,27 @@ public class e {
         return this.status;
     }
 
-    public long ctO() {
+    public long ctP() {
         return this.ipu;
     }
 
-    public long ctP() {
+    public long ctQ() {
         return this.ipw;
     }
 
-    public long ctQ() {
+    public long ctR() {
         return this.ipx;
     }
 
-    public long ctR() {
+    public long ctS() {
         return this.ipv;
     }
 
-    public boolean ctS() {
+    public boolean ctT() {
         return this.ipA;
     }
 
-    public NoticeContent ctT() {
+    public NoticeContent ctU() {
         return this.ipB;
     }
 
@@ -55,19 +55,19 @@ public class e {
             return null;
         }
         e eVar = new e();
-        eVar.fY(Jk(basic.remind_time));
+        eVar.fY(Jj(basic.remind_time));
         eVar.setStatus(basic.status.intValue());
         eVar.yk(basic.candidate_num.intValue());
         eVar.yl(basic.total_vote_num.intValue());
-        eVar.fW(Jk(basic.begin_apply_time));
-        eVar.fZ(Jk(basic.begin_vote_time));
-        eVar.fX(Jk(basic.begin_public_time));
+        eVar.fW(Jj(basic.begin_apply_time));
+        eVar.fZ(Jj(basic.begin_vote_time));
+        eVar.fX(Jj(basic.begin_public_time));
         eVar.pk(basic.is_voted.booleanValue());
         eVar.a(basic.notice);
         return eVar;
     }
 
-    private static long Jk(String str) {
+    private static long Jj(String str) {
         try {
             return Long.parseLong(str);
         } catch (Exception e) {

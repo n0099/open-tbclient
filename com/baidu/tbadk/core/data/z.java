@@ -28,7 +28,7 @@ public class z implements com.baidu.tbadk.core.flow.a.a {
     }
 
     @Override // com.baidu.tbadk.core.flow.a.a
-    public String bpm() {
+    public String bpn() {
         return this.ePM;
     }
 
@@ -48,16 +48,16 @@ public class z implements com.baidu.tbadk.core.flow.a.a {
         this.ePM = str;
     }
 
-    public String bpw() {
+    public String bpx() {
         return this.tagNameUrl;
     }
 
-    public float bpx() {
+    public float bpy() {
         return this.tagRatio;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: bpy */
+    /* renamed from: bpz */
     public z clone() {
         z zVar = new z();
         zVar.cuF = this.cuF;
@@ -100,7 +100,7 @@ public class z implements com.baidu.tbadk.core.flow.a.a {
         }
     }
 
-    public boolean bpz() {
+    public boolean bpA() {
         return this.ePO;
     }
 

@@ -41,13 +41,13 @@ public class b implements View.OnClickListener {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void XZ();
+        void Ya();
     }
 
     /* renamed from: com.baidu.live.videochat.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0233b {
-        void Ya();
+        void Yb();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -76,7 +76,7 @@ public class b implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.bSF) {
             if (this.bSH != null) {
-                this.bSH.XZ();
+                this.bSH.Ya();
                 UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "author_liveroom", "linkclose_clk").setContentExt(null, "popup", null));
                 return;
             }
@@ -106,7 +106,7 @@ public class b implements View.OnClickListener {
             if (this.bSG != null) {
                 this.bSG.cancel();
             }
-            if (cVar.Zp()) {
+            if (cVar.Zq()) {
                 j = (xVar == null || xVar.mLiveInfo == null || xVar.mLiveInfo.videoBBChatData == null) ? 0L : xVar.mLiveInfo.videoBBChatData.invitePendantTime;
                 if (j <= 0) {
                     j2 = 20;
@@ -131,7 +131,7 @@ public class b implements View.OnClickListener {
                 public void onFinish() {
                     b.this.bSB.setText(String.format(Locale.SIMPLIFIED_CHINESE, "%ds", 0));
                     if (b.this.bSw != null) {
-                        b.this.bSw.Ya();
+                        b.this.bSw.Yb();
                     }
                     b.this.release();
                 }
@@ -185,7 +185,7 @@ public class b implements View.OnClickListener {
         this.rootView.setVisibility(8);
     }
 
-    public FrameLayout Zo() {
+    public FrameLayout Zp() {
         return this.bSI;
     }
 }

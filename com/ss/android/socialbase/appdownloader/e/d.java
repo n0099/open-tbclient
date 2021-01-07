@@ -15,16 +15,16 @@ import java.util.List;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13336a = d.class.getSimpleName();
+    private static final String f13337a = d.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static List<o> f13337b = new ArrayList();
+    private static List<o> f13338b = new ArrayList();
     private static AlertDialog d;
-    private static com.ss.android.socialbase.appdownloader.view.a pWu;
+    private static com.ss.android.socialbase.appdownloader.view.a pYc;
 
     public static boolean a() {
         try {
-            return NotificationManagerCompat.from(com.ss.android.socialbase.downloader.downloader.b.eHp()).areNotificationsEnabled();
+            return NotificationManagerCompat.from(com.ss.android.socialbase.downloader.downloader.b.eHT()).areNotificationsEnabled();
         } catch (Throwable th) {
             th.printStackTrace();
             return true;
@@ -38,7 +38,7 @@ public class d {
                     d.cancel();
                     d = null;
                 }
-                for (o oVar : f13337b) {
+                for (o oVar : f13338b) {
                     if (oVar != null) {
                         if (z) {
                             oVar.a();
@@ -59,11 +59,11 @@ public class d {
                 if (activity != null) {
                     try {
                         if (!activity.isFinishing()) {
-                            int a2 = i.a(com.ss.android.socialbase.downloader.downloader.b.eHp(), "appdownloader_notification_request_title");
-                            int a3 = i.a(com.ss.android.socialbase.downloader.downloader.b.eHp(), "appdownloader_notification_request_message");
-                            int a4 = i.a(com.ss.android.socialbase.downloader.downloader.b.eHp(), "appdownloader_notification_request_btn_yes");
-                            int a5 = i.a(com.ss.android.socialbase.downloader.downloader.b.eHp(), "appdownloader_notification_request_btn_no");
-                            f13337b.add(oVar);
+                            int a2 = i.a(com.ss.android.socialbase.downloader.downloader.b.eHT(), "appdownloader_notification_request_title");
+                            int a3 = i.a(com.ss.android.socialbase.downloader.downloader.b.eHT(), "appdownloader_notification_request_message");
+                            int a4 = i.a(com.ss.android.socialbase.downloader.downloader.b.eHT(), "appdownloader_notification_request_btn_yes");
+                            int a5 = i.a(com.ss.android.socialbase.downloader.downloader.b.eHT(), "appdownloader_notification_request_btn_no");
+                            f13338b.add(oVar);
                             if (d == null || !d.isShowing()) {
                                 d = new AlertDialog.Builder(activity).setTitle(a2).setMessage(a3).setPositiveButton(a4, new DialogInterface.OnClickListener() { // from class: com.ss.android.socialbase.appdownloader.e.d.3
                                     @Override // android.content.DialogInterface.OnClickListener
@@ -107,13 +107,13 @@ public class d {
             try {
                 if (!activity.isFinishing()) {
                     FragmentManager fragmentManager = activity.getFragmentManager();
-                    pWu = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f13336a);
-                    if (pWu == null) {
-                        pWu = new com.ss.android.socialbase.appdownloader.view.a();
-                        fragmentManager.beginTransaction().add(pWu, f13336a).commitAllowingStateLoss();
+                    pYc = (com.ss.android.socialbase.appdownloader.view.a) fragmentManager.findFragmentByTag(f13337a);
+                    if (pYc == null) {
+                        pYc = new com.ss.android.socialbase.appdownloader.view.a();
+                        fragmentManager.beginTransaction().add(pYc, f13337a).commitAllowingStateLoss();
                         fragmentManager.executePendingTransactions();
                     }
-                    pWu.a();
+                    pYc.a();
                     return;
                 }
             } catch (Throwable th) {

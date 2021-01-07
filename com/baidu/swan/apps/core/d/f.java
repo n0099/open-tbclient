@@ -46,7 +46,7 @@ public final class f {
     }
 
     public f(FragmentActivity fragmentActivity) {
-        this.cUT = fragmentActivity.bhE();
+        this.cUT = fragmentActivity.bhF();
     }
 
     public void a(@Nullable a aVar) {
@@ -61,7 +61,7 @@ public final class f {
         }
     }
 
-    public c asT() {
+    public c asU() {
         return io(this.cUU.size() - 1);
     }
 
@@ -75,7 +75,7 @@ public final class f {
         return null;
     }
 
-    public e asU() {
+    public e asV() {
         for (int size = this.cUU.size() - 1; size >= 0; size--) {
             c cVar = this.cUU.get(size);
             if (cVar instanceof e) {
@@ -92,24 +92,24 @@ public final class f {
         return this.cUU.get(i);
     }
 
-    public e asV() {
+    public e asW() {
         if (this.cUU.isEmpty()) {
             return null;
         }
         int size = this.cUU.size();
         for (int i = 0; i < size; i++) {
-            if (this.cUU.get(i).arC()) {
+            if (this.cUU.get(i).arD()) {
                 return (e) this.cUU.get(i);
             }
         }
         return null;
     }
 
-    public int asW() {
+    public int asX() {
         return this.cUU.size();
     }
 
-    public b asX() {
+    public b asY() {
         return new b("");
     }
 
@@ -123,7 +123,7 @@ public final class f {
         private String cVc;
 
         public b(String str) {
-            this.cVb = f.this.cUT.bhH();
+            this.cVb = f.this.cUT.bhI();
             this.cVc = str;
         }
 
@@ -139,17 +139,17 @@ public final class f {
         public b a(String str, com.baidu.swan.apps.model.b bVar, boolean z) {
             c a2;
             if ("about".equals(str)) {
-                a2 = com.baidu.swan.apps.core.d.a.arD();
+                a2 = com.baidu.swan.apps.core.d.a.arE();
             } else if ("authority".equals(str)) {
-                a2 = com.baidu.swan.apps.core.d.b.arR();
+                a2 = com.baidu.swan.apps.core.d.b.arS();
             } else if ("pluginFunPage".equals(str)) {
                 a2 = g.bC(bVar.mBaseUrl, bVar.mParams);
             } else if (nw(str)) {
                 a2 = i.c(bVar, str);
             } else if (TextUtils.equals("settings", str)) {
-                a2 = h.atg();
+                a2 = h.ath();
             } else {
-                a2 = "normal".equals(str) ? e.a(new c.a().qK(bVar.mPage).qL(bVar.mParams).qM(bVar.mBaseUrl).gk(z).aFT()) : null;
+                a2 = "normal".equals(str) ? e.a(new c.a().qK(bVar.mPage).qL(bVar.mParams).qM(bVar.mBaseUrl).gk(z).aFU()) : null;
             }
             if (a2 == null) {
                 return null;
@@ -174,28 +174,28 @@ public final class f {
         }
 
         private void g(final c cVar) {
-            final c asT = f.this.asT();
+            final c asU = f.this.asU();
             f.this.cUV.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.f.b.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (asT != null && asT.getUserVisibleHint()) {
-                        asT.setUserVisibleHint(false);
+                    if (asU != null && asU.getUserVisibleHint()) {
+                        asU.setUserVisibleHint(false);
                     }
-                    if (asT instanceof e) {
-                        ((e) asT).asQ();
+                    if (asU instanceof e) {
+                        ((e) asU).asR();
                     }
                     cVar.setUserVisibleHint(true);
                 }
             });
         }
 
-        private void asZ() {
-            final c asT = f.this.asT();
+        private void ata() {
+            final c asU = f.this.asU();
             f.this.cUV.offer(new Runnable() { // from class: com.baidu.swan.apps.core.d.f.b.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (asT != null) {
-                        asT.setUserVisibleHint(true);
+                    if (asU != null) {
+                        asU.setUserVisibleHint(true);
                     }
                 }
             });
@@ -209,7 +209,7 @@ public final class f {
             return this;
         }
 
-        public b ata() {
+        public b atb() {
             return iq(1);
         }
 
@@ -242,26 +242,26 @@ public final class f {
                         }
                     }
                 });
-                asZ();
-            }
-            return this;
-        }
-
-        public b atb() {
-            if (!f.this.cUU.isEmpty()) {
-                ArrayList arrayList = (ArrayList) f.this.cUU.clone();
-                for (int size = arrayList.size() - 1; size >= 0; size--) {
-                    if (!((c) arrayList.get(size)).arC()) {
-                        this.cVb.c((Fragment) arrayList.get(size));
-                        f.this.cUU.remove(size);
-                    }
-                }
-                asZ();
+                ata();
             }
             return this;
         }
 
         public b atc() {
+            if (!f.this.cUU.isEmpty()) {
+                ArrayList arrayList = (ArrayList) f.this.cUU.clone();
+                for (int size = arrayList.size() - 1; size >= 0; size--) {
+                    if (!((c) arrayList.get(size)).arD()) {
+                        this.cVb.c((Fragment) arrayList.get(size));
+                        f.this.cUU.remove(size);
+                    }
+                }
+                ata();
+            }
+            return this;
+        }
+
+        public b atd() {
             List<Fragment> fragments = f.this.cUT.getFragments();
             if (fragments != null && fragments.size() != f.this.cUU.size()) {
                 for (Fragment fragment : fragments) {
@@ -282,15 +282,15 @@ public final class f {
         }
 
         public b b(com.baidu.swan.apps.model.b bVar) {
-            e asV = f.this.asV();
-            if (asV != null) {
-                asV.a(bVar);
+            e asW = f.this.asW();
+            if (asW != null) {
+                asW.a(bVar);
                 return this;
             }
             return a("normal", bVar);
         }
 
-        private void atd() {
+        private void ate() {
             if (!f.this.cUU.isEmpty()) {
                 int size = f.this.cUU.size();
                 for (int i = size - 1; i >= 0; i--) {
@@ -325,11 +325,11 @@ public final class f {
                     ((Runnable) f.this.cUV.poll()).run();
                 }
             }
-            atd();
+            ate();
             this.cVb.commitAllowingStateLoss();
         }
 
-        public boolean ate() {
+        public boolean atf() {
             commit();
             return f.this.cUT.executePendingTransactions();
         }

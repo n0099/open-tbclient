@@ -55,7 +55,7 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
                             return;
                         }
                         ForumBroadCastMajorHistoryModel.this.kCm = aVar2;
-                        ForumBroadCastMajorHistoryModel.this.cwi();
+                        ForumBroadCastMajorHistoryModel.this.cwj();
                     }
                 }
             }
@@ -85,15 +85,15 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cwi() {
-        if (this.kCm.cXM() != null && this.kCm.cXM().size() > 1) {
-            this.lastId = this.kCm.cXM().get(this.kCm.cXM().size() - 1).cXS();
+    public void cwj() {
+        if (this.kCm.cXN() != null && this.kCm.cXN().size() > 1) {
+            this.lastId = this.kCm.cXN().get(this.kCm.cXN().size() - 1).cXT();
         }
         this.kCm.sD(this.geO);
         this.kCl.a(this.kCm);
     }
 
-    public void bUp() {
+    public void bUq() {
         if (!this.isLoading) {
             this.geO = false;
             zl(2);
@@ -127,7 +127,7 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
         sendMessage(broadcastMajorHistoryRequestMessage);
     }
 
-    public void cXX() {
+    public void cXY() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_FORUM_BROADCAST_MAJOR_RESIDUE);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccountId());
         httpMessage.addParam("forum_id", this.mForumId);
@@ -145,7 +145,7 @@ public class ForumBroadCastMajorHistoryModel extends BdBaseModel {
     }
 
     public boolean hasData() {
-        return (this.kCm == null || x.isEmpty(this.kCm.cXM())) ? false : true;
+        return (this.kCm == null || x.isEmpty(this.kCm.cXN())) ? false : true;
     }
 
     public void onDestory() {

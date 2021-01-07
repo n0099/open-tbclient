@@ -13,26 +13,26 @@ import androidx.annotation.Nullable;
 public class b extends Drawable {
 
     /* renamed from: a  reason: collision with root package name */
-    private Paint f10061a = new Paint(3);
+    private Paint f10062a = new Paint(3);
 
     /* renamed from: b  reason: collision with root package name */
-    private Bitmap f10062b;
+    private Bitmap f10063b;
 
     @MainThread
     public void a(Bitmap bitmap) {
-        if (bitmap == null || bitmap.sameAs(this.f10062b)) {
+        if (bitmap == null || bitmap.sameAs(this.f10063b)) {
             return;
         }
-        this.f10062b = bitmap;
+        this.f10063b = bitmap;
         invalidateSelf();
     }
 
     @Override // android.graphics.drawable.Drawable
     public void draw(@NonNull Canvas canvas) {
-        if (this.f10062b == null) {
+        if (this.f10063b == null) {
             return;
         }
-        canvas.drawBitmap(this.f10062b, (Rect) null, getBounds(), this.f10061a);
+        canvas.drawBitmap(this.f10063b, (Rect) null, getBounds(), this.f10062a);
     }
 
     @Override // android.graphics.drawable.Drawable

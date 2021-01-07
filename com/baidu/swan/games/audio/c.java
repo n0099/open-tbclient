@@ -3,7 +3,7 @@ package com.baidu.swan.games.audio;
 public class c {
     private static volatile int eeP;
 
-    public static synchronized int aXs() {
+    public static synchronized int aXt() {
         int i;
         synchronized (c.class) {
             i = eeP;

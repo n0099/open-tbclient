@@ -1,16 +1,16 @@
 package com.tencent.turingfd.sdk.ams.au;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f13837a;
+    public String f13838a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f13838b;
+    public int f13839b;
 
     public n(String str, int i) {
-        this.f13837a = str;
-        this.f13838b = i;
+        this.f13838a = str;
+        this.f13839b = i;
     }
 
     public static n a(int i) {
@@ -18,6 +18,6 @@ public class n {
     }
 
     public int a() {
-        return this.f13838b;
+        return this.f13839b;
     }
 }

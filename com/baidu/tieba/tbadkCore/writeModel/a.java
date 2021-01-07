@@ -19,74 +19,82 @@ import com.baidu.tieba.tbadkCore.y;
 import java.io.File;
 /* loaded from: classes.dex */
 public class a implements NewWriteModel.d {
-    private BdUniqueId nvA;
+    private String nvA;
     private String nvB;
     private String nvC;
-    private String nvD;
-    private final NewWriteModel nvy;
-    private boolean nvz;
+    private final NewWriteModel nvx;
+    private boolean nvy;
+    private BdUniqueId nvz;
 
-    public static a dQA() {
+    public static a dQB() {
         b.d("AsyncWriteHelper.getInstance()");
-        return C0854a.nvE;
+        return C0887a.nvD;
     }
 
     public boolean isAsyncWriting() {
-        return this.nvz;
+        return this.nvy;
     }
 
     public void a(@NonNull TbPageContextSupport tbPageContextSupport) {
         b.d("AsyncWriteHelper.initWriteStatus()");
-        this.nvy.h(tbPageContextSupport.getPageContext());
-        this.nvy.f((WriteData) null);
-        this.nvy.yp(false);
+        this.nvx.h(tbPageContextSupport.getPageContext());
+        this.nvx.f((WriteData) null);
+        this.nvx.yp(false);
     }
 
     public void setSpanGroupManager(SpanGroupManager spanGroupManager) {
         b.d("AsyncWriteHelper.setSpanGroupManager()");
-        this.nvy.dQS();
-        this.nvy.setSpanGroupManager(spanGroupManager);
+        this.nvx.dQT();
+        this.nvx.setSpanGroupManager(spanGroupManager);
     }
 
-    public boolean dQB() {
+    public boolean dQC() {
         b.d("AsyncWriteHelper.startPostWrite()");
-        this.nvy.dQS();
-        this.nvz = this.nvy.dQP();
-        return this.nvz;
+        this.nvx.dQT();
+        this.nvy = this.nvx.dQQ();
+        return this.nvy;
     }
 
-    public void dQC() {
+    public void dQD() {
         b.d("AsyncWriteHelper.onWriteActClose()");
-        this.nvy.h((com.baidu.adp.base.f<?>) null);
-        this.nvy.setSpanGroupManager(null);
+        this.nvx.h((com.baidu.adp.base.f<?>) null);
+        this.nvx.setSpanGroupManager(null);
     }
 
-    public void cIb() {
+    public void cIc() {
         b.d("AsyncWriteHelper.cancelLoadData()");
-        this.nvy.cancelLoadData();
+        this.nvx.cancelLoadData();
     }
 
     public void yp(boolean z) {
         b.d("AsyncWriteHelper.setHasImage = " + z);
-        this.nvy.yp(z);
+        this.nvx.yp(z);
     }
 
     public void f(WriteData writeData) {
         b.d("AsyncWriteHelper.setWriteData = " + (writeData == null ? "null" : writeData.toDraftString()));
-        this.nvy.f(writeData);
+        this.nvx.f(writeData);
     }
 
-    public WriteData dco() {
-        b.d("AsyncWriteHelper.getWriteData = " + (this.nvy.dco() == null ? "null" : this.nvy.dco().toDraftString()));
-        return this.nvy.dco();
+    public WriteData dcp() {
+        b.d("AsyncWriteHelper.getWriteData = " + (this.nvx.dcp() == null ? "null" : this.nvx.dcp().toDraftString()));
+        return this.nvx.dcp();
     }
 
-    public boolean dQD() {
-        b.d("AsyncWriteHelper.checkImageNum = " + this.nvy.dQD());
-        return this.nvy.dQD();
+    public boolean dQE() {
+        b.d("AsyncWriteHelper.checkImageNum = " + this.nvx.dQE());
+        return this.nvx.dQE();
     }
 
-    public String dQE() {
+    public String dQF() {
+        return this.nvA;
+    }
+
+    public void TP(String str) {
+        this.nvA = str;
+    }
+
+    public String dQG() {
         return this.nvB;
     }
 
@@ -94,7 +102,7 @@ public class a implements NewWriteModel.d {
         this.nvB = str;
     }
 
-    public String dQF() {
+    public String dQH() {
         return this.nvC;
     }
 
@@ -102,20 +110,12 @@ public class a implements NewWriteModel.d {
         this.nvC = str;
     }
 
-    public String dQG() {
-        return this.nvD;
-    }
-
-    public void TS(String str) {
-        this.nvD = str;
-    }
-
-    public BdUniqueId dQH() {
-        return this.nvA;
+    public BdUniqueId dQI() {
+        return this.nvz;
     }
 
     public void D(BdUniqueId bdUniqueId) {
-        this.nvA = bdUniqueId;
+        this.nvz = bdUniqueId;
     }
 
     @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
@@ -128,8 +128,8 @@ public class a implements NewWriteModel.d {
                 } else {
                     c.b(postWriteCallBackData);
                 }
-                cJs();
-                dQI();
+                cJt();
+                dQJ();
                 j(postWriteCallBackData);
                 if (!at.isEmpty(postWriteCallBackData.getVideoid()) && writeData.getVideoInfo() != null) {
                     postWriteCallBackData.mVideoMd5 = writeData.getVideoInfo().getVideoMd5();
@@ -142,29 +142,29 @@ public class a implements NewWriteModel.d {
                 bg.a(writeData, 100).jw(false);
                 c.a(postWriteCallBackData, ahVar, writeData, antiData);
             }
-            this.nvz = false;
+            this.nvy = false;
         }
     }
 
-    private void cJs() {
-        WriteData dco = dco();
-        if (dco != null) {
-            if (dco.getType() == 0 || dco.getType() == 9 || dco.getType() == 11) {
-                if (dco.isEvaluate()) {
-                    y.d(dco.getItem_id(), (WriteData) null);
-                } else if (TextUtils.isEmpty(dco.getTopicId())) {
-                    y.c(dco.getForumId(), (WriteData) null);
+    private void cJt() {
+        WriteData dcp = dcp();
+        if (dcp != null) {
+            if (dcp.getType() == 0 || dcp.getType() == 9 || dcp.getType() == 11) {
+                if (dcp.isEvaluate()) {
+                    y.d(dcp.getItem_id(), (WriteData) null);
+                } else if (TextUtils.isEmpty(dcp.getTopicId())) {
+                    y.c(dcp.getForumId(), (WriteData) null);
                 } else {
-                    y.e(dco.getTopicId(), (WriteData) null);
+                    y.e(dcp.getTopicId(), (WriteData) null);
                 }
-            } else if (dco.getType() == 1) {
-                y.b(dco.getThreadId(), (WriteData) null);
+            } else if (dcp.getType() == 1) {
+                y.b(dcp.getThreadId(), (WriteData) null);
             }
         }
     }
 
-    private void dQI() {
-        n.deleteFileOrDir(new File(com.baidu.tieba.video.c.nFh));
+    private void dQJ() {
+        n.deleteFileOrDir(new File(com.baidu.tieba.video.c.nFg));
     }
 
     private void j(PostWriteCallBackData postWriteCallBackData) {
@@ -172,16 +172,16 @@ public class a implements NewWriteModel.d {
     }
 
     private a() {
-        this.nvz = false;
-        this.nvA = null;
-        this.nvy = new NewWriteModel();
-        this.nvy.b(this);
+        this.nvy = false;
+        this.nvz = null;
+        this.nvx = new NewWriteModel();
+        this.nvx.b(this);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.tbadkCore.writeModel.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0854a {
-        private static final a nvE = new a();
+    public static class C0887a {
+        private static final a nvD = new a();
     }
 }

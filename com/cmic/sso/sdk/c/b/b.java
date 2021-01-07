@@ -6,10 +6,10 @@ import org.json.JSONObject;
 public class b extends g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f8001a;
+    private String f8002a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f8002b;
+    private String f8003b;
     private String c;
     private String d;
     private String e;
@@ -26,8 +26,8 @@ public class b extends g {
     public JSONObject b() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("version", this.f8001a);
-            jSONObject.put("apptype", this.f8002b);
+            jSONObject.put("version", this.f8002a);
+            jSONObject.put("apptype", this.f8003b);
             jSONObject.put("phone_ID", this.c);
             jSONObject.put("certflag", this.d);
             jSONObject.put("sdkversion", this.e);
@@ -41,11 +41,11 @@ public class b extends g {
     }
 
     public void a(String str) {
-        this.f8001a = str;
+        this.f8002a = str;
     }
 
     public void b(String str) {
-        this.f8002b = str;
+        this.f8003b = str;
     }
 
     public void c(String str) {
@@ -69,6 +69,6 @@ public class b extends g {
     }
 
     public String c() {
-        return dI(this.f8001a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
+        return dI(this.f8002a + this.e + this.f + "iYm0HAnkxQtpvN44").toLowerCase();
     }
 }

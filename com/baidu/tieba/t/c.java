@@ -8,8 +8,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.tbadk.core.util.ad;
 /* loaded from: classes.dex */
 public class c {
-    private static c nAe;
-    private a nAf = dSr();
+    private static c nAd;
+    private a nAe = dSs();
 
     /* loaded from: classes.dex */
     public interface a {
@@ -20,47 +20,47 @@ public class c {
         void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient);
     }
 
-    private boolean dSq() {
-        return com.baidu.tbadk.core.sharedPref.b.bvq().getInt("pref_key_stat_sdk_enable", 1) != 0;
+    private boolean dSr() {
+        return com.baidu.tbadk.core.sharedPref.b.bvr().getInt("pref_key_stat_sdk_enable", 1) != 0;
     }
 
     private c() {
     }
 
-    private a dSr() {
+    private a dSs() {
         CustomResponsedMessage runTask;
-        if (!dSq() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
+        if (!dSr() || (runTask = MessageManager.getInstance().runTask(2156671, a.class)) == null) {
             return null;
         }
         return (a) runTask.getData();
     }
 
-    public static c dSs() {
-        if (nAe == null) {
+    public static c dSt() {
+        if (nAd == null) {
             synchronized (c.class) {
-                if (nAe == null) {
-                    nAe = new c();
+                if (nAd == null) {
+                    nAd = new c();
                 }
             }
         }
-        return nAe;
+        return nAd;
     }
 
     public void autoTrace(Context context) {
-        if (ad.bvY() && this.nAf != null) {
-            this.nAf.autoTrace(context);
+        if (ad.bvZ() && this.nAe != null) {
+            this.nAe.autoTrace(context);
         }
     }
 
     public void setAppChannel(Context context, String str, boolean z) {
-        if (ad.bvY() && this.nAf != null) {
-            this.nAf.setAppChannel(context, str, z);
+        if (ad.bvZ() && this.nAe != null) {
+            this.nAe.setAppChannel(context, str, z);
         }
     }
 
     public void trackWebView(Context context, WebView webView, WebChromeClient webChromeClient) {
-        if (ad.bvY() && this.nAf != null) {
-            this.nAf.trackWebView(context, webView, webChromeClient);
+        if (ad.bvZ() && this.nAe != null) {
+            this.nAe.trackWebView(context, webView, webChromeClient);
         }
     }
 }

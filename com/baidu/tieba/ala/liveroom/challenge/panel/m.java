@@ -68,7 +68,7 @@ public class m extends g implements k.a {
                 m.this.bt(m.this.canUseChallenge);
                 if (m.this.hxb != null) {
                     if (m.this.canUseChallenge) {
-                        m.this.hxb.cgw();
+                        m.this.hxb.cgx();
                     } else {
                         BdUtilHelper.showToast(m.this.mContext, m.this.mContext.getString(a.h.sdk_can_not_use_challenge));
                     }
@@ -81,7 +81,7 @@ public class m extends g implements k.a {
                 m.this.bt(m.this.canUseChallenge);
                 if (m.this.hxb != null) {
                     if (m.this.canUseChallenge) {
-                        m.this.hxb.cgw();
+                        m.this.hxb.cgx();
                     } else {
                         BdUtilHelper.showToast(m.this.mContext, m.this.mContext.getString(a.h.sdk_can_not_use_challenge));
                     }
@@ -118,7 +118,7 @@ public class m extends g implements k.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public int cgi() {
+    public int cgj() {
         return this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds438) + this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds236);
     }
 
@@ -153,7 +153,7 @@ public class m extends g implements k.a {
         return true;
     }
 
-    public void cgG() {
+    public void cgH() {
         if (this.gSu != null) {
             this.gSu.cancel();
         }
@@ -167,7 +167,7 @@ public class m extends g implements k.a {
 
             @Override // android.os.CountDownTimer
             public void onFinish() {
-                m.this.bYe();
+                m.this.bYf();
             }
         };
         this.gSu.start();
@@ -177,7 +177,7 @@ public class m extends g implements k.a {
         this.hym = j;
     }
 
-    public void bYe() {
+    public void bYf() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913237, false));
         this.hyk.setVisibility(0);
         this.hyk.setText(this.hyl + "00:00:00");

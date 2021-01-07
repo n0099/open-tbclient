@@ -24,7 +24,7 @@ public class d implements e {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void bZg();
+        void bZh();
 
         void c(k kVar);
 
@@ -41,7 +41,7 @@ public class d implements e {
 
         void a(BaseAdapter baseAdapter);
 
-        void bZi();
+        void bZj();
 
         void cB(List<k> list);
 
@@ -70,7 +70,7 @@ public class d implements e {
         return this.mType;
     }
 
-    public void bZm() {
+    public void bZn() {
         if (this.hcK == null) {
             this.hcK = new i();
             this.hcK.a(new com.baidu.tieba.ala.guardclub.model.b() { // from class: com.baidu.tieba.ala.guardclub.rank.d.1
@@ -92,7 +92,7 @@ public class d implements e {
         }
     }
 
-    public void bZn() {
+    public void bZo() {
         if (this.hcX != null) {
             this.hcX.notifyDataSetChanged();
         }
@@ -119,17 +119,17 @@ public class d implements e {
         }
     }
 
-    public void bZg() {
+    public void bZh() {
         if (this.hcT != null) {
-            this.hcT.bZg();
+            this.hcT.bZh();
         }
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
     public void onInitial() {
         this.hcY = 1;
-        bZo();
-        bZm();
+        bZp();
+        bZn();
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.e
@@ -157,7 +157,7 @@ public class d implements e {
         }
     }
 
-    private void bZo() {
+    private void bZp() {
         this.hcX = new n(this.mContext);
         switch (this.mType) {
             case 1:
@@ -209,7 +209,7 @@ public class d implements e {
             }
         } else if (this.hcY == 1) {
             if (this.hcW != null) {
-                this.hcW.bZi();
+                this.hcW.bZj();
                 return;
             }
             return;

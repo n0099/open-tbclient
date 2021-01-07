@@ -12,7 +12,7 @@ public class d {
 
     public static void initial() {
         try {
-            eZR = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("static_opt_open", 0) > 0;
+            eZR = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("static_opt_open", 0) > 0;
             long currentTimeMillis = System.currentTimeMillis();
             if (eZR) {
                 if (loadStaticClasses()) {

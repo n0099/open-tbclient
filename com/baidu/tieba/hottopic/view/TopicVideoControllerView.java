@@ -42,7 +42,7 @@ public class TopicVideoControllerView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (!TopicVideoControllerView.this.mDragging && TopicVideoControllerView.this.bdx && TopicVideoControllerView.this.gjV != null && TopicVideoControllerView.this.gjV.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.gjU - (TopicVideoControllerView.this.bPa() % TopicVideoControllerView.this.gjU));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.gjU - (TopicVideoControllerView.this.bPb() % TopicVideoControllerView.this.gjU));
                             return;
                         }
                         return;
@@ -72,7 +72,7 @@ public class TopicVideoControllerView extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
                 TopicVideoControllerView.this.mDragging = false;
-                TopicVideoControllerView.this.bPa();
+                TopicVideoControllerView.this.bPb();
                 TopicVideoControllerView.this.mHandler.sendEmptyMessage(1);
             }
         };
@@ -90,7 +90,7 @@ public class TopicVideoControllerView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (!TopicVideoControllerView.this.mDragging && TopicVideoControllerView.this.bdx && TopicVideoControllerView.this.gjV != null && TopicVideoControllerView.this.gjV.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.gjU - (TopicVideoControllerView.this.bPa() % TopicVideoControllerView.this.gjU));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.gjU - (TopicVideoControllerView.this.bPb() % TopicVideoControllerView.this.gjU));
                             return;
                         }
                         return;
@@ -120,7 +120,7 @@ public class TopicVideoControllerView extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
                 TopicVideoControllerView.this.mDragging = false;
-                TopicVideoControllerView.this.bPa();
+                TopicVideoControllerView.this.bPb();
                 TopicVideoControllerView.this.mHandler.sendEmptyMessage(1);
             }
         };
@@ -138,7 +138,7 @@ public class TopicVideoControllerView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (!TopicVideoControllerView.this.mDragging && TopicVideoControllerView.this.bdx && TopicVideoControllerView.this.gjV != null && TopicVideoControllerView.this.gjV.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.gjU - (TopicVideoControllerView.this.bPa() % TopicVideoControllerView.this.gjU));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoControllerView.this.gjU - (TopicVideoControllerView.this.bPb() % TopicVideoControllerView.this.gjU));
                             return;
                         }
                         return;
@@ -168,7 +168,7 @@ public class TopicVideoControllerView extends RelativeLayout {
             @Override // android.widget.SeekBar.OnSeekBarChangeListener
             public void onStopTrackingTouch(SeekBar seekBar) {
                 TopicVideoControllerView.this.mDragging = false;
-                TopicVideoControllerView.this.bPa();
+                TopicVideoControllerView.this.bPb();
                 TopicVideoControllerView.this.mHandler.sendEmptyMessage(1);
             }
         };
@@ -214,7 +214,7 @@ public class TopicVideoControllerView extends RelativeLayout {
         }
     }
 
-    public void aUR() {
+    public void aUS() {
         this.bdx = false;
         this.mHandler.removeMessages(1);
         this.gjY.setProgress(0);
@@ -224,7 +224,7 @@ public class TopicVideoControllerView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int bPa() {
+    public int bPb() {
         if (this.gjV == null || this.mDragging) {
             return 0;
         }

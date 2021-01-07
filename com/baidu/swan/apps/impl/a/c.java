@@ -18,7 +18,7 @@ public class c {
         private static final c dfE = new c();
     }
 
-    public static c azo() {
+    public static c azp() {
         return a.dfE;
     }
 
@@ -28,19 +28,19 @@ public class c {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        com.baidu.swan.apps.impl.a.a.azm().oU("installSwanApp start, appKey = " + str);
-        File azq = com.baidu.swan.apps.impl.a.a.a.azq();
-        if (azq == null || !azq.exists()) {
+        com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp start, appKey = " + str);
+        File azr = com.baidu.swan.apps.impl.a.a.a.azr();
+        if (azr == null || !azr.exists()) {
             return false;
         }
-        File file = new File(azq, com.baidu.swan.apps.impl.a.a.a.dfR);
+        File file = new File(azr, com.baidu.swan.apps.impl.a.a.a.dfR);
         if (!file.exists()) {
-            com.baidu.swan.apps.impl.a.a.azm().oU("installSwanApp clone_zipFiles file not exists");
+            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp clone_zipFiles file not exists");
             return false;
         }
-        File b2 = b.b(d.N(file), azq);
+        File b2 = b.b(d.N(file), azr);
         if (b2 == null || !b2.exists()) {
-            com.baidu.swan.apps.impl.a.a.azm().oU("installSwanApp cloneZip.zip file not exists");
+            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp cloneZip.zip file not exists");
             return false;
         }
         File file2 = new File(com.baidu.swan.apps.impl.a.a.a.dfI);
@@ -48,7 +48,7 @@ public class c {
             d.safeDeleteFile(file2);
         }
         if (!d.ensureDirectoryExist(file2)) {
-            com.baidu.swan.apps.impl.a.a.azm().oU("installSwanApp root cache dir create fail");
+            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp root cache dir create fail");
             return false;
         }
         boolean z = d.dD(b2.getAbsolutePath(), com.baidu.swan.apps.impl.a.a.a.dfI) == null;
@@ -56,11 +56,11 @@ public class c {
             d.deleteFile(file);
             d.deleteFile(b2);
         }
-        com.baidu.swan.apps.impl.a.a.azm().oU("unzip file status = " + z);
+        com.baidu.swan.apps.impl.a.a.azn().oU("unzip file status = " + z);
         File file3 = new File(com.baidu.swan.apps.impl.a.a.a.dfI);
         String[] list = file3.list();
         if (list == null || list.length == 0) {
-            com.baidu.swan.apps.impl.a.a.azm().oU("installSwanApp unzip file length invalid");
+            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp unzip file length invalid");
             return false;
         }
         int length = list.length;
@@ -80,11 +80,11 @@ public class c {
             }
         }
         if (!TextUtils.equals(str, str3) || TextUtils.isEmpty(str2)) {
-            com.baidu.swan.apps.impl.a.a.azm().oU("installSwanApp install appKey not match zip file appKey");
+            com.baidu.swan.apps.impl.a.a.azn().oU("installSwanApp install appKey not match zip file appKey");
             return false;
         }
         File file4 = new File(com.baidu.swan.apps.impl.a.a.a.dfI, str2);
-        com.baidu.swan.apps.impl.a.a.azm().oU("installSwanPkg = " + j(str, file4) + " ; installCore = " + k(str, file4) + " ; installSp = " + l(str, file4) + " ; installDb = " + m(str, file4) + " ; installAbTest = " + oW(str) + " ; installDynamicLib = " + n(str, file4));
+        com.baidu.swan.apps.impl.a.a.azn().oU("installSwanPkg = " + j(str, file4) + " ; installCore = " + k(str, file4) + " ; installSp = " + l(str, file4) + " ; installDb = " + m(str, file4) + " ; installAbTest = " + oW(str) + " ; installDynamicLib = " + n(str, file4));
         return d.deleteFile(file3);
     }
 
@@ -152,7 +152,7 @@ public class c {
         }
         boolean j = j(new File(file, com.baidu.swan.apps.impl.a.a.a.dfP), new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, NgWebView.APP_DATABASE_PATH));
         SwanAppDbControl.cR(AppRuntime.getAppContext()).release();
-        com.baidu.swan.pms.database.provider.a.bgi().release();
+        com.baidu.swan.pms.database.provider.a.bgj().release();
         return j;
     }
 

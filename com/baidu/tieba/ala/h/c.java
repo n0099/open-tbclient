@@ -21,11 +21,11 @@ public class c implements com.baidu.live.u.d {
     private String ifV;
     private d igO;
 
-    public static c crF() {
+    public static c crG() {
         return a.igQ;
     }
 
-    public String crq() {
+    public String crr() {
         return this.ifV;
     }
 
@@ -33,7 +33,7 @@ public class c implements com.baidu.live.u.d {
     public void RC() {
         final an anVar = com.baidu.live.af.a.SE().bwi;
         if (anVar == null || anVar.aPn == null || TextUtils.isEmpty(anVar.aPn.downloadUrl)) {
-            bZS();
+            bZT();
         } else if (!this.ifS) {
             this.ifV = "";
             this.ifS = true;
@@ -43,17 +43,17 @@ public class c implements com.baidu.live.u.d {
                 @Override // com.baidu.live.adp.lib.asynctask.BdAsyncTask
                 /* renamed from: a */
                 public bw doInBackground(bw... bwVarArr) {
-                    bw Jd;
+                    bw Jc;
                     if (bwVarArr == null || bwVarArr.length == 0) {
                         return null;
                     }
                     bw bwVar = bwVarArr[0];
                     String string = com.baidu.live.d.Ba().getString("live_pk_rank_start_anim", "");
-                    if (TextUtils.isEmpty(string) || (Jd = b.Jd(string)) == null || !bwVar.downloadUrl.equals(Jd.downloadUrl) || !bwVar.aSv.equals(Jd.aSv) || TextUtils.isEmpty(Jd.videoMd5) || !Jd.videoMd5.equals(c.this.crr())) {
-                        c.this.crs();
+                    if (TextUtils.isEmpty(string) || (Jc = b.Jc(string)) == null || !bwVar.downloadUrl.equals(Jc.downloadUrl) || !bwVar.aSv.equals(Jc.aSv) || TextUtils.isEmpty(Jc.videoMd5) || !Jc.videoMd5.equals(c.this.crs())) {
+                        c.this.crt();
                         return null;
                     }
-                    return Jd;
+                    return Jc;
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -93,7 +93,7 @@ public class c implements com.baidu.live.u.d {
         }
     }
 
-    private void bZS() {
+    private void bZT() {
         if (this.ifT == null) {
             this.ifT = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_SYNC) { // from class: com.baidu.tieba.ala.h.c.2
                 /* JADX DEBUG: Method merged with bridge method */
@@ -109,7 +109,7 @@ public class c implements com.baidu.live.u.d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String crr() {
+    public String crs() {
         File[] listFiles = new File(ifR).listFiles();
         if (listFiles == null || listFiles.length == 0) {
             return null;
@@ -131,7 +131,7 @@ public class c implements com.baidu.live.u.d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crs() {
+    public void crt() {
         this.ifV = "";
         com.baidu.live.d.Ba().putString("live_pk_rank_start_anim", "");
         com.baidu.live.i.a.cleanDir(new File(ifP));

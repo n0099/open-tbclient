@@ -15,17 +15,17 @@ import org.json.JSONObject;
 public class n implements e<c.a> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final com.bytedance.sdk.openadsdk.core.d f6543a = com.bytedance.sdk.openadsdk.core.d.a(f());
+    protected final com.bytedance.sdk.openadsdk.core.d f6544a = com.bytedance.sdk.openadsdk.core.d.a(f());
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f6544b;
+    private final Context f6545b;
 
     public n(Context context) {
-        this.f6544b = context;
+        this.f6545b = context;
     }
 
     public Context f() {
-        return this.f6544b == null ? com.bytedance.sdk.openadsdk.core.p.a() : this.f6544b;
+        return this.f6545b == null ? com.bytedance.sdk.openadsdk.core.p.a() : this.f6545b;
     }
 
     public String d() {
@@ -64,8 +64,8 @@ public class n implements e<c.a> {
     @Override // com.bytedance.sdk.openadsdk.c.e
     public synchronized void a(c.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", aVar.f7481a);
-        contentValues.put("value", aVar.f7482b != null ? aVar.f7482b.toString() : "");
+        contentValues.put("id", aVar.f7482a);
+        contentValues.put("value", aVar.f7483b != null ? aVar.f7483b.toString() : "");
         contentValues.put("gen_time", Long.valueOf(System.currentTimeMillis()));
         contentValues.put("retry", (Integer) 0);
         com.bytedance.sdk.openadsdk.multipro.a.a.a(f(), d(), contentValues);
@@ -76,7 +76,7 @@ public class n implements e<c.a> {
         if (!s.a(list)) {
             LinkedList linkedList = new LinkedList();
             for (c.a aVar : list) {
-                linkedList.add(aVar.f7481a);
+                linkedList.add(aVar.f7482a);
             }
             com.bytedance.sdk.openadsdk.multipro.a.a.a(f(), "DELETE FROM " + d() + " WHERE " + a("id", linkedList, 1000, true));
         }
@@ -106,29 +106,29 @@ public class n implements e<c.a> {
     private synchronized void b(List<c.a> list) {
         LinkedList linkedList = new LinkedList();
         for (c.a aVar : list) {
-            linkedList.add(aVar.f7481a);
+            linkedList.add(aVar.f7482a);
         }
         com.bytedance.sdk.openadsdk.multipro.a.a.a(f(), "UPDATE " + d() + " SET retry = retry+1 WHERE " + a("id", linkedList, 1000, true));
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(boolean z) {
-        this.f6543a.a("stats_serverbusy_flag", z);
+        this.f6544a.a("stats_serverbusy_flag", z);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public boolean b() {
-        return this.f6543a.b("stats_serverbusy_flag", false);
+        return this.f6544a.b("stats_serverbusy_flag", false);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public int c() {
-        return this.f6543a.b("stats_serverbusy_retrycount", 0);
+        return this.f6544a.b("stats_serverbusy_retrycount", 0);
     }
 
     @Override // com.bytedance.sdk.openadsdk.c.e
     public void a(int i) {
-        this.f6543a.a("stats_serverbusy_retrycount", i);
+        this.f6544a.a("stats_serverbusy_retrycount", i);
     }
 
     public static String g() {

@@ -15,9 +15,9 @@ public final class h {
     public static JsonElement parse(com.google.gson.stream.a aVar) throws JsonParseException {
         boolean z = true;
         try {
-            aVar.eCl();
+            aVar.eCP();
             z = false;
-            return TypeAdapters.pNo.read(aVar);
+            return TypeAdapters.pOW.read(aVar);
         } catch (MalformedJsonException e) {
             throw new JsonSyntaxException(e);
         } catch (EOFException e2) {
@@ -33,7 +33,7 @@ public final class h {
     }
 
     public static void a(JsonElement jsonElement, com.google.gson.stream.b bVar) throws IOException {
-        TypeAdapters.pNo.write(bVar, jsonElement);
+        TypeAdapters.pOW.write(bVar, jsonElement);
     }
 
     public static Writer b(Appendable appendable) {
@@ -44,7 +44,7 @@ public final class h {
     /* loaded from: classes5.dex */
     public static final class a extends Writer {
         private final Appendable appendable;
-        private final C1031a pLz = new C1031a();
+        private final C1072a pNh = new C1072a();
 
         a(Appendable appendable) {
             this.appendable = appendable;
@@ -52,8 +52,8 @@ public final class h {
 
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) throws IOException {
-            this.pLz.chars = cArr;
-            this.appendable.append(this.pLz, i, i + i2);
+            this.pNh.chars = cArr;
+            this.appendable.append(this.pNh, i, i + i2);
         }
 
         @Override // java.io.Writer
@@ -71,10 +71,10 @@ public final class h {
 
         /* renamed from: com.google.gson.internal.h$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        static class C1031a implements CharSequence {
+        static class C1072a implements CharSequence {
             char[] chars;
 
-            C1031a() {
+            C1072a() {
             }
 
             @Override // java.lang.CharSequence

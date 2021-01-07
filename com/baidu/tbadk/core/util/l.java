@@ -17,10 +17,10 @@ public class l {
     }
 
     private static int v(bz bzVar) {
-        if (bzVar.getType() == bz.eSW || bzVar.btp()) {
+        if (bzVar.getType() == bz.eSW || bzVar.btq()) {
             return 2;
         }
-        if (bzVar.bpX() || bzVar.bpY()) {
+        if (bzVar.bpY() || bzVar.bpZ()) {
             return 3;
         }
         return 1;
@@ -36,17 +36,17 @@ public class l {
         a2.an("obj_source", bzVar.threadType);
         a2.w(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
         a2.an("obj_param5", v(bzVar));
-        a2.an("obj_type", bzVar.bsy());
-        if (bzVar.bsW() != null) {
-            a2.an("obj_name", bzVar.bsW().nsp ? 1 : 0);
+        a2.an("obj_type", bzVar.bsz());
+        if (bzVar.bsX() != null) {
+            a2.an("obj_name", bzVar.bsX().nso ? 1 : 0);
         }
         if (bzVar.getBaijiahaoData() != null) {
             a2.dX("obj_param4", bzVar.getBaijiahaoData().oriUgcNid);
         }
-        if (bzVar.brq() != null) {
-            a2.an(TiebaInitialize.Params.AB_TYPE, bzVar.brq().getIsLike() ? 1 : 0);
+        if (bzVar.brr() != null) {
+            a2.an(TiebaInitialize.Params.AB_TYPE, bzVar.brr().getIsLike() ? 1 : 0);
         }
-        a2.an("is_full", bzVar.btj() ? 1 : 0);
+        a2.an("is_full", bzVar.btk() ? 1 : 0);
         return a2;
     }
 
@@ -69,8 +69,8 @@ public class l {
         } else {
             a2.an("midpageflag", 0);
         }
-        if (bzVar.brq() != null) {
-            a2.an(TiebaInitialize.Params.AB_TYPE, bzVar.brq().getIsLike() ? 1 : 0);
+        if (bzVar.brr() != null) {
+            a2.an(TiebaInitialize.Params.AB_TYPE, bzVar.brr().getIsLike() ? 1 : 0);
         }
         return a2;
     }
@@ -87,7 +87,7 @@ public class l {
             }
         } else {
             a2 = a("c13633", bzVar, str);
-            a2.an("obj_type", bzVar.bsy());
+            a2.an("obj_type", bzVar.bsz());
         }
         a2.w("uid", TbadkApplication.getCurrentAccountId());
         a2.an("obj_locate", bzVar.eQR);
@@ -119,8 +119,8 @@ public class l {
             }
         } else {
             aq a3 = a("c13631", bzVar, str);
-            a3.an("obj_type", bzVar.bsy());
-            a3.an("is_full", bzVar.btj() ? 1 : 0);
+            a3.an("obj_type", bzVar.bsz());
+            a3.an("is_full", bzVar.btk() ? 1 : 0);
             aqVar = a3;
         }
         aqVar.w("uid", TbadkApplication.getCurrentAccountId());
@@ -143,11 +143,11 @@ public class l {
         a2.an("obj_locate", bzVar.eQR);
         a2.w(TiebaInitialize.Params.OBJ_PARAM3, System.currentTimeMillis());
         a2.an("obj_param5", v(bzVar));
-        a2.an("obj_type", bzVar.bsy());
+        a2.an("obj_type", bzVar.bsz());
         if (bzVar.getBaijiahaoData() != null) {
             a2.dX("obj_param4", bzVar.getBaijiahaoData().oriUgcNid);
         }
-        a2.an("is_full", bzVar.btj() ? 1 : 0);
+        a2.an("is_full", bzVar.btk() ? 1 : 0);
         return a2;
     }
 
@@ -181,7 +181,7 @@ public class l {
             }
         } else {
             a2 = a("c13634", bzVar, str);
-            a2.an("obj_type", bzVar.bsy());
+            a2.an("obj_type", bzVar.bsz());
         }
         a2.w("uid", TbadkApplication.getCurrentAccountId());
         a2.an("obj_locate", bzVar.eQR);

@@ -8,7 +8,7 @@ import java.nio.ByteBuffer;
 public class jo extends je {
 
     /* renamed from: b  reason: collision with root package name */
-    private static int f14479b = 10000;
+    private static int f14480b = 10000;
     private static int c = 10000;
     private static int d = 10000;
     private static int e = Log.FILE_LIMETE;
@@ -26,9 +26,9 @@ public class jo extends je {
 
         @Override // com.xiaomi.push.je.a, com.xiaomi.push.jk
         public ji a(js jsVar) {
-            jo joVar = new jo(jsVar, this.f855a, this.f14469b);
-            if (this.f14468a != 0) {
-                joVar.b(this.f14468a);
+            jo joVar = new jo(jsVar, this.f856a, this.f14470b);
+            if (this.f14469a != 0) {
+                joVar.b(this.f14469a);
             }
             return joVar;
         }
@@ -53,7 +53,7 @@ public class jo extends je {
         byte a2 = a();
         byte a3 = a();
         int a4 = a();
-        if (a4 > f14479b) {
+        if (a4 > f14480b) {
             throw new jj(3, "Thrift map size " + a4 + " out of range!");
         }
         return new jh(a2, a3, a4);
@@ -75,10 +75,10 @@ public class jo extends je {
         if (a2 > e) {
             throw new jj(3, "Thrift string size " + a2 + " out of range!");
         }
-        if (this.f14474a.b() >= a2) {
+        if (this.f14475a.b() >= a2) {
             try {
-                String str = new String(this.f14474a.m515a(), this.f14474a.a(), a2, "UTF-8");
-                this.f14474a.a(a2);
+                String str = new String(this.f14475a.m526a(), this.f14475a.a(), a2, "UTF-8");
+                this.f14475a.a(a2);
                 return str;
             } catch (UnsupportedEncodingException e2) {
                 throw new jc("JVM DOES NOT SUPPORT UTF-8");
@@ -94,13 +94,13 @@ public class jo extends je {
             throw new jj(3, "Thrift binary size " + a2 + " out of range!");
         }
         c(a2);
-        if (this.f14474a.b() >= a2) {
-            ByteBuffer wrap = ByteBuffer.wrap(this.f14474a.m515a(), this.f14474a.a(), a2);
-            this.f14474a.a(a2);
+        if (this.f14475a.b() >= a2) {
+            ByteBuffer wrap = ByteBuffer.wrap(this.f14475a.m526a(), this.f14475a.a(), a2);
+            this.f14475a.a(a2);
             return wrap;
         }
         byte[] bArr = new byte[a2];
-        this.f14474a.b(bArr, 0, a2);
+        this.f14475a.b(bArr, 0, a2);
         return ByteBuffer.wrap(bArr);
     }
 }

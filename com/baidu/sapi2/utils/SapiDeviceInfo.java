@@ -26,11 +26,11 @@ import org.json.JSONObject;
 public class SapiDeviceInfo implements NoProguard {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f5368a = 11;
+    private static final int f5369a = 11;
     private static final String c = "android";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f5369b = Character.toString(1);
+    private static final String f5370b = Character.toString(1);
     private static final String d = TextUtils.join("", new String[]{"O", "a", "L", "h", MapBundleKey.MapObjKey.OBJ_SS_ARROW_Z, "O", "K", "T", "T", "Q", "G", "L", "w", "8", "h", "P"});
 
     static String a() {
@@ -124,7 +124,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static String getDeviceInfo(String str) {
         List<String> buildDeviceTokens = buildDeviceTokens(str);
         a.a(buildDeviceTokens);
-        return a(TextUtils.join(f5369b, buildDeviceTokens));
+        return a(TextUtils.join(f5370b, buildDeviceTokens));
     }
 
     public static String getDiCookieInfo(List<String> list) {
@@ -133,10 +133,10 @@ public class SapiDeviceInfo implements NoProguard {
 
     public static String getDiCookieInfo(List<String> list, boolean z) {
         JSONObject jSONObject = new JSONObject();
-        if (!a.f5370a.isEmpty() && list != null) {
+        if (!a.f5371a.isEmpty() && list != null) {
             for (String str : list) {
                 try {
-                    jSONObject.put(str, a.f5370a.get(str));
+                    jSONObject.put(str, a.f5371a.get(str));
                 } catch (JSONException e) {
                     Log.e(e);
                 }
@@ -177,7 +177,7 @@ public class SapiDeviceInfo implements NoProguard {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static Map<String, String> f5370a = new HashMap();
+        static Map<String, String> f5371a = new HashMap();
 
         a() {
         }
@@ -227,7 +227,7 @@ public class SapiDeviceInfo implements NoProguard {
         static void a(List<String> list) {
             List<String> a2 = a();
             for (int i = 0; i < a2.size() && i < list.size(); i++) {
-                f5370a.put(a2.get(i), list.get(i));
+                f5371a.put(a2.get(i), list.get(i));
             }
         }
     }

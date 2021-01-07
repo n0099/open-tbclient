@@ -182,7 +182,7 @@ public class YuyinAlaDynamicGiftListHttpResponseMessage extends JsonHttpResponse
 
     private void b(List<com.baidu.live.gift.b> list, String str) {
         boolean z;
-        if ((!BdNetTypeUtil.isMobileNet() || !m.XA()) && list != null && !list.isEmpty()) {
+        if ((!BdNetTypeUtil.isMobileNet() || !m.XB()) && list != null && !list.isEmpty()) {
             List<u> HF = v.HF();
             for (int i = 0; i < list.size(); i++) {
                 com.baidu.live.gift.b bVar = list.get(i);

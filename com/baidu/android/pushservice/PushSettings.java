@@ -7,10 +7,10 @@ import com.kwad.sdk.core.response.model.SdkConfigData;
 public class PushSettings {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f1164a = -1;
+    public static int f1165a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f1165b = -1;
+    public static int f1166b = -1;
     public static int c = -1;
     public static int d = -1;
     public static int e = -1;
@@ -68,21 +68,21 @@ public class PushSettings {
     }
 
     public static boolean e(Context context) {
-        return context != null && f1164a == 1;
+        return context != null && f1165a == 1;
     }
 
     public static void enableDebugMode(boolean z) {
-        f1164a = z ? 1 : 0;
+        f1165a = z ? 1 : 0;
     }
 
     public static boolean f(Context context) {
         if (context == null) {
             return false;
         }
-        if (f1165b == -1) {
-            f1165b = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
+        if (f1166b == -1) {
+            f1166b = com.baidu.android.pushservice.i.i.b(context, "com.baidu.android.pushservice.PushSettings.xm_proxy_mode", -1);
         }
-        return f1165b == 1;
+        return f1166b == 1;
     }
 
     public static boolean g(Context context) {

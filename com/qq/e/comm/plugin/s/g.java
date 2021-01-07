@@ -5,14 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12750a;
+    private String f12751a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f12751b;
+    private long f12752b;
 
     public static g a(JSONObject jSONObject) {
         if (jSONObject != null) {
@@ -49,14 +49,14 @@ public class g {
     }
 
     public String a() {
-        return this.f12750a;
+        return this.f12751a;
     }
 
     public void a(long j) {
-        this.f12751b = j;
+        this.f12752b = j;
     }
 
     public void a(String str) {
-        this.f12750a = str;
+        this.f12751a = str;
     }
 }

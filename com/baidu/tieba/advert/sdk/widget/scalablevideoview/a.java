@@ -14,15 +14,15 @@ public class a {
     public Matrix a(ScalableType scalableType) {
         switch (scalableType) {
             case NONE:
-                return bQg();
+                return bQh();
             case FIT_XY:
-                return bPZ();
-            case FIT_CENTER:
-                return bQb();
-            case FIT_START:
                 return bQa();
-            case FIT_END:
+            case FIT_CENTER:
                 return bQc();
+            case FIT_START:
+                return bQb();
+            case FIT_END:
+                return bQd();
             case LEFT_TOP:
                 return b(PivotPoint.LEFT_TOP);
             case LEFT_CENTER:
@@ -60,29 +60,29 @@ public class a {
             case RIGHT_BOTTOM_CROP:
                 return c(PivotPoint.RIGHT_BOTTOM);
             case START_INSIDE:
-                return bQd();
-            case CENTER_INSIDE:
                 return bQe();
-            case END_INSIDE:
+            case CENTER_INSIDE:
                 return bQf();
+            case END_INSIDE:
+                return bQg();
             default:
                 return null;
         }
     }
 
-    private Matrix bPZ() {
+    private Matrix bQa() {
         return a(1.0f, 1.0f, PivotPoint.LEFT_TOP);
     }
 
-    private Matrix bQa() {
+    private Matrix bQb() {
         return a(PivotPoint.LEFT_TOP);
     }
 
-    private Matrix bQb() {
+    private Matrix bQc() {
         return a(PivotPoint.CENTER);
     }
 
-    private Matrix bQc() {
+    private Matrix bQd() {
         return a(PivotPoint.RIGHT_BOTTOM);
     }
 
@@ -104,19 +104,19 @@ public class a {
         return a(max / width, max / height, pivotPoint);
     }
 
-    private Matrix bQd() {
-        return (this.gnk.getHeight() > this.gnj.getWidth() || this.gnk.getHeight() > this.gnj.getHeight()) ? bQa() : b(PivotPoint.LEFT_TOP);
-    }
-
     private Matrix bQe() {
-        return (this.gnk.getHeight() > this.gnj.getWidth() || this.gnk.getHeight() > this.gnj.getHeight()) ? bQb() : b(PivotPoint.CENTER);
+        return (this.gnk.getHeight() > this.gnj.getWidth() || this.gnk.getHeight() > this.gnj.getHeight()) ? bQb() : b(PivotPoint.LEFT_TOP);
     }
 
     private Matrix bQf() {
-        return (this.gnk.getHeight() > this.gnj.getWidth() || this.gnk.getHeight() > this.gnj.getHeight()) ? bQc() : b(PivotPoint.RIGHT_BOTTOM);
+        return (this.gnk.getHeight() > this.gnj.getWidth() || this.gnk.getHeight() > this.gnj.getHeight()) ? bQc() : b(PivotPoint.CENTER);
     }
 
     private Matrix bQg() {
+        return (this.gnk.getHeight() > this.gnj.getWidth() || this.gnk.getHeight() > this.gnj.getHeight()) ? bQd() : b(PivotPoint.RIGHT_BOTTOM);
+    }
+
+    private Matrix bQh() {
         return a(this.gnk.getWidth() / this.gnj.getWidth(), this.gnk.getHeight() / this.gnj.getHeight(), PivotPoint.LEFT_TOP);
     }
 

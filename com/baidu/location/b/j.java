@@ -3,15 +3,15 @@ package com.baidu.location.b;
 import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private static j f2624a = null;
+    private static j f2625a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f2625b = "Temp_in.dat";
-    private static File c = new File(com.baidu.location.e.k.f2731a, f2625b);
+    private static String f2626b = "Temp_in.dat";
+    private static File c = new File(com.baidu.location.e.k.f2732a, f2626b);
     private static StringBuffer d = null;
     private static boolean e = true;
     private static int f = 0;

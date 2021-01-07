@@ -12,22 +12,22 @@ public class d {
 
     public d(JsObject jsObject) {
         this.eoj = b.l(com.baidu.swan.games.binding.model.c.e(jsObject));
-        a.bch().a(this);
+        a.bci().a(this);
     }
 
     @JavascriptInterface
     public boolean applyUpdate() {
-        final SwanAppActivity aDq = f.aDG().aDq();
-        if (aDq == null) {
+        final SwanAppActivity aDr = f.aDH().aDr();
+        if (aDr == null) {
             com.baidu.swan.apps.console.c.e("UpdateManagerApi", "applyUpdate activity is null");
             return false;
-        } else if (aDq.isDestroyed() || aDq.getIntent() == null) {
+        } else if (aDr.isDestroyed() || aDr.getIntent() == null) {
             return false;
         } else {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.games.aa.d.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.games.utils.a.n(aDq);
+                    com.baidu.swan.games.utils.a.n(aDr);
                 }
             });
             return true;
@@ -72,10 +72,10 @@ public class d {
                     this.eoj.b(cVar);
                     return;
                 case true:
-                    this.eoj.bcj();
+                    this.eoj.bck();
                     return;
                 case true:
-                    this.eoj.bck();
+                    this.eoj.bcl();
                     return;
                 default:
                     return;

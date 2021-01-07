@@ -25,7 +25,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         @Override // com.baidu.tbadk.core.view.NoNetworkView.a
         public void onNetworkChange(boolean z) {
             if (z) {
-                SuspendedActivity.this.bIm();
+                SuspendedActivity.this.bIn();
             }
         }
     };
@@ -34,7 +34,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
 
     protected abstract a a(LinearLayout linearLayout, NavigationBar navigationBar);
 
-    protected abstract void bIm();
+    protected abstract void bIn();
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -47,22 +47,22 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
 
     private void init() {
         this.fOk = (SusPendedView) findViewById(R.id.root_view);
-        bIj();
         bIk();
         bIl();
-        abn();
+        bIm();
+        abo();
         this.fOk.setNavigationBar(this.fOm);
         this.fOk.setTranView(this.fOe);
         this.fOk.setContentView(this.mContentView);
         this.fOk.show();
     }
 
-    private void bIj() {
+    private void bIk() {
         this.fOe = new TranView(getPageContext().getPageActivity());
         this.fOe.setVisibility(0);
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.mCenterText.setTextSize(0, l.getDimens(getPageContext().getPageActivity(), R.dimen.tbds44));
         this.bYR = this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getResources().getString(R.string.dialog_cancel), new View.OnClickListener() { // from class: com.baidu.tbadk.suspended.SuspendedActivity.2
@@ -79,12 +79,12 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
         this.fOm.addView(this.fOe, 0, new LinearLayout.LayoutParams(-1, l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds153)));
     }
 
-    private void bIl() {
+    private void bIm() {
         this.fOl = (NoNetworkView) findViewById(R.id.view_no_network);
         this.fOl.a(this.fOo);
     }
 
-    private void abn() {
+    private void abo() {
         this.mContentView = (LinearLayout) findViewById(R.id.content_view);
         this.fOn = a(this.mContentView, this.mNavigationBar);
         if (this.fOn != null) {
@@ -117,7 +117,7 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     }
 
     protected void close() {
-        if (this.fOn == null || this.fOn.bIh()) {
+        if (this.fOn == null || this.fOn.bIi()) {
             if (this.fOe != null) {
                 this.fOk.onFinish();
             } else {
@@ -129,9 +129,9 @@ public abstract class SuspendedActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, android.app.Activity
     public void finish() {
         if (this.fOn != null) {
-            Intent bIi = this.fOn.bIi();
-            if (bIi != null) {
-                setResult(-1, bIi);
+            Intent bIj = this.fOn.bIj();
+            if (bIj != null) {
+                setResult(-1, bIj);
             }
             if (this.fOe != null && !this.fOk.getIsFinish()) {
                 this.fOk.onFinish();

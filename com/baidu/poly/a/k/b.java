@@ -12,10 +12,10 @@ import java.util.List;
 import org.apache.http.cookie.SM;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static class a extends com.baidu.poly.a.a.a<String> {
         final /* synthetic */ com.baidu.poly.a.k.a cpk;
 
@@ -43,7 +43,7 @@ public class b {
                 }
             } catch (Exception e) {
                 c0318a.statusCode = 2;
-                c0318a.message = g.afL().getResources().getString(b.g.calculate_price_default_error);
+                c0318a.message = g.afM().getResources().getString(b.g.calculate_price_default_error);
             }
             this.cpk.a(c0318a);
         }
@@ -52,7 +52,7 @@ public class b {
         public void a(Throwable th, String str) {
             a.C0318a c0318a = new a.C0318a();
             c0318a.statusCode = 2;
-            c0318a.message = g.afL().getResources().getString(b.g.calculate_price_default_error);
+            c0318a.message = g.afM().getResources().getString(b.g.calculate_price_default_error);
             this.cpk.a(c0318a);
         }
     }

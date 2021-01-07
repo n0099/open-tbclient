@@ -114,7 +114,7 @@ public class b {
             this.isLoading = true;
             this.isLoadMore = false;
             if (this.iXY) {
-                boE();
+                boF();
                 this.iXY = false;
             }
             GameVideoRequestMessage gameVideoRequestMessage = new GameVideoRequestMessage();
@@ -167,14 +167,14 @@ public class b {
         return this.mDataList;
     }
 
-    public void Lx(String str) {
+    public void Lw(String str) {
         if (!x.isEmpty(this.mDataList)) {
             Iterator<n> it = this.mDataList.iterator();
             while (it.hasNext()) {
                 n next = it.next();
                 if (next instanceof com.baidu.tieba.card.data.b) {
                     com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) next;
-                    if (bVar.boO() != null && bVar.boO().getTid() != null && bVar.boO().getTid().equals(str)) {
+                    if (bVar.boP() != null && bVar.boP().getTid() != null && bVar.boP().getTid().equals(str)) {
                         it.remove();
                     }
                 }
@@ -182,7 +182,7 @@ public class b {
         }
     }
 
-    public void Mt(String str) {
+    public void Ms(String str) {
         if (this.kcA != null && !x.isEmpty(this.kcA.thread_list)) {
             long j = com.baidu.adp.lib.f.b.toLong(str, 0L);
             int i = 0;
@@ -204,11 +204,11 @@ public class b {
         }
     }
 
-    public List<com.baidu.tieba.homepage.gamevideo.c.a> cSh() {
+    public List<com.baidu.tieba.homepage.gamevideo.c.a> cSi() {
         return this.kcy;
     }
 
-    public boolean cSi() {
+    public boolean cSj() {
         return this.kcz;
     }
 
@@ -241,7 +241,7 @@ public class b {
         }
     }
 
-    private List<n> cSj() {
+    private List<n> cSk() {
         LinkedList linkedList = new LinkedList();
         if (x.isEmpty(this.kcw)) {
             return linkedList;
@@ -313,13 +313,13 @@ public class b {
         a(builder);
     }
 
-    private void boE() {
+    private void boF() {
         ac.a(new ab<DataRes>() { // from class: com.baidu.tieba.homepage.gamevideo.d.b.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.util.ab
-            /* renamed from: cSk */
+            /* renamed from: cSl */
             public DataRes doInBackground() {
-                com.baidu.adp.lib.cache.l<byte[]> dL = com.baidu.tbadk.core.c.a.btS().dL("tb.game_video", TbadkCoreApplication.getCurrentAccount());
+                com.baidu.adp.lib.cache.l<byte[]> dL = com.baidu.tbadk.core.c.a.btT().dL("tb.game_video", TbadkCoreApplication.getCurrentAccount());
                 if (dL == null) {
                     return null;
                 }
@@ -357,7 +357,7 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void b(DataRes dataRes) {
         r(dataRes.thread_list, !this.isLoadMore);
-        this.mDataList = cSj();
+        this.mDataList = cSk();
         com.baidu.tieba.homepage.gamevideo.d.a.a(dataRes, this.mDataList);
     }
 
@@ -367,7 +367,7 @@ public class b {
             public Object doInBackground() {
                 DataRes.Builder builder2 = new DataRes.Builder(builder.build(true));
                 try {
-                    com.baidu.tbadk.core.c.a.btS().dL("tb.game_video", TbadkCoreApplication.getCurrentAccount()).setForever(String.valueOf(b.this.kcx), builder2.build(true).toByteArray());
+                    com.baidu.tbadk.core.c.a.btT().dL("tb.game_video", TbadkCoreApplication.getCurrentAccount()).setForever(String.valueOf(b.this.kcx), builder2.build(true).toByteArray());
                     return null;
                 } catch (Exception e) {
                     BdLog.e(e);

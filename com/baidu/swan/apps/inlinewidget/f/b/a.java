@@ -39,7 +39,7 @@ public class a {
         }
     }
 
-    public synchronized void azP() {
+    public synchronized void azQ() {
         this.isFinished = true;
     }
 
@@ -47,12 +47,12 @@ public class a {
         return this.isFinished;
     }
 
-    public void azQ() {
-        final b.a aMo = d.aMg().aMc().aMo();
+    public void azR() {
+        final b.a aMp = d.aMh().aMd().aMp();
         p.a(new Runnable() { // from class: com.baidu.swan.apps.inlinewidget.f.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.a(aMo);
+                a.this.a(aMp);
             }
         }, "VideoStaticRecorder");
     }
@@ -67,7 +67,7 @@ public class a {
                 Log.d("VideoStaticRecorder", "submit: autoPlay:" + equals + ",apiPlay:" + equals2);
             }
             if (!equals && !equals2) {
-                azR();
+                azS();
             } else {
                 i.rl("video");
                 HybridUbcFlow rd = i.rd("video");
@@ -83,14 +83,14 @@ public class a {
                 }
                 rd.cn("fmpArrived", ri);
                 rd.f(new UbcFlowEvent("na_start").cy(aVar.getLong("launch_time", 0L)));
-                rd.cn("launchID", aVar.aCO());
-                rd.aHf();
-                azR();
+                rd.cn("launchID", aVar.aCP());
+                rd.aHg();
+                azS();
             }
         }
     }
 
-    private void azR() {
+    private void azS() {
         this.dgW.clear();
         this.dgX.clear();
     }

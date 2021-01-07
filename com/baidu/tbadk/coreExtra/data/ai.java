@@ -28,27 +28,27 @@ public class ai {
         }
     }
 
-    public String bAh() {
+    public String bAi() {
         return this.ftT;
     }
 
-    public long bAi() {
+    public long bAj() {
         return this.ftU;
     }
 
-    public long bAj() {
+    public long bAk() {
         return this.ftV;
     }
 
-    public long bAk() {
+    public long bAl() {
         return this.ftW;
     }
 
-    public String bAl() {
+    public String bAm() {
         return this.ftX;
     }
 
-    public String bAm() {
+    public String bAn() {
         return this.ftY;
     }
 }

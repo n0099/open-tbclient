@@ -20,10 +20,10 @@ import java.util.jar.JarFile;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile DexClassLoader f3876a;
+    private static volatile DexClassLoader f3877a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile boolean f3877b = false;
+    private static volatile boolean f3878b = false;
 
     public static Class<?> a(Context context, String str) throws ClassNotFoundException {
         DexClassLoader a2 = a(context);
@@ -36,8 +36,8 @@ public class x {
     private static synchronized DexClassLoader a(Context context) {
         DexClassLoader dexClassLoader = null;
         synchronized (x.class) {
-            if (f3876a != null) {
-                dexClassLoader = f3876a;
+            if (f3877a != null) {
+                dexClassLoader = f3877a;
             } else {
                 File fileStreamPath = context.getFileStreamPath(".remote.jar");
                 if (fileStreamPath == null || fileStreamPath.isFile()) {
@@ -53,11 +53,11 @@ public class x {
                         }
                     } else {
                         try {
-                            f3876a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
+                            f3877a = new DexClassLoader(fileStreamPath.getAbsolutePath(), context.getDir("outdex", 0).getAbsolutePath(), null, context.getClassLoader());
                         } catch (Exception e) {
                             bb.c().a(e);
                         }
-                        dexClassLoader = f3876a;
+                        dexClassLoader = f3877a;
                     }
                 }
             }
@@ -82,7 +82,7 @@ public class x {
 
     public static synchronized void a(Context context, com.baidu.mobstat.a aVar) {
         synchronized (x.class) {
-            if (!f3877b) {
+            if (!f3878b) {
                 if (!bw.q(context)) {
                     bb.c().a("isWifiAvailable = false, will not to update");
                 } else if (!aVar.a(context)) {
@@ -90,7 +90,7 @@ public class x {
                 } else {
                     bb.c().a("can start update config");
                     new a(context, aVar).start();
-                    f3877b = true;
+                    f3878b = true;
                 }
             }
         }
@@ -179,40 +179,40 @@ public class x {
     static class a extends Thread {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f3878a;
+        private Context f3879a;
 
         /* renamed from: b  reason: collision with root package name */
-        private com.baidu.mobstat.a f3879b;
+        private com.baidu.mobstat.a f3880b;
 
         public a(Context context, com.baidu.mobstat.a aVar) {
-            this.f3878a = context;
-            this.f3879b = aVar;
+            this.f3879a = context;
+            this.f3880b = aVar;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
             try {
-                int i = aa.f3674a ? 3 : 10;
+                int i = aa.f3675a ? 3 : 10;
                 bb.c().a("start version check in " + i + "s");
                 sleep(i * 1000);
                 a();
-                a(this.f3878a);
+                a(this.f3879a);
             } catch (Exception e) {
                 bb.c().a(e);
             }
-            boolean unused = x.f3877b = false;
+            boolean unused = x.f3878b = false;
         }
 
         private void a(Context context) {
-            this.f3879b.a(context, System.currentTimeMillis());
+            this.f3880b.a(context, System.currentTimeMillis());
         }
 
         private synchronized void a() throws Exception {
             FileOutputStream fileOutputStream = null;
             synchronized (this) {
                 bb.c().a("start get config and download jar");
-                Context context = this.f3878a;
-                com.baidu.mobstat.a aVar = this.f3879b;
+                Context context = this.f3879a;
+                com.baidu.mobstat.a aVar = this.f3880b;
                 String b2 = b(context);
                 bb.c().c("update req url is:" + b2);
                 HttpURLConnection d = bo.d(context, b2);
@@ -237,7 +237,7 @@ public class x {
                         bu.a(fileOutputStream);
                     }
                 }
-                DexClassLoader unused = x.f3876a = null;
+                DexClassLoader unused = x.f3877a = null;
                 u.a();
                 if (!TextUtils.isEmpty(headerField)) {
                     aVar.a(context, headerField);

@@ -33,7 +33,7 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
         if (jSONObject != null) {
             super.parseFromJson(jSONObject);
             this.text = jSONObject.optString("text");
-            aor();
+            aos();
         }
     }
 
@@ -41,10 +41,10 @@ public class b extends com.baidu.swan.apps.component.a.d.b {
     public void be(JSONObject jSONObject) {
         super.be(jSONObject);
         this.text = jSONObject.optString("text", this.text);
-        aor();
+        aos();
     }
 
-    private void aor() {
+    private void aos() {
         if (this.cNz != null) {
             try {
                 this.textColor = Color.parseColor(this.cNz.optString("color"));

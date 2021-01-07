@@ -7,7 +7,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class b {
-    public static bw Jd(String str) {
+    public static bw Jc(String str) {
         if (TextUtils.isEmpty(str)) {
             return null;
         }

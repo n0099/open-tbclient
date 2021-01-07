@@ -9,7 +9,7 @@ import com.kwad.sdk.glide.load.engine.s;
 public class g extends com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, s<?>> implements h {
 
     /* renamed from: a  reason: collision with root package name */
-    private h.a f10465a;
+    private h.a f10466a;
 
     public g(long j) {
         super(j);
@@ -42,15 +42,15 @@ public class g extends com.kwad.sdk.glide.g.g<com.kwad.sdk.glide.load.c, s<?>> i
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.glide.g.g
     public void a(@NonNull com.kwad.sdk.glide.load.c cVar, @Nullable s<?> sVar) {
-        if (this.f10465a == null || sVar == null) {
+        if (this.f10466a == null || sVar == null) {
             return;
         }
-        this.f10465a.b(sVar);
+        this.f10466a.b(sVar);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.a.h
     public void a(@NonNull h.a aVar) {
-        this.f10465a = aVar;
+        this.f10466a = aVar;
     }
 
     @Override // com.kwad.sdk.glide.load.engine.a.h

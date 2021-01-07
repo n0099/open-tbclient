@@ -9,10 +9,10 @@ public class a implements IOAdTimer {
     private static String c = "OAdTimer";
 
     /* renamed from: a  reason: collision with root package name */
-    protected int f3458a;
+    protected int f3459a;
 
     /* renamed from: b  reason: collision with root package name */
-    private IOAdTimer.EventHandler f3459b;
+    private IOAdTimer.EventHandler f3460b;
     private int d;
     private int e;
     private int f;
@@ -31,9 +31,9 @@ public class a implements IOAdTimer {
     }
 
     public a(int i, int i2) {
-        this.f3458a = 300;
-        this.f3458a = i2;
-        int i3 = i / this.f3458a;
+        this.f3459a = 300;
+        this.f3459a = i2;
+        int i3 = i / this.f3459a;
         XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "RendererTimer(duration=" + i3 + ")");
         this.d = i3;
         this.e = i3;
@@ -43,14 +43,14 @@ public class a implements IOAdTimer {
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer
     public void setEventHandler(IOAdTimer.EventHandler eventHandler) {
-        this.f3459b = eventHandler;
+        this.f3460b = eventHandler;
     }
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer
     public void start() {
         XAdSDKFoundationFacade.getInstance().getAdLogger().i(c, "start");
         this.h.set(0);
-        this.g.scheduleAtFixedRate(new b(this), 0L, this.f3458a);
+        this.g.scheduleAtFixedRate(new b(this), 0L, this.f3459a);
     }
 
     @Override // com.baidu.mobads.openad.interfaces.utils.IOAdTimer

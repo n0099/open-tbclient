@@ -21,11 +21,11 @@ public class f {
         return this.eoF ? this.eoG && this.eoH : this.eoH;
     }
 
-    public boolean bcP() {
+    public boolean bcQ() {
         return (this.eoF && this.eoG) ? false : true;
     }
 
-    public static f bcQ() {
+    public static f bcR() {
         return new f(true, true);
     }
 

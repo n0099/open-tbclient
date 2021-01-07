@@ -26,7 +26,7 @@ public interface v extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof v)) {
                 return (v) queryLocalInterface;
             }
-            return new C1219a(iBinder);
+            return new C1260a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -58,18 +58,18 @@ public interface v extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.v$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1219a implements v {
+        private static class C1260a implements v {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13419a;
+            private IBinder f13420a;
 
-            C1219a(IBinder iBinder) {
-                this.f13419a = iBinder;
+            C1260a(IBinder iBinder) {
+                this.f13420a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13419a;
+                return this.f13420a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.v
@@ -79,7 +79,7 @@ public interface v extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
                     obtain.writeStringList(list);
-                    this.f13419a.transact(1, obtain, obtain2, 0);
+                    this.f13420a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();
@@ -93,7 +93,7 @@ public interface v extends IInterface {
                 Parcel obtain2 = Parcel.obtain();
                 try {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IDownloadForbiddenAidlCallback");
-                    this.f13419a.transact(2, obtain, obtain2, 0);
+                    this.f13420a.transact(2, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readInt() != 0;
                 } finally {

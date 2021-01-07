@@ -6,14 +6,14 @@ import android.provider.Settings;
 import android.view.OrientationEventListener;
 import com.qq.e.comm.util.GDTLogger;
 import java.lang.ref.WeakReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class ae {
 
     /* renamed from: a  reason: collision with root package name */
-    private OrientationEventListener f12851a;
+    private OrientationEventListener f12852a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f12852b;
+    private boolean f12853b;
     private boolean c;
     private boolean d;
     private int e;
@@ -22,7 +22,7 @@ public class ae {
     private boolean h;
     private a i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -37,16 +37,16 @@ public class ae {
     }
 
     private void a(final Context context) {
-        if (this.f12851a == null) {
-            this.f12851a = new OrientationEventListener(context) { // from class: com.qq.e.comm.plugin.util.ae.1
+        if (this.f12852a == null) {
+            this.f12852a = new OrientationEventListener(context) { // from class: com.qq.e.comm.plugin.util.ae.1
                 @Override // android.view.OrientationEventListener
                 public void onOrientationChanged(int i) {
                     if (Settings.System.getInt(context.getContentResolver(), "accelerometer_rotation", 0) == 1) {
                         if ((i >= 0 && i <= 30) || i >= 330) {
-                            if (ae.this.f12852b) {
+                            if (ae.this.f12853b) {
                                 if (ae.this.e <= 0 || ae.this.c) {
                                     ae.this.d = true;
-                                    ae.this.f12852b = false;
+                                    ae.this.f12853b = false;
                                     ae.this.e = 0;
                                 }
                             } else if (ae.this.e > 0) {
@@ -59,13 +59,13 @@ public class ae {
                                 }
                                 ((Activity) ae.this.g.get()).setRequestedOrientation(1);
                                 ae.this.e = 0;
-                                ae.this.f12852b = false;
+                                ae.this.f12853b = false;
                             }
                         } else if (i >= 240 && i <= 300) {
-                            if (ae.this.f12852b) {
+                            if (ae.this.f12853b) {
                                 if (ae.this.e == 1 || ae.this.d) {
                                     ae.this.c = true;
-                                    ae.this.f12852b = false;
+                                    ae.this.f12853b = false;
                                     ae.this.e = 1;
                                 }
                             } else if (ae.this.e != 1) {
@@ -78,14 +78,14 @@ public class ae {
                                 }
                                 ((Activity) ae.this.g.get()).setRequestedOrientation(0);
                                 ae.this.e = 1;
-                                ae.this.f12852b = false;
+                                ae.this.f12853b = false;
                             }
                         } else if (i <= 60 || i >= 120) {
                         } else {
-                            if (ae.this.f12852b) {
+                            if (ae.this.f12853b) {
                                 if (ae.this.e == 2 || ae.this.d) {
                                     ae.this.c = true;
-                                    ae.this.f12852b = false;
+                                    ae.this.f12853b = false;
                                     ae.this.e = 2;
                                 }
                             } else if (ae.this.e != 2) {
@@ -98,7 +98,7 @@ public class ae {
                                 }
                                 ((Activity) ae.this.g.get()).setRequestedOrientation(8);
                                 ae.this.e = 2;
-                                ae.this.f12852b = false;
+                                ae.this.f12853b = false;
                             }
                         }
                     }
@@ -108,8 +108,8 @@ public class ae {
     }
 
     public void a() {
-        if (this.f12851a != null) {
-            this.f12851a.disable();
+        if (this.f12852a != null) {
+            this.f12852a.disable();
             this.g = null;
         }
     }
@@ -121,9 +121,9 @@ public class ae {
     public void a(boolean z) {
         this.h = z;
         if (this.h) {
-            this.f12851a.enable();
+            this.f12852a.enable();
         } else {
-            this.f12851a.disable();
+            this.f12852a.disable();
         }
     }
 
@@ -132,7 +132,7 @@ public class ae {
             GDTLogger.e("orientationutil has been released");
             return;
         }
-        this.f12852b = true;
+        this.f12853b = true;
         if (this.e == 0) {
             this.f = 0;
             if (this.g == null || this.g.get() == null) {

@@ -6,11 +6,11 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class m implements i {
     private a axt;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     private class a {
         private a.C0141a axu;
         private JSONObject axv;

@@ -94,7 +94,7 @@ public class a implements TextWatcher, View.OnClickListener {
         }
     }
 
-    public String Xs() {
+    public String Xt() {
         if (this.bOD.getText() != null) {
             return this.bOD.getText().toString();
         }

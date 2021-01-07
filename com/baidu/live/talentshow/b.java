@@ -198,7 +198,7 @@ public class b implements c {
         public void cS(boolean z) {
             b.this.TS();
             if (b.this.bDw != null) {
-                b.this.bDw.XR();
+                b.this.bDw.XS();
             }
             if (b.this.bDr != null) {
                 b.this.bDr.Ud();
@@ -607,7 +607,7 @@ public class b implements c {
                         b.this.bDu.UZ();
                         b.this.TN();
                         if (b.this.bDw != null) {
-                            b.this.bDw.XQ();
+                            b.this.bDw.XR();
                         }
                     }
                 }

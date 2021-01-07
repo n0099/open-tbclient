@@ -40,11 +40,11 @@ public class b implements View.OnClickListener {
     View.OnClickListener gKW = new View.OnClickListener() { // from class: com.baidu.tieba.ala.frsgamelive.view.b.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (b.this.gAx != null && b.this.gAx.brq() != null && !StringUtils.isNull(b.this.gAx.brq().getUserId())) {
-                long j = com.baidu.adp.lib.f.b.toLong(b.this.gAx.brq().getUserId(), 0L);
+            if (b.this.gAx != null && b.this.gAx.brr() != null && !StringUtils.isNull(b.this.gAx.brr().getUserId())) {
+                long j = com.baidu.adp.lib.f.b.toLong(b.this.gAx.brr().getUserId(), 0L);
                 boolean z = j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L);
-                d.bRR().bRS();
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(b.this.mTbPageContext.getPageActivity()).createNormalConfig(j, z, b.this.gAx.brq().isBigV())));
+                d.bRS().bRT();
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(b.this.mTbPageContext.getPageActivity()).createNormalConfig(j, z, b.this.gAx.brr().isBigV())));
             }
         }
     };
@@ -75,14 +75,14 @@ public class b implements View.OnClickListener {
         this.gYC.gKY.setDrawerType(0);
         this.gYC.gKY.setBorderSurroundContent(true);
         this.gYC.gKY.setDrawBorder(true);
-        this.gYC.gKY.startLoad(this.gAx.brJ().cover, 10, false);
-        this.gYC.gLa.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, at.numberUniformFormatExtra(this.gAx.brJ().audience_count)));
+        this.gYC.gKY.startLoad(this.gAx.brK().cover, 10, false);
+        this.gYC.gLa.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.ala_list_audience_label, at.numberUniformFormatExtra(this.gAx.brK().audience_count)));
         this.gYC.gLc.setData(this.gAx);
         this.gYC.gLc.setIsRound(true);
         this.gYC.gLc.setBorderSurroundContent(true);
         this.gYC.gLd.setText(this.gAx.getTitle());
-        if (this.gAx.brq() != null) {
-            String name_show = this.gAx.brq().getName_show();
+        if (this.gAx.brr() != null) {
+            String name_show = this.gAx.brr().getName_show();
             if (ad.getTextLengthWithEmoji(name_show) > 10) {
                 name_show = ad.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
@@ -90,13 +90,13 @@ public class b implements View.OnClickListener {
         }
         this.gYC.gYq.setVisibility(0);
         this.gYC.gKZ.setBackgroundResource(R.drawable.transparent_bg);
-        this.gYC.gKZ.setText(this.gAx.brJ().label_name);
+        this.gYC.gKZ.setText(this.gAx.brK().label_name);
         this.gYC.gKZ.setVisibility(0);
-        if (this.gAx.brq() == null || this.gAx.brq().getAlaUserData() == null || at.isEmpty(this.gAx.brq().getAlaUserData().great_anchor_icon)) {
+        if (this.gAx.brr() == null || this.gAx.brr().getAlaUserData() == null || at.isEmpty(this.gAx.brr().getAlaUserData().great_anchor_icon)) {
             this.gYC.gYp.setVisibility(8);
         } else {
             this.gYC.gYp.setVisibility(0);
-            this.gYC.gYp.startLoad(this.gAx.brq().getAlaUserData().great_anchor_icon, 10, false);
+            this.gYC.gYp.startLoad(this.gAx.brr().getAlaUserData().great_anchor_icon, 10, false);
         }
         this.gYC.bac.setOnClickListener(this.gKW);
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -106,12 +106,12 @@ public class b implements View.OnClickListener {
     public void onClick(View view) {
         if (!j.isNetWorkAvailable()) {
             l.showLongToast(this.mTbPageContext.getPageActivity(), this.mTbPageContext.getPageActivity().getString(R.string.no_network_guide));
-        } else if (this.gAx != null && this.gAx.brJ() != null) {
+        } else if (this.gAx != null && this.gAx.brK() != null) {
             if (this.gWT != null) {
                 this.gWT.R(this.gAx);
             }
-            d.bRR().bRS();
-            TiebaStatic.log(new aq("c12116").w("obj_id", this.gAx.brJ().live_id));
+            d.bRS().bRT();
+            TiebaStatic.log(new aq("c12116").w("obj_id", this.gAx.brK().live_id));
         }
     }
 

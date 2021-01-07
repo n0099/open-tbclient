@@ -49,7 +49,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bVG() {
+    public View bVH() {
         this.mMaskView = new View(this.mTbPageContext.getPageActivity());
         this.mMaskView.setLayoutParams(new FrameLayout.LayoutParams(this.mScreenWidth, this.gBY));
         this.mMaskView.setBackgroundDrawable(new ColorDrawable(this.mTbPageContext.getPageActivity().getResources().getColor(R.color.black_alpha30)));
@@ -62,7 +62,7 @@ public abstract class a {
     public void resume() {
     }
 
-    public void bVH() {
+    public void bVI() {
         this.mScreenWidth = l.getEquipmentWidth(this.mTbPageContext.getPageActivity());
         this.gBY = (int) ((this.mScreenWidth * 9.0d) / 16.0d);
         if (this.mMaskView != null) {

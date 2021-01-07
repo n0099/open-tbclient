@@ -26,10 +26,10 @@ import com.kwad.sdk.widget.KsLogoView;
 public class ActionBarLandscapeVertical extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewGroup f10968a;
+    private ViewGroup f10969a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f10969b;
+    private ViewGroup f10970b;
     private ImageView c;
     private AppScoreView d;
     private TextView e;
@@ -69,8 +69,8 @@ public class ActionBarLandscapeVertical extends FrameLayout implements View.OnCl
 
     private void a(Context context) {
         inflate(context, R.layout.ksad_video_actionbar_landscape_vertical, this);
-        this.f10968a = (ViewGroup) findViewById(R.id.ksad_top_container);
-        this.f10969b = (ViewGroup) findViewById(R.id.ksad_top_outer);
+        this.f10969a = (ViewGroup) findViewById(R.id.ksad_top_container);
+        this.f10970b = (ViewGroup) findViewById(R.id.ksad_top_outer);
         this.c = (ImageView) findViewById(R.id.ksad_app_icon);
         this.d = (AppScoreView) findViewById(R.id.ksad_app_score);
         this.e = (TextView) findViewById(R.id.ksad_app_download_count);
@@ -136,13 +136,13 @@ public class ActionBarLandscapeVertical extends FrameLayout implements View.OnCl
         this.m.a(adTemplate);
         if (com.kwad.sdk.core.response.b.a.y(this.o)) {
             this.i.setVisibility(8);
-            this.f10968a.setVisibility(0);
-            this.f10968a.setOnClickListener(this);
+            this.f10969a.setVisibility(0);
+            this.f10969a.setOnClickListener(this);
             this.h.setText(com.kwad.sdk.core.response.b.a.q(this.o));
         } else {
             this.i.setVisibility(0);
-            this.f10968a.setVisibility(8);
-            this.f10969b.setOnClickListener(this);
+            this.f10969a.setVisibility(8);
+            this.f10970b.setOnClickListener(this);
             this.i.setText(this.o.adBaseInfo.productName);
         }
         this.p = aVar;
@@ -177,8 +177,8 @@ public class ActionBarLandscapeVertical extends FrameLayout implements View.OnCl
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.q, view == this.k);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.n, new a.InterfaceC1064a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.n, new a.InterfaceC1105a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarLandscapeVertical.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
             public void a() {
                 if (ActionBarLandscapeVertical.this.p != null) {
                     ActionBarLandscapeVertical.this.p.a();

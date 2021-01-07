@@ -15,7 +15,7 @@ import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class g extends com.baidu.tieba.yuyinala.liveroom.a {
     private x aGe;
-    public PlayIntroduceView oqQ;
+    public PlayIntroduceView oqP;
 
     public g(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -25,20 +25,20 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.a {
         this.aGe = xVar;
     }
 
-    public void cJw() {
-        if (this.oqQ != null) {
-            this.oqQ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
+    public void cJx() {
+        if (this.oqP != null) {
+            this.oqP.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.introduce.g.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     new d(g.this.getPageContext().getPageActivity()).af(g.this.aGe);
-                    g.this.edb();
+                    g.this.edc();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edb() {
+    public void edc() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
@@ -56,44 +56,44 @@ public class g extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.oqQ != null && this.oqQ.getParent() != null) {
-            ((ViewGroup) this.oqQ.getParent()).removeView(this.oqQ);
+        if (this.oqP != null && this.oqP.getParent() != null) {
+            ((ViewGroup) this.oqP.getParent()).removeView(this.oqP);
         }
-        if (this.oqQ == null) {
-            this.oqQ = new PlayIntroduceView(getPageContext().getPageActivity());
+        if (this.oqP == null) {
+            this.oqP = new PlayIntroduceView(getPageContext().getPageActivity());
         }
-        this.oqQ.setId(a.f.ala_liveroom_play_introduce);
+        this.oqP.setId(a.f.ala_liveroom_play_introduce);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, a.f.ala_liveroom_charm_rank);
         layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
         layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds19);
         layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-        viewGroup.addView(this.oqQ, layoutParams);
+        viewGroup.addView(this.oqP, layoutParams);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void DC() {
         super.DC();
-        if (this.oqQ != null && this.oqQ.getParent() != null) {
-            ((ViewGroup) this.oqQ.getParent()).removeView(this.oqQ);
+        if (this.oqP != null && this.oqP.getParent() != null) {
+            ((ViewGroup) this.oqP.getParent()).removeView(this.oqP);
         }
-        if (this.oqQ != null) {
-            this.oqQ.destory();
-            this.oqQ = null;
+        if (this.oqP != null) {
+            this.oqP.destory();
+            this.oqP = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.oqQ != null) {
-            this.oqQ.destory();
-            this.oqQ = null;
+        if (this.oqP != null) {
+            this.oqP.destory();
+            this.oqP = null;
         }
     }
 
-    public void cnd() {
+    public void cne() {
     }
 
-    public void cne() {
+    public void cnf() {
     }
 }

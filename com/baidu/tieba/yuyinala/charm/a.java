@@ -27,8 +27,8 @@ public class a implements com.baidu.live.ab.a {
     private PendantParentView gqh;
     private PendantChildView gqi;
     private Context mContext;
-    private RedPacketCharmView ojK;
-    private Long ojL = 0L;
+    private RedPacketCharmView ojJ;
+    private Long ojK = 0L;
 
     public a(Context context) {
         this.mContext = context;
@@ -39,9 +39,9 @@ public class a implements com.baidu.live.ab.a {
         reset(true);
         if (viewGroup instanceof PendantParentView) {
             this.gqh = (PendantParentView) viewGroup;
-            bRi();
+            bRj();
         }
-        bWN();
+        bWO();
     }
 
     @Override // com.baidu.live.ab.a
@@ -89,7 +89,7 @@ public class a implements com.baidu.live.ab.a {
         Id();
     }
 
-    private void bWN() {
+    private void bWO() {
         if (this.gQa == null) {
             this.gQa = new CustomMessageListener(2913221) { // from class: com.baidu.tieba.yuyinala.charm.a.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -104,14 +104,14 @@ public class a implements com.baidu.live.ab.a {
         }
     }
 
-    private void bWO() {
+    private void bWP() {
         if (this.gQa != null) {
             MessageManager.getInstance().unRegisterListener(this.gQa);
             this.gQa = null;
         }
     }
 
-    private void bRi() {
+    private void bRj() {
         this.gqi = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.yuyinala.charm.a.2
             @Override // com.baidu.live.pendantview.PendantChildView
             public PendantParentView.Position getVerticalPosition() {
@@ -161,15 +161,15 @@ public class a implements com.baidu.live.ab.a {
             return false;
         }
         if (this.gqi == null) {
-            bRi();
+            bRj();
         }
-        if (this.ojK == null || (this.gqi != null && this.gqi.indexOfChild(this.ojK) < 0)) {
-            this.ojK = new RedPacketCharmView(this.mContext);
-            this.gqi.addView(this.ojK, new FrameLayout.LayoutParams(-2, -2));
-            this.ojK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.a.3
+        if (this.ojJ == null || (this.gqi != null && this.gqi.indexOfChild(this.ojJ) < 0)) {
+            this.ojJ = new RedPacketCharmView(this.mContext);
+            this.gqi.addView(this.ojJ, new FrameLayout.LayoutParams(-2, -2));
+            this.ojJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.charm.a.3
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    a.this.bWP();
+                    a.this.bWQ();
                 }
             });
         }
@@ -183,29 +183,29 @@ public class a implements com.baidu.live.ab.a {
             i = 0;
         }
         vF(i);
-        this.ojK.setAvatar(redPacketCharmInfo.senderAvatar);
+        this.ojJ.setAvatar(redPacketCharmInfo.senderAvatar);
         switch (redPacketCharmInfo.status) {
             case 2:
                 if (j > 60) {
-                    this.ojK.vH(1);
+                    this.ojJ.vH(1);
                 } else if (j > 10) {
-                    this.ojK.vH(2);
+                    this.ojJ.vH(2);
                 } else {
-                    this.ojK.vH(3);
+                    this.ojJ.vH(3);
                 }
                 if (c(redPacketCharmInfo)) {
-                    this.ojK.setCountDownTimer(String.valueOf(j), k.bs(1000 * j));
+                    this.ojJ.setCountDownTimer(String.valueOf(j), k.bs(1000 * j));
                     fb(j * 1000);
                     break;
                 }
                 break;
             case 3:
-                bWQ();
+                bWR();
                 fc(0L);
-                this.ojK.vH(4);
+                this.ojJ.vH(4);
                 break;
             default:
-                this.ojK.vH(1);
+                this.ojJ.vH(1);
                 break;
         }
         this.gPX = redPacketCharmInfo;
@@ -218,14 +218,14 @@ public class a implements com.baidu.live.ab.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bWP() {
+    public void bWQ() {
         if (this.aGe != null && this.gPX != null) {
             dc dcVar = new dc();
             dcVar.aSC = this.gPX.id;
             dcVar.liveId = String.valueOf(this.aGe.mLiveInfo.live_id);
             dcVar.aVt = String.valueOf(this.aGe.mLiveInfo.user_uk);
             dcVar.roomId = String.valueOf(this.aGe.mLiveInfo.room_id);
-            dcVar.time = this.ojL.longValue();
+            dcVar.time = this.ojK.longValue();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913134, dcVar));
         }
     }
@@ -235,18 +235,18 @@ public class a implements com.baidu.live.ab.a {
     }
 
     private void fb(long j) {
-        bWQ();
+        bWR();
         this.gPY = new CountDownTimer(j, 1000L) { // from class: com.baidu.tieba.yuyinala.charm.a.4
             @Override // android.os.CountDownTimer
             public void onTick(long j2) {
-                if (a.this.ojK != null) {
+                if (a.this.ojJ != null) {
                     long round = Math.round(j2 / 1000.0d);
-                    a.this.ojL = Long.valueOf(round);
-                    a.this.ojK.setCountDownTimer(String.valueOf(round), k.bs(1000 * round));
+                    a.this.ojK = Long.valueOf(round);
+                    a.this.ojJ.setCountDownTimer(String.valueOf(round), k.bs(1000 * round));
                     if (round > 10 && round <= 60) {
-                        a.this.ojK.vH(2);
+                        a.this.ojJ.vH(2);
                     } else if (round <= 10) {
-                        a.this.ojK.vH(3);
+                        a.this.ojJ.vH(3);
                     }
                     a.this.fc(round);
                 }
@@ -255,8 +255,8 @@ public class a implements com.baidu.live.ab.a {
             @Override // android.os.CountDownTimer
             public void onFinish() {
                 int i;
-                if (a.this.ojK != null) {
-                    a.this.ojK.vH(4);
+                if (a.this.ojJ != null) {
+                    a.this.ojJ.vH(4);
                     if (a.this.gPX != null) {
                         a aVar = a.this;
                         if (a.this.gPX.count > 1) {
@@ -275,14 +275,14 @@ public class a implements com.baidu.live.ab.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void vF(int i) {
-        if (this.ojK != null) {
+        if (this.ojJ != null) {
             String str = "";
             if (i > 99) {
                 str = "99+";
             } else if (i >= 1) {
                 str = String.valueOf(i);
             }
-            this.ojK.setBadge(TextUtils.isEmpty(str) ? false : true, str);
+            this.ojJ.setBadge(TextUtils.isEmpty(str) ? false : true, str);
         }
     }
 
@@ -291,28 +291,28 @@ public class a implements com.baidu.live.ab.a {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913133, Long.valueOf(j)));
     }
 
-    private void bWQ() {
+    private void bWR() {
         if (this.gPY != null) {
             this.gPY.cancel();
-            this.ojL = 0L;
+            this.ojK = 0L;
         }
     }
 
     private void reset(boolean z) {
         if (z) {
-            bWO();
+            bWP();
         }
         this.gPZ = true;
         this.gPX = null;
-        bWQ();
+        bWR();
         mv(z);
     }
 
     private void mv(boolean z) {
-        if (this.ojK != null) {
-            this.ojK.release();
-            if (this.ojK.getParent() instanceof ViewGroup) {
-                ((ViewGroup) this.ojK.getParent()).removeView(this.ojK);
+        if (this.ojJ != null) {
+            this.ojJ.release();
+            if (this.ojJ.getParent() instanceof ViewGroup) {
+                ((ViewGroup) this.ojJ.getParent()).removeView(this.ojJ);
             }
         }
         if (z && this.gqi != null && (this.gqi.getParent() instanceof ViewGroup)) {

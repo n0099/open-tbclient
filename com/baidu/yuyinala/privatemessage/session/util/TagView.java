@@ -156,7 +156,7 @@ public class TagView extends View {
         this.bjo = new Paint(1);
         this.bjo.setTextAlign(Paint.Align.CENTER);
         this.bjo.setFakeBoldText(this.pek);
-        eox();
+        eoy();
         this.bjo.setTextSize(this.mTextSize);
         if (this.pec != 0.0f) {
             this.pel = new Paint(1);
@@ -165,7 +165,7 @@ public class TagView extends View {
         }
     }
 
-    private void eox() {
+    private void eoy() {
         if (this.pdV != -1) {
             if (this.pdV == 0) {
                 this.pea = this.pea != -1.0f ? this.pea : f.dip2px(this.mContext, 15.0f);

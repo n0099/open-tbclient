@@ -6,7 +6,7 @@ import android.view.View;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.spswitch.a.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SPSwitchRootLinearLayout extends LinearLayout {
     private c cEg;
 

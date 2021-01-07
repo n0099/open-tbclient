@@ -119,7 +119,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cUK();
+                        str3 = ((HotTopicActivity) orignalPage).cUL();
                         str = topicName;
                     }
                     TiebaStatic.log(new aq("c10815").an("obj_locate", 2).dX("obj_name", str).dX("topic_id", str3));
@@ -154,7 +154,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cUK();
+                        str3 = ((HotTopicActivity) orignalPage).cUL();
                         str = topicName;
                     }
                     TiebaStatic.log(new aq("c10815").an("obj_locate", 1).dX("obj_name", str).dX("topic_id", str3));
@@ -208,7 +208,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cUK();
+                        str3 = ((HotTopicActivity) orignalPage).cUL();
                         str = topicName;
                     }
                     TiebaStatic.log(new aq("c10815").an("obj_locate", 2).dX("obj_name", str).dX("topic_id", str3));
@@ -243,7 +243,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cUK();
+                        str3 = ((HotTopicActivity) orignalPage).cUL();
                         str = topicName;
                     }
                     TiebaStatic.log(new aq("c10815").an("obj_locate", 1).dX("obj_name", str).dX("topic_id", str3));
@@ -297,7 +297,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cUK();
+                        str3 = ((HotTopicActivity) orignalPage).cUL();
                         str = topicName;
                     }
                     TiebaStatic.log(new aq("c10815").an("obj_locate", 2).dX("obj_name", str).dX("topic_id", str3));
@@ -332,7 +332,7 @@ public class RelateForumHorizonalListView extends MyHorizontalScrollView {
                         str = "";
                     } else {
                         String topicName = ((HotTopicActivity) orignalPage).getTopicName();
-                        str3 = ((HotTopicActivity) orignalPage).cUK();
+                        str3 = ((HotTopicActivity) orignalPage).cUL();
                         str = topicName;
                     }
                     TiebaStatic.log(new aq("c10815").an("obj_locate", 1).dX("obj_name", str).dX("topic_id", str3));

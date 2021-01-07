@@ -21,10 +21,10 @@ import java.net.URL;
 public final class bo {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Proxy f3805a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
+    private static final Proxy f3806a = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.172", 80));
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Proxy f3806b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
+    private static final Proxy f3807b = new Proxy(Proxy.Type.HTTP, new InetSocketAddress("10.0.0.200", 80));
 
     public static String a() {
         try {
@@ -211,9 +211,9 @@ public final class bo {
                 String extraInfo = networkInfo.getExtraInfo();
                 String lowerCase = extraInfo != null ? extraInfo.toLowerCase() : "";
                 if (lowerCase.startsWith("cmwap") || lowerCase.startsWith("uniwap") || lowerCase.startsWith("3gwap")) {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(f3805a);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(f3806a);
                 } else if (lowerCase.startsWith("ctwap")) {
-                    httpURLConnection = (HttpURLConnection) url.openConnection(f3806b);
+                    httpURLConnection = (HttpURLConnection) url.openConnection(f3807b);
                 }
             }
             httpURLConnection = null;

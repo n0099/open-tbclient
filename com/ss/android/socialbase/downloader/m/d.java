@@ -52,20 +52,20 @@ import org.apache.http.protocol.HTTP;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class d {
+    private static Boolean qbQ;
+    private static Boolean qcu;
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13518a = d.class.getSimpleName();
+    private static final String f13519a = d.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Pattern f13519b = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
+    private static final Pattern f13520b = Pattern.compile(".*\\d+ *- *(\\d+) */ *\\d+");
     private static String c = null;
     private static volatile SparseArray<Boolean> d = new SparseArray<>();
     private static volatile SparseArray<List<s>> e = new SparseArray<>();
     private static final char[] f = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
-    private static Pattern qaK = null;
-    private static Pattern qaL = null;
-    private static Boolean qaM;
-    private static Boolean qai;
+    private static Pattern qcs = null;
+    private static Pattern qct = null;
 
     public static String a(byte[] bArr) {
         if (bArr == null) {
@@ -123,7 +123,7 @@ public class d {
             }
             return -1L;
         } catch (Exception e2) {
-            com.ss.android.socialbase.downloader.f.a.d(f13518a, "parse content-length from content-range failed " + e2);
+            com.ss.android.socialbase.downloader.f.a.d(f13519a, "parse content-length from content-range failed " + e2);
             return -1L;
         }
     }
@@ -137,7 +137,7 @@ public class d {
             try {
                 return Long.parseLong(split[1]);
             } catch (NumberFormatException e2) {
-                com.ss.android.socialbase.downloader.f.a.d(f13518a, "parse instance length failed with " + str);
+                com.ss.android.socialbase.downloader.f.a.d(f13519a, "parse instance length failed with " + str);
                 return -1L;
             }
         }
@@ -149,17 +149,17 @@ public class d {
             return null;
         }
         try {
-            if (qaK == null) {
-                qaK = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
+            if (qcs == null) {
+                qcs = Pattern.compile("attachment;\\s*filename\\s*=\\s*\"([^\"]*)\"");
             }
-            Matcher matcher = qaK.matcher(str);
+            Matcher matcher = qcs.matcher(str);
             if (matcher.find()) {
                 return matcher.group(1);
             }
-            if (qaL == null) {
-                qaL = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
+            if (qct == null) {
+                qct = Pattern.compile("attachment;\\s*filename\\s*=\\s*(.*)");
             }
-            Matcher matcher2 = qaL.matcher(str);
+            Matcher matcher2 = qct.matcher(str);
             if (matcher2.find()) {
                 return matcher2.group(1);
             }
@@ -297,17 +297,17 @@ public class d {
                 }
             }
             c(cVar.l(), cVar.m());
-            if (cVar.eIP()) {
+            if (cVar.eJt()) {
                 b(cVar);
             }
         }
     }
 
     public static void b(com.ss.android.socialbase.downloader.g.c cVar) {
-        com.ss.android.socialbase.downloader.k.a SR;
-        JSONObject abA;
-        if (cVar != null && (abA = (SR = com.ss.android.socialbase.downloader.k.a.SR(cVar.g())).abA("anti_hijack_dir")) != null) {
-            String optString = abA.optString("ins_desc");
+        com.ss.android.socialbase.downloader.k.a Th;
+        JSONObject abB;
+        if (cVar != null && (abB = (Th = com.ss.android.socialbase.downloader.k.a.Th(cVar.g())).abB("anti_hijack_dir")) != null) {
+            String optString = abB.optString("ins_desc");
             if (!TextUtils.isEmpty(optString)) {
                 c(cVar.k(), optString);
             }
@@ -315,7 +315,7 @@ public class d {
             if (TextUtils.isEmpty(i)) {
                 i = cVar.h();
             }
-            String a2 = a(i, SR);
+            String a2 = a(i, Th);
             String k = cVar.k();
             if (!TextUtils.isEmpty(a2) && !TextUtils.isEmpty(k)) {
                 File file = new File(a2);
@@ -328,14 +328,14 @@ public class d {
     }
 
     private static boolean h(String str) {
-        Log.w(f13518a, "deleteDirIfEmpty on thread: " + Thread.currentThread());
+        Log.w(f13519a, "deleteDirIfEmpty on thread: " + Thread.currentThread());
         if (TextUtils.isEmpty(str)) {
             return false;
         }
         File file = new File(str);
         if (file.isDirectory()) {
             if (!file.delete()) {
-                Log.w(f13518a, "deleteDirIfEmpty return false");
+                Log.w(f13519a, "deleteDirIfEmpty return false");
                 return false;
             }
             return true;
@@ -347,7 +347,7 @@ public class d {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             File file = new File(str, str2);
             if (file.exists()) {
-                Log.e(f13518a, "deleteFile: " + str + "/" + str2);
+                Log.e(f13519a, "deleteFile: " + str + "/" + str2);
                 file.delete();
             }
         }
@@ -442,50 +442,50 @@ public class d {
         int n;
         com.ss.android.socialbase.downloader.e.a e2 = null;
         boolean z = true;
-        com.ss.android.socialbase.downloader.f.a.b(f13518a, "saveFileAsTargetName targetName is " + cVar.n());
+        com.ss.android.socialbase.downloader.f.a.b(f13519a, "saveFileAsTargetName targetName is " + cVar.n());
         try {
             File file = new File(cVar.l(), cVar.m());
             File file2 = new File(cVar.k(), cVar.h());
-            com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iA(com.ss.android.socialbase.downloader.downloader.b.eHp()).h(cVar.g());
+            com.ss.android.socialbase.downloader.g.c h = com.ss.android.socialbase.downloader.downloader.f.iA(com.ss.android.socialbase.downloader.downloader.b.eHT()).h(cVar.g());
             if (!file.exists()) {
-                com.ss.android.socialbase.downloader.f.a.b(f13518a, "tempFile not exist");
+                com.ss.android.socialbase.downloader.f.a.b(f13519a, "tempFile not exist");
                 if (file2.exists()) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13518a, "targetFile exist");
+                    com.ss.android.socialbase.downloader.f.a.b(f13519a, "targetFile exist");
                     if (b(file2, cVar.F())) {
-                        com.ss.android.socialbase.downloader.f.a.b(f13518a, "tempFile not exist , targetFile exists and md5 check valid");
+                        com.ss.android.socialbase.downloader.f.a.b(f13519a, "tempFile not exist , targetFile exists and md5 check valid");
                         if (sVar != null) {
                             sVar.a();
                             return;
                         }
                         return;
-                    } else if (h != null && h.eIC()) {
+                    } else if (h != null && h.eJg()) {
                         h.a(sVar);
                         return;
                     }
                 } else {
-                    com.ss.android.socialbase.downloader.f.a.b(f13518a, "targetFile not exist");
-                    if (h != null && h.eIC()) {
+                    com.ss.android.socialbase.downloader.f.a.b(f13519a, "targetFile not exist");
+                    if (h != null && h.eJg()) {
                         h.a(sVar);
                         return;
                     }
                 }
             } else if (file2.exists()) {
-                com.ss.android.socialbase.downloader.f.a.b(f13518a, "targetFile exist");
+                com.ss.android.socialbase.downloader.f.a.b(f13519a, "targetFile exist");
                 if (a(n(file2, cVar.F()))) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13518a, "tempFile exist , targetFile exists and md5 check valid");
+                    com.ss.android.socialbase.downloader.f.a.b(f13519a, "tempFile exist , targetFile exists and md5 check valid");
                     if (sVar != null) {
                         sVar.a();
                         return;
                     }
                     return;
-                } else if (h != null && h.eIC()) {
+                } else if (h != null && h.eJg()) {
                     h.a(sVar);
                     return;
                 } else {
                     if (h != null) {
                         h.l(true);
                     }
-                    Log.e(f13518a, "saveFileAsTargetName: " + file2.getPath());
+                    Log.e(f13519a, "saveFileAsTargetName: " + file2.getPath());
                     if (!file2.delete()) {
                         com.ss.android.socialbase.downloader.e.a aVar = new com.ss.android.socialbase.downloader.e.a(1037, "delete targetPath file existed with md5 check invalid status:" + b(n));
                         if (sVar != null) {
@@ -521,7 +521,7 @@ public class d {
                 }
                 return;
             }
-            int a2 = com.ss.android.socialbase.downloader.k.a.SR(cVar.g()).a("download_finish_check_ttmd5", 2);
+            int a2 = com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("download_finish_check_ttmd5", 2);
             if (a2 > 0) {
                 int n2 = n(file2, cVar.F());
                 cVar.a(n2);
@@ -540,7 +540,7 @@ public class d {
                 h.a(true, (com.ss.android.socialbase.downloader.e.a) null);
             }
         } catch (Throwable th) {
-            com.ss.android.socialbase.downloader.f.a.b(f13518a, "saveFileAsTargetName throwable " + th.getMessage());
+            com.ss.android.socialbase.downloader.f.a.b(f13519a, "saveFileAsTargetName throwable " + th.getMessage());
             if (sVar != null) {
                 sVar.a(new com.ss.android.socialbase.downloader.e.a(1038, c(th, "saveFileAsTargetName")));
             }
@@ -550,11 +550,11 @@ public class d {
     public static void a(com.ss.android.socialbase.downloader.g.c cVar, com.ss.android.socialbase.downloader.d.c cVar2, s sVar) {
         boolean z;
         boolean z2 = false;
-        com.ss.android.socialbase.downloader.f.a.b(f13518a, "saveFileAsTargetName targetName is " + cVar.n());
+        com.ss.android.socialbase.downloader.f.a.b(f13519a, "saveFileAsTargetName targetName is " + cVar.n());
         try {
             synchronized (d) {
                 if (d.get(cVar.g()) == Boolean.TRUE) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13518a, "has another same task is saving temp file");
+                    com.ss.android.socialbase.downloader.f.a.b(f13519a, "has another same task is saving temp file");
                     if (sVar != null) {
                         List<s> list = e.get(cVar.g());
                         if (list == null) {
@@ -565,15 +565,15 @@ public class d {
                     }
                     return;
                 }
-                com.ss.android.socialbase.downloader.f.a.b(f13518a, "saveTempFileStatusMap put id:" + cVar.g());
+                com.ss.android.socialbase.downloader.f.a.b(f13519a, "saveTempFileStatusMap put id:" + cVar.g());
                 d.put(cVar.g(), Boolean.TRUE);
                 File file = new File(cVar.l(), cVar.m());
                 File file2 = new File(cVar.k(), cVar.h());
                 if (file2.exists()) {
-                    com.ss.android.socialbase.downloader.f.a.b(f13518a, "targetFile exist");
+                    com.ss.android.socialbase.downloader.f.a.b(f13519a, "targetFile exist");
                     int n = n(file2, cVar.F());
                     if (a(n)) {
-                        com.ss.android.socialbase.downloader.f.a.b(f13518a, "tempFile not exist , targetFile exists and md5 check valid");
+                        com.ss.android.socialbase.downloader.f.a.b(f13519a, "tempFile not exist , targetFile exists and md5 check valid");
                         cVar.a(n);
                         if (sVar != null) {
                             sVar.a();
@@ -624,7 +624,7 @@ public class d {
                         }
                     } catch (com.ss.android.socialbase.downloader.e.a e3) {
                         e2 = e3;
-                        if (com.ss.android.socialbase.downloader.k.a.SR(cVar.g()).a("fix_file_rename_failed")) {
+                        if (com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("fix_file_rename_failed")) {
                             z2 = true;
                         }
                     }
@@ -638,7 +638,7 @@ public class d {
                         a(cVar.g(), false, e2);
                         return;
                     }
-                    int a2 = com.ss.android.socialbase.downloader.k.a.SR(cVar.g()).a("download_finish_check_ttmd5", 2);
+                    int a2 = com.ss.android.socialbase.downloader.k.a.Th(cVar.g()).a("download_finish_check_ttmd5", 2);
                     if (a2 > 0) {
                         int n2 = n(file2, cVar.F());
                         cVar.a(n2);
@@ -659,7 +659,7 @@ public class d {
                 }
             }
         } catch (Throwable th) {
-            com.ss.android.socialbase.downloader.f.a.b(f13518a, "saveFileAsTargetName throwable " + th.getMessage());
+            com.ss.android.socialbase.downloader.f.a.b(f13519a, "saveFileAsTargetName throwable " + th.getMessage());
             if (sVar != null) {
                 sVar.a(new com.ss.android.socialbase.downloader.e.a(1038, c(th, "saveFileAsTargetName")));
             }
@@ -680,7 +680,7 @@ public class d {
                     }
                 }
             }
-            com.ss.android.socialbase.downloader.f.a.b(f13518a, "handleTempSaveCallback id:" + i);
+            com.ss.android.socialbase.downloader.f.a.b(f13519a, "handleTempSaveCallback id:" + i);
             d.remove(i);
         }
     }
@@ -689,7 +689,7 @@ public class d {
         if (cVar != null && !TextUtils.isEmpty(str) && !str.equals(cVar.h())) {
             File file = new File(cVar.k(), str);
             File file2 = new File(cVar.k(), cVar.h());
-            Log.e(f13518a, "copyFileFromExistFileWithSameName: existFile:" + file.getPath() + " targetFile:" + file2.getPath());
+            Log.e(f13519a, "copyFileFromExistFileWithSameName: existFile:" + file.getPath() + " targetFile:" + file2.getPath());
             if (file2.exists() && !file2.delete()) {
                 throw new com.ss.android.socialbase.downloader.e.a(1037, "targetPath file exists but can't delete");
             }
@@ -715,7 +715,7 @@ public class d {
             if (parentFile != null && !parentFile.mkdirs() && !parentFile.isDirectory()) {
                 throw new com.ss.android.socialbase.downloader.e.a(1053, "Destination '" + parentFile + "' directory cannot be created");
             }
-            Log.e(f13518a, "copyFile: srcFile:" + file.getPath() + " destFile:" + file2.getPath());
+            Log.e(f13519a, "copyFile: srcFile:" + file.getPath() + " destFile:" + file2.getPath());
             if (file2.exists() && !file2.canWrite() && !file2.delete()) {
                 throw new IOException("Destination '" + file2 + "' exists but is read-only and delete failed");
             }
@@ -965,12 +965,12 @@ public class d {
     }
 
     public static boolean n(File file, File file2) throws com.ss.android.socialbase.downloader.e.a {
-        Log.e(f13518a, "moveFile1: src:" + file.getPath() + " dest:" + file2.getPath());
+        Log.e(f13519a, "moveFile1: src:" + file.getPath() + " dest:" + file2.getPath());
         boolean renameTo = file.renameTo(file2);
         if (!renameTo) {
             renameTo = a(file, file2);
             try {
-                Log.e(f13518a, "moveFile2: src:" + file.getPath() + " dest:" + file2.getPath());
+                Log.e(f13519a, "moveFile2: src:" + file.getPath() + " dest:" + file2.getPath());
                 file.delete();
             } catch (Throwable th) {
                 th.printStackTrace();
@@ -1036,7 +1036,7 @@ public class d {
             arrayList.add(new com.ss.android.socialbase.downloader.g.e("If-Match", str));
         }
         arrayList.add(new com.ss.android.socialbase.downloader.g.e(Headers.ACCEPT_ENCODING, "identity"));
-        com.ss.android.socialbase.downloader.f.a.b(f13518a, "range CurrentOffset:" + j + " EndOffset:" + j2);
+        com.ss.android.socialbase.downloader.f.a.b(f13519a, "range CurrentOffset:" + j + " EndOffset:" + j2);
         if (j2 == 0) {
             format = String.format("bytes=%s-", String.valueOf(j));
         } else {
@@ -1205,19 +1205,19 @@ public class d {
 
     public static boolean a() {
         boolean z = false;
-        if (qaM != null) {
-            return qaM.booleanValue();
+        if (qcu != null) {
+            return qcu.booleanValue();
         }
-        String c2 = c(com.ss.android.socialbase.downloader.downloader.b.eHp());
+        String c2 = c(com.ss.android.socialbase.downloader.downloader.b.eHT());
         if (c2 != null && c2.contains(":")) {
-            qaM = false;
+            qcu = false;
         } else {
-            if (c2 != null && c2.equals(com.ss.android.socialbase.downloader.downloader.b.eHp().getPackageName())) {
+            if (c2 != null && c2.equals(com.ss.android.socialbase.downloader.downloader.b.eHT().getPackageName())) {
                 z = true;
             }
-            qaM = Boolean.valueOf(z);
+            qcu = Boolean.valueOf(z);
         }
-        return qaM.booleanValue();
+        return qcu.booleanValue();
     }
 
     public static boolean b() {
@@ -1225,23 +1225,23 @@ public class d {
     }
 
     public static boolean c() {
-        if (qai != null) {
-            return qai.booleanValue();
+        if (qbQ != null) {
+            return qbQ.booleanValue();
         }
-        String c2 = c(com.ss.android.socialbase.downloader.downloader.b.eHp());
-        if (c2 != null && c2.equals(com.ss.android.socialbase.downloader.downloader.b.eHp().getPackageName() + ":downloader")) {
-            qai = true;
+        String c2 = c(com.ss.android.socialbase.downloader.downloader.b.eHT());
+        if (c2 != null && c2.equals(com.ss.android.socialbase.downloader.downloader.b.eHT().getPackageName() + ":downloader")) {
+            qbQ = true;
         } else {
-            qai = false;
+            qbQ = false;
         }
-        return qai.booleanValue();
+        return qbQ.booleanValue();
     }
 
     public static boolean e(String str) {
         if (TextUtils.isEmpty(str)) {
             return true;
         }
-        String c2 = c(com.ss.android.socialbase.downloader.downloader.b.eHp());
+        String c2 = c(com.ss.android.socialbase.downloader.downloader.b.eHT());
         return c2 != null && c2.equals(str);
     }
 
@@ -1466,7 +1466,7 @@ public class d {
         if (a2 == 1000 || a2 == 1032 || a2 == 1033 || a2 == 1034 || a2 == 1008 || a2 == 1026 || a2 == 1027 || a2 == 1044 || a2 == 1020) {
             return true;
         }
-        return (a2 == 1049 || a2 == 1055 || a2 == 1006 || cVar == null || cVar.eHV() >= 8388608) ? false : true;
+        return (a2 == 1049 || a2 == 1055 || a2 == 1006 || cVar == null || cVar.eIz() >= 8388608) ? false : true;
     }
 
     public static String c(Throwable th, String str) {
@@ -1485,7 +1485,7 @@ public class d {
         }
     }
 
-    public static com.ss.android.socialbase.downloader.b.h SV(int i) {
+    public static com.ss.android.socialbase.downloader.b.h Tl(int i) {
         com.ss.android.socialbase.downloader.b.h hVar = com.ss.android.socialbase.downloader.b.h.MAIN;
         if (i == com.ss.android.socialbase.downloader.b.h.SUB.ordinal()) {
             return com.ss.android.socialbase.downloader.b.h.SUB;
@@ -1523,20 +1523,20 @@ public class d {
         if (cVar == null) {
             return -1L;
         }
-        List<com.ss.android.socialbase.downloader.g.b> c2 = com.ss.android.socialbase.downloader.downloader.b.eHf().c(cVar.g());
-        if (cVar.eIH() == 1) {
-            return cVar.eHV();
+        List<com.ss.android.socialbase.downloader.g.b> c2 = com.ss.android.socialbase.downloader.downloader.b.eHJ().c(cVar.g());
+        if (cVar.eJl() == 1) {
+            return cVar.eIz();
         }
         if (c2 != null && c2.size() > 1) {
-            long he = he(c2);
-            if (he >= 0) {
-                return he;
+            long hf = hf(c2);
+            if (hf >= 0) {
+                return hf;
             }
         }
         return 0L;
     }
 
-    private static long he(List<com.ss.android.socialbase.downloader.g.b> list) {
+    private static long hf(List<com.ss.android.socialbase.downloader.g.b> list) {
         if (list == null || list.isEmpty()) {
             return -1L;
         }
@@ -1555,16 +1555,16 @@ public class d {
         if (cVar == null) {
             return 0L;
         }
-        List<com.ss.android.socialbase.downloader.g.b> c2 = com.ss.android.socialbase.downloader.downloader.b.eHf().c(cVar.g());
-        int eIH = cVar.eIH();
-        boolean z = eIH > 1;
-        if (cVar.eID()) {
+        List<com.ss.android.socialbase.downloader.g.b> c2 = com.ss.android.socialbase.downloader.downloader.b.eHJ().c(cVar.g());
+        int eJl = cVar.eJl();
+        boolean z = eJl > 1;
+        if (cVar.eJh()) {
             if (z) {
-                if (c2 != null && eIH == c2.size()) {
+                if (c2 != null && eJl == c2.size()) {
                     j = b(c2);
                 }
             } else {
-                j = cVar.eHV();
+                j = cVar.eIz();
             }
             return j;
         }
@@ -1604,11 +1604,11 @@ public class d {
     }
 
     public static String a(String str, com.ss.android.socialbase.downloader.k.a aVar) {
-        JSONObject abA;
-        if (aVar == null || (abA = aVar.abA("anti_hijack_dir")) == null) {
+        JSONObject abB;
+        if (aVar == null || (abB = aVar.abB("anti_hijack_dir")) == null) {
             return "";
         }
-        String optString = abA.optString("dir_name");
+        String optString = abB.optString("dir_name");
         if (!TextUtils.isEmpty(optString) && optString.startsWith("/")) {
             optString = optString.substring(1);
         }
@@ -1630,9 +1630,9 @@ public class d {
     }
 
     public static void a(List<com.ss.android.socialbase.downloader.g.e> list, com.ss.android.socialbase.downloader.g.c cVar) {
-        long eIU = cVar.eIU();
-        if (eIU > 0) {
-            list.add(new com.ss.android.socialbase.downloader.g.e("extra_throttle_net_speed", String.valueOf(eIU)));
+        long eJy = cVar.eJy();
+        if (eJy > 0) {
+            list.add(new com.ss.android.socialbase.downloader.g.e("extra_throttle_net_speed", String.valueOf(eJy)));
         }
     }
 
@@ -1641,7 +1641,7 @@ public class d {
             return null;
         }
         String a2 = eVar.a(str);
-        if (com.ss.android.socialbase.downloader.k.a.eJs().b("fix_get_http_resp_head_ignore_case", true)) {
+        if (com.ss.android.socialbase.downloader.k.a.eJW().b("fix_get_http_resp_head_ignore_case", true)) {
             if (TextUtils.isEmpty(a2)) {
                 a2 = eVar.a(str.toLowerCase());
             }

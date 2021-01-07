@@ -13,13 +13,13 @@ import com.baidu.cyberplayer.sdk.rtc.RTCConst;
 import com.baidu.mobstat.Config;
 import java.io.File;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class c extends com.baidu.cesium.b.a {
     a.C0094a anQ;
     private b anR;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
         static boolean a(a.C0094a c0094a, com.baidu.cesium.e.a aVar) {
             if (Build.VERSION.SDK_INT < 23) {
@@ -55,7 +55,7 @@ public class c extends com.baidu.cesium.b.a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public class b {
         private g.a anT;
         private long j;
@@ -147,7 +147,7 @@ public class c extends com.baidu.cesium.b.a {
     }
 
     /* renamed from: com.baidu.cesium.b.c$c  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     class C0092c extends a.b {
         private g.a anV;
         private int i;
@@ -292,7 +292,7 @@ public class c extends com.baidu.cesium.b.a {
 
     @Override // com.baidu.cesium.b.a
     public a.e a(a.d dVar, g.a aVar) {
-        Context context = this.anL.f1669a;
+        Context context = this.anL.f1670a;
         if (Build.VERSION.SDK_INT < 28 || context.getApplicationInfo().targetSdkVersion < 28) {
             this.anR.c();
             try {
@@ -312,14 +312,14 @@ public class c extends com.baidu.cesium.b.a {
         PackageInfo packageInfo;
         C0092c c0092c = null;
         try {
-            packageInfo = this.anL.f1669a.getPackageManager().getPackageInfo(str, 0);
+            packageInfo = this.anL.f1670a.getPackageManager().getPackageInfo(str, 0);
         } catch (PackageManager.NameNotFoundException e) {
             packageInfo = null;
         }
         if (packageInfo == null) {
             return a.g.bI(-2);
         }
-        if (fVar.f1671a) {
+        if (fVar.f1672a) {
             c0092c = new C0092c(str);
             c0092c.a();
             if (str.equals(c0092c.c()) && packageInfo.lastUpdateTime == c0092c.e()) {
@@ -328,7 +328,7 @@ public class c extends com.baidu.cesium.b.a {
         }
         b bVar = new b();
         if (bVar.a(packageInfo)) {
-            if (fVar.f1671a && c0092c != null) {
+            if (fVar.f1672a && c0092c != null) {
                 c0092c.a(bVar);
                 c0092c.a(System.currentTimeMillis());
                 c0092c.c(packageInfo.lastUpdateTime);

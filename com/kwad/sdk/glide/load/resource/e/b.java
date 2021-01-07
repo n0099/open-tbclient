@@ -12,15 +12,15 @@ import com.kwad.sdk.glide.load.resource.bitmap.q;
 public class b implements e<Bitmap, BitmapDrawable> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Resources f10625a;
+    private final Resources f10626a;
 
     public b(@NonNull Resources resources) {
-        this.f10625a = (Resources) j.a(resources);
+        this.f10626a = (Resources) j.a(resources);
     }
 
     @Override // com.kwad.sdk.glide.load.resource.e.e
     @Nullable
     public s<BitmapDrawable> a(@NonNull s<Bitmap> sVar, @NonNull com.kwad.sdk.glide.load.e eVar) {
-        return q.a(this.f10625a, sVar);
+        return q.a(this.f10626a, sVar);
     }
 }

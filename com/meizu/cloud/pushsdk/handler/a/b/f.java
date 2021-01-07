@@ -23,10 +23,10 @@ public class f implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11620a;
+    private String f11621a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f11621b;
+    private String f11622b;
     private boolean c;
     private String d;
     private String e;
@@ -37,8 +37,8 @@ public class f implements Parcelable {
 
     protected f(Parcel parcel) {
         this.c = false;
-        this.f11620a = parcel.readString();
-        this.f11621b = parcel.readString();
+        this.f11621a = parcel.readString();
+        this.f11622b = parcel.readString();
         this.c = parcel.readByte() != 0;
         this.d = parcel.readString();
         this.e = parcel.readString();
@@ -67,11 +67,11 @@ public class f implements Parcelable {
     }
 
     public String a() {
-        return this.f11620a;
+        return this.f11621a;
     }
 
     public void a(String str) {
-        this.f11620a = str;
+        this.f11621a = str;
     }
 
     public void a(boolean z) {
@@ -79,11 +79,11 @@ public class f implements Parcelable {
     }
 
     public String b() {
-        return this.f11621b;
+        return this.f11622b;
     }
 
     public void b(String str) {
-        this.f11621b = str;
+        this.f11622b = str;
     }
 
     public void c(String str) {
@@ -112,13 +112,13 @@ public class f implements Parcelable {
     }
 
     public String toString() {
-        return "Statics{taskId='" + this.f11620a + "', time='" + this.f11621b + "', pushExtra=" + this.c + ", deviceId='" + this.d + "', seqId='" + this.e + "'}";
+        return "Statics{taskId='" + this.f11621a + "', time='" + this.f11622b + "', pushExtra=" + this.c + ", deviceId='" + this.d + "', seqId='" + this.e + "'}";
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f11620a);
-        parcel.writeString(this.f11621b);
+        parcel.writeString(this.f11621a);
+        parcel.writeString(this.f11622b);
         parcel.writeByte((byte) (this.c ? 1 : 0));
         parcel.writeString(this.d);
         parcel.writeString(this.e);

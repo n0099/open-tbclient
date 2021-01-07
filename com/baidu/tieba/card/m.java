@@ -18,33 +18,33 @@ import com.baidu.tieba.R;
 import java.util.ArrayList;
 /* loaded from: classes.dex */
 public class m {
-    public static void Jo(String str) {
+    public static void Jn(String str) {
         com.baidu.tieba.tbadkCore.util.d readThreadHistory;
-        if (!StringUtils.isNull(str) && !"0".equalsIgnoreCase(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.TM(str)) {
-            readThreadHistory.TK(str);
+        if (!StringUtils.isNull(str) && !"0".equalsIgnoreCase(str) && (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) != null && !readThreadHistory.TL(str)) {
+            readThreadHistory.TJ(str);
         }
     }
 
-    public static boolean Jp(String str) {
+    public static boolean Jo(String str) {
         com.baidu.tieba.tbadkCore.util.d readThreadHistory;
-        return (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.TL(str)) ? false : true;
-    }
-
-    public static String cuR() {
-        return String.valueOf(System.currentTimeMillis() / 1000);
-    }
-
-    public static String brc() {
-        return "personalize_page";
+        return (StringUtils.isNull(str) || "0".equalsIgnoreCase(str) || (readThreadHistory = TbadkCoreApplication.getInst().getReadThreadHistory()) == null || !readThreadHistory.TK(str)) ? false : true;
     }
 
     public static String cuS() {
+        return String.valueOf(System.currentTimeMillis() / 1000);
+    }
+
+    public static String brd() {
+        return "personalize_page";
+    }
+
+    public static String cuT() {
         return "frs_page";
     }
 
     public static void a(TextView textView, String str, int i, int i2) {
         if (textView instanceof TextView) {
-            if (Jp(str) && TbSingleton.getInstance().isInFrs) {
+            if (Jo(str) && TbSingleton.getInstance().isInFrs) {
                 ao.setViewTextColor(textView, i2);
             } else {
                 ao.setViewTextColor(textView, i);
@@ -53,22 +53,22 @@ public class m {
     }
 
     public static void a(bz bzVar, SpannableStringBuilder spannableStringBuilder, boolean z) {
-        if (spannableStringBuilder != null && !at.isEmptyStringAfterTrim(spannableStringBuilder.toString()) && bzVar != null && bzVar.brl() == 0) {
-            if (z || bzVar.brE() == 1 || StringUtils.isNull(bzVar.getTitle())) {
-                ArrayList<com.baidu.tbadk.widget.richText.b> bsm = bzVar.bsm();
-                if (!com.baidu.tbadk.core.util.x.isEmpty(bsm)) {
+        if (spannableStringBuilder != null && !at.isEmptyStringAfterTrim(spannableStringBuilder.toString()) && bzVar != null && bzVar.brm() == 0) {
+            if (z || bzVar.brF() == 1 || StringUtils.isNull(bzVar.getTitle())) {
+                ArrayList<com.baidu.tbadk.widget.richText.b> bsn = bzVar.bsn();
+                if (!com.baidu.tbadk.core.util.x.isEmpty(bsn)) {
                     StringBuilder sb = new StringBuilder();
-                    for (int i = 0; i < bsm.size(); i++) {
-                        if (bsm.get(i) != null && !StringUtils.isNull(bsm.get(i).getText())) {
-                            sb.append(bsm.get(i).getText());
+                    for (int i = 0; i < bsn.size(); i++) {
+                        if (bsn.get(i) != null && !StringUtils.isNull(bsn.get(i).getText())) {
+                            sb.append(bsn.get(i).getText());
                         }
                     }
                     SpannableString spannableString = new SpannableString(sb.toString());
                     int i2 = 0;
-                    for (int i3 = 0; i3 < bsm.size(); i3++) {
-                        if (bsm.get(i3) != null && !StringUtils.isNull(bsm.get(i3).getText())) {
-                            int length = bsm.get(i3).getText().length();
-                            a(spannableString, bsm.get(i3), i2, length);
+                    for (int i3 = 0; i3 < bsn.size(); i3++) {
+                        if (bsn.get(i3) != null && !StringUtils.isNull(bsn.get(i3).getText())) {
+                            int length = bsn.get(i3).getText().length();
+                            a(spannableString, bsn.get(i3), i2, length);
                             i2 += length;
                         }
                     }
@@ -179,22 +179,22 @@ public class m {
     }
 
     public static void a(bz bzVar, TextView textView) {
-        if ((StringUtils.isNull(bzVar.getTitle()) && (bzVar.bro() == null || bzVar.bro().size() == 0)) || bzVar.brE() == 1) {
+        if ((StringUtils.isNull(bzVar.getTitle()) && (bzVar.brp() == null || bzVar.brp().size() == 0)) || bzVar.brF() == 1) {
             bzVar.z(false, true);
-            if (bzVar.brZ() == null || StringUtils.isNull(bzVar.brZ().toString())) {
+            if (bzVar.bsa() == null || StringUtils.isNull(bzVar.bsa().toString())) {
                 textView.setVisibility(8);
                 return;
             }
             textView.setVisibility(0);
-            textView.setText(bzVar.brZ());
+            textView.setText(bzVar.bsa());
             return;
         }
         textView.setVisibility(0);
         bzVar.eTF = 0;
         bzVar.z(false, true);
-        SpannableStringBuilder brZ = bzVar.brZ();
-        textView.setOnTouchListener(new com.baidu.tieba.view.i(brZ));
-        textView.setText(brZ);
+        SpannableStringBuilder bsa = bzVar.bsa();
+        textView.setOnTouchListener(new com.baidu.tieba.view.i(bsa));
+        textView.setText(bsa);
         a(textView, bzVar.getId(), R.color.CAM_X0105, R.color.CAM_X0109);
     }
 

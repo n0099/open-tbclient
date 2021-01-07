@@ -42,10 +42,10 @@ public class g {
     private static int r = -1;
 
     /* renamed from: a  reason: collision with root package name */
-    public static long f7913a = -1;
+    public static long f7914a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    public static long f7914b = -1;
+    public static long f7915b = -1;
     private static int s = -1;
     private static MessageQueue ppR = null;
     private static Field ppS = null;
@@ -67,7 +67,7 @@ public class g {
             }
             f = new ArrayList();
             a();
-            a(esq());
+            a(esr());
         }
     }
 
@@ -75,10 +75,10 @@ public class g {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f7915a;
+        public int f7916a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f7916b;
+        public int f7917b;
         public long c;
         public long d;
         public long e;
@@ -86,44 +86,44 @@ public class g {
         public String g;
 
         public String toString() {
-            if (this.f7916b == 0) {
+            if (this.f7917b == 0) {
                 return "[[[ IDLE  ]]] cost " + this.c + " tick , mDuration：" + this.d + ",cpuTime:" + this.e;
             }
-            if (this.f7916b == 1) {
+            if (this.f7917b == 1) {
                 return "[[[ Long IDLE  ]]] cost " + this.c + " tick , mDuration：" + this.d + ",cpuTime:" + this.e;
             }
-            if (this.f7916b == 2) {
+            if (this.f7917b == 2) {
                 return "[[[  1 msg  ]]] cost " + this.c + " tick , mDuration：" + this.d + ",cpuTime:" + this.e + ", msg:" + this.g;
             }
-            if (this.f7916b == 3) {
+            if (this.f7917b == 3) {
                 return "[[[ 1 msg + IDLE  ]]] cost " + this.c + " tick , mDuration：" + this.d + ",cpuTime:" + this.e;
             }
-            if (this.f7916b == 4) {
-                return "[[[ " + (this.f7915a - 1) + " msgs  ]]] cost less than 1 tick, [[[  last msg ]]] cost more than " + (this.c - 1) + "tick ,, mDuration：" + this.d + "cpuTime:" + this.e + " msg:" + this.g;
+            if (this.f7917b == 4) {
+                return "[[[ " + (this.f7916a - 1) + " msgs  ]]] cost less than 1 tick, [[[  last msg ]]] cost more than " + (this.c - 1) + "tick ,, mDuration：" + this.d + "cpuTime:" + this.e + " msg:" + this.g;
             }
-            if (this.f7916b == 5) {
-                return "[[[ " + this.f7915a + " msgs ]]] cost less than 1 tick but [[[  IDLE ]]] cost more than" + (this.c - 1) + " ticks, , mDuration：" + this.d + "cpuTime:" + this.e;
+            if (this.f7917b == 5) {
+                return "[[[ " + this.f7916a + " msgs ]]] cost less than 1 tick but [[[  IDLE ]]] cost more than" + (this.c - 1) + " ticks, , mDuration：" + this.d + "cpuTime:" + this.e;
             }
-            if (this.f7916b == 6) {
+            if (this.f7917b == 6) {
                 return "[[[  1 msg  ]]] cost less than 1 tick , but [[[  IDLE ]]] cost more than" + (this.c - 1) + ", , mDuration：" + this.d + "cpuTime:" + this.e;
             }
-            if (this.f7916b == 7) {
-                return "[[[ " + this.f7915a + " msgs + IDLE  ]]] cost 1 tick , mDuration：" + this.d + " cost cpuTime:" + this.e;
+            if (this.f7917b == 7) {
+                return "[[[ " + this.f7916a + " msgs + IDLE  ]]] cost 1 tick , mDuration：" + this.d + " cost cpuTime:" + this.e;
             }
-            if (this.f7916b == 8) {
+            if (this.f7917b == 8) {
                 return "[[[ 1 msgs ]]] cost " + this.c + " ticks , mDuration：" + this.d + " cost cpuTime:" + this.e + " msg:" + this.g;
             }
-            if (this.f7916b == 9) {
-                return "[[[ " + this.f7915a + " msgs ]]] cost 1 tick , mDuration：" + this.d + " cost cpuTime:" + this.e;
+            if (this.f7917b == 9) {
+                return "[[[ " + this.f7916a + " msgs ]]] cost 1 tick , mDuration：" + this.d + " cost cpuTime:" + this.e;
             }
-            return "=========   UNKNOW =========  Type:" + this.f7916b + " cost ticks " + this.c + " msgs:" + this.f7915a;
+            return "=========   UNKNOW =========  Type:" + this.f7917b + " cost ticks " + this.c + " msgs:" + this.f7916a;
         }
     }
 
     public static void a() {
         com.bytedance.tea.crash.e.g.a(4L);
-        com.bytedance.tea.crash.e.f.esA().b();
-        com.bytedance.tea.crash.e.f.esA().b(new Printer() { // from class: com.bytedance.tea.crash.a.g.1
+        com.bytedance.tea.crash.e.f.esB().b();
+        com.bytedance.tea.crash.e.f.esB().b(new Printer() { // from class: com.bytedance.tea.crash.a.g.1
             @Override // android.util.Printer
             public void println(String str) {
                 int i2;
@@ -134,9 +134,9 @@ public class g {
                         int unused3 = g.r = Process.myTid();
                         g.u();
                     }
-                    g.f7913a = g.g.get();
-                    if (g.f7914b != -1) {
-                        long j2 = g.f7913a - g.f7914b;
+                    g.f7914a = g.g.get();
+                    if (g.f7915b != -1) {
+                        long j2 = g.f7914a - g.f7915b;
                         if (j2 <= 0) {
                             g.j();
                             return;
@@ -160,26 +160,26 @@ public class g {
                         } else {
                             i2 = 5;
                         }
-                        long esr = g.esr();
+                        long ess = g.ess();
                         long uptimeMillis = SystemClock.uptimeMillis();
                         if (!g.q) {
-                            g.a(g.esp(), esr - g.k, uptimeMillis - g.l, j2, i2, g.n, null);
+                            g.a(g.esq(), ess - g.k, uptimeMillis - g.l, j2, i2, g.n, null);
                         }
-                        long unused4 = g.k = esr;
+                        long unused4 = g.k = ess;
                         long unused5 = g.l = uptimeMillis;
                         int unused6 = g.n = 1;
                     }
                 }
             }
         });
-        com.bytedance.tea.crash.e.f.esA().a(new Printer() { // from class: com.bytedance.tea.crash.a.g.2
+        com.bytedance.tea.crash.e.f.esB().a(new Printer() { // from class: com.bytedance.tea.crash.a.g.2
             @Override // android.util.Printer
             public void println(String str) {
-                g.f7914b = g.g.get();
-                if (g.f7913a > 0) {
-                    long j2 = g.f7914b - g.f7913a;
+                g.f7915b = g.g.get();
+                if (g.f7914a > 0) {
+                    long j2 = g.f7915b - g.f7914a;
                     if (j2 > 0) {
-                        long esr = g.esr();
+                        long ess = g.ess();
                         long uptimeMillis = SystemClock.uptimeMillis();
                         int i2 = 0;
                         if (j2 == 1 && g.n > 1) {
@@ -192,22 +192,22 @@ public class g {
                             i2 = 8;
                         }
                         if (!g.q) {
-                            g.a(g.esp(), esr - g.k, uptimeMillis - g.l, j2, i2, g.n, str);
+                            g.a(g.esq(), ess - g.k, uptimeMillis - g.l, j2, i2, g.n, str);
                         }
-                        long unused = g.k = esr;
+                        long unused = g.k = ess;
                         long unused2 = g.l = uptimeMillis;
                         int unused3 = g.n = 0;
-                        g.f7913a = -1L;
+                        g.f7914a = -1L;
                     }
                 }
             }
         });
-        k = esr();
+        k = ess();
         l = SystemClock.uptimeMillis();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static a esp() {
+    public static a esq() {
         if (f.size() == e) {
             s = (s + 1) % e;
             return f.get(s);
@@ -224,11 +224,11 @@ public class g {
         aVar.c = j4;
         aVar.d = j3;
         aVar.f = false;
-        aVar.f7915a = i3;
+        aVar.f7916a = i3;
         if (str != null) {
             aVar.g = str;
         }
-        aVar.f7916b = i2;
+        aVar.f7917b = i2;
     }
 
     public static JSONArray b() {
@@ -247,8 +247,8 @@ public class g {
                     jSONObject.put("cpuDuration", aVar.e);
                     jSONObject.put("duration", aVar.d);
                     jSONObject.put("tick", aVar.c);
-                    jSONObject.put("type", aVar.f7916b);
-                    jSONObject.put("count", aVar.f7915a);
+                    jSONObject.put("type", aVar.f7917b);
+                    jSONObject.put("count", aVar.f7916a);
                     jSONObject.put("id", i2);
                 } catch (JSONException e2) {
                     e2.printStackTrace();
@@ -308,7 +308,7 @@ public class g {
         }, h);
     }
 
-    public static MessageQueue esq() {
+    public static MessageQueue esr() {
         if (ppR == null && Looper.getMainLooper() != null) {
             Looper mainLooper = Looper.getMainLooper();
             if (mainLooper == Looper.myLooper()) {
@@ -346,11 +346,11 @@ public class g {
     }
 
     public static JSONArray C(int i2, long j2) {
-        MessageQueue esq = esq();
+        MessageQueue esr = esr();
         JSONArray jSONArray = new JSONArray();
-        if (esq != null) {
-            synchronized (esq) {
-                Message a2 = a(esq);
+        if (esr != null) {
+            synchronized (esr) {
+                Message a2 = a(esr);
                 if (a2 != null) {
                     int i3 = 0;
                     int i4 = 0;
@@ -372,7 +372,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static long esr() {
+    public static long ess() {
         return com.bytedance.tea.crash.e.c.a(r);
     }
 
@@ -381,7 +381,7 @@ public class g {
         try {
             jSONObject.put("message", p);
             jSONObject.put("currentMessageCost", e());
-            jSONObject.put("currentMessageCpu", esr() - k);
+            jSONObject.put("currentMessageCpu", ess() - k);
             jSONObject.put("currentTick", g.get());
         } catch (Throwable th) {
             j.a(th);
@@ -416,7 +416,7 @@ public class g {
     }
 
     public static long e() {
-        return f7913a < 0 ? (SystemClock.uptimeMillis() - i) - (f7914b * h) : (SystemClock.uptimeMillis() - i) - (f7913a * h);
+        return f7914a < 0 ? (SystemClock.uptimeMillis() - i) - (f7915b * h) : (SystemClock.uptimeMillis() - i) - (f7914a * h);
     }
 
     private static Message W(Message message) {

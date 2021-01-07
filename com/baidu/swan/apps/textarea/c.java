@@ -16,7 +16,7 @@ public class c {
     private int dQp = 0;
     private int cZN = 200;
 
-    public static c aQx() {
+    public static c aQy() {
         if (dQv == null) {
             synchronized (c.class) {
                 if (dQv == null) {

@@ -4,16 +4,16 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.ArrayDeque;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableSkipLast<T> extends a<T, T> {
     final int skip;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qgK.a((j) new SkipLastSubscriber(cVar, this.skip));
+        this.qit.a((j) new SkipLastSubscriber(cVar, this.skip));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class SkipLastSubscriber<T> extends ArrayDeque<T> implements j<T>, d {
         private static final long serialVersionUID = -3807491841935125653L;
         final org.a.c<? super T> actual;

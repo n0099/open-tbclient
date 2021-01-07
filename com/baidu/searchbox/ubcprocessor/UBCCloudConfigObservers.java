@@ -7,7 +7,7 @@ public class UBCCloudConfigObservers {
     d<UBCCloudConfigObserver> mObservers;
 
     public void initmObservers() {
-        this.mObservers = b.ahA();
+        this.mObservers = b.ahB();
         this.mObservers.b(new UBCCloudConfigObserver_UBCCloudConfigObservers_ListProvider());
     }
 

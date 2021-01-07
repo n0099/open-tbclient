@@ -7,10 +7,10 @@ import org.json.JSONObject;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6784a;
+    private String f6785a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6785b;
+    private String f6786b;
     private String c;
     private int d;
     private int e;
@@ -26,19 +26,19 @@ public class b {
     }
 
     public String b() {
-        return this.f6784a;
+        return this.f6785a;
     }
 
     public void b(String str) {
-        this.f6784a = str;
+        this.f6785a = str;
     }
 
     public String c() {
-        return this.f6785b;
+        return this.f6786b;
     }
 
     public void c(String str) {
-        this.f6785b = str;
+        this.f6786b = str;
     }
 
     public String d() {

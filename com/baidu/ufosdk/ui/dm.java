@@ -3,15 +3,15 @@ package com.baidu.ufosdk.ui;
 final class dm implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dl f5814a;
+    final /* synthetic */ dl f5815a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dm(dl dlVar) {
-        this.f5814a = dlVar;
+        this.f5815a = dlVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        com.baidu.ufosdk.e.a.a(this.f5814a.f5813a.getApplicationContext());
+        com.baidu.ufosdk.e.a.a(this.f5815a.f5814a.getApplicationContext());
     }
 }

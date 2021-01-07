@@ -24,7 +24,7 @@ public class b {
     public static String fNV = "＃";
     private static final Pattern eFQ = Pattern.compile("#([^#(]+)#", 2);
 
-    public static boolean Eu(String str) {
+    public static boolean Et(String str) {
         return fNU.equals(str);
     }
 
@@ -41,7 +41,7 @@ public class b {
         return false;
     }
 
-    public static boolean bIb() {
+    public static boolean bIc() {
         return PluginPackageManager.px().cB("com.baidu.tieba.pluginHotTopic");
     }
 
@@ -53,7 +53,7 @@ public class b {
         return a(tbPageContext, true, true);
     }
 
-    public static SpannableString Ev(String str) {
+    public static SpannableString Eu(String str) {
         if (StringUtils.isNull(str)) {
             return new SpannableString("");
         }
@@ -62,7 +62,7 @@ public class b {
         while (matcher.find()) {
             int start = matcher.start();
             int end = matcher.end();
-            if (!Ex(str.substring(start, end))) {
+            if (!Ew(str.substring(start, end))) {
                 spannableString.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0304)), start, end, 18);
             }
         }
@@ -78,7 +78,7 @@ public class b {
                 while (matcher.find()) {
                     int start = matcher.start();
                     int end = matcher.end();
-                    if (!Ex(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
+                    if (!Ew(obj.substring(start, end)) && ((imageSpanArr = (ImageSpan[]) spannable.getSpans(start, end, ImageSpan.class)) == null || imageSpanArr.length <= 0)) {
                         spannable.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0304)), start, end, 18);
                     }
                 }
@@ -86,7 +86,7 @@ public class b {
         }
     }
 
-    public static String Ew(String str) {
+    public static String Ev(String str) {
         if (StringUtils.isNull(str)) {
             return "";
         }
@@ -98,7 +98,7 @@ public class b {
         return str;
     }
 
-    public static boolean Ex(String str) {
+    public static boolean Ew(String str) {
         return str != null && str.startsWith(fNU) && str.endsWith(fNU) && "".equals(str.substring(1, str.length() + (-1)).trim());
     }
 
@@ -124,7 +124,7 @@ public class b {
         TiebaStatic.log(new aq(TbadkCoreStatisticKey.HOT_TOPIC_CLICK).dX("obj_locate", str));
     }
 
-    public static String Ey(String str) {
+    public static String Ex(String str) {
         StringBuffer stringBuffer = new StringBuffer("http://tieba.baidu.com/n/video/opersquare?tab=hot&topic_name=");
         int length = str.length();
         String str2 = null;

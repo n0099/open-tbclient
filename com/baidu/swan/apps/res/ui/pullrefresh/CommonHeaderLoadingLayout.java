@@ -30,7 +30,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
         this.dAH = (int) (1.5f * this.dAE);
         this.dAG = this.dAH;
         this.dAK = (HeaderRefreshIndicator) findViewById(a.f.refresh_over_tip);
-        this.dAK.ahT();
+        this.dAK.ahU();
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -61,12 +61,12 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void setHeaderBackgroundResource(int i) {
         super.setHeaderBackgroundResource(i);
-        this.dAK.aKH();
+        this.dAK.aKI();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
-    public void aKF() {
+    public void aKG() {
         this.dAJ.setAnimPercent(1.0f);
     }
 
@@ -77,7 +77,7 @@ public class CommonHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     protected void onRefreshing() {
-        this.dAJ.aKW();
+        this.dAJ.aKX();
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout

@@ -14,10 +14,10 @@ import org.json.JSONObject;
 public class o extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f2333a = "bduss";
+    private static final String f2334a = "bduss";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f2334b = "certinfo";
+    private static final String f2335b = "certinfo";
     private static final String c = "authtoken";
     private static final String d = "outer";
 

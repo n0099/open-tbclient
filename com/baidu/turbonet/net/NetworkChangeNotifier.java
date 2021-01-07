@@ -106,18 +106,18 @@ public class NetworkChangeNotifier {
         this.mNativeChangeNotifiers.remove(Long.valueOf(j));
     }
 
-    public static NetworkChangeNotifier ehL() {
+    public static NetworkChangeNotifier ehM() {
         if ($assertionsDisabled || oKV != null) {
             return oKV;
         }
         throw new AssertionError();
     }
 
-    public static void ehM() {
-        ehL().a(true, (NetworkChangeNotifierAutoDetect.RegistrationPolicy) new RegistrationPolicyAlwaysRegister());
+    public static void ehN() {
+        ehM().a(true, (NetworkChangeNotifierAutoDetect.RegistrationPolicy) new RegistrationPolicyAlwaysRegister());
     }
 
-    private void ehN() {
+    private void ehO() {
         if (this.oKT != null) {
             this.oKT.destroy();
             this.oKT = null;
@@ -165,12 +165,12 @@ public class NetworkChangeNotifier {
             }
             return;
         }
-        ehN();
+        ehO();
     }
 
     @CalledByNative
     public static void forceConnectivityState(boolean z) {
-        ehL().Af(z);
+        ehM().Af(z);
     }
 
     private void Af(boolean z) {
@@ -182,32 +182,32 @@ public class NetworkChangeNotifier {
 
     @CalledByNative
     public static void fakeNetworkConnected(int i, int i2) {
-        ehL().dP(i, i2);
+        ehM().dP(i, i2);
     }
 
     @CalledByNative
     public static void fakeNetworkSoonToBeDisconnected(int i) {
-        ehL().Od(i);
+        ehM().Od(i);
     }
 
     @CalledByNative
     public static void fakeNetworkDisconnected(int i) {
-        ehL().Oe(i);
+        ehM().Oe(i);
     }
 
     @CalledByNative
     public static void fakePurgeActiveNetworkList(int[] iArr) {
-        ehL().q(iArr);
+        ehM().q(iArr);
     }
 
     @CalledByNative
     public static void fakeDefaultNetwork(int i, int i2) {
-        ehL().dO(i2, i);
+        ehM().dO(i2, i);
     }
 
     @CalledByNative
     public static void fakeMaxBandwidthChanged(double d) {
-        ehL().N(d);
+        ehM().N(d);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

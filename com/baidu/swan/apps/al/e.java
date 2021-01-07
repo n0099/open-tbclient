@@ -23,7 +23,7 @@ public final class e implements com.baidu.swan.apps.al.b, d {
         private static final e dQU = new e();
     }
 
-    public static e aQJ() {
+    public static e aQK() {
         return b.dQU;
     }
 

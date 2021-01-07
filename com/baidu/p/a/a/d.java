@@ -18,7 +18,7 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.p.a.a.c
-    public boolean eke() {
+    public boolean ekf() {
         return this.oPb;
     }
 
@@ -58,17 +58,17 @@ public abstract class d implements c {
     }
 
     @Override // com.baidu.p.a.a.c
-    public void XW(String str) {
+    public void XV(String str) {
         this.oPd = str;
     }
 
     @Override // com.baidu.p.a.a.c
-    public void XX(String str) {
+    public void XW(String str) {
         this.oPe = str;
     }
 
     @Override // com.baidu.p.a.a.c
-    public void XY(String str) {
+    public void XX(String str) {
         this.oPf = str;
     }
 

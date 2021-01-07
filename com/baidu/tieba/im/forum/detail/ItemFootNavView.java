@@ -117,7 +117,7 @@ public class ItemFootNavView extends LinearLayout {
                         return;
                     }
                     forumDetailActivity.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(forumDetailActivity.getPageContext().getPageActivity()).createNormalCfg(str, BarDetailForDirSwitch.BAR_DETAIL_DIR)));
-                    if (forumDetailActivity != null && ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(forumDetailActivity.brc())) {
+                    if (forumDetailActivity != null && ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(forumDetailActivity.brd())) {
                         TiebaStatic.eventStat(ItemFootNavView.this.kCO.getPageContext().getPageActivity(), "squae_introduce_entry", "click", 1, new Object[0]);
                     }
                 }
@@ -133,7 +133,7 @@ public class ItemFootNavView extends LinearLayout {
             if (intValue == 0) {
                 a((BaseActivity<ForumDetailActivity>) forumDetailActivity, this.kDh);
             } else if (intValue == 1) {
-                if (forumDetailActivity != null && ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(forumDetailActivity.brc())) {
+                if (forumDetailActivity != null && ForumDetailActivityConfig.FromType.BAR_SQUARE.toString().equals(forumDetailActivity.brd())) {
                     TiebaStatic.eventStat(this.kCO.getPageContext().getPageActivity(), "squae_introduce_focus", "click", 1, new Object[0]);
                 }
                 a(forumDetailActivity, this.kDh);
@@ -188,7 +188,7 @@ public class ItemFootNavView extends LinearLayout {
                     w wVar = (w) obj;
                     if (wVar != null) {
                         if (wVar.getErrorCode() == 3250013) {
-                            BdToast.a(TbadkCoreApplication.getInst().getContext(), wVar.getErrorMsg(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bud();
+                            BdToast.a(TbadkCoreApplication.getInst().getContext(), wVar.getErrorMsg(), R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bue();
                             return;
                         } else if (!AntiHelper.La(wVar.getErrorCode())) {
                             ItemFootNavView.this.sJ(true);
@@ -241,7 +241,7 @@ public class ItemFootNavView extends LinearLayout {
                                 if (at.isEmpty(str)) {
                                     str = TbadkCoreApplication.getInst().getContext().getString(R.string.anti_account_exception_appealing);
                                 }
-                                BdToast.a(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bud();
+                                BdToast.a(TbadkCoreApplication.getInst().getContext(), str, R.drawable.icon_pure_toast_mistake40_svg, 3000, true).bue();
                                 return;
                             }
                             baseActivity.showToast(baseActivity.getPageContext().getString(R.string.unlike_failure));
@@ -258,7 +258,7 @@ public class ItemFootNavView extends LinearLayout {
             });
             this.kDi.jI(true);
         }
-        this.kDi.b(baseActivity.getPageContext()).btX();
+        this.kDi.b(baseActivity.getPageContext()).btY();
     }
 
     public void sK(boolean z) {

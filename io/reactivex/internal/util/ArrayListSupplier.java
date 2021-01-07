@@ -3,7 +3,7 @@ package io.reactivex.internal.util;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.Callable;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public enum ArrayListSupplier implements io.reactivex.b.h<Object, List<Object>>, Callable<List<Object>> {
     INSTANCE;
 

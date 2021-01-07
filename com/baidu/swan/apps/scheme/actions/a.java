@@ -26,7 +26,7 @@ public class a extends aa {
             if (optJSONObject != null) {
                 Toast.makeText(context, bT(optJSONObject) ? a.h.swanapp_debug_abtest_config_success : a.h.swanapp_debug_abtest_config_fail, 1).show();
             } else {
-                aNs();
+                aNt();
                 Toast.makeText(context, a.h.swanapp_delete_debug_abtest_config, 1).show();
             }
             return true;
@@ -38,29 +38,29 @@ public class a extends aa {
         if (jSONObject == null) {
             return false;
         }
-        String aNt = aNt();
-        if (TextUtils.isEmpty(aNt)) {
+        String aNu = aNu();
+        if (TextUtils.isEmpty(aNu)) {
             return false;
         }
-        return com.baidu.swan.apps.s.a.p(aNt, jSONObject.toString(), false);
+        return com.baidu.swan.apps.s.a.p(aNu, jSONObject.toString(), false);
     }
 
-    private void aNs() {
-        String aNt = aNt();
-        if (!TextUtils.isEmpty(aNt)) {
-            File file = new File(aNt);
+    private void aNt() {
+        String aNu = aNu();
+        if (!TextUtils.isEmpty(aNu)) {
+            File file = new File(aNu);
             if (file.exists()) {
                 file.delete();
             }
         }
     }
 
-    public static String aNt() {
-        File aRm = com.baidu.swan.apps.ao.k.aRm();
-        if (aRm == null) {
+    public static String aNu() {
+        File aRn = com.baidu.swan.apps.ao.k.aRn();
+        if (aRn == null) {
             return null;
         }
-        String path = aRm.getPath();
+        String path = aRn.getPath();
         if (TextUtils.isEmpty(path)) {
             return null;
         }

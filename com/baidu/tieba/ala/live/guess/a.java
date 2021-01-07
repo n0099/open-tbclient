@@ -24,35 +24,35 @@ public class a {
         return d.Ba().getInt("live_guess_last_answer", -1);
     }
 
-    public void cah() {
+    public void cai() {
         a(au(UbcStatisticLiveKey.KEY_ID_1394, "display", "missguess_show"));
     }
 
-    public void cai() {
+    public void caj() {
         a(au(UbcStatisticLiveKey.KEY_ID_1394, "display", "wrongguess_show"));
     }
 
-    public void caj() {
+    public void cak() {
         a(au(UbcStatisticLiveKey.KEY_ID_1394, "display", "rightguess_show"));
     }
 
-    public void cak() {
+    public void cal() {
         a(au(UbcStatisticLiveKey.KEY_ID_1396, "click", "guessflw_clk"));
     }
 
-    public void cal() {
+    public void cam() {
         a(au(UbcStatisticLiveKey.KEY_ID_1394, "display", "guessflw_show"));
     }
 
-    public void cam() {
+    public void can() {
         a(au(UbcStatisticLiveKey.KEY_ID_1396, "click", "getticket_clk"));
     }
 
-    public void can() {
+    public void cao() {
         a(au(UbcStatisticLiveKey.KEY_ID_1394, "display", "ticketlack_show"));
     }
 
-    public void cao() {
+    public void cap() {
         a(v(UbcStatisticLiveKey.KEY_ID_1395, "click", "guessing_succ", ""));
     }
 
@@ -66,7 +66,7 @@ public class a {
         a(au(UbcStatisticLiveKey.KEY_ID_1396, "click", "guesschoice_clk").setContentExt(jSONObject));
     }
 
-    public void cap() {
+    public void caq() {
         a(au(UbcStatisticLiveKey.KEY_ID_1394, "display", "guesspop_show"));
     }
 

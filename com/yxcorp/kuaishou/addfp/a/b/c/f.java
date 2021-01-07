@@ -9,11 +9,11 @@ import java.util.concurrent.CountDownLatch;
 public final class f implements ServiceConnection {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ e f14650a;
+    private /* synthetic */ e f14651a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f14650a = eVar;
+        this.f14651a = eVar;
     }
 
     @Override // android.content.ServiceConnection
@@ -21,10 +21,10 @@ public final class f implements ServiceConnection {
         CountDownLatch countDownLatch;
         CountDownLatch countDownLatch2;
         try {
-            this.f14650a.qev = b.a(iBinder);
-            countDownLatch = this.f14650a.d;
+            this.f14651a.qgd = b.a(iBinder);
+            countDownLatch = this.f14651a.d;
             if (countDownLatch != null) {
-                countDownLatch2 = this.f14650a.d;
+                countDownLatch2 = this.f14651a.d;
                 countDownLatch2.countDown();
             }
         } catch (Throwable th) {
@@ -33,6 +33,6 @@ public final class f implements ServiceConnection {
 
     @Override // android.content.ServiceConnection
     public final void onServiceDisconnected(ComponentName componentName) {
-        this.f14650a.qev = null;
+        this.f14651a.qgd = null;
     }
 }

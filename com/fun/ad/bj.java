@@ -7,16 +7,16 @@ import com.fun.ad.sdk.R;
 public class bj implements TTAppDownloadListener {
 
     /* renamed from: a  reason: collision with root package name */
-    public Button f8069a;
+    public Button f8070a;
 
     public bj(Button button) {
-        this.f8069a = button;
+        this.f8070a = button;
     }
 
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadActive(long j, long j2, String str, String str2) {
         m.a("CSJAppDownloadListener 下载中，点击图片暂停");
-        Button button = this.f8069a;
+        Button button = this.f8070a;
         if (button == null || j == 0) {
             return;
         }
@@ -26,7 +26,7 @@ public class bj implements TTAppDownloadListener {
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadFailed(long j, long j2, String str, String str2) {
         m.a("CSJAppDownloadListener 下载失败，点击图片重新下载");
-        Button button = this.f8069a;
+        Button button = this.f8070a;
         if (button != null) {
             button.setText(R.string.ad_interaction_type_download);
         }
@@ -35,7 +35,7 @@ public class bj implements TTAppDownloadListener {
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadFinished(long j, String str, String str2) {
         m.a("CSJAppDownloadListener 点击图片安装");
-        Button button = this.f8069a;
+        Button button = this.f8070a;
         if (button != null) {
             button.setText(R.string.ad_interaction_type_install);
         }
@@ -44,7 +44,7 @@ public class bj implements TTAppDownloadListener {
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onDownloadPaused(long j, long j2, String str, String str2) {
         m.a("CSJAppDownloadListener 下载暂停，点击图片继续");
-        Button button = this.f8069a;
+        Button button = this.f8070a;
         if (button == null || j == 0) {
             return;
         }
@@ -54,7 +54,7 @@ public class bj implements TTAppDownloadListener {
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onIdle() {
         m.a("CSJAppDownloadListener 点击图片开始下载");
-        Button button = this.f8069a;
+        Button button = this.f8070a;
         if (button != null) {
             button.setText(R.string.ad_interaction_type_download);
         }
@@ -63,7 +63,7 @@ public class bj implements TTAppDownloadListener {
     @Override // com.bytedance.sdk.openadsdk.TTAppDownloadListener
     public void onInstalled(String str, String str2) {
         m.a("CSJAppDownloadListener 安装完成，点击图片打开");
-        Button button = this.f8069a;
+        Button button = this.f8070a;
         if (button != null) {
             button.setText(R.string.ad_interaction_type_open);
         }

@@ -51,11 +51,11 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
                     } else {
                         this.luh.setText(aVar.getDescription());
                     }
-                } else if (aVar.djC() != null) {
+                } else if (aVar.djD() != null) {
                     if (aVar.isShareThread()) {
-                        this.luh.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.djC()));
+                        this.luh.setText(String.format("%s%s", getString(R.string.pb_history_share_prefix), aVar.djD()));
                     } else {
-                        this.luh.setText(aVar.djC());
+                        this.luh.setText(aVar.djD());
                     }
                 }
             }
@@ -92,7 +92,7 @@ public class a extends com.baidu.tbadk.mvc.f.a<com.baidu.tieba.myCollection.base
         ao.setViewTextColor(this.fmZ, R.color.CAM_X0109, 1);
         ao.setViewTextColor(this.hYX, R.color.CAM_X0109, 1);
         ao.setViewTextColor(this.lui, R.color.CAM_X0101);
-        com.baidu.tbadk.core.util.f.a.bwU().qx(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).b("LEFT_RIGHT", R.color.CAM_X0308, R.color.CAM_X0301).bz(this.lui);
+        com.baidu.tbadk.core.util.f.a.bwV().qx(UtilHelper.getDimenPixelSize(R.dimen.tbds6)).b("LEFT_RIGHT", R.color.CAM_X0308, R.color.CAM_X0301).bz(this.lui);
         return true;
     }
 }

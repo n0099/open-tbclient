@@ -14,27 +14,27 @@ import java.util.Set;
 public class b {
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<String> f13551b = new HashSet();
+    private final Set<String> f13552b = new HashSet();
     private final SparseArray<a> d = new SparseArray<>();
-    private static volatile b qbh = null;
+    private static volatile b qcP = null;
     private static final Object c = new Object();
 
     private b() {
     }
 
-    public static b eJw() {
-        if (qbh == null) {
+    public static b eKa() {
+        if (qcP == null) {
             synchronized (b.class) {
-                if (qbh == null) {
-                    qbh = new b();
+                if (qcP == null) {
+                    qcP = new b();
                 }
             }
         }
-        return qbh;
+        return qcP;
     }
 
     public void a(int i) {
-        c h = f.iA(com.ss.android.socialbase.downloader.downloader.b.eHp()).h(i);
+        c h = f.iA(com.ss.android.socialbase.downloader.downloader.b.eHT()).h(i);
         if (h != null) {
             a(h);
             b(h);
@@ -42,11 +42,11 @@ public class b {
     }
 
     void a(c cVar) {
-        k eHf = com.ss.android.socialbase.downloader.downloader.b.eHf();
-        if (eHf != null && cVar.aQ()) {
+        k eHJ = com.ss.android.socialbase.downloader.downloader.b.eHJ();
+        if (eHJ != null && cVar.aQ()) {
             cVar.e(3);
             try {
-                eHf.a(cVar);
+                eHJ.a(cVar);
             } catch (SQLiteException e) {
                 e.printStackTrace();
             }
@@ -60,7 +60,7 @@ public class b {
     }
 
     static boolean c(c cVar) {
-        return cVar.aQ() && b(cVar.eHY());
+        return cVar.aQ() && b(cVar.eIC());
     }
 
     static boolean b(int i) {
@@ -68,14 +68,14 @@ public class b {
     }
 
     public void a(int i, int i2, Notification notification) {
-        Context eHp = com.ss.android.socialbase.downloader.downloader.b.eHp();
-        if (eHp != null && i != 0 && notification != null) {
+        Context eHT = com.ss.android.socialbase.downloader.downloader.b.eHT();
+        if (eHT != null && i != 0 && notification != null) {
             try {
-                Intent intent = new Intent(eHp, DownloadNotificationService.class);
+                Intent intent = new Intent(eHT, DownloadNotificationService.class);
                 intent.setAction("android.ss.intent.action.DOWNLOAD_NOTIFICATION_NOTIFY");
                 intent.putExtra("DOWNLOAD_NOTIFICATION_EXTRA_STATUS", i2);
                 intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", i);
-                eHp.startService(intent);
+                eHT.startService(intent);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -83,13 +83,13 @@ public class b {
     }
 
     public void c(int i) {
-        Context eHp = com.ss.android.socialbase.downloader.downloader.b.eHp();
-        if (eHp != null && i != 0) {
+        Context eHT = com.ss.android.socialbase.downloader.downloader.b.eHT();
+        if (eHT != null && i != 0) {
             try {
-                Intent intent = new Intent(eHp, DownloadNotificationService.class);
+                Intent intent = new Intent(eHT, DownloadNotificationService.class);
                 intent.setAction("android.ss.intent.action.DOWNLOAD_NOTIFICATION_CANCEL");
                 intent.putExtra("DOWNLOAD_NOTIFICATION_BUNDLE_EXTRA_ID", i);
-                eHp.startService(intent);
+                eHT.startService(intent);
             } catch (Throwable th) {
                 th.printStackTrace();
             }
@@ -104,7 +104,7 @@ public class b {
         }
     }
 
-    public a SW(int i) {
+    public a Tm(int i) {
         a aVar;
         if (i == 0) {
             return null;
@@ -119,7 +119,7 @@ public class b {
         return aVar;
     }
 
-    public a SX(int i) {
+    public a Tn(int i) {
         a aVar;
         if (i == 0) {
             return null;
@@ -131,7 +131,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public SparseArray<a> eJx() {
+    public SparseArray<a> eKb() {
         SparseArray<a> sparseArray;
         synchronized (this.d) {
             sparseArray = this.d;
@@ -140,9 +140,9 @@ public class b {
     }
 
     public void f(int i) {
-        SW(i);
+        Tm(i);
         if (i != 0) {
-            eJw().c(i);
+            eKa().c(i);
         }
     }
 }

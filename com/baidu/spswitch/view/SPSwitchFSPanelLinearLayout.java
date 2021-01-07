@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.spswitch.a.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SPSwitchFSPanelLinearLayout extends LinearLayout {
     private a cEe;
 

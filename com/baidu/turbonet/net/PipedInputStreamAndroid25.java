@@ -32,10 +32,10 @@ public class PipedInputStreamAndroid25 extends InputStream {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public synchronized void Oi(int i) throws IOException {
-        ehX();
+        ehY();
         this.oLm = Thread.currentThread();
         if (this.in == this.oLn) {
-            ehY();
+            ehZ();
         }
         if (this.in < 0) {
             this.in = 0;
@@ -53,12 +53,12 @@ public class PipedInputStreamAndroid25 extends InputStream {
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void v(byte[] bArr, int i, int i2) throws IOException {
         int i3;
-        ehX();
+        ehY();
         this.oLm = Thread.currentThread();
         int i4 = i2;
         while (i4 > 0) {
             if (this.in == this.oLn) {
-                ehY();
+                ehZ();
             }
             if (this.oLn < this.in) {
                 i3 = this.buffer.length - this.in;
@@ -87,7 +87,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
         }
     }
 
-    private void ehX() throws IOException {
+    private void ehY() throws IOException {
         if (!this.connected) {
             throw new IOException("Pipe not connected");
         }
@@ -99,9 +99,9 @@ public class PipedInputStreamAndroid25 extends InputStream {
         }
     }
 
-    private void ehY() throws IOException {
+    private void ehZ() throws IOException {
         while (this.in == this.oLn) {
-            ehX();
+            ehY();
             notifyAll();
             try {
                 wait(1000L);
@@ -113,7 +113,7 @@ public class PipedInputStreamAndroid25 extends InputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public synchronized void ehZ() {
+    public synchronized void eia() {
         this.oLj = true;
         notifyAll();
     }

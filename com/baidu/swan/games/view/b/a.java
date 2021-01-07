@@ -36,7 +36,7 @@ public class a {
                     a.this.epm.xK(a.this.epi.getText().toString());
                 }
                 if (a.this.epn != null && !a.this.epn.elb && a.this.epm != null) {
-                    a.this.epm.bbb();
+                    a.this.epm.bbc();
                     a.this.yz("");
                 }
             }
@@ -78,7 +78,7 @@ public class a {
                 a.this.epm.xK(a.this.epi.getText().toString());
             }
             if (!a.this.epn.elb && a.this.epm != null) {
-                a.this.epm.bbb();
+                a.this.epm.bbc();
                 a.this.yz("");
             }
             return true;
@@ -106,7 +106,7 @@ public class a {
         return this.mRootView;
     }
 
-    public boolean bdr() {
+    public boolean bds() {
         if (this.epl) {
             return false;
         }
@@ -204,7 +204,7 @@ public class a {
         return true;
     }
 
-    public boolean bds() {
+    public boolean bdt() {
         return this.epl;
     }
 }

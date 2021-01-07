@@ -38,7 +38,7 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     private ExecutorService e = Executors.newSingleThreadExecutor();
     private AtomicLong f = new AtomicLong();
@@ -47,15 +47,15 @@ public class a {
     private long i = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f12987b = String.format("http://%s/%s", "sdk.e.qq.com", IMTrack.DbBuilder.ACTION_UPDATE);
+    private static final String f12988b = String.format("http://%s/%s", "sdk.e.qq.com", IMTrack.DbBuilder.ACTION_UPDATE);
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f12986a = "";
+    public static String f12987a = "";
     private static String c = "";
     private static final a d = new a();
 
     /* renamed from: com.qq.e.comm.plugin.x.a$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass1 implements Runnable {
         AnonymousClass1() {
         }
@@ -68,35 +68,35 @@ public class a {
     }
 
     /* renamed from: com.qq.e.comm.plugin.x.a$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass2 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ JSONObject f12989a;
+        final /* synthetic */ JSONObject f12990a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ boolean f12990b;
+        final /* synthetic */ boolean f12991b;
 
         AnonymousClass2(JSONObject jSONObject, boolean z) {
-            this.f12989a = jSONObject;
-            this.f12990b = z;
+            this.f12990a = jSONObject;
+            this.f12991b = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            a.a(a.this, this.f12989a, this.f12990b);
+            a.a(a.this, this.f12990a, this.f12991b);
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.x.a$3  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class AnonymousClass3 implements b {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ long f12991a;
+        final /* synthetic */ long f12992a;
 
         AnonymousClass3(long j) {
-            this.f12991a = j;
+            this.f12992a = j;
         }
 
         @Override // com.qq.e.comm.plugin.t.b
@@ -118,20 +118,20 @@ public class a {
             } catch (IOException e2) {
                 GDTLogger.e("Config request error", e2);
             } finally {
-                RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", IMTrack.DbBuilder.ACTION_UPDATE, "", fVar.e(), (int) (System.currentTimeMillis() - this.f12991a), 0, 0, 1));
+                RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", IMTrack.DbBuilder.ACTION_UPDATE, "", fVar.e(), (int) (System.currentTimeMillis() - this.f12992a), 0, 0, 1));
             }
         }
 
         @Override // com.qq.e.comm.plugin.t.b
         public void a(Exception exc) {
             GDTLogger.e("Config request error: ", exc);
-            RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", IMTrack.DbBuilder.ACTION_UPDATE, "", -1, (int) (System.currentTimeMillis() - this.f12991a), 0, 0, 1));
+            RetCodeService.getInstance().send(new RetCodeService.RetCodeInfo("sdk.e.qq.com", IMTrack.DbBuilder.ACTION_UPDATE, "", -1, (int) (System.currentTimeMillis() - this.f12992a), 0, 0, 1));
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.x.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static class C1185a {
+    /* loaded from: classes4.dex */
+    private static class C1226a {
         public static JSONObject a(PM pm) throws JSONException {
             JSONObject jSONObject = new JSONObject();
             jSONObject.putOpt("sdkv", SDKStatus.getSDKVersion());

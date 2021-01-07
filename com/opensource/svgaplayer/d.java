@@ -40,10 +40,10 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public final class d {
     private final Context context;
-    private b pRA;
-    public static final a pRD = new a(null);
-    private static final LinkedBlockingQueue<Runnable> pRB = new LinkedBlockingQueue<>();
-    private static ThreadPoolExecutor pRC = new ThreadPoolExecutor(3, 10, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS, pRB);
+    private b pTi;
+    public static final a pTl = new a(null);
+    private static final LinkedBlockingQueue<Runnable> pTj = new LinkedBlockingQueue<>();
+    private static ThreadPoolExecutor pTk = new ThreadPoolExecutor(3, 10, AppStatusRules.DEFAULT_GRANULARITY, TimeUnit.MILLISECONDS, pTj);
 
     @kotlin.e
     /* loaded from: classes6.dex */
@@ -56,7 +56,7 @@ public final class d {
     public d(Context context) {
         p.o(context, "context");
         this.context = context;
-        this.pRA = new b();
+        this.pTi = new b();
     }
 
     @kotlin.e
@@ -64,7 +64,7 @@ public final class d {
     public static class b {
         private boolean noCache;
 
-        public final boolean eDF() {
+        public final boolean eEj() {
             return this.noCache;
         }
 
@@ -75,7 +75,7 @@ public final class d {
             Ref.BooleanRef booleanRef = new Ref.BooleanRef();
             booleanRef.element = false;
             SVGAParser$FileDownloader$resume$cancelBlock$1 sVGAParser$FileDownloader$resume$cancelBlock$1 = new SVGAParser$FileDownloader$resume$cancelBlock$1(booleanRef);
-            d.pRD.eDE().execute(new a(url, booleanRef, bVar, bVar2));
+            d.pTl.eEi().execute(new a(url, booleanRef, bVar, bVar2));
             return sVGAParser$FileDownloader$resume$cancelBlock$1;
         }
 
@@ -85,14 +85,14 @@ public final class d {
         public static final class a implements Runnable {
             final /* synthetic */ Ref.BooleanRef $cancelled;
             final /* synthetic */ URL $url;
-            final /* synthetic */ kotlin.jvm.a.b pRF;
-            final /* synthetic */ kotlin.jvm.a.b pRG;
+            final /* synthetic */ kotlin.jvm.a.b pTn;
+            final /* synthetic */ kotlin.jvm.a.b pTo;
 
             a(URL url, Ref.BooleanRef booleanRef, kotlin.jvm.a.b bVar, kotlin.jvm.a.b bVar2) {
                 this.$url = url;
                 this.$cancelled = booleanRef;
-                this.pRF = bVar;
-                this.pRG = bVar2;
+                this.pTn = bVar;
+                this.pTo = bVar2;
             }
 
             /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [52=4] */
@@ -101,7 +101,7 @@ public final class d {
             public final void run() {
                 int read;
                 try {
-                    if (HttpResponseCache.getInstalled() == null && !b.this.eDF()) {
+                    if (HttpResponseCache.getInstalled() == null && !b.this.eEj()) {
                         Log.e("SVGAParser", "SVGAParser can not handle cache before install HttpResponseCache. see https://github.com/yyued/SVGAPlayer-Android#cache");
                         Log.e("SVGAParser", "在配置 HttpResponseCache 前 SVGAParser 无法缓存. 查看 https://github.com/yyued/SVGAPlayer-Android#cache ");
                     }
@@ -129,12 +129,12 @@ public final class d {
                         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(byteArrayOutputStream2.toByteArray());
                         Throwable th3 = null;
                         try {
-                            this.pRF.invoke(byteArrayInputStream);
-                            h hVar = h.qlD;
+                            this.pTn.invoke(byteArrayInputStream);
+                            h hVar = h.qnl;
                             kotlin.io.a.a(byteArrayInputStream, th3);
-                            h hVar2 = h.qlD;
+                            h hVar2 = h.qnl;
                             kotlin.io.a.a(byteArrayOutputStream, th2);
-                            h hVar3 = h.qlD;
+                            h hVar3 = h.qnl;
                             kotlin.io.a.a(inputStream, th);
                         } catch (Throwable th4) {
                             try {
@@ -147,7 +147,7 @@ public final class d {
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
-                    this.pRG.invoke(e);
+                    this.pTo.invoke(e);
                 }
             }
         }
@@ -163,8 +163,8 @@ public final class d {
             this();
         }
 
-        public final ThreadPoolExecutor eDE() {
-            return d.pRC;
+        public final ThreadPoolExecutor eEi() {
+            return d.pTk;
         }
     }
 
@@ -174,7 +174,7 @@ public final class d {
         try {
             InputStream open = this.context.getAssets().open(str);
             if (open != null) {
-                a(open, aaa("file:///assets/" + str), cVar, true);
+                a(open, aab("file:///assets/" + str), cVar, true);
             }
         } catch (Exception e2) {
             a(e2, cVar);
@@ -184,11 +184,11 @@ public final class d {
     public final kotlin.jvm.a.a<h> a(URL url, c cVar) {
         p.o(url, "url");
         p.o(cVar, BuyTBeanActivityConfig.CALLBACK);
-        if (ZZ(f(url))) {
-            pRC.execute(new e(url, cVar));
+        if (aaa(f(url))) {
+            pTk.execute(new e(url, cVar));
             return null;
         }
-        return this.pRA.a(url, new SVGAParser$decodeFromURL$2(this, url, cVar), new SVGAParser$decodeFromURL$3(this, cVar));
+        return this.pTi.a(url, new SVGAParser$decodeFromURL$2(this, url, cVar), new SVGAParser$decodeFromURL$3(this, cVar));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -220,17 +220,17 @@ public final class d {
     @kotlin.e
     /* renamed from: com.opensource.svgaplayer.d$d  reason: collision with other inner class name */
     /* loaded from: classes6.dex */
-    public static final class RunnableC1146d implements Runnable {
+    public static final class RunnableC1187d implements Runnable {
         final /* synthetic */ c $callback;
-        final /* synthetic */ InputStream pRH;
-        final /* synthetic */ String pRI;
-        final /* synthetic */ boolean pRJ;
+        final /* synthetic */ InputStream pTp;
+        final /* synthetic */ String pTq;
+        final /* synthetic */ boolean pTr;
 
-        RunnableC1146d(InputStream inputStream, String str, c cVar, boolean z) {
-            this.pRH = inputStream;
-            this.pRI = str;
+        RunnableC1187d(InputStream inputStream, String str, c cVar, boolean z) {
+            this.pTp = inputStream;
+            this.pTq = str;
             this.$callback = cVar;
-            this.pRJ = z;
+            this.pTr = z;
         }
 
         /* JADX DEBUG: Another duplicated slice has different insns count: {[IGET]}, finally: {[IGET, IGET, INVOKE, IF] complete} */
@@ -239,23 +239,23 @@ public final class d {
         public final void run() {
             try {
                 try {
-                    byte[] N = d.this.N(this.pRH);
+                    byte[] N = d.this.N(this.pTp);
                     if (N != null) {
                         if (N.length <= 4 || N[0] != 80 || N[1] != 75 || N[2] != 3 || N[3] != 4) {
                             byte[] as = d.this.as(N);
                             if (as != null) {
                                 MovieEntity decode = MovieEntity.ADAPTER.decode(as);
                                 p.n(decode, "MovieEntity.ADAPTER.decode(it)");
-                                com.opensource.svgaplayer.f fVar = new com.opensource.svgaplayer.f(decode, new File(this.pRI));
+                                com.opensource.svgaplayer.f fVar = new com.opensource.svgaplayer.f(decode, new File(this.pTq));
                                 fVar.a(new SVGAParser$decodeFromInputStream$1$$special$$inlined$let$lambda$2(fVar, this));
                             }
                         } else {
-                            if (!d.this.aab(this.pRI).exists()) {
+                            if (!d.this.aac(this.pTq).exists()) {
                                 ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(N);
                                 Throwable th = null;
                                 try {
-                                    d.this.k(byteArrayInputStream, this.pRI);
-                                    h hVar = h.qlD;
+                                    d.this.k(byteArrayInputStream, this.pTq);
+                                    h hVar = h.qnl;
                                     kotlin.io.a.a(byteArrayInputStream, th);
                                 } catch (Throwable th2) {
                                     try {
@@ -266,21 +266,21 @@ public final class d {
                                     }
                                 }
                             }
-                            d.this.c(this.pRI, this.$callback);
+                            d.this.c(this.pTq, this.$callback);
                         }
                     }
-                    if (this.pRJ) {
-                        this.pRH.close();
+                    if (this.pTr) {
+                        this.pTp.close();
                     }
                 } catch (Exception e) {
                     d.this.a(e, this.$callback);
-                    if (this.pRJ) {
-                        this.pRH.close();
+                    if (this.pTr) {
+                        this.pTp.close();
                     }
                 }
             } catch (Throwable th4) {
-                if (this.pRJ) {
-                    this.pRH.close();
+                if (this.pTr) {
+                    this.pTp.close();
                 }
                 throw th4;
             }
@@ -291,7 +291,7 @@ public final class d {
         p.o(inputStream, "inputStream");
         p.o(str, "cacheKey");
         p.o(cVar, BuyTBeanActivityConfig.CALLBACK);
-        pRC.execute(new RunnableC1146d(inputStream, str, cVar, z));
+        pTk.execute(new RunnableC1187d(inputStream, str, cVar, z));
     }
 
     public final void b(String str, c cVar) {
@@ -351,8 +351,8 @@ public final class d {
         }
     }
 
-    private final boolean ZZ(String str) {
-        return aab(str).exists();
+    private final boolean aaa(String str) {
+        return aac(str).exists();
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [210=4] */
@@ -372,7 +372,7 @@ public final class d {
                     MovieEntity decode = MovieEntity.ADAPTER.decode(fileInputStream);
                     p.n(decode, "MovieEntity.ADAPTER.decode(it)");
                     a(new com.opensource.svgaplayer.f(decode, file), cVar);
-                    h hVar = h.qlD;
+                    h hVar = h.qnl;
                     kotlin.io.a.a(fileInputStream, th);
                 } catch (Exception e2) {
                     file.delete();
@@ -397,9 +397,9 @@ public final class d {
                     int read = fileInputStream3.read(bArr, 0, bArr.length);
                     if (read == -1) {
                         a(new com.opensource.svgaplayer.f(new JSONObject(byteArrayOutputStream2.toString()), file), cVar);
-                        h hVar2 = h.qlD;
+                        h hVar2 = h.qnl;
                         kotlin.io.a.a(byteArrayOutputStream, th3);
-                        h hVar3 = h.qlD;
+                        h hVar3 = h.qnl;
                         kotlin.io.a.a(fileInputStream2, th2);
                         return;
                     }
@@ -415,7 +415,7 @@ public final class d {
         }
     }
 
-    private final String aaa(String str) {
+    private final String aab(String str) {
         MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
         Charset forName = Charset.forName("UTF-8");
         p.n(forName, "Charset.forName(charsetName)");
@@ -429,7 +429,7 @@ public final class d {
         String str2 = "";
         for (byte b2 : digest) {
             StringBuilder append = new StringBuilder().append(str2);
-            u uVar = u.qmk;
+            u uVar = u.qnS;
             Object[] objArr = {Byte.valueOf(b2)};
             String format = String.format("%02x", Arrays.copyOf(objArr, objArr.length));
             p.n(format, "java.lang.String.format(format, *args)");
@@ -442,11 +442,11 @@ public final class d {
     public final String f(URL url) {
         String url2 = url.toString();
         p.n(url2, "url.toString()");
-        return aaa(url2);
+        return aab(url2);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public final File aab(String str) {
+    public final File aac(String str) {
         StringBuilder sb = new StringBuilder();
         File cacheDir = this.context.getCacheDir();
         p.n(cacheDir, "context.cacheDir");
@@ -506,10 +506,10 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     public final void k(InputStream inputStream, String str) {
         int i;
-        i = com.opensource.svgaplayer.e.pRK;
+        i = com.opensource.svgaplayer.e.pTs;
         synchronized (Integer.valueOf(i)) {
-            File aab = aab(str);
-            aab.mkdirs();
+            File aac = aac(str);
+            aac.mkdirs();
             try {
                 BufferedInputStream bufferedInputStream = new BufferedInputStream(inputStream);
                 Throwable th = null;
@@ -523,7 +523,7 @@ public final class d {
                             String name = nextEntry.getName();
                             p.n(name, "zipItem.name");
                             if (!l.a((CharSequence) name, (CharSequence) "/", false, 2, (Object) null)) {
-                                FileOutputStream fileOutputStream = new FileOutputStream(new File(aab, nextEntry.getName()));
+                                FileOutputStream fileOutputStream = new FileOutputStream(new File(aac, nextEntry.getName()));
                                 Throwable th3 = null;
                                 FileOutputStream fileOutputStream2 = fileOutputStream;
                                 byte[] bArr = new byte[2048];
@@ -534,22 +534,22 @@ public final class d {
                                     }
                                     fileOutputStream2.write(bArr, 0, read);
                                 }
-                                h hVar = h.qlD;
+                                h hVar = h.qnl;
                                 kotlin.io.a.a(fileOutputStream, th3);
                                 zipInputStream2.closeEntry();
                             }
                         } else {
-                            h hVar2 = h.qlD;
+                            h hVar2 = h.qnl;
                             kotlin.io.a.a(zipInputStream, th2);
-                            h hVar3 = h.qlD;
+                            h hVar3 = h.qnl;
                             kotlin.io.a.a(bufferedInputStream, th);
-                            h hVar4 = h.qlD;
+                            h hVar4 = h.qnl;
                         }
                     }
                 } finally {
                 }
             } catch (Exception e2) {
-                aab.delete();
+                aac.delete();
                 throw e2;
             }
         }

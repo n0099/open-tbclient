@@ -41,7 +41,7 @@ public class a {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        a.this.byT();
+                        a.this.byU();
                         return false;
                     default:
                         return false;
@@ -57,7 +57,7 @@ public class a {
                     a.this.cDO.onPageScrollStateChanged(i);
                 }
                 if (i == 1) {
-                    a.this.byV();
+                    a.this.byW();
                 } else if (i == 0 && (count = a.this.frj.getCount()) >= 2) {
                     int currentItem = a.this.Zk.getCurrentItem();
                     int i2 = count - 2;
@@ -66,7 +66,7 @@ public class a {
                     } else if (currentItem > i2) {
                         a.this.Zk.setCurrentItem(1, false);
                     }
-                    a.this.byU();
+                    a.this.byV();
                 }
             }
 
@@ -103,7 +103,7 @@ public class a {
             public boolean handleMessage(Message message) {
                 switch (message.what) {
                     case 1:
-                        a.this.byT();
+                        a.this.byU();
                         return false;
                     default:
                         return false;
@@ -119,7 +119,7 @@ public class a {
                     a.this.cDO.onPageScrollStateChanged(i2);
                 }
                 if (i2 == 1) {
-                    a.this.byV();
+                    a.this.byW();
                 } else if (i2 == 0 && (count = a.this.frj.getCount()) >= 2) {
                     int currentItem = a.this.Zk.getCurrentItem();
                     int i22 = count - 2;
@@ -128,7 +128,7 @@ public class a {
                     } else if (currentItem > i22) {
                         a.this.Zk.setCurrentItem(1, false);
                     }
-                    a.this.byU();
+                    a.this.byV();
                 }
             }
 
@@ -196,11 +196,11 @@ public class a {
             this.frk = new c(this.fro, this.frl, this.frn);
             this.frk.rJ(2);
             this.frk.rK(1);
-            this.frj.setDatas(this.frk.bza());
+            this.frj.setDatas(this.frk.bzb());
             this.frj.notifyDataSetChanged();
-            this.Zk.setCurrentItem(this.frk.byZ(), false);
-            if (this.frk.byY() > 0) {
-                if (this.frk.byY() > this.frn) {
+            this.Zk.setCurrentItem(this.frk.bza(), false);
+            if (this.frk.byZ() > 0) {
+                if (this.frk.byZ() > this.frn) {
                     if (this.frf != null) {
                         this.frf.setVisibility(0);
                         this.frf.setOnClickListener(null);
@@ -213,35 +213,35 @@ public class a {
                     if (this.frg != null && this.frg.getVisibility() == 0 && this.frg.getCount() != this.frn) {
                         this.frg.setCount(this.frn);
                     }
-                    byU();
+                    byV();
                 }
-                if (this.frk.byY() >= 2 && this.frk.byY() <= this.frn) {
+                if (this.frk.byZ() >= 2 && this.frk.byZ() <= this.frn) {
                     if (this.frf != null) {
                         this.frf.setVisibility(8);
                     }
                     if (this.frg != null) {
                         this.frg.setVisibility(0);
-                        if (this.frg.getCount() != this.frk.byY()) {
-                            this.frg.setCount(this.frk.byY());
+                        if (this.frg.getCount() != this.frk.byZ()) {
+                            this.frg.setCount(this.frk.byZ());
                         }
                     }
-                    byU();
+                    byV();
                 }
-                if (this.frk.byY() < 2) {
+                if (this.frk.byZ() < 2) {
                     if (this.frf != null) {
                         this.frf.setVisibility(8);
                     }
                     if (this.frg != null) {
                         this.frg.setVisibility(8);
                     }
-                    byV();
+                    byW();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byT() {
+    public void byU() {
         int count;
         if (this.Zk != null && this.frj != null) {
             i I = j.I(this.mContext);
@@ -266,7 +266,7 @@ public class a {
         this.frp = j;
     }
 
-    public void byU() {
+    public void byV() {
         if (this.frm) {
             this.mHandler.removeMessages(1);
             this.mHandler.sendEmptyMessageDelayed(1, this.frp);
@@ -275,7 +275,7 @@ public class a {
         this.mHandler.removeMessages(1);
     }
 
-    public void byV() {
+    public void byW() {
         this.mHandler.removeMessages(1);
     }
 }

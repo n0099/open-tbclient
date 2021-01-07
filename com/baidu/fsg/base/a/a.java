@@ -17,10 +17,10 @@ import java.util.HashSet;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1910a = "WalletDownloadManager";
+    private static final String f1911a = "WalletDownloadManager";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f1911b = "content://downloads/my_downloads/";
+    private static final String f1912b = "content://downloads/my_downloads/";
     private static a c;
     private final DownloadManager d;
     private final HashMap<Long, b> e = new HashMap<>();
@@ -52,7 +52,7 @@ public final class a {
             if (bVar2 == null) {
                 bVar = new b(context, j);
                 this.e.put(Long.valueOf(j), bVar);
-                context.getContentResolver().registerContentObserver(Uri.parse(f1911b + j), true, bVar);
+                context.getContentResolver().registerContentObserver(Uri.parse(f1912b + j), true, bVar);
             } else {
                 bVar = bVar2;
             }
@@ -68,7 +68,7 @@ public final class a {
         bVar.b(interfaceC0109a);
         if (bVar.a()) {
             context.getContentResolver().unregisterContentObserver(bVar);
-            this.e.remove(Uri.parse(f1911b + j));
+            this.e.remove(Uri.parse(f1912b + j));
         }
     }
 
@@ -79,7 +79,7 @@ public final class a {
         }
         bVar.b();
         context.getContentResolver().unregisterContentObserver(bVar);
-        this.e.remove(Uri.parse(f1911b + j));
+        this.e.remove(Uri.parse(f1912b + j));
     }
 
     public long a(String str, String str2, boolean z, boolean z2, boolean z3) {
@@ -157,7 +157,7 @@ public final class a {
     private final class b extends ContentObserver {
 
         /* renamed from: b  reason: collision with root package name */
-        private final c f1913b;
+        private final c f1914b;
         private final HashSet<InterfaceC0109a> c;
         private long d;
         private long e;
@@ -169,28 +169,28 @@ public final class a {
             this.d = 0L;
             this.e = 0L;
             this.f = 1;
-            this.f1913b = new c(j);
+            this.f1914b = new c(j);
         }
 
         @Override // android.database.ContentObserver
         public void onChange(boolean z) {
             super.onChange(z);
-            a.this.a(this.f1913b);
+            a.this.a(this.f1914b);
             long currentTimeMillis = System.currentTimeMillis();
-            if ((this.f != this.f1913b.a() || this.d != this.f1913b.b()) && this.e != currentTimeMillis) {
-                if (2 == this.f1913b.a()) {
-                    this.f1913b.c(((this.f1913b.b() - this.d) * 1000) / (currentTimeMillis - this.e));
+            if ((this.f != this.f1914b.a() || this.d != this.f1914b.b()) && this.e != currentTimeMillis) {
+                if (2 == this.f1914b.a()) {
+                    this.f1914b.c(((this.f1914b.b() - this.d) * 1000) / (currentTimeMillis - this.e));
                 } else {
-                    this.f1913b.c(0L);
+                    this.f1914b.c(0L);
                 }
-                this.d = this.f1913b.b();
-                this.f = this.f1913b.a();
+                this.d = this.f1914b.b();
+                this.f = this.f1914b.a();
                 this.e = currentTimeMillis;
                 synchronized (this) {
                     InterfaceC0109a[] interfaceC0109aArr = new InterfaceC0109a[this.c.size()];
                     this.c.toArray(interfaceC0109aArr);
                     for (InterfaceC0109a interfaceC0109a : interfaceC0109aArr) {
-                        interfaceC0109a.a(this.f1913b);
+                        interfaceC0109a.a(this.f1914b);
                     }
                 }
             }

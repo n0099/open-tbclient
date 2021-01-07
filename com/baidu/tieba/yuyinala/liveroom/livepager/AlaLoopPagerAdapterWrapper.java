@@ -36,13 +36,13 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public int wY(int i) {
-        int cjz = cjz();
-        if (cjz == 0) {
+        int cjA = cjA();
+        if (cjA == 0) {
             return 0;
         }
-        int i2 = (i - 1) % cjz;
+        int i2 = (i - 1) % cjA;
         if (i2 < 0) {
-            return i2 + cjz;
+            return i2 + cjA;
         }
         return i2;
     }
@@ -51,12 +51,12 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         return i + 1;
     }
 
-    private int cjx() {
+    private int cjy() {
         return 1;
     }
 
-    private int cjy() {
-        return (cjx() + cjz()) - 1;
+    private int cjz() {
+        return (cjy() + cjA()) - 1;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -64,11 +64,11 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
         return this.mAdapter.getCount() + 2;
     }
 
-    public int cjz() {
+    public int cjA() {
         return this.mAdapter.getCount();
     }
 
-    public PagerAdapter cjA() {
+    public PagerAdapter cjB() {
         return this.mAdapter;
     }
 
@@ -97,10 +97,10 @@ public class AlaLoopPagerAdapterWrapper extends PagerAdapter {
 
     @Override // androidx.viewpager.widget.PagerAdapter
     public void destroyItem(ViewGroup viewGroup, int i, Object obj) {
-        int cjx = cjx();
         int cjy = cjy();
+        int cjz = cjz();
         int wY = ((this.mAdapter instanceof FragmentPagerAdapter) || (this.mAdapter instanceof FragmentStatePagerAdapter)) ? i : wY(i);
-        if (this.hFX && (i == cjx || i == cjy)) {
+        if (this.hFX && (i == cjy || i == cjz)) {
             this.hFW.put(i, new a(viewGroup, wY, obj));
         } else {
             this.mAdapter.destroyItem(viewGroup, wY, obj);

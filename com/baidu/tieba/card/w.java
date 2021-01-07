@@ -79,13 +79,13 @@ public class w extends b<bz> implements com.baidu.tieba.a.e {
             getView().setOnClickListener(this);
         }
         if (this.ixT != null) {
-            this.ixT.a(this.aim, bzVar.bqY());
+            this.ixT.a(this.aim, bzVar.bqZ());
         }
-        if (bzVar.brq() != null) {
-            this.ixP.setText(bzVar.brq().getName_show());
+        if (bzVar.brr() != null) {
+            this.ixP.setText(bzVar.brr().getName_show());
         }
-        this.ixQ.setText(at.getFormatTime(bzVar.brj() * 1000));
-        String str = bzVar.bsY() + "：";
+        this.ixQ.setText(at.getFormatTime(bzVar.brk() * 1000));
+        String str = bzVar.bsZ() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         spannableStringBuilder.append((CharSequence) bzVar.B(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
@@ -97,24 +97,24 @@ public class w extends b<bz> implements com.baidu.tieba.a.e {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.aim != null) {
-            if (cuC() != null) {
-                cuC().a(view, (View) this.aim, (Object) this.ixS);
+            if (cuD() != null) {
+                cuD().a(view, (View) this.aim, (Object) this.ixS);
             }
-            m.Jo(this.aim.getTid());
+            m.Jn(this.aim.getTid());
             m.a(this.ixR, this.aim.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
-            cvb();
+            cvc();
         }
     }
 
-    private void cvb() {
-        if (this.aim != null && this.aim.brq() != null && this.aim.brq().getName_show() != null) {
-            if (com.baidu.tbadk.plugins.b.lr(true) && !com.baidu.tbadk.plugins.b.bIb()) {
-                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aim.brq().getName_show() + "", "3");
-                createNormalConfig.setExtra(this.aim.getFid(), this.aim.btb(), this.aim.btc(), com.baidu.adp.lib.f.b.toLong(this.aim.getTid(), 0L));
+    private void cvc() {
+        if (this.aim != null && this.aim.brr() != null && this.aim.brr().getName_show() != null) {
+            if (com.baidu.tbadk.plugins.b.lr(true) && !com.baidu.tbadk.plugins.b.bIc()) {
+                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aim.brr().getName_show() + "", "3");
+                createNormalConfig.setExtra(this.aim.getFid(), this.aim.btc(), this.aim.btd(), com.baidu.adp.lib.f.b.toLong(this.aim.getTid(), 0L));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
                 return;
             }
-            be.bwu().b(this.mPageContext, new String[]{this.aim.btd()});
+            be.bwv().b(this.mPageContext, new String[]{this.aim.bte()});
         }
     }
 

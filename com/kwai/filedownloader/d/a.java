@@ -8,10 +8,10 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11184a;
+    private int f11185a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11185b;
+    private int f11186b;
     private long c;
     private long d;
     private long e;
@@ -30,11 +30,11 @@ public class a {
     }
 
     public int a() {
-        return this.f11184a;
+        return this.f11185a;
     }
 
     public void a(int i) {
-        this.f11184a = i;
+        this.f11185a = i;
     }
 
     public void a(long j) {
@@ -42,11 +42,11 @@ public class a {
     }
 
     public int b() {
-        return this.f11185b;
+        return this.f11186b;
     }
 
     public void b(int i) {
-        this.f11185b = i;
+        this.f11186b = i;
     }
 
     public void b(long j) {
@@ -71,8 +71,8 @@ public class a {
 
     public ContentValues f() {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("id", Integer.valueOf(this.f11184a));
-        contentValues.put("connectionIndex", Integer.valueOf(this.f11185b));
+        contentValues.put("id", Integer.valueOf(this.f11185a));
+        contentValues.put("connectionIndex", Integer.valueOf(this.f11186b));
         contentValues.put("startOffset", Long.valueOf(this.c));
         contentValues.put("currentOffset", Long.valueOf(this.d));
         contentValues.put("endOffset", Long.valueOf(this.e));
@@ -80,6 +80,6 @@ public class a {
     }
 
     public String toString() {
-        return f.a("id[%d] index[%d] range[%d, %d) current offset(%d)", Integer.valueOf(this.f11184a), Integer.valueOf(this.f11185b), Long.valueOf(this.c), Long.valueOf(this.e), Long.valueOf(this.d));
+        return f.a("id[%d] index[%d] range[%d, %d) current offset(%d)", Integer.valueOf(this.f11185a), Integer.valueOf(this.f11186b), Long.valueOf(this.c), Long.valueOf(this.e), Long.valueOf(this.d));
     }
 }

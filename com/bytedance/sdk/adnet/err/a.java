@@ -6,7 +6,7 @@ import com.bytedance.sdk.adnet.core.l;
 public class a extends VAdError {
 
     /* renamed from: a  reason: collision with root package name */
-    private Intent f6363a;
+    private Intent f6364a;
 
     public a() {
     }
@@ -17,6 +17,6 @@ public class a extends VAdError {
 
     @Override // java.lang.Throwable
     public String getMessage() {
-        return this.f6363a != null ? "User needs to (re)enter credentials." : super.getMessage();
+        return this.f6364a != null ? "User needs to (re)enter credentials." : super.getMessage();
     }
 }

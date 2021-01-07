@@ -8,15 +8,15 @@ public abstract class c {
     private com.baidu.adp.widget.ImageView.a fEN;
     private int rows;
 
-    public abstract boolean DK(String str);
+    public abstract boolean DJ(String str);
+
+    public abstract com.baidu.adp.widget.ImageView.a DK(String str);
 
     public abstract com.baidu.adp.widget.ImageView.a DL(String str);
 
-    public abstract com.baidu.adp.widget.ImageView.a DM(String str);
+    public abstract boolean bFc();
 
-    public abstract boolean bFb();
-
-    public abstract EmotionGroupType bFc();
+    public abstract EmotionGroupType bFd();
 
     public abstract int getEmotionsCount();
 
@@ -30,7 +30,7 @@ public abstract class c {
 
     public abstract String sy(int i);
 
-    public com.baidu.adp.widget.ImageView.a bFd() {
+    public com.baidu.adp.widget.ImageView.a bFe() {
         return this.fEM;
     }
 
@@ -41,7 +41,7 @@ public abstract class c {
         this.fEM = aVar;
     }
 
-    public com.baidu.adp.widget.ImageView.a bFe() {
+    public com.baidu.adp.widget.ImageView.a bFf() {
         return this.fEN;
     }
 
@@ -52,7 +52,7 @@ public abstract class c {
         this.fEN = aVar;
     }
 
-    public int bFf() {
+    public int bFg() {
         return this.cols;
     }
 
@@ -61,7 +61,7 @@ public abstract class c {
         this.cols = i;
     }
 
-    public int bFg() {
+    public int bFh() {
         return this.rows;
     }
 

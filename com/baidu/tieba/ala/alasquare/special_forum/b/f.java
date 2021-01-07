@@ -37,7 +37,7 @@ public class f extends a {
         this.eDf = new CyberPlayerManager.OnPreparedListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.f.1
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnPreparedListener
             public void onPrepared() {
-                f.this.bVI();
+                f.this.bVJ();
             }
         };
         this.eDg = new CyberPlayerManager.OnErrorListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.f.2
@@ -64,7 +64,7 @@ public class f extends a {
         this.gBU.setOnCompletionListener(new CyberPlayerManager.OnCompletionListener() { // from class: com.baidu.tieba.ala.alasquare.special_forum.b.f.4
             @Override // com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
             public void onCompletion() {
-                f.this.bVI();
+                f.this.bVJ();
             }
         });
         this.gBU.setStageType(null);
@@ -77,8 +77,8 @@ public class f extends a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!TextUtils.isEmpty(f.this.gKo.gIA)) {
-                    be.bwu().a(f.this.mTbPageContext, new String[]{f.this.gKo.gIA}, true);
-                    com.baidu.tieba.ala.alasquare.b.a.bVl().c("c12909", f.this.gKo.gIC, 2, f.this.tid);
+                    be.bwv().a(f.this.mTbPageContext, new String[]{f.this.gKo.gIA}, true);
+                    com.baidu.tieba.ala.alasquare.b.a.bVm().c("c12909", f.this.gKo.gIC, 2, f.this.tid);
                 }
             }
         });
@@ -90,13 +90,13 @@ public class f extends a {
         String title;
         super.a(aVar);
         if (!x.isEmpty(this.gKo.geK) && this.gKo.geK.get(0) != null) {
-            this.gKv = this.gKo.geK.get(0).brH();
+            this.gKv = this.gKo.geK.get(0).brI();
             this.tid = this.gKo.geK.get(0).getId();
         }
         if (this.gKv != null) {
             this.akI.startLoad(this.gKv.thumbnail_url, 10, false);
-            if (!TextUtils.isEmpty(this.gKo.geK.get(0).brZ())) {
-                title = this.gKo.geK.get(0).brZ().toString();
+            if (!TextUtils.isEmpty(this.gKo.geK.get(0).bsa())) {
+                title = this.gKo.geK.get(0).bsa().toString();
             } else {
                 title = this.gKo.geK.get(0).getTitle();
             }
@@ -104,13 +104,13 @@ public class f extends a {
                 this.mTitleTv.setText(title);
             }
             this.mVideoUrl = this.gKv.video_url;
-            com.baidu.tieba.ala.alasquare.b.a.bVl().c("c12908", this.gKo.gIC, 2, this.tid);
+            com.baidu.tieba.ala.alasquare.b.a.bVm().c("c12908", this.gKo.gIC, 2, this.tid);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVI() {
-        com.baidu.tieba.ala.alasquare.b.a.bVl().c("c12910", this.gKo.gIC, 2, this.tid);
+    public void bVJ() {
+        com.baidu.tieba.ala.alasquare.b.a.bVm().c("c12910", this.gKo.gIC, 2, this.tid);
         this.akI.setVisibility(8);
         this.gKu.setVisibility(8);
         if (this.gBU != null) {
@@ -133,8 +133,8 @@ public class f extends a {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.b.a
-    public void bVH() {
-        super.bVH();
+    public void bVI() {
+        super.bVI();
         FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.mContentView.getLayoutParams();
         layoutParams.width = this.mScreenWidth;
         layoutParams.height = this.gBY;
@@ -189,7 +189,7 @@ public class f extends a {
     public void onDestroy() {
         if (this.gBU != null) {
             this.gBU.stopPlayback();
-            this.gBU.dCa();
+            this.gBU.dCb();
             this.gBU = null;
         }
     }

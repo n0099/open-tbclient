@@ -18,14 +18,14 @@ public class dr {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private static dw m252a() {
+    private static dw m263a() {
         return new ds();
     }
 
     public static void a(Context context) {
-        dx.a(context).m253a();
+        dx.a(context).m264a();
         try {
-            context.registerReceiver(new BroadcastActionsReceiver(m252a()), a());
+            context.registerReceiver(new BroadcastActionsReceiver(m263a()), a());
         } catch (Throwable th) {
             com.xiaomi.channel.commonutils.logger.b.a(th);
         }

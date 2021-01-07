@@ -1,7 +1,7 @@
 package com.baidu.mario.gldraw2d.params;
 
 import android.opengl.Matrix;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class b implements Cloneable {
     private boolean cgH;
     private boolean cgI;
@@ -25,7 +25,7 @@ public class b implements Cloneable {
         this.mMVPMatrix = fArr;
     }
 
-    public float[] acr() {
+    public float[] acs() {
         return this.mTexMatrix;
     }
 
@@ -33,11 +33,11 @@ public class b implements Cloneable {
         this.mTexMatrix = fArr;
     }
 
-    public boolean acs() {
+    public boolean act() {
         return this.cgH;
     }
 
-    public boolean act() {
+    public boolean acu() {
         return this.cgI;
     }
 
@@ -46,7 +46,7 @@ public class b implements Cloneable {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: acu */
+    /* renamed from: acv */
     public b clone() {
         b bVar = null;
         try {

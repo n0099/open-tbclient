@@ -11,10 +11,10 @@ public abstract class f extends OutputStream {
     private boolean oMv;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract UploadDataProvider eiA();
+    public abstract void eiA() throws IOException;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public abstract void eiy() throws IOException;
+    public abstract UploadDataProvider eiB();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public abstract void eiz() throws IOException;
@@ -33,7 +33,7 @@ public abstract class f extends OutputStream {
     /* JADX INFO: Access modifiers changed from: protected */
     public void checkNotClosed() throws IOException {
         if (this.oMv) {
-            eiO();
+            eiP();
             throw new IOException("Writing after request completed.");
         } else if (this.mClosed) {
             throw new IOException("Stream has been closed.");
@@ -41,7 +41,7 @@ public abstract class f extends OutputStream {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void eiO() throws IOException {
+    public void eiP() throws IOException {
         if (this.oMu != null) {
             throw this.oMu;
         }

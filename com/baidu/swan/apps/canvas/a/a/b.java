@@ -40,7 +40,7 @@ public class b implements Cloneable {
         this.cLT.push(bVar);
     }
 
-    public void aoi() {
+    public void aoj() {
         if (!this.cLT.empty()) {
             b pop = this.cLT.pop();
             this.mFillPaint = pop.mFillPaint;
@@ -61,7 +61,7 @@ public class b implements Cloneable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(Paint paint) {
         if (paint != null) {
-            if (this.cLW != null && this.cLX != null && this.cLX.cMC != null && !this.cLX.cMC.aok()) {
+            if (this.cLW != null && this.cLX != null && this.cLX.cMC != null && !this.cLX.cMC.aol()) {
                 paint.setShadowLayer(this.cLX.cMQ, this.cLX.cMO, this.cLX.cMP, this.cLX.cMC.getColor());
             }
             if (this.cLY >= 0 && this.cLY <= 255) {
@@ -74,7 +74,7 @@ public class b implements Cloneable {
         this.cMa = i;
     }
 
-    public int aoj() {
+    public int aok() {
         return this.cMa;
     }
 

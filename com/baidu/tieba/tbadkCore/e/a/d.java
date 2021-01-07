@@ -3,6 +3,6 @@ package com.baidu.tieba.tbadkCore.e.a;
 import java.util.HashSet;
 /* loaded from: classes.dex */
 public class d {
-    public HashSet<String> ntV;
-    public String ntW;
+    public HashSet<String> ntU;
+    public String ntV;
 }

@@ -10,7 +10,8 @@ import com.baidu.tieba.lego.f;
 public abstract class a<T extends TypeAdapter.ViewHolder> extends com.baidu.adp.widget.ListView.a<ICardInfo, T> implements f {
     protected int mBusinessType;
 
-    protected a(Context context, BdUniqueId bdUniqueId) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public a(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
     }
 

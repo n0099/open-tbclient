@@ -4,10 +4,10 @@ import com.baidu.adp.BdUniqueId;
 import com.baidu.tieba.card.data.BaseCardInfo;
 /* loaded from: classes2.dex */
 public class e extends BaseCardInfo implements com.baidu.adp.widget.ListView.n {
-    public static BdUniqueId mpj = BdUniqueId.gen();
+    public static BdUniqueId mpi = BdUniqueId.gen();
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mpj;
+        return mpi;
     }
 }

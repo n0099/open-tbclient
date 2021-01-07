@@ -1,70 +1,70 @@
 package com.baidu.platform.comapi.util;
 
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class JsonBuilder {
 
     /* renamed from: a  reason: collision with root package name */
-    private StringBuilder f4374a = new StringBuilder();
+    private StringBuilder f4375a = new StringBuilder();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f4375b = false;
+    private boolean f4376b = false;
 
     private void a() {
-        if (this.f4375b) {
-            this.f4374a.append(",");
+        if (this.f4376b) {
+            this.f4375a.append(",");
         }
     }
 
     private void b() {
-        this.f4375b = false;
+        this.f4376b = false;
     }
 
     private void c() {
-        this.f4375b = true;
+        this.f4376b = true;
     }
 
     public JsonBuilder arrayValue() {
         a();
-        this.f4374a.append("[");
+        this.f4375a.append("[");
         b();
         return this;
     }
 
     public JsonBuilder endArrayValue() {
-        this.f4374a.append("]");
+        this.f4375a.append("]");
         c();
         return this;
     }
 
     public JsonBuilder endObject() {
-        this.f4374a.append("}");
+        this.f4375a.append("}");
         c();
         return this;
     }
 
     public String getJson() {
-        return this.f4374a.toString();
+        return this.f4375a.toString();
     }
 
     public JsonBuilder key(String str) {
         a();
-        this.f4374a.append(JSONObject.quote(str));
-        this.f4374a.append(":");
+        this.f4375a.append(JSONObject.quote(str));
+        this.f4375a.append(":");
         b();
         return this;
     }
 
     public JsonBuilder object() {
         a();
-        this.f4374a.append("{");
+        this.f4375a.append("{");
         b();
         return this;
     }
 
     public JsonBuilder objectValue(String str) {
         a();
-        this.f4374a.append(str);
+        this.f4375a.append(str);
         c();
         return this;
     }
@@ -84,8 +84,8 @@ public class JsonBuilder {
     }
 
     public void reset() {
-        this.f4374a.setLength(0);
-        this.f4375b = false;
+        this.f4375a.setLength(0);
+        this.f4376b = false;
     }
 
     public String toString() {
@@ -94,21 +94,21 @@ public class JsonBuilder {
 
     public JsonBuilder value(double d) {
         a();
-        this.f4374a.append(String.format("%f", Double.valueOf(d)));
+        this.f4375a.append(String.format("%f", Double.valueOf(d)));
         c();
         return this;
     }
 
     public JsonBuilder value(int i) {
         a();
-        this.f4374a.append(i);
+        this.f4375a.append(i);
         c();
         return this;
     }
 
     public JsonBuilder value(long j) {
         a();
-        this.f4374a.append(j);
+        this.f4375a.append(j);
         c();
         return this;
     }
@@ -140,21 +140,21 @@ public class JsonBuilder {
 
     public JsonBuilder value(String str) {
         a();
-        this.f4374a.append(JSONObject.quote(str));
+        this.f4375a.append(JSONObject.quote(str));
         c();
         return this;
     }
 
     public JsonBuilder value(boolean z) {
         a();
-        this.f4374a.append(z);
+        this.f4375a.append(z);
         c();
         return this;
     }
 
     public JsonBuilder valueDirect(String str) {
         a();
-        this.f4374a.append(str);
+        this.f4375a.append(str);
         c();
         return this;
     }

@@ -31,43 +31,43 @@ public class a implements com.baidu.tieba.ueg.a {
                 UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
                 String url = uEGReportResponsedMessage.getUrl();
                 if (!StringUtils.isNull(url)) {
-                    a.this.PL(url);
+                    a.this.PK(url);
                     return;
                 }
                 String errorString = uEGReportResponsedMessage.getErrorString();
                 if (StringUtils.isNull(errorString)) {
                     errorString = a.this.mContext.getString(R.string.neterror);
                 }
-                a.this.mbt.showFailToast(errorString);
+                a.this.mbs.showFailToast(errorString);
             }
         }
     };
-    private b mbs = new b();
-    private c mbt = new c();
+    private b mbr = new b();
+    private c mbs = new c();
 
     public a(Context context) {
         this.mContext = context;
-        this.mbt.toastTime = 1000L;
+        this.mbs.toastTime = 1000L;
     }
 
     @Override // com.baidu.tieba.ueg.a
     public void w(BdUniqueId bdUniqueId) {
         this.ahE = bdUniqueId;
-        this.mbs.setTag(bdUniqueId);
+        this.mbr.setTag(bdUniqueId);
         this.fcS.setTag(bdUniqueId);
         this.fcS.setSelfListener(true);
         MessageManager.getInstance().registerListener(this.fcS);
     }
 
-    public void Ql(String str) {
+    public void Qk(String str) {
         showLoadingDialog();
-        this.mbs.Ql(str);
+        this.mbr.Qk(str);
     }
 
     @Override // com.baidu.tieba.ueg.a
-    public void Qm(String str) {
+    public void Ql(String str) {
         showLoadingDialog();
-        this.mbs.Qm(str);
+        this.mbr.Ql(str);
     }
 
     private void showLoadingDialog() {
@@ -95,7 +95,7 @@ public class a implements com.baidu.tieba.ueg.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void PL(String str) {
+    public void PK(String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new TbWebViewActivityConfig(this.mContext, this.mContext.getString(R.string.pb_web_view_report_title), str, true)));
     }
 }

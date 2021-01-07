@@ -7,8 +7,8 @@ import java.util.Date;
 /* loaded from: classes6.dex */
 public final class b {
     private static boolean ad = false;
-    private static a.InterfaceC0926a oOn;
-    private static a.InterfaceC0926a oOo;
+    private static a.InterfaceC0964a oOn;
+    private static a.InterfaceC0964a oOo;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static synchronized void c(Context context) {
@@ -17,10 +17,10 @@ public final class b {
                 com.baidu.ubs.analytics.d.b.I(" ActivityLifeTask   add  " + new Date().toLocaleString());
                 oOn = new c();
                 oOo = new m();
-                a.ejA().S();
-                a.ejA().a(oOo);
-                a.ejA().a(oOn);
-                a.ejA().c(context);
+                a.ejB().S();
+                a.ejB().a(oOo);
+                a.ejB().a(oOn);
+                a.ejB().c(context);
                 ad = true;
             } else {
                 com.baidu.ubs.analytics.d.b.I(" ActivityLifeTask  is added  " + new Date().toLocaleString());

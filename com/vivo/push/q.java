@@ -2,35 +2,35 @@ package com.vivo.push;
 
 import com.vivo.push.p;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class q implements IPushActionListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ p.a f13965a;
+    final /* synthetic */ p.a f13966a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ p f13966b;
+    final /* synthetic */ p f13967b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public q(p pVar, p.a aVar) {
-        this.f13966b = pVar;
-        this.f13965a = aVar;
+        this.f13967b = pVar;
+        this.f13966a = aVar;
     }
 
     @Override // com.vivo.push.IPushActionListener
     public final void onStateChanged(int i) {
         com.vivo.push.util.a aVar;
         if (i != 0) {
-            this.f13966b.l = null;
-            aVar = this.f13966b.k;
+            this.f13967b.l = null;
+            aVar = this.f13967b.k;
             aVar.c("APP_TOKEN");
             return;
         }
-        Object[] b2 = this.f13965a.b();
+        Object[] b2 = this.f13966a.b();
         if (b2 == null || b2.length == 0) {
             com.vivo.push.util.p.a("PushClientManager", "bind app result is null");
         } else {
-            this.f13966b.a((String) this.f13965a.b()[0]);
+            this.f13967b.a((String) this.f13966a.b()[0]);
         }
     }
 }

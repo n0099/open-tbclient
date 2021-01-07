@@ -11,7 +11,7 @@ public class c extends d {
     public interface a {
         void a(YuyinAlaRoomNormalGiftView yuyinAlaRoomNormalGiftView);
 
-        void abu();
+        void abv();
 
         void b(YuyinAlaRoomNormalGiftView yuyinAlaRoomNormalGiftView);
     }
@@ -33,7 +33,7 @@ public class c extends d {
     }
 
     public boolean isRunning() {
-        return this.ccv != null && this.ccv.abB();
+        return this.ccv != null && this.ccv.abC();
     }
 
     public void r(com.baidu.live.yuyingift.a.c cVar) {
@@ -55,7 +55,7 @@ public class c extends d {
             @Override // com.baidu.live.yuyingift.yuyinhousegift.view.YuyinAlaRoomNormalGiftView.a
             public void t(com.baidu.live.yuyingift.a.c cVar) {
                 if (c.this.ccw != null) {
-                    c.this.ccw.abu();
+                    c.this.ccw.abv();
                 }
             }
 
@@ -63,7 +63,7 @@ public class c extends d {
             public void u(com.baidu.live.yuyingift.a.c cVar) {
                 if (c.this.ccw != null) {
                     c.this.ccw.b(c.this.ccv);
-                    c.this.ccw.abu();
+                    c.this.ccw.abv();
                 }
             }
         });

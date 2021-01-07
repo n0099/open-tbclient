@@ -7,22 +7,22 @@ import android.os.Build;
 import android.view.View;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final d f12053a = new d();
+    private final d f12054a = new d();
 
     /* renamed from: b  reason: collision with root package name */
-    private final b f12054b = new b();
+    private final b f12055b = new b();
     private final com.qq.e.comm.plugin.ab.f.c c;
 
     public c(Context context, JSONObject jSONObject) {
         com.qq.e.comm.plugin.ab.f.c cVar;
         try {
-            cVar = new com.qq.e.comm.plugin.ab.f.c(context, this.f12053a, this.f12054b, jSONObject);
+            cVar = new com.qq.e.comm.plugin.ab.f.c(context, this.f12054a, this.f12055b, jSONObject);
         } catch (Resources.NotFoundException e) {
-            cVar = (Build.VERSION.SDK_INT < 21 || Build.VERSION.SDK_INT >= 23) ? new com.qq.e.comm.plugin.ab.f.c(context.getApplicationContext(), this.f12053a, this.f12054b, jSONObject) : new com.qq.e.comm.plugin.ab.f.c(context.createConfigurationContext(new Configuration()), this.f12053a, this.f12054b, jSONObject);
+            cVar = (Build.VERSION.SDK_INT < 21 || Build.VERSION.SDK_INT >= 23) ? new com.qq.e.comm.plugin.ab.f.c(context.getApplicationContext(), this.f12054a, this.f12055b, jSONObject) : new com.qq.e.comm.plugin.ab.f.c(context.createConfigurationContext(new Configuration()), this.f12054a, this.f12055b, jSONObject);
         }
         this.c = cVar;
     }
@@ -34,8 +34,8 @@ public class c implements a {
 
     @Override // com.qq.e.comm.plugin.ab.d.a
     public void a(f fVar) {
-        this.f12053a.a(fVar);
-        this.f12054b.a(fVar);
+        this.f12054a.a(fVar);
+        this.f12055b.a(fVar);
     }
 
     @Override // com.qq.e.comm.plugin.ab.d.a
@@ -76,6 +76,6 @@ public class c implements a {
 
     @Override // com.qq.e.comm.plugin.ab.d.a
     public void f() {
-        this.f12053a.a();
+        this.f12054a.a();
     }
 }

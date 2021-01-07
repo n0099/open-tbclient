@@ -14,26 +14,26 @@ import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.c;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ParallelJoin<T> extends g<T> {
     final boolean delayErrors;
     final int prefetch;
-    final a<? extends T> qiK;
+    final a<? extends T> qks;
 
     @Override // io.reactivex.g
     protected void a(c<? super T> cVar) {
         JoinSubscriptionBase joinSubscription;
         if (this.delayErrors) {
-            joinSubscription = new JoinSubscriptionDelayError(cVar, this.qiK.eLm(), this.prefetch);
+            joinSubscription = new JoinSubscriptionDelayError(cVar, this.qks.eLQ(), this.prefetch);
         } else {
-            joinSubscription = new JoinSubscription(cVar, this.qiK.eLm(), this.prefetch);
+            joinSubscription = new JoinSubscription(cVar, this.qks.eLQ(), this.prefetch);
         }
         cVar.onSubscribe(joinSubscription);
-        this.qiK.a(joinSubscription.subscribers);
+        this.qks.a(joinSubscription.subscribers);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static abstract class JoinSubscriptionBase<T> extends AtomicInteger implements d {
         private static final long serialVersionUID = 3100232009247827843L;
         final c<? super T> actual;
@@ -93,7 +93,7 @@ public final class ParallelJoin<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class JoinSubscription<T> extends JoinSubscriptionBase<T> {
         private static final long serialVersionUID = 6312374661811000451L;
 
@@ -260,7 +260,7 @@ public final class ParallelJoin<T> extends g<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class JoinSubscriptionDelayError<T> extends JoinSubscriptionBase<T> {
         private static final long serialVersionUID = -5737965195918321883L;
 
@@ -429,7 +429,7 @@ public final class ParallelJoin<T> extends g<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class JoinInnerSubscriber<T> extends AtomicReference<d> implements j<T> {
         private static final long serialVersionUID = 8410034718427740355L;
         final int limit;

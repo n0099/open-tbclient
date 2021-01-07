@@ -131,7 +131,7 @@ public class b extends com.baidu.adp.widget.ListView.a<br, ThreadCardViewHolder<
                 this.mNetwork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.CONCERN_RECOMMEND_FEEDBACK);
                 this.mNetwork.addPostData("dislike_from", "concernpage");
                 this.mNetwork.addPostData("dislike_type", "1");
-                this.mNetwork.bvQ().bwz().mIsNeedTbs = true;
+                this.mNetwork.bvR().bwA().mIsNeedTbs = true;
                 return this.mNetwork.postNetData();
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
@@ -157,7 +157,7 @@ public class b extends com.baidu.adp.widget.ListView.a<br, ThreadCardViewHolder<
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 }

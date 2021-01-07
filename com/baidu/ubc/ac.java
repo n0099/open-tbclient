@@ -11,10 +11,10 @@ import org.json.JSONObject;
 public class ac {
     private static final boolean DEBUG = AppConfig.isDebug();
     private static volatile ac oNO;
-    private boolean oNN = com.baidu.pyramid.runtime.multiprocess.a.ahD();
+    private boolean oNN = com.baidu.pyramid.runtime.multiprocess.a.ahE();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static ac ejo() {
+    public static ac ejp() {
         if (oNO == null) {
             synchronized (e.class) {
                 if (oNO == null) {
@@ -78,7 +78,7 @@ public class ac {
         }
     }
 
-    public void XB(String str) {
+    public void XA(String str) {
         if (this.oNN && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -121,7 +121,7 @@ public class ac {
         }
     }
 
-    public void XC(String str) {
+    public void XB(String str) {
         if (this.oNN && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();
@@ -133,7 +133,7 @@ public class ac {
         }
     }
 
-    public void XD(String str) {
+    public void XC(String str) {
         if (this.oNN && !TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = new JSONObject();

@@ -6,13 +6,13 @@ import com.baidu.swan.games.utils.so.SoUtils;
 import com.qq.e.comm.managers.GDTADManager;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class q {
     public static com.qq.e.comm.plugin.ad.k a(JSONObject jSONObject) {
         com.qq.e.comm.plugin.ad.k kVar = new com.qq.e.comm.plugin.ad.k();
-        kVar.f12196b = jSONObject.optString("float_card_title");
-        kVar.f12195a = jSONObject.optString("float_card_img");
-        if (TextUtils.isEmpty(kVar.f12196b) || TextUtils.isEmpty(kVar.f12195a)) {
+        kVar.f12197b = jSONObject.optString("float_card_title");
+        kVar.f12196a = jSONObject.optString("float_card_img");
+        if (TextUtils.isEmpty(kVar.f12197b) || TextUtils.isEmpty(kVar.f12196a)) {
             return null;
         }
         JSONArray optJSONArray = jSONObject.optJSONArray("float_card_tags");
@@ -31,7 +31,7 @@ public class q {
     }
 
     public static boolean a(com.qq.e.comm.plugin.s.a aVar) {
-        return (aVar == null || aVar.ab() == null || TextUtils.isEmpty(aVar.ab().f12196b) || TextUtils.isEmpty(aVar.ab().f12195a)) ? false : true;
+        return (aVar == null || aVar.ab() == null || TextUtils.isEmpty(aVar.ab().f12197b) || TextUtils.isEmpty(aVar.ab().f12196a)) ? false : true;
     }
 
     public static int b(com.qq.e.comm.plugin.s.a aVar) {

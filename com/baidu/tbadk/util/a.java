@@ -9,7 +9,7 @@ public class a {
     private com.baidu.tbadk.coreExtra.data.a fwo;
     private ABTestExtraData fwp;
 
-    public static a bIq() {
+    public static a bIr() {
         if (fOK == null) {
             synchronized (a.class) {
                 if (fOK == null) {
@@ -26,14 +26,14 @@ public class a {
 
     private void b(com.baidu.tbadk.coreExtra.data.a aVar) {
         boolean z = false;
-        z = (aVar == null || this.fwo == null || aVar.bzu() != this.fwo.bzu()) ? true : true;
+        z = (aVar == null || this.fwo == null || aVar.bzv() != this.fwo.bzv()) ? true : true;
         this.fwo = aVar;
         if (z) {
-            EA("zan_or_cai_smallflow");
+            Ez("zan_or_cai_smallflow");
         }
     }
 
-    private void EA(String str) {
+    private void Ez(String str) {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
     }
 
@@ -41,7 +41,7 @@ public class a {
         this.fwp = aBTestExtraData;
     }
 
-    public String bIr() {
+    public String bIs() {
         if (this.fwp == null) {
             this.fwp = new ABTestExtraData();
             this.fwp.parserABTestExtraFormSharedPref();

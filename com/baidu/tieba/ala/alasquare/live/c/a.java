@@ -154,7 +154,7 @@ public class a {
                 str = "prefer_key_activity";
                 break;
         }
-        if (GJ(str) < j) {
+        if (GI(str) < j) {
             view.setVisibility(0);
         } else {
             view.setVisibility(8);
@@ -163,12 +163,12 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(String str, View view) {
-        b.bvq().putLong(str, System.currentTimeMillis() / 1000);
+        b.bvr().putLong(str, System.currentTimeMillis() / 1000);
         view.setVisibility(8);
     }
 
-    private long GJ(String str) {
-        return b.bvq().getLong(str, 0L);
+    private long GI(String str) {
+        return b.bvr().getLong(str, 0L);
     }
 
     public void onChangeSkinType(int i) {

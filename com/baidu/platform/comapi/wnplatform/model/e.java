@@ -9,33 +9,33 @@ import com.baidu.platform.comapi.wnplatform.p.g;
 import com.google.protobuf.micro.MessageMicro;
 import java.util.ArrayList;
 import java.util.Iterator;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class e extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f4669a = 0;
+    private int f4670a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4670b = 0;
+    private int f4671b = 0;
     private int c = 1;
     private ArrayList<LatLng> d = new ArrayList<>();
     private com.baidu.g.a.d e = null;
 
     public String a() {
         StringBuffer stringBuffer = new StringBuffer();
-        g.a(this.f4669a, g.b.ZH, stringBuffer);
+        g.a(this.f4670a, g.b.ZH, stringBuffer);
         return stringBuffer.toString();
     }
 
     public String b() {
         StringBuffer stringBuffer = new StringBuffer();
-        g.b(this.f4670b, g.b.ZH, stringBuffer);
+        g.b(this.f4671b, g.b.ZH, stringBuffer);
         return stringBuffer.toString();
     }
 
     public void c() {
-        this.f4669a = 0;
-        this.f4670b = 0;
+        this.f4670a = 0;
+        this.f4671b = 0;
         if (this.d != null) {
             this.d.clear();
         }
@@ -45,13 +45,13 @@ public class e extends a {
         c();
         if (bundle != null) {
             this.c = i;
-            this.f4669a = bundle.getInt("totaldistance");
-            this.f4670b = bundle.getInt("totaltime");
-            if (this.f4669a <= 0 && this.e != null) {
-                this.f4669a = b(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
+            this.f4670a = bundle.getInt("totaldistance");
+            this.f4671b = bundle.getInt("totaltime");
+            if (this.f4670a <= 0 && this.e != null) {
+                this.f4670a = b(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
             }
-            if (this.f4670b <= 0 && this.e != null) {
-                this.f4670b = a(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
+            if (this.f4671b <= 0 && this.e != null) {
+                this.f4671b = a(this.e, com.baidu.platform.comapi.walknavi.b.a().b());
             }
             double[] doubleArray = bundle.getDoubleArray("ptShapeX");
             double[] doubleArray2 = bundle.getDoubleArray("ptShapeY");
@@ -93,7 +93,7 @@ public class e extends a {
     }
 
     public int e() {
-        return this.f4669a;
+        return this.f4670a;
     }
 
     public int a(com.baidu.g.a.d dVar, int i) {

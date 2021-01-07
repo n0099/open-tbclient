@@ -13,16 +13,16 @@ public class b extends HttpManager {
     private static volatile b elC;
 
     private b() {
-        super(com.baidu.swan.apps.t.a.aAr());
-    }
-
-    public static b bbh() {
-        b bVar = new b();
-        bVar.setHttpDnsEnable(bbi().getHttpDnsEnable());
-        return bVar;
+        super(com.baidu.swan.apps.t.a.aAs());
     }
 
     public static b bbi() {
+        b bVar = new b();
+        bVar.setHttpDnsEnable(bbj().getHttpDnsEnable());
+        return bVar;
+    }
+
+    public static b bbj() {
         if (elC == null) {
             synchronized (b.class) {
                 if (elC == null) {
@@ -35,15 +35,15 @@ public class b extends HttpManager {
 
     @Override // com.baidu.searchbox.http.AbstractHttpManager
     protected OkHttpClient initClient() {
-        if (e.aMk() == null) {
+        if (e.aMl() == null) {
             return super.initClient();
         }
-        com.baidu.swan.games.t.a.a aMu = e.aMk().aMu();
+        com.baidu.swan.games.t.a.a aMv = e.aMl().aMv();
         OkHttpClient.Builder newBuilder = super.initClient().newBuilder();
         int i = 60000;
-        if (aMu != null && aMu.emA != null) {
-            i = aMu.emA.dHt;
-            newBuilder.connectTimeout(aMu.emA.dHu, TimeUnit.MILLISECONDS);
+        if (aMv != null && aMv.emA != null) {
+            i = aMv.emA.dHt;
+            newBuilder.connectTimeout(aMv.emA.dHu, TimeUnit.MILLISECONDS);
             newBuilder.addNetworkInterceptor(new com.baidu.swan.apps.network.a.d());
         }
         newBuilder.readTimeout(i, TimeUnit.MILLISECONDS);

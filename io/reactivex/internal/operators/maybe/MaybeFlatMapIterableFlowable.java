@@ -10,7 +10,7 @@ import io.reactivex.o;
 import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.c;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
     final h<? super T, ? extends Iterable<? extends R>> mapper;
     final o<T> source;
@@ -20,7 +20,7 @@ public final class MaybeFlatMapIterableFlowable<T, R> extends g<R> {
         this.source.a(new FlatMapIterableObserver(cVar, this.mapper));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class FlatMapIterableObserver<T, R> extends BasicIntQueueSubscription<R> implements m<T> {
         private static final long serialVersionUID = -8938804753851907758L;
         final c<? super R> actual;

@@ -34,15 +34,15 @@ public class SplashAdView extends BCAdView {
         this.gmU = new AdInfo();
     }
 
-    public boolean bPV() {
+    public boolean bPW() {
         loadAd();
-        this.gmU = AdInfo.jsonToObject(this.gmX.bPN());
+        this.gmU = AdInfo.jsonToObject(this.gmX.bPO());
         this.gmU.placeId = this.placeId;
         if (this.gmU.advisible == 0) {
-            e.dFV().a(h.t(this.gmU.extraParam, 3, this.gmU.placeId));
+            e.dFW().a(h.t(this.gmU.extraParam, 3, this.gmU.placeId));
         }
-        this.gnb = b.FX(a.bPT());
-        if (this.gnb.bPM()) {
+        this.gnb = b.FW(a.bPU());
+        if (this.gnb.bPN()) {
             if (this.gnb.isVideoAd()) {
                 this.gnc = true;
                 String str = this.gnb.videoLocalPath;
@@ -64,7 +64,7 @@ public class SplashAdView extends BCAdView {
                         this.gnd.setOnErrorListener(new MediaPlayer.OnErrorListener() { // from class: com.baidu.tieba.advert.sdk.view.SplashAdView.2
                             @Override // android.media.MediaPlayer.OnErrorListener
                             public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                                a.bPS();
+                                a.bPT();
                                 SplashAdView.this.gnb.videoLocalPath = "";
                                 a.a(SplashAdView.this.gnb);
                                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ADVERT_SDK_SPLASH_CLICK, "advertevent://timeout"));
@@ -82,26 +82,26 @@ public class SplashAdView extends BCAdView {
                             public void onClick(View view) {
                                 if (!a.isFastDoubleClick()) {
                                     if (SplashAdView.this.gmU.advisible != 0) {
-                                        e.dFV().a(h.d(SplashAdView.this.gmU.extraParam, 2, SplashAdView.this.gmU.placeId, "video"));
+                                        e.dFW().a(h.d(SplashAdView.this.gmU.extraParam, 2, SplashAdView.this.gmU.placeId, "video"));
                                     }
                                     if (SplashAdView.this.gmR != null && !TextUtils.isEmpty(SplashAdView.this.gnb.videoJumpUrl)) {
-                                        SplashAdView.this.gmR.FV(SplashAdView.this.gnb.videoJumpUrl);
+                                        SplashAdView.this.gmR.FU(SplashAdView.this.gnb.videoJumpUrl);
                                     }
                                 }
                             }
                         });
                         addView(this.gnd, layoutParams);
-                        e.dFV().a(h.d(this.gmU.extraParam, 3, this.gmU.placeId, "video"));
+                        e.dFW().a(h.d(this.gmU.extraParam, 3, this.gmU.placeId, "video"));
                         return true;
                     } catch (Exception e) {
                         e.printStackTrace();
-                        a.bPS();
+                        a.bPT();
                         this.gnb.videoLocalPath = "";
                         a.a(this.gnb);
                         return false;
                     }
                 }
-                a.bPS();
+                a.bPT();
                 this.gnb.videoLocalPath = "";
                 a.a(this.gnb);
                 return false;
@@ -115,10 +115,10 @@ public class SplashAdView extends BCAdView {
                     public void onClick(View view) {
                         if (!a.isFastDoubleClick()) {
                             if (SplashAdView.this.gmU.advisible != 0) {
-                                e.dFV().a(h.d(SplashAdView.this.gmU.extraParam, 2, SplashAdView.this.gmU.placeId, "image"));
+                                e.dFW().a(h.d(SplashAdView.this.gmU.extraParam, 2, SplashAdView.this.gmU.placeId, "image"));
                             }
                             if (SplashAdView.this.gmR != null && !TextUtils.isEmpty(SplashAdView.this.gnb.redirectUrl)) {
-                                SplashAdView.this.gmR.FV(SplashAdView.this.gnb.redirectUrl);
+                                SplashAdView.this.gmR.FU(SplashAdView.this.gnb.redirectUrl);
                             }
                         }
                     }
@@ -126,19 +126,19 @@ public class SplashAdView extends BCAdView {
                 this.gmT.startLoad(this.gmU.adImgUrl, 10, false);
                 this.gmT.setScaleType(ImageView.ScaleType.CENTER_CROP);
                 addView(this.gmT, new RelativeLayout.LayoutParams(this.mWidth, this.mHeight));
-                e.dFV().a(h.d(this.gmU.extraParam, 3, this.gmU.placeId, "image"));
+                e.dFW().a(h.d(this.gmU.extraParam, 3, this.gmU.placeId, "image"));
                 return true;
             } else {
-                a.bPS();
+                a.bPT();
             }
         } else {
-            a.bPR();
             a.bPS();
+            a.bPT();
         }
         return false;
     }
 
-    public String bPW() {
+    public String bPX() {
         if (this.gmU == null) {
             if (this.gmV == null) {
                 return null;

@@ -14,14 +14,14 @@ public class a {
     private int pat;
     private boolean isAnimating = false;
     private int bKi = pao;
-    private HandlerC0948a paq = new HandlerC0948a();
+    private HandlerC0986a paq = new HandlerC0986a();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public interface b {
-        boolean enl();
+        boolean enm();
 
-        void enm();
+        void enn();
 
         void onAnimationStart();
 
@@ -32,7 +32,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static a enk() {
+    public static a enl() {
         return new a();
     }
 
@@ -49,8 +49,8 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public static class HandlerC0948a extends Handler {
-        private HandlerC0948a() {
+    public static class HandlerC0986a extends Handler {
+        private HandlerC0986a() {
         }
 
         @Override // android.os.Handler
@@ -73,7 +73,7 @@ public class a {
             this.pas = -Math.abs(this.bKi);
         } else {
             this.isAnimating = false;
-            this.par.enm();
+            this.par.enn();
             return;
         }
         this.par.onAnimationStart();
@@ -100,21 +100,21 @@ public class a {
         @Override // java.lang.Runnable
         public void run() {
             if (a.this.isAnimating) {
-                enn();
+                eno();
                 a.this.par.onFrameUpdate(a.this.pas);
-                if (a.this.par.enl()) {
-                    eno();
+                if (a.this.par.enm()) {
+                    enp();
                     return;
                 }
                 a.this.stopAnimation();
-                a.this.par.enm();
+                a.this.par.enn();
             }
         }
 
-        private void enn() {
+        private void eno() {
         }
 
-        private void eno() {
+        private void enp() {
             Message obtainMessage = a.this.paq.obtainMessage();
             obtainMessage.what = a.pan;
             obtainMessage.obj = this;

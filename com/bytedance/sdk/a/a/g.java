@@ -23,8 +23,8 @@ public abstract class g implements r {
     }
 
     @Override // com.bytedance.sdk.a.a.r
-    public t epR() {
-        return this.phN.epR();
+    public t epS() {
+        return this.phN.epS();
     }
 
     @Override // com.bytedance.sdk.a.a.r, java.io.Closeable, java.lang.AutoCloseable

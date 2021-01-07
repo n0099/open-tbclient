@@ -21,7 +21,7 @@ public class AlaGetRoomRankListResponseMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public i egX() {
+    public i egY() {
         return this.oGI;
     }
 }

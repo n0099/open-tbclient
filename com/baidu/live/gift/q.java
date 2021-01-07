@@ -21,7 +21,7 @@ public class q extends HttpMessage {
 
     public void a(String str, String str2, String str3, String str4, int i, int i2, String str5, long j) {
         this.giftId = str;
-        this.sceneFrom = com.baidu.live.utils.q.XF();
+        this.sceneFrom = com.baidu.live.utils.q.XG();
         this.aZh = i;
         addParam("scene_from", this.sceneFrom);
         addParam(LegoListActivityConfig.ITEM_ID, str);

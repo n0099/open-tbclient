@@ -9,7 +9,7 @@ public class aq {
     private boolean dSi = false;
 
     /* JADX WARN: Code restructure failed: missing block: B:10:0x0013, code lost:
-        if (aSf() != false) goto L9;
+        if (aSg() != false) goto L9;
      */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
@@ -28,26 +28,26 @@ public class aq {
         return z;
     }
 
-    public synchronized boolean aSc() {
-        boolean aSe;
-        aSe = aSe();
+    public synchronized boolean aSd() {
+        boolean aSf;
+        aSf = aSf();
         this.dSi = true;
-        return aSe;
+        return aSf;
     }
 
-    public synchronized void aSd() {
+    public synchronized void aSe() {
         this.dSi = false;
-        aSf();
+        aSg();
     }
 
-    private boolean aSe() {
+    private boolean aSf() {
         return !this.dSi && this.dSh == null;
     }
 
-    private synchronized boolean aSf() {
-        boolean aSe;
-        aSe = aSe();
-        if (aSe) {
+    private synchronized boolean aSg() {
+        boolean aSf;
+        aSf = aSf();
+        if (aSf) {
             while (!this.dGB.isEmpty()) {
                 this.dSh = this.dGB.poll();
                 if (this.dSh != null) {
@@ -56,6 +56,6 @@ public class aq {
             }
             this.dSh = null;
         }
-        return aSe;
+        return aSf;
     }
 }

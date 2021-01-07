@@ -6,7 +6,7 @@ import com.kwad.sdk.collector.AppStatusRules;
 /* loaded from: classes11.dex */
 public class b {
     private static int hOD = 0;
-    private static volatile b ouf = null;
+    private static volatile b oue = null;
     private long currLiveId;
     private long duration;
     private long now;
@@ -15,25 +15,25 @@ public class b {
         @Override // java.lang.Runnable
         public void run() {
             Log.i("TaskHelper", "@@ reportRunnable haokan=" + b.hOD + ", currLiveId=" + b.this.currLiveId + ", duration=" + b.this.duration);
-            b.this.axJ();
+            b.this.axK();
             b.this.stopRecord();
         }
     };
 
-    public static b edq() {
-        if (ouf == null) {
+    public static b edr() {
+        if (oue == null) {
             synchronized (b.class) {
-                if (ouf == null) {
-                    ouf = new b();
+                if (oue == null) {
+                    oue = new b();
                 }
             }
         }
-        return ouf;
+        return oue;
     }
 
     public void fF(long j) {
         Log.i("TaskHelper", "@@ startRecord watchCount=" + hOD + ", currLiveId=" + this.currLiveId + ", liveId=" + j + ", duration=" + this.duration);
-        if (cnt()) {
+        if (cnu()) {
             this.currLiveId = j;
             this.duration = 0L;
             this.now = System.currentTimeMillis();
@@ -69,11 +69,11 @@ public class b {
         this.handler.removeCallbacks(this.hOF);
     }
 
-    private boolean cnt() {
+    private boolean cnu() {
         return hOD < 30;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void axJ() {
+    public void axK() {
     }
 }

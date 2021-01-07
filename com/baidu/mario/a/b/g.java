@@ -6,7 +6,7 @@ import android.media.MediaFormat;
 import android.view.Surface;
 import com.kwai.video.player.KsMediaMeta;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class g extends b {
     private static final String TAG = g.class.getSimpleName();
     private Surface mInputSurface;
@@ -17,13 +17,8 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ long acN() {
-        return super.acN();
-    }
-
-    @Override // com.baidu.mario.a.b.b
-    public /* bridge */ /* synthetic */ void adn() {
-        super.adn();
+    public /* bridge */ /* synthetic */ long acO() {
+        return super.acO();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -34,6 +29,11 @@ public class g extends b {
     @Override // com.baidu.mario.a.b.b
     public /* bridge */ /* synthetic */ void adp() {
         super.adp();
+    }
+
+    @Override // com.baidu.mario.a.b.b
+    public /* bridge */ /* synthetic */ void adq() {
+        super.adq();
     }
 
     @Override // com.baidu.mario.a.b.b
@@ -84,13 +84,13 @@ public class g extends b {
     }
 
     @Override // com.baidu.mario.a.b.b
-    protected void adm() {
+    protected void adn() {
         if (this.cii == 0) {
             this.cii = this.mBufferInfo.presentationTimeUs;
             cij = 0L;
         }
         this.mBufferInfo.presentationTimeUs -= this.cii;
         cij = this.mBufferInfo.presentationTimeUs;
-        com.baidu.mario.a.d.acM().bG(cij / 1000);
+        com.baidu.mario.a.d.acN().bG(cij / 1000);
     }
 }

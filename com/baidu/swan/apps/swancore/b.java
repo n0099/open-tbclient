@@ -27,7 +27,7 @@ public final class b {
     }
 
     public static void b(int i, com.baidu.swan.apps.ao.e.b<Exception> bVar) {
-        a(b.a.aPW().hw(true).uq("openSwanApp").aPX(), i, bVar);
+        a(b.a.aPX().hw(true).uq("openSwanApp").aPY(), i, bVar);
     }
 
     private static void a(com.baidu.swan.apps.swancore.d.b bVar, int i, com.baidu.swan.apps.ao.e.b<Exception> bVar2) {
@@ -65,11 +65,11 @@ public final class b {
         if (swanCoreVersion.swanCoreVersion > 0) {
             return cS(swanCoreVersion.swanCoreVersion);
         }
-        String aPT = com.baidu.swan.apps.swancore.c.a.lo(i).aPT();
+        String aPU = com.baidu.swan.apps.swancore.c.a.lo(i).aPU();
         if (DEBUG) {
-            Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString preset config: " + aPT);
+            Log.d("SwanAppSwanCoreManager", "getSwanCoreVersionString preset config: " + aPU);
         }
-        return TextUtils.isEmpty(aPT) ? "0" : aPT;
+        return TextUtils.isEmpty(aPU) ? "0" : aPU;
     }
 
     @Nullable
@@ -91,11 +91,11 @@ public final class b {
             Log.d("SwanAppSwanCoreManager", "getSwanCoreVersion presetVer: " + lm + " ,remoteVer: " + lw);
         }
         boolean z = i == 0;
-        if (aPK() && z) {
+        if (aPL() && z) {
             SwanCoreVersion swanCoreVersion = new SwanCoreVersion();
-            swanCoreVersion.swanCorePath = com.baidu.swan.apps.swancore.b.a.axX().getPath();
+            swanCoreVersion.swanCorePath = com.baidu.swan.apps.swancore.b.a.axY().getPath();
             swanCoreVersion.swanCoreType = 2;
-            swanCoreVersion.swanCoreVersion = com.baidu.swan.apps.swancore.b.a.aPP();
+            swanCoreVersion.swanCoreVersion = com.baidu.swan.apps.swancore.b.a.aPQ();
             if (DEBUG) {
                 Log.d("SwanAppSwanCoreManager", "DebugSwanCoreMode");
                 return swanCoreVersion;
@@ -113,7 +113,7 @@ public final class b {
     }
 
     public static File lh(int i) {
-        return i == 1 ? new File(com.baidu.swan.games.l.a.aAh(), "game_core") : new File(d.aAh(), "swan_core");
+        return i == 1 ? new File(com.baidu.swan.games.l.a.aAi(), "game_core") : new File(d.aAi(), "swan_core");
     }
 
     public static String cS(long j) {
@@ -214,7 +214,7 @@ public final class b {
         public SwanCoreVersion li(int i) {
             SwanCoreVersion lg = b.lg(i);
             if (!lg.isAvailable()) {
-                com.baidu.swan.apps.swancore.c.b.aPU().lv(i);
+                com.baidu.swan.apps.swancore.c.b.aPV().lv(i);
                 return b.lg(i);
             }
             return lg;
@@ -233,15 +233,15 @@ public final class b {
         }
     }
 
-    public static boolean aPK() {
-        return com.baidu.swan.apps.storage.c.h.aPH().getBoolean("KEY_SWAN_APP_DEBUG_SWAN_CORE_MODE", false);
+    public static boolean aPL() {
+        return com.baidu.swan.apps.storage.c.h.aPI().getBoolean("KEY_SWAN_APP_DEBUG_SWAN_CORE_MODE", false);
     }
 
     public static void hv(boolean z) {
-        com.baidu.swan.apps.storage.c.h.aPH().putBoolean("KEY_SWAN_APP_DEBUG_SWAN_CORE_MODE", z);
+        com.baidu.swan.apps.storage.c.h.aPI().putBoolean("KEY_SWAN_APP_DEBUG_SWAN_CORE_MODE", z);
     }
 
-    public static boolean aPL() {
-        return com.baidu.swan.apps.swancore.b.a.aPQ();
+    public static boolean aPM() {
+        return com.baidu.swan.apps.swancore.b.a.aPR();
     }
 }

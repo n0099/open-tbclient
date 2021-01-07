@@ -37,7 +37,7 @@ public class b {
         if (fFC != i && i > 0) {
             fFC = i;
             TbadkCoreApplication.getInst().setKeyboardHeight(fFC);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_last_keyboard_height", i);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt("key_last_keyboard_height", i);
             return true;
         }
         return false;
@@ -45,7 +45,7 @@ public class b {
 
     public static int fl(Context context) {
         if (fFC == 0) {
-            fFC = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("key_last_keyboard_height", i(context.getResources()));
+            fFC = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("key_last_keyboard_height", i(context.getResources()));
             if (fFC > 0) {
                 TbadkCoreApplication.getInst().setKeyboardHeight(fFC);
             }

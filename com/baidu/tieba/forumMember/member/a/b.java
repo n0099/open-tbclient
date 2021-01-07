@@ -50,7 +50,7 @@ public class b {
         this.gAY.setPullRefresh(this.mPullView);
         this.jcm = BdListViewHelper.a(this.mActivity.getPageContext().getPageActivity(), this.gAY, BdListViewHelper.HeadType.DEFAULT);
         this.jcn = new a(this.mActivity, this.gAY);
-        this.gAY.addAdapters(this.jcn.bUQ());
+        this.gAY.addAdapters(this.jcn.bUR());
     }
 
     public void showLoadingView() {
@@ -63,12 +63,12 @@ public class b {
         this.mActivity.hideLoadingView(this.mRootView);
     }
 
-    public void KA(String str) {
+    public void Kz(String str) {
         this.gAY.setVisibility(8);
         this.mActivity.showNetRefreshView(this.mRootView, str, true);
     }
 
-    public void Zi() {
+    public void Zj() {
         this.gAY.setVisibility(0);
         this.mActivity.hideNetRefreshView(this.mRootView);
     }

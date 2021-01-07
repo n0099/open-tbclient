@@ -10,11 +10,11 @@ public class af {
         J(new ArrayList<>());
     }
 
-    public String bAc() {
+    public String bAd() {
         return this.ftP;
     }
 
-    public ArrayList<Object> bAd() {
+    public ArrayList<Object> bAe() {
         return this.ftQ;
     }
 

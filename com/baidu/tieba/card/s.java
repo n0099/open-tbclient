@@ -10,7 +10,7 @@ public class s {
     private static s ixH;
     private List<aq> gik;
 
-    public static s cva() {
+    public static s cvb() {
         if (ixH == null) {
             synchronized (s.class) {
                 if (ixH == null) {
@@ -63,7 +63,7 @@ public class s {
         }
     }
 
-    public void bRS() {
+    public void bRT() {
         if (com.baidu.tbadk.core.util.x.getCount(this.gik) != 0) {
             for (aq aqVar : this.gik) {
                 if (aqVar != null) {

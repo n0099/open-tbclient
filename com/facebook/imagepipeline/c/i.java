@@ -5,119 +5,119 @@ import com.facebook.common.g.b;
 import com.facebook.common.memory.PooledByteBuffer;
 import com.facebook.imagepipeline.b.p;
 import com.facebook.imagepipeline.c.h;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class i {
-    private final boolean pBE;
-    private final b.a pBF;
-    private final boolean pBG;
-    private final com.facebook.common.g.b pBH;
-    private final boolean pBI;
-    private final boolean pBJ;
-    private final int pBK;
-    private final int pBL;
-    private boolean pBM;
-    private final boolean pBN;
-    private final c pBO;
-    private final com.facebook.common.internal.j<Boolean> pBe;
+    private final com.facebook.common.internal.j<Boolean> pCL;
+    private final boolean pDl;
+    private final b.a pDm;
+    private final boolean pDn;
+    private final com.facebook.common.g.b pDo;
+    private final boolean pDp;
+    private final boolean pDq;
+    private final int pDr;
+    private final int pDs;
+    private boolean pDt;
+    private final boolean pDu;
+    private final c pDv;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         l a(Context context, com.facebook.common.memory.a aVar, com.facebook.imagepipeline.decoder.b bVar, com.facebook.imagepipeline.decoder.d dVar, boolean z, boolean z2, boolean z3, e eVar, com.facebook.common.memory.g gVar, p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pVar, p<com.facebook.cache.common.b, PooledByteBuffer> pVar2, com.facebook.imagepipeline.b.e eVar2, com.facebook.imagepipeline.b.e eVar3, com.facebook.imagepipeline.b.f fVar, com.facebook.imagepipeline.a.f fVar2, int i, int i2, boolean z4);
     }
 
     private i(a aVar) {
-        this.pBE = aVar.pBE;
-        this.pBF = aVar.pBF;
-        this.pBG = aVar.pBG;
-        this.pBH = aVar.pBH;
-        this.pBI = aVar.pBI;
-        this.pBJ = aVar.pBJ;
-        this.pBK = aVar.pBK;
-        this.pBL = aVar.pBL;
-        this.pBM = aVar.pBM;
-        this.pBN = aVar.pBN;
-        if (aVar.pBO == null) {
-            this.pBO = new b();
+        this.pDl = aVar.pDl;
+        this.pDm = aVar.pDm;
+        this.pDn = aVar.pDn;
+        this.pDo = aVar.pDo;
+        this.pDp = aVar.pDp;
+        this.pDq = aVar.pDq;
+        this.pDr = aVar.pDr;
+        this.pDs = aVar.pDs;
+        this.pDt = aVar.pDt;
+        this.pDu = aVar.pDu;
+        if (aVar.pDv == null) {
+            this.pDv = new b();
         } else {
-            this.pBO = aVar.pBO;
+            this.pDv = aVar.pDv;
         }
-        this.pBe = aVar.pBe;
+        this.pCL = aVar.pCL;
     }
 
-    public boolean exV() {
-        return this.pBI;
+    public boolean eyx() {
+        return this.pDp;
     }
 
-    public boolean exW() {
-        return this.pBE;
+    public boolean eyy() {
+        return this.pDl;
     }
 
-    public boolean exX() {
-        return this.pBG;
+    public boolean eyz() {
+        return this.pDn;
     }
 
-    public b.a exY() {
-        return this.pBF;
+    public b.a eyA() {
+        return this.pDm;
     }
 
-    public com.facebook.common.g.b exZ() {
-        return this.pBH;
+    public com.facebook.common.g.b eyB() {
+        return this.pDo;
     }
 
-    public boolean eya() {
-        return this.pBJ;
+    public boolean eyC() {
+        return this.pDq;
     }
 
-    public int eyb() {
-        return this.pBK;
+    public int eyD() {
+        return this.pDr;
     }
 
-    public int eyc() {
-        return this.pBL;
+    public int eyE() {
+        return this.pDs;
     }
 
-    public boolean eyd() {
-        return this.pBN;
+    public boolean eyF() {
+        return this.pDu;
     }
 
-    public c eye() {
-        return this.pBO;
+    public c eyG() {
+        return this.pDv;
     }
 
-    public boolean eyf() {
-        return this.pBM;
+    public boolean eyH() {
+        return this.pDt;
     }
 
-    public com.facebook.common.internal.j<Boolean> eyg() {
-        return this.pBe;
+    public com.facebook.common.internal.j<Boolean> eyI() {
+        return this.pCL;
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a {
-        private b.a pBF;
-        private com.facebook.common.g.b pBH;
-        private c pBO;
-        private final h.a pBP;
-        public com.facebook.common.internal.j<Boolean> pBe;
-        private boolean pBE = false;
-        private boolean pBG = false;
-        private boolean pBI = false;
-        private boolean pBJ = false;
-        private int pBK = 0;
-        private int pBL = 0;
-        public boolean pBM = false;
-        private boolean pBN = false;
+        public com.facebook.common.internal.j<Boolean> pCL;
+        private b.a pDm;
+        private com.facebook.common.g.b pDo;
+        private c pDv;
+        private final h.a pDw;
+        private boolean pDl = false;
+        private boolean pDn = false;
+        private boolean pDp = false;
+        private boolean pDq = false;
+        private int pDr = 0;
+        private int pDs = 0;
+        public boolean pDt = false;
+        private boolean pDu = false;
 
         public a(h.a aVar) {
-            this.pBP = aVar;
+            this.pDw = aVar;
         }
 
-        public i eyh() {
+        public i eyJ() {
             return new i(this);
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class b implements c {
         @Override // com.facebook.imagepipeline.c.i.c
         public l a(Context context, com.facebook.common.memory.a aVar, com.facebook.imagepipeline.decoder.b bVar, com.facebook.imagepipeline.decoder.d dVar, boolean z, boolean z2, boolean z3, e eVar, com.facebook.common.memory.g gVar, p<com.facebook.cache.common.b, com.facebook.imagepipeline.f.c> pVar, p<com.facebook.cache.common.b, PooledByteBuffer> pVar2, com.facebook.imagepipeline.b.e eVar2, com.facebook.imagepipeline.b.e eVar3, com.facebook.imagepipeline.b.f fVar, com.facebook.imagepipeline.a.f fVar2, int i, int i2, boolean z4) {

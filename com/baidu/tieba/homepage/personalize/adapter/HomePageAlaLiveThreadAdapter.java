@@ -37,33 +37,33 @@ public class HomePageAlaLiveThreadAdapter extends com.baidu.adp.widget.ListView.
                         i = 5;
                     } else if (view == HomePageAlaLiveThreadAdapter.this.kfX.its.getCommentContainer()) {
                         HomePageAlaLiveThreadAdapter.this.a(jVar, view);
-                    } else if (HomePageAlaLiveThreadAdapter.this.kfX.cuF() != null && view.getId() == HomePageAlaLiveThreadAdapter.this.kfX.cuF().getId()) {
-                        i = 2;
                     } else if (HomePageAlaLiveThreadAdapter.this.kfX.cuG() != null && view.getId() == HomePageAlaLiveThreadAdapter.this.kfX.cuG().getId()) {
+                        i = 2;
+                    } else if (HomePageAlaLiveThreadAdapter.this.kfX.cuH() != null && view.getId() == HomePageAlaLiveThreadAdapter.this.kfX.cuH().getId()) {
                         i = 2;
                     }
                 } else {
                     String str = "";
                     long j = 0;
-                    if (jVar != null && jVar.boO() != null) {
-                        i = jVar.boO().brJ().live_type;
-                        str = jVar.boO().getTid();
-                        j = jVar.boO().brJ().live_id;
+                    if (jVar != null && jVar.boP() != null) {
+                        i = jVar.boP().brK().live_type;
+                        str = jVar.boP().getTid();
+                        j = jVar.boP().brK().live_id;
                     }
                     aq aqVar = new aq("c11824");
                     aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                    aqVar.dX("ab_tag", jVar.cvn());
+                    aqVar.dX("ab_tag", jVar.cvo());
                     aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
                     aqVar.an("obj_type", i);
                     aqVar.dX("tid", str);
                     aqVar.dX("obj_param1", jVar.getExtra());
                     aqVar.dX("obj_source", jVar.getSource());
-                    aqVar.an("obj_floor", jVar.cvm());
+                    aqVar.an("obj_floor", jVar.cvn());
                     TiebaStatic.log(aqVar);
                     i = 1;
                 }
                 if (i != 0) {
-                    com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, HomePageAlaLiveThreadAdapter.this.fJu, jVar.cvm(), i);
+                    com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, HomePageAlaLiveThreadAdapter.this.fJu, jVar.cvn(), i);
                 }
             }
         };
@@ -96,27 +96,27 @@ public class HomePageAlaLiveThreadAdapter extends com.baidu.adp.widget.ListView.
         homePageAlaLiveThreadViewHolder.kfZ.c(this.iKM);
         homePageAlaLiveThreadViewHolder.kfZ.b(this.ggi);
         String str = "";
-        if (jVar != null && jVar.boO() != null) {
-            int i2 = jVar.boO().brJ().live_type;
-            String tid = jVar.boO().getTid();
-            if (!StringUtils.isNull(jVar.boO().brJ().appId)) {
-                str = jVar.boO().brJ().appId;
+        if (jVar != null && jVar.boP() != null) {
+            int i2 = jVar.boP().brK().live_type;
+            String tid = jVar.boP().getTid();
+            if (!StringUtils.isNull(jVar.boP().brK().appId)) {
+                str = jVar.boP().brK().appId;
             }
-            long j = jVar.boO().brJ().live_id;
+            long j = jVar.boP().brK().live_id;
             aq aqVar = new aq("c11823");
             aqVar.an("obj_type", i2);
             aqVar.dX(TiebaInitialize.Params.OBJ_PARAM3, str);
             aqVar.dX("tid", tid);
-            aqVar.dX("ab_tag", jVar.cvn());
+            aqVar.dX("ab_tag", jVar.cvo());
             aqVar.w(AlaSDKShareEmptyActivityConfig.SHARE_ALA_SDK_LIVE_ID, j);
-            aqVar.w("fid", jVar.boO().getFid());
+            aqVar.w("fid", jVar.boP().getFid());
             aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
             aqVar.dX("obj_param1", jVar.getExtra());
             aqVar.dX("obj_source", jVar.getSource());
-            aqVar.an("obj_floor", jVar.cvm());
+            aqVar.an("obj_floor", jVar.cvn());
             TiebaStatic.log(aqVar);
         }
-        com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, this.fJu, jVar.cvm());
+        com.baidu.tieba.homepage.personalize.a.a.a(jVar.eMv, this.fJu, jVar.cvn());
         return homePageAlaLiveThreadViewHolder.getView();
     }
 
@@ -124,9 +124,9 @@ public class HomePageAlaLiveThreadAdapter extends com.baidu.adp.widget.ListView.
     public void a(com.baidu.tieba.card.data.j jVar, View view) {
         String str = "";
         String str2 = "";
-        if (jVar != null && jVar.boO() != null) {
-            str = jVar.boO().getTid();
-            str2 = jVar.boO().bpO();
+        if (jVar != null && jVar.boP() != null) {
+            str = jVar.boP().getTid();
+            str2 = jVar.boP().bpP();
         }
         aq aqVar = new aq("c12942");
         aqVar.an("obj_locate", 1);
@@ -138,8 +138,8 @@ public class HomePageAlaLiveThreadAdapter extends com.baidu.adp.widget.ListView.
         if (bV != null) {
             aqVar.dX("obj_cur_page", bV.getCurrentPageKey());
         }
-        if (com.baidu.tbadk.pageExtra.d.bHm() != null) {
-            aqVar.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHm());
+        if (com.baidu.tbadk.pageExtra.d.bHn() != null) {
+            aqVar.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHn());
         }
         TiebaStatic.log(aqVar);
     }
@@ -159,7 +159,7 @@ public class HomePageAlaLiveThreadAdapter extends com.baidu.adp.widget.ListView.
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 }

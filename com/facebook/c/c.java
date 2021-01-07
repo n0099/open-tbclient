@@ -2,13 +2,13 @@ package com.facebook.c;
 
 import com.baidu.android.util.devices.RomUtils;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
-    public static final c pzf = new c(RomUtils.UNKNOWN, null);
+    public static final c pAq = new c(RomUtils.UNKNOWN, null);
     private final String mName;
-    private final String pzg;
+    private final String pAr;
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public interface a {
         int getHeaderSize();
 
@@ -18,7 +18,7 @@ public class c {
 
     public c(String str, @Nullable String str2) {
         this.mName = str;
-        this.pzg = str2;
+        this.pAr = str2;
     }
 
     public String toString() {

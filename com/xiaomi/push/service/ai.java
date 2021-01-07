@@ -21,20 +21,20 @@ import java.net.URL;
 public class ai {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f14531a;
+    private static long f14532a;
 
     /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        int f14532a;
+        int f14533a;
 
         /* renamed from: a  reason: collision with other field name */
-        byte[] f922a;
+        byte[] f923a;
 
         public a(byte[] bArr, int i) {
-            this.f922a = bArr;
-            this.f14532a = i;
+            this.f923a = bArr;
+            this.f14533a = i;
         }
     }
 
@@ -42,14 +42,14 @@ public class ai {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f14533a;
+        public long f14534a;
 
         /* renamed from: a  reason: collision with other field name */
-        public Bitmap f923a;
+        public Bitmap f924a;
 
         public b(Bitmap bitmap, long j) {
-            this.f923a = bitmap;
-            this.f14533a = j;
+            this.f924a = bitmap;
+            this.f14534a = j;
         }
     }
 
@@ -58,7 +58,7 @@ public class ai {
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeStream(inputStream, null, options);
         if (options.outWidth == -1 || options.outHeight == -1) {
-            com.xiaomi.channel.commonutils.logger.b.m73a("decode dimension failed for bitmap.");
+            com.xiaomi.channel.commonutils.logger.b.m84a("decode dimension failed for bitmap.");
             return 1;
         }
         int round = Math.round((context.getResources().getDisplayMetrics().densityDpi / 160.0f) * 48.0f);
@@ -141,7 +141,7 @@ public class ai {
                 if (!z || contentLength <= 102400) {
                     int responseCode = httpURLConnection3.getResponseCode();
                     if (responseCode != 200) {
-                        com.xiaomi.channel.commonutils.logger.b.m73a("Invalid Http Response Code " + responseCode + " received");
+                        com.xiaomi.channel.commonutils.logger.b.m84a("Invalid Http Response Code " + responseCode + " received");
                         com.xiaomi.push.y.a((Closeable) null);
                         if (httpURLConnection3 != null) {
                             httpURLConnection3.disconnect();
@@ -164,7 +164,7 @@ public class ai {
                                 byteArrayOutputStream.write(bArr, 0, read);
                             }
                             if (i <= 0) {
-                                com.xiaomi.channel.commonutils.logger.b.m73a("length 102400 exhausted.");
+                                com.xiaomi.channel.commonutils.logger.b.m84a("length 102400 exhausted.");
                                 a aVar2 = new a(null, BdStatsConstant.MAX_WRITE_LOG_SIZE);
                                 com.xiaomi.push.y.a(inputStream);
                                 if (httpURLConnection3 != null) {
@@ -227,7 +227,7 @@ public class ai {
                         }
                     }
                 } else {
-                    com.xiaomi.channel.commonutils.logger.b.m73a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
+                    com.xiaomi.channel.commonutils.logger.b.m84a("Bitmap size is too big, max size is 102400  contentLen size is " + contentLength + " from url " + str);
                     com.xiaomi.push.y.a((Closeable) null);
                     if (httpURLConnection3 != null) {
                         httpURLConnection3.disconnect();
@@ -267,15 +267,15 @@ public class ai {
         Bitmap b2 = b(context, str);
         try {
             if (b2 != null) {
-                bVar.f923a = b2;
+                bVar.f924a = b2;
             } else {
                 try {
                     a a2 = a(str, z);
                     if (a2 == null) {
                         com.xiaomi.push.y.a((Closeable) null);
                     } else {
-                        bVar.f14533a = a2.f14532a;
-                        byte[] bArr = a2.f922a;
+                        bVar.f14534a = a2.f14533a;
+                        byte[] bArr = a2.f923a;
                         if (bArr != null) {
                             if (z) {
                                 byteArrayInputStream = new ByteArrayInputStream(bArr);
@@ -283,8 +283,8 @@ public class ai {
                                     int a3 = a(context, byteArrayInputStream);
                                     BitmapFactory.Options options = new BitmapFactory.Options();
                                     options.inSampleSize = a3;
-                                    bVar.f923a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
-                                    a(context, a2.f922a, str);
+                                    bVar.f924a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length, options);
+                                    a(context, a2.f923a, str);
                                     com.xiaomi.push.y.a(byteArrayInputStream);
                                 } catch (Exception e) {
                                     e = e;
@@ -293,11 +293,11 @@ public class ai {
                                     return bVar;
                                 }
                             } else {
-                                bVar.f923a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                                bVar.f924a = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
                             }
                         }
                         byteArrayInputStream = null;
-                        a(context, a2.f922a, str);
+                        a(context, a2.f923a, str);
                         com.xiaomi.push.y.a(byteArrayInputStream);
                     }
                 } catch (Exception e2) {
@@ -318,10 +318,10 @@ public class ai {
     private static void a(Context context) {
         File file = new File(context.getCacheDir().getPath() + File.separator + "mipush_icon");
         if (file.exists()) {
-            if (f14531a == 0) {
-                f14531a = com.xiaomi.push.x.a(file);
+            if (f14532a == 0) {
+                f14532a = com.xiaomi.push.x.a(file);
             }
-            if (f14531a > 15728640) {
+            if (f14532a > 15728640) {
                 try {
                     File[] listFiles = file.listFiles();
                     for (int i = 0; i < listFiles.length; i++) {
@@ -332,7 +332,7 @@ public class ai {
                 } catch (Exception e) {
                     com.xiaomi.channel.commonutils.logger.b.a(e);
                 }
-                f14531a = 0L;
+                f14532a = 0L;
             }
         }
     }
@@ -346,7 +346,7 @@ public class ai {
         FileOutputStream fileOutputStream;
         BufferedOutputStream bufferedOutputStream;
         if (bArr == null) {
-            com.xiaomi.channel.commonutils.logger.b.m73a("cannot save small icon cause bitmap is null");
+            com.xiaomi.channel.commonutils.logger.b.m84a("cannot save small icon cause bitmap is null");
             return;
         }
         a(context);
@@ -373,7 +373,7 @@ public class ai {
                         com.xiaomi.channel.commonutils.logger.b.a(e);
                         com.xiaomi.push.y.a(bufferedOutputStream);
                         com.xiaomi.push.y.a(fileOutputStream);
-                        if (f14531a != 0) {
+                        if (f14532a != 0) {
                         }
                     }
                 } catch (Throwable th) {
@@ -401,8 +401,8 @@ public class ai {
             fileOutputStream = null;
             bufferedOutputStream = null;
         }
-        if (f14531a != 0) {
-            f14531a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
+        if (f14532a != 0) {
+            f14532a = com.xiaomi.push.x.a(new File(context.getCacheDir().getPath() + File.separator + "mipush_icon")) + file2.length();
         }
     }
 

@@ -1,23 +1,23 @@
 package com.baidu.platform.comapi.walknavi.g.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f4531a;
+    final /* synthetic */ String f4532a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ c f4532b;
+    final /* synthetic */ c f4533b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(c cVar, String str) {
-        this.f4532b = cVar;
-        this.f4531a = str;
+        this.f4533b = cVar;
+        this.f4532a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         com.baidu.platform.comapi.walknavi.b.a().G().d(true);
-        this.f4532b.c(this.f4531a);
+        this.f4533b.c(this.f4532a);
     }
 }

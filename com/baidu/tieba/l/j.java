@@ -10,22 +10,22 @@ public class j {
     private long lry;
     private long lrz;
 
-    public void diL() {
+    public void diM() {
         this.lrx = 0L;
         this.lry = 0L;
         this.lrz = 0L;
     }
 
-    public void diM() {
+    public void diN() {
         this.lrA = true;
         this.lrx = SystemClock.elapsedRealtime();
     }
 
-    public void diN() {
+    public void diO() {
         this.lry = SystemClock.elapsedRealtime();
     }
 
-    public void diO() {
+    public void diP() {
         this.lrz = SystemClock.elapsedRealtime();
     }
 

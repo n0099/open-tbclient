@@ -94,13 +94,13 @@ public class b extends com.baidu.tieba.ala.liveroom.a {
         }
     }
 
-    public void cnd() {
+    public void cne() {
         if (this.hNK != null) {
             this.hNK.RW();
         }
     }
 
-    public void cne() {
+    public void cnf() {
         if (this.hNK != null) {
             this.hNK.RX();
         }

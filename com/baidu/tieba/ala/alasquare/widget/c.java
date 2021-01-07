@@ -87,16 +87,16 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.b>
             if (this.gLE != null) {
                 this.gLE.a(view, this.gLI);
             }
-            GN(this.gLI.gAx.eVx.subpage_link);
-            com.baidu.tieba.ala.alasquare.b.a.bVl().mG(true);
+            GM(this.gLI.gAx.eVx.subpage_link);
+            com.baidu.tieba.ala.alasquare.b.a.bVm().mG(true);
         }
     }
 
-    private void GN(String str) {
+    private void GM(String str) {
         if (TextUtils.isEmpty(str)) {
             l.showToast(this.mTbPageContext.getPageActivity(), R.string.url_is_null);
         } else {
-            be.bwu().a(this.mTbPageContext, "", new String[]{str}, false, null, true);
+            be.bwv().a(this.mTbPageContext, "", new String[]{str}, false, null, true);
         }
     }
 
@@ -130,7 +130,7 @@ public class c extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.b>
             this.gLO = (TextView) view.findViewById(R.id.tvNewCount);
             this.gLN.setImageResource(R.drawable.icon_video_tieba);
             this.gLF.setTypeface(Typeface.defaultFromStyle(1));
-            this.gKY.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bVO());
+            this.gKY.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bVP());
         }
     }
 }

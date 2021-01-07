@@ -45,7 +45,7 @@ public class d {
             this.hEC.setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.guide.d.1
                 @Override // android.view.View.OnTouchListener
                 public boolean onTouch(View view, MotionEvent motionEvent) {
-                    d.this.ciF();
+                    d.this.ciG();
                     return false;
                 }
             });
@@ -53,8 +53,8 @@ public class d {
         }
     }
 
-    public boolean ciF() {
-        if (this.hED == null || !this.hED.ciF()) {
+    public boolean ciG() {
+        if (this.hED == null || !this.hED.ciG()) {
             return false;
         }
         if (this.hEC != null && this.hEC.getParent() != null) {

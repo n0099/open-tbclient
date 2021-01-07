@@ -96,8 +96,8 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
             }
         };
         setUniqueId(bdUniqueId);
+        buH();
         buG();
-        buF();
         registerListener(this.eFZ);
         registerListener(this.jYT);
     }
@@ -110,7 +110,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         this.jYR = aVar;
     }
 
-    public void Mq(String str) {
+    public void Mp(String str) {
         if (!this.jYS) {
             this.jYS = true;
             ConcernPageRequestMessage concernPageRequestMessage = new ConcernPageRequestMessage();
@@ -143,7 +143,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         return false;
     }
 
-    private void buF() {
+    private void buG() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(CmdConfigSocket.CMD_CONCERN_PAGE);
         bVar.setResponsedClass(ConcernPageSocketResMessage.class);
         bVar.setNeedAck(true);
@@ -154,7 +154,7 @@ public class ConcernNetModel extends BdBaseModel<BaseFragmentActivity> {
         MessageManager.getInstance().registerTask(bVar2);
     }
 
-    private void buG() {
+    private void buH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003343, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.URL_CONCERN_PAGE, CmdConfigSocket.CMD_CONCERN_PAGE));
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
         tbHttpMessageTask.setResponsedClass(ConcernPageHttpResMessage.class);

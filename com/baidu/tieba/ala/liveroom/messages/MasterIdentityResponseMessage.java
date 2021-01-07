@@ -30,15 +30,15 @@ public class MasterIdentityResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public int clO() {
+    public int clP() {
         return this.hJY;
     }
 
-    public int clP() {
+    public int clQ() {
         return this.hJZ;
     }
 
-    public String clQ() {
+    public String clR() {
         return this.hKa;
     }
 }

@@ -23,7 +23,7 @@ public class b extends Dialog implements View.OnClickListener {
     private boolean oVg;
     private TextView pen;
     private TextView peo;
-    private InterfaceC0955b pep;
+    private InterfaceC0993b pep;
     private ActivityChat peq;
     private int per;
     private int pes;
@@ -36,10 +36,10 @@ public class b extends Dialog implements View.OnClickListener {
 
     /* renamed from: com.baidu.yuyinala.privatemessage.session.view.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0955b {
+    public interface InterfaceC0993b {
         void Pr(int i);
 
-        void eos();
+        void eot();
 
         void onCancel();
     }
@@ -102,7 +102,7 @@ public class b extends Dialog implements View.OnClickListener {
                     @Override // com.baidu.yuyinala.privatemessage.session.view.b.a
                     public void onConfirm() {
                         if (b.this.pep != null) {
-                            b.this.pep.eos();
+                            b.this.pep.eot();
                         }
                     }
                 }, "确定要清空聊天记录吗？");
@@ -149,8 +149,8 @@ public class b extends Dialog implements View.OnClickListener {
         bdAlertDialog.create(this.peq.getPageContext()).show();
     }
 
-    public void a(InterfaceC0955b interfaceC0955b) {
-        this.pep = interfaceC0955b;
+    public void a(InterfaceC0993b interfaceC0993b) {
+        this.pep = interfaceC0993b;
     }
 
     public void resize() {

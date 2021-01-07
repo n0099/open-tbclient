@@ -28,10 +28,10 @@ public final class e implements c.a {
     private e() {
         this.dbY = false;
         this.dbX = new c(this);
-        com.baidu.swan.apps.extcore.cores.a.axU().axV();
+        com.baidu.swan.apps.extcore.cores.a.axV().axW();
     }
 
-    public static e axa() {
+    public static e axb() {
         return a.dcd;
     }
 
@@ -52,20 +52,20 @@ public final class e implements c.a {
         }
     }
 
-    public c axb() {
+    public c axc() {
         return this.dbX;
     }
 
     private void r(Bundle bundle) {
         s(bundle);
-        SwanLauncher.axd().g(null);
-        b.a.aph();
-        ao.aRW();
-        final ak aBr = com.baidu.swan.apps.t.a.aBr();
+        SwanLauncher.axe().g(null);
+        b.a.apj();
+        ao.aRX();
+        final ak aBs = com.baidu.swan.apps.t.a.aBs();
         ExecutorUtilsExt.postOnElastic(new Runnable() { // from class: com.baidu.swan.apps.env.e.1
             @Override // java.lang.Runnable
             public void run() {
-                aBr.amb();
+                aBs.amc();
             }
         }, "requestBatchRebateInfo", 2);
     }
@@ -74,36 +74,36 @@ public final class e implements c.a {
         if (DEBUG) {
             Log.d("SwanAppEnv", "preloadSwanAppZygoteProcess");
         }
-        l aAO = com.baidu.swan.apps.t.a.aAO();
-        if (aAO != null) {
-            final int ajP = aAO.ajP();
+        l aAP = com.baidu.swan.apps.t.a.aAP();
+        if (aAP != null) {
+            final int ajQ = aAP.ajQ();
             if (DEBUG) {
-                Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + ajP);
+                Log.d("SwanAppEnv", "zygoteSwanProcess switch : " + ajQ);
             }
-            if (!aAO.ajQ()) {
+            if (!aAP.ajR()) {
                 if (bundle == null) {
                     bundle = new Bundle();
                 }
                 if (TextUtils.isEmpty(bundle.getString("bundle_key_preload_preload_scene"))) {
                     bundle.putString("bundle_key_preload_preload_scene", "0");
                 }
-                if (bundle.getBoolean("bundle_key_preload_delay", false) && aAO.ajR()) {
+                if (bundle.getBoolean("bundle_key_preload_delay", false) && aAP.ajS()) {
                     if (DEBUG) {
-                        Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + ajP);
+                        Log.d("SwanAppEnv", "zygoteSwanProcess delay - start. switch: " + ajQ);
                     }
                     com.baidu.swan.apps.ao.ak.c(new Runnable() { // from class: com.baidu.swan.apps.env.e.2
                         @Override // java.lang.Runnable
                         public void run() {
                             if (e.DEBUG) {
-                                Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + ajP);
+                                Log.d("SwanAppEnv", "zygoteSwanProcess delay - run. switch: " + ajQ);
                             }
                             com.baidu.swan.apps.process.messaging.service.b.b(e.this.requireContext(), bundle);
                         }
-                    }, com.baidu.swan.apps.t.a.aAO().ajS());
+                    }, com.baidu.swan.apps.t.a.aAP().ajT());
                     return;
                 }
                 if (DEBUG) {
-                    Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + ajP);
+                    Log.d("SwanAppEnv", "zygoteSwanProcess start. switch: " + ajQ);
                 }
                 com.baidu.swan.apps.process.messaging.service.b.b(requireContext(), bundle);
             }

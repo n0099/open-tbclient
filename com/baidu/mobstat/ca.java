@@ -17,10 +17,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 public class ca implements by {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final List<cd> f3817a;
+    public static final List<cd> f3818a;
 
     /* renamed from: b  reason: collision with root package name */
-    public static int f3818b;
+    public static int f3819b;
     public static boolean c;
     static final /* synthetic */ boolean h;
     public final BlockingQueue<ByteBuffer> d;
@@ -42,11 +42,11 @@ public class ca implements by {
 
     static {
         h = !ca.class.desiredAssertionStatus();
-        f3817a = new ArrayList(4);
-        f3818b = 16384;
+        f3818a = new ArrayList(4);
+        f3819b = 16384;
         c = false;
-        f3817a.add(new cf());
-        f3817a.add(new ce());
+        f3818a.add(new cf());
+        f3818a.add(new ce());
     }
 
     public ca(cb cbVar, cd cdVar) {

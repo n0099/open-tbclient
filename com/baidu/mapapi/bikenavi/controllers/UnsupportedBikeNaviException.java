@@ -1,5 +1,5 @@
 package com.baidu.mapapi.bikenavi.controllers;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class UnsupportedBikeNaviException extends RuntimeException {
     public UnsupportedBikeNaviException() {
     }

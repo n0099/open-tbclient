@@ -11,7 +11,7 @@ public class m extends com.baidu.swan.apps.storage.b.a {
 
     @Override // com.baidu.swan.apps.storage.b.a
     @NonNull
-    public String aPA() {
+    public String aPB() {
         return n.getBasePath();
     }
 }

@@ -11,17 +11,17 @@ import com.baidu.tieba.yuyinala.liveroom.wheat.message.AlaAcceptConnectionWheatH
 /* loaded from: classes11.dex */
 public class a extends BdBaseModel {
     private TbPageContext mPageContext;
-    private InterfaceC0920a oEt;
+    private InterfaceC0958a oEs;
     private HttpMessageListener messageListener = new HttpMessageListener(1031009) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.model.a.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.bwz && a.this.oEt != null) {
+            if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaAcceptConnectionWheatHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == a.this.bwz && a.this.oEs != null) {
                 AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage = (AlaAcceptConnectionWheatHttpResponseMessage) httpResponsedMessage;
                 if (alaAcceptConnectionWheatHttpResponseMessage.getError() != 0 || !alaAcceptConnectionWheatHttpResponseMessage.isSuccess()) {
-                    a.this.oEt.b(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oEs.b(alaAcceptConnectionWheatHttpResponseMessage);
                 } else {
-                    a.this.oEt.a(alaAcceptConnectionWheatHttpResponseMessage);
+                    a.this.oEs.a(alaAcceptConnectionWheatHttpResponseMessage);
                 }
             }
         }
@@ -30,21 +30,21 @@ public class a extends BdBaseModel {
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.wheat.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0920a {
+    public interface InterfaceC0958a {
         void a(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage);
 
         void b(AlaAcceptConnectionWheatHttpResponseMessage alaAcceptConnectionWheatHttpResponseMessage);
     }
 
-    public a(TbPageContext tbPageContext, InterfaceC0920a interfaceC0920a) {
+    public a(TbPageContext tbPageContext, InterfaceC0958a interfaceC0958a) {
         setUniqueId(this.bwz);
         this.mPageContext = tbPageContext;
-        this.oEt = interfaceC0920a;
-        bmf();
+        this.oEs = interfaceC0958a;
+        bmg();
         registerListener(this.messageListener);
     }
 
-    private void bmf() {
+    private void bmg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031009, com.baidu.live.a.aAH + "ala/audio/link/accept");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

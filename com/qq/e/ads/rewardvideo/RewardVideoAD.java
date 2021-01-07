@@ -20,16 +20,16 @@ import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class RewardVideoAD {
     public static final int REWARD_TYPE_PAGE = 1;
     public static final int REWARD_TYPE_VIDEO = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private RewardVideoADListener f11806a;
+    private RewardVideoADListener f11807a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile boolean f11807b;
+    private volatile boolean f11808b;
     private RVADI c;
     private volatile boolean d;
     private volatile boolean e;
@@ -41,21 +41,21 @@ public class RewardVideoAD {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.qq.e.ads.rewardvideo.RewardVideoAD$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class AnonymousClass1 implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Context f11808a;
+        final /* synthetic */ Context f11809a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ String f11809b;
+        final /* synthetic */ String f11810b;
         final /* synthetic */ RewardVideoADListener c;
         final /* synthetic */ String d;
         final /* synthetic */ boolean e;
 
         AnonymousClass1(Context context, String str, RewardVideoADListener rewardVideoADListener, String str2, boolean z) {
-            this.f11808a = context;
-            this.f11809b = str;
+            this.f11809a = context;
+            this.f11810b = str;
             this.c = rewardVideoADListener;
             this.d = str2;
             this.e = z;
@@ -63,7 +63,7 @@ public class RewardVideoAD {
 
         @Override // java.lang.Runnable
         public void run() {
-            if (GDTADManager.getInstance().initWith(this.f11808a, this.f11809b)) {
+            if (GDTADManager.getInstance().initWith(this.f11809a, this.f11810b)) {
                 try {
                     final POFactory pOFactory = GDTADManager.getInstance().getPM().getPOFactory();
                     new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.qq.e.ads.rewardvideo.RewardVideoAD.1.1
@@ -83,10 +83,10 @@ public class RewardVideoAD {
                                         }
                                     });
                                     aDListenerAdapter.setBase(RewardVideoAD.this);
-                                    RewardVideoAD.this.c = pOFactory.getRewardVideoADDelegate(AnonymousClass1.this.f11808a, AnonymousClass1.this.f11809b, AnonymousClass1.this.d, aDListenerAdapter);
+                                    RewardVideoAD.this.c = pOFactory.getRewardVideoADDelegate(AnonymousClass1.this.f11809a, AnonymousClass1.this.f11810b, AnonymousClass1.this.d, aDListenerAdapter);
                                     RewardVideoAD.this.c.setVolumeOn(AnonymousClass1.this.e);
                                     RewardVideoAD.this.c.setLoadAdParams(RewardVideoAD.this.j);
-                                    RewardVideoAD.this.f11807b = true;
+                                    RewardVideoAD.this.f11808b = true;
                                     if (RewardVideoAD.this.f) {
                                         RewardVideoAD.this.loadAD();
                                     }
@@ -108,7 +108,7 @@ public class RewardVideoAD {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ADListenerAdapter implements ADListener {
         public static final int EVENT_TYPE_ON_AD_CLICK = 6;
         public static final int EVENT_TYPE_ON_AD_CLOSE = 8;
@@ -121,13 +121,13 @@ public class RewardVideoAD {
         public static final int EVENT_TYPE_ON_VIDEO_COMPLETE = 7;
 
         /* renamed from: a  reason: collision with root package name */
-        private CacheCallback f11815a;
+        private CacheCallback f11816a;
         public RewardVideoADListener adListener;
 
         /* renamed from: b  reason: collision with root package name */
-        private WeakReference<RewardVideoAD> f11816b;
+        private WeakReference<RewardVideoAD> f11817b;
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         interface CacheCallback {
             void onCached();
 
@@ -140,7 +140,7 @@ public class RewardVideoAD {
 
         public ADListenerAdapter(RewardVideoADListener rewardVideoADListener, CacheCallback cacheCallback) {
             this.adListener = rewardVideoADListener;
-            this.f11815a = cacheCallback;
+            this.f11816a = cacheCallback;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
@@ -148,15 +148,15 @@ public class RewardVideoAD {
             switch (aDEvent.getType()) {
                 case 1:
                     this.adListener.onADLoad();
-                    if (this.f11815a != null) {
-                        this.f11815a.onLoaded();
+                    if (this.f11816a != null) {
+                        this.f11816a.onLoaded();
                         return;
                     }
                     return;
                 case 2:
                     this.adListener.onVideoCached();
-                    if (this.f11815a != null) {
-                        this.f11815a.onCached();
+                    if (this.f11816a != null) {
+                        this.f11816a.onCached();
                         return;
                     }
                     return;
@@ -170,10 +170,10 @@ public class RewardVideoAD {
                     this.adListener.onReward();
                     return;
                 case 6:
-                    if (this.f11816b != null && aDEvent.getParas().length == 1) {
+                    if (this.f11817b != null && aDEvent.getParas().length == 1) {
                         Object obj = aDEvent.getParas()[0];
-                        if ((obj instanceof String) && this.f11816b.get() != null) {
-                            this.f11816b.get().setExt((String) obj);
+                        if ((obj instanceof String) && this.f11817b.get() != null) {
+                            this.f11817b.get().setExt((String) obj);
                         }
                     }
                     this.adListener.onADClick();
@@ -196,7 +196,7 @@ public class RewardVideoAD {
         }
 
         public void setBase(RewardVideoAD rewardVideoAD) {
-            this.f11816b = new WeakReference<>(rewardVideoAD);
+            this.f11817b = new WeakReference<>(rewardVideoAD);
         }
     }
 
@@ -233,8 +233,8 @@ public class RewardVideoAD {
         new Handler(Looper.getMainLooper()).post(new Runnable() { // from class: com.qq.e.ads.rewardvideo.RewardVideoAD.2
             @Override // java.lang.Runnable
             public void run() {
-                if (RewardVideoAD.this.f11806a != null) {
-                    RewardVideoAD.this.f11806a.onError(a.a(i));
+                if (RewardVideoAD.this.f11807a != null) {
+                    RewardVideoAD.this.f11807a.onError(a.a(i));
                 }
             }
         });
@@ -245,7 +245,7 @@ public class RewardVideoAD {
             GDTLogger.e(String.format("RewardVideoAD Constructor params error, context=%s, appID=%s, posID=%s, rewardVideoADListener=%s", context, str, str2, rewardVideoADListener));
             return;
         }
-        this.f11806a = rewardVideoADListener;
+        this.f11807a = rewardVideoADListener;
         this.d = true;
         if (!a.a(context)) {
             GDTLogger.e("Required Activity/Service/Permission Not Declared in AndroidManifest.xml");
@@ -324,7 +324,7 @@ public class RewardVideoAD {
     public void loadAD() {
         if (!this.d || !this.e) {
             GDTLogger.e("AD init Params OR Context error, details in logs produced while init RewardVideoAD");
-        } else if (!this.f11807b) {
+        } else if (!this.f11808b) {
             this.f = true;
         } else if (this.c != null) {
             this.c.loadAD();

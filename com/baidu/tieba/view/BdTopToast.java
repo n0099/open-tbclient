@@ -24,8 +24,8 @@ public class BdTopToast extends LinearLayout {
     private Runnable mHideRunnable;
     private ImageView mIconView;
     private View mStatusBarView;
-    private BottomShadowLinearLayout nRg;
-    private boolean nRh;
+    private BottomShadowLinearLayout nRf;
+    private boolean nRg;
 
     public BdTopToast(Context context, int i) {
         this(context);
@@ -53,7 +53,7 @@ public class BdTopToast extends LinearLayout {
             addView(this.mStatusBarView, 0, new LinearLayout.LayoutParams(-1, UtilHelper.getStatusBarHeight()));
         }
         LayoutInflater.from(getContext()).inflate(R.layout.bd_top_toast_layout, this);
-        this.nRg = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
+        this.nRf = (BottomShadowLinearLayout) findViewById(R.id.bd_top_toast_group);
         this.mIconView = (ImageView) findViewById(R.id.bd_top_toast_icon);
         this.cWc = (TextView) findViewById(R.id.bd_top_toast_content);
         initAnimation();
@@ -88,11 +88,11 @@ public class BdTopToast extends LinearLayout {
     }
 
     public BdTopToast yW(boolean z) {
-        this.nRh = z;
+        this.nRg = z;
         return this;
     }
 
-    public BdTopToast UY(String str) {
+    public BdTopToast UX(String str) {
         this.cWc.setText(str);
         return this;
     }
@@ -128,13 +128,13 @@ public class BdTopToast extends LinearLayout {
 
     public void onChangeSkinType() {
         ao.setBackgroundColor(this.mStatusBarView, R.color.CAM_X0207);
-        if (this.nRh) {
-            SvgManager.bwq().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
+        if (this.nRg) {
+            SvgManager.bwr().a(this.mIconView, R.drawable.ic_icon_pure_succeed_use_n, R.color.CAM_X0302, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.cWc, R.color.CAM_X0302);
         } else {
-            SvgManager.bwq().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwr().a(this.mIconView, R.drawable.ic_icon_pure_defeated_use_n, R.color.CAM_X0301, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.cWc, R.color.CAM_X0301);
         }
-        this.nRg.onChangeSkinType();
+        this.nRf.onChangeSkinType();
     }
 }

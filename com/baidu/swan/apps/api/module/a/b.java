@@ -23,16 +23,16 @@ public class b extends d {
         super(bVar);
     }
 
-    public com.baidu.swan.apps.api.c.b anl() {
+    public com.baidu.swan.apps.api.c.b anm() {
         if (DEBUG) {
             Log.d("Api-Login", "start is login action");
         }
-        e aMl = e.aMl();
-        if (aMl == null) {
+        e aMm = e.aMm();
+        if (aMm == null) {
             c.e("Api-Login", "swan app is null");
             return new com.baidu.swan.apps.api.c.b(202, "swan app is null");
         }
-        boolean isLogin = aMl.aMx().isLogin(getContext());
+        boolean isLogin = aMm.aMy().isLogin(getContext());
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("isLogin", isLogin);
@@ -47,41 +47,41 @@ public class b extends d {
         if (DEBUG) {
             Log.d("Api-Login", "start login");
         }
-        e aMl = e.aMl();
-        CallbackHandler ang = ani().ang();
-        if (aMl == null) {
-            com.baidu.swan.games.v.c.e(ang, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
+        e aMm = e.aMm();
+        CallbackHandler anh = anj().anh();
+        if (aMm == null) {
+            com.baidu.swan.games.v.c.e(anh, UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp").toString());
             return new com.baidu.swan.apps.api.c.b(1001, "empty swanApp");
         }
         JSONObject kX = kX(str);
         if (kX == null) {
-            com.baidu.swan.games.v.c.e(ang, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
-            a(aMl, 1, 201, "empty joParams");
+            com.baidu.swan.games.v.c.e(anh, UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams").toString());
+            a(aMm, 1, 201, "empty joParams");
             return new com.baidu.swan.apps.api.c.b(201, "empty joParams");
         }
         String optString = kX.optString("cb");
         if (TextUtils.isEmpty(optString)) {
-            com.baidu.swan.games.v.c.e(ang, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
-            a(aMl, 1, 201, "empty cb");
+            com.baidu.swan.games.v.c.e(anh, UnitedSchemeUtility.wrapCallbackParams(201, "empty cb").toString());
+            a(aMm, 1, 201, "empty cb");
             return new com.baidu.swan.apps.api.c.b(201, "empty cb");
-        } else if (!kX.optBoolean("force", true) && !aMl.aMx().isLogin(getContext())) {
-            ang.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-            com.baidu.swan.games.v.c.e(ang, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
-            a(aMl, 43, 10004, "user not logged in");
+        } else if (!kX.optBoolean("force", true) && !aMm.aMy().isLogin(getContext())) {
+            anh.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+            com.baidu.swan.games.v.c.e(anh, UnitedSchemeUtility.wrapCallbackParams(10004, "user not logged in").toString());
+            a(aMm, 43, 10004, "user not logged in");
             return new com.baidu.swan.apps.api.c.b(0);
         } else {
             Context context = getContext();
-            if (!(context instanceof Activity) && (context = aMl.aMe()) == null) {
+            if (!(context instanceof Activity) && (context = aMm.aMf()) == null) {
                 return new com.baidu.swan.apps.api.c.b(1001, "the context is not an activity");
             }
-            a(aMl, (Activity) context, kX, ang, optString);
+            a(aMm, (Activity) context, kX, anh, optString);
             return new com.baidu.swan.apps.api.c.b(0);
         }
     }
 
     public static void a(final e eVar, Activity activity, final JSONObject jSONObject, final CallbackHandler callbackHandler, final String str) {
         final a aVar = new a(jSONObject);
-        eVar.aMw().a(activity, aVar, (Bundle) null, new com.baidu.swan.apps.ao.e.b<h<f.c>>() { // from class: com.baidu.swan.apps.api.module.a.b.1
+        eVar.aMx().a(activity, aVar, (Bundle) null, new com.baidu.swan.apps.ao.e.b<h<f.c>>() { // from class: com.baidu.swan.apps.api.module.a.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -111,16 +111,16 @@ public class b extends d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void a(String str, final e eVar, final CallbackHandler callbackHandler, final String str2, final h<f.c> hVar) {
-        SwanAppActivity aMe = eVar.aMe();
-        if (aMe == null) {
+        SwanAppActivity aMf = eVar.aMf();
+        if (aMf == null) {
             callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001, "the activity is null").toString());
         } else {
-            com.baidu.swan.apps.setting.b.a.a(aMe, "snsapi_userinfo", com.baidu.swan.apps.ac.g.b.rI(str), false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.api.module.a.b.2
+            com.baidu.swan.apps.setting.b.a.a(aMf, "snsapi_userinfo", com.baidu.swan.apps.ac.g.b.rI(str), false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.api.module.a.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
                 public void L(com.baidu.swan.apps.setting.b.a aVar) {
-                    if (aVar != null && aVar.aOD()) {
+                    if (aVar != null && aVar.aOE()) {
                         b.a(eVar, CallbackHandler.this, str2, hVar);
                     } else {
                         CallbackHandler.this.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(403, "permission denied").toString());
@@ -165,9 +165,9 @@ public class b extends d {
     }
 
     public static void a(e eVar, int i, int i2, String str) {
-        int ajk;
-        if (eVar != null && (ajk = eVar.ajk()) == 0) {
-            com.baidu.swan.apps.statistic.a.d tI = new com.baidu.swan.apps.statistic.a.d().i(new com.baidu.swan.apps.al.a().cV(5L).cW(i)).a(eVar.aju()).tH(com.baidu.swan.apps.statistic.h.kX(ajk)).tI(e.aMm());
+        int ajl;
+        if (eVar != null && (ajl = eVar.ajl()) == 0) {
+            com.baidu.swan.apps.statistic.a.d tI = new com.baidu.swan.apps.statistic.a.d().i(new com.baidu.swan.apps.al.a().cV(5L).cW(i)).a(eVar.ajv()).tH(com.baidu.swan.apps.statistic.h.kX(ajl)).tI(e.aMn());
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put(TiebaInitialize.LogFields.ERROR_CODE, i2);

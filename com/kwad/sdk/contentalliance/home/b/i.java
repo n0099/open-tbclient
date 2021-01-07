@@ -6,7 +6,7 @@ import com.kwad.sdk.internal.api.SceneImpl;
 public class i extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    com.kwad.sdk.core.i.a f8997b;
+    com.kwad.sdk.core.i.a f8998b;
     private com.kwad.sdk.core.i.c c;
     private boolean d;
     private SceneImpl e;
@@ -18,14 +18,14 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.contentalliance.home.e, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        com.kwad.sdk.contentalliance.home.h hVar = this.f9033a.f;
+        com.kwad.sdk.contentalliance.home.h hVar = this.f9034a.f;
         if (hVar == null) {
             return;
         }
-        this.f8997b = hVar.f9041a;
-        if (this.f8997b != null) {
-            this.e = this.f9033a.e;
-            this.f = this.f9033a.f9034a;
+        this.f8998b = hVar.f9042a;
+        if (this.f8998b != null) {
+            this.e = this.f9034a.e;
+            this.f = this.f9034a.f9035a;
             this.h = String.valueOf(this.f.hashCode());
             if (this.c == null) {
                 this.c = new com.kwad.sdk.core.i.c() { // from class: com.kwad.sdk.contentalliance.home.b.i.1
@@ -49,7 +49,7 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
                         i.this.g = System.currentTimeMillis();
                     }
                 };
-                this.f8997b.a(this.c);
+                this.f8998b.a(this.c);
             }
         }
     }
@@ -58,10 +58,10 @@ public class i extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.c == null || this.f8997b == null) {
+        if (this.c == null || this.f8998b == null) {
             return;
         }
-        this.f8997b.b(this.c);
+        this.f8998b.b(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

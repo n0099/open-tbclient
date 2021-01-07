@@ -8,7 +8,7 @@ public class c {
     private ConcurrentHashMap<Class<?>, b> ewu;
     private ConcurrentHashMap<Class<?>, Uri> ewv;
 
-    private void bge() {
+    private void bgf() {
         this.ewu = new ConcurrentHashMap<>();
         this.ewv = new ConcurrentHashMap<>();
         this.ewu.put(com.baidu.swan.pms.model.f.class, new f());
@@ -30,7 +30,7 @@ public class c {
     }
 
     public c() {
-        bge();
+        bgf();
     }
 
     public <T> b<T> k(Class<T> cls) {

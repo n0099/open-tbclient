@@ -6,7 +6,7 @@ public class n {
     private long fCF;
     private String imgUrl;
 
-    public long bEh() {
+    public long bEi() {
         return this.fCF;
     }
 
@@ -18,7 +18,7 @@ public class n {
         return this.imgUrl;
     }
 
-    public void AY(String str) {
+    public void AX(String str) {
         this.imgUrl = str;
     }
 

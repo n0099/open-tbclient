@@ -29,7 +29,7 @@ public class a {
 
     /* renamed from: com.baidu.yuyinala.privatemessage.session.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0951a<T> {
+    public interface InterfaceC0989a<T> {
         void a(b<T> bVar);
     }
 
@@ -57,24 +57,24 @@ public class a {
         this.mContext = context;
     }
 
-    public void a(InterfaceC0951a<ChatSession> interfaceC0951a) {
-        b(interfaceC0951a);
+    public void a(InterfaceC0989a<ChatSession> interfaceC0989a) {
+        b(interfaceC0989a);
     }
 
-    private void b(final InterfaceC0951a<ChatSession> interfaceC0951a) {
+    private void b(final InterfaceC0989a<ChatSession> interfaceC0989a) {
         final AtomicInteger atomicInteger = new AtomicInteger(2);
         final b bVar = new b();
-        c(new InterfaceC0951a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.a.1
-            @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0951a
+        c(new InterfaceC0989a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.a.1
+            @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0989a
             public void a(b<ChatSession> bVar2) {
                 bVar.mList.addAll(((b) bVar2).mList);
                 if (atomicInteger.decrementAndGet() == 0) {
-                    a.this.a(bVar, interfaceC0951a);
+                    a.this.a(bVar, interfaceC0989a);
                 }
             }
         });
-        a(new InterfaceC0951a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.a.2
-            @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0951a
+        a(new InterfaceC0989a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.a.2
+            @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0989a
             public void a(b<ChatSession> bVar2) {
                 for (ChatSession chatSession : ((b) bVar2).mList) {
                     chatSession.setLastMsgTime(chatSession.getLastMsgTime() / 1000);
@@ -82,14 +82,14 @@ public class a {
                 }
                 bVar.mHasMore = ((b) bVar2).mHasMore;
                 if (atomicInteger.decrementAndGet() == 0) {
-                    a.this.a(bVar, interfaceC0951a);
+                    a.this.a(bVar, interfaceC0989a);
                 }
             }
         }, 0L);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final b<ChatSession> bVar, final InterfaceC0951a<ChatSession> interfaceC0951a) {
+    public void a(final b<ChatSession> bVar, final InterfaceC0989a<ChatSession> interfaceC0989a) {
         Collections.sort(((b) bVar).mList, new Comparator<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.a.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // java.util.Comparator
@@ -102,20 +102,20 @@ public class a {
                 @Override // com.baidu.yuyinala.privatemessage.model.b.a
                 public void gC(List<f> list) {
                     a.I(bVar.mList, list);
-                    if (interfaceC0951a != null) {
-                        interfaceC0951a.a(bVar);
+                    if (interfaceC0989a != null) {
+                        interfaceC0989a.a(bVar);
                     }
                 }
 
                 @Override // com.baidu.yuyinala.privatemessage.model.b.a
                 public void onFail(int i, String str) {
-                    if (interfaceC0951a != null) {
-                        interfaceC0951a.a(bVar);
+                    if (interfaceC0989a != null) {
+                        interfaceC0989a.a(bVar);
                     }
                 }
             });
-        } else if (interfaceC0951a != null) {
-            interfaceC0951a.a(bVar);
+        } else if (interfaceC0989a != null) {
+            interfaceC0989a.a(bVar);
         }
     }
 
@@ -163,18 +163,18 @@ public class a {
     /* renamed from: com.baidu.yuyinala.privatemessage.session.a$5  reason: invalid class name */
     /* loaded from: classes11.dex */
     public class AnonymousClass5 implements Runnable {
-        final /* synthetic */ InterfaceC0951a pcF;
+        final /* synthetic */ InterfaceC0989a pcF;
 
-        AnonymousClass5(InterfaceC0951a interfaceC0951a) {
-            this.pcF = interfaceC0951a;
+        AnonymousClass5(InterfaceC0989a interfaceC0989a) {
+            this.pcF = interfaceC0989a;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             final AtomicInteger atomicInteger = new AtomicInteger(1);
             final b bVar = new b();
-            a.this.a(BIMManager.CATEGORY.ALL, new InterfaceC0951a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.a.5.1
-                @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0951a
+            a.this.a(BIMManager.CATEGORY.ALL, new InterfaceC0989a<ChatSession>() { // from class: com.baidu.yuyinala.privatemessage.session.a.5.1
+                @Override // com.baidu.yuyinala.privatemessage.session.a.InterfaceC0989a
                 public void a(b<ChatSession> bVar2) {
                     for (ChatSession chatSession : ((b) bVar2).mList) {
                         if (chatSession.getContacterId() >= 0) {
@@ -195,12 +195,12 @@ public class a {
         }
     }
 
-    private void c(InterfaceC0951a<ChatSession> interfaceC0951a) {
-        this.mSchedulerHandler.post(new AnonymousClass5(interfaceC0951a));
+    private void c(InterfaceC0989a<ChatSession> interfaceC0989a) {
+        this.mSchedulerHandler.post(new AnonymousClass5(interfaceC0989a));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(BIMManager.CATEGORY category, final InterfaceC0951a<ChatSession> interfaceC0951a) {
+    public void a(BIMManager.CATEGORY category, final InterfaceC0989a<ChatSession> interfaceC0989a) {
         final b bVar = new b();
         ArrayList arrayList = new ArrayList();
         arrayList.add(0);
@@ -217,22 +217,22 @@ public class a {
                         public void run() {
                             if (list == null || list.isEmpty()) {
                                 bVar.mList = Collections.emptyList();
-                                interfaceC0951a.a(bVar);
+                                interfaceC0989a.a(bVar);
                                 return;
                             }
                             bVar.mList = list;
-                            interfaceC0951a.a(bVar);
+                            interfaceC0989a.a(bVar);
                         }
                     });
                     return;
                 }
                 bVar.mList = list;
-                interfaceC0951a.a(bVar);
+                interfaceC0989a.a(bVar);
             }
         });
     }
 
-    private void a(final InterfaceC0951a<ChatSession> interfaceC0951a, long j) {
+    private void a(final InterfaceC0989a<ChatSession> interfaceC0989a, long j) {
         BIMManager.mediaGetChatSessions(this.mContext, 0L, j, 10, new IMediaGetChatSessionListener() { // from class: com.baidu.yuyinala.privatemessage.session.a.7
             @Override // com.baidu.android.imsdk.chatmessage.IMediaGetChatSessionListener
             public void onMediaGetChatSessionResult(int i, int i2, boolean z, List<ChatSession> list) {
@@ -255,7 +255,7 @@ public class a {
                 a.this.mMainHandler.post(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.session.a.7.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        interfaceC0951a.a(bVar);
+                        interfaceC0989a.a(bVar);
                     }
                 });
             }

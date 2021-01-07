@@ -26,11 +26,11 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     private String mPortrait;
     private String mRoomId;
     private String mRoomName;
-    private String ojm;
-    public RankListView osA;
-    private int osB;
-    private String osC;
-    private String osz;
+    private String ojl;
+    private int osA;
+    private String osB;
+    private String osy;
+    public RankListView osz;
     public String otherParams;
 
     public a(TbPageContext tbPageContext) {
@@ -39,38 +39,38 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
 
     public void a(int i, String str, String str2, boolean z, String str3, String str4, String str5, long j, String str6, int i2, String str7, String str8, String str9) {
         this.aMi = i;
-        this.osz = str;
-        this.osC = str8;
+        this.osy = str;
+        this.osB = str8;
         this.mRoomName = str9;
         this.hNM = str2;
         this.mIsHost = z;
         this.mPortrait = str3;
         this.beS = str5;
         this.grz = j;
-        this.ojm = str6;
-        this.osB = i2;
+        this.ojl = str6;
+        this.osA = i2;
         this.otherParams = str4;
         this.mRoomId = str7;
     }
 
-    public void cJw() {
-        if (this.osA != null) {
-            this.osA.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.ranklist.a.1
+    public void cJx() {
+        if (this.osz != null) {
+            this.osz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.ranklist.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new b(a.this.getPageContext().getPageActivity(), a.this.aMi, a.this.osz, a.this.hNM, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, a.this.mIsHost, a.this.mPortrait, a.this.otherParams, a.this.beS, a.this.grz, a.this.ojm, a.this.mRoomId, a.this.osC, a.this.mRoomName)));
-                    a.this.edh();
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new b(a.this.getPageContext().getPageActivity(), a.this.aMi, a.this.osy, a.this.hNM, RequestResponseCode.REQUEST_RANK_LIST_TO_SHARE, a.this.mIsHost, a.this.mPortrait, a.this.otherParams, a.this.beS, a.this.grz, a.this.ojl, a.this.mRoomId, a.this.osB, a.this.mRoomName)));
+                    a.this.edi();
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void edh() {
+    public void edi() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ojm);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ojl);
         } catch (Exception e) {
             BdLog.e(e);
         }
@@ -84,51 +84,51 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     }
 
     private void aN(ViewGroup viewGroup) {
-        if (this.osA != null && this.osA.getParent() != null) {
-            ((ViewGroup) this.osA.getParent()).removeView(this.osA);
+        if (this.osz != null && this.osz.getParent() != null) {
+            ((ViewGroup) this.osz.getParent()).removeView(this.osz);
         }
-        if (this.osA == null) {
-            this.osA = new RankListView(getPageContext().getPageActivity());
+        if (this.osz == null) {
+            this.osz = new RankListView(getPageContext().getPageActivity());
         }
-        this.osA.setId(a.f.ala_liveroom_ranklist);
-        this.osA.setmTvText(this.osB);
+        this.osz.setId(a.f.ala_liveroom_ranklist);
+        this.osz.setmTvText(this.osA);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
         layoutParams.addRule(1, a.f.guard_club_entry_id);
         layoutParams.addRule(3, a.f.ala_liveroom_hostheader);
         layoutParams.leftMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds20);
         layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds14);
-        viewGroup.addView(this.osA, layoutParams);
+        viewGroup.addView(this.osz, layoutParams);
     }
 
     public void Ns(int i) {
-        if (this.osA != null) {
-            this.osA.setmTvText(i);
+        if (this.osz != null) {
+            this.osz.setmTvText(i);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void DC() {
         super.DC();
-        if (this.osA != null && this.osA.getParent() != null) {
-            ((ViewGroup) this.osA.getParent()).removeView(this.osA);
+        if (this.osz != null && this.osz.getParent() != null) {
+            ((ViewGroup) this.osz.getParent()).removeView(this.osz);
         }
-        if (this.osA != null) {
-            this.osA.destory();
-            this.osA = null;
+        if (this.osz != null) {
+            this.osz.destory();
+            this.osz = null;
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.osA != null) {
-            this.osA.destory();
-            this.osA = null;
+        if (this.osz != null) {
+            this.osz.destory();
+            this.osz = null;
         }
     }
 
-    public void cnd() {
+    public void cne() {
     }
 
-    public void cne() {
+    public void cnf() {
     }
 }

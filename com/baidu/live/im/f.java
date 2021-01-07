@@ -88,7 +88,7 @@ public class f {
             x xVar;
             if (!customResponsedMessage.hasError() && customResponsedMessage.getError() == 0) {
                 f.this.bnk = 0L;
-                if (com.baidu.j.b.a.by(f.this.mContext).abS() == null || !(customResponsedMessage.getData() instanceof x) || (xVar = (x) customResponsedMessage.getData()) == null) {
+                if (com.baidu.j.b.a.by(f.this.mContext).abT() == null || !(customResponsedMessage.getData() instanceof x) || (xVar = (x) customResponsedMessage.getData()) == null) {
                     return;
                 }
                 if ((xVar.mLiveSdkInfo != null && xVar.mLiveSdkInfo.mCastIds != null) || (xVar.mLiveInfo != null && xVar.mLiveInfo.mCastIds != null)) {
@@ -587,7 +587,7 @@ public class f {
 
     public void Cv() {
         this.handler.removeCallbacksAndMessages(null);
-        com.baidu.j.b.a.by(this.mContext).abS().Mr();
+        com.baidu.j.b.a.by(this.mContext).abT().Mr();
         this.bns = 0L;
     }
 
@@ -680,14 +680,14 @@ public class f {
         if (!TextUtils.isEmpty(str) && !"0".equals(str)) {
             a((JSONObject) null, (JSONObject) null, "1529", UbcStatConstant.ContentType.UBC_TYPE_IM_JOIN, str);
             UbcAudioFlowStatisticManager.getInstance().doSlotStart(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_AUDIO_IM_CONNECT_FLOW, "auidolivechatflow", UbcStatConstant.Page.AUDIO_LIVE_ROOM, ""), "IMConnect", null);
-            com.baidu.j.b.a.by(this.mContext).abS().a(str, str2, i, new com.baidu.j.a.b.b() { // from class: com.baidu.live.im.f.2
+            com.baidu.j.b.a.by(this.mContext).abT().a(str, str2, i, new com.baidu.j.a.b.b() { // from class: com.baidu.live.im.f.2
                 @Override // com.baidu.j.a.b.b
                 public void onResult(int i2, long j, long j2) {
                     if (TbConfig.IM_LOG) {
                         Log.i("imlog", "@.@ enterRoom onResult i:" + i2 + ", l:" + j + ", l1:" + j2);
                     }
                     if (f.this.aMh == null || f.this.chatMCastId == null || f.this.ensureMCastId == null) {
-                        com.baidu.j.b.a.by(f.this.mContext).abS().jw(String.valueOf(j));
+                        com.baidu.j.b.a.by(f.this.mContext).abT().jw(String.valueOf(j));
                         LogManager.getLiveIMLogger().doIMLongLinkLog("", "", "", "", "", LogConfig.EXIT_LIVE_IM, f.this.chatMCastId, String.valueOf(j), -1, "", "", "");
                         return;
                     }
@@ -696,7 +696,7 @@ public class f {
                     long j3 = JavaTypesHelper.toLong(f.this.chatMCastId, -1L);
                     long j4 = JavaTypesHelper.toLong(f.this.ensureMCastId, -1L);
                     if (j3 != j && j4 != j) {
-                        com.baidu.j.b.a.by(f.this.mContext).abS().jw(String.valueOf(j));
+                        com.baidu.j.b.a.by(f.this.mContext).abT().jw(String.valueOf(j));
                         LogManager.getLiveIMLogger().doIMLongLinkLog("", "", "", "", "", LogConfig.EXIT_LIVE_IM, f.this.chatMCastId, String.valueOf(j), -1, "", "", "");
                         if (TbConfig.IM_LOG) {
                             Log.e("imlog", "BDIM enterRoom wrong then exit end:" + j);
@@ -806,8 +806,8 @@ public class f {
         if (this.aMh != null && this.aMh.mLiveSdkInfo != null && this.aMh.mLiveSdkInfo.mCastIds != null) {
             String str = this.aMh.mLiveSdkInfo.mCastIds.chatMCastId;
             String str2 = this.aMh.mLiveSdkInfo.mCastIds.ensureMCastId;
-            com.baidu.j.b.a.by(this.mContext).abS().jw(str);
-            com.baidu.j.b.a.by(this.mContext).abS().jw(str2);
+            com.baidu.j.b.a.by(this.mContext).abT().jw(str);
+            com.baidu.j.b.a.by(this.mContext).abT().jw(str2);
             Mu();
         }
         this.bni = 0;
@@ -951,7 +951,7 @@ public class f {
                 }
                 return;
             }
-            com.baidu.j.b.a.by(this.mContext).abS().a(str2, eVar, fVar);
+            com.baidu.j.b.a.by(this.mContext).abT().a(str2, eVar, fVar);
             if (TbConfig.IM_LOG) {
                 Log.i("imlog", "@.@ IM消息 发送 roomId:" + str2 + ", sendMessage:" + eVar.toString());
             }
@@ -1025,8 +1025,8 @@ public class f {
                 } else {
                     jSONObject3.put("is_meme", 0);
                 }
-                if (com.baidu.live.aq.a.aam().aas() != null && com.baidu.live.aq.a.aam().aas().aLq != null) {
-                    int roomMode = com.baidu.live.aq.a.aam().aas().aLq.getRoomMode();
+                if (com.baidu.live.aq.a.aan().aat() != null && com.baidu.live.aq.a.aan().aat().aLq != null) {
+                    int roomMode = com.baidu.live.aq.a.aan().aat().aLq.getRoomMode();
                     if (roomMode == 0) {
                         jSONObject3.put(UbcStatConstant.KEY_CONTENT_EXT_MODE, "normal");
                     } else if (roomMode == 1) {
@@ -1126,7 +1126,7 @@ public class f {
     }
 
     private void hM(String str) {
-        com.baidu.j.b.a.by(this.mContext).abS().a(str, this.bnD);
+        com.baidu.j.b.a.by(this.mContext).abT().a(str, this.bnD);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

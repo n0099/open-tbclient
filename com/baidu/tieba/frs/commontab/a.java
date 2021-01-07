@@ -51,7 +51,7 @@ public class a {
                 Iterator it = ((AbsDelegateAdapterList) customResponsedMessage.getData()).iterator();
                 while (it.hasNext()) {
                     com.baidu.adp.widget.ListView.a aVar = (com.baidu.adp.widget.ListView.a) it.next();
-                    if ((aVar instanceof x) && "FrsHottopicDelegateAdapter".equals(((x) aVar).agu()) && a.this.boM != null) {
+                    if ((aVar instanceof x) && "FrsHottopicDelegateAdapter".equals(((x) aVar).agv()) && a.this.boM != null) {
                         ((x) aVar).a(a.this.jnQ.getPageContext(), a.this.jnQ.getUniqueId());
                         if (a.this.isDynamic) {
                             ((x) aVar).setFrom("c13010");
@@ -90,7 +90,7 @@ public class a {
             this.joa = new g(frsCommonTabFragment.getPageContext(), bz.eTc, this.jnQ.getUniqueId());
             this.joa.a(this.Yc);
         }
-        cIe();
+        cIf();
         this.boM.add(this.jnR);
         this.boM.add(this.jnS);
         this.boM.add(this.jnT);
@@ -110,7 +110,7 @@ public class a {
             this.jnT.setFrom("c13010");
             this.jnU.setFrom("c13010");
             this.jnV.setFrom("c13010");
-            Fm("page_frs_dynamic");
+            Fl("page_frs_dynamic");
         }
         this.jnR.wt(frsCommonTabFragment.tabId);
         this.jnS.wt(frsCommonTabFragment.tabId);
@@ -153,30 +153,30 @@ public class a {
         if (frsCommonTabFragment.tabId == 502 || frsCommonTabFragment.isGeneralTab == 1) {
             b(frsViewData);
         }
-        cHC();
+        cHD();
         bdTypeRecyclerView.addAdapters(this.boM);
-        cIf();
+        cIg();
     }
 
-    private void cIe() {
-        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.dEV().a(this.jnQ, AdvertAppInfo.eNz);
-        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.dEV().a(this.jnQ, AdvertAppInfo.eNI);
-        com.baidu.adp.widget.ListView.a<?, ?> a4 = com.baidu.tieba.recapp.r.dEV().a(this.jnQ, AdvertAppInfo.eNM);
-        com.baidu.adp.widget.ListView.a<?, ?> a5 = com.baidu.tieba.recapp.r.dEV().a(this.jnQ, AdvertAppInfo.eNN);
-        com.baidu.adp.widget.ListView.a<?, ?> a6 = com.baidu.tieba.recapp.r.dEV().a(this.jnQ, AdvertAppInfo.eNO);
+    private void cIf() {
+        com.baidu.adp.widget.ListView.a<?, ?> a2 = com.baidu.tieba.recapp.r.dEW().a(this.jnQ, AdvertAppInfo.eNz);
+        com.baidu.adp.widget.ListView.a<?, ?> a3 = com.baidu.tieba.recapp.r.dEW().a(this.jnQ, AdvertAppInfo.eNI);
+        com.baidu.adp.widget.ListView.a<?, ?> a4 = com.baidu.tieba.recapp.r.dEW().a(this.jnQ, AdvertAppInfo.eNM);
+        com.baidu.adp.widget.ListView.a<?, ?> a5 = com.baidu.tieba.recapp.r.dEW().a(this.jnQ, AdvertAppInfo.eNN);
+        com.baidu.adp.widget.ListView.a<?, ?> a6 = com.baidu.tieba.recapp.r.dEW().a(this.jnQ, AdvertAppInfo.eNO);
         this.boM.add(a2);
         this.boM.add(a3);
         this.boM.add(a4);
         this.boM.add(a5);
         this.boM.add(a6);
-        com.baidu.adp.widget.ListView.a<?, ?> b2 = com.baidu.tieba.h.b.cPp().b(this.jnQ.getBaseFragmentActivity(), AdvertAppInfo.eNL);
-        com.baidu.adp.widget.ListView.a<?, ?> b3 = com.baidu.tieba.h.b.cPp().b(this.jnQ.getBaseFragmentActivity(), AdvertAppInfo.eNK);
+        com.baidu.adp.widget.ListView.a<?, ?> b2 = com.baidu.tieba.h.b.cPq().b(this.jnQ.getBaseFragmentActivity(), AdvertAppInfo.eNL);
+        com.baidu.adp.widget.ListView.a<?, ?> b3 = com.baidu.tieba.h.b.cPq().b(this.jnQ.getBaseFragmentActivity(), AdvertAppInfo.eNK);
         this.boM.add(b2);
         this.boM.add(b3);
     }
 
     public void setData(ArrayList<n> arrayList) {
-        cHC();
+        cHD();
         this.Yc.setData(aA(arrayList));
     }
 
@@ -186,8 +186,8 @@ public class a {
         while (it.hasNext()) {
             n next = it.next();
             if (next instanceof bz) {
-                if (((bz) next).btx() != null) {
-                    if (!((bz) next).bst()) {
+                if (((bz) next).bty() != null) {
+                    if (!((bz) next).bsu()) {
                         arrayList2.add(next);
                     } else {
                         ((bz) next).a((Item) null);
@@ -203,7 +203,7 @@ public class a {
         return arrayList2;
     }
 
-    private void cHC() {
+    private void cHD() {
         if (!com.baidu.tbadk.core.util.x.isEmpty(this.boM) && this.jnQ != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
                 if (aVar instanceof com.baidu.tieba.frs.k) {
@@ -213,7 +213,7 @@ public class a {
         }
     }
 
-    private void cIf() {
+    private void cIg() {
         if (this.jnQ != null && !com.baidu.tbadk.core.util.x.isEmpty(this.boM)) {
             for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
                 if (aVar instanceof com.baidu.tieba.frs.b.d) {
@@ -246,11 +246,11 @@ public class a {
         }
     }
 
-    private void Fm(String str) {
+    private void Fl(String str) {
         if (this.boM != null) {
             for (com.baidu.adp.widget.ListView.a aVar : this.boM) {
                 if (aVar instanceof com.baidu.tieba.a.f) {
-                    ((com.baidu.tieba.a.f) aVar).Fm(str);
+                    ((com.baidu.tieba.a.f) aVar).Fl(str);
                 }
             }
         }

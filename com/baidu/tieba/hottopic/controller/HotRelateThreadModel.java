@@ -66,25 +66,25 @@ public class HotRelateThreadModel extends BdBaseModel<BaseActivity<?>> {
     }
 
     private void a(e eVar, int i) {
-        f cUZ = eVar.cUZ();
+        f cVa = eVar.cVa();
         ax pageData = eVar.getPageData();
-        if (cUZ != null && pageData != null) {
+        if (cVa != null && pageData != null) {
             RequestGetTopicRelateThreadMessage requestGetTopicRelateThreadMessage = new RequestGetTopicRelateThreadMessage();
             double d = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(cUZ.fgR, 0L)));
-            requestGetTopicRelateThreadMessage.setTopicName(cUZ.eRS);
-            if (cUZ.krb != null && cUZ.krc != null) {
-                requestGetTopicRelateThreadMessage.setPmy_topic_id(cUZ.krb);
-                requestGetTopicRelateThreadMessage.setPmy_source(cUZ.krc);
+            requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(com.baidu.adp.lib.f.b.toLong(cVa.fgR, 0L)));
+            requestGetTopicRelateThreadMessage.setTopicName(cVa.eRS);
+            if (cVa.krb != null && cVa.krc != null) {
+                requestGetTopicRelateThreadMessage.setPmy_topic_id(cVa.krb);
+                requestGetTopicRelateThreadMessage.setPmy_source(cVa.krc);
             }
             requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(equipmentHeight));
             requestGetTopicRelateThreadMessage.setScrW(Integer.valueOf(equipmentWidth));
             requestGetTopicRelateThreadMessage.setScrDip(Double.valueOf(d));
             requestGetTopicRelateThreadMessage.setRn(10);
-            requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(pageData.bqd() + 1));
-            requestGetTopicRelateThreadMessage.setQType(Integer.valueOf(k.bou().getViewImageQuality()));
+            requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(pageData.bqe() + 1));
+            requestGetTopicRelateThreadMessage.setQType(Integer.valueOf(k.bov().getViewImageQuality()));
             requestGetTopicRelateThreadMessage.setSort_type(Integer.valueOf(i));
             if (requestGetTopicRelateThreadMessage.getHttpMessage() != null) {
                 requestGetTopicRelateThreadMessage.getHttpMessage().setExtra(Integer.valueOf(i));

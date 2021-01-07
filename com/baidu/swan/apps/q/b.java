@@ -13,7 +13,7 @@ public class b {
     private b() {
     }
 
-    public static b aAd() {
+    public static b aAe() {
         if (dhf == null) {
             synchronized (b.class) {
                 if (dhf == null) {
@@ -29,15 +29,15 @@ public class b {
         return this.dhg;
     }
 
-    public SwanEditText aAe() {
+    public SwanEditText aAf() {
         return this.dhg;
     }
 
-    public void aAf() {
+    public void aAg() {
         this.dhg = null;
     }
 
-    public TextWatcher aAg() {
+    public TextWatcher aAh() {
         return this.mTextWatcher;
     }
 

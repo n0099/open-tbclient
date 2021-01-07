@@ -18,8 +18,8 @@ public class e extends com.baidu.swan.apps.api.a.d {
         if (DEBUG) {
             Log.d("Api-DeviceInfo", "start get device info");
         }
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null) {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm == null) {
             return new com.baidu.swan.apps.api.c.b(1001, "SwanApp is null");
         }
         Pair<com.baidu.swan.apps.api.c.b, JSONObject> bo = com.baidu.swan.apps.api.d.b.bo("Api-DeviceInfo", str);
@@ -36,7 +36,7 @@ public class e extends com.baidu.swan.apps.api.a.d {
             return new com.baidu.swan.apps.api.c.b(202, "cb is required");
         }
         final Context context = getContext();
-        aMl.aMw().b(context, "scope_get_device_info", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.api.module.k.e.1
+        aMm.aMx().b(context, "scope_get_device_info", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.api.module.k.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -60,8 +60,8 @@ public class e extends com.baidu.swan.apps.api.a.d {
     public JSONObject cp(Context context) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("oaid", com.baidu.swan.apps.t.a.aBx().cg(context));
-            jSONObject.put("androidId", com.baidu.swan.apps.t.a.aBx().getAndroidId(context));
+            jSONObject.put("oaid", com.baidu.swan.apps.t.a.aBy().cg(context));
+            jSONObject.put("androidId", com.baidu.swan.apps.t.a.aBy().getAndroidId(context));
         } catch (JSONException e) {
             if (DEBUG) {
                 e.printStackTrace();

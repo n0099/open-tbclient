@@ -10,7 +10,7 @@ import com.baidu.mario.a.b.c;
 import com.baidu.mario.a.b.d;
 import com.baidu.mario.a.b.e;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
     private HandlerThread chN;
@@ -74,7 +74,7 @@ public class a {
         }
     }
 
-    public void add() {
+    public void ade() {
         if (this.chO != null) {
             this.chO.removeCallbacksAndMessages(null);
             this.chO.sendMessage(this.chO.obtainMessage(1005));
@@ -83,7 +83,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class b extends Handler {
         public b(Looper looper) {
             super(looper);
@@ -96,20 +96,20 @@ public class a {
                     a.this.b((d) message.obj);
                     return;
                 case 1002:
-                    a.this.ade();
+                    a.this.adf();
                     return;
                 case 1003:
                     C0266a c0266a = (C0266a) message.obj;
                     a.this.e(c0266a.chR, c0266a.chS, c0266a.chT);
                     return;
                 case 1004:
-                    a.this.adf();
-                    return;
-                case 1005:
                     a.this.adg();
                     return;
-                case 1006:
+                case 1005:
                     a.this.adh();
+                    return;
+                case 1006:
+                    a.this.adi();
                     return;
                 default:
                     return;
@@ -125,9 +125,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ade() {
+    public void adf() {
         if (Build.VERSION.SDK_INT >= 18) {
-            this.chP.adp();
+            this.chP.adq();
         }
     }
 
@@ -139,18 +139,18 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adf() {
+    public void adg() {
         if (Build.VERSION.SDK_INT >= 18 && this.chP != null) {
             this.chP.b(true, (ByteBuffer) null, 0, 0L);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adg() {
+    public void adh() {
         if (Build.VERSION.SDK_INT >= 18) {
             if (this.chP != null) {
+                this.chP.adp();
                 this.chP.ado();
-                this.chP.adn();
             }
             this.chP = null;
             this.chx = null;
@@ -158,7 +158,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adh() {
+    public void adi() {
         if (this.chO != null) {
             this.chO.removeCallbacksAndMessages(null);
             this.chO = null;
@@ -170,7 +170,7 @@ public class a {
     }
 
     /* renamed from: com.baidu.mario.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     private class C0266a {
         ByteBuffer chR;
         int chS;

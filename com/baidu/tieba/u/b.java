@@ -13,23 +13,23 @@ import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
 public class b {
-    private static b nEH = new b();
+    private static b nEG = new b();
 
-    public static b dTa() {
-        return nEH;
+    public static b dTb() {
+        return nEG;
     }
 
-    public void dTb() {
+    public void dTc() {
         if (f.checkSD()) {
             new BdAsyncTask<Void, Void, Void>() { // from class: com.baidu.tieba.u.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 /* JADX INFO: Access modifiers changed from: protected */
                 @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
                 public Void doInBackground(Void... voidArr) {
-                    List dTd = b.dTd();
-                    int size = dTd.size();
+                    List dTe = b.dTe();
+                    int size = dTe.size();
                     for (int i = 0; i < size; i++) {
-                        a aVar = (a) dTd.get(i);
+                        a aVar = (a) dTe.get(i);
                         b.this.u(aVar.uuid, aVar.hUL);
                     }
                     return null;
@@ -38,7 +38,7 @@ public class b {
         }
     }
 
-    private static File[] dTc() {
+    private static File[] dTd() {
         File file = new File(f.a.lqX);
         if (file.exists()) {
             return file.listFiles();
@@ -47,21 +47,21 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static List<a> dTd() {
+    public static List<a> dTe() {
         ArrayList arrayList = new ArrayList();
-        File[] dTc = dTc();
-        if (dTc != null) {
-            for (File file : dTc) {
+        File[] dTd = dTd();
+        if (dTd != null) {
+            for (File file : dTd) {
                 String name = file.getName();
-                JSONObject Uf = Uf(file.getAbsolutePath() + f.a.lqN + "kpi");
-                if (Uf == null) {
-                    com.baidu.tieba.l.d.OR(name);
+                JSONObject Ue = Ue(file.getAbsolutePath() + f.a.lqN + "kpi");
+                if (Ue == null) {
+                    com.baidu.tieba.l.d.OQ(name);
                 } else {
-                    JSONObject Ug = Ug(file.getAbsolutePath() + f.a.lqN + "debug");
-                    if (Ug == null) {
-                        com.baidu.tieba.l.d.OR(name);
+                    JSONObject Uf = Uf(file.getAbsolutePath() + f.a.lqN + "debug");
+                    if (Uf == null) {
+                        com.baidu.tieba.l.d.OQ(name);
                     } else {
-                        arrayList.add(new a(name, a(VideoPlatformStatic.bOi(), Uf, Ug)));
+                        arrayList.add(new a(name, a(VideoPlatformStatic.bOj(), Ue, Uf)));
                     }
                 }
             }
@@ -69,7 +69,7 @@ public class b {
         return arrayList;
     }
 
-    private static JSONObject Uf(String str) {
+    private static JSONObject Ue(String str) {
         File file = new File(str);
         if (file.exists()) {
             try {
@@ -93,10 +93,10 @@ public class b {
         return (optInt == -1 || optInt2 == -1 || optInt3 == -1 || (optInt3 != 1 && optInt <= 0)) ? false : true;
     }
 
-    private static JSONObject Ug(String str) {
+    private static JSONObject Uf(String str) {
         if (!StringUtils.isNull(str) && new File(str).exists()) {
             try {
-                return new JSONObject().put("running", ac(com.baidu.tieba.l.d.OQ(str)));
+                return new JSONObject().put("running", ac(com.baidu.tieba.l.d.OP(str)));
             } catch (Exception e) {
                 e.printStackTrace();
                 return null;
@@ -120,7 +120,7 @@ public class b {
             }
         }
         if (!z) {
-            jSONArray.put(new com.baidu.tieba.n.c(502, "unknown", -4399, "").dCA());
+            jSONArray.put(new com.baidu.tieba.n.c(502, "unknown", -4399, "").dCB());
             return jSONArray;
         }
         return jSONArray;
@@ -158,7 +158,7 @@ public class b {
     public void a(a aVar) {
         try {
             c.e(c.eM(aVar.hUL), TbConfig.SERVER_ADDRESS + TbConfig.URL_POST_VIDEO_MONITOR_REPORT);
-            com.baidu.tieba.l.d.OR(aVar.uuid);
+            com.baidu.tieba.l.d.OQ(aVar.uuid);
         } catch (Exception e) {
             e.printStackTrace();
         }

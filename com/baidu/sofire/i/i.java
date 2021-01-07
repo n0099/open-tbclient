@@ -108,7 +108,7 @@ public final class i {
         try {
             com.baidu.sofire.e eVar = new com.baidu.sofire.e(context);
             long currentTimeMillis = System.currentTimeMillis();
-            long j = eVar.f5520a.getLong("pu_cl_fd", 0L);
+            long j = eVar.f5521a.getLong("pu_cl_fd", 0L);
             if (j == 0) {
                 j = System.currentTimeMillis();
                 eVar.g();

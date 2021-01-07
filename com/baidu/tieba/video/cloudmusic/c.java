@@ -6,9 +6,9 @@ public interface c {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void cIb();
+        void cIc();
 
-        void dTO();
+        void dTP();
     }
 
     /* loaded from: classes8.dex */

@@ -17,15 +17,15 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final ProtoAdapter<MovieEntity> ADAPTER = new ProtoAdapter_MovieEntity();
     public static final String DEFAULT_VERSION = "";
     private static final long serialVersionUID = 0;
-    @WireField(eEK = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", eEL = WireField.Label.REPEATED, tag = 5)
+    @WireField(eFo = "com.opensource.svgaplayer.proto.AudioEntity#ADAPTER", eFp = WireField.Label.REPEATED, tag = 5)
     public final List<AudioEntity> audios;
-    @WireField(eEJ = "com.squareup.wire.ProtoAdapter#STRING", eEK = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
+    @WireField(eFn = "com.squareup.wire.ProtoAdapter#STRING", eFo = "com.squareup.wire.ProtoAdapter#BYTES", tag = 3)
     public final Map<String, ByteString> images;
-    @WireField(eEK = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
+    @WireField(eFo = "com.opensource.svgaplayer.proto.MovieParams#ADAPTER", tag = 2)
     public final MovieParams params;
-    @WireField(eEK = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", eEL = WireField.Label.REPEATED, tag = 4)
+    @WireField(eFo = "com.opensource.svgaplayer.proto.SpriteEntity#ADAPTER", eFp = WireField.Label.REPEATED, tag = 4)
     public final List<SpriteEntity> sprites;
-    @WireField(eEK = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+    @WireField(eFo = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
     public final String version;
 
     public MovieEntity(String str, MovieParams movieParams, Map<String, ByteString> map, List<SpriteEntity> list, List<AudioEntity> list2) {
@@ -102,9 +102,9 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
     public static final class Builder extends Message.a<MovieEntity, Builder> {
         public MovieParams params;
         public String version;
-        public Map<String, ByteString> images = a.eEO();
-        public List<SpriteEntity> sprites = a.eEN();
-        public List<AudioEntity> audios = a.eEN();
+        public Map<String, ByteString> images = a.eFs();
+        public List<SpriteEntity> sprites = a.eFr();
+        public List<AudioEntity> audios = a.eFr();
 
         public Builder version(String str) {
             this.version = str;
@@ -123,13 +123,13 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         }
 
         public Builder sprites(List<SpriteEntity> list) {
-            a.gU(list);
+            a.gV(list);
             this.sprites = list;
             return this;
         }
 
         public Builder audios(List<AudioEntity> list) {
-            a.gU(list);
+            a.gV(list);
             this.audios = list;
             return this;
         }
@@ -177,11 +177,11 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public MovieEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eEC = cVar.eEC();
+            long eFg = cVar.eFg();
             while (true) {
-                int eED = cVar.eED();
-                if (eED != -1) {
-                    switch (eED) {
+                int eFh = cVar.eFh();
+                if (eFh != -1) {
+                    switch (eFh) {
                         case 1:
                             builder.version(ProtoAdapter.STRING.decode(cVar));
                             break;
@@ -198,12 +198,12 @@ public final class MovieEntity extends Message<MovieEntity, Builder> {
                             builder.audios.add(AudioEntity.ADAPTER.decode(cVar));
                             break;
                         default:
-                            FieldEncoding eEE = cVar.eEE();
-                            builder.addUnknownField(eED, eEE, eEE.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eFi = cVar.eFi();
+                            builder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
                             break;
                     }
                 } else {
-                    cVar.iP(eEC);
+                    cVar.iS(eFg);
                     return builder.build();
                 }
             }

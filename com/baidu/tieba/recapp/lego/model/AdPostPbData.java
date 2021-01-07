@@ -45,41 +45,41 @@ public class AdPostPbData extends PostAdBaseData implements AdvertAppInfo.ILegoA
         if (optJSONObject != null) {
             this.buttonClick = new PostAdBaseData.a.b();
             this.buttonClick.scheme = optJSONObject.optString("scheme");
-            this.buttonClick.mOh = optJSONObject.optString("als_stat");
-            this.buttonClick.mOi = optJSONObject.optString("url_stat");
+            this.buttonClick.mOg = optJSONObject.optString("als_stat");
+            this.buttonClick.mOh = optJSONObject.optString("url_stat");
         }
         JSONObject optJSONObject2 = jSONObject.optJSONObject("ext_data");
         if (optJSONObject2 != null) {
             this.extraData = new PostAdBaseData.a.c();
             JSONObject optJSONObject3 = optJSONObject2.optJSONObject("ad_download");
             if (optJSONObject3 != null) {
-                this.extraData.mOw = new PostAdBaseData.a.C0839a();
-                this.extraData.mOw.packageName = optJSONObject3.optString("pkgname");
-                this.extraData.mOw.downloadUrl = optJSONObject3.optString("download_url");
+                this.extraData.mOv = new PostAdBaseData.a.C0872a();
+                this.extraData.mOv.packageName = optJSONObject3.optString("pkgname");
+                this.extraData.mOv.downloadUrl = optJSONObject3.optString("download_url");
             }
         }
     }
 
     public boolean isDownload() {
-        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.mOw == null) ? false : true;
+        return (!"apk_download".equals(this.style) || this.extraData == null || this.extraData.mOv == null) ? false : true;
     }
 
     public String apkDownloadUrl() {
-        if (this.extraData == null || this.extraData.mOw == null) {
+        if (this.extraData == null || this.extraData.mOv == null) {
             return null;
         }
-        return this.extraData.mOw.downloadUrl;
+        return this.extraData.mOv.downloadUrl;
     }
 
     public String apkDownloadPackage() {
-        if (this.extraData == null || this.extraData.mOw == null) {
+        if (this.extraData == null || this.extraData.mOv == null) {
             return null;
         }
-        return this.extraData.mOw.packageName;
+        return this.extraData.mOv.packageName;
     }
 
     public AdvertAppInfo toAppData() {
-        if (this.extraData == null || this.extraData.mOw == null) {
+        if (this.extraData == null || this.extraData.mOv == null) {
             return null;
         }
         AdvertAppInfo advertAppInfo = new AdvertAppInfo();

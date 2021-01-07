@@ -36,7 +36,7 @@ public class a implements AdapterView.OnItemClickListener {
         this.mContext = context;
     }
 
-    public GridView ZX() {
+    public GridView ZY() {
         this.bVM = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_emojicon_grid, (ViewGroup) null);
         GridView gridView = (GridView) this.bVM.findViewById(a.f.Emoji_GridView);
         this.bVL = new String[this.bVK.length + 1];

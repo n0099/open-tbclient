@@ -56,15 +56,15 @@ public class j {
         }
     }
 
-    public List<TopicList> cVk() {
+    public List<TopicList> cVl() {
         return this.mTopicList;
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.n> cVg() {
-        return cVi();
+    public ArrayList<com.baidu.adp.widget.ListView.n> cVh() {
+        return cVj();
     }
 
-    private ArrayList<com.baidu.adp.widget.ListView.n> cVi() {
+    private ArrayList<com.baidu.adp.widget.ListView.n> cVj() {
         this.kqE = new ArrayList<>();
         if (this.krt != null && (!StringUtils.isNull(this.krt.picUrl) || !StringUtils.isNull(this.krt.videoUrl))) {
             this.kqE.add(this.krt);
@@ -73,7 +73,7 @@ public class j {
             int size = this.krv.size() == 1 ? this.krv.size() : 1;
             for (int i = 0; i < size; i++) {
                 b bVar = this.krv.get(i);
-                if (bVar != null && (!StringUtils.isNull(bVar.cUT()) || !StringUtils.isNull(bVar.cUU()) || !StringUtils.isNull(bVar.getName()))) {
+                if (bVar != null && (!StringUtils.isNull(bVar.cUU()) || !StringUtils.isNull(bVar.cUV()) || !StringUtils.isNull(bVar.getName()))) {
                     this.kqE.add(this.krv.get(i));
                 }
             }

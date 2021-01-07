@@ -15,7 +15,7 @@ public class b {
     private static volatile a dua;
 
     static {
-        dtY = !ProcessUtils.isMainProcess() && com.baidu.swan.apps.t.a.aAu().akF();
+        dtY = !ProcessUtils.isMainProcess() && com.baidu.swan.apps.t.a.aAv().akG();
         dtZ = false;
     }
 
@@ -24,29 +24,29 @@ public class b {
             if (DEBUG) {
                 Log.d("SwanAbSwitchCache", "SwanAbSwitchCache-init:" + ProcessUtils.getCurProcessName() + ":" + dtY);
             }
-            aHL();
             aHM();
+            aHN();
             dtZ = true;
         }
     }
 
-    private static void aHL() {
-        a.b.arn();
-        a.C0428a.auM();
-        com.baidu.swan.apps.t.a.aAu().ajZ();
-        com.baidu.swan.apps.core.i.a.auP();
-        com.baidu.swan.apps.ao.b.aQQ();
-        d.aIa();
+    private static void aHM() {
+        a.b.aro();
+        a.C0428a.auN();
+        com.baidu.swan.apps.t.a.aAv().aka();
+        com.baidu.swan.apps.core.i.a.auQ();
+        com.baidu.swan.apps.ao.b.aQR();
+        d.aIb();
         d.a.isEnable();
-        d.C0436d.akg();
+        d.C0436d.akh();
         d.c.h(true);
     }
 
-    private static void aHM() {
-        aHN();
+    private static void aHN() {
+        aHO();
     }
 
-    private static a aHN() {
+    private static a aHO() {
         if (dua == null) {
             synchronized (a.class) {
                 if (dua == null) {
@@ -60,24 +60,24 @@ public class b {
         return dua;
     }
 
-    public static boolean aHO() {
+    public static boolean aHP() {
         return dtZ;
     }
 
-    public static boolean aHP() {
+    public static boolean aHQ() {
         return dtY && dtZ && dua != null;
     }
 
-    public static boolean aGt() {
-        return aHN().due;
+    public static boolean aGu() {
+        return aHO().due;
     }
 
-    public static boolean ayV() {
-        return aHN().duf;
+    public static boolean ayW() {
+        return aHO().duf;
     }
 
     public static boolean getNgWebViewHeightSwitch() {
-        return aHN().dug;
+        return aHO().dug;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -91,11 +91,11 @@ public class b {
         private final boolean dug;
 
         private a() {
-            this.dub = com.baidu.swan.apps.t.a.aAu().akG();
-            this.duc = com.baidu.swan.apps.t.a.aAu().aks();
-            this.dud = com.baidu.swan.apps.t.a.aAu().ako();
-            this.due = f.aGt();
-            this.duf = com.baidu.swan.apps.framework.c.ayV();
+            this.dub = com.baidu.swan.apps.t.a.aAv().akH();
+            this.duc = com.baidu.swan.apps.t.a.aAv().akt();
+            this.dud = com.baidu.swan.apps.t.a.aAv().akp();
+            this.due = f.aGu();
+            this.duf = com.baidu.swan.apps.framework.c.ayW();
             this.dug = PullToRefreshBase.getNgWebViewHeightSwitch();
         }
     }

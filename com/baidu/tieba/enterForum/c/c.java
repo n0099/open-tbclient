@@ -32,10 +32,10 @@ public class c {
         return this.mView;
     }
 
-    public void atF() {
+    public void atG() {
         ao.setImageResource(this.iQx, R.drawable.cp_mask_attention_a);
         ao.setViewTextColor(this.iQy, R.color.CAM_X0109);
         ao.setViewTextColor(this.iQz, R.color.CAM_X0109);
-        com.baidu.tbadk.core.util.f.a.bwU().qq(0).qr(R.color.CAM_X0206).ag(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).af(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).ai(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).ah(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).bz(this.iQw);
+        com.baidu.tbadk.core.util.f.a.bwV().qq(0).qr(R.color.CAM_X0206).ag(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).af(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).ai(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).ah(l.getDimens(this.mPageContext.getPageActivity(), R.dimen.tbds21)).bz(this.iQw);
     }
 }

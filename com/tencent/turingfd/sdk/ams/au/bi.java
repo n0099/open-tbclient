@@ -6,32 +6,32 @@ import android.os.Process;
 import android.text.TextUtils;
 import com.baidu.live.tbadk.pagestayduration.PageStayDurationHelper;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class bi {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f13812a = y.a(y.f13854b);
+    public static final String f13813a = y.a(y.f13855b);
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f13813b = y.a(y.c);
+    public static final String f13814b = y.a(y.c);
     public static final String c = y.a(y.d);
     public static final String d = y.a(y.e);
     public static final String e = y.a(y.f);
     public static long f = 0;
     public static final String[] g = {"^/data/user/\\d+$", "^/data/data$"};
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final boolean f13814a;
+        public final boolean f13815a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f13815b;
+        public final String f13816b;
 
         public a(boolean z, String str) {
-            this.f13814a = z;
-            this.f13815b = str;
+            this.f13815a = z;
+            this.f13816b = str;
         }
     }
 
@@ -59,9 +59,9 @@ public class bi {
             java.lang.String r2 = ""
             r0.<init>(r1, r2)
         L25:
-            boolean r1 = r0.f13814a
+            boolean r1 = r0.f13815a
             if (r1 == 0) goto L1c5
-            java.lang.String r1 = r0.f13815b
+            java.lang.String r1 = r0.f13816b
             boolean r1 = android.text.TextUtils.isEmpty(r1)
             if (r1 != 0) goto L1c5
             r1 = 0
@@ -72,14 +72,14 @@ public class bi {
             r2.<init>()
             java.lang.StringBuilder r3 = new java.lang.StringBuilder
             r3.<init>()
-            java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.bi.f13812a
+            java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.bi.f13813a
             java.lang.StringBuilder r3 = r3.append(r4)
             java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.bi.c
             java.lang.StringBuilder r3 = r3.append(r4)
             java.lang.String r3 = r3.toString()
-            r2.f13791a = r3
-            java.lang.String r0 = r0.f13815b
-            r2.f13792b = r0
+            r2.f13792a = r3
+            java.lang.String r0 = r0.f13816b
+            r2.f13793b = r0
             r10.add(r2)
             r0 = r1
         L5c:
@@ -90,23 +90,23 @@ public class bi {
             java.lang.String r3 = ""
             r1.<init>(r2, r3)
         L6b:
-            boolean r2 = r1.f13814a
+            boolean r2 = r1.f13815a
             r3 = 1
             int r2 = com.tencent.turingfd.sdk.ams.au.aj.a(r0, r2, r3)
-            boolean r0 = r1.f13814a
+            boolean r0 = r1.f13815a
             if (r0 == 0) goto L99
             com.tencent.turingfd.sdk.ams.au.au r0 = new com.tencent.turingfd.sdk.ams.au.au
             r0.<init>()
             java.lang.StringBuilder r3 = new java.lang.StringBuilder
             r3.<init>()
-            java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.bi.f13812a
+            java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.bi.f13813a
             java.lang.StringBuilder r3 = r3.append(r4)
             java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.bi.d
             java.lang.StringBuilder r3 = r3.append(r4)
             java.lang.String r3 = r3.toString()
-            r0.f13791a = r3
-            java.lang.String r1 = r1.f13815b
-            r0.f13792b = r1
+            r0.f13792a = r3
+            java.lang.String r1 = r1.f13816b
+            r0.f13793b = r1
             r10.add(r0)
         L99:
             int r0 = android.os.Build.VERSION.SDK_INT
@@ -117,23 +117,23 @@ public class bi {
             java.lang.String r3 = ""
             r0.<init>(r1, r3)
         La8:
-            boolean r1 = r0.f13814a
+            boolean r1 = r0.f13815a
             r3 = 2
             int r1 = com.tencent.turingfd.sdk.ams.au.aj.a(r2, r1, r3)
-            boolean r2 = r0.f13814a
+            boolean r2 = r0.f13815a
             if (r2 == 0) goto Ld6
             com.tencent.turingfd.sdk.ams.au.au r2 = new com.tencent.turingfd.sdk.ams.au.au
             r2.<init>()
             java.lang.StringBuilder r3 = new java.lang.StringBuilder
             r3.<init>()
-            java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.bi.f13812a
+            java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.bi.f13813a
             java.lang.StringBuilder r3 = r3.append(r4)
             java.lang.String r4 = com.tencent.turingfd.sdk.ams.au.bi.e
             java.lang.StringBuilder r3 = r3.append(r4)
             java.lang.String r3 = r3.toString()
-            r2.f13791a = r3
-            java.lang.String r0 = r0.f13815b
-            r2.f13792b = r0
+            r2.f13792a = r3
+            java.lang.String r0 = r0.f13816b
+            r2.f13793b = r0
             r10.add(r2)
         Ld6:
             if (r1 <= 0) goto L100
@@ -141,15 +141,15 @@ public class bi {
             r0.<init>()
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             r2.<init>()
-            java.lang.String r3 = com.tencent.turingfd.sdk.ams.au.bi.f13812a
+            java.lang.String r3 = com.tencent.turingfd.sdk.ams.au.bi.f13813a
             java.lang.StringBuilder r2 = r2.append(r3)
-            java.lang.String r3 = com.tencent.turingfd.sdk.ams.au.bi.f13813b
+            java.lang.String r3 = com.tencent.turingfd.sdk.ams.au.bi.f13814b
             java.lang.StringBuilder r2 = r2.append(r3)
             java.lang.String r2 = r2.toString()
-            r0.f13791a = r2
+            r0.f13792a = r2
             java.lang.String r2 = ""
             java.lang.String r1 = com.tencent.turingfd.sdk.ams.au.ab.a(r2, r1)
-            r0.f13792b = r1
+            r0.f13793b = r1
             r10.add(r0)
         L100:
             long r0 = java.lang.System.currentTimeMillis()
@@ -161,11 +161,11 @@ public class bi {
             if (r0 == 0) goto L412
             java.lang.Object r0 = r1.next()
             com.tencent.turingfd.sdk.ams.au.au r0 = (com.tencent.turingfd.sdk.ams.au.au) r0
-            java.lang.String r2 = r0.f13791a
+            java.lang.String r2 = r0.f13792a
             r7.append(r2)
             java.lang.String r2 = ":"
             r7.append(r2)
-            java.lang.String r0 = r0.f13792b
+            java.lang.String r0 = r0.f13793b
             r7.append(r0)
             java.lang.String r0 = ","
             r7.append(r0)

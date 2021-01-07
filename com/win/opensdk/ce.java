@@ -9,56 +9,56 @@ import android.view.ViewTreeObserver;
 import com.win.opensdk.core.Info;
 /* loaded from: classes4.dex */
 public final class ce {
-    boolean qbE;
-    private Info qbW;
-    Handler qcJ = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ce.1
+    private Info qdE;
+    boolean qdm;
+    Handler qer = new Handler(Looper.getMainLooper()) { // from class: com.win.opensdk.ce.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             super.handleMessage(message);
             switch (message.what) {
                 case 1101:
-                    ce.this.qcJ.removeMessages(1101);
-                    if (!ce.this.qbE && ce.this.eA(ce.this.qdM)) {
-                        if (ce.this.qeb != null) {
-                            ce.this.qeb.eJL();
+                    ce.this.qer.removeMessages(1101);
+                    if (!ce.this.qdm && ce.this.eA(ce.this.qfu)) {
+                        if (ce.this.qfJ != null) {
+                            ce.this.qfJ.eKp();
                         }
-                        ce.this.qbE = true;
+                        ce.this.qdm = true;
                         return;
                     }
-                    ce.this.qcJ.sendEmptyMessageDelayed(1101, 300L);
+                    ce.this.qer.sendEmptyMessageDelayed(1101, 300L);
                     return;
                 default:
                     return;
             }
         }
     };
-    View qdM;
-    a qeb;
+    a qfJ;
+    View qfu;
 
     /* loaded from: classes4.dex */
     public interface a {
-        void eJL();
+        void eKp();
     }
 
     public final void a(View view, Info info, final a aVar) {
-        this.qdM = view;
-        this.qeb = aVar;
-        this.qbW = info;
+        this.qfu = view;
+        this.qfJ = aVar;
+        this.qdE = info;
         try {
-            if (!this.qbE) {
-                this.qcJ.sendEmptyMessage(1101);
+            if (!this.qdm) {
+                this.qer.sendEmptyMessage(1101);
             }
-            this.qdM.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() { // from class: com.win.opensdk.ce.2
+            this.qfu.getViewTreeObserver().addOnScrollChangedListener(new ViewTreeObserver.OnScrollChangedListener() { // from class: com.win.opensdk.ce.2
                 @Override // android.view.ViewTreeObserver.OnScrollChangedListener
                 public final void onScrollChanged() {
                     try {
-                        if (!ce.this.qbE && ce.this.eA(ce.this.qdM)) {
-                            ce.this.qcJ.removeMessages(1101);
-                            ce.this.qdM.getViewTreeObserver().removeOnScrollChangedListener(this);
+                        if (!ce.this.qdm && ce.this.eA(ce.this.qfu)) {
+                            ce.this.qer.removeMessages(1101);
+                            ce.this.qfu.getViewTreeObserver().removeOnScrollChangedListener(this);
                             if (aVar != null) {
-                                aVar.eJL();
+                                aVar.eKp();
                             }
-                            ce.this.qbE = true;
+                            ce.this.qdm = true;
                         }
                     } catch (Exception e) {
                         e.printStackTrace();
@@ -73,7 +73,7 @@ public final class ce {
     public final boolean eA(View view) {
         if (view != null && view.isShown()) {
             Rect rect = new Rect();
-            return !(!view.getGlobalVisibleRect(rect) || this.qbW == null || (((double) rect.width()) > (((double) view.getMeasuredWidth()) * this.qbW.getSper()) ? 1 : (((double) rect.width()) == (((double) view.getMeasuredWidth()) * this.qbW.getSper()) ? 0 : -1)) < 0 || (((double) rect.height()) > (((double) view.getMeasuredHeight()) * this.qbW.getSper()) ? 1 : (((double) rect.height()) == (((double) view.getMeasuredHeight()) * this.qbW.getSper()) ? 0 : -1)) < 0);
+            return !(!view.getGlobalVisibleRect(rect) || this.qdE == null || (((double) rect.width()) > (((double) view.getMeasuredWidth()) * this.qdE.getSper()) ? 1 : (((double) rect.width()) == (((double) view.getMeasuredWidth()) * this.qdE.getSper()) ? 0 : -1)) < 0 || (((double) rect.height()) > (((double) view.getMeasuredHeight()) * this.qdE.getSper()) ? 1 : (((double) rect.height()) == (((double) view.getMeasuredHeight()) * this.qdE.getSper()) ? 0 : -1)) < 0);
         }
         return false;
     }

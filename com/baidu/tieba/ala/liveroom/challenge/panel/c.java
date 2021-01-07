@@ -53,7 +53,7 @@ public class c extends g implements k.a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (c.this.hxb != null) {
-                    c.this.hxb.cgs();
+                    c.this.hxb.cgt();
                 }
             }
         });
@@ -61,7 +61,7 @@ public class c extends g implements k.a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (c.this.hxb != null) {
-                    c.this.hxb.cgu();
+                    c.this.hxb.cgv();
                 }
             }
         });
@@ -75,7 +75,7 @@ public class c extends g implements k.a {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (c.this.hxb != null) {
-                    c.this.hxb.cgv();
+                    c.this.hxb.cgw();
                 }
             }
         });
@@ -90,7 +90,7 @@ public class c extends g implements k.a {
     }
 
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    protected int cgi() {
+    protected int cgj() {
         return this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds456) * 2;
     }
 
@@ -114,7 +114,7 @@ public class c extends g implements k.a {
         if (ListUtils.isEmpty(list)) {
             this.hwD.setVisibility(8);
             this.hwE.setVisibility(0);
-            cgl();
+            cgm();
             this.hxb.dZ(this.hwC.size());
             return;
         }
@@ -124,7 +124,7 @@ public class c extends g implements k.a {
             k next = it.next();
             boolean z2 = false;
             for (com.baidu.live.challenge.d dVar2 : list) {
-                z2 = dVar2.equals(next.cgF()) ? true : z2;
+                z2 = dVar2.equals(next.cgG()) ? true : z2;
             }
             if (!z2) {
                 linkedList.add(next);
@@ -144,8 +144,8 @@ public class c extends g implements k.a {
             boolean z3 = false;
             while (it3.hasNext()) {
                 k next2 = it3.next();
-                if (dVar3.equals(next2.cgF())) {
-                    if (dVar3.aIF != next2.cgF().aIF) {
+                if (dVar3.equals(next2.cgG())) {
+                    if (dVar3.aIF != next2.cgG().aIF) {
                         next2.k(dVar3);
                     }
                     z = true;
@@ -194,7 +194,7 @@ public class c extends g implements k.a {
         }
     }
 
-    public void cgl() {
+    public void cgm() {
         this.hwB.removeAllViews();
         Iterator<k> it = this.hwC.iterator();
         while (it.hasNext()) {

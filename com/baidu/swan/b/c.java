@@ -4,7 +4,7 @@ public class c {
     private static boolean eCe = true;
     private static String eCf;
 
-    public static void bjf() {
+    public static void bjg() {
         eCf = null;
     }
 }

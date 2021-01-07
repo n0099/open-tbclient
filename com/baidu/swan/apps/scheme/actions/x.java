@@ -31,16 +31,16 @@ public class x extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "slaveId null");
             return false;
         }
-        com.baidu.swan.apps.adaptation.b.e ob = com.baidu.swan.apps.v.f.aDG().ob(optString);
+        com.baidu.swan.apps.adaptation.b.e ob = com.baidu.swan.apps.v.f.aDH().ob(optString);
         if (!(ob instanceof com.baidu.swan.apps.adaptation.b.c)) {
             com.baidu.swan.apps.console.c.e("preventPullDownRefresh", "webViewManager not a SwanAppSlaveManager");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "webViewManager not a SwanAppSlaveManager");
             return false;
         }
         boolean optBoolean = b2.optBoolean("prevent", false);
-        PullToRefreshBaseWebView amj = ((com.baidu.swan.apps.adaptation.b.c) ob).amj();
-        if (amj != null) {
-            amj.setIsPreventPullToRefresh(optBoolean);
+        PullToRefreshBaseWebView amk = ((com.baidu.swan.apps.adaptation.b.c) ob).amk();
+        if (amk != null) {
+            amk.setIsPreventPullToRefresh(optBoolean);
         }
         return true;
     }

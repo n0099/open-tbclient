@@ -25,7 +25,7 @@ public final class bv {
                 if (info.getDl_vsc() == 0 && info.getDl_pkg().equals(bN.packageName)) {
                     return true;
                 }
-                w.iM(context).a(new x(info), bN.packageName, bN.versionCode, 1).eJL();
+                w.iM(context).a(new x(info), bN.packageName, bN.versionCode, 1).eKp();
                 file.delete();
                 return false;
             }
@@ -53,7 +53,7 @@ public final class bv {
             try {
                 Intent b2 = b(info, context, str);
                 if (b2.getFlags() > 0) {
-                    w.iM(context).c(new x(info), str).eJL();
+                    w.iM(context).c(new x(info), str).eKp();
                     context.startActivity(b2);
                 }
             } catch (Exception e) {
@@ -68,12 +68,12 @@ public final class bv {
         try {
             try {
                 if (Build.VERSION.SDK_INT == 23) {
-                    hx("777", iR(context) + "/win/");
+                    hy("777", iR(context) + "/win/");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            hx("777", str);
+            hy("777", str);
             if (Build.VERSION.SDK_INT >= 24) {
                 intent.setAction("android.intent.action.INSTALL_PACKAGE");
                 intent.setFlags(RouterCallback.CODE_ERROR);
@@ -88,13 +88,13 @@ public final class bv {
             new StringBuilder("错误:").append(e2.getMessage());
             e2.printStackTrace();
             if (info != null) {
-                w.iM(context).h(new x(info), str).eJL();
+                w.iM(context).h(new x(info), str).eKp();
             }
         }
         return intent;
     }
 
-    private static void hx(String str, String str2) {
+    private static void hy(String str, String str2) {
         try {
             Runtime.getRuntime().exec("chmod " + str + " " + str2);
         } catch (Exception e) {
@@ -104,7 +104,7 @@ public final class bv {
 
     public static boolean bK(Context context, String str) {
         try {
-            return new File(new StringBuilder().append(iR(context)).append(File.separator).append("win").append(File.separator).append(abN(str)).toString()).exists();
+            return new File(new StringBuilder().append(iR(context)).append(File.separator).append("win").append(File.separator).append(abO(str)).toString()).exists();
         } catch (Exception e) {
             e.printStackTrace();
             return false;
@@ -113,14 +113,14 @@ public final class bv {
 
     public static String bO(Context context, String str) {
         try {
-            return iR(context) + File.separator + "win" + File.separator + abN(str);
+            return iR(context) + File.separator + "win" + File.separator + abO(str);
         } catch (Exception e) {
             e.printStackTrace();
             return "";
         }
     }
 
-    public static String abN(String str) {
+    public static String abO(String str) {
         String str2;
         String[] split;
         try {

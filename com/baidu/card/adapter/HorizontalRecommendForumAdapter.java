@@ -132,7 +132,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
                 } else {
                     this.akv.setText(at.cutChineseAndEnglishWithSuffix(blVar.getForumName(), 8, StringHelper.STRING_MORE));
                 }
-                this.akw.setText(this.attention + " " + at.dZ(blVar.bqu()));
+                this.akw.setText(this.attention + " " + at.dZ(blVar.bqv()));
                 onChangeSkinType();
             }
         }
@@ -175,7 +175,7 @@ public class HorizontalRecommendForumAdapter extends RecyclerView.Adapter<Recycl
             if (mVar != null) {
                 this.aku.setVisibility(0);
                 this.akt.setVisibility(8);
-                SvgManager.bwq().a(this.aku, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
+                SvgManager.bwr().a(this.aku, R.drawable.ic_icon_pure_square28, (SvgManager.SvgResourceStateType) null);
                 this.akv.setText(R.string.forum_square_title);
                 this.akw.setText(R.string.forum_square_desc_1);
                 onChangeSkinType();

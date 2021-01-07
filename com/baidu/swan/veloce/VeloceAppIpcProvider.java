@@ -51,10 +51,10 @@ public class VeloceAppIpcProvider extends ContentProvider {
     }
 
     private Bundle h(String str, Bundle bundle) {
-        if (TextUtils.isEmpty(str) || b.bjq() == null) {
+        if (TextUtils.isEmpty(str) || b.bjr() == null) {
             return null;
         }
-        return b.bjq().g(str, bundle);
+        return b.bjr().g(str, bundle);
     }
 
     @Override // android.content.ContentProvider

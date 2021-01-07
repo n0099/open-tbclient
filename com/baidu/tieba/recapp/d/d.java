@@ -19,7 +19,7 @@ public class d {
 
     public e a(AdCard.f fVar, e eVar) {
         if (fVar != null && fVar.style != null) {
-            if (eVar == null || !gh(fVar.style, eVar.mTd)) {
+            if (eVar == null || !gh(fVar.style, eVar.mTc)) {
                 if (this.erU == null) {
                     return null;
                 }

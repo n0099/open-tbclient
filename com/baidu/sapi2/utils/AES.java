@@ -13,10 +13,10 @@ public class AES implements NoProguard {
     private static final String f = "AES";
 
     /* renamed from: a  reason: collision with root package name */
-    private String f5362a;
+    private String f5363a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f5363b;
+    private String f5364b;
     private String c;
 
     public AES() {
@@ -35,9 +35,9 @@ public class AES implements NoProguard {
         if (bArr != null && bArr.length != 0) {
             byte[] bArr2 = new byte[0];
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f5362a));
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str.getBytes(this.f5363a));
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), this.c);
-                Cipher cipher = Cipher.getInstance(this.f5363b);
+                Cipher cipher = Cipher.getInstance(this.f5364b);
                 cipher.init(2, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(bArr);
             } catch (Throwable th) {
@@ -51,9 +51,9 @@ public class AES implements NoProguard {
     public byte[] encrypt(String str, String str2, String str3) throws Exception {
         if (str != null && str.length() != 0) {
             try {
-                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f5362a));
+                IvParameterSpec ivParameterSpec = new IvParameterSpec(str2.getBytes(this.f5363a));
                 SecretKeySpec secretKeySpec = new SecretKeySpec(str3.getBytes(), this.c);
-                Cipher cipher = Cipher.getInstance(this.f5363b);
+                Cipher cipher = Cipher.getInstance(this.f5364b);
                 cipher.init(1, secretKeySpec, ivParameterSpec);
                 return cipher.doFinal(a(str).getBytes());
             } catch (NoSuchAlgorithmException e2) {
@@ -72,11 +72,11 @@ public class AES implements NoProguard {
     }
 
     public AES(String str, String str2, String str3) {
-        this.f5362a = "UTF-8";
-        this.f5363b = e;
+        this.f5363a = "UTF-8";
+        this.f5364b = e;
         this.c = "AES";
         this.c = str;
-        this.f5363b = str2;
-        this.f5362a = str3;
+        this.f5364b = str2;
+        this.f5363a = str3;
     }
 }

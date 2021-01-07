@@ -7,7 +7,7 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static void a(int i, String str) {
         gdtadv.getVresult(115, 1, Integer.valueOf(i), str);

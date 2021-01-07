@@ -3,13 +3,13 @@ package com.ss.android.socialbase.downloader.e;
 public class b extends a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13440a;
+    private String f13441a;
 
     public b(String str) {
-        this.f13440a = str;
+        this.f13441a = str;
     }
 
     public String c() {
-        return this.f13440a;
+        return this.f13441a;
     }
 }

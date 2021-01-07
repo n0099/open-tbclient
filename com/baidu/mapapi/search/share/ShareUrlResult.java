@@ -3,23 +3,23 @@ package com.baidu.mapapi.search.share;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.mapapi.search.core.SearchResult;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ShareUrlResult extends SearchResult implements Parcelable {
     public static final Parcelable.Creator<ShareUrlResult> CREATOR = new a();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3054a;
+    private String f3055a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3055b;
+    private int f3056b;
 
     public ShareUrlResult() {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public ShareUrlResult(Parcel parcel) {
-        this.f3054a = parcel.readString();
-        this.f3055b = parcel.readInt();
+        this.f3055a = parcel.readString();
+        this.f3056b = parcel.readInt();
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
@@ -28,20 +28,20 @@ public class ShareUrlResult extends SearchResult implements Parcelable {
     }
 
     public String getUrl() {
-        return this.f3054a;
+        return this.f3055a;
     }
 
     public void setType(int i) {
-        this.f3055b = i;
+        this.f3056b = i;
     }
 
     public void setUrl(String str) {
-        this.f3054a = str;
+        this.f3055a = str;
     }
 
     @Override // com.baidu.mapapi.search.core.SearchResult, android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f3054a);
-        parcel.writeInt(this.f3055b);
+        parcel.writeString(this.f3055a);
+        parcel.writeInt(this.f3056b);
     }
 }

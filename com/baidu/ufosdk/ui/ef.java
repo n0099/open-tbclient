@@ -8,11 +8,11 @@ import android.widget.Toast;
 final class ef implements TextWatcher {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f5838a;
+    final /* synthetic */ FeedbackReportActivity f5839a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ef(FeedbackReportActivity feedbackReportActivity) {
-        this.f5838a = feedbackReportActivity;
+        this.f5839a = feedbackReportActivity;
     }
 
     @Override // android.text.TextWatcher
@@ -26,29 +26,29 @@ final class ef implements TextWatcher {
         String str;
         EditText editText6;
         String str2;
-        z = this.f5838a.E;
+        z = this.f5839a.E;
         if (!z) {
-            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f5838a);
+            com.baidu.ufosdk.f.d dVar = new com.baidu.ufosdk.f.d(this.f5839a);
             dVar.b(dVar.b() + 1);
-            this.f5838a.E = true;
+            this.f5839a.E = true;
         }
-        editText = this.f5838a.u;
+        editText = this.f5839a.u;
         if (editText != null) {
-            editText4 = this.f5838a.u;
+            editText4 = this.f5839a.u;
             if (editText4.getText().toString().trim().length() > 30) {
-                editText5 = this.f5838a.u;
-                str = this.f5838a.M;
+                editText5 = this.f5839a.u;
+                str = this.f5839a.M;
                 editText5.setText(str);
-                Toast.makeText(this.f5838a, com.baidu.ufosdk.f.s.a("32"), 1).show();
-                editText6 = this.f5838a.u;
-                str2 = this.f5838a.M;
+                Toast.makeText(this.f5839a, com.baidu.ufosdk.f.s.a("32"), 1).show();
+                editText6 = this.f5839a.u;
+                str2 = this.f5839a.M;
                 editText6.setSelection(str2.length());
             }
         }
-        editText2 = this.f5838a.u;
+        editText2 = this.f5839a.u;
         if (editText2 != null) {
-            FeedbackReportActivity feedbackReportActivity = this.f5838a;
-            editText3 = this.f5838a.u;
+            FeedbackReportActivity feedbackReportActivity = this.f5839a;
+            editText3 = this.f5839a.u;
             feedbackReportActivity.M = editText3.getText().toString();
         }
     }

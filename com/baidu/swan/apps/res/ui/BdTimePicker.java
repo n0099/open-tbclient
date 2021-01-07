@@ -88,7 +88,7 @@ public class BdTimePicker extends LinearLayout {
             @Override // com.baidu.swan.apps.res.ui.wheelview3d.c.b
             public void a(WheelView3d wheelView3d, int i) {
                 BdTimePicker.this.dxH = BdTimePicker.this.dxM + i;
-                BdTimePicker.this.aKe();
+                BdTimePicker.this.aKf();
             }
         });
         this.dxJ = (WheelView3d) findViewById(a.f.wheel_minute);
@@ -108,7 +108,7 @@ public class BdTimePicker extends LinearLayout {
                 BdTimePicker.this.VQ = BdTimePicker.this.dxO + i;
             }
         });
-        aJY();
+        aJZ();
     }
 
     private void sa() {
@@ -124,20 +124,20 @@ public class BdTimePicker extends LinearLayout {
         canvas.drawText(":", getWidth() / 2, (getHeight() / 2.0f) + (this.dxI.getCenterContentOffset() * 2.0f), this.dxQ);
     }
 
-    private void aJY() {
+    private void aJZ() {
         Calendar calendar = Calendar.getInstance();
         this.dxH = calendar.get(11);
         this.VQ = calendar.get(12);
-        aJZ();
+        aKa();
     }
 
-    public void aJZ() {
+    public void aKa() {
+        aKg();
         aKf();
-        aKe();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aKe() {
+    public void aKf() {
         this.dxO = 0;
         this.dxP = 59;
         if (this.dxi != null && this.dxH == this.dxM) {
@@ -155,7 +155,7 @@ public class BdTimePicker extends LinearLayout {
         setMinute(this.VQ);
     }
 
-    private void aKf() {
+    private void aKg() {
         this.dxM = 0;
         this.dxN = 23;
         if (this.dxi != null) {

@@ -14,23 +14,23 @@ public final class b implements c, d, Cloneable {
     private static final byte[] c = {48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 97, 98, 99, 100, Constants.SHORT_PING_CMD_TYPE, 102};
 
     /* renamed from: a  reason: collision with root package name */
-    j f11491a;
+    j f11492a;
 
     /* renamed from: b  reason: collision with root package name */
-    long f11492b;
+    long f11493b;
 
     public int a(byte[] bArr, int i, int i2) {
         o.a(bArr.length, i, i2);
-        j jVar = this.f11491a;
+        j jVar = this.f11492a;
         if (jVar == null) {
             return -1;
         }
-        int min = Math.min(i2, jVar.c - jVar.f11508b);
-        System.arraycopy(jVar.f11507a, jVar.f11508b, bArr, i, min);
-        jVar.f11508b += min;
-        this.f11492b -= min;
-        if (jVar.f11508b == jVar.c) {
-            this.f11491a = jVar.a();
+        int min = Math.min(i2, jVar.c - jVar.f11509b);
+        System.arraycopy(jVar.f11508a, jVar.f11509b, bArr, i, min);
+        jVar.f11509b += min;
+        this.f11493b -= min;
+        if (jVar.f11509b == jVar.c) {
+            this.f11492a = jVar.a();
             k.a(jVar);
             return min;
         }
@@ -38,7 +38,7 @@ public final class b implements c, d, Cloneable {
     }
 
     public long a() {
-        return this.f11492b;
+        return this.f11493b;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.c
@@ -116,7 +116,7 @@ public final class b implements c, d, Cloneable {
             char charAt = str.charAt(i);
             if (charAt < 128) {
                 j c2 = c(1);
-                byte[] bArr = c2.f11507a;
+                byte[] bArr = c2.f11508a;
                 int i4 = c2.c - i;
                 int min = Math.min(i2, 2048 - i4);
                 i3 = i + 1;
@@ -131,7 +131,7 @@ public final class b implements c, d, Cloneable {
                 }
                 int i5 = (i3 + i4) - c2.c;
                 c2.c += i5;
-                this.f11492b += i5;
+                this.f11493b += i5;
             } else if (charAt < 2048) {
                 b((charAt >> 6) | 192);
                 b((charAt & '?') | 128);
@@ -161,7 +161,7 @@ public final class b implements c, d, Cloneable {
     }
 
     public String a(long j, Charset charset) throws EOFException {
-        o.a(this.f11492b, 0L, j);
+        o.a(this.f11493b, 0L, j);
         if (charset == null) {
             throw new IllegalArgumentException("charset == null");
         }
@@ -171,15 +171,15 @@ public final class b implements c, d, Cloneable {
         if (j == 0) {
             return "";
         }
-        j jVar = this.f11491a;
-        if (jVar.f11508b + j > jVar.c) {
+        j jVar = this.f11492a;
+        if (jVar.f11509b + j > jVar.c) {
             return new String(a(j), charset);
         }
-        String str = new String(jVar.f11507a, jVar.f11508b, (int) j, charset);
-        jVar.f11508b = (int) (jVar.f11508b + j);
-        this.f11492b -= j;
-        if (jVar.f11508b == jVar.c) {
-            this.f11491a = jVar.a();
+        String str = new String(jVar.f11508a, jVar.f11509b, (int) j, charset);
+        jVar.f11509b = (int) (jVar.f11509b + j);
+        this.f11493b -= j;
+        if (jVar.f11509b == jVar.c) {
+            this.f11492a = jVar.a();
             k.a(jVar);
             return str;
         }
@@ -194,35 +194,35 @@ public final class b implements c, d, Cloneable {
         if (bVar == this) {
             throw new IllegalArgumentException("source == this");
         }
-        o.a(bVar.f11492b, 0L, j);
+        o.a(bVar.f11493b, 0L, j);
         while (j > 0) {
-            if (j < bVar.f11491a.c - bVar.f11491a.f11508b) {
-                j jVar = this.f11491a != null ? this.f11491a.g : null;
+            if (j < bVar.f11492a.c - bVar.f11492a.f11509b) {
+                j jVar = this.f11492a != null ? this.f11492a.g : null;
                 if (jVar != null && jVar.e) {
-                    if ((jVar.c + j) - (jVar.d ? 0 : jVar.f11508b) <= 2048) {
-                        bVar.f11491a.a(jVar, (int) j);
-                        bVar.f11492b -= j;
-                        this.f11492b += j;
+                    if ((jVar.c + j) - (jVar.d ? 0 : jVar.f11509b) <= 2048) {
+                        bVar.f11492a.a(jVar, (int) j);
+                        bVar.f11493b -= j;
+                        this.f11493b += j;
                         return;
                     }
                 }
-                bVar.f11491a = bVar.f11491a.a((int) j);
+                bVar.f11492a = bVar.f11492a.a((int) j);
             }
-            j jVar2 = bVar.f11491a;
-            long j2 = jVar2.c - jVar2.f11508b;
-            bVar.f11491a = jVar2.a();
-            if (this.f11491a == null) {
-                this.f11491a = jVar2;
-                j jVar3 = this.f11491a;
-                j jVar4 = this.f11491a;
-                j jVar5 = this.f11491a;
+            j jVar2 = bVar.f11492a;
+            long j2 = jVar2.c - jVar2.f11509b;
+            bVar.f11492a = jVar2.a();
+            if (this.f11492a == null) {
+                this.f11492a = jVar2;
+                j jVar3 = this.f11492a;
+                j jVar4 = this.f11492a;
+                j jVar5 = this.f11492a;
                 jVar4.g = jVar5;
                 jVar3.f = jVar5;
             } else {
-                this.f11491a.g.a(jVar2).b();
+                this.f11492a.g.a(jVar2).b();
             }
-            bVar.f11492b -= j2;
-            this.f11492b += j2;
+            bVar.f11493b -= j2;
+            this.f11493b += j2;
             j -= j2;
         }
     }
@@ -239,7 +239,7 @@ public final class b implements c, d, Cloneable {
     }
 
     public byte[] a(long j) throws EOFException {
-        o.a(this.f11492b, 0L, j);
+        o.a(this.f11493b, 0L, j);
         if (j > 2147483647L) {
             throw new IllegalArgumentException("byteCount > Integer.MAX_VALUE: " + j);
         }
@@ -256,11 +256,11 @@ public final class b implements c, d, Cloneable {
         if (j < 0) {
             throw new IllegalArgumentException("byteCount < 0: " + j);
         }
-        if (this.f11492b == 0) {
+        if (this.f11493b == 0) {
             return -1L;
         }
-        if (j > this.f11492b) {
-            j = this.f11492b;
+        if (j > this.f11493b) {
+            j = this.f11493b;
         }
         bVar.a(this, j);
         return j;
@@ -273,11 +273,11 @@ public final class b implements c, d, Cloneable {
 
     public b b(int i) {
         j c2 = c(1);
-        byte[] bArr = c2.f11507a;
+        byte[] bArr = c2.f11508a;
         int i2 = c2.c;
         c2.c = i2 + 1;
         bArr[i2] = (byte) i;
-        this.f11492b++;
+        this.f11493b++;
         return this;
     }
 
@@ -303,27 +303,27 @@ public final class b implements c, d, Cloneable {
         while (i < i3) {
             j c2 = c(1);
             int min = Math.min(i3 - i, 2048 - c2.c);
-            System.arraycopy(bArr, i, c2.f11507a, c2.c, min);
+            System.arraycopy(bArr, i, c2.f11508a, c2.c, min);
             i += min;
             c2.c = min + c2.c;
         }
-        this.f11492b += i2;
+        this.f11493b += i2;
         return this;
     }
 
     public void b(long j) throws EOFException {
         while (j > 0) {
-            if (this.f11491a == null) {
+            if (this.f11492a == null) {
                 throw new EOFException();
             }
-            int min = (int) Math.min(j, this.f11491a.c - this.f11491a.f11508b);
-            this.f11492b -= min;
+            int min = (int) Math.min(j, this.f11492a.c - this.f11492a.f11509b);
+            this.f11493b -= min;
             j -= min;
-            j jVar = this.f11491a;
-            jVar.f11508b = min + jVar.f11508b;
-            if (this.f11491a.f11508b == this.f11491a.c) {
-                j jVar2 = this.f11491a;
-                this.f11491a = jVar2.a();
+            j jVar = this.f11492a;
+            jVar.f11509b = min + jVar.f11509b;
+            if (this.f11492a.f11509b == this.f11492a.c) {
+                j jVar2 = this.f11492a;
+                this.f11492a = jVar2.a();
                 k.a(jVar2);
             }
         }
@@ -353,7 +353,7 @@ public final class b implements c, d, Cloneable {
             i++;
         }
         j c2 = c(i);
-        byte[] bArr = c2.f11507a;
+        byte[] bArr = c2.f11508a;
         int i2 = c2.c + i;
         while (j2 != 0) {
             i2--;
@@ -364,7 +364,7 @@ public final class b implements c, d, Cloneable {
             bArr[i2 - 1] = 45;
         }
         c2.c += i;
-        this.f11492b = i + this.f11492b;
+        this.f11493b = i + this.f11493b;
         return this;
     }
 
@@ -373,21 +373,21 @@ public final class b implements c, d, Cloneable {
         if (i < 1 || i > 2048) {
             throw new IllegalArgumentException();
         }
-        if (this.f11491a != null) {
-            j jVar = this.f11491a.g;
+        if (this.f11492a != null) {
+            j jVar = this.f11492a.g;
             return (jVar.c + i > 2048 || !jVar.e) ? jVar.a(k.a()) : jVar;
         }
-        this.f11491a = k.a();
-        j jVar2 = this.f11491a;
-        j jVar3 = this.f11491a;
-        j jVar4 = this.f11491a;
+        this.f11492a = k.a();
+        j jVar2 = this.f11492a;
+        j jVar3 = this.f11492a;
+        j jVar4 = this.f11492a;
         jVar3.g = jVar4;
         jVar2.f = jVar4;
         return jVar4;
     }
 
     public boolean c() {
-        return this.f11492b == 0;
+        return this.f11493b == 0;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.l, java.io.Closeable, java.lang.AutoCloseable, com.meizu.cloud.pushsdk.b.g.m
@@ -400,14 +400,14 @@ public final class b implements c, d, Cloneable {
         }
         int numberOfTrailingZeros = (Long.numberOfTrailingZeros(Long.highestOneBit(j)) / 4) + 1;
         j c2 = c(numberOfTrailingZeros);
-        byte[] bArr = c2.f11507a;
+        byte[] bArr = c2.f11508a;
         int i = c2.c;
         for (int i2 = (c2.c + numberOfTrailingZeros) - 1; i2 >= i; i2--) {
             bArr[i2] = c[(int) (15 & j)];
             j >>>= 4;
         }
         c2.c += numberOfTrailingZeros;
-        this.f11492b = numberOfTrailingZeros + this.f11492b;
+        this.f11493b = numberOfTrailingZeros + this.f11493b;
         return this;
     }
 
@@ -416,7 +416,7 @@ public final class b implements c, d, Cloneable {
         return new InputStream() { // from class: com.meizu.cloud.pushsdk.b.g.b.1
             @Override // java.io.InputStream
             public int available() {
-                return (int) Math.min(b.this.f11492b, 2147483647L);
+                return (int) Math.min(b.this.f11493b, 2147483647L);
             }
 
             @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
@@ -425,7 +425,7 @@ public final class b implements c, d, Cloneable {
 
             @Override // java.io.InputStream
             public int read() {
-                if (b.this.f11492b > 0) {
+                if (b.this.f11493b > 0) {
                     return b.this.f() & 255;
                 }
                 return -1;
@@ -443,12 +443,12 @@ public final class b implements c, d, Cloneable {
     }
 
     public long e() {
-        long j = this.f11492b;
+        long j = this.f11493b;
         if (j == 0) {
             return 0L;
         }
-        j jVar = this.f11491a.g;
-        return (jVar.c >= 2048 || !jVar.e) ? j : j - (jVar.c - jVar.f11508b);
+        j jVar = this.f11492a.g;
+        return (jVar.c >= 2048 || !jVar.e) ? j : j - (jVar.c - jVar.f11509b);
     }
 
     public boolean equals(Object obj) {
@@ -458,23 +458,23 @@ public final class b implements c, d, Cloneable {
         }
         if (obj instanceof b) {
             b bVar = (b) obj;
-            if (this.f11492b != bVar.f11492b) {
+            if (this.f11493b != bVar.f11493b) {
                 return false;
             }
-            if (this.f11492b == 0) {
+            if (this.f11493b == 0) {
                 return true;
             }
-            j jVar = this.f11491a;
-            j jVar2 = bVar.f11491a;
-            int i = jVar.f11508b;
-            int i2 = jVar2.f11508b;
-            while (j < this.f11492b) {
+            j jVar = this.f11492a;
+            j jVar2 = bVar.f11492a;
+            int i = jVar.f11509b;
+            int i2 = jVar2.f11509b;
+            while (j < this.f11493b) {
                 long min = Math.min(jVar.c - i, jVar2.c - i2);
                 int i3 = 0;
                 while (i3 < min) {
                     int i4 = i + 1;
                     int i5 = i2 + 1;
-                    if (jVar.f11507a[i] != jVar2.f11507a[i2]) {
+                    if (jVar.f11508a[i] != jVar2.f11508a[i2]) {
                         return false;
                     }
                     i3++;
@@ -483,11 +483,11 @@ public final class b implements c, d, Cloneable {
                 }
                 if (i == jVar.c) {
                     jVar = jVar.f;
-                    i = jVar.f11508b;
+                    i = jVar.f11509b;
                 }
                 if (i2 == jVar2.c) {
                     jVar2 = jVar2.f;
-                    i2 = jVar2.f11508b;
+                    i2 = jVar2.f11509b;
                 }
                 j += min;
             }
@@ -497,20 +497,20 @@ public final class b implements c, d, Cloneable {
     }
 
     public byte f() {
-        if (this.f11492b == 0) {
+        if (this.f11493b == 0) {
             throw new IllegalStateException("size == 0");
         }
-        j jVar = this.f11491a;
-        int i = jVar.f11508b;
+        j jVar = this.f11492a;
+        int i = jVar.f11509b;
         int i2 = jVar.c;
         int i3 = i + 1;
-        byte b2 = jVar.f11507a[i];
-        this.f11492b--;
+        byte b2 = jVar.f11508a[i];
+        this.f11493b--;
         if (i3 == i2) {
-            this.f11491a = jVar.a();
+            this.f11492a = jVar.a();
             k.a(jVar);
         } else {
-            jVar.f11508b = i3;
+            jVar.f11509b = i3;
         }
         return b2;
     }
@@ -526,32 +526,32 @@ public final class b implements c, d, Cloneable {
     @Override // com.meizu.cloud.pushsdk.b.g.d
     public String h() {
         try {
-            return a(this.f11492b, o.f11513a);
+            return a(this.f11493b, o.f11514a);
         } catch (EOFException e) {
             throw new AssertionError(e);
         }
     }
 
     public int hashCode() {
-        j jVar = this.f11491a;
+        j jVar = this.f11492a;
         if (jVar == null) {
             return 0;
         }
         int i = 1;
         do {
             int i2 = jVar.c;
-            for (int i3 = jVar.f11508b; i3 < i2; i3++) {
-                i = (i * 31) + jVar.f11507a[i3];
+            for (int i3 = jVar.f11509b; i3 < i2; i3++) {
+                i = (i * 31) + jVar.f11508a[i3];
             }
             jVar = jVar.f;
-        } while (jVar != this.f11491a);
+        } while (jVar != this.f11492a);
         return i;
     }
 
     @Override // com.meizu.cloud.pushsdk.b.g.d
     public byte[] i() {
         try {
-            return a(this.f11492b);
+            return a(this.f11493b);
         } catch (EOFException e) {
             throw new AssertionError(e);
         }
@@ -559,7 +559,7 @@ public final class b implements c, d, Cloneable {
 
     public void j() {
         try {
-            b(this.f11492b);
+            b(this.f11493b);
         } catch (EOFException e) {
             throw new AssertionError(e);
         }
@@ -569,36 +569,36 @@ public final class b implements c, d, Cloneable {
     /* renamed from: k */
     public b clone() {
         b bVar = new b();
-        if (this.f11492b == 0) {
+        if (this.f11493b == 0) {
             return bVar;
         }
-        bVar.f11491a = new j(this.f11491a);
-        j jVar = bVar.f11491a;
-        j jVar2 = bVar.f11491a;
-        j jVar3 = bVar.f11491a;
+        bVar.f11492a = new j(this.f11492a);
+        j jVar = bVar.f11492a;
+        j jVar2 = bVar.f11492a;
+        j jVar3 = bVar.f11492a;
         jVar2.g = jVar3;
         jVar.f = jVar3;
-        for (j jVar4 = this.f11491a.f; jVar4 != this.f11491a; jVar4 = jVar4.f) {
-            bVar.f11491a.g.a(new j(jVar4));
+        for (j jVar4 = this.f11492a.f; jVar4 != this.f11492a; jVar4 = jVar4.f) {
+            bVar.f11492a.g.a(new j(jVar4));
         }
-        bVar.f11492b = this.f11492b;
+        bVar.f11493b = this.f11493b;
         return bVar;
     }
 
     public String toString() {
-        if (this.f11492b == 0) {
+        if (this.f11493b == 0) {
             return "Buffer[size=0]";
         }
-        if (this.f11492b <= 16) {
-            return String.format("Buffer[size=%s data=%s]", Long.valueOf(this.f11492b), clone().g().c());
+        if (this.f11493b <= 16) {
+            return String.format("Buffer[size=%s data=%s]", Long.valueOf(this.f11493b), clone().g().c());
         }
         try {
             MessageDigest messageDigest = MessageDigest.getInstance(EncryptUtils.ENCRYPT_MD5);
-            messageDigest.update(this.f11491a.f11507a, this.f11491a.f11508b, this.f11491a.c - this.f11491a.f11508b);
-            for (j jVar = this.f11491a.f; jVar != this.f11491a; jVar = jVar.f) {
-                messageDigest.update(jVar.f11507a, jVar.f11508b, jVar.c - jVar.f11508b);
+            messageDigest.update(this.f11492a.f11508a, this.f11492a.f11509b, this.f11492a.c - this.f11492a.f11509b);
+            for (j jVar = this.f11492a.f; jVar != this.f11492a; jVar = jVar.f) {
+                messageDigest.update(jVar.f11508a, jVar.f11509b, jVar.c - jVar.f11509b);
             }
-            return String.format("Buffer[size=%s md5=%s]", Long.valueOf(this.f11492b), e.a(messageDigest.digest()).c());
+            return String.format("Buffer[size=%s md5=%s]", Long.valueOf(this.f11493b), e.a(messageDigest.digest()).c());
         } catch (NoSuchAlgorithmException e) {
             throw new AssertionError();
         }

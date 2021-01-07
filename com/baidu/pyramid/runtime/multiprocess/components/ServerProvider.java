@@ -5,18 +5,18 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
 public class ServerProvider extends DispatchableContentProvider {
-    public static String ahU() {
+    public static String ahV() {
         return e.getAppContext().getPackageName() + ".provider.ipc.server";
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    protected String ahR() {
-        return ahU();
+    protected String ahS() {
+        return ahV();
     }
 
     @Override // com.baidu.pyramid.runtime.multiprocess.components.DispatchableContentProvider
-    protected List<a> ahS() {
-        List<a> kn = com.baidu.pyramid.runtime.multiprocess.a.a.kn(ahR());
+    protected List<a> ahT() {
+        List<a> kn = com.baidu.pyramid.runtime.multiprocess.a.a.kn(ahS());
         if (kn == null) {
             kn = new ArrayList<>();
         }

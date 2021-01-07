@@ -4,7 +4,7 @@ import android.annotation.TargetApi;
 import android.os.AsyncTask;
 /* loaded from: classes4.dex */
 public class b {
-    static final a pVr = new C1197b();
+    static final a pWZ = new C1238b();
 
     /* loaded from: classes4.dex */
     private static class a {
@@ -22,8 +22,8 @@ public class b {
     @TargetApi(11)
     /* renamed from: com.ss.android.downloadlib.f.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C1197b extends a {
-        private C1197b() {
+    private static class C1238b extends a {
+        private C1238b() {
             super();
         }
 
@@ -37,6 +37,6 @@ public class b {
     }
 
     public static <T> void a(AsyncTask<T, ?, ?> asyncTask, T... tArr) {
-        pVr.a(asyncTask, tArr);
+        pWZ.a(asyncTask, tArr);
     }
 }

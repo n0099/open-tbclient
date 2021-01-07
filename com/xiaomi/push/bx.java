@@ -5,12 +5,12 @@ import com.xiaomi.push.cb;
 public class bx extends cb.d {
 
     /* renamed from: a  reason: collision with root package name */
-    protected String f14195a;
+    protected String f14196a;
 
     public bx(String str, String str2, String[] strArr, String str3) {
         super(str, str2, strArr);
-        this.f14195a = "MessageDeleteJob";
-        this.f14195a = str3;
+        this.f14196a = "MessageDeleteJob";
+        this.f14196a = str3;
     }
 
     public static bx a(String str) {

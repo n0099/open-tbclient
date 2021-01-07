@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class c {
     private static HashMap<String, Integer> platformImageNameMap = new HashMap<>();
 

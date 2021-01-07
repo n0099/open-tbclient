@@ -18,19 +18,19 @@ public class i {
         com.baidu.swan.apps.console.c.fa(z);
     }
 
-    public static void aZw() {
+    public static void aZx() {
         synchronized (i.class) {
             ehE = new ArrayList();
         }
         ehD = false;
     }
 
-    public static void aZx() {
+    public static void aZy() {
         if (cPl && !ehD) {
             synchronized (i.class) {
                 if (ehE != null) {
                     for (int i = 0; i < ehE.size(); i++) {
-                        com.baidu.swan.apps.v.f.aDG().a("console", ehE.get(i));
+                        com.baidu.swan.apps.v.f.aDH().a("console", ehE.get(i));
                     }
                     ehE.clear();
                     ehE = null;
@@ -83,6 +83,6 @@ public class i {
                 }
             }
         }
-        com.baidu.swan.apps.v.f.aDG().a("console", bVar);
+        com.baidu.swan.apps.v.f.aDH().a("console", bVar);
     }
 }

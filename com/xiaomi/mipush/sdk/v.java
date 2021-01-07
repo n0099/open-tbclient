@@ -15,27 +15,27 @@ import java.lang.Thread;
 public class v implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Object f14139a = new Object();
+    private static final Object f14140a = new Object();
 
     /* renamed from: a  reason: collision with other field name */
-    private static final String[] f161a = {"com.xiaomi.channel.commonutils", "com.xiaomi.common.logger", "com.xiaomi.measite.smack", "com.xiaomi.metoknlp", "com.xiaomi.mipush.sdk", "com.xiaomi.network", "com.xiaomi.push", "com.xiaomi.slim", "com.xiaomi.smack", "com.xiaomi.stats", "com.xiaomi.tinyData", "com.xiaomi.xmpush.thrift", "com.xiaomi.clientreport"};
+    private static final String[] f162a = {"com.xiaomi.channel.commonutils", "com.xiaomi.common.logger", "com.xiaomi.measite.smack", "com.xiaomi.metoknlp", "com.xiaomi.mipush.sdk", "com.xiaomi.network", "com.xiaomi.push", "com.xiaomi.slim", "com.xiaomi.smack", "com.xiaomi.stats", "com.xiaomi.tinyData", "com.xiaomi.xmpush.thrift", "com.xiaomi.clientreport"};
 
     /* renamed from: a  reason: collision with other field name */
-    private Context f162a;
+    private Context f163a;
 
     /* renamed from: a  reason: collision with other field name */
-    private SharedPreferences f163a;
+    private SharedPreferences f164a;
 
     /* renamed from: a  reason: collision with other field name */
-    private Thread.UncaughtExceptionHandler f164a;
+    private Thread.UncaughtExceptionHandler f165a;
 
     public v(Context context) {
         this(context, Thread.getDefaultUncaughtExceptionHandler());
     }
 
     public v(Context context, Thread.UncaughtExceptionHandler uncaughtExceptionHandler) {
-        this.f162a = context;
-        this.f164a = uncaughtExceptionHandler;
+        this.f163a = context;
+        this.f165a = uncaughtExceptionHandler;
     }
 
     private String a(Throwable th) {
@@ -49,12 +49,12 @@ public class v implements Thread.UncaughtExceptionHandler {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m138a() {
-        com.xiaomi.push.ai.a(this.f162a).a(new w(this));
+    private void m149a() {
+        com.xiaomi.push.ai.a(this.f163a).a(new w(this));
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private void m140a(Throwable th) {
+    private void m151a(Throwable th) {
         String b2 = b(th);
         if (TextUtils.isEmpty(b2)) {
             return;
@@ -63,29 +63,29 @@ public class v implements Thread.UncaughtExceptionHandler {
         if (TextUtils.isEmpty(a2)) {
             return;
         }
-        s.a(this.f162a).a(b2, a2);
-        if (m141a()) {
-            m138a();
+        s.a(this.f163a).a(b2, a2);
+        if (m152a()) {
+            m149a();
         }
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    private boolean m141a() {
-        this.f163a = this.f162a.getSharedPreferences("mipush_extra", 4);
-        if (az.e(this.f162a)) {
-            if (com.xiaomi.push.service.ak.a(this.f162a).a(hr.Crash4GUploadSwitch.a(), true)) {
-                return ((float) Math.abs((System.currentTimeMillis() / 1000) - this.f163a.getLong("last_crash_upload_time_stamp", 0L))) >= ((float) Math.max((int) SdkConfigData.DEFAULT_REQUEST_INTERVAL, com.xiaomi.push.service.ak.a(this.f162a).a(hr.Crash4GUploadFrequency.a(), SdkConfigData.DEFAULT_REQUEST_INTERVAL))) * 0.9f;
+    private boolean m152a() {
+        this.f164a = this.f163a.getSharedPreferences("mipush_extra", 4);
+        if (az.e(this.f163a)) {
+            if (com.xiaomi.push.service.ak.a(this.f163a).a(hr.Crash4GUploadSwitch.a(), true)) {
+                return ((float) Math.abs((System.currentTimeMillis() / 1000) - this.f164a.getLong("last_crash_upload_time_stamp", 0L))) >= ((float) Math.max((int) SdkConfigData.DEFAULT_REQUEST_INTERVAL, com.xiaomi.push.service.ak.a(this.f163a).a(hr.Crash4GUploadFrequency.a(), SdkConfigData.DEFAULT_REQUEST_INTERVAL))) * 0.9f;
             }
             return false;
-        } else if (az.d(this.f162a)) {
-            return Math.abs((System.currentTimeMillis() / 1000) - this.f163a.getLong("last_crash_upload_time_stamp", 0L)) >= ((long) Math.max(60, com.xiaomi.push.service.ak.a(this.f162a).a(hr.CrashWIFIUploadFrequency.a(), 1800)));
+        } else if (az.d(this.f163a)) {
+            return Math.abs((System.currentTimeMillis() / 1000) - this.f164a.getLong("last_crash_upload_time_stamp", 0L)) >= ((long) Math.max(60, com.xiaomi.push.service.ak.a(this.f163a).a(hr.CrashWIFIUploadFrequency.a(), 1800)));
         } else {
             return true;
         }
     }
 
     private boolean a(boolean z, String str) {
-        for (String str2 : f161a) {
+        for (String str2 : f162a) {
             if (str.contains(str2)) {
                 return true;
             }
@@ -116,24 +116,24 @@ public class v implements Thread.UncaughtExceptionHandler {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b() {
-        this.f163a = this.f162a.getSharedPreferences("mipush_extra", 4);
-        SharedPreferences.Editor edit = this.f163a.edit();
+        this.f164a = this.f163a.getSharedPreferences("mipush_extra", 4);
+        SharedPreferences.Editor edit = this.f164a.edit();
         edit.putLong("last_crash_upload_time_stamp", System.currentTimeMillis() / 1000);
         com.xiaomi.push.r.a(edit);
     }
 
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
-        m140a(th);
-        synchronized (f14139a) {
+        m151a(th);
+        synchronized (f14140a) {
             try {
-                f14139a.wait(IMConnection.RETRY_DELAY_TIMES);
+                f14140a.wait(IMConnection.RETRY_DELAY_TIMES);
             } catch (InterruptedException e) {
                 com.xiaomi.channel.commonutils.logger.b.a(e);
             }
         }
-        if (this.f164a != null) {
-            this.f164a.uncaughtException(thread, th);
+        if (this.f165a != null) {
+            this.f165a.uncaughtException(thread, th);
             return;
         }
         Process.killProcess(Process.myPid());

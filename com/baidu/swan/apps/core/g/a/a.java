@@ -23,7 +23,7 @@ public class a {
         return str;
     }
 
-    public static int atM() {
+    public static int atN() {
         int andSet = cWy.getAndSet(0);
         if (DEBUG) {
             Log.i("MasterIdGenerator", "last master id - " + andSet);

@@ -12,10 +12,10 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 /* loaded from: classes8.dex */
 public class AdCardSinglePicView extends AdCardBaseView {
-    private XfremodeRoundLayout mPT;
-    private TbImageView mPU;
-    private View mPV;
-    private TextView mPW;
+    private XfremodeRoundLayout mPS;
+    private TbImageView mPT;
+    private View mPU;
+    private TextView mPV;
 
     public AdCardSinglePicView(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -37,39 +37,39 @@ public class AdCardSinglePicView extends AdCardBaseView {
         if (view instanceof XfremodeRoundLayout) {
             ((XfremodeRoundLayout) view).setRoundLayoutRadius(new float[]{Jg, Jg, Jg, Jg, Jg, Jg, Jg, Jg});
         }
-        this.mPT = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
-        this.mPU = (TbImageView) view.findViewById(R.id.ad_img);
-        this.mPU.setPlaceHolder(3);
-        this.mPV = view.findViewById(R.id.channel_ad);
-        this.mPW = (TextView) view.findViewById(R.id.advert_source_img);
-        this.mPT.setRoundLayoutRadius(new float[]{Jg, Jg, Jg, Jg, Jg, Jg, Jg, Jg});
+        this.mPS = (XfremodeRoundLayout) view.findViewById(R.id.rl_ad_image);
+        this.mPT = (TbImageView) view.findViewById(R.id.ad_img);
+        this.mPT.setPlaceHolder(3);
+        this.mPU = view.findViewById(R.id.channel_ad);
+        this.mPV = (TextView) view.findViewById(R.id.advert_source_img);
+        this.mPS.setRoundLayoutRadius(new float[]{Jg, Jg, Jg, Jg, Jg, Jg, Jg, Jg});
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     protected void a(AdCard adCard) {
         if (adCard.threadPicList == null || adCard.threadPicList.length < 1) {
-            this.mOy.setVisibility(8);
+            this.mOx.setVisibility(8);
             return;
         }
         String str = adCard.threadPicList[0].pic;
-        boolean a2 = a(this.mPU, adCard);
+        boolean a2 = a(this.mPT, adCard);
         if (!TextUtils.isEmpty(str) && a2) {
-            this.mOy.setVisibility(0);
-            this.mPU.startLoad(str, 17, false);
+            this.mOx.setVisibility(0);
+            this.mPT.startLoad(str, 17, false);
             AdvertAppInfo advertAppInfo = adCard.getAdvertAppInfo();
             if (!StringUtils.isNull(adCard.adSource, true)) {
-                this.mPW.setText(adCard.adSource);
-                this.mPV.setVisibility(0);
+                this.mPV.setText(adCard.adSource);
+                this.mPU.setVisibility(0);
             } else if (advertAppInfo != null && advertAppInfo.eOc != null && !TextUtils.isEmpty(advertAppInfo.eOc.adSource)) {
-                this.mPW.setText(advertAppInfo.eOc.adSource);
-                this.mPV.setVisibility(0);
+                this.mPV.setText(advertAppInfo.eOc.adSource);
+                this.mPU.setVisibility(0);
             } else {
-                this.mPV.setVisibility(8);
+                this.mPU.setVisibility(8);
             }
-            a(this.mPU, adCard.threadPicList[0].mOl);
+            a(this.mPT, adCard.threadPicList[0].mOk);
             return;
         }
-        this.mOy.setVisibility(8);
+        this.mOx.setVisibility(8);
     }
 
     protected boolean a(TbImageView tbImageView, AdCard adCard) {
@@ -109,7 +109,7 @@ public class AdCardSinglePicView extends AdCardBaseView {
                 layoutParams.height = i;
                 layoutParams.width = i2;
             }
-            this.mPT.setLayoutParams(layoutParams);
+            this.mPS.setLayoutParams(layoutParams);
             tbImageView.setLayoutParams(layoutParams);
         }
     }

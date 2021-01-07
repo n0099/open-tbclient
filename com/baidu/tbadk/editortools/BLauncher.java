@@ -40,7 +40,7 @@ public class BLauncher extends ImageView implements h {
     public void setIcon() {
         if (this.fDs != null) {
             if (this.fDs.fEx) {
-                setImageDrawable(SvgManager.bwq().z(this.fDs.fEu, this.fDs.fEv, this.mSkinType));
+                setImageDrawable(SvgManager.bwr().z(this.fDs.fEu, this.fDs.fEv, this.mSkinType));
             } else if (this.fDs.fEy) {
                 setImageDrawable(WebPManager.A(this.fDs.fEu, this.fDs.fEv, this.mSkinType));
             } else {
@@ -68,7 +68,7 @@ public class BLauncher extends ImageView implements h {
 
     @Override // com.baidu.tbadk.editortools.h
     public void hide() {
-        bEG();
+        bEH();
         setVisibility(8);
     }
 
@@ -84,7 +84,7 @@ public class BLauncher extends ImageView implements h {
         }
     }
 
-    public void DF(String str) {
+    public void DE(String str) {
         if (getVisibility() != 8 && !TextUtils.isEmpty(str)) {
             if (this.mTip == null) {
                 this.mTip = new TextView(getContext());
@@ -114,10 +114,10 @@ public class BLauncher extends ImageView implements h {
         }
     }
 
-    public void bEG() {
+    public void bEH() {
         if (this.mTip != null) {
             this.mTip.setVisibility(8);
-            bEH();
+            bEI();
         }
     }
 
@@ -127,7 +127,7 @@ public class BLauncher extends ImageView implements h {
     }
 
     @Override // com.baidu.tbadk.editortools.h
-    public void bEH() {
+    public void bEI() {
         this.fDs.fEE = false;
         invalidate();
     }
@@ -136,9 +136,9 @@ public class BLauncher extends ImageView implements h {
     public void a(a aVar) {
         if (aVar != null && aVar.code == 2) {
             if (aVar.data == null) {
-                bEG();
+                bEH();
             } else if (aVar.data instanceof String) {
-                DF((String) aVar.data);
+                DE((String) aVar.data);
             }
         }
     }

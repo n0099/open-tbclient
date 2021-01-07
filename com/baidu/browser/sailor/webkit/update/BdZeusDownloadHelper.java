@@ -11,18 +11,18 @@ import com.baidu.webkit.internal.blink.EngineManager;
 import com.baidu.webkit.sdk.Log;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class BdZeusDownloadHelper {
     protected static String d;
     protected static String e;
 
     /* renamed from: b  reason: collision with root package name */
-    protected long f1658b;
+    protected long f1659b;
     protected long c;
     private Context h;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1657a = BdZeusDownloadHelper.class.getSimpleName();
+    public static final String f1658a = BdZeusDownloadHelper.class.getSimpleName();
     private static BdZeusDownloadHelper agX = null;
     protected static String f = "com.baidu.android.appswitchsdk:web";
     private String i = "";
@@ -30,7 +30,7 @@ public final class BdZeusDownloadHelper {
     private int j = a.c;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public class ZeusDownloadTaskListener implements BdSailorClient.IDownloadTaskListener {
         private ZeusDownloadTaskListener() {
         }
@@ -53,14 +53,14 @@ public final class BdZeusDownloadHelper {
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadPause(String str, long j, long j2, String str2) {
-            BdZeusDownloadHelper.this.j = a.f1660b;
+            BdZeusDownloadHelper.this.j = a.f1661b;
             Log.i(EngineManager.LOG_TAG, "onDownloadPause");
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloadStart(String str, long j, String str2) {
-            BdZeusDownloadHelper.this.j = a.f1659a;
+            BdZeusDownloadHelper.this.j = a.f1660a;
         }
 
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
@@ -106,28 +106,28 @@ public final class BdZeusDownloadHelper {
         @Override // com.baidu.browser.sailor.BdSailorClient.IDownloadTaskListener
         @Keep
         public void onDownloading(String str, long j, long j2) {
-            BdZeusDownloadHelper.this.f1658b += j;
+            BdZeusDownloadHelper.this.f1659b += j;
             BdZeusDownloadHelper.this.c = j2;
-            BdZeusDownloadHelper.this.j = a.f1659a;
+            BdZeusDownloadHelper.this.j = a.f1660a;
         }
     }
 
     /* JADX WARN: $VALUES field not found */
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final int f1659a = 1;
+        public static final int f1660a = 1;
 
         /* renamed from: b  reason: collision with root package name */
-        public static final int f1660b = 2;
+        public static final int f1661b = 2;
         public static final int c = 3;
         public static final int d = 4;
         public static final int e = 5;
         public static final int f = 6;
         public static final int g = 7;
-        private static final /* synthetic */ int[] h = {f1659a, f1660b, c, d, e, f, g};
+        private static final /* synthetic */ int[] h = {f1660a, f1661b, c, d, e, f, g};
     }
 
     private BdZeusDownloadHelper(Context context) {

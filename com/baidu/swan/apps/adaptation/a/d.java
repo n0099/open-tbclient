@@ -3,9 +3,7 @@ package com.baidu.swan.apps.adaptation.a;
 import org.json.JSONObject;
 /* loaded from: classes9.dex */
 public interface d {
-    String ajV();
-
-    int ajW();
+    String ajW();
 
     int ajX();
 
@@ -15,9 +13,9 @@ public interface d {
 
     double akA();
 
-    int akB();
+    double akB();
 
-    boolean akC();
+    int akC();
 
     boolean akD();
 
@@ -25,11 +23,13 @@ public interface d {
 
     boolean akF();
 
-    int akG();
+    boolean akG();
 
-    boolean akH();
+    int akH();
 
-    boolean aka();
+    boolean akI();
+
+    int aka();
 
     boolean akb();
 
@@ -39,9 +39,9 @@ public interface d {
 
     boolean ake();
 
-    String akf();
+    boolean akf();
 
-    boolean akg();
+    String akg();
 
     boolean akh();
 
@@ -49,15 +49,15 @@ public interface d {
 
     boolean akj();
 
-    long akk();
+    boolean akk();
 
-    boolean akl();
+    long akl();
 
     boolean akm();
 
-    long akn();
+    boolean akn();
 
-    boolean ako();
+    long ako();
 
     boolean akp();
 
@@ -65,21 +65,21 @@ public interface d {
 
     boolean akr();
 
-    long aks();
+    boolean aks();
 
-    boolean akt();
+    long akt();
 
     boolean aku();
 
-    int akv();
+    boolean akv();
 
     int akw();
 
-    double akx();
+    int akx();
 
-    boolean aky();
+    double aky();
 
-    double akz();
+    boolean akz();
 
     JSONObject getRawSwitch();
 

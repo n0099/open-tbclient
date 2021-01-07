@@ -70,9 +70,9 @@ public abstract class a<E> implements Collection<E> {
 
     @Override // java.util.Collection
     public Object[] toArray() {
-        Object[] q = kotlin.jvm.internal.n.q(this);
-        kotlin.jvm.internal.p.n(q, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
-        return q;
+        Object[] r = kotlin.jvm.internal.n.r(this);
+        kotlin.jvm.internal.p.n(r, "kotlin.jvm.internal.Coll…Array.toArray(collection)");
+        return r;
     }
 
     @Override // java.util.Collection

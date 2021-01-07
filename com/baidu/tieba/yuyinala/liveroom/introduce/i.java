@@ -10,7 +10,7 @@ import com.baidu.live.tbadk.task.TbHttpMessageTask;
 public class i extends BdBaseModel {
     private final HttpMessageListener bCn;
     private Context bOy;
-    private a oqU;
+    private a oqT;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -20,7 +20,7 @@ public class i extends BdBaseModel {
     }
 
     public void a(a aVar) {
-        this.oqU = aVar;
+        this.oqT = aVar;
     }
 
     public i(Context context) {
@@ -34,12 +34,12 @@ public class i extends BdBaseModel {
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomPlayIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == i.this.getUniqueId() && i.this.oqU != null) {
+                if (httpResponsedMessage != null && (httpResponsedMessage instanceof AlaGetRoomPlayIntroduceHttpResponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == i.this.getUniqueId() && i.this.oqT != null) {
                     AlaGetRoomPlayIntroduceHttpResponseMessage alaGetRoomPlayIntroduceHttpResponseMessage = (AlaGetRoomPlayIntroduceHttpResponseMessage) httpResponsedMessage;
                     if (alaGetRoomPlayIntroduceHttpResponseMessage.getError() != 0 || !alaGetRoomPlayIntroduceHttpResponseMessage.isSuccess()) {
-                        i.this.oqU.onFail(alaGetRoomPlayIntroduceHttpResponseMessage.getError(), alaGetRoomPlayIntroduceHttpResponseMessage.getErrorString());
+                        i.this.oqT.onFail(alaGetRoomPlayIntroduceHttpResponseMessage.getError(), alaGetRoomPlayIntroduceHttpResponseMessage.getErrorString());
                     } else {
-                        i.this.oqU.a(alaGetRoomPlayIntroduceHttpResponseMessage);
+                        i.this.oqT.a(alaGetRoomPlayIntroduceHttpResponseMessage);
                     }
                 }
             }

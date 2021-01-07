@@ -31,22 +31,22 @@ public class FrsSchoolRecommendAdapter extends k<bo, FrsSchoolRecommendViewHolde
     public View a(int i, View view, ViewGroup viewGroup, bo boVar, FrsSchoolRecommendViewHolder frsSchoolRecommendViewHolder) {
         super.a(i, view, viewGroup, (ViewGroup) boVar, (bo) frsSchoolRecommendViewHolder);
         this.jjh = frsSchoolRecommendViewHolder.jji;
-        ArrayList<bq> bqx = boVar.bqx();
-        if (bqx.size() <= 0) {
+        ArrayList<bq> bqy = boVar.bqy();
+        if (bqy.size() <= 0) {
             return null;
         }
         x xVar = new x();
         xVar.showTopDivider = true;
         xVar.mGroupTitle = boVar.getTitle();
-        for (int i2 = 0; i2 != bqx.size(); i2++) {
-            bq bqVar = bqx.get(i2);
+        for (int i2 = 0; i2 != bqy.size(); i2++) {
+            bq bqVar = bqy.get(i2);
             if (bqVar != null) {
                 ay ayVar = new ay();
                 ayVar.metaData.setUserId(bqVar.getUid());
-                ayVar.metaData.setUserName(bqVar.bqB());
+                ayVar.metaData.setUserName(bqVar.bqC());
                 ayVar.metaData.setPortrait(bqVar.getPortrait());
                 ayVar.metaData.getGodUserData().setIsLike(bqVar.getIsLike() == 1);
-                ayVar.metaData.getGodUserData().setIntro(bqVar.bqC());
+                ayVar.metaData.getGodUserData().setIntro(bqVar.bqD());
                 xVar.a(ayVar);
             }
         }

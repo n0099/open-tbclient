@@ -115,25 +115,25 @@ public class f extends a<by, AutoVideoCardViewHolder<bz>> {
             oVar.mLocate = "20";
             oVar.anD = bzVar.tid;
             oVar.mSource = bzVar.mRecomSource;
-            oVar.mDH = bzVar.mRecomAbTag;
-            oVar.mDI = bzVar.mRecomWeight;
-            oVar.mDJ = Constants.VIA_REPORT_TYPE_MAKE_FRIEND;
+            oVar.mDG = bzVar.mRecomAbTag;
+            oVar.mDH = bzVar.mRecomWeight;
+            oVar.mDI = Constants.VIA_REPORT_TYPE_MAKE_FRIEND;
             oVar.mFloor = String.valueOf(bzVar.eQR);
-            if (bzVar.bsJ() != null) {
-                oVar.eQd = String.valueOf(bzVar.bsJ().eWU);
+            if (bzVar.bsK() != null) {
+                oVar.eQd = String.valueOf(bzVar.bsK().eWU);
             }
-            if (bzVar.boO() != null) {
-                oVar.fPy = String.valueOf(bzVar.boO().getFid());
-                oVar.mDQ = bzVar.boO().bpO();
-                if (bzVar.boO().brH() != null) {
-                    oVar.mDM = bzVar.boO().brH().video_md5;
-                    oVar.mDO = String.valueOf(bzVar.boO().brH().is_vertical);
+            if (bzVar.boP() != null) {
+                oVar.fPy = String.valueOf(bzVar.boP().getFid());
+                oVar.mDP = bzVar.boP().bpP();
+                if (bzVar.boP().brI() != null) {
+                    oVar.mDL = bzVar.boP().brI().video_md5;
+                    oVar.mDN = String.valueOf(bzVar.boP().brI().is_vertical);
                 }
             }
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            if (bzVar.boO() != null && bzVar.boO().getBaijiahaoData() != null) {
-                oVar.eVY = bzVar.boO().getBaijiahaoData().oriUgcNid;
-                oVar.mVid = bzVar.boO().getBaijiahaoData().oriUgcVid;
+            if (bzVar.boP() != null && bzVar.boP().getBaijiahaoData() != null) {
+                oVar.eVY = bzVar.boP().getBaijiahaoData().oriUgcNid;
+                oVar.mVid = bzVar.boP().getBaijiahaoData().oriUgcVid;
             }
         }
         return oVar;

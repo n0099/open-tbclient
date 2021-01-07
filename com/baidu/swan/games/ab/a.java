@@ -17,8 +17,8 @@ public class a {
     public static void getUUAPInfo(JsObject jsObject) {
         final c e = c.e(jsObject);
         if (e != null) {
-            e aMl = e.aMl();
-            if (aMl == null) {
+            e aMm = e.aMm();
+            if (aMm == null) {
                 c(e, "internal error");
                 return;
             }
@@ -26,7 +26,7 @@ public class a {
             if (DEBUG) {
                 Log.i("SwanGameUuapApi", "getUUAPInfo-domain: " + optString);
             }
-            aMl.aMw().e("mapp_uuap_info", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.ab.a.1
+            aMm.aMx().e("mapp_uuap_info", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.e>() { // from class: com.baidu.swan.games.ab.a.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: c */

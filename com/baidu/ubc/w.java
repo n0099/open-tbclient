@@ -29,15 +29,15 @@ public class w {
         this.eBF = jSONObject;
     }
 
-    public int biN() {
+    public int biO() {
         return this.mThreshold;
     }
 
-    public int biO() {
+    public int biP() {
         return this.eBE;
     }
 
-    public List<k> biP() {
+    public List<k> biQ() {
         return this.eBG;
     }
 
@@ -45,23 +45,23 @@ public class w {
         this.eBG = list;
     }
 
-    public String ejg() {
+    public String ejh() {
         return this.oNG;
     }
 
-    public JSONObject ejh() {
+    public JSONObject eji() {
         return this.oNE;
     }
 
-    public int eji() {
+    public int ejj() {
         return this.oNH;
     }
 
-    public int ejj() {
+    public int ejk() {
         return this.oNI;
     }
 
-    public boolean biQ() {
+    public boolean biR() {
         try {
             if (this.eBF == null) {
                 return false;
@@ -107,24 +107,24 @@ public class w {
                                     kVar.zx(jSONObject3.getString("idtype"));
                                 }
                                 if (jSONObject3.has("ch")) {
-                                    kVar.Xt(jSONObject3.getString("ch"));
+                                    kVar.Xs(jSONObject3.getString("ch"));
                                 }
                                 if (jSONObject3.has("dfc")) {
-                                    kVar.Xu(jSONObject3.getString("dfc"));
+                                    kVar.Xt(jSONObject3.getString("dfc"));
                                 }
                                 if (jSONObject3.has("reallog")) {
-                                    kVar.Xv(jSONObject3.getString("reallog"));
+                                    kVar.Xu(jSONObject3.getString("reallog"));
                                 }
                                 if (jSONObject3.has("gflow")) {
                                     String string6 = jSONObject3.getString("gflow");
                                     if (!TextUtils.isEmpty(string6) && !TextUtils.equals(string6, "0")) {
-                                        kVar.Xw(string6);
+                                        kVar.Xv(string6);
                                     }
                                 }
                                 if (jSONObject3.has("uploadType")) {
                                     String string7 = jSONObject3.getString("uploadType");
                                     if (!TextUtils.isEmpty(string7)) {
-                                        kVar.Xx(string7);
+                                        kVar.Xw(string7);
                                     }
                                 }
                                 int optInt = jSONObject3.optInt("lcache", 2);

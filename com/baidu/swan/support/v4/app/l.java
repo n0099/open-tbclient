@@ -176,7 +176,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     }
 
     @Override // com.baidu.swan.support.v4.app.k
-    public m bhH() {
+    public m bhI() {
         return new e(this);
     }
 
@@ -478,7 +478,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                         }
                         fragment.ezc = this.ezc;
                         fragment.eze = this.ezx;
-                        fragment.ezb = this.ezx != null ? this.ezx.ezd : this.ezc.bhG();
+                        fragment.ezb = this.ezx != null ? this.ezx.ezd : this.ezc.bhH();
                         fragment.mCalled = false;
                         fragment.onAttach(this.ezc.getContext());
                         if (!fragment.mCalled) {
@@ -658,7 +658,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
                         if (DEBUG) {
                             Log.v("FragmentManager", "movefrom STOPPED: " + fragment);
                         }
-                        fragment.bhC();
+                        fragment.bhD();
                     }
                     if (i < 2) {
                     }
@@ -1207,7 +1207,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public ArrayList<Fragment> bhI() {
+    public ArrayList<Fragment> bhJ() {
         ArrayList<Fragment> arrayList = null;
         if (this.ezu != null) {
             int i = 0;
@@ -1750,7 +1750,7 @@ public final class l extends k implements com.baidu.swan.support.v4.c.e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public com.baidu.swan.support.v4.c.e bhJ() {
+    public com.baidu.swan.support.v4.c.e bhK() {
         return this;
     }
 }

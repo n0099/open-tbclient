@@ -8,20 +8,20 @@ import tbclient.User;
 public class q {
     public int hcn;
     public int jTg;
-    public List<User> mxt;
+    public List<User> mxs;
 
     public void a(DataRes dataRes) {
         if (dataRes != null) {
-            this.mxt = dataRes.recom_user_list;
+            this.mxs = dataRes.recom_user_list;
             this.jTg = dataRes.has_more.intValue();
             this.hcn = dataRes.current_page.intValue();
         }
     }
 
-    public br dAp() {
+    public br dAq() {
         br brVar = new br();
         brVar.eRY = false;
-        brVar.bu(this.mxt);
+        brVar.bu(this.mxs);
         return brVar;
     }
 }

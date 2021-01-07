@@ -27,12 +27,12 @@ import org.apache.commons.base.CharEncoding;
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final byte[] f6169a = new byte[0];
+    public static final byte[] f6170a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String[] f6170b = new String[0];
-    public static final com.bytedance.sdk.a.b.c pjf = com.bytedance.sdk.a.b.c.a(null, f6169a);
-    public static final ac pjg = ac.b(null, f6169a);
+    public static final String[] f6171b = new String[0];
+    public static final com.bytedance.sdk.a.b.c pjf = com.bytedance.sdk.a.b.c.a(null, f6170a);
+    public static final ac pjg = ac.b(null, f6170a);
     private static final f pjh = f.b("efbbbf");
     private static final f pji = f.b("feff");
     private static final f pjj = f.b("fffe");
@@ -102,31 +102,31 @@ public final class c {
     /* JADX DEBUG: Another duplicated slice has different insns count: {[CMP_L]}, finally: {[CMP_L, INVOKE, INVOKE, INVOKE, ARITH, INVOKE, IF] complete} */
     public static boolean b(s sVar, int i, TimeUnit timeUnit) throws IOException {
         long nanoTime = System.nanoTime();
-        long eqe = sVar.epR().c() ? sVar.epR().eqe() - nanoTime : Long.MAX_VALUE;
-        sVar.epR().im(Math.min(eqe, timeUnit.toNanos(i)) + nanoTime);
+        long eqf = sVar.epS().c() ? sVar.epS().eqf() - nanoTime : Long.MAX_VALUE;
+        sVar.epS().im(Math.min(eqf, timeUnit.toNanos(i)) + nanoTime);
         try {
             com.bytedance.sdk.a.a.c cVar = new com.bytedance.sdk.a.a.c();
             while (sVar.b(cVar, 8192L) != -1) {
                 cVar.r();
             }
-            if (eqe == Long.MAX_VALUE) {
-                sVar.epR().eqg();
+            if (eqf == Long.MAX_VALUE) {
+                sVar.epS().eqh();
             } else {
-                sVar.epR().im(eqe + nanoTime);
+                sVar.epS().im(eqf + nanoTime);
             }
             return true;
         } catch (InterruptedIOException e) {
-            if (eqe == Long.MAX_VALUE) {
-                sVar.epR().eqg();
+            if (eqf == Long.MAX_VALUE) {
+                sVar.epS().eqh();
             } else {
-                sVar.epR().im(eqe + nanoTime);
+                sVar.epS().im(eqf + nanoTime);
             }
             return false;
         } catch (Throwable th) {
-            if (eqe == Long.MAX_VALUE) {
-                sVar.epR().eqg();
+            if (eqf == Long.MAX_VALUE) {
+                sVar.epS().eqh();
             } else {
-                sVar.epR().im(eqe + nanoTime);
+                sVar.epS().im(eqf + nanoTime);
             }
             throw th;
         }

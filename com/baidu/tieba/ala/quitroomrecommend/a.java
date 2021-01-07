@@ -34,7 +34,7 @@ public class a extends BaseAdapter {
     public a(Context context) {
         this.mContext = context;
         this.mScreenWidth = BdUtilHelper.getEquipmentWidth(this.mContext);
-        cry();
+        crz();
     }
 
     public void setData(List<com.baidu.tieba.ala.quitroomrecommend.data.a> list) {
@@ -42,7 +42,7 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    private void cry() {
+    private void crz() {
         this.cardWidth = (((this.mScreenWidth - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds34)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds34)) - this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds16)) / 2;
         if (this.cardWidth <= 0) {
             this.cardWidth = this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds372);

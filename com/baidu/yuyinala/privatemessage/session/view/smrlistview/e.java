@@ -6,7 +6,7 @@ import android.graphics.drawable.Drawable;
 public class e {
     private Drawable icon;
     private Context mContext;
-    private Drawable mJi;
+    private Drawable mJh;
     private int pfM;
     private String title;
     private int titleColor;
@@ -45,11 +45,11 @@ public class e {
     }
 
     public Drawable getBackground() {
-        return this.mJi;
+        return this.mJh;
     }
 
     public void setBackground(Drawable drawable) {
-        this.mJi = drawable;
+        this.mJh = drawable;
     }
 
     public int getWidth() {

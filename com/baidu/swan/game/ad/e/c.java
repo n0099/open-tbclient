@@ -59,12 +59,12 @@ public class c extends EventTargetImpl implements a.InterfaceC0518a, f.a, com.ba
                 this.style = new f(xg);
             }
         }
-        this.ecO = com.baidu.swan.game.ad.d.f.aVV();
+        this.ecO = com.baidu.swan.game.ad.d.f.aVW();
         if (this.ecO) {
-            this.ebw = com.baidu.swan.game.ad.d.f.aVY();
-            this.adUnitId = com.baidu.swan.game.ad.d.f.aVZ();
+            this.ebw = com.baidu.swan.game.ad.d.f.aVZ();
+            this.adUnitId = com.baidu.swan.game.ad.d.f.aWa();
         }
-        if (aWf()) {
+        if (aWg()) {
             if (e == null || TextUtils.isEmpty(this.adUnitId) || TextUtils.isEmpty(this.ebw) || this.style == null) {
                 bVar.throwJSException(JSExceptionType.Error, "请求广告的必须参数为空,中断执行");
                 return;
@@ -77,12 +77,12 @@ public class c extends EventTargetImpl implements a.InterfaceC0518a, f.a, com.ba
         }
     }
 
-    private boolean aWf() {
+    private boolean aWg() {
         if (TextUtils.isEmpty(this.mErrorCode)) {
-            com.baidu.swan.games.utils.c bcl = com.baidu.swan.games.utils.c.bcl();
-            if (!bcl.bct()) {
-                if (!bcl.bcu()) {
-                    if (bcl.yp(this.adUnitId)) {
+            com.baidu.swan.games.utils.c bcm = com.baidu.swan.games.utils.c.bcm();
+            if (!bcm.bcu()) {
+                if (!bcm.bcv()) {
+                    if (bcm.yp(this.adUnitId)) {
                         this.mErrorCode = "3010011";
                     }
                 } else {
@@ -111,8 +111,8 @@ public class c extends EventTargetImpl implements a.InterfaceC0518a, f.a, com.ba
     @JavascriptInterface
     public void showAd(JsObject jsObject) {
         com.baidu.swan.games.view.a.b.yx(this.ecO ? "gdtbanner" : "banner");
-        if (aWf() && this.ecN != null) {
-            com.baidu.swan.games.utils.c.bcl().bcs();
+        if (aWg() && this.ecN != null) {
+            com.baidu.swan.games.utils.c.bcm().bct();
             this.ecN.c(jsObject);
         }
     }
@@ -121,7 +121,7 @@ public class c extends EventTargetImpl implements a.InterfaceC0518a, f.a, com.ba
     @JavascriptInterface
     public void hide() {
         if (this.ecN != null) {
-            this.ecN.aWg();
+            this.ecN.aWh();
         }
     }
 
@@ -133,7 +133,7 @@ public class c extends EventTargetImpl implements a.InterfaceC0518a, f.a, com.ba
         removeEventListener(TrackLoadSettingsAtom.TYPE, null);
         removeEventListener(ResizeImageAction.ACTION_NAME, null);
         if (this.ecN != null) {
-            this.ecN.aWh();
+            this.ecN.aWi();
             this.ecN = null;
         }
     }
@@ -146,7 +146,7 @@ public class c extends EventTargetImpl implements a.InterfaceC0518a, f.a, com.ba
     }
 
     @Override // com.baidu.swan.game.ad.a.InterfaceC0518a
-    public void aUz() {
+    public void aUA() {
         destroy();
     }
 }

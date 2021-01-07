@@ -47,12 +47,12 @@ public class QuickLoginInfo extends SwanAppIPCData {
             return null;
         }
         QuickLoginInfo quickLoginInfo = new QuickLoginInfo();
-        quickLoginInfo.supportQuickLogin = aVar.aTr();
-        quickLoginInfo.encryptPhoneNum = aVar.aTs();
-        quickLoginInfo.serviceAgreement = aVar.aTu();
-        quickLoginInfo.hasHistory = aVar.aTt();
-        quickLoginInfo.loginMode = aVar.aTq();
-        quickLoginInfo.agreeText = aVar.aTv();
+        quickLoginInfo.supportQuickLogin = aVar.aTs();
+        quickLoginInfo.encryptPhoneNum = aVar.aTt();
+        quickLoginInfo.serviceAgreement = aVar.aTv();
+        quickLoginInfo.hasHistory = aVar.aTu();
+        quickLoginInfo.loginMode = aVar.aTr();
+        quickLoginInfo.agreeText = aVar.aTw();
         return quickLoginInfo;
     }
 

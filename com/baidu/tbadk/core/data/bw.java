@@ -9,7 +9,7 @@ public class bw {
         return this.img_url;
     }
 
-    public void AY(String str) {
+    public void AX(String str) {
         this.img_url = str;
     }
 
@@ -21,11 +21,11 @@ public class bw {
         this.link = str;
     }
 
-    public String bqH() {
+    public String bqI() {
         return this.deT;
     }
 
-    public void AZ(String str) {
+    public void AY(String str) {
         this.deT = str;
     }
 }

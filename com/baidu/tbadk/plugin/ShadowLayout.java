@@ -54,10 +54,10 @@ public class ShadowLayout extends FrameLayout {
 
     public void setShadowColor(int i) {
         this.dzP = ao.getColor(i);
-        bHU();
+        bHV();
     }
 
-    private void bHU() {
+    private void bHV() {
         this.paint.setShadowLayer(this.mShadowRadius, this.fNw, this.fNx, this.dzP);
         postInvalidate();
     }

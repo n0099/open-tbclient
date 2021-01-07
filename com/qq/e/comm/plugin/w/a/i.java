@@ -8,23 +8,23 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
 
     /* renamed from: com.qq.e.comm.plugin.w.a.i$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass1 implements j<Pair<Integer, JSONObject>> {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ boolean f12965a;
+        final /* synthetic */ boolean f12966a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ boolean f12966b;
+        final /* synthetic */ boolean f12967b;
         final /* synthetic */ a c;
 
         AnonymousClass1(boolean z, boolean z2, a aVar) {
-            this.f12965a = z;
-            this.f12966b = z2;
+            this.f12966a = z;
+            this.f12967b = z2;
             this.c = aVar;
         }
 
@@ -35,14 +35,14 @@ public class i {
                 return;
             }
             String optString = ((JSONObject) pair.second).optString("clickid");
-            com.qq.e.comm.plugin.w.a.a(this.f12965a, this.f12966b, optString);
+            com.qq.e.comm.plugin.w.a.a(this.f12966a, this.f12967b, optString);
             if (this.c != null) {
-                this.c.a(optString, this.f12966b);
+                this.c.a(optString, this.f12967b);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(String str, boolean z);
     }

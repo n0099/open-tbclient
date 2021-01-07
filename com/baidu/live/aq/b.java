@@ -7,23 +7,23 @@ import java.util.List;
 public interface b {
     void G(String str, boolean z);
 
-    AlaWheatInfoData aan();
-
-    List<AlaWheatInfoData> aao();
+    AlaWheatInfoData aao();
 
     List<AlaWheatInfoData> aap();
 
-    String aaq();
+    List<AlaWheatInfoData> aaq();
 
     String aar();
 
-    x aas();
+    String aas();
 
-    String aat();
+    x aat();
 
-    void aau();
+    String aau();
 
     void aav();
+
+    void aaw();
 
     String getCustomRoomId();
 

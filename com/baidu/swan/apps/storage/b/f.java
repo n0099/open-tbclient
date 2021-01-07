@@ -6,8 +6,8 @@ import androidx.annotation.NonNull;
 public class f extends a {
     @Override // com.baidu.swan.apps.storage.b.a
     @NonNull
-    public String aPA() {
-        String tR = com.baidu.swan.apps.storage.b.tR(com.baidu.swan.apps.runtime.d.aMg().getAppId());
+    public String aPB() {
+        String tR = com.baidu.swan.apps.storage.b.tR(com.baidu.swan.apps.runtime.d.aMh().getAppId());
         if (TextUtils.isEmpty(tR)) {
             return "";
         }

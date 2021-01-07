@@ -24,31 +24,31 @@ public class e implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private Uri f1850a;
+    private Uri f1851a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, String> f1851b;
+    private Map<String, String> f1852b;
 
     public e(Uri uri, Map<String, String> map) {
-        this.f1850a = uri;
-        this.f1851b = map;
+        this.f1851a = uri;
+        this.f1852b = map;
     }
 
     protected e(Parcel parcel) {
-        this.f1850a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
-        this.f1851b = new HashMap();
+        this.f1851a = (Uri) parcel.readParcelable(Uri.class.getClassLoader());
+        this.f1852b = new HashMap();
         int readInt = parcel.readInt();
         for (int i = 0; i < readInt; i++) {
-            this.f1851b.put(parcel.readString(), parcel.readString());
+            this.f1852b.put(parcel.readString(), parcel.readString());
         }
     }
 
     public Uri a() {
-        return this.f1850a;
+        return this.f1851a;
     }
 
     public Map<String, String> b() {
-        return this.f1851b;
+        return this.f1852b;
     }
 
     @Override // android.os.Parcelable
@@ -58,13 +58,13 @@ public class e implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeParcelable(this.f1850a, i);
-        if (this.f1851b == null || this.f1851b.size() <= 0) {
+        parcel.writeParcelable(this.f1851a, i);
+        if (this.f1852b == null || this.f1852b.size() <= 0) {
             parcel.writeInt(0);
             return;
         }
-        parcel.writeInt(this.f1851b.size());
-        for (Map.Entry<String, String> entry : this.f1851b.entrySet()) {
+        parcel.writeInt(this.f1852b.size());
+        for (Map.Entry<String, String> entry : this.f1852b.entrySet()) {
             parcel.writeString(entry.getKey());
             parcel.writeString(entry.getValue());
         }

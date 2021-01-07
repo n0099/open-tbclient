@@ -5,14 +5,14 @@ import android.os.Build;
 public final class aa {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3674a = true;
+    public static boolean f3675a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f3675b;
+    public static final String f3676b;
     public static final String c;
 
     static {
-        f3675b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
+        f3676b = Build.VERSION.SDK_INT < 9 ? "http://datax.baidu.com/xs.gif" : "https://datax.baidu.com/xs.gif";
         c = Build.VERSION.SDK_INT < 9 ? "http://dxp.baidu.com/upgrade" : "https://dxp.baidu.com/upgrade";
     }
 }

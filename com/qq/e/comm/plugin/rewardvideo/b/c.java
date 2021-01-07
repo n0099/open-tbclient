@@ -18,14 +18,14 @@ import com.qq.e.comm.plugin.rewardvideo.d;
 import com.qq.e.comm.plugin.rewardvideo.n;
 import com.qq.e.comm.plugin.util.ak;
 import com.qq.e.comm.plugin.util.ao;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private final f f12688a;
+    private final f f12689a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final ImageView f12689b;
+    private final ImageView f12690b;
     private final com.qq.e.comm.plugin.ac.b c;
     private k d;
     private final ImageView e;
@@ -41,15 +41,15 @@ public class c extends FrameLayout {
         this.k = gVar;
         this.i = new RelativeLayout(context);
         addView(this.i, new RelativeLayout.LayoutParams(-1, -1));
-        this.f12688a = new f(context);
-        this.f12688a.setId(2131755010);
+        this.f12689a = new f(context);
+        this.f12689a.setId(2131755010);
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -1);
         layoutParams.addRule(13, -1);
-        this.i.addView(this.f12688a, layoutParams);
-        this.f12689b = new ImageView(context);
+        this.i.addView(this.f12689a, layoutParams);
+        this.f12690b = new ImageView(context);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -1);
         layoutParams2.gravity = 17;
-        addView(this.f12689b, layoutParams2);
+        addView(this.f12690b, layoutParams2);
         if (z2) {
             this.h = new e(context, null).a();
             this.h.b().setBackgroundColor(0);
@@ -154,11 +154,11 @@ public class c extends FrameLayout {
     }
 
     public f c() {
-        return this.f12688a;
+        return this.f12689a;
     }
 
     public ImageView d() {
-        return this.f12689b;
+        return this.f12690b;
     }
 
     public com.qq.e.comm.plugin.ac.b e() {

@@ -9,7 +9,7 @@ public class o extends bz {
     private boolean eOX = false;
     private int eOY;
 
-    public boolean bpn() {
+    public boolean bpo() {
         return this.eOV;
     }
 
@@ -17,7 +17,7 @@ public class o extends bz {
         this.eOV = z;
     }
 
-    public boolean bpo() {
+    public boolean bpp() {
         return this.eOW;
     }
 
@@ -25,7 +25,7 @@ public class o extends bz {
         this.eOW = z;
     }
 
-    public boolean bpp() {
+    public boolean bpq() {
         return this.eOX;
     }
 

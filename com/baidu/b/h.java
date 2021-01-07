@@ -10,24 +10,24 @@ import java.util.Collections;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class h {
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f1618b = false;
+    private static boolean f1619b = false;
     private a.C0085a aeR;
     c afr;
     private com.baidu.b.b.c afu;
     private Context c;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f1619a = {"V", "O", "0"};
+        public static final String[] f1620a = {"V", "O", "0"};
 
         /* renamed from: b  reason: collision with root package name */
-        private String f1620b;
+        private String f1621b;
         private String c;
         private String d;
         private long e;
@@ -35,13 +35,13 @@ public class h {
         private int g = 1;
 
         public String a() {
-            return this.f1620b;
+            return this.f1621b;
         }
 
         public String b() {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("dik", this.f1620b);
+                jSONObject.put("dik", this.f1621b);
                 jSONObject.put("v270fk", this.c);
                 jSONObject.put("cck", this.d);
                 jSONObject.put("vsk", this.g);
@@ -60,7 +60,7 @@ public class h {
                 str = "0";
             }
             StringBuilder sb = new StringBuilder();
-            sb.append(this.f1620b).append("|").append(str);
+            sb.append(this.f1621b).append("|").append(str);
             if ("V".equals(str)) {
                 sb.append(this.d);
             }
@@ -78,7 +78,7 @@ public class h {
                 return false;
             }
             a aVar = (a) obj;
-            if (this.g == aVar.g && this.f1620b.equals(aVar.f1620b) && this.c.equals(aVar.c) && this.d.equals(aVar.d)) {
+            if (this.g == aVar.g && this.f1621b.equals(aVar.f1621b) && this.c.equals(aVar.c) && this.d.equals(aVar.d)) {
                 if (this.f == aVar.f) {
                     return true;
                 }
@@ -90,7 +90,7 @@ public class h {
         }
 
         public int hashCode() {
-            return Arrays.hashCode(new Object[]{this.f1620b, this.c, this.d, this.f, Integer.valueOf(this.g)});
+            return Arrays.hashCode(new Object[]{this.f1621b, this.c, this.d, this.f, Integer.valueOf(this.g)});
         }
     }
 
@@ -121,7 +121,7 @@ public class h {
                 return null;
             }
             a aVar = new a();
-            aVar.f1620b = optString;
+            aVar.f1621b = optString;
             aVar.d = optString2;
             aVar.e = optLong;
             aVar.g = optInt;
@@ -142,7 +142,7 @@ public class h {
     private void a(com.baidu.b.e.a aVar) {
         com.baidu.b.b.c cVar = new com.baidu.b.b.c(new com.baidu.b.a());
         a.C0083a c0083a = new a.C0083a();
-        c0083a.f1574a = this.c;
+        c0083a.f1575a = this.c;
         c0083a.aeM = aVar;
         a.c cVar2 = new a.c();
         for (com.baidu.b.b.a aVar2 : cVar.a()) {
@@ -169,7 +169,7 @@ public class h {
             String c = c(str);
             long currentTimeMillis = System.currentTimeMillis();
             a aVar = new a();
-            aVar.f1620b = str;
+            aVar.f1621b = str;
             aVar.d = c;
             aVar.e = currentTimeMillis;
             aVar.g = 1;
@@ -184,7 +184,7 @@ public class h {
 
     public a a() {
         a.d dVar = new a.d();
-        dVar.f1576a = true;
+        dVar.f1577a = true;
         List<com.baidu.b.b.a> a2 = this.afu.a();
         Collections.sort(a2, com.baidu.b.b.a.c);
         List<b> b2 = this.afr.b(this.c);
@@ -213,10 +213,10 @@ public class h {
         aVar.e = System.currentTimeMillis();
         aVar.g = 1;
         try {
-            aVar.c = fVar.f1613b.substring(0, 1);
-            aVar.f1620b = fVar.f1612a;
-            aVar.d = c(fVar.f1612a);
-            String[] strArr = a.f1619a;
+            aVar.c = fVar.f1614b.substring(0, 1);
+            aVar.f1621b = fVar.f1613a;
+            aVar.d = c(fVar.f1613a);
+            String[] strArr = a.f1620a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -229,10 +229,10 @@ public class h {
                     i++;
                 }
             }
-            if (!z || fVar.f1613b == null || fVar.f1613b.length() < 2) {
+            if (!z || fVar.f1614b == null || fVar.f1614b.length() < 2) {
                 return aVar;
             }
-            aVar.f = fVar.f1613b.substring(1);
+            aVar.f = fVar.f1614b.substring(1);
             return aVar;
         } catch (Exception e) {
             return null;
@@ -244,7 +244,7 @@ public class h {
         a aVar = new a();
         aVar.e = System.currentTimeMillis();
         aVar.g = 1;
-        aVar.f1620b = a2;
+        aVar.f1621b = a2;
         aVar.c = "E";
         aVar.d = c(a2);
         aVar.f = "RO";

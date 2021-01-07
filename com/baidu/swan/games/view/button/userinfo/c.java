@@ -11,8 +11,8 @@ public class c {
     }
 
     public void a(final a aVar) {
-        if (aVar != null && f.aDG().aDq() != null) {
-            com.baidu.swan.apps.setting.b.a.a(f.aDG().aDq(), "snsapi_userinfo", null, true, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.games.view.button.userinfo.c.1
+        if (aVar != null && f.aDH().aDr() != null) {
+            com.baidu.swan.apps.setting.b.a.a(f.aDH().aDr(), "snsapi_userinfo", null, true, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.games.view.button.userinfo.c.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */

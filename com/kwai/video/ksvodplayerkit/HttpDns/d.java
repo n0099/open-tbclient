@@ -16,10 +16,10 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private g<a> f11327a;
+    private g<a> f11328a;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<String> f11328b;
+    private List<String> f11329b;
     private String c;
     private boolean d;
     private l e;
@@ -55,41 +55,41 @@ public class d {
         this.j = new HashMap();
         this.k = 0;
         this.d = false;
-        this.f11327a = new g<>();
-        this.f11328b = list;
-        a(this.f11328b);
+        this.f11328a = new g<>();
+        this.f11329b = list;
+        a(this.f11329b);
     }
 
     private void a(com.kwai.video.ksvodplayerkit.b.f fVar, a aVar, a aVar2) {
-        fVar.f11345a = aVar.f11325b;
-        fVar.m = aVar.f11324a;
-        fVar.d = fVar.d.replace(aVar.f11324a, aVar.c != null ? aVar.c.f11332b : aVar.f11324a);
+        fVar.f11346a = aVar.f11326b;
+        fVar.m = aVar.f11325a;
+        fVar.d = fVar.d.replace(aVar.f11325a, aVar.c != null ? aVar.c.f11333b : aVar.f11325a);
         if (aVar2 != null) {
             fVar.f = "";
         }
-        this.i.d = aVar.f11324a;
+        this.i.d = aVar.f11325a;
     }
 
     private void a(h hVar) {
         if (this.e == null) {
             this.e = new l();
-            this.e.f11353a = new ArrayList();
+            this.e.f11354a = new ArrayList();
             com.kwai.video.ksvodplayerkit.b.a aVar = new com.kwai.video.ksvodplayerkit.b.a();
-            this.e.f11353a.add(aVar);
-            aVar.f11340a = 1L;
-            aVar.f11341b = String.valueOf(hVar.f11347a);
+            this.e.f11354a.add(aVar);
+            aVar.f11341a = 1L;
+            aVar.f11342b = String.valueOf(hVar.f11348a);
             aVar.c = new ArrayList();
-            for (i iVar : hVar.f11348b) {
+            for (i iVar : hVar.f11349b) {
                 if (iVar != null) {
                     j jVar = new j();
                     aVar.c.add(jVar);
-                    jVar.f11351a = iVar.f11350b;
+                    jVar.f11352a = iVar.f11351b;
                     jVar.d = iVar.d;
                     jVar.e = iVar.f;
                     jVar.f = iVar.e;
                     jVar.h = iVar.c;
                     ArrayList arrayList = new ArrayList();
-                    for (String str : iVar.f11349a) {
+                    for (String str : iVar.f11350a) {
                         try {
                             String b2 = com.kwai.video.ksvodplayerkit.c.a.b(str);
                             int i = 0;
@@ -101,9 +101,9 @@ public class d {
                                 }
                                 f next = it.next();
                                 this.d = true;
-                                a aVar2 = new a(b2, str.replace(b2, next.f11332b), next);
+                                a aVar2 = new a(b2, str.replace(b2, next.f11333b), next);
                                 arrayList.add(aVar2);
-                                if (iVar.f11349a.size() > 1) {
+                                if (iVar.f11350a.size() > 1) {
                                     i = i2 + 1;
                                     if (i >= 2) {
                                         break;
@@ -111,7 +111,7 @@ public class d {
                                 } else {
                                     i = i2;
                                 }
-                                this.f.put(aVar2.f11325b, jVar);
+                                this.f.put(aVar2.f11326b, jVar);
                             }
                             this.f.put(str, jVar);
                             if (!TextUtils.isEmpty(b2)) {
@@ -135,9 +135,9 @@ public class d {
     }
 
     private void a(j jVar, a aVar) {
-        jVar.g = aVar.f11325b;
-        jVar.f11352b = aVar.f11324a;
-        jVar.c = com.kwai.video.ksvodplayerkit.c.c.c(aVar.f11325b);
+        jVar.g = aVar.f11326b;
+        jVar.f11353b = aVar.f11325a;
+        jVar.c = com.kwai.video.ksvodplayerkit.c.c.c(aVar.f11326b);
     }
 
     private void a(List<String> list) {
@@ -152,7 +152,7 @@ public class d {
                     break;
                 }
                 f next = it.next();
-                arrayList.add(new a(b2, str, str.replace(b2, next.f11332b), next));
+                arrayList.add(new a(b2, str, str.replace(b2, next.f11333b), next));
                 this.d = true;
                 if (list.size() > 1) {
                     i = i2 + 1;
@@ -166,10 +166,10 @@ public class d {
             if (arrayList.isEmpty()) {
                 arrayList.add(new a(b2, str, str, (f) null));
             }
-            this.f11327a.a(arrayList);
+            this.f11328a.a(arrayList);
         }
         if (com.kwai.video.ksvodplayerkit.i.a().j()) {
-            Collections.sort(this.f11327a.f11333a);
+            Collections.sort(this.f11328a.f11334a);
         }
     }
 
@@ -183,27 +183,27 @@ public class d {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= aVar.f11344a.size()) {
+            if (i2 >= aVar.f11345a.size()) {
                 return;
             }
             ArrayList<a> arrayList2 = new ArrayList();
-            com.kwai.video.ksvodplayerkit.b.f fVar = aVar.f11344a.get(i2);
-            String str2 = fVar.f11345a;
+            com.kwai.video.ksvodplayerkit.b.f fVar = aVar.f11345a.get(i2);
+            String str2 = fVar.f11346a;
             try {
                 arrayList2.add(new a(com.kwai.video.ksvodplayerkit.c.a.b(str2), str2, str2, (f) null));
-                for (String str3 : fVar.f11346b) {
+                for (String str3 : fVar.f11347b) {
                     arrayList2.add(new a(com.kwai.video.ksvodplayerkit.c.a.b(str3), str3, str3, (f) null));
                 }
                 for (a aVar2 : arrayList2) {
-                    for (f fVar2 : e.a().a(aVar2.f11324a)) {
+                    for (f fVar2 : e.a().a(aVar2.f11325a)) {
                         this.d = true;
-                        a aVar3 = new a(aVar2.f11324a, aVar2.e.replace(aVar2.f11324a, fVar2.f11332b), fVar2);
+                        a aVar3 = new a(aVar2.f11325a, aVar2.e.replace(aVar2.f11325a, fVar2.f11333b), fVar2);
                         arrayList.add(aVar3);
-                        this.j.put(aVar3.f11325b, fVar);
+                        this.j.put(aVar3.f11326b, fVar);
                     }
                     this.j.put(aVar2.e, fVar);
-                    if (!TextUtils.isEmpty(aVar2.f11324a)) {
-                        arrayList.add(new a(aVar2.f11324a, aVar2.e, null));
+                    if (!TextUtils.isEmpty(aVar2.f11325a)) {
+                        arrayList.add(new a(aVar2.f11325a, aVar2.e, null));
                     }
                 }
                 if (arrayList.size() > 0) {
@@ -225,7 +225,7 @@ public class d {
                 return jVar.i;
             }
         } else if (this.k != 2) {
-            return this.f11327a;
+            return this.f11328a;
         } else {
             com.kwai.video.ksvodplayerkit.b.f fVar = this.j.get(this.g);
             if (fVar != null) {
@@ -244,7 +244,7 @@ public class d {
             return;
         }
         if (this.k == 0) {
-            a(this.f11328b);
+            a(this.f11329b);
         }
         if (this.k == 2 && this.c != null) {
             b(this.c);
@@ -262,13 +262,13 @@ public class d {
             j jVar = this.f.get(this.g);
             if (jVar != null && (gVar2 = jVar.i) != null) {
                 a b2 = b();
-                String str2 = b2 != null ? b2.f11325b : null;
+                String str2 = b2 != null ? b2.f11326b : null;
                 if (!e()) {
                     jVar.i.a();
                 }
                 a(jVar, jVar.i.c());
                 a c = gVar2.c();
-                if ((c == null || TextUtils.equals(str2, c.f11325b)) ? false : true) {
+                if ((c == null || TextUtils.equals(str2, c.f11326b)) ? false : true) {
                     com.kwai.video.ksvodplayerkit.a.b.b("HostSwitcher", "URL_TYPE_MULTIRATE_MANIFEST switch PlayUrls");
                     return true;
                 }
@@ -279,12 +279,12 @@ public class d {
             com.kwai.video.ksvodplayerkit.b.f fVar = this.j.get(this.g);
             if (fVar != null && (gVar = fVar.n) != null) {
                 a b3 = b();
-                str = b3 != null ? b3.f11325b : null;
+                str = b3 != null ? b3.f11326b : null;
                 if (!e()) {
                     fVar.n.a();
                 }
                 a c2 = gVar.c();
-                if ((c2 == null || TextUtils.equals(str, c2.f11325b)) ? false : true) {
+                if ((c2 == null || TextUtils.equals(str, c2.f11326b)) ? false : true) {
                     a(fVar, fVar.n.c(), b3);
                     com.kwai.video.ksvodplayerkit.a.b.b("HostSwitcher", "URL_TYPE_HLS_MANIFEST switch PlayUrls");
                     return true;
@@ -293,12 +293,12 @@ public class d {
             return false;
         }
         a b4 = b();
-        str = b4 != null ? b4.f11325b : null;
+        str = b4 != null ? b4.f11326b : null;
         if (!e()) {
-            this.f11327a.a();
+            this.f11328a.a();
         }
         a b5 = b();
-        if ((b5 == null || TextUtils.equals(str, b5.f11325b)) ? false : true) {
+        if ((b5 == null || TextUtils.equals(str, b5.f11326b)) ? false : true) {
             com.kwai.video.ksvodplayerkit.a.b.b("HostSwitcher", "switch PlayUrls");
             return true;
         }
@@ -324,7 +324,7 @@ public class d {
 
     public String d() {
         a b2 = b();
-        return b2 != null ? b2.f11324a : "";
+        return b2 != null ? b2.f11325a : "";
     }
 
     public boolean e() {
@@ -356,6 +356,6 @@ public class d {
         if (this.k != 0 || (b2 = b()) == null) {
             return null;
         }
-        return b2.f11325b;
+        return b2.f11326b;
     }
 }

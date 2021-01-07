@@ -31,18 +31,18 @@ public final class a extends com.baidu.swan.apps.component.b.a<CanvasView, com.b
             c.e("Component-Canvas", "some params is invalid");
             return false;
         }
-        com.baidu.swan.apps.canvas.b.a aoz = aoz();
-        if (!TextUtils.equals(aoz.cNO, aVar.cNO) || !TextUtils.equals(aoz.cNP, aVar.cNP)) {
+        com.baidu.swan.apps.canvas.b.a aoA = aoA();
+        if (!TextUtils.equals(aoA.cNO, aVar.cNO) || !TextUtils.equals(aoA.cNP, aVar.cNP)) {
             com.baidu.swan.apps.component.e.a.br("Component-Canvas", "drawCanvas with illegal ids!");
         }
         b bVar2 = (b) aVar;
-        this.cNZ.i(bVar2.aom(), bVar2.aon());
+        this.cNZ.i(bVar2.aon(), bVar2.aoo());
         this.cNZ.postInvalidate();
         this.cNZ.post(new Runnable() { // from class: com.baidu.swan.apps.component.components.d.a.1
             @Override // java.lang.Runnable
             public void run() {
                 if (bVar != null) {
-                    bVar.aoh();
+                    bVar.aoi();
                 }
             }
         });

@@ -30,7 +30,7 @@ public class a {
         }
     }
 
-    public void cME() {
+    public void cMF() {
         if (this.jFM && this.jFN >= 0) {
             BC(this.jFN);
         }
@@ -50,8 +50,8 @@ public class a {
     private void BC(int i) {
         FrameLayout frameLayout;
         String string;
-        q cEZ = this.jDI.cEZ();
-        if (cEZ != null && cEZ.getListView() != null && (frameLayout = (FrameLayout) cEZ.cGA()) != null) {
+        q cFa = this.jDI.cFa();
+        if (cFa != null && cFa.getListView() != null && (frameLayout = (FrameLayout) cFa.cGB()) != null) {
             if (this.jxB == null && this.jDI.getPageContext() != null) {
                 this.jxB = new TextView(this.jDI.getPageContext().getPageActivity());
                 this.jxB.setTextSize(0, this.jDI.getResources().getDimensionPixelSize(R.dimen.fontsize28));

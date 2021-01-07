@@ -7,7 +7,7 @@ import io.reactivex.internal.subscriptions.SubscriptionHelper;
 import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.reactivex.disposables.b, j<T>, d {
     private static final long serialVersionUID = -7251123623727029452L;
     final io.reactivex.b.a onComplete;
@@ -98,6 +98,6 @@ public final class LambdaSubscriber<T> extends AtomicReference<d> implements io.
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.qgt;
+        return this.onError != Functions.qib;
     }
 }

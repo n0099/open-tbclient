@@ -46,7 +46,7 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
             if (AlaFrsStoryLiveGatherActivity.this.getPageContext() != null && AlaFrsStoryLiveGatherActivity.this.gXK != null) {
                 AlaFrsStoryLiveGatherActivity.this.hideLoadingView(AlaFrsStoryLiveGatherActivity.this.gXK.getRootView());
                 AlaFrsStoryLiveGatherActivity.this.gXK.completePullRefresh();
-                AlaFrsStoryLiveGatherActivity.this.gXK.c(AlaFrsStoryLiveGatherActivity.this.gXL.getDatas(), AlaFrsStoryLiveGatherActivity.this.gXL.bYx(), z);
+                AlaFrsStoryLiveGatherActivity.this.gXK.c(AlaFrsStoryLiveGatherActivity.this.gXL.getDatas(), AlaFrsStoryLiveGatherActivity.this.gXL.bYy(), z);
                 AlaFrsStoryLiveGatherActivity.this.gXK.vt(AlaFrsStoryLiveGatherActivity.this.gXL.getLiveCount());
                 if (x.getCount(AlaFrsStoryLiveGatherActivity.this.gXL.getDatas()) != 0) {
                     AlaFrsStoryLiveGatherActivity.this.hideNetRefreshView(AlaFrsStoryLiveGatherActivity.this.gXK.getRootView());
@@ -92,13 +92,13 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         public void onScrollToBottom() {
             boolean z = false;
             if (AlaFrsStoryLiveGatherActivity.this.gXL != null) {
-                z = AlaFrsStoryLiveGatherActivity.this.gXL.bVK();
+                z = AlaFrsStoryLiveGatherActivity.this.gXL.bVL();
             }
             if (AlaFrsStoryLiveGatherActivity.this.gXK != null) {
                 if (z) {
-                    AlaFrsStoryLiveGatherActivity.this.gXK.bUE();
+                    AlaFrsStoryLiveGatherActivity.this.gXK.bUF();
                 } else {
-                    AlaFrsStoryLiveGatherActivity.this.gXK.bUD();
+                    AlaFrsStoryLiveGatherActivity.this.gXK.bUE();
                 }
             }
         }
@@ -132,11 +132,11 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
         if (StringUtils.isNull(this.forumId)) {
             finish();
         }
-        setContentView(bYm());
+        setContentView(bYn());
         initModel();
     }
 
-    private View bYm() {
+    private View bYn() {
         String string;
         LinearLayout linearLayout = new LinearLayout(getActivity());
         linearLayout.setOrientation(1);
@@ -191,26 +191,26 @@ public class AlaFrsStoryLiveGatherActivity extends BaseActivity<AlaFrsStoryLiveG
 
     private AlaLiveInfoCoreData V(bz bzVar) {
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
-        alaLiveInfoCoreData.userName = bzVar.brq().getUserName();
+        alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
+        alaLiveInfoCoreData.userName = bzVar.brr().getUserName();
         return alaLiveInfoCoreData;
     }
 
     public void a(TbPageContext<?> tbPageContext, bz bzVar) {
-        if (tbPageContext != null && bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
+        if (tbPageContext != null && bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
             boolean z = false;
             String str = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bzVar.brq().getUserId();
+                String userId = bzVar.brr().getUserId();
                 str = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str);
             }
-            TiebaStatic.log(new aq("c12550").dX("obj_param1", bzVar.brq().getUserId()));
+            TiebaStatic.log(new aq("c12550").dX("obj_param1", bzVar.brr().getUserId()));
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
+            alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            for (bz bzVar2 : this.gXL.bVD()) {
+            for (bz bzVar2 : this.gXL.bVE()) {
                 alaLiveInfoListCoreData.mLiveInfoList.add(V(bzVar2));
             }
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(tbPageContext.getPageActivity(), alaLiveInfoCoreData, alaLiveInfoListCoreData, "square_sub_live", str, z, null, null)));

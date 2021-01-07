@@ -15,61 +15,61 @@ public class b extends com.baidu.adp.base.d<AdSettingActivity> {
     private ImageView jvY;
     private NavigationBar mNavigationBar;
     private View mParent;
-    private MsgSettingItemView naA;
-    private TextView naB;
+    private TextView naA;
+    private View naB;
     private View naC;
-    private View naD;
+    private TextView naD;
     private TextView naE;
     private TextView naF;
-    private TextView naG;
-    private AdSettingActivity naz;
+    private AdSettingActivity nay;
+    private MsgSettingItemView naz;
 
     public b(AdSettingActivity adSettingActivity) {
         super(adSettingActivity.getPageContext());
-        this.naz = adSettingActivity;
-        bDf();
+        this.nay = adSettingActivity;
+        bDg();
     }
 
-    private void bDf() {
-        this.naz.setContentView(R.layout.ad_setting_activity);
-        this.mNavigationBar = (NavigationBar) this.naz.findViewById(R.id.view_navigation_bar);
+    private void bDg() {
+        this.nay.setContentView(R.layout.ad_setting_activity);
+        this.mNavigationBar = (NavigationBar) this.nay.findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setTitleText(this.naz.getPageContext().getString(R.string.ad_control_setting));
-        this.naA = (MsgSettingItemView) this.naz.findViewById(R.id.memberAdSetting);
-        this.naA.setLineVisibility(false);
-        this.naB = (TextView) this.naz.findViewById(R.id.memberAdTips);
-        this.naC = this.naz.findViewById(R.id.privacyContainer);
-        this.naD = this.naz.findViewById(R.id.privacyItem);
-        this.naG = (TextView) this.naz.findViewById(R.id.privacyControlText);
-        this.naE = (TextView) this.naz.findViewById(R.id.privacyControlTipsSmall);
-        this.naE = (TextView) this.naz.findViewById(R.id.privacyControlTipsSmall);
-        this.naF = (TextView) this.naz.findViewById(R.id.privacyControlTips);
-        this.jvY = (ImageView) this.naz.findViewById(R.id.arrow);
-        this.mParent = this.naz.findViewById(R.id.parent);
-        this.naD.setOnClickListener(this.naz);
-        dIh();
+        this.mNavigationBar.setTitleText(this.nay.getPageContext().getString(R.string.ad_control_setting));
+        this.naz = (MsgSettingItemView) this.nay.findViewById(R.id.memberAdSetting);
+        this.naz.setLineVisibility(false);
+        this.naA = (TextView) this.nay.findViewById(R.id.memberAdTips);
+        this.naB = this.nay.findViewById(R.id.privacyContainer);
+        this.naC = this.nay.findViewById(R.id.privacyItem);
+        this.naF = (TextView) this.nay.findViewById(R.id.privacyControlText);
+        this.naD = (TextView) this.nay.findViewById(R.id.privacyControlTipsSmall);
+        this.naD = (TextView) this.nay.findViewById(R.id.privacyControlTipsSmall);
+        this.naE = (TextView) this.nay.findViewById(R.id.privacyControlTips);
+        this.jvY = (ImageView) this.nay.findViewById(R.id.arrow);
+        this.mParent = this.nay.findViewById(R.id.parent);
+        this.naC.setOnClickListener(this.nay);
+        dIi();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onChangeSkinType(int i) {
-        this.naz.getLayoutMode().setNightMode(i == 1);
-        this.naz.getLayoutMode().onModeChanged(this.mParent);
+        this.nay.getLayoutMode().setNightMode(i == 1);
+        this.nay.getLayoutMode().onModeChanged(this.mParent);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        ao.setViewTextColor(this.naB, R.color.CAM_X0105);
+        ao.setViewTextColor(this.naA, R.color.CAM_X0105);
+        ao.setViewTextColor(this.naE, R.color.CAM_X0105);
         ao.setViewTextColor(this.naF, R.color.CAM_X0105);
-        ao.setViewTextColor(this.naG, R.color.CAM_X0105);
-        ao.setViewTextColor(this.naE, R.color.CAM_X0108);
+        ao.setViewTextColor(this.naD, R.color.CAM_X0108);
+        ao.setBackgroundColor(this.naA, R.color.CAM_X0201);
+        SvgManager.bwr().a(this.jvY, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         ao.setBackgroundColor(this.naB, R.color.CAM_X0201);
-        SvgManager.bwq().a(this.jvY, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-        ao.setBackgroundColor(this.naC, R.color.CAM_X0201);
-        ao.setBackgroundResource(this.naD, R.drawable.setting_item_selector);
+        ao.setBackgroundResource(this.naC, R.drawable.setting_item_selector);
     }
 
-    private void dIh() {
+    private void dIi() {
         int i;
         int i2;
-        this.naA.setText(R.string.member_ad_setting_text);
-        this.naA.setOnSwitchStateChangeListener(this.naz);
+        this.naz.setText(R.string.member_ad_setting_text);
+        this.naz.setOnSwitchStateChangeListener(this.nay);
         AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
         if (currentAccountObj != null) {
             int memberCloseAdIsOpen = currentAccountObj.getMemberCloseAdIsOpen();
@@ -80,27 +80,27 @@ public class b extends com.baidu.adp.base.d<AdSettingActivity> {
             i2 = 0;
         }
         if (i2 == 0) {
+            this.naz.setVisibility(8);
             this.naA.setVisibility(8);
-            this.naB.setVisibility(8);
         } else if (i == 0) {
-            this.naA.turnOffNoCallback();
+            this.naz.turnOffNoCallback();
         } else {
-            this.naA.turnOnNoCallback();
+            this.naz.turnOnNoCallback();
         }
-        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.bvq().getString("sync_ad_privacy_url", ""))) {
-            this.naC.setVisibility(8);
+        if (TextUtils.isEmpty(com.baidu.tbadk.core.sharedPref.b.bvr().getString("sync_ad_privacy_url", ""))) {
+            this.naB.setVisibility(8);
         }
     }
 
-    public View dIi() {
-        return this.naD;
-    }
-
-    public void dIj() {
-        this.naA.turnOffNoCallback();
+    public View dIj() {
+        return this.naC;
     }
 
     public void dIk() {
-        this.naA.turnOnNoCallback();
+        this.naz.turnOffNoCallback();
+    }
+
+    public void dIl() {
+        this.naz.turnOnNoCallback();
     }
 }

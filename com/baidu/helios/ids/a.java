@@ -7,16 +7,16 @@ import com.baidu.helios.common.c.a;
 import com.baidu.helios.trusts.zone.TrustSubjectManager;
 import java.io.UnsupportedEncodingException;
 import java.util.concurrent.ExecutorService;
-/* loaded from: classes6.dex */
+/* loaded from: classes15.dex */
 public abstract class a {
     protected a.C0141a axU;
     protected C0142a axV;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2493b;
+    private String f2494b;
 
     /* renamed from: com.baidu.helios.ids.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class C0142a {
         public Context applicationContext;
         public com.baidu.helios.common.c.a awL;
@@ -25,12 +25,12 @@ public abstract class a {
         public TrustSubjectManager.d axY;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public static class b {
         public boolean axZ = false;
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes15.dex */
     public interface c<T> {
         void a(int i, Exception exc, Bundle bundle);
 
@@ -38,7 +38,7 @@ public abstract class a {
     }
 
     public a(String str) {
-        this.f2493b = str;
+        this.f2494b = str;
     }
 
     public static String ad(String str, String str2) {
@@ -72,7 +72,7 @@ public abstract class a {
     }
 
     public String getName() {
-        return this.f2493b;
+        return this.f2494b;
     }
 
     public abstract String zk();

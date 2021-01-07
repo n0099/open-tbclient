@@ -17,7 +17,7 @@ public class i {
     private i() {
     }
 
-    public static i bab() {
+    public static i bac() {
         if (ejn == null) {
             synchronized (i.class) {
                 if (ejn == null) {
@@ -33,7 +33,7 @@ public class i {
         ArrayList<h> H = this.ejm.H(strArr);
         this.ejm.a(hVar, strArr);
         if (H == null || H.size() == 0) {
-            hVar.aZW();
+            hVar.aZX();
         } else {
             a(hVar, H);
         }
@@ -41,17 +41,17 @@ public class i {
 
     public synchronized void c(h hVar) {
         if (hVar != null) {
-            this.ejm.b(hVar, hVar.aZX());
-            if (hVar.aZY()) {
+            this.ejm.b(hVar, hVar.aZY());
+            if (hVar.aZZ()) {
                 if (DEBUG) {
                     Log.i("FileSystemTaskManager", "onTaskComplete: " + hVar + "," + this.ejl.size());
                 }
                 for (int size = this.ejl.size() - 1; size >= 0; size--) {
                     h hVar2 = this.ejl.get(size);
                     hVar2.b(hVar);
-                    if (hVar2.baa()) {
+                    if (hVar2.bab()) {
                         this.ejl.remove(size);
-                        hVar2.aZW();
+                        hVar2.aZX();
                     }
                 }
             }
@@ -59,12 +59,12 @@ public class i {
     }
 
     private synchronized void onDestroy() {
-        this.ejm.azR();
+        this.ejm.azS();
         Iterator<h> it = this.ejl.iterator();
         while (it.hasNext()) {
             h next = it.next();
             if (d(next)) {
-                next.aZV();
+                next.aZW();
             }
         }
         this.ejl.clear();
@@ -108,7 +108,7 @@ public class i {
         Iterator<h> it = arrayList.iterator();
         while (it.hasNext()) {
             h next = it.next();
-            next.aZZ();
+            next.baa();
             hVar.a(next);
         }
         this.ejl.add(hVar);

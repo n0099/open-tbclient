@@ -3,10 +3,10 @@ package com.kwad.sdk.pngencrypt.chunk;
 public abstract class PngChunk {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f10793a;
+    public final String f10794a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final boolean f10794b;
+    public final boolean f10795b;
     public final boolean c;
     public final boolean d;
     protected final com.kwad.sdk.pngencrypt.k e;
@@ -49,16 +49,16 @@ public abstract class PngChunk {
     }
 
     public PngChunk(String str, com.kwad.sdk.pngencrypt.k kVar) {
-        this.f10793a = str;
+        this.f10794a = str;
         this.e = kVar;
-        this.f10794b = b.b(str);
+        this.f10795b = b.b(str);
         this.c = b.c(str);
         this.d = b.d(str);
     }
 
     public int a() {
         if (this.f != null) {
-            return this.f.f10800a;
+            return this.f.f10801a;
         }
         return -1;
     }
@@ -84,6 +84,6 @@ public abstract class PngChunk {
     }
 
     public String toString() {
-        return "chunk id= " + this.f10793a + " (len=" + a() + " offset=" + b() + ")";
+        return "chunk id= " + this.f10794a + " (len=" + a() + " offset=" + b() + ")";
     }
 }

@@ -4,29 +4,29 @@ import android.util.SparseIntArray;
 import com.facebook.imagepipeline.memory.BasePool;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class k extends BasePool<NativeMemoryChunk> {
-    private final int[] pDt;
+    private final int[] pFa;
 
     public k(com.facebook.common.memory.c cVar, r rVar, s sVar) {
         super(cVar, rVar, sVar);
-        SparseIntArray sparseIntArray = rVar.pDK;
-        this.pDt = new int[sparseIntArray.size()];
-        for (int i = 0; i < this.pDt.length; i++) {
-            this.pDt[i] = sparseIntArray.keyAt(i);
+        SparseIntArray sparseIntArray = rVar.pFr;
+        this.pFa = new int[sparseIntArray.size()];
+        for (int i = 0; i < this.pFa.length; i++) {
+            this.pFa[i] = sparseIntArray.keyAt(i);
         }
         initialize();
     }
 
-    public int ezE() {
-        return this.pDt[0];
+    public int eAi() {
+        return this.pFa[0];
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
-    /* renamed from: QW */
-    public NativeMemoryChunk QK(int i) {
+    /* renamed from: Rm */
+    public NativeMemoryChunk Rb(int i) {
         return new NativeMemoryChunk(i);
     }
 
@@ -34,23 +34,23 @@ public class k extends BasePool<NativeMemoryChunk> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: a */
-    public void bv(NativeMemoryChunk nativeMemoryChunk) {
+    public void bw(NativeMemoryChunk nativeMemoryChunk) {
         com.facebook.common.internal.g.checkNotNull(nativeMemoryChunk);
         nativeMemoryChunk.close();
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int QM(int i) {
+    protected int Rd(int i) {
         return i;
     }
 
     @Override // com.facebook.imagepipeline.memory.BasePool
-    protected int QL(int i) {
+    protected int Rc(int i) {
         int[] iArr;
         if (i <= 0) {
             throw new BasePool.InvalidSizeException(Integer.valueOf(i));
         }
-        for (int i2 : this.pDt) {
+        for (int i2 : this.pFa) {
             if (i2 >= i) {
                 return i2;
             }
@@ -62,7 +62,7 @@ public class k extends BasePool<NativeMemoryChunk> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: b */
-    public int bw(NativeMemoryChunk nativeMemoryChunk) {
+    public int bx(NativeMemoryChunk nativeMemoryChunk) {
         com.facebook.common.internal.g.checkNotNull(nativeMemoryChunk);
         return nativeMemoryChunk.getSize();
     }
@@ -71,7 +71,7 @@ public class k extends BasePool<NativeMemoryChunk> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.facebook.imagepipeline.memory.BasePool
     /* renamed from: c */
-    public boolean bx(NativeMemoryChunk nativeMemoryChunk) {
+    public boolean by(NativeMemoryChunk nativeMemoryChunk) {
         com.facebook.common.internal.g.checkNotNull(nativeMemoryChunk);
         return !nativeMemoryChunk.isClosed();
     }

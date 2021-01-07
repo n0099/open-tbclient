@@ -6,7 +6,7 @@ public class c {
     private boolean mEnable = true;
     private a efS = new a();
 
-    public static c aXQ() {
+    public static c aXR() {
         if (efT == null) {
             synchronized (c.class) {
                 if (efT == null) {
@@ -28,7 +28,7 @@ public class c {
         if (this.efS == null) {
             return false;
         }
-        return this.efS.aXP();
+        return this.efS.aXQ();
     }
 
     public void setEnable(boolean z) {
@@ -36,6 +36,6 @@ public class c {
     }
 
     public void a(String str, com.baidu.swan.games.bdtls.b.b bVar) {
-        e.aXS().b(str, bVar);
+        e.aXT().b(str, bVar);
     }
 }

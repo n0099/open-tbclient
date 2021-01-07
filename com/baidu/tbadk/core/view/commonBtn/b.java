@@ -19,7 +19,7 @@ public class b extends TBSpecificationButtonConfig {
         this.fpH = true;
         this.fpE = true;
         if (this.fpG != null) {
-            this.fpG.byt();
+            this.fpG.byu();
         }
     }
 
@@ -29,17 +29,17 @@ public class b extends TBSpecificationButtonConfig {
         this.fpH = false;
         this.fpE = true;
         if (this.fpG != null) {
-            this.fpG.byt();
+            this.fpG.byu();
         }
     }
 
-    public void byw() {
+    public void byx() {
         this.fpt = R.color.CAM_X0101;
         this.fpv = R.color.CAM_X0904;
         this.fpH = false;
         this.fpE = true;
         if (this.fpG != null) {
-            this.fpG.byt();
+            this.fpG.byu();
         }
     }
 
@@ -48,7 +48,7 @@ public class b extends TBSpecificationButtonConfig {
         this.fpv = R.color.CAM_X0903;
         this.fpH = false;
         if (this.fpG != null) {
-            this.fpG.byt();
+            this.fpG.byu();
         }
     }
 
@@ -57,7 +57,7 @@ public class b extends TBSpecificationButtonConfig {
         this.fpt = i2;
         this.fpH = false;
         if (this.fpG != null) {
-            this.fpG.byt();
+            this.fpG.byu();
         }
     }
 

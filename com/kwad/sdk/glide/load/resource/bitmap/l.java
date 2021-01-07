@@ -12,7 +12,7 @@ import java.util.concurrent.locks.Lock;
 final class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10584a = new com.kwad.sdk.glide.load.engine.bitmap_recycle.f() { // from class: com.kwad.sdk.glide.load.resource.bitmap.l.1
+    private static final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10585a = new com.kwad.sdk.glide.load.engine.bitmap_recycle.f() { // from class: com.kwad.sdk.glide.load.resource.bitmap.l.1
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.f, com.kwad.sdk.glide.load.engine.bitmap_recycle.e
         public void a(Bitmap bitmap) {
         }
@@ -35,7 +35,7 @@ final class l {
             bitmap = b2;
         }
         if (!z) {
-            eVar = f10584a;
+            eVar = f10585a;
         }
         return d.a(bitmap, eVar);
     }

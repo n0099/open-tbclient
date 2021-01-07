@@ -28,51 +28,51 @@ import com.baidu.tieba.square.adapter.LeftAdapter;
 /* loaded from: classes2.dex */
 public class c {
     private final Context mActivity;
-    private final a nkc;
-    private final b nke;
-    private com.baidu.adp.framework.listener.a nko = new com.baidu.adp.framework.listener.a(1002400, CmdConfigSocket.CMD_FORUM_RECOMMEND) { // from class: com.baidu.tieba.square.c.1
+    private final a nkb;
+    private final b nkd;
+    private com.baidu.adp.framework.listener.a nkn = new com.baidu.adp.framework.listener.a(1002400, CmdConfigSocket.CMD_FORUM_RECOMMEND) { // from class: com.baidu.tieba.square.c.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
             String str = "";
             if (responsedMessage instanceof forumRecommendSocketResponseMessage) {
                 forumRecommendSocketResponseMessage forumrecommendsocketresponsemessage = (forumRecommendSocketResponseMessage) responsedMessage;
                 if (forumrecommendsocketresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendsocketresponsemessage.getHotSearchInfoData().cxL();
+                    str = forumrecommendsocketresponsemessage.getHotSearchInfoData().cxM();
                 }
             } else if (responsedMessage instanceof forumRecommendHttpResponseMessage) {
                 forumRecommendHttpResponseMessage forumrecommendhttpresponsemessage = (forumRecommendHttpResponseMessage) responsedMessage;
                 if (forumrecommendhttpresponsemessage.getHotSearchInfoData() != null) {
-                    str = forumrecommendhttpresponsemessage.getHotSearchInfoData().cxL();
+                    str = forumrecommendhttpresponsemessage.getHotSearchInfoData().cxM();
                 }
             }
             if (TextUtils.isEmpty(str)) {
                 str = c.this.mActivity.getResources().getString(R.string.enter_forum_search_tip);
             }
-            if (c.this.nke != null) {
-                c.this.nke.setSearchHint(str);
+            if (c.this.nkd != null) {
+                c.this.nkd.setSearchHint(str);
             }
         }
     };
-    private final View.OnClickListener nkm = new View.OnClickListener() { // from class: com.baidu.tieba.square.c.2
+    private final View.OnClickListener nkl = new View.OnClickListener() { // from class: com.baidu.tieba.square.c.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            c.this.nkc.dMW();
+            c.this.nkb.dMX();
         }
     };
-    private View.OnClickListener nkp = new View.OnClickListener() { // from class: com.baidu.tieba.square.c.3
+    private View.OnClickListener nko = new View.OnClickListener() { // from class: com.baidu.tieba.square.c.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             TiebaStatic.log(new aq("c13654").w("uid", TbadkCoreApplication.getCurrentAccountId()));
-            c.this.dNj();
+            c.this.dNk();
         }
     };
-    private LeftAdapter.a nkq = new LeftAdapter.a() { // from class: com.baidu.tieba.square.c.4
+    private LeftAdapter.a nkp = new LeftAdapter.a() { // from class: com.baidu.tieba.square.c.4
         @Override // com.baidu.tieba.square.adapter.LeftAdapter.a
         public void a(View view, int i, String str) {
-            c.this.nkc.SP(str);
+            c.this.nkb.SO(str);
         }
     };
-    private RecyclerView.OnScrollListener nkr = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.square.c.5
+    private RecyclerView.OnScrollListener nkq = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.square.c.5
         @Override // androidx.recyclerview.widget.RecyclerView.OnScrollListener
         public void onScrollStateChanged(RecyclerView recyclerView, int i) {
             super.onScrollStateChanged(recyclerView, i);
@@ -88,32 +88,32 @@ public class c {
     private BdListView.e WN = new BdListView.e() { // from class: com.baidu.tieba.square.c.6
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            c.this.nkc.bZk();
+            c.this.nkb.bZl();
         }
     };
 
     public c(@NonNull Context context, a aVar, @NonNull b bVar) {
         this.mActivity = context;
-        this.nke = bVar;
-        this.nkc = aVar;
-        this.nke.ak(this.nkp);
-        this.nke.al(this.nkm);
-        this.nke.a(this.nkq);
-        this.nke.e(this.WN);
-        this.nke.b(this.nkr);
+        this.nkd = bVar;
+        this.nkb = aVar;
+        this.nkd.ak(this.nko);
+        this.nkd.al(this.nkl);
+        this.nkd.a(this.nkp);
+        this.nkd.e(this.WN);
+        this.nkd.b(this.nkq);
     }
 
-    public void dNh() {
+    public void dNi() {
         String hotSearch = TbSingleton.getInstance().getHotSearch();
         if (!TextUtils.isEmpty(hotSearch)) {
-            this.nke.setSearchHint(hotSearch);
+            this.nkd.setSearchHint(hotSearch);
         } else if (!TbadkCoreApplication.getInst().checkInterrupt()) {
-            MessageManager.getInstance().registerListener(this.nko);
-            dNi();
+            MessageManager.getInstance().registerListener(this.nkn);
+            dNj();
         }
     }
 
-    private void dNi() {
+    private void dNj() {
         forumRecommendRequestMessage forumrecommendrequestmessage = new forumRecommendRequestMessage();
         forumrecommendrequestmessage.set_like_forum(Integer.valueOf(TbadkCoreApplication.isLogin() ? 1 : 0));
         forumrecommendrequestmessage.set_topic(0);
@@ -122,12 +122,12 @@ public class c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dNj() {
+    public void dNk() {
         if (j.isNetWorkAvailable()) {
             if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
                 TbadkCoreApplication.getInst().login(UtilHelper.getTbPageContext(this.mActivity), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.mActivity, true, RequestResponseCode.REQUEST_LOGIN_CREATE_BAR)));
             } else {
-                be.bwu().b(UtilHelper.getTbPageContext(this.mActivity), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
+                be.bwv().b(UtilHelper.getTbPageContext(this.mActivity), new String[]{"https://tieba.baidu.com/mo/q/priforum/create/info?nomenu=1"});
             }
         }
     }

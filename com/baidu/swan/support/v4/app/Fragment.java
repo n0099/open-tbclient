@@ -236,7 +236,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         this.mTargetRequestCode = i;
     }
 
-    public final Fragment bhz() {
+    public final Fragment bhA() {
         return this.eza;
     }
 
@@ -251,7 +251,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return this.ezc.getContext();
     }
 
-    public final FragmentActivity bhA() {
+    public final FragmentActivity bhB() {
         if (this.ezc == null) {
             return null;
         }
@@ -273,7 +273,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
         return getResources().getString(i, objArr);
     }
 
-    public final k bhB() {
+    public final k bhC() {
         if (this.ezd == null) {
             instantiateChildFragmentManager();
             if (this.mState >= 5) {
@@ -331,8 +331,8 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     public LayoutInflater getLayoutInflater(Bundle bundle) {
         LayoutInflater onGetLayoutInflater = this.ezc.onGetLayoutInflater();
-        bhB();
-        com.baidu.swan.support.v4.c.a.a(onGetLayoutInflater, this.ezd.bhJ());
+        bhC();
+        com.baidu.swan.support.v4.c.a.a(onGetLayoutInflater, this.ezd.bhK());
         return onGetLayoutInflater;
     }
 
@@ -402,7 +402,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 this.ezf = this.ezc.d(this.mWho, this.ezg, false);
             }
             if (this.ezf != null) {
-                this.ezf.bhK();
+                this.ezf.bhL();
             }
         }
     }
@@ -494,7 +494,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
 
     @Override // android.view.View.OnCreateContextMenuListener
     public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
-        bhA().onCreateContextMenu(contextMenu, view, contextMenuInfo);
+        bhB().onCreateContextMenu(contextMenu, view, contextMenuInfo);
     }
 
     public boolean onContextItemSelected(MenuItem menuItem) {
@@ -737,7 +737,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             this.ezd.dispatchStart();
         }
         if (this.ezf != null) {
-            this.ezf.bhO();
+            this.ezf.bhP();
         }
     }
 
@@ -878,7 +878,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bhC() {
+    public void bhD() {
         if (this.ezd != null) {
             this.ezd.dispatchReallyStop();
         }
@@ -892,7 +892,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
                 if (!this.mRetaining) {
                     this.ezf.doStop();
                 } else {
-                    this.ezf.bhL();
+                    this.ezf.bhM();
                 }
             }
         }
@@ -909,7 +909,7 @@ public class Fragment implements ComponentCallbacks, View.OnCreateContextMenuLis
             throw new SuperNotCalledException("Fragment " + this + " did not call through to super.onDestroyView()");
         }
         if (this.ezf != null) {
-            this.ezf.bhN();
+            this.ezf.bhO();
         }
     }
 

@@ -14,7 +14,7 @@ public class b extends BaseCardInfo implements n {
         return jwv;
     }
 
-    public bz boO() {
+    public bz boP() {
         return this.eMv;
     }
 

@@ -6,22 +6,22 @@ import kotlin.collections.z;
 /* loaded from: classes5.dex */
 final class j extends z {
     private int index;
-    private final long[] qme;
+    private final long[] qnM;
 
     public j(long[] jArr) {
         p.o(jArr, com.baidu.fsg.base.statistics.b.j);
-        this.qme = jArr;
+        this.qnM = jArr;
     }
 
     @Override // java.util.Iterator
     public boolean hasNext() {
-        return this.index < this.qme.length;
+        return this.index < this.qnM.length;
     }
 
     @Override // kotlin.collections.z
-    public long eCt() {
+    public long eCX() {
         try {
-            long[] jArr = this.qme;
+            long[] jArr = this.qnM;
             int i = this.index;
             this.index = i + 1;
             return jArr[i];

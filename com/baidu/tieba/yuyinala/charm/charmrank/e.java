@@ -28,12 +28,12 @@ public class e extends BaseAdapter {
     private int gPr;
     private String mLiveId;
     private TbPageContext mPageContext;
-    private String ojm;
+    private String ojl;
 
     public e(TbPageContext tbPageContext, int i, String str, String str2) {
         this.mPageContext = tbPageContext;
         this.gPr = i;
-        this.ojm = str;
+        this.ojl = str;
         this.mLiveId = str2;
     }
 
@@ -75,33 +75,33 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_charm_rank__list_item, viewGroup, false);
             a aVar2 = new a();
-            aVar2.olr = (CharmRankItemView) view.findViewById(a.f.item);
+            aVar2.olq = (CharmRankItemView) view.findViewById(a.f.item);
             view.setTag(aVar2);
             aVar = aVar2;
         } else {
             aVar = (a) view.getTag();
         }
         if (aVar != null && getItem(i) != null && (item = getItem(i)) != null) {
-            if (aVar.olr.getData() == null || !TextUtils.equals(aVar.olr.getData().user_uk, item.user_uk)) {
-                aVar.olr.okg.setData(item);
+            if (aVar.olq.getData() == null || !TextUtils.equals(aVar.olq.getData().user_uk, item.user_uk)) {
+                aVar.olq.okf.setData(item);
             }
-            aVar.olr.setData(i + 1, item);
-            aVar.olr.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
+            aVar.olq.setData(i + 1, item);
+            aVar.olq.setmCallBack(new CharmRankItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1
                 @Override // com.baidu.tieba.yuyinala.charm.charmrank.CharmRankItemView.a
-                public void ebN() {
+                public void ebO() {
                     if (!TbadkCoreApplication.isLogin()) {
                         ViewHelper.skipToLoginActivity(e.this.mPageContext.getContext());
                         return;
                     }
                     com.baidu.live.personmanager.a aVar3 = new com.baidu.live.personmanager.a(e.this.mPageContext.getContext());
                     if (!item.Ez()) {
-                        aVar3.u(item.user_uk, e.this.ojm, e.this.mLiveId);
+                        aVar3.u(item.user_uk, e.this.ojl, e.this.mLiveId);
                         aVar3.a(new a.InterfaceC0201a() { // from class: com.baidu.tieba.yuyinala.charm.charmrank.e.1.1
                             @Override // com.baidu.live.personmanager.a.InterfaceC0201a
                             public void Ry() {
                                 e.this.MY(i + 1);
                                 item.follow_status = 1;
-                                aVar.olr.aE(true, true);
+                                aVar.olq.aE(true, true);
                                 BdUtilHelper.showToast(e.this.mPageContext.getContext(), "关注成功", 3000);
                             }
 
@@ -122,7 +122,7 @@ public class e extends BaseAdapter {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ojm);
+            jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, this.ojl);
             if (this.gPr == 0) {
                 jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "contribtab");
                 jSONObject.put("contrib_num", i);
@@ -138,7 +138,7 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes11.dex */
     private class a {
-        private CharmRankItemView olr;
+        private CharmRankItemView olq;
 
         private a() {
         }

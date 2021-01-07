@@ -8,10 +8,10 @@ public class c {
     private static c e;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7590a;
+    private Context f7591a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Object f7591b;
+    private Object f7592b;
     private Method c;
     private Method d;
 
@@ -27,16 +27,16 @@ public class c {
     }
 
     private c() {
-        this.f7590a = null;
-        this.f7591b = null;
+        this.f7591a = null;
+        this.f7592b = null;
         this.c = null;
         this.d = null;
-        this.f7590a = p.a();
-        if (this.f7590a != null) {
-            this.f7591b = this.f7590a.getSystemService("storage");
+        this.f7591a = p.a();
+        if (this.f7591a != null) {
+            this.f7592b = this.f7591a.getSystemService("storage");
             try {
-                this.c = this.f7591b.getClass().getMethod("getVolumeList", new Class[0]);
-                this.d = this.f7591b.getClass().getMethod("getVolumeState", String.class);
+                this.c = this.f7592b.getClass().getMethod("getVolumeList", new Class[0]);
+                this.d = this.f7592b.getClass().getMethod("getVolumeState", String.class);
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -45,11 +45,11 @@ public class c {
 
     public boolean b() {
         Object[] objArr;
-        if (this.f7591b == null || this.c == null || this.d == null) {
+        if (this.f7592b == null || this.c == null || this.d == null) {
             return false;
         }
         try {
-            objArr = (Object[]) this.c.invoke(this.f7591b, new Object[0]);
+            objArr = (Object[]) this.c.invoke(this.f7592b, new Object[0]);
         } catch (Exception e2) {
             e2.printStackTrace();
         }
@@ -62,7 +62,7 @@ public class c {
             return false;
         }
         for (Object obj : objArr) {
-            if (((Boolean) method2.invoke(obj, new Object[0])).booleanValue() && this.d.invoke(this.f7591b, (String) method.invoke(obj, new Object[0])).equals("mounted")) {
+            if (((Boolean) method2.invoke(obj, new Object[0])).booleanValue() && this.d.invoke(this.f7592b, (String) method.invoke(obj, new Object[0])).equals("mounted")) {
                 return true;
             }
         }

@@ -37,7 +37,7 @@ public final class CSJNativeAdVerticalImgView extends f0 {
             return;
         }
         this.g.setLayoutParams(new LinearLayout.LayoutParams(this.f, (this.f * tTImage.getHeight()) / tTImage.getWidth()));
-        ap.a.pId.a(getContext(), tTImage.getImageUrl(), this.g);
+        ap.a.pJL.a(getContext(), tTImage.getImageUrl(), this.g);
     }
 
     @Override // com.fun.ad.f0, android.view.View

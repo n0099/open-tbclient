@@ -15,7 +15,7 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com
     private R ddJ;
 
     @Nullable
-    public abstract ExtensionCore avW();
+    public abstract ExtensionCore avX();
 
     public b(@NonNull P p, @NonNull R r) {
         this.ddI = p;
@@ -26,8 +26,8 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com
         this.ddI.o(bVar);
     }
 
-    public void axQ() {
-        this.ddI.axQ();
+    public void axR() {
+        this.ddI.axR();
     }
 
     public <T extends com.baidu.swan.apps.extcore.model.a> Exception a(T t) {
@@ -35,27 +35,27 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com
     }
 
     @NonNull
-    public P axR() {
+    public P axS() {
         return this.ddI;
     }
 
     @NonNull
-    public R axS() {
+    public R axT() {
         return this.ddJ;
     }
 
     @NonNull
-    public ExtensionCore axT() {
+    public ExtensionCore axU() {
         String path;
-        int aye = this.ddI.ddH.aye();
-        if (com.baidu.swan.apps.extcore.f.a.iU(aye)) {
+        int ayf = this.ddI.ddH.ayf();
+        if (com.baidu.swan.apps.extcore.f.a.iU(ayf)) {
             ExtensionCore extensionCore = new ExtensionCore();
             extensionCore.extensionCoreVersionCode = 0L;
             extensionCore.extensionCoreVersionName = com.baidu.swan.apps.extcore.f.a.cf(0L);
-            if (aye == 1) {
-                path = com.baidu.swan.games.h.a.b.axX().getPath();
+            if (ayf == 1) {
+                path = com.baidu.swan.games.h.a.b.axY().getPath();
             } else {
-                path = com.baidu.swan.apps.extcore.c.b.axX().getPath();
+                path = com.baidu.swan.apps.extcore.c.b.axY().getPath();
             }
             extensionCore.extensionCorePath = path;
             extensionCore.extensionCoreType = 2;
@@ -64,18 +64,18 @@ public abstract class b<P extends com.baidu.swan.apps.extcore.d.b, R extends com
             }
             return extensionCore;
         }
-        ExtensionCore ayg = this.ddI.ayg();
-        ExtensionCore ayg2 = this.ddJ.ayg();
-        if (ayg.extensionCoreVersionCode >= ayg2.extensionCoreVersionCode) {
+        ExtensionCore ayh = this.ddI.ayh();
+        ExtensionCore ayh2 = this.ddJ.ayh();
+        if (ayh.extensionCoreVersionCode >= ayh2.extensionCoreVersionCode) {
             if (DEBUG) {
-                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + ayg.toString());
-                return ayg;
+                Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: preset=>" + ayh.toString());
+                return ayh;
             }
-            return ayg;
+            return ayh;
         }
         if (DEBUG) {
-            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + ayg2.toString());
+            Log.d("ExtCore-Manager", "getExtensionCoreInMainProcess: remote=>" + ayh2.toString());
         }
-        return ayg2;
+        return ayh2;
     }
 }

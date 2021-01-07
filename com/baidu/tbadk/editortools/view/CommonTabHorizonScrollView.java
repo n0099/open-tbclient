@@ -97,7 +97,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                 LinearLayout linearLayout = (LinearLayout) this.fHn.getChildAt(this.bMx);
                 if (linearLayout != null) {
                     linearLayout.setSelected(false);
-                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.bMx).bFW().fHm);
+                    ((TbImageView) linearLayout.getChildAt(0)).setImageResource(this.mDatas.get(this.bMx).bFX().fHm);
                 } else {
                     return;
                 }
@@ -106,7 +106,7 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
             LinearLayout linearLayout2 = (LinearLayout) this.fHn.getChildAt(this.bMx);
             if (linearLayout2 != null) {
                 linearLayout2.setSelected(true);
-                ao.setImageResource((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.bMx).bFW().fHl);
+                ao.setImageResource((TbImageView) linearLayout2.getChildAt(0), this.mDatas.get(this.bMx).bFX().fHl);
             }
         }
     }
@@ -130,9 +130,9 @@ public class CommonTabHorizonScrollView extends HorizontalScrollView {
                     TbImageView tbImageView = (TbImageView) ((LinearLayout) childAt).getChildAt(0);
                     if (tbImageView != null) {
                         if (i2 == this.bMx) {
-                            ao.setImageResource(tbImageView, this.mDatas.get(i2).bFW().fHl, i);
+                            ao.setImageResource(tbImageView, this.mDatas.get(i2).bFX().fHl, i);
                         } else {
-                            ao.setImageResource(tbImageView, this.mDatas.get(i2).bFW().fHm, i);
+                            ao.setImageResource(tbImageView, this.mDatas.get(i2).bFX().fHm, i);
                         }
                     }
                 } else {

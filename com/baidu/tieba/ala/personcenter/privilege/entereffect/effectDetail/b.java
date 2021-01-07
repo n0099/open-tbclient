@@ -16,7 +16,7 @@ public class b {
                 AlaEnterEffectEditHttpResMessage alaEnterEffectEditHttpResMessage = (AlaEnterEffectEditHttpResMessage) httpResponsedMessage;
                 if (alaEnterEffectEditHttpResMessage.getError() != 0) {
                     if (b.this.idp != null) {
-                        b.this.idp.IX(alaEnterEffectEditHttpResMessage.getErrorString());
+                        b.this.idp.IW(alaEnterEffectEditHttpResMessage.getErrorString());
                     }
                 } else if ((alaEnterEffectEditHttpResMessage.getOrginalMessage() instanceof AlaEnterEffectEditHttpReqMessage) && b.this.idp != null) {
                     b.this.idp.oU(((AlaEnterEffectEditHttpReqMessage) alaEnterEffectEditHttpResMessage.getOrginalMessage()).isSelected());
@@ -27,7 +27,7 @@ public class b {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void IX(String str);
+        void IW(String str);
 
         void oU(boolean z);
     }

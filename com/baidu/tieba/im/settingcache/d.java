@@ -15,7 +15,7 @@ public class d extends a {
     private d() {
     }
 
-    public static d cZM() {
+    public static d cZN() {
         return kIF;
     }
 
@@ -42,7 +42,7 @@ public class d extends a {
         return officialSettingItemData;
     }
 
-    public void cXk() {
+    public void cXl() {
         super.r(OfficialSettingItemData.class);
     }
 
@@ -56,8 +56,8 @@ public class d extends a {
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
-    protected l<String> cZJ() {
-        return com.baidu.tbadk.core.c.a.btS().Bn("tb.im_official_chat_setting");
+    protected l<String> cZK() {
+        return com.baidu.tbadk.core.c.a.btT().Bm("tb.im_official_chat_setting");
     }
 
     @Override // com.baidu.tieba.im.settingcache.a
@@ -72,13 +72,13 @@ public class d extends a {
                 }
                 return;
             }
-            l<String> cZJ = cZJ();
+            l<String> cZK = cZK();
             String str = myUid + "@" + toUid;
             String jsonStrWithObject = OrmObject.jsonStrWithObject(officialSettingItemData);
             synchronized (this.kIy) {
                 this.kIy.put(str, officialSettingItemData);
             }
-            cZJ.setForever(str, jsonStrWithObject);
+            cZK.setForever(str, jsonStrWithObject);
         }
     }
 
@@ -101,9 +101,9 @@ public class d extends a {
             ac.b(new ab<Void>() { // from class: com.baidu.tieba.im.settingcache.d.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bPm */
+                /* renamed from: bPn */
                 public Void doInBackground() {
-                    d.this.cZJ().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
+                    d.this.cZK().setForever(str, OrmObject.jsonStrWithObject(officialSettingItemData));
                     return null;
                 }
             }, lVar);

@@ -61,11 +61,11 @@ public class e extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(this.eXu.getPageActivity()).inflate(R.layout.post_search_list_item, (ViewGroup) null);
             a aVar = new a();
-            aVar.mIE = (TextView) view.findViewById(R.id.title_text);
-            aVar.mIF = (TextView) view.findViewById(R.id.content_text);
-            aVar.mIG = (TextView) view.findViewById(R.id.label_text);
+            aVar.mIC = (TextView) view.findViewById(R.id.title_text);
+            aVar.mIE = (TextView) view.findViewById(R.id.content_text);
+            aVar.mIF = (TextView) view.findViewById(R.id.label_text);
             aVar.hXL = (TextView) view.findViewById(R.id.user_name);
-            aVar.mIH = (TextView) view.findViewById(R.id.time_text);
+            aVar.mIG = (TextView) view.findViewById(R.id.time_text);
             view.setTag(aVar);
         }
         a aVar2 = (a) view.getTag();
@@ -75,17 +75,17 @@ public class e extends BaseAdapter {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 str = "#99260f";
             }
-            aVar2.mIE.setText(Html.fromHtml(at.getHighLightString(aVar3.title, str)));
-            aVar2.mIF.setText(Html.fromHtml(at.getHighLightString(aVar3.content, str)));
+            aVar2.mIC.setText(Html.fromHtml(at.getHighLightString(aVar3.title, str)));
+            aVar2.mIE.setText(Html.fromHtml(at.getHighLightString(aVar3.content, str)));
             aVar2.hXL.setText(aVar3.name_show);
-            aVar2.mIH.setText(at.getFormatTime(aVar3.time));
-            aVar2.mIG.setVisibility(0);
+            aVar2.mIG.setText(at.getFormatTime(aVar3.time));
+            aVar2.mIF.setVisibility(0);
             if (aVar3.is_floor == 1) {
-                aVar2.mIG.setText(R.string.floor_text);
-            } else if (aVar3.mHZ == 1) {
-                aVar2.mIG.setText(R.string.reply_post);
+                aVar2.mIF.setText(R.string.floor_text);
+            } else if (aVar3.mHY == 1) {
+                aVar2.mIF.setText(R.string.reply_post);
             } else {
-                aVar2.mIG.setVisibility(8);
+                aVar2.mIF.setVisibility(8);
             }
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.postsearch.e.1
                 @Override // android.view.View.OnClickListener
@@ -122,7 +122,7 @@ public class e extends BaseAdapter {
             dX.an("tab_id", this.hWZ);
         }
         if (aVar != null) {
-            if (aVar.is_floor == 1 || aVar.mHZ == 1) {
+            if (aVar.is_floor == 1 || aVar.mHY == 1) {
                 dX.w("pid", aVar.pid);
             } else {
                 dX.w("tid", aVar.tid);
@@ -134,10 +134,10 @@ public class e extends BaseAdapter {
     /* loaded from: classes8.dex */
     private static class a {
         TextView hXL;
+        TextView mIC;
         TextView mIE;
         TextView mIF;
         TextView mIG;
-        TextView mIH;
 
         private a() {
         }

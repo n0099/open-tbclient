@@ -21,11 +21,11 @@ public class c {
         this.eYQ = i;
     }
 
-    public int buO() {
+    public int buP() {
         return this.eYQ;
     }
 
-    public int buP() {
+    public int buQ() {
         return this.eZL;
     }
 

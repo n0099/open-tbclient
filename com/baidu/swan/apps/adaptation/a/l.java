@@ -6,15 +6,15 @@ import com.baidu.webkit.sdk.VideoPlayerFactory;
 public interface l {
     void a(a.InterfaceC0422a interfaceC0422a);
 
-    int ajP();
-
-    boolean ajQ();
+    int ajQ();
 
     boolean ajR();
 
-    int ajS();
+    boolean ajS();
 
-    VideoPlayerFactory ajT();
+    int ajT();
+
+    VideoPlayerFactory ajU();
 
     void eJ(boolean z);
 

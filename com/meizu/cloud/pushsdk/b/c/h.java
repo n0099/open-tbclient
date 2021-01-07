@@ -8,10 +8,10 @@ import java.util.UUID;
 public final class h extends j {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final g f11461a = g.a("multipart/mixed");
+    public static final g f11462a = g.a("multipart/mixed");
 
     /* renamed from: b  reason: collision with root package name */
-    public static final g f11462b = g.a("multipart/alternative");
+    public static final g f11463b = g.a("multipart/alternative");
     public static final g c = g.a("multipart/digest");
     public static final g d = g.a("multipart/parallel");
     public static final g e = g.a("multipart/form-data");
@@ -28,10 +28,10 @@ public final class h extends j {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final com.meizu.cloud.pushsdk.b.g.e f11463a;
+        private final com.meizu.cloud.pushsdk.b.g.e f11464a;
 
         /* renamed from: b  reason: collision with root package name */
-        private g f11464b;
+        private g f11465b;
         private final List<b> c;
 
         public a() {
@@ -39,9 +39,9 @@ public final class h extends j {
         }
 
         public a(String str) {
-            this.f11464b = h.f11461a;
+            this.f11465b = h.f11462a;
             this.c = new ArrayList();
-            this.f11463a = com.meizu.cloud.pushsdk.b.g.e.a(str);
+            this.f11464a = com.meizu.cloud.pushsdk.b.g.e.a(str);
         }
 
         public a a(c cVar, j jVar) {
@@ -53,7 +53,7 @@ public final class h extends j {
                 throw new NullPointerException("type == null");
             }
             if (gVar.a().equals("multipart")) {
-                this.f11464b = gVar;
+                this.f11465b = gVar;
                 return this;
             }
             throw new IllegalArgumentException("multipart != " + gVar);
@@ -71,7 +71,7 @@ public final class h extends j {
             if (this.c.isEmpty()) {
                 throw new IllegalStateException("Multipart body must have at least one part.");
             }
-            return new h(this.f11463a, this.f11464b, this.c);
+            return new h(this.f11464a, this.f11465b, this.c);
         }
     }
 
@@ -79,14 +79,14 @@ public final class h extends j {
     public static final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private final c f11465a;
+        private final c f11466a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final j f11466b;
+        private final j f11467b;
 
         private b(c cVar, j jVar) {
-            this.f11465a = cVar;
-            this.f11466b = jVar;
+            this.f11466a = cVar;
+            this.f11467b = jVar;
         }
 
         public static b a(c cVar, j jVar) {
@@ -123,8 +123,8 @@ public final class h extends j {
         int size = this.l.size();
         for (int i = 0; i < size; i++) {
             b bVar3 = this.l.get(i);
-            c cVar2 = bVar3.f11465a;
-            j jVar = bVar3.f11466b;
+            c cVar2 = bVar3.f11466a;
+            j jVar = bVar3.f11467b;
             cVar.c(h);
             cVar.b(this.i);
             cVar.c(g);

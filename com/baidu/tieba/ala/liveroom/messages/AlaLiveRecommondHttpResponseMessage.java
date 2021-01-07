@@ -11,7 +11,7 @@ public class AlaLiveRecommondHttpResponseMessage extends JsonHttpResponsedMessag
         super(1021021);
     }
 
-    public u clK() {
+    public u clL() {
         return this.hJO;
     }
 

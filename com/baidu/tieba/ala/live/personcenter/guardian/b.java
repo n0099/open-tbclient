@@ -35,7 +35,7 @@ public class b extends BaseAdapter {
 
     public void c(c cVar) {
         this.eYq.clear();
-        this.eYq.addAll(cVar.cbq());
+        this.eYq.addAll(cVar.cbr());
     }
 
     @Override // android.widget.Adapter

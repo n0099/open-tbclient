@@ -11,21 +11,21 @@ public class a extends PhoneStateListener {
         super.onCallStateChanged(i, str);
         switch (i) {
             case 0:
-                com.baidu.swan.apps.media.a.c.a.aFg().aFi();
+                com.baidu.swan.apps.media.a.c.a.aFh().aFj();
                 if (DEBUG) {
                     Log.i("PhoneStateListener", "挂断");
                     return;
                 }
                 return;
             case 1:
-                com.baidu.swan.apps.media.a.c.a.aFg().aFh();
+                com.baidu.swan.apps.media.a.c.a.aFh().aFi();
                 if (DEBUG) {
                     Log.i("PhoneStateListener", "响铃:" + str);
                     return;
                 }
                 return;
             case 2:
-                com.baidu.swan.apps.media.a.c.a.aFg().aFh();
+                com.baidu.swan.apps.media.a.c.a.aFh().aFi();
                 if (DEBUG) {
                     Log.i("PhoneStateListener", "接听");
                     return;

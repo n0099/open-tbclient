@@ -24,10 +24,10 @@ import com.kwad.sdk.utils.ao;
 public class ActionBarAppPortrait extends LinearLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f10961a;
+    private ImageView f10962a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f10962b;
+    private TextView f10963b;
     private TextView c;
     private AppScoreView d;
     private TextView e;
@@ -59,8 +59,8 @@ public class ActionBarAppPortrait extends LinearLayout implements View.OnClickLi
 
     private void a() {
         inflate(getContext(), R.layout.ksad_video_actionbar_app_portrait, this);
-        this.f10961a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f10962b = (TextView) findViewById(R.id.ksad_app_title);
+        this.f10962a = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f10963b = (TextView) findViewById(R.id.ksad_app_title);
         this.c = (TextView) findViewById(R.id.ksad_app_desc);
         this.d = (AppScoreView) findViewById(R.id.ksad_app_score);
         this.e = (TextView) findViewById(R.id.ksad_app_download_count);
@@ -76,7 +76,7 @@ public class ActionBarAppPortrait extends LinearLayout implements View.OnClickLi
         float u = com.kwad.sdk.core.response.b.a.u(this.i);
         boolean z2 = u >= 3.0f;
         if (z && z2) {
-            ((LinearLayout.LayoutParams) this.f10962b.getLayoutParams()).bottomMargin = ao.a(getContext(), 1.0f);
+            ((LinearLayout.LayoutParams) this.f10963b.getLayoutParams()).bottomMargin = ao.a(getContext(), 1.0f);
             ((LinearLayout.LayoutParams) this.d.getLayoutParams()).bottomMargin = ao.a(getContext(), 1.0f);
             this.e.setText(t);
             this.e.setVisibility(0);
@@ -149,8 +149,8 @@ public class ActionBarAppPortrait extends LinearLayout implements View.OnClickLi
         this.i = com.kwad.sdk.core.response.b.c.j(adTemplate);
         this.j = aVar;
         this.k = bVar;
-        KSImageLoader.loadAppIcon(this.f10961a, com.kwad.sdk.core.response.b.a.o(this.i), adTemplate, 12);
-        this.f10962b.setText(com.kwad.sdk.core.response.b.a.q(this.i));
+        KSImageLoader.loadAppIcon(this.f10962a, com.kwad.sdk.core.response.b.a.o(this.i), adTemplate, 12);
+        this.f10963b.setText(com.kwad.sdk.core.response.b.a.q(this.i));
         b();
         this.f.a(com.kwad.sdk.core.response.b.a.w(this.i), 0);
         if (this.k != null) {
@@ -167,8 +167,8 @@ public class ActionBarAppPortrait extends LinearLayout implements View.OnClickLi
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         b.a(this.k, view == this.f);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1064a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.h, new a.InterfaceC1105a() { // from class: com.kwad.sdk.reward.widget.actionbar.ActionBarAppPortrait.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
             public void a() {
                 if (ActionBarAppPortrait.this.j != null) {
                     ActionBarAppPortrait.this.j.a();

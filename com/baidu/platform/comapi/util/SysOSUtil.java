@@ -1,15 +1,15 @@
 package com.baidu.platform.comapi.util;
 
 import com.baidu.vi.VIContext;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class SysOSUtil {
     private static SysOSUtil g = new SysOSUtil();
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.platform.comapi.util.a.b f4376a = null;
+    private com.baidu.platform.comapi.util.a.b f4377a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.baidu.platform.comapi.util.a.a f4377b = null;
+    private com.baidu.platform.comapi.util.a.a f4378b = null;
     private boolean c = false;
     private String d = "";
     private String e = "";
@@ -23,15 +23,15 @@ public class SysOSUtil {
     }
 
     public float getDensity() {
-        if (this.f4377b != null) {
-            return this.f4377b.c();
+        if (this.f4378b != null) {
+            return this.f4378b.c();
         }
         return 1.0f;
     }
 
     public int getDensityDPI() {
-        if (this.f4377b != null) {
-            return this.f4377b.d();
+        if (this.f4378b != null) {
+            return this.f4378b.d();
         }
         return 1;
     }
@@ -49,45 +49,45 @@ public class SysOSUtil {
     }
 
     public String getOutputCache() {
-        return this.f4376a != null ? this.f4376a.c() : "";
+        return this.f4377a != null ? this.f4377a.c() : "";
     }
 
     public String getOutputDirPath() {
-        return this.f4376a != null ? this.f4376a.a() : "";
+        return this.f4377a != null ? this.f4377a.a() : "";
     }
 
     public int getScreenHeight() {
-        if (this.f4377b != null) {
-            return this.f4377b.b();
+        if (this.f4378b != null) {
+            return this.f4378b.b();
         }
         return 0;
     }
 
     public int getScreenWidth() {
-        if (this.f4377b != null) {
-            return this.f4377b.a();
+        if (this.f4378b != null) {
+            return this.f4378b.a();
         }
         return 0;
     }
 
     public String getSdcardPath() {
-        return this.f4376a != null ? this.f4376a.b() : "";
+        return this.f4377a != null ? this.f4377a.b() : "";
     }
 
     public void init(com.baidu.platform.comapi.util.a.b bVar, com.baidu.platform.comapi.util.a.a aVar) {
         if (this.c) {
             return;
         }
-        this.f4376a = bVar;
-        this.f4377b = aVar;
-        if (this.f4376a == null) {
-            this.f4376a = new com.baidu.platform.comapi.util.a.b();
+        this.f4377a = bVar;
+        this.f4378b = aVar;
+        if (this.f4377a == null) {
+            this.f4377a = new com.baidu.platform.comapi.util.a.b();
         }
-        if (this.f4377b == null) {
-            this.f4377b = new com.baidu.platform.comapi.util.a.a();
+        if (this.f4378b == null) {
+            this.f4378b = new com.baidu.platform.comapi.util.a.a();
         }
-        this.f4376a.a(VIContext.getContext());
-        this.f4377b.a(VIContext.getContext());
+        this.f4377a.a(VIContext.getContext());
+        this.f4378b.a(VIContext.getContext());
         this.d = NetworkUtil.getCurrentNetMode(VIContext.getContext());
         this.c = true;
     }

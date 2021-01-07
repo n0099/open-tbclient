@@ -14,7 +14,7 @@ import java.nio.ByteOrder;
 public class WebpHeaderParser {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final boolean f10655a = a();
+    public static final boolean f10656a = a();
 
     /* loaded from: classes5.dex */
     public enum WebpImageType {
@@ -47,16 +47,16 @@ public class WebpHeaderParser {
     private static final class a implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final byte[] f10656a;
+        private final byte[] f10657a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final int f10657b;
+        private final int f10658b;
         private final int c;
         private int d;
 
         a(byte[] bArr, int i, int i2) {
-            this.f10656a = bArr;
-            this.f10657b = i;
+            this.f10657a = bArr;
+            this.f10658b = i;
             this.c = i2;
             this.d = i;
         }
@@ -68,17 +68,17 @@ public class WebpHeaderParser {
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public long a(long j) {
-            int min = (int) Math.min((this.f10657b + this.c) - this.d, j);
+            int min = (int) Math.min((this.f10658b + this.c) - this.d, j);
             this.d += min;
             return min;
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int b() {
-            if (this.d >= this.f10657b + this.c) {
+            if (this.d >= this.f10658b + this.c) {
                 return -1;
             }
-            byte[] bArr = this.f10656a;
+            byte[] bArr = this.f10657a;
             int i = this.d;
             this.d = i + 1;
             return bArr[i];
@@ -89,10 +89,10 @@ public class WebpHeaderParser {
     private static final class b implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ByteBuffer f10658a;
+        private final ByteBuffer f10659a;
 
         b(ByteBuffer byteBuffer) {
-            this.f10658a = byteBuffer;
+            this.f10659a = byteBuffer;
             byteBuffer.order(ByteOrder.BIG_ENDIAN);
         }
 
@@ -103,17 +103,17 @@ public class WebpHeaderParser {
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public long a(long j) {
-            int min = (int) Math.min(this.f10658a.remaining(), j);
-            this.f10658a.position(this.f10658a.position() + min);
+            int min = (int) Math.min(this.f10659a.remaining(), j);
+            this.f10659a.position(this.f10659a.position() + min);
             return min;
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int b() {
-            if (this.f10658a.remaining() < 1) {
+            if (this.f10659a.remaining() < 1) {
                 return -1;
             }
-            return this.f10658a.get();
+            return this.f10659a.get();
         }
     }
 
@@ -131,15 +131,15 @@ public class WebpHeaderParser {
     private static final class d implements c {
 
         /* renamed from: a  reason: collision with root package name */
-        private final InputStream f10659a;
+        private final InputStream f10660a;
 
         d(InputStream inputStream) {
-            this.f10659a = inputStream;
+            this.f10660a = inputStream;
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int a() {
-            return ((this.f10659a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f10659a.read() & 255);
+            return ((this.f10660a.read() << 8) & MotionEventCompat.ACTION_POINTER_INDEX_MASK) | (this.f10660a.read() & 255);
         }
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
@@ -149,10 +149,10 @@ public class WebpHeaderParser {
             }
             long j2 = j;
             while (j2 > 0) {
-                long skip = this.f10659a.skip(j2);
+                long skip = this.f10660a.skip(j2);
                 if (skip > 0) {
                     j2 -= skip;
-                } else if (this.f10659a.read() == -1) {
+                } else if (this.f10660a.read() == -1) {
                     break;
                 } else {
                     j2--;
@@ -163,7 +163,7 @@ public class WebpHeaderParser {
 
         @Override // com.kwad.sdk.glide.webp.WebpHeaderParser.c
         public int b() {
-            return this.f10659a.read();
+            return this.f10660a.read();
         }
     }
 

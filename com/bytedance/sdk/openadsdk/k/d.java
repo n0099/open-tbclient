@@ -7,10 +7,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class d implements ThreadFactory {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicInteger f7624a = new AtomicInteger(1);
+    private static final AtomicInteger f7625a = new AtomicInteger(1);
 
     /* renamed from: b  reason: collision with root package name */
-    private final ThreadGroup f7625b;
+    private final ThreadGroup f7626b;
     private final AtomicInteger c = new AtomicInteger(1);
     private final String d;
     private final int e;
@@ -19,17 +19,17 @@ public class d implements ThreadFactory {
     public d(int i, String str) {
         this.e = i;
         SecurityManager securityManager = System.getSecurityManager();
-        this.f7625b = securityManager != null ? securityManager.getThreadGroup() : Thread.currentThread().getThreadGroup();
+        this.f7626b = securityManager != null ? securityManager.getThreadGroup() : Thread.currentThread().getThreadGroup();
         if (TextUtils.isEmpty(str)) {
-            this.d = "ttbackground-" + f7624a.getAndIncrement() + "-thread-";
+            this.d = "ttbackground-" + f7625a.getAndIncrement() + "-thread-";
         } else {
-            this.d = str + f7624a.getAndIncrement() + "-thread-";
+            this.d = str + f7625a.getAndIncrement() + "-thread-";
         }
     }
 
     @Override // java.util.concurrent.ThreadFactory
     public Thread newThread(Runnable runnable) {
-        Thread thread = new Thread(this.f7625b, runnable, this.d + this.c.getAndIncrement(), 0L);
+        Thread thread = new Thread(this.f7626b, runnable, this.d + this.c.getAndIncrement(), 0L);
         if (thread.isDaemon()) {
             thread.setDaemon(false);
         }

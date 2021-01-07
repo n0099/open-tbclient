@@ -7,7 +7,7 @@ public abstract class e {
         this.fDw = editorTools;
     }
 
-    public EditorTools bEI() {
+    public EditorTools bEJ() {
         return this.fDw;
     }
 }

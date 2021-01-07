@@ -37,7 +37,7 @@ public class a implements View.OnClickListener {
                     @Override // java.lang.Runnable
                     public void run() {
                         if (a.this.iII != null) {
-                            a.this.cNk();
+                            a.this.cNl();
                         }
                     }
                 }, IMConnection.RETRY_DELAY_TIMES);
@@ -57,12 +57,12 @@ public class a implements View.OnClickListener {
             if (this.jIC) {
                 this.jIB = R.string.attention_post_update_tip;
                 String str = currentAccount + SharedPrefConfig.FRS_GOD_NEW_POST_TIP_COUNT;
-                int i = com.baidu.tbadk.core.sharedPref.b.bvq().getInt(str, 0);
+                int i = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(str, 0);
                 if (i >= 3) {
                     this.jIC = false;
                     return;
                 }
-                com.baidu.tbadk.core.sharedPref.b.bvq().putInt(str, i + 1);
+                com.baidu.tbadk.core.sharedPref.b.bvr().putInt(str, i + 1);
                 this.jIC = false;
                 this.mHandler.postDelayed(this.jID, 500L);
             }
@@ -87,10 +87,10 @@ public class a implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        cNk();
+        cNl();
     }
 
-    public void cNk() {
+    public void cNl() {
         if (this.iII != null) {
             this.iII.dismiss();
             this.iII = null;
@@ -99,6 +99,6 @@ public class a implements View.OnClickListener {
 
     public void destory() {
         this.mHandler.removeCallbacksAndMessages(null);
-        cNk();
+        cNl();
     }
 }

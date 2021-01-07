@@ -40,7 +40,7 @@ public class e implements a.b {
         this.ecS = fVar;
         this.dZs = interfaceC0518a;
         this.ebn = z;
-        aWk();
+        aWl();
         loadAd();
     }
 
@@ -56,7 +56,7 @@ public class e implements a.b {
                 if (e.this.ecT != null && com.baidu.swan.games.view.a.c.aY(e.this.ecT.getConvertView())) {
                     e.this.ecT.show();
                     if (e != null) {
-                        e.aWF();
+                        e.aWG();
                     }
                     if (!e.this.ecU) {
                         e.this.ecU = true;
@@ -80,7 +80,7 @@ public class e implements a.b {
         });
     }
 
-    public void aWg() {
+    public void aWh() {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.e.e.2
             @Override // java.lang.Runnable
             public void run() {
@@ -91,7 +91,7 @@ public class e implements a.b {
         });
     }
 
-    public void aWh() {
+    public void aWi() {
         ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.game.ad.e.e.3
             @Override // java.lang.Runnable
             public void run() {
@@ -114,7 +114,7 @@ public class e implements a.b {
             @Override // java.lang.Runnable
             public void run() {
                 boolean z = e.this.ecS.width != e.this.ecS.realWidth;
-                e.this.aWk();
+                e.this.aWl();
                 if (e.this.ecT != null) {
                     e.this.ecT.mm(e.this.ecS.width);
                     com.baidu.swan.games.view.a.c.b(e.this.ecT.getConvertView(), new com.baidu.swan.apps.model.a.a.a(ah.O(e.this.ecS.left), ah.O(e.this.ecS.top), ah.O(e.this.ecS.realWidth), ah.O(e.this.ecS.realHeight)));
@@ -129,7 +129,7 @@ public class e implements a.b {
     @Override // com.baidu.swan.game.ad.a.a.b
     public void a(AdElementInfo adElementInfo) {
         this.dZT = adElementInfo;
-        aWj();
+        aWk();
         com.baidu.swan.games.view.a.b.ds(this.ebn ? "gdtbanner" : "banner", "success");
     }
 
@@ -138,18 +138,18 @@ public class e implements a.b {
         if (this.ecR != null) {
             this.ecR.onError(str);
         }
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
         String str2 = "";
-        if (aMk != null) {
-            str2 = aMk.id;
+        if (aMl != null) {
+            str2 = aMl.id;
         }
         if (str2.lastIndexOf("_dev") >= 0 && str2.lastIndexOf("_dev") < str2.length() && str.equals("201000")) {
-            aWi();
+            aWj();
         }
         com.baidu.swan.games.view.a.b.ai(this.ebn ? "gdtbanner" : "banner", com.baidu.pass.biometrics.face.liveness.c.a.p, str);
     }
 
-    private void aWi() {
+    private void aWj() {
         this.ecT = new com.baidu.swan.game.ad.a(this.mContext);
         this.ecT.mm(this.ecS.width);
         if (com.baidu.swan.games.view.a.c.aY(this.ecT.getConvertView())) {
@@ -166,7 +166,7 @@ public class e implements a.b {
         }, 20000L);
     }
 
-    private void aWj() {
+    private void aWk() {
         this.ecT = new com.baidu.swan.game.ad.a(this.mContext, this.dZT, this.dZp, this.ebn);
         this.ecT.a(this.dZs);
         if (this.ebn) {
@@ -187,14 +187,14 @@ public class e implements a.b {
             this.ecT.a(new a.InterfaceC0519a() { // from class: com.baidu.swan.game.ad.e.e.7
                 @Override // com.baidu.swan.game.ad.a.a.InterfaceC0519a
                 public void a(CommandType commandType, Uri uri) {
-                    com.baidu.swan.apps.core.d.f ajs = com.baidu.swan.apps.v.f.aDG().ajs();
-                    if (ajs == null) {
+                    com.baidu.swan.apps.core.d.f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
+                    if (ajt == null) {
                         if (e.this.mContext != null) {
-                            com.baidu.swan.apps.res.widget.b.d.u(e.this.mContext, a.h.aiapps_open_fragment_failed_toast).aLS();
+                            com.baidu.swan.apps.res.widget.b.d.u(e.this.mContext, a.h.aiapps_open_fragment_failed_toast).aLT();
                         }
                     } else if (e.this.dZT != null) {
-                        String aVv = e.this.dZT.aVv();
-                        ajs.nv("adLanding").ai(com.baidu.swan.apps.core.d.f.cUY, com.baidu.swan.apps.core.d.f.cVa).a("adLanding", com.baidu.swan.apps.model.b.cg(aVv, aVv)).ate();
+                        String aVw = e.this.dZT.aVw();
+                        ajt.nv("adLanding").ai(com.baidu.swan.apps.core.d.f.cUY, com.baidu.swan.apps.core.d.f.cVa).a("adLanding", com.baidu.swan.apps.model.b.cg(aVw, aVw)).atf();
                         com.baidu.swan.game.ad.c.c.d(e.this.dZT, e.this.dZM);
                     }
                 }
@@ -215,18 +215,18 @@ public class e implements a.b {
 
     private void loadAd() {
         com.baidu.swan.game.ad.b.d cVar;
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
         String str = "";
-        if (aMk != null) {
-            str = aMk.getAppKey();
+        if (aMl != null) {
+            str = aMl.getAppKey();
         }
-        com.baidu.swan.game.ad.b.b aVM = new b.a().wj(this.ebw).wk(this.dZp).wl(str).mr(this.ecS.width).ms(this.ecS.height).aVM();
+        com.baidu.swan.game.ad.b.b aVN = new b.a().wj(this.ebw).wk(this.dZp).wl(str).mr(this.ecS.width).ms(this.ecS.height).aVN();
         if (this.ebn) {
-            cVar = new com.baidu.swan.game.ad.b.e(this.mContext, aVM, 1, aWl());
+            cVar = new com.baidu.swan.game.ad.b.e(this.mContext, aVN, 1, aWm());
             com.baidu.swan.games.view.a.b.ds("gdtbanner", null);
         } else {
-            cVar = new com.baidu.swan.game.ad.b.c(this.mContext, aVM);
-            this.ebS = cVar.aVR();
+            cVar = new com.baidu.swan.game.ad.b.c(this.mContext, aVN);
+            this.ebS = cVar.aVS();
             com.baidu.swan.games.view.a.b.ds("banner", null);
         }
         com.baidu.swan.game.ad.b.a aVar = new com.baidu.swan.game.ad.b.a(this.mContext, this.ebn);
@@ -235,28 +235,28 @@ public class e implements a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aWk() {
+    public void aWl() {
         if (this.ecS != null) {
             if (ah.O(this.ecS.width) < 300) {
                 this.ecS.width = ah.Q(300.0f);
             }
-            int bcX = com.baidu.swan.games.view.a.c.bcX();
             int bcY = com.baidu.swan.games.view.a.c.bcY();
-            if (ah.O(this.ecS.width) > bcX) {
-                this.ecS.width = ah.Q(bcX);
+            int bcZ = com.baidu.swan.games.view.a.c.bcZ();
+            if (ah.O(this.ecS.width) > bcY) {
+                this.ecS.width = ah.Q(bcY);
             }
             this.ecS.height = (int) (this.ecS.width / com.baidu.swan.game.ad.d.d.ecu);
             if (this.ecS.left < 0) {
                 this.ecS.left = 0;
             }
-            int Q = ah.Q(bcX) - this.ecS.width;
+            int Q = ah.Q(bcY) - this.ecS.width;
             if (this.ecS.left > Q) {
                 this.ecS.left = Q;
             }
             if (this.ecS.top < 0) {
                 this.ecS.top = 0;
             }
-            int Q2 = ah.Q(bcY) - this.ecS.height;
+            int Q2 = ah.Q(bcZ) - this.ecS.height;
             if (this.ecS.top > Q2) {
                 this.ecS.top = Q2;
             }
@@ -265,11 +265,11 @@ public class e implements a.b {
         }
     }
 
-    private int aWl() {
+    private int aWm() {
         if (this.ecS == null) {
             return 2;
         }
-        int Q = ah.Q(com.baidu.swan.games.view.a.c.bcY());
+        int Q = ah.Q(com.baidu.swan.games.view.a.c.bcZ());
         if (this.ecS.top < Q / 3) {
             return 1;
         }
@@ -305,7 +305,7 @@ public class e implements a.b {
                                     e.this.ecV = new g(e.this.mContext, e.this.dZT, e.this.dZM);
                                 }
                                 e.this.ecV.rw(str);
-                                com.baidu.swan.apps.t.a.aAB().a(e.this.mContext, jSONObject, SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, e.this.ecV);
+                                com.baidu.swan.apps.t.a.aAC().a(e.this.mContext, jSONObject, SwanAppDownloadAction.SwanAppDownloadType.TYPE_START_DOWNLOAD, e.this.ecV);
                             } catch (JSONException e) {
                                 if (com.baidu.swan.apps.b.DEBUG) {
                                     e.printStackTrace();
@@ -316,14 +316,14 @@ public class e implements a.b {
                 });
                 return;
             }
-            com.baidu.swan.apps.core.d.f ajs = com.baidu.swan.apps.v.f.aDG().ajs();
-            if (ajs == null) {
+            com.baidu.swan.apps.core.d.f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
+            if (ajt == null) {
                 if (this.mContext != null) {
-                    com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_open_fragment_failed_toast).aLS();
+                    com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.aiapps_open_fragment_failed_toast).aLT();
                 }
             } else if (this.dZT != null) {
-                String a2 = com.baidu.swan.game.ad.c.d.a(this.dZT.aVv(), bVar);
-                ajs.nv("adLanding").ai(com.baidu.swan.apps.core.d.f.cUY, com.baidu.swan.apps.core.d.f.cVa).a("adLanding", com.baidu.swan.apps.model.b.cg(a2, a2)).ate();
+                String a2 = com.baidu.swan.game.ad.c.d.a(this.dZT.aVw(), bVar);
+                ajt.nv("adLanding").ai(com.baidu.swan.apps.core.d.f.cUY, com.baidu.swan.apps.core.d.f.cVa).a("adLanding", com.baidu.swan.apps.model.b.cg(a2, a2)).atf();
             }
         }
     }

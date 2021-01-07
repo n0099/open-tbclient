@@ -18,7 +18,7 @@ public class c implements aw {
         this.eev = new b();
     }
 
-    public static c aXk() {
+    public static c aXl() {
         if (eet == null) {
             synchronized (c.class) {
                 if (eet == null) {
@@ -34,7 +34,7 @@ public class c implements aw {
         if (this.eeu.wI(str)) {
             return this.eeu.a(str, jSONObject, bVar);
         }
-        if (this.eeu.aXj()) {
+        if (this.eeu.aXk()) {
             return this.eev.a(str, jSONObject, bVar);
         }
         return new com.baidu.swan.apps.api.c.b(10001, "authorize fail.");

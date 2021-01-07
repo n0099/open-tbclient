@@ -53,8 +53,8 @@ public class g implements j {
                 if (g.this.eXL != null) {
                     g.this.eXL.onClick();
                 }
-                if (g.this.eXG != null && g.this.eXG.buq() != null) {
-                    g.this.eXG.buq().a(g.this.eXG, g.this.mId, g.this.eXH);
+                if (g.this.eXG != null && g.this.eXG.bur() != null) {
+                    g.this.eXG.bur().a(g.this.eXG, g.this.mId, g.this.eXH);
                 }
             }
         };
@@ -77,8 +77,8 @@ public class g implements j {
                 if (g.this.eXL != null) {
                     g.this.eXL.onClick();
                 }
-                if (g.this.eXG != null && g.this.eXG.buq() != null) {
-                    g.this.eXG.buq().a(g.this.eXG, g.this.mId, g.this.eXH);
+                if (g.this.eXG != null && g.this.eXG.bur() != null) {
+                    g.this.eXG.bur().a(g.this.eXG, g.this.mId, g.this.eXH);
                 }
             }
         };
@@ -89,7 +89,7 @@ public class g implements j {
         initListener();
     }
 
-    public String bui() {
+    public String buj() {
         return this.mText;
     }
 
@@ -136,7 +136,7 @@ public class g implements j {
         }
     }
 
-    private void buj() {
+    private void buk() {
         if (this.eXG != null && this.eXG.getContext() != null) {
             this.mView = LayoutInflater.from(this.eXG.getContext()).inflate(R.layout.popup_dialog_view_horizal_item, this.eXG.getView(), false);
             this.mView.getLayoutParams().width = this.eXP ? eXO : eXN;
@@ -158,8 +158,8 @@ public class g implements j {
         this.eXP = z;
     }
 
-    public void buk() {
-        buj();
+    public void bul() {
+        buk();
     }
 
     private void initListener() {

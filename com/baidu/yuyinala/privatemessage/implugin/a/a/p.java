@@ -27,7 +27,7 @@ public class p extends d {
         this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
         this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
         this.jnJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
-        this.mtx = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.mtw = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
         this.oSo = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         this.oTw = (DarkImageView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_cover);
         this.oTy = (TextView) this.mConvertView.findViewById(a.f.bd_im_chat_shared_title);
@@ -59,7 +59,7 @@ public class p extends d {
                 covers = signleGraphicTextMsg.getCover();
             }
             com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
-            ImageLoader.getInstance().displayImage(covers, this.oTw, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
+            ImageLoader.getInstance().displayImage(covers, this.oTw, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
             this.oTy.setText(signleGraphicTextMsg.getTitle());
             this.oTx.setText(signleGraphicTextMsg.getDigest());
             this.mContentView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.p.1

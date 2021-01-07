@@ -6,7 +6,7 @@ import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class a {
     public static void a(int i, String str, String str2, int i2, JSONObject jSONObject) {
-        d.bfV().a(nA(i), str, str2, i2, jSONObject);
+        d.bfW().a(nA(i), str, str2, i2, jSONObject);
     }
 
     private static String nA(int i) {

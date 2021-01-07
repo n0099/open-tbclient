@@ -26,12 +26,12 @@ import java.util.Set;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f6839a = d.class.getSimpleName();
+    private static final String f6840a = d.class.getSimpleName();
     private static d e = null;
     private static final Map<String, Integer> f = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Set<String> f6840b = new HashSet(1);
+    private final Set<String> f6841b = new HashSet(1);
     private final List<WeakReference<e>> c = new ArrayList(1);
     private final List<e> d = new ArrayList(1);
 
@@ -65,10 +65,10 @@ public class d {
                 try {
                     str = (String) field.get("");
                 } catch (IllegalAccessException e2) {
-                    Log.e(f6839a, "Could not access field", e2);
+                    Log.e(f6840a, "Could not access field", e2);
                     str = null;
                 }
-                this.f6840b.add(str);
+                this.f6841b.add(str);
             }
         }
     }
@@ -84,7 +84,7 @@ public class d {
                 if (packageManager != null && (packageInfo = packageManager.getPackageInfo(packageName, 4096)) != null && (strArr = packageInfo.requestedPermissions) != null && strArr.length != 0) {
                     for (int i = 0; i < strArr.length; i++) {
                         if (!TextUtils.isEmpty(strArr[i])) {
-                            this.f6840b.add(strArr[i]);
+                            this.f6841b.add(strArr[i]);
                         }
                     }
                 }
@@ -123,11 +123,11 @@ public class d {
         synchronized (this) {
             if (context != null) {
                 if (ad.e()) {
-                    if (!a.a(context, str) || (b.a(context, str) != 0 && this.f6840b.contains(str))) {
+                    if (!a.a(context, str) || (b.a(context, str) != 0 && this.f6841b.contains(str))) {
                         z = false;
                     }
                     z2 = z;
-                } else if (b.a(context, str) == 0 || !this.f6840b.contains(str)) {
+                } else if (b.a(context, str) == 0 || !this.f6841b.contains(str)) {
                     z2 = true;
                 }
             }
@@ -159,7 +159,7 @@ public class d {
         for (String str : strArr) {
             if (eVar != null) {
                 try {
-                    if (!this.f6840b.contains(str)) {
+                    if (!this.f6841b.contains(str)) {
                         a2 = eVar.a(str, c.NOT_FOUND);
                     } else if (b.a(activity, str) != 0) {
                         a2 = eVar.a(str, c.DENIED);
@@ -181,7 +181,7 @@ public class d {
     private List<String> c(@NonNull Activity activity, @NonNull String[] strArr, @Nullable e eVar) {
         ArrayList arrayList = new ArrayList(strArr.length);
         for (String str : strArr) {
-            if (!this.f6840b.contains(str)) {
+            if (!this.f6841b.contains(str)) {
                 if (eVar != null) {
                     eVar.a(str, c.NOT_FOUND);
                 }

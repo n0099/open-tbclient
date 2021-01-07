@@ -47,9 +47,9 @@ public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
             aVar = (a) view.getTag();
         }
         final com.baidu.tieba.ala.alasquare.recent_history.b.b vn = getItem(i);
-        if (vn != null && vn.eMv != null && vn.eMv.brq() != null && vn.eMv.brJ() != null) {
-            MetaData brq = vn.eMv.brq();
-            aVar.gHt.startLoad(vn.eMv.brJ().cover, 10, false);
+        if (vn != null && vn.eMv != null && vn.eMv.brr() != null && vn.eMv.brK() != null) {
+            MetaData brr = vn.eMv.brr();
+            aVar.gHt.startLoad(vn.eMv.brK().cover, 10, false);
             aVar.title.setText(vn.eMv.getTitle());
             this.gHq = 0;
             aVar.gHv.setVisibility(8);
@@ -73,14 +73,14 @@ public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
                     }
                 }
             }
-            String name_show = brq.getName_show();
+            String name_show = brr.getName_show();
             if (this.gHq <= 1) {
                 i2 = 14;
             } else {
                 i2 = 13;
             }
             aVar.epX.setText(k.byteLength(name_show) > i2 ? at.cutChineseAndEnglishWithSuffix(name_show, i2, StringHelper.STRING_MORE) : name_show);
-            aVar.gHu.setText(this.mContext.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, at.numberUniformFormatExtra(vn.eMv.brJ().audience_count)));
+            aVar.gHu.setText(this.mContext.getResources().getString(R.string.sqaure_recent_item_audience_count_tip, at.numberUniformFormatExtra(vn.eMv.brK().audience_count)));
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.recent_history.a.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
@@ -92,7 +92,7 @@ public class b extends com.baidu.tieba.ala.alasquare.recent_history.a.a {
             });
             aq aqVar = new aq("c12658");
             aqVar.dX("tid", vn.eMv.getTid());
-            com.baidu.tieba.ala.alasquare.b.a.bVl().e(aqVar);
+            com.baidu.tieba.ala.alasquare.b.a.bVm().e(aqVar);
         }
         return view;
     }

@@ -3,10 +3,10 @@ package com.baidu.mobstat;
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f3676a = true;
+    public static boolean f3677a = true;
 
     /* renamed from: b  reason: collision with root package name */
-    public static boolean f3677b = false;
+    public static boolean f3678b = false;
     public static String c = "M";
     public static boolean d = false;
     public static boolean e = true;

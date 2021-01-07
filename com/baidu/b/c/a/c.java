@@ -1,7 +1,7 @@
 package com.baidu.b.c.a;
 
 import java.security.SecureRandom;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c {
     public static final SecureRandom afc = new SecureRandom();
     private e afd;

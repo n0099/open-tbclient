@@ -53,11 +53,11 @@ public class a {
             this.cBa = new double[i];
         }
 
-        public double aiJ() {
+        public double aiK() {
             return this.cBd / this.size;
         }
 
-        public double aiK() {
+        public double aiL() {
             return this.cBc;
         }
 
@@ -104,19 +104,19 @@ public class a {
         this.cAX = new C0334a(5);
         this.cAS = new C0334a(5);
         this.cAU = SystemClock.elapsedRealtime();
-        aiH();
+        aiI();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aiB() {
-        if (!aiG() || SystemClock.elapsedRealtime() - this.cAU < 6000) {
+    public void aiC() {
+        if (!aiH() || SystemClock.elapsedRealtime() - this.cAU < 6000) {
             return;
         }
         this.cAU = SystemClock.elapsedRealtime();
-        Log.d("CpuMonitor", aiD());
+        Log.d("CpuMonitor", aiE());
     }
 
-    private int aiC() {
+    private int aiD() {
         Intent registerReceiver = this.appContext.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
         int intExtra = registerReceiver.getIntExtra("scale", 100);
         if (intExtra > 0) {
@@ -125,26 +125,26 @@ public class a {
         return 0;
     }
 
-    private String aiD() {
+    private String aiE() {
         String sb;
         synchronized (this) {
             StringBuilder sb2 = new StringBuilder();
             sb2.append("CPU User: ");
+            sb2.append(q(this.cAY.aiL()));
+            sb2.append("/");
             sb2.append(q(this.cAY.aiK()));
-            sb2.append("/");
-            sb2.append(q(this.cAY.aiJ()));
             sb2.append(". System: ");
+            sb2.append(q(this.cAW.aiL()));
+            sb2.append("/");
             sb2.append(q(this.cAW.aiK()));
-            sb2.append("/");
-            sb2.append(q(this.cAW.aiJ()));
             sb2.append(". Freq: ");
+            sb2.append(q(this.cAS.aiL()));
+            sb2.append("/");
             sb2.append(q(this.cAS.aiK()));
-            sb2.append("/");
-            sb2.append(q(this.cAS.aiJ()));
             sb2.append(". Total usage: ");
-            sb2.append(q(this.cAX.aiK()));
+            sb2.append(q(this.cAX.aiL()));
             sb2.append("/");
-            sb2.append(q(this.cAX.aiJ()));
+            sb2.append(q(this.cAX.aiK()));
             sb2.append(". Cores: ");
             sb2.append(this.cAM);
             sb2.append("( ");
@@ -153,7 +153,7 @@ public class a {
                 sb2.append(" ");
             }
             sb2.append("). Battery: ");
-            sb2.append(aiC());
+            sb2.append(aiD());
             if (this.cAO) {
                 sb2.append(". Overuse.");
             }
@@ -162,7 +162,7 @@ public class a {
         return sb;
     }
 
-    private b aiE() {
+    private b aiF() {
         long j;
         long j2;
         long j3;
@@ -200,7 +200,7 @@ public class a {
         }
     }
 
-    private void aiF() {
+    private void aiG() {
         synchronized (this) {
             this.cAY.reset();
             this.cAW.reset();
@@ -210,7 +210,7 @@ public class a {
         }
     }
 
-    private boolean aiG() {
+    private boolean aiH() {
         long j;
         synchronized (this) {
             if (!this.initialized) {
@@ -258,20 +258,20 @@ public class a {
                 return false;
             }
             double d = j4 / j2;
-            if (this.cAS.aiK() > 0.0d) {
-                d = (d + this.cAS.aiK()) * 0.5d;
+            if (this.cAS.aiL() > 0.0d) {
+                d = (d + this.cAS.aiL()) * 0.5d;
             }
             this.cAS.r(d);
             if (Build.VERSION.SDK_INT < 19 || Build.VERSION.SDK_INT > 24) {
                 return true;
             }
-            b aiE = aiE();
-            if (aiE == null) {
+            b aiF = aiF();
+            if (aiF == null) {
                 return false;
             }
-            long j5 = aiE.cBg - this.cAT.cBg;
-            long j6 = aiE.cBf - this.cAT.cBf;
-            long j7 = j5 + j6 + (aiE.cBe - this.cAT.cBe);
+            long j5 = aiF.cBg - this.cAT.cBg;
+            long j6 = aiF.cBf - this.cAT.cBf;
+            long j7 = j5 + j6 + (aiF.cBe - this.cAT.cBe);
             if (d == 0.0d || j7 == 0) {
                 return false;
             }
@@ -281,12 +281,12 @@ public class a {
             double d4 = j6 / d2;
             this.cAW.r(d4);
             this.cAX.r(d * (d3 + d4));
-            this.cAT = aiE;
+            this.cAT = aiF;
             return true;
         }
     }
 
-    private void aiH() {
+    private void aiI() {
         if (this.executor != null) {
             this.executor.shutdownNow();
             this.executor = null;
@@ -295,7 +295,7 @@ public class a {
         this.executor.scheduleAtFixedRate(new Runnable() { // from class: com.baidu.rtc.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                a.this.aiB();
+                a.this.aiC();
             }
         }, 0L, 2000L, TimeUnit.MILLISECONDS);
     }
@@ -333,7 +333,7 @@ public class a {
             strArr2[i] = "/sys/devices/system/cpu/cpu" + i + "/cpufreq/scaling_cur_freq";
         }
         this.cAT = new b(0L, 0L, 0L);
-        aiF();
+        aiG();
         this.initialized = true;
     }
 
@@ -372,10 +372,10 @@ public class a {
         return (int) ((100.0d * d) + 0.5d);
     }
 
-    public int aiI() {
+    public int aiJ() {
         int q;
         synchronized (this) {
-            q = q(this.cAS.aiJ());
+            q = q(this.cAS.aiK());
         }
         return q;
     }

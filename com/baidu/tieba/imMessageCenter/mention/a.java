@@ -42,14 +42,14 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
         this.kwz.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.bHi().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
+                a.this.bHj().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9483, a.this.getData(), null, null));
             }
         });
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
                 FeedData data = a.this.getData();
-                a.this.bHi().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9484, data, null, null));
+                a.this.bHj().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9484, data, null, null));
                 aq aqVar = new aq("c13784");
                 aqVar.w("uid", TbadkApplication.getCurrentAccountId());
                 aqVar.dX("fname", data.getFname());
@@ -61,7 +61,7 @@ public class a extends com.baidu.tbadk.mvc.f.a<FeedData, com.baidu.tbadk.mvc.d.b
         view.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.imMessageCenter.mention.a.3
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view2) {
-                a.this.bHi().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9489, a.this.getData(), null, null));
+                a.this.bHj().dispatchMvcEvent(new com.baidu.tbadk.mvc.c.b(9489, a.this.getData(), null, null));
                 return true;
             }
         });

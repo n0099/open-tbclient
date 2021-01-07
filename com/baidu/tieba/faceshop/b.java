@@ -1,0 +1,120 @@
+package com.baidu.tieba.faceshop;
+
+import android.graphics.Bitmap;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+/* loaded from: classes9.dex */
+public class b {
+    public static boolean a(String str, String str2, InputStream inputStream) {
+        return com.baidu.tbadk.core.util.n.saveFile(new StringBuilder().append(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath()).append("/").append(new StringBuilder().append(".emotions/").append(str).toString()).append("/").append(str2).toString(), inputStream) != null;
+    }
+
+    public static byte[] eU(String str, String str2) {
+        return com.baidu.tbadk.core.util.n.GetFileData(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+    }
+
+    public static boolean JX(String str) {
+        Bitmap eR = eR(str, "panel.png");
+        if (eR == null) {
+            return false;
+        }
+        eR.recycle();
+        return true;
+    }
+
+    public static boolean aF(String str, String str2, String str3) {
+        String str4 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.emotions/" + str + "/";
+        File file = new File(str4, str2);
+        if (!file.exists()) {
+            return false;
+        }
+        File file2 = new File(str4, str3);
+        if (file2.exists()) {
+            if (file2.delete() && file.renameTo(file2)) {
+                return true;
+            }
+            return com.baidu.tbadk.core.util.n.dU(file.getAbsolutePath(), file2.getAbsolutePath());
+        } else if (file.renameTo(file2)) {
+            return true;
+        } else {
+            return com.baidu.tbadk.core.util.n.dU(file.getAbsolutePath(), file2.getAbsolutePath());
+        }
+    }
+
+    public static List<String> c(String str, InputStream inputStream) throws Exception {
+        ZipInputStream zipInputStream;
+        try {
+            zipInputStream = new ZipInputStream(new BufferedInputStream(inputStream));
+            while (true) {
+                try {
+                    ZipEntry nextEntry = zipInputStream.getNextEntry();
+                    if (nextEntry == null) {
+                        break;
+                    } else if (!nextEntry.isDirectory()) {
+                        a(str, nextEntry.getName(), zipInputStream);
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    com.baidu.adp.lib.util.n.close((InputStream) zipInputStream);
+                    throw th;
+                }
+            }
+            zipInputStream.close();
+            com.baidu.adp.lib.util.n.close((InputStream) zipInputStream);
+            byte[] eU = eU(str, "map.txt");
+            if (eU == null) {
+                throw new FileNotFoundException("map.txt file not exsit!");
+            }
+            String str2 = new String(eU, "UTF-8");
+            LinkedList linkedList = new LinkedList();
+            for (String str3 : str2.split("\n")) {
+                String trim = str3.trim();
+                if (trim.startsWith("#(")) {
+                    String[] split = trim.split("=");
+                    if (split.length == 2) {
+                        String trim2 = split[0].trim();
+                        String trim3 = split[1].trim();
+                        aF(str, "s_" + trim3 + ".png", aN(trim2, false));
+                        aF(str, "d_" + trim3 + ".gif", aN(trim2, true));
+                        linkedList.add(trim2);
+                    }
+                }
+            }
+            return linkedList;
+        } catch (Throwable th2) {
+            th = th2;
+            zipInputStream = null;
+        }
+    }
+
+    public static String aN(String str, boolean z) {
+        long hashCode = str.hashCode();
+        if (hashCode < 0) {
+            hashCode *= -1;
+        }
+        return (z ? "d_" : "s_") + hashCode;
+    }
+
+    public static String j(String str, boolean z, boolean z2) {
+        long hashCode = str.hashCode();
+        if (hashCode < 0) {
+            hashCode *= -1;
+        }
+        String str2 = (z ? "s_" : "d_") + hashCode;
+        if (z2 && !z) {
+            return str2 + ".gif";
+        }
+        return str2 + ".jpg";
+    }
+
+    public static Bitmap eR(String str, String str2) {
+        return com.baidu.tbadk.core.util.n.getImage(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + (".emotions/" + str) + "/" + str2);
+    }
+}

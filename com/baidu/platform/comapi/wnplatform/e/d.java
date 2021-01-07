@@ -17,21 +17,21 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f4624a = d.class.getSimpleName();
+    static final String f4625a = d.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static Map<String, Method> f4625b = new HashMap();
+    private static Map<String, Method> f4626b = new HashMap();
 
     private static Method a(ClassLoader classLoader, String str) throws ClassNotFoundException, NoSuchMethodException {
         String str2 = str + "@" + classLoader.hashCode();
-        Method method = f4625b.get(str2);
+        Method method = f4626b.get(str2);
         if (method == null && (method = Class.forName(str, true, classLoader).getDeclaredMethod("parseFrom", byte[].class)) != null) {
             method.setAccessible(true);
-            f4625b.put(str2, method);
+            f4626b.put(str2, method);
         }
         return method;
     }
@@ -60,7 +60,7 @@ public class d {
                 int offset = cb.getOffset() + i2;
                 if (name.equals("M")) {
                     b bVar = new b();
-                    bVar.f4621a = a(new ByteArrayInputStream(bArr, offset, vx));
+                    bVar.f4622a = a(new ByteArrayInputStream(bArr, offset, vx));
                     arrayList.add(bVar);
                 } else {
                     MessageMicro a2 = a(str, name, bArr, offset, vx);

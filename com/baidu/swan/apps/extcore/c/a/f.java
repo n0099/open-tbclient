@@ -55,7 +55,7 @@ public class f extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            eVar.aMw().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.f.1
+            eVar.aMx().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.f.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -74,7 +74,7 @@ public class f extends aa {
                     }
                     f.this.deb = false;
                     com.baidu.swan.apps.ad.a.a.gD(false);
-                    com.baidu.swan.apps.ad.a.a.arX();
+                    com.baidu.swan.apps.ad.a.a.arY();
                     callbackHandler.handleSchemeDispatchCallback(f.this.cFi, UnitedSchemeUtility.wrapCallbackParams(0).toString());
                 }
             });
@@ -136,7 +136,7 @@ public class f extends aa {
         aVar.ewn = true;
         aVar.ewo = false;
         aVar.ewp = true;
-        com.baidu.swan.a.c.a.bfE().a(aVar);
+        com.baidu.swan.a.c.a.bfF().a(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -155,7 +155,7 @@ public class f extends aa {
     }
 
     private void a(String str, final String str2, com.baidu.swan.apps.runtime.e eVar, final CallbackHandler callbackHandler) {
-        com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a(com.baidu.swan.apps.t.a.aAD().kP(str), new ResponseCallback() { // from class: com.baidu.swan.apps.extcore.c.a.f.3
+        com.baidu.swan.a.b.a aVar = new com.baidu.swan.a.b.a(com.baidu.swan.apps.t.a.aAE().kP(str), new ResponseCallback() { // from class: com.baidu.swan.apps.extcore.c.a.f.3
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public Object parseResponse(Response response, int i) throws Exception {
                 f.this.a(response, str2, f.this.cFi, callbackHandler);
@@ -175,7 +175,7 @@ public class f extends aa {
         aVar.ewn = true;
         aVar.ewo = false;
         aVar.ewp = true;
-        com.baidu.swan.a.c.a.bfE().a(aVar);
+        com.baidu.swan.a.c.a.bfF().a(aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -235,11 +235,11 @@ public class f extends aa {
     private void a(JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
         if (this.ddZ && this.dea && this.deb) {
             com.baidu.swan.apps.ad.a.a.gD(true);
-            com.baidu.swan.apps.storage.c.h.aPH().putString("ctsUrl", jSONObject.toString());
+            com.baidu.swan.apps.storage.c.h.aPI().putString("ctsUrl", jSONObject.toString());
             callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             this.dea = false;
             this.ddZ = false;
-            com.baidu.swan.apps.ad.a.a.arX();
+            com.baidu.swan.apps.ad.a.a.arY();
         }
     }
 }

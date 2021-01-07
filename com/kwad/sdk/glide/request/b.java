@@ -6,46 +6,46 @@ public final class b implements c, d {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    private final d f10649a;
+    private final d f10650a;
 
     /* renamed from: b  reason: collision with root package name */
-    private c f10650b;
+    private c f10651b;
     private c c;
 
     public b(@Nullable d dVar) {
-        this.f10649a = dVar;
+        this.f10650a = dVar;
     }
 
     private boolean g(c cVar) {
-        return cVar.equals(this.f10650b) || (this.f10650b.g() && cVar.equals(this.c));
+        return cVar.equals(this.f10651b) || (this.f10651b.g() && cVar.equals(this.c));
     }
 
     private boolean j() {
-        return this.f10649a == null || this.f10649a.b(this);
+        return this.f10650a == null || this.f10650a.b(this);
     }
 
     private boolean k() {
-        return this.f10649a == null || this.f10649a.d(this);
+        return this.f10650a == null || this.f10650a.d(this);
     }
 
     private boolean l() {
-        return this.f10649a == null || this.f10649a.c(this);
+        return this.f10650a == null || this.f10650a.c(this);
     }
 
     private boolean m() {
-        return this.f10649a != null && this.f10649a.i();
+        return this.f10650a != null && this.f10650a.i();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public void a() {
-        if (this.f10650b.c()) {
+        if (this.f10651b.c()) {
             return;
         }
-        this.f10650b.a();
+        this.f10651b.a();
     }
 
     public void a(c cVar, c cVar2) {
-        this.f10650b = cVar;
+        this.f10651b = cVar;
         this.c = cVar2;
     }
 
@@ -53,14 +53,14 @@ public final class b implements c, d {
     public boolean a(c cVar) {
         if (cVar instanceof b) {
             b bVar = (b) cVar;
-            return this.f10650b.a(bVar.f10650b) && this.c.a(bVar.c);
+            return this.f10651b.a(bVar.f10651b) && this.c.a(bVar.c);
         }
         return false;
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public void b() {
-        this.f10650b.b();
+        this.f10651b.b();
         if (this.c.c()) {
             this.c.b();
         }
@@ -73,7 +73,7 @@ public final class b implements c, d {
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean c() {
-        return this.f10650b.g() ? this.c.c() : this.f10650b.c();
+        return this.f10651b.g() ? this.c.c() : this.f10651b.c();
     }
 
     @Override // com.kwad.sdk.glide.request.d
@@ -88,26 +88,26 @@ public final class b implements c, d {
 
     @Override // com.kwad.sdk.glide.request.d
     public void e(c cVar) {
-        if (this.f10649a != null) {
-            this.f10649a.e(this);
+        if (this.f10650a != null) {
+            this.f10650a.e(this);
         }
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean e() {
-        return this.f10650b.g() ? this.c.e() : this.f10650b.e();
+        return this.f10651b.g() ? this.c.e() : this.f10651b.e();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean e_() {
-        return this.f10650b.g() ? this.c.e_() : this.f10650b.e_();
+        return this.f10651b.g() ? this.c.e_() : this.f10651b.e_();
     }
 
     @Override // com.kwad.sdk.glide.request.d
     public void f(c cVar) {
         if (cVar.equals(this.c)) {
-            if (this.f10649a != null) {
-                this.f10649a.f(this);
+            if (this.f10650a != null) {
+                this.f10650a.f(this);
             }
         } else if (this.c.c()) {
         } else {
@@ -117,17 +117,17 @@ public final class b implements c, d {
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean f() {
-        return this.f10650b.g() ? this.c.f() : this.f10650b.f();
+        return this.f10651b.g() ? this.c.f() : this.f10651b.f();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean g() {
-        return this.f10650b.g() && this.c.g();
+        return this.f10651b.g() && this.c.g();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public void h() {
-        this.f10650b.h();
+        this.f10651b.h();
         this.c.h();
     }
 

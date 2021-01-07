@@ -29,21 +29,21 @@ public class k extends com.baidu.adp.widget.ListView.a<n, CardViewHolder<com.bai
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, n nVar, CardViewHolder<com.baidu.tieba.ala.personcenter.e.c> cardViewHolder) {
-        if (cardViewHolder.cvG() == null) {
+        if (cardViewHolder.cvH() == null) {
             return null;
         }
-        a(nVar, cardViewHolder.cvG());
-        return cardViewHolder.cvG().getView();
+        a(nVar, cardViewHolder.cvH());
+        return cardViewHolder.cvH().getView();
     }
 
     private void a(n nVar, com.baidu.tieba.ala.personcenter.e.c cVar) {
         com.baidu.tieba.ala.personcenter.c.c personCenterData = nVar.getPersonCenterData();
-        if (personCenterData == null || personCenterData.cpH() == null || TextUtils.isEmpty(personCenterData.cpH().cpG())) {
+        if (personCenterData == null || personCenterData.cpI() == null || TextUtils.isEmpty(personCenterData.cpI().cpH())) {
             cVar.setVisibility(8);
             notifyDataSetChanged();
             return;
         }
-        cVar.Ja(personCenterData.cpH().cpG());
+        cVar.IZ(personCenterData.cpI().cpH());
         cVar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         notifyDataSetChanged();
     }

@@ -24,19 +24,19 @@ public class j extends k {
         if (bzVar.getThreadType() == 49) {
             return true;
         }
-        return bzVar.getThreadType() == 67 && bzVar.brJ() != null && bzVar.brJ().friendRoomStatus == 2;
+        return bzVar.getThreadType() == 67 && bzVar.brK() != null && bzVar.brK().friendRoomStatus == 2;
     }
 
-    public aq Ju(String str) {
-        aq Jt = Jt(str);
-        Jt.delete("obj_type");
-        Jt.delete("obj_type");
-        Jt.an("obj_type", 3);
-        return Jt;
+    public aq Jt(String str) {
+        aq Js = Js(str);
+        Js.delete("obj_type");
+        Js.delete("obj_type");
+        Js.an("obj_type", 3);
+        return Js;
     }
 
     @Override // com.baidu.tieba.card.data.k, com.baidu.tieba.card.data.b, com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return this.eMv;
     }
 }

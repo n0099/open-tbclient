@@ -21,8 +21,8 @@ public class q extends aa {
 
     @Override // com.kwad.sdk.pngencrypt.chunk.PngChunk
     public void a(d dVar) {
-        if (dVar.f10800a != 13) {
-            throw new PngjException("Bad IDHR len " + dVar.f10800a);
+        if (dVar.f10801a != 13) {
+            throw new PngjException("Bad IDHR len " + dVar.f10801a);
         }
         ByteArrayInputStream b2 = dVar.b();
         this.h = com.kwad.sdk.pngencrypt.n.b(b2);
@@ -35,8 +35,8 @@ public class q extends aa {
     }
 
     public void a(com.kwad.sdk.pngencrypt.k kVar) {
-        b(this.e.f10810a);
-        c(this.e.f10811b);
+        b(this.e.f10811a);
+        c(this.e.f10812b);
         d(this.e.c);
         int i = this.e.e ? 4 : 0;
         if (this.e.g) {

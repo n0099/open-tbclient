@@ -2,7 +2,7 @@ package com.baidu.platform.comapi.map;
 
 import android.view.SurfaceHolder;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public interface ak {
     void a(int i, int i2);
 

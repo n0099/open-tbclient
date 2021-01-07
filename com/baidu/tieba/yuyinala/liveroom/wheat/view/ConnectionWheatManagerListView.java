@@ -14,8 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class ConnectionWheatManagerListView extends BaseConnectionWheatListView {
-    private d oFP;
-    private d.a oyd;
+    private d oFO;
+    private d.a oyc;
 
     public ConnectionWheatManagerListView(@NonNull Context context) {
         this(context, null);
@@ -34,36 +34,36 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
-    protected void dCF() {
-        this.oFP = new d(getContext());
-        this.oCu.setAdapter((ListAdapter) this.oFP);
+    protected void dCG() {
+        this.oFO = new d(getContext());
+        this.oCt.setAdapter((ListAdapter) this.oFO);
     }
 
-    public void efg() {
+    public void efh() {
         zV(false);
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            efy();
-        } else {
             efz();
+        } else {
+            efA();
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public void zV(boolean z) {
-        this.oFP.Ny(o.eff().aap().size());
+        this.oFO.Ny(o.efg().aaq().size());
         ArrayList arrayList = new ArrayList();
-        arrayList.addAll(o.eff().aap());
-        arrayList.addAll(o.eff().aao());
+        arrayList.addAll(o.efg().aaq());
+        arrayList.addAll(o.efg().aap());
         gs(arrayList);
-        if (this.oyd != null && this.oFP != null) {
-            this.oyd.Nz(this.oFP.getCount());
+        if (this.oyc != null && this.oFO != null) {
+            this.oyc.Nz(this.oFO.getCount());
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.view.BaseConnectionWheatListView
     public int getCount() {
-        if (this.oFP != null) {
-            return this.oFP.getCount();
+        if (this.oFO != null) {
+            return this.oFO.getCount();
         }
         return 0;
     }
@@ -74,15 +74,15 @@ public class ConnectionWheatManagerListView extends BaseConnectionWheatListView 
     }
 
     private void gs(List<AlaWheatInfoData> list) {
-        if (this.oFP != null) {
-            this.oFP.setData(list);
+        if (this.oFO != null) {
+            this.oFO.setData(list);
         }
     }
 
     public void setListener(d.a aVar) {
-        this.oyd = aVar;
-        if (this.oFP != null) {
-            this.oFP.setListener(aVar);
+        this.oyc = aVar;
+        if (this.oFO != null) {
+            this.oFO.setListener(aVar);
         }
     }
 

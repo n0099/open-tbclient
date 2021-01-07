@@ -23,7 +23,7 @@ public final class e {
         if (context == null) {
             return;
         }
-        if (com.kwad.sdk.d.f9968a == 1) {
+        if (com.kwad.sdk.d.f9969a == 1) {
             com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.a.class);
             if (aVar != null) {
                 aVar.a(context, str);

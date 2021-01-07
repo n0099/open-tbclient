@@ -9,12 +9,12 @@ public class h extends com.ksad.lottie.e.a<PointF> {
     private Path h;
 
     public h(com.ksad.lottie.d dVar, com.ksad.lottie.e.a<PointF> aVar) {
-        super(dVar, aVar.f8300a, aVar.f8301b, aVar.c, aVar.d, aVar.e);
-        boolean z = (this.f8301b == 0 || this.f8300a == 0 || !((PointF) this.f8300a).equals(((PointF) this.f8301b).x, ((PointF) this.f8301b).y)) ? false : true;
-        if (this.f8301b == 0 || z) {
+        super(dVar, aVar.f8301a, aVar.f8302b, aVar.c, aVar.d, aVar.e);
+        boolean z = (this.f8302b == 0 || this.f8301a == 0 || !((PointF) this.f8301a).equals(((PointF) this.f8302b).x, ((PointF) this.f8302b).y)) ? false : true;
+        if (this.f8302b == 0 || z) {
             return;
         }
-        this.h = com.ksad.lottie.d.f.a((PointF) this.f8300a, (PointF) this.f8301b, aVar.f, aVar.g);
+        this.h = com.ksad.lottie.d.f.a((PointF) this.f8301a, (PointF) this.f8302b, aVar.f, aVar.g);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

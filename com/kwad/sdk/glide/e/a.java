@@ -9,30 +9,30 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<C1093a<?>> f10262a = new ArrayList();
+    private final List<C1134a<?>> f10263a = new ArrayList();
 
     /* renamed from: com.kwad.sdk.glide.e.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private static final class C1093a<T> {
+    private static final class C1134a<T> {
 
         /* renamed from: a  reason: collision with root package name */
-        final com.kwad.sdk.glide.load.a<T> f10263a;
+        final com.kwad.sdk.glide.load.a<T> f10264a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final Class<T> f10264b;
+        private final Class<T> f10265b;
 
-        C1093a(@NonNull Class<T> cls, @NonNull com.kwad.sdk.glide.load.a<T> aVar) {
-            this.f10264b = cls;
-            this.f10263a = aVar;
+        C1134a(@NonNull Class<T> cls, @NonNull com.kwad.sdk.glide.load.a<T> aVar) {
+            this.f10265b = cls;
+            this.f10264a = aVar;
         }
 
         boolean a(@NonNull Class<?> cls) {
-            return this.f10264b.isAssignableFrom(cls);
+            return this.f10265b.isAssignableFrom(cls);
         }
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:8:0x0019, code lost:
-        r0 = (com.kwad.sdk.glide.load.a<T>) r0.f10263a;
+        r0 = (com.kwad.sdk.glide.load.a<T>) r0.f10264a;
      */
     @Nullable
     /*
@@ -40,13 +40,13 @@ public class a {
     */
     public synchronized <T> com.kwad.sdk.glide.load.a<T> a(@NonNull Class<T> cls) {
         com.kwad.sdk.glide.load.a<T> aVar;
-        Iterator<C1093a<?>> it = this.f10262a.iterator();
+        Iterator<C1134a<?>> it = this.f10263a.iterator();
         while (true) {
             if (!it.hasNext()) {
                 aVar = null;
                 break;
             }
-            C1093a<?> next = it.next();
+            C1134a<?> next = it.next();
             if (next.a(cls)) {
                 break;
             }
@@ -55,6 +55,6 @@ public class a {
     }
 
     public synchronized <T> void a(@NonNull Class<T> cls, @NonNull com.kwad.sdk.glide.load.a<T> aVar) {
-        this.f10262a.add(new C1093a<>(cls, aVar));
+        this.f10263a.add(new C1134a<>(cls, aVar));
     }
 }

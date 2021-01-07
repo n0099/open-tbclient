@@ -18,14 +18,14 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class a implements ADListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f12210a = a.class.getSimpleName();
+    private static final String f12211a = a.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private final UnifiedBannerView f12211b;
+    private final UnifiedBannerView f12212b;
     private final UnifiedBannerADListener c;
     private NativeExpressADView d;
     private d e;
@@ -34,7 +34,7 @@ class a implements ADListener {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(UnifiedBannerView unifiedBannerView, d dVar, UnifiedBannerADListener unifiedBannerADListener, String str) {
-        this.f12211b = unifiedBannerView;
+        this.f12212b = unifiedBannerView;
         this.e = dVar;
         this.c = unifiedBannerADListener;
         this.g.a(str);
@@ -66,7 +66,7 @@ class a implements ADListener {
         w.a(new Runnable() { // from class: com.qq.e.comm.plugin.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                ai.b(a.f12210a, "onADEvent ( %d )", Integer.valueOf(aDEvent.getType()));
+                ai.b(a.f12211a, "onADEvent ( %d )", Integer.valueOf(aDEvent.getType()));
                 switch (aDEvent.getType()) {
                     case 1:
                         if (aDEvent.getParas().length == 1 && (aDEvent.getParas()[0] instanceof Integer)) {
@@ -92,14 +92,14 @@ class a implements ADListener {
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        for (int i = 0; i < a.this.f12211b.getChildCount(); i++) {
-                            View childAt = a.this.f12211b.getChildAt(i);
+                        for (int i = 0; i < a.this.f12212b.getChildCount(); i++) {
+                            View childAt = a.this.f12212b.getChildAt(i);
                             if (childAt instanceof NativeExpressADView) {
                                 ((NativeExpressADView) childAt).destroy();
                             }
                         }
-                        a.this.f12211b.removeAllViews();
-                        a.this.f12211b.addView(a.this.d, new FrameLayout.LayoutParams(-1, -1));
+                        a.this.f12212b.removeAllViews();
+                        a.this.f12212b.addView(a.this.d, new FrameLayout.LayoutParams(-1, -1));
                         a.this.d.render();
                         a.this.c.onADReceive();
                         a.this.c();

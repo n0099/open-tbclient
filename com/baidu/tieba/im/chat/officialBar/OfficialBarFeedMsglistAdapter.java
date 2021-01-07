@@ -92,14 +92,14 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
             ao.setViewTextColor(this.jMX, R.color.CAM_X0105);
             ao.setBackgroundResource(this.kyY, R.drawable.icon_official_bar_red_dot);
             this.kyX.setStrokeColorResId(R.color.CAM_X0401);
-            this.kyX.startLoad(this.kyZ.cWK(), 10, false);
-            if (at.getChineseAndEnglishLength(this.kyZ.cRb()) <= 10) {
-                this.jMX.setText(this.kyZ.cRb());
+            this.kyX.startLoad(this.kyZ.cWL(), 10, false);
+            if (at.getChineseAndEnglishLength(this.kyZ.cRc()) <= 10) {
+                this.jMX.setText(this.kyZ.cRc());
             } else {
-                this.jMX.setText(at.cutChineseAndEnglishWithSuffix(this.kyZ.cRb(), 8, StringHelper.STRING_MORE));
+                this.jMX.setText(at.cutChineseAndEnglishWithSuffix(this.kyZ.cRc(), 8, StringHelper.STRING_MORE));
             }
             this.kyX.setOnClickListener(this);
-            if (this.kyZ.getUnReadCount() > 0 && (this.kyZ.cWL() <= 0 || System.currentTimeMillis() - this.kyZ.cWL() < 864000000)) {
+            if (this.kyZ.getUnReadCount() > 0 && (this.kyZ.cWM() <= 0 || System.currentTimeMillis() - this.kyZ.cWM() < 864000000)) {
                 this.kyY.setVisibility(0);
             } else {
                 this.kyY.setVisibility(8);
@@ -125,12 +125,12 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         private int unReadCount;
         private int userType;
 
-        String cWK() {
+        String cWL() {
             return this.kyW;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public String cRb() {
+        public String cRc() {
             return this.jYM;
         }
 
@@ -139,12 +139,12 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void MM(String str) {
+        public void ML(String str) {
             this.kyW = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public void MN(String str) {
+        public void MM(String str) {
             this.jYM = str;
         }
 
@@ -165,7 +165,7 @@ public class OfficialBarFeedMsglistAdapter extends RecyclerView.Adapter<Recycler
             return this.groupId;
         }
 
-        public long cWL() {
+        public long cWM() {
             return this.dbH;
         }
 

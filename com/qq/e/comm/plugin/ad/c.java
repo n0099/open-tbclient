@@ -40,14 +40,14 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile String f12177a = null;
+    private static volatile String f12178a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Random f12178b = new Random(System.currentTimeMillis());
+    private static final Random f12179b = new Random(System.currentTimeMillis());
 
     private static int a(b bVar) {
         if (bVar.i() == e.REWARDVIDEOAD2.b()) {
@@ -80,7 +80,7 @@ public class c {
     private static String a(JSONObject jSONObject, b bVar) {
         CRC32 crc32;
         String str = jSONObject.optString("sdkver") + jSONObject.optString("c_os") + jSONObject.optString("muidtype") + jSONObject.optString("muid") + jSONObject.optString("c_pkgname") + jSONObject.optInt("postype") + bVar.c();
-        new CRC32().update(str.getBytes(com.qq.e.comm.plugin.f.a.f12289a));
+        new CRC32().update(str.getBytes(com.qq.e.comm.plugin.f.a.f12290a));
         return "0001" + Long.toHexString(crc32.getValue());
     }
 
@@ -146,8 +146,8 @@ public class c {
         if (!TextUtils.isEmpty(com.qq.e.comm.plugin.util.b.a(GDTADManager.getInstance().getAppContext()))) {
             eVar.b("last_ads", com.qq.e.comm.plugin.util.b.a(GDTADManager.getInstance().getAppContext()));
         }
-        if (com.qq.e.comm.plugin.e.a.f12285a != null && !TextUtils.isEmpty(com.qq.e.comm.plugin.e.a.f12285a.a())) {
-            eVar.b("uin", com.qq.e.comm.plugin.e.a.f12285a.a());
+        if (com.qq.e.comm.plugin.e.a.f12286a != null && !TextUtils.isEmpty(com.qq.e.comm.plugin.e.a.f12286a.a())) {
+            eVar.b("uin", com.qq.e.comm.plugin.e.a.f12286a.a());
         }
         JSONObject a2 = a();
         if (com.qq.e.comm.plugin.util.m.a(a2)) {
@@ -156,7 +156,7 @@ public class c {
         String jSONObject = a2.toString();
         String a3 = com.qq.e.comm.plugin.util.c.a(jSONObject);
         eVar.b("encext", a3);
-        eVar.b("encver", com.qq.e.comm.plugin.util.c.f12880a);
+        eVar.b("encver", com.qq.e.comm.plugin.util.c.f12881a);
         GDTLogger.d("原文：" + jSONObject);
         GDTLogger.d("密文：" + a3);
         return eVar.e();
@@ -197,8 +197,8 @@ public class c {
 
     private static JSONObject a(GDTADManager gDTADManager) {
         JSONObject jSONObject = new JSONObject();
-        String str = i.f12191a;
-        String str2 = i.f12192b;
+        String str = i.f12192a;
+        String str2 = i.f12193b;
         String str3 = i.c;
         String str4 = i.d;
         String str5 = i.e;
@@ -479,7 +479,7 @@ public class c {
     }
 
     private static boolean b(int i) {
-        return f12178b.nextDouble() < ((double) i) * 0.001d;
+        return f12179b.nextDouble() < ((double) i) * 0.001d;
     }
 
     private static String c() {

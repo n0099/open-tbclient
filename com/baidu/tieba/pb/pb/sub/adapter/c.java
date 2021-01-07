@@ -36,17 +36,17 @@ public class c extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.pb.pb.sub
     /* loaded from: classes2.dex */
     public static class a extends TypeAdapter.ViewHolder {
         private int mSkinType;
-        private TextView mdM;
+        private TextView mdL;
 
         public a(View view) {
             super(view);
             this.mSkinType = 3;
-            this.mdM = (TextView) view.findViewById(R.id.no_reply_list_view);
+            this.mdL = (TextView) view.findViewById(R.id.no_reply_list_view);
         }
 
         public void onChangeSkinType() {
             if (this.mSkinType != TbadkApplication.getInst().getSkinType()) {
-                ao.setViewTextColor(this.mdM, R.color.CAM_X0109);
+                ao.setViewTextColor(this.mdL, R.color.CAM_X0109);
             }
             this.mSkinType = TbadkApplication.getInst().getSkinType();
         }

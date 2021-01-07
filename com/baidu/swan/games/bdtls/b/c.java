@@ -149,9 +149,9 @@ public class c extends b {
     public void a(Call call, Response response) throws IOException {
         Headers headers = response.headers();
         if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
-            com.baidu.swan.games.bdtls.e.aXS().aXT().mD(0);
-            if (com.baidu.swan.games.bdtls.e.aXS().aXT().aYU()) {
-                com.baidu.swan.games.bdtls.e.aXS().aXT().aYS();
+            com.baidu.swan.games.bdtls.e.aXT().aXU().mD(0);
+            if (com.baidu.swan.games.bdtls.e.aXT().aXU().aYV()) {
+                com.baidu.swan.games.bdtls.e.aXT().aXU().aYT();
                 ic(true);
                 retry();
                 return;
@@ -159,7 +159,7 @@ public class c extends b {
             this.egI.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
             return;
         }
-        com.baidu.swan.games.bdtls.e.aXS().aXT().aYV();
+        com.baidu.swan.games.bdtls.e.aXT().aXU().aYW();
         if (this.egG) {
             ResponseBody body = response.body();
             String Y = Y(body.bytes());

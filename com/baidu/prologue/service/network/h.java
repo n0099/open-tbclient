@@ -15,7 +15,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 import org.apache.http.protocol.HTTP;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class h implements e {
     private OkHttpClient cvo;
     private final OkHttpClient cvp;

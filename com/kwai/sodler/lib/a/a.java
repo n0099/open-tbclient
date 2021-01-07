@@ -8,10 +8,10 @@ import java.io.File;
 public abstract class a {
 
     /* renamed from: a  reason: collision with root package name */
-    protected File f11295a;
+    protected File f11296a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f11296b;
+    protected String f11297b;
     protected String d;
     protected String e;
     protected com.kwai.sodler.lib.b.b f;
@@ -22,7 +22,7 @@ public abstract class a {
 
     public a(String str) {
         this.i = str;
-        this.f11296b = str;
+        this.f11297b = str;
     }
 
     public a a(@NonNull com.kwai.sodler.lib.b.b bVar) {
@@ -60,7 +60,7 @@ public abstract class a {
     }
 
     public void c(String str) {
-        this.f11296b = str;
+        this.f11297b = str;
     }
 
     public final void d() {

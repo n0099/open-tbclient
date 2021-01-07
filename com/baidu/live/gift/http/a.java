@@ -19,7 +19,7 @@ public class a extends HttpMessage {
         this.aXT = str3;
         this.count = i;
         addParam("platform", "2");
-        addParam("scene_from", q.XF());
+        addParam("scene_from", q.XG());
         addParam("live_id", str);
         addParam(LegoListActivityConfig.ITEM_ID, str2);
         addParam("item_type", str3);

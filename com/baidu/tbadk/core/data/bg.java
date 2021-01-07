@@ -37,7 +37,7 @@ public class bg {
         }
     }
 
-    public boolean AU(String str) {
+    public boolean AT(String str) {
         return this.forumId.equals(str);
     }
 
@@ -49,7 +49,7 @@ public class bg {
         return this.isRunning;
     }
 
-    public void bqs() {
+    public void bqt() {
         this.isRunning = false;
     }
 

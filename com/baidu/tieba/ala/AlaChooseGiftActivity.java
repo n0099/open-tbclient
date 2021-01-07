@@ -260,7 +260,7 @@ public class AlaChooseGiftActivity extends BaseFragmentActivity {
                         AlaChooseGiftActivity.this.gpW.post(new Runnable() { // from class: com.baidu.tieba.ala.AlaChooseGiftActivity.9.1.1
                             @Override // java.lang.Runnable
                             public void run() {
-                                AlaChooseGiftActivity.this.gpY.bRw();
+                                AlaChooseGiftActivity.this.gpY.bRx();
                             }
                         });
                         e.printStackTrace();

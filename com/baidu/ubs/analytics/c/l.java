@@ -11,7 +11,7 @@ public final class l {
     private final LinkedHashMap<String, Long> oOB = new LinkedHashMap<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void XF(String str) {
+    public final void XE(String str) {
         if (!TextUtils.isEmpty(str)) {
             synchronized (this.oOB) {
                 this.oOB.put(str, Long.valueOf(System.currentTimeMillis()));
@@ -22,7 +22,7 @@ public final class l {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public final void XG(String str) {
+    public final void XF(String str) {
         d dVar;
         if (!TextUtils.isEmpty(str)) {
             final com.baidu.ubs.analytics.a.l lVar = new com.baidu.ubs.analytics.a.l();
@@ -34,8 +34,8 @@ public final class l {
                         lVar.t(str);
                         lVar.z(String.valueOf(System.currentTimeMillis()));
                         dVar = d.a.oOq;
-                        lVar.setPath(dVar.afN());
-                        lVar.x(m.ejJ().I());
+                        lVar.setPath(dVar.afO());
+                        lVar.x(m.ejK().I());
                     } catch (Exception e) {
                         com.baidu.ubs.analytics.d.j.G(e.toString());
                         com.baidu.ubs.analytics.d.b.I(e.toString());

@@ -22,7 +22,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
 
     /* loaded from: classes.dex */
     public interface a {
-        void bEZ();
+        void bFa();
     }
 
     public LocationInfoView(Context context) {
@@ -61,7 +61,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            this.fEG.bxO();
+            this.fEG.bxP();
             this.mSkinType = i;
         }
     }
@@ -88,7 +88,7 @@ public class LocationInfoView extends LinearLayout implements View.OnClickListen
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.fEH != null) {
-            this.fEH.bEZ();
+            this.fEH.bFa();
         }
     }
 }

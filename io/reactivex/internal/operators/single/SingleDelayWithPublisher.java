@@ -8,17 +8,17 @@ import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class SingleDelayWithPublisher<T, U> extends w<T> {
-    final org.a.b<U> qhe;
+    final org.a.b<U> qiN;
     final aa<T> source;
 
     @Override // io.reactivex.w
     protected void b(y<? super T> yVar) {
-        this.qhe.subscribe(new OtherSubscriber(yVar, this.source));
+        this.qiN.subscribe(new OtherSubscriber(yVar, this.source));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class OtherSubscriber<T, U> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, j<U> {
         private static final long serialVersionUID = -8565274649390031272L;
         final y<? super T> actual;

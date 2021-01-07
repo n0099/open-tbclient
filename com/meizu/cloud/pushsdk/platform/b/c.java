@@ -23,7 +23,7 @@ public abstract class c<T extends BasicPushStatus> {
     protected boolean l = true;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11658a = null;
+    private String f11659a = null;
 
     public c(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this.d = scheduledExecutorService;
@@ -43,7 +43,7 @@ public abstract class c<T extends BasicPushStatus> {
     }
 
     private boolean h() {
-        return this.l && !this.e.getPackageName().equals(this.f11658a);
+        return this.l && !this.e.getPackageName().equals(this.f11659a);
     }
 
     protected String a(Context context, String str) {
@@ -59,27 +59,27 @@ public abstract class c<T extends BasicPushStatus> {
                     }
                     ResolveInfo next = it.next();
                     if ("com.meizu.cloud".equals(next.serviceInfo.packageName)) {
-                        this.f11658a = next.serviceInfo.packageName;
+                        this.f11659a = next.serviceInfo.packageName;
                         str2 = next.serviceInfo.name;
                         break;
                     }
                 }
                 if (TextUtils.isEmpty(str2) && queryIntentServices.size() > 0) {
-                    this.f11658a = queryIntentServices.get(0).serviceInfo.packageName;
+                    this.f11659a = queryIntentServices.get(0).serviceInfo.packageName;
                     str2 = queryIntentServices.get(0).serviceInfo.name;
                 }
-                com.meizu.cloud.a.a.i("Strategy", "current process packageName " + this.f11658a);
+                com.meizu.cloud.a.a.i("Strategy", "current process packageName " + this.f11659a);
                 return str2;
             }
         }
         str2 = null;
-        com.meizu.cloud.a.a.i("Strategy", "current process packageName " + this.f11658a);
+        com.meizu.cloud.a.a.i("Strategy", "current process packageName " + this.f11659a);
         return str2;
     }
 
     protected void a(Intent intent) {
         try {
-            intent.setPackage(this.f11658a);
+            intent.setPackage(this.f11659a);
             intent.setAction(PushConstants.MZ_PUSH_MANAGER_SERVICE_ACTION);
             this.e.startService(intent);
         } catch (Exception e) {

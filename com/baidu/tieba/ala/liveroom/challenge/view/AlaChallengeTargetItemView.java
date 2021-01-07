@@ -27,9 +27,9 @@ public class AlaChallengeTargetItemView extends RelativeLayout implements View.O
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cgn();
-
         void cgo();
+
+        void cgp();
     }
 
     public AlaChallengeTargetItemView(Context context, AttributeSet attributeSet) {
@@ -74,9 +74,9 @@ public class AlaChallengeTargetItemView extends RelativeLayout implements View.O
     public void onClick(View view) {
         if (this.hAG != null) {
             if (view == this.hAC) {
-                this.hAG.cgn();
-            } else if (view == this.hAE) {
                 this.hAG.cgo();
+            } else if (view == this.hAE) {
+                this.hAG.cgp();
             }
         }
     }

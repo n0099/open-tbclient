@@ -343,7 +343,7 @@ public class LoginActivity extends BaseActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(AccountType accountType, boolean z) {
-        new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f5379a + SapiUtils.getLastLoginType());
+        new com.baidu.sapi2.utils.b().a(com.baidu.sapi2.utils.b.f5380a + SapiUtils.getLastLoginType());
         if (this.t == 2003) {
             SapiAccount currentAccount = SapiContext.getInstance().getCurrentAccount();
             Intent intent = new Intent();

@@ -5,10 +5,10 @@ import java.util.HashMap;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static g f3359a;
+    private static g f3360a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static HashMap<String, String> f3360b = new HashMap<>();
+    private static HashMap<String, String> f3361b = new HashMap<>();
 
     private g() {
     }
@@ -16,10 +16,10 @@ public class g {
     public static synchronized g a() {
         g gVar;
         synchronized (g.class) {
-            if (f3359a == null) {
-                f3359a = new g();
+            if (f3360a == null) {
+                f3360a = new g();
             }
-            gVar = f3359a;
+            gVar = f3360a;
         }
         return gVar;
     }
@@ -35,13 +35,13 @@ public class g {
             return 1;
         }
         try {
-            if (f3360b.containsKey(i + "")) {
-                i2 = Integer.parseInt(f3360b.get(i + "")) + 1;
+            if (f3361b.containsKey(i + "")) {
+                i2 = Integer.parseInt(f3361b.get(i + "")) + 1;
                 if (i2 < 1) {
                     i2 = 1;
                 }
                 try {
-                    ?? r1 = f3360b;
+                    ?? r1 = f3361b;
                     r1.put(i + "", i2 + "");
                     i3 = r1;
                 } catch (Exception e) {
@@ -50,7 +50,7 @@ public class g {
                     return i2;
                 }
             } else {
-                f3360b.put(i + "", "1");
+                f3361b.put(i + "", "1");
                 i2 = 1;
             }
         } catch (Exception e2) {

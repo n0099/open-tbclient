@@ -83,14 +83,14 @@ public class SetPrivacyModel extends BdBaseModel {
             if (TbadkCoreApplication.getCurrentAccount() != null) {
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
                 SetPrivacyModel.this.cmJ = new z(SetPrivacyModel.lqG);
-                SetPrivacyModel.this.cmJ.bvQ().bwz().mIsNeedTbs = true;
+                SetPrivacyModel.this.cmJ.bvR().bwA().mIsNeedTbs = true;
                 SetPrivacyModel.this.cmJ.addPostData("user_id", currentAccount);
                 SetPrivacyModel.this.cmJ.addPostData("forum_id", cardPersonDynamicThreadData.forumId);
                 SetPrivacyModel.this.cmJ.addPostData("thread_id", cardPersonDynamicThreadData.threadId);
                 SetPrivacyModel.this.cmJ.addPostData("post_id", cardPersonDynamicThreadData.postId);
                 SetPrivacyModel.this.cmJ.addPostData("is_hide", String.valueOf(cardPersonDynamicThreadData.isPrivacy ? 0 : 1));
                 SetPrivacyModel.this.cmJ.postNetData();
-                return Integer.valueOf(SetPrivacyModel.this.cmJ.bvQ().bwA().isRequestSuccess() ? 1 : 0);
+                return Integer.valueOf(SetPrivacyModel.this.cmJ.bvR().bwB().isRequestSuccess() ? 1 : 0);
             }
             return null;
         }

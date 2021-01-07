@@ -10,18 +10,18 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f12880a;
+    public static final String f12881a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f12881b = String.format("AES/%s/PKCS7Padding", "ECB");
+    private static final String f12882b = String.format("AES/%s/PKCS7Padding", "ECB");
     private static final String c = GDTADManager.getInstance().getSM().getString("cgiAesKeyVer");
 
     static {
-        f12880a = m.a(c) ? "1" : c;
+        f12881a = m.a(c) ? "1" : c;
     }
 
     private static String a() {

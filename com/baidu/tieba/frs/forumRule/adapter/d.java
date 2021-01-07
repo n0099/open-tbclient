@@ -54,32 +54,32 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
     }
 
     private void a(ForumRuleDetailSelfVH forumRuleDetailSelfVH, com.baidu.tieba.frs.forumRule.b.b bVar) {
-        if (bVar.cJH() != null) {
+        if (bVar.cJI() != null) {
             forumRuleDetailSelfVH.fio.setDefaultResource(R.drawable.img_default_100);
-            forumRuleDetailSelfVH.fio.startLoad(bVar.cJH().portrait, 12, false);
-            forumRuleDetailSelfVH.eLt.setText(bVar.cJH().name_show);
-            forumRuleDetailSelfVH.AQ(bVar.cJH().user_level.intValue());
+            forumRuleDetailSelfVH.fio.startLoad(bVar.cJI().portrait, 12, false);
+            forumRuleDetailSelfVH.eLt.setText(bVar.cJI().name_show);
+            forumRuleDetailSelfVH.AQ(bVar.cJI().user_level.intValue());
             forumRuleDetailSelfVH.jua.setVisibility(0);
         }
         forumRuleDetailSelfVH.jtZ.setText(R.string.bawu_member_bazhu_tip);
         forumRuleDetailSelfVH.jtZ.setVisibility(0);
-        forumRuleDetailSelfVH.KW(Config.BAWU_TYPE_MANAGER);
+        forumRuleDetailSelfVH.KV(Config.BAWU_TYPE_MANAGER);
         if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom)) {
-            forumRuleDetailSelfVH.KX(String.valueOf(System.currentTimeMillis() / 1000));
+            forumRuleDetailSelfVH.KW(String.valueOf(System.currentTimeMillis() / 1000));
         } else {
-            forumRuleDetailSelfVH.gFk.setText(bVar.cJB());
+            forumRuleDetailSelfVH.gFk.setText(bVar.cJC());
         }
         b(forumRuleDetailSelfVH, bVar);
-        forumRuleDetailSelfVH.KY(bVar.getPreface());
+        forumRuleDetailSelfVH.KX(bVar.getPreface());
     }
 
     private void b(ForumRuleDetailSelfVH forumRuleDetailSelfVH, final com.baidu.tieba.frs.forumRule.b.b bVar) {
-        if (bVar.cJG()) {
+        if (bVar.cJH()) {
             forumRuleDetailSelfVH.juc.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.forumRule.adapter.d.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.this.jtV) {
-                        d.this.cJA();
+                        d.this.cJB();
                     } else {
                         d.this.b(bVar);
                     }
@@ -87,11 +87,11 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
             });
             if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.mFrom)) {
                 forumRuleDetailSelfVH.juc.setVisibility(8);
-            } else if (!StringUtils.isNull(bVar.cJB()) && bVar.cJE() == 0) {
-                long Ld = com.baidu.tieba.frs.forumRule.d.a.Ld(bVar.cJB());
-                int gp = com.baidu.tieba.frs.forumRule.d.a.gp(Long.valueOf(StringUtils.isNull(bVar.cJI()) ? "0" : bVar.cJI()).longValue() - Ld);
+            } else if (!StringUtils.isNull(bVar.cJC()) && bVar.cJF() == 0) {
+                long Lc = com.baidu.tieba.frs.forumRule.d.a.Lc(bVar.cJC());
+                int gp = com.baidu.tieba.frs.forumRule.d.a.gp(Long.valueOf(StringUtils.isNull(bVar.cJJ()) ? "0" : bVar.cJJ()).longValue() - Lc);
                 if (gp < 0) {
-                    gp = com.baidu.tieba.frs.forumRule.d.a.gp((System.currentTimeMillis() / 1000) - Ld);
+                    gp = com.baidu.tieba.frs.forumRule.d.a.gp((System.currentTimeMillis() / 1000) - Lc);
                 }
                 forumRuleDetailSelfVH.juc.setVisibility(0);
                 if (gp >= 7) {
@@ -102,7 +102,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
                 this.jtV = true;
                 this.jtW = 7 - gp;
             } else {
-                forumRuleDetailSelfVH.AR(bVar.cJE());
+                forumRuleDetailSelfVH.AR(bVar.cJF());
             }
         }
     }
@@ -114,8 +114,8 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
             forumRuleBaseData.setTitle(bVar.getTitle());
             forumRuleBaseData.setPreface(bVar.getPreface());
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < bVar.cJD().size(); i++) {
-                ForumRule forumRule = bVar.cJD().get(i);
+            for (int i = 0; i < bVar.cJE().size(); i++) {
+                ForumRule forumRule = bVar.cJE().get(i);
                 ForumRuleBaseData.ForumRuleItemPbData forumRuleItemPbData = new ForumRuleBaseData.ForumRuleItemPbData();
                 forumRuleItemPbData.status = forumRule.status + "";
                 forumRuleItemPbData.title = forumRule.title + "";
@@ -139,7 +139,7 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
                 arrayList.add(forumRuleItemPbData);
             }
             forumRuleBaseData.setPbDataList(arrayList);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumRuleEditActivityConfig(this.jtU, bVar.cJC().forum_id + "", bVar.cJC().forum_name + "", ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, forumRuleBaseData, bVar.cJC().avatar, bVar.cJH().user_level.intValue(), 25053)));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForumRuleEditActivityConfig(this.jtU, bVar.cJD().forum_id + "", bVar.cJD().forum_name + "", ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW, forumRuleBaseData, bVar.cJD().avatar, bVar.cJI().user_level.intValue(), 25053)));
         }
     }
 
@@ -148,11 +148,11 @@ public class d extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.frs.forum
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cJA() {
+    public void cJB() {
         if (this.jtU != null) {
             String format = String.format(this.jtU.getString(R.string.forum_rules_later_days_edit), this.jtW + "");
-            if (this.jtU.cJz() != null) {
-                new BdTopToast(this.jtU).yW(false).UY(format).aR(this.jtU.cJz().getRootView());
+            if (this.jtU.cJA() != null) {
+                new BdTopToast(this.jtU).yW(false).UX(format).aR(this.jtU.cJA().getRootView());
             }
         }
     }

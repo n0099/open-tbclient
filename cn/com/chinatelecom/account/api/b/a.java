@@ -8,8 +8,8 @@ import java.util.concurrent.Executors;
 public class a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static Executor f1105b = Executors.newSingleThreadExecutor();
+    private static Executor f1106b = Executors.newSingleThreadExecutor();
 
     /* renamed from: a  reason: collision with root package name */
-    public Handler f1106a = new Handler(Looper.getMainLooper());
+    public Handler f1107a = new Handler(Looper.getMainLooper());
 }

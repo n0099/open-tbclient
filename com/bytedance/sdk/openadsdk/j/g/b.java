@@ -6,10 +6,10 @@ import java.security.NoSuchAlgorithmException;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final MessageDigest f7588a = a();
+    private static final MessageDigest f7589a = a();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final char[] f7589b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static final char[] f7590b = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     private b() {
     }
@@ -24,11 +24,11 @@ public class b {
 
     public static String a(String str) {
         byte[] digest;
-        MessageDigest messageDigest = f7588a;
+        MessageDigest messageDigest = f7589a;
         if (messageDigest == null) {
             return "";
         }
-        byte[] bytes = str.getBytes(d.f7592a);
+        byte[] bytes = str.getBytes(d.f7593a);
         synchronized (b.class) {
             digest = messageDigest.digest(bytes);
         }
@@ -46,8 +46,8 @@ public class b {
         while (i < length) {
             byte b2 = bArr[i];
             int i3 = i2 + 1;
-            cArr[i2] = f7589b[(b2 & 240) >> 4];
-            cArr[i3] = f7589b[b2 & 15];
+            cArr[i2] = f7590b[(b2 & 240) >> 4];
+            cArr[i3] = f7590b[b2 & 15];
             i++;
             i2 = i3 + 1;
         }

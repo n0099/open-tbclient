@@ -15,12 +15,12 @@ public final class a {
 
     public String toString(int i) {
         StringBuilder sb = new StringBuilder();
-        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aQF()), Long.valueOf(aQz()), Long.valueOf(aQA()), Long.valueOf(aQB()), aQC()));
+        sb.append(String.format(Locale.getDefault(), "%s :: code(%08d) desc(%s) \n", super.toString(), Long.valueOf(aQG()), Long.valueOf(aQA()), Long.valueOf(aQB()), Long.valueOf(aQC()), aQD()));
         if (i >= -200) {
-            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aQz()), Long.valueOf(aQA()), Long.valueOf(aQB())));
+            sb.append(String.format(Locale.getDefault(), "  p(%01d) f(%03d) e(%04d) \n", Long.valueOf(aQA()), Long.valueOf(aQB()), Long.valueOf(aQC())));
         }
         if (i >= -100) {
-            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aQE()));
+            sb.append(String.format(Locale.getDefault(), "  details(%s) \n", aQF()));
         }
         return sb.toString();
     }
@@ -34,7 +34,7 @@ public final class a {
         return this;
     }
 
-    public long aQz() {
+    public long aQA() {
         return this.dQC;
     }
 
@@ -43,7 +43,7 @@ public final class a {
         return this;
     }
 
-    public long aQA() {
+    public long aQB() {
         return this.dQA;
     }
 
@@ -52,7 +52,7 @@ public final class a {
         return this;
     }
 
-    public long aQB() {
+    public long aQC() {
         return this.dQB;
     }
 
@@ -64,7 +64,7 @@ public final class a {
         return this;
     }
 
-    public String aQC() {
+    public String aQD() {
         return this.mDesc;
     }
 
@@ -76,7 +76,7 @@ public final class a {
         return this;
     }
 
-    public String aQD() {
+    public String aQE() {
         return this.dQD;
     }
 
@@ -85,12 +85,12 @@ public final class a {
         return this;
     }
 
-    public StringBuilder aQE() {
+    public StringBuilder aQF() {
         return this.mDetails;
     }
 
-    public long aQF() {
-        return (aQz() * 10000000) + (aQA() * 10000) + (aQB() * 1);
+    public long aQG() {
+        return (aQA() * 10000000) + (aQB() * 10000) + (aQC() * 1);
     }
 
     public a cX(long j) {
@@ -101,11 +101,11 @@ public final class a {
         return this;
     }
 
-    public boolean aQG() {
+    public boolean aQH() {
         return this.dQE;
     }
 
-    public void aQH() {
+    public void aQI() {
         this.dQE = true;
     }
 

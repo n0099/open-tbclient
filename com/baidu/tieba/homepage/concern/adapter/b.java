@@ -24,20 +24,20 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, com.baidu.tieba.card.data.j jVar) {
-                if (view != null && b.this.jXC != null && b.this.jXC.getView() != null && jVar != null && jVar.boO() != null && !StringUtils.isNull(jVar.boO().getTid())) {
-                    com.baidu.tieba.homepage.concern.c.a(view, jVar, view == b.this.jXC.cuF() ? 1 : 2);
+                if (view != null && b.this.jXC != null && b.this.jXC.getView() != null && jVar != null && jVar.boP() != null && !StringUtils.isNull(jVar.boP().getTid())) {
+                    com.baidu.tieba.homepage.concern.c.a(view, jVar, view == b.this.jXC.cuG() ? 1 : 2);
                     if (view == b.this.jXC.hnz.getCommentContainer() || view == b.this.jXC.its.getCommentContainer()) {
                         aq aqVar = new aq("c12942");
                         aqVar.an("obj_locate", 7);
                         aqVar.an("obj_type", 5);
-                        aqVar.dX("tid", jVar.boO().getTid());
-                        aqVar.dX(IntentConfig.NID, jVar.boO().bpO());
+                        aqVar.dX("tid", jVar.boP().getTid());
+                        aqVar.dX(IntentConfig.NID, jVar.boP().bpP());
                         com.baidu.tbadk.pageExtra.c bV = com.baidu.tbadk.pageExtra.d.bV(view);
                         if (bV != null) {
                             aqVar.dX("obj_cur_page", bV.getCurrentPageKey());
                         }
-                        if (com.baidu.tbadk.pageExtra.d.bHm() != null) {
-                            aqVar.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHm());
+                        if (com.baidu.tbadk.pageExtra.d.bHn() != null) {
+                            aqVar.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHn());
                         }
                         TiebaStatic.log(aqVar);
                     }
@@ -64,21 +64,21 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.card.data
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.card.data.j jVar, CardViewHolder<com.baidu.tieba.card.k> cardViewHolder) {
-        if (jVar == null || cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (jVar == null || cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
         jVar.yA(i + 1);
-        com.baidu.tieba.card.s.cva().e(jVar.Ju("c12351"));
-        if (cardViewHolder.cvG() instanceof com.baidu.tieba.a.e) {
-            cardViewHolder.cvG().setPage(this.aji);
+        com.baidu.tieba.card.s.cvb().e(jVar.Jt("c12351"));
+        if (cardViewHolder.cvH() instanceof com.baidu.tieba.a.e) {
+            cardViewHolder.cvH().setPage(this.aji);
         }
-        cardViewHolder.cvG().a(jVar);
-        cardViewHolder.cvG().c(this.iKM);
+        cardViewHolder.cvH().a(jVar);
+        cardViewHolder.cvH().c(this.iKM);
         return cardViewHolder.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 }

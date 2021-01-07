@@ -30,7 +30,7 @@ public class a {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage instanceof ForumManagerRightsResMsg) {
                 ForumManagerRightsResMsg forumManagerRightsResMsg = (ForumManagerRightsResMsg) httpResponsedMessage;
-                boolean z = b.bvq().getBoolean("key_forum_broadcast_no_tip_again", false);
+                boolean z = b.bvr().getBoolean("key_forum_broadcast_no_tip_again", false);
                 int i = forumManagerRightsResMsg.broadcastTotalCount - forumManagerRightsResMsg.broadcastUsedCount;
                 if (!z) {
                     a.this.showDialog(i);
@@ -56,7 +56,7 @@ public class a {
         this.forumId = str;
         this.forumName = str2;
         this.threadId = str3;
-        KP(str);
+        KO(str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -69,15 +69,15 @@ public class a {
         } else if (this.type == 2) {
             aVar.oZ(R.string.set_good_success);
         }
-        aVar.Bp(String.format(this.context.getString(R.string.forum_broadcast_intro), Integer.valueOf(i)));
+        aVar.Bo(String.format(this.context.getString(R.string.forum_broadcast_intro), Integer.valueOf(i)));
         aVar.pd(1);
         aVar.a(this.context.getString(R.string.send_forum_broadcast), new a.b() { // from class: com.baidu.tieba.frs.broadcast.a.1
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                b.bvq().putBoolean("key_forum_broadcast_no_tip_again", aVar.btV());
+                b.bvr().putBoolean("key_forum_broadcast_no_tip_again", aVar.btW());
                 aVar.dismiss();
                 if (i == 0) {
-                    new ScreenTopToast(a.this.context.getPageActivity()).Vc(a.this.context.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).Ve(a.this.context.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.broadcast.a.1.1
+                    new ScreenTopToast(a.this.context.getPageActivity()).Vb(a.this.context.getPageActivity().getString(R.string.frs_forum_bawu_send_broadcast_none_tip)).Vd(a.this.context.getString(R.string.frs_recommend_fail_tip_btn)).an(new View.OnClickListener() { // from class: com.baidu.tieba.frs.broadcast.a.1.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             HashMap hashMap = new HashMap();
@@ -95,18 +95,18 @@ public class a {
                 } else {
                     oVar.ao(a.this.forumId, a.this.forumName, "0");
                 }
-                oVar.BP(a.this.threadId);
+                oVar.BO(a.this.threadId);
                 oVar.start();
             }
         });
         aVar.b(this.context.getString(R.string.next_time), new a.b() { // from class: com.baidu.tieba.frs.broadcast.a.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
-                b.bvq().putBoolean("key_call_fans_no_tip_again", false);
+                b.bvr().putBoolean("key_call_fans_no_tip_again", false);
                 aVar.dismiss();
             }
         });
-        aVar.b(this.context).btX();
+        aVar.b(this.context).btY();
     }
 
     private void registerTask() {
@@ -118,7 +118,7 @@ public class a {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    private void KP(String str) {
+    private void KO(String str) {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_FORUM_MANAGER_RIGHTS);
         httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
         httpMessage.addParam("forum_id", str);

@@ -29,7 +29,7 @@ public class AntiContentHttpResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public boolean bSN() {
+    public boolean bSO() {
         return this.ctK == 1;
     }
 }

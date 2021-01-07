@@ -12,7 +12,7 @@ import com.bumptech.glide.load.resource.bitmap.BitmapTransformation;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.bumptech.glide.request.RequestOptions;
 @SuppressLint({"AppCompatCustomView"})
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class PrologueImageView extends ImageView {
     private RequestOptions cuY;
     private boolean cuZ;
@@ -37,17 +37,17 @@ public class PrologueImageView extends ImageView {
             TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, b.e.PrologueImageView);
             int resourceId = obtainStyledAttributes.getResourceId(b.e.PrologueImageView_prologue_holder, 0);
             if (resourceId != 0) {
-                aho();
+                ahp();
                 this.cuY = this.cuY.placeholder(resourceId);
             }
             int resourceId2 = obtainStyledAttributes.getResourceId(b.e.PrologueImageView_prologue_errorHolder, 0);
             if (resourceId2 != 0) {
-                aho();
+                ahp();
                 this.cuY = this.cuY.error(resourceId2);
             }
             BitmapTransformation bitmapTransformation = null;
             if (obtainStyledAttributes.getBoolean(b.e.PrologueImageView_prologue_circleType, false)) {
-                bitmapTransformation = new a(com.baidu.prologue.a.b.a.ctd.get().age());
+                bitmapTransformation = new a(com.baidu.prologue.a.b.a.ctd.get().agf());
             } else {
                 int i = obtainStyledAttributes.getInt(b.e.PrologueImageView_prologue_cornerRadius, 0);
                 if (i > 0) {
@@ -56,14 +56,14 @@ public class PrologueImageView extends ImageView {
                 }
             }
             if (bitmapTransformation != null) {
-                aho();
+                ahp();
                 this.cuY = this.cuY.transform(bitmapTransformation);
             }
             obtainStyledAttributes.recycle();
         }
     }
 
-    private void aho() {
+    private void ahp() {
         if (this.cuY == null) {
             this.cuY = new RequestOptions();
         }

@@ -33,7 +33,7 @@ public final class a implements c {
         return new a(classLoader, objArr);
     }
 
-    public boolean aSj() {
+    public boolean aSk() {
         return this.dSJ > 0;
     }
 
@@ -46,7 +46,7 @@ public final class a implements c {
 
     public a lS(int i) {
         Object[] objArr;
-        if (!aSj() && i > 0) {
+        if (!aSk() && i > 0) {
             this.dSJ = i;
             for (Object obj : this.dSK) {
                 if (obj instanceof Class) {

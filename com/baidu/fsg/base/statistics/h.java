@@ -9,10 +9,10 @@ import org.json.JSONObject;
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f1996a = "en";
+    public static final String f1997a = "en";
 
     /* renamed from: b  reason: collision with root package name */
-    public static final String f1997b = "et";
+    public static final String f1998b = "et";
     public static final String c = "ev";
     public static final String d = "eg";
     public static final String e = "lk";
@@ -36,7 +36,7 @@ class h {
     public JSONObject a() throws NullPointerException {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put(f1996a, this.p);
+            jSONObject.put(f1997a, this.p);
             jSONObject.put("et", this.q);
             jSONObject.put(f, this.u);
             if (!TextUtils.isEmpty(this.s)) {

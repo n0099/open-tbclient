@@ -27,13 +27,13 @@ public class a {
     /* renamed from: com.baidu.tieba.ala.liveroom.challenge.view.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0676a {
-        void cgT();
-
         void cgU();
 
         void cgV();
 
         void cgW();
+
+        void cgX();
     }
 
     public a(Context context) {
@@ -187,7 +187,7 @@ public class a {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     if (a.this.hzQ != null) {
-                        a.this.hzQ.cgW();
+                        a.this.hzQ.cgX();
                     }
                 }
 
@@ -209,7 +209,7 @@ public class a {
         if (alaChallengeLiveView != null && (anchorAnimLiveLayout = alaChallengeLiveView.getAnchorAnimLiveLayout()) != null && anchorAnimLiveLayout.getAlpha() != 0.0f) {
             anchorAnimLiveLayout.setAlpha(0.0f);
             if (this.hzQ != null) {
-                this.hzQ.cgV();
+                this.hzQ.cgW();
             }
         }
     }
@@ -249,7 +249,7 @@ public class a {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (a.this.hzQ != null) {
-                    a.this.hzQ.cgT();
+                    a.this.hzQ.cgU();
                 }
             }
 
@@ -262,7 +262,7 @@ public class a {
             }
         });
         this.hzR.start();
-        alaChallengeLiveView.cgP();
+        alaChallengeLiveView.cgQ();
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem("2678", UbcStatConstant.ContentType.UBC_TYPE_CHALLENGE_SCREEN_CHANGE, "liveroom", "left_big_to_small_end").setContentExt(null, null, null));
     }
 
@@ -272,11 +272,11 @@ public class a {
         e(alaChallengeLiveView);
         g(alaChallengeLiveView);
         i(alaChallengeLiveView);
-        alaChallengeLiveView.cgQ();
+        alaChallengeLiveView.cgR();
         c(alaChallengeLiveView);
         b(alaChallengeLiveView, screenFullSize[0], screenFullSize[1], 0);
         if (this.hzQ != null) {
-            this.hzQ.cgU();
+            this.hzQ.cgV();
         }
     }
 

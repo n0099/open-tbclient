@@ -17,7 +17,7 @@ public class u {
         this.name = str;
     }
 
-    public EmotionGroupType bzW() {
+    public EmotionGroupType bzX() {
         return this.ftv;
     }
 
@@ -25,11 +25,11 @@ public class u {
         this.ftv = emotionGroupType;
     }
 
-    public String bzX() {
+    public String bzY() {
         return this.pname;
     }
 
-    public void CP(String str) {
+    public void CO(String str) {
         this.pname = str;
     }
 

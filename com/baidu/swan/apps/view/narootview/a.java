@@ -118,7 +118,7 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
             Log.d("NAParentViewManager", "createViewAndListener");
         }
         cVar.a(this);
-        this.cEG = cVar.amr();
+        this.cEG = cVar.ams();
         if (this.cEG == null) {
             return false;
         }
@@ -127,7 +127,7 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
         this.dVD = new FrameLayout(this.mContext);
         swanAppNARootViewScrollView.addView(this.dVD, new FrameLayout.LayoutParams(-1, -1));
         swanAppNARootViewScrollView.setFillViewport(true);
-        this.dVE = cVar.amj();
+        this.dVE = cVar.amk();
         if (this.dVE != null) {
             this.dVE.setOnPullToRefreshScrollChangeListener(this);
             return true;
@@ -158,8 +158,8 @@ public class a<T extends d> implements PullToRefreshBaseWebView.a, com.baidu.swa
                     }
                     if (bVar != null && bVar.isFixed()) {
                         ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) childAt.getLayoutParams();
-                        marginLayoutParams2.leftMargin = bVar.aSS() + i;
-                        marginLayoutParams2.topMargin = bVar.aST() + i2;
+                        marginLayoutParams2.leftMargin = bVar.aST() + i;
+                        marginLayoutParams2.topMargin = bVar.aSU() + i2;
                         childAt.setLayoutParams(marginLayoutParams2);
                     }
                 }

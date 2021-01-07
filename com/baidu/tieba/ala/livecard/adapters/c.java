@@ -59,7 +59,7 @@ public class c extends k<bz, FrsPageAlaEmptyLiveViewHolder> implements y {
         frsPageAlaEmptyLiveViewHolder.hnu.setForumName(this.mForumName);
         frsPageAlaEmptyLiveViewHolder.hnu.c(this.hni);
         if (bzVar != null) {
-            bzVar.bsE();
+            bzVar.bsF();
         }
         return frsPageAlaEmptyLiveViewHolder.getView();
     }

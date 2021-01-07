@@ -29,10 +29,10 @@ public class c {
         this.hotLiveInfo = alaTabLiveResponsedMessage.hotLiveInfo;
         this.officialRecommendLiveInfo = alaTabLiveResponsedMessage.officialRecommendLiveInfo;
         this.tabAllLiveInfo = alaTabLiveResponsedMessage.tabAllLiveInfo;
-        bVa();
+        bVb();
     }
 
-    private void bVa() {
+    private void bVb() {
         this.gFD = new ArrayList();
         if (this.stageLiveInfo != null && this.stageLiveInfo.isValid()) {
             f fVar = new f();
@@ -40,9 +40,9 @@ public class c {
             this.gFD.add(fVar);
         }
         if (this.hotLiveInfo != null) {
-            ArrayList<n> bVb = bVb();
-            if (!x.isEmpty(bVb)) {
-                this.gFD.addAll(bVb);
+            ArrayList<n> bVc = bVc();
+            if (!x.isEmpty(bVc)) {
+                this.gFD.addAll(bVc);
             }
         }
         if (this.officialRecommendLiveInfo != null && !x.isEmpty(this.officialRecommendLiveInfo.gCF)) {
@@ -54,7 +54,7 @@ public class c {
         a(this.tabAllLiveInfo);
     }
 
-    private ArrayList<n> bVb() {
+    private ArrayList<n> bVc() {
         ArrayList<SdkLiveInfoData> arrayList = this.hotLiveInfo.gCF;
         if (arrayList == null || arrayList.size() < 2) {
             return null;

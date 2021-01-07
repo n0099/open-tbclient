@@ -24,13 +24,13 @@ import java.util.TreeMap;
 /* loaded from: classes15.dex */
 public class a<T> {
     private static final String d = a.class.getName();
-    private static final boolean e = f.f13118b;
+    private static final boolean e = f.f13119b;
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f13121a;
+    public Context f13122a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f13122b;
+    public String f13123b;
     public String c;
     private PInfo f;
     private AInfo g;
@@ -43,7 +43,7 @@ public class a<T> {
     }
 
     public a(Context context, com.sdk.base.framework.b.a<T> aVar, e eVar) {
-        this.f13121a = context;
+        this.f13122a = context;
         this.j = aVar;
         this.k = eVar;
     }
@@ -63,10 +63,10 @@ public class a<T> {
             }
         }
         TreeMap<String, Object> treeMap = new TreeMap<>();
-        String a2 = com.sdk.base.framework.f.j.a.a(this.f13121a);
+        String a2 = com.sdk.base.framework.f.j.a.a(this.f13122a);
         String a3 = com.sdk.base.framework.f.j.a.a(16);
-        String a4 = com.sdk.base.framework.f.a.a.a(this.f13121a, BaseConfig.apk);
-        String a5 = com.sdk.base.framework.f.b.a.a(this.f13121a, "public_key");
+        String a4 = com.sdk.base.framework.f.a.a.a(this.f13122a, BaseConfig.apk);
+        String a5 = com.sdk.base.framework.f.b.a.a(this.f13122a, "public_key");
         if ("/st/api/v1.0/ses".equals(str2)) {
             a5 = "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCgdQaZgBcrXGxxD6F1TVVXAzvbB3xpoyk2AFMNj4vOcDWZoH1b3Mx5aVcEd0BZPZR6Icb8yi8ecMUVChGCRe20O8EQWLh1aCwR8JazNL+koD3Tn6TIwVwjVEQWy9w6DeXxMtQuFBL/jAChJcU7aDwMsSD1jYpdET37aB4p8Lvn2QIDAQAB";
         }
@@ -76,7 +76,7 @@ public class a<T> {
         }
         try {
             if (com.sdk.base.framework.f.a.a.b() >= 23 && !SDKManager.isClosePermission()) {
-                com.sdk.base.module.permission.c cVar = new com.sdk.base.module.permission.c(this.f13121a);
+                com.sdk.base.module.permission.c cVar = new com.sdk.base.module.permission.c(this.f13122a);
                 cVar.a("android.permission.READ_PHONE_STATE");
                 cVar.a(new b(this));
                 cVar.a();
@@ -108,12 +108,12 @@ public class a<T> {
             e eVar = this.k;
             g gVar = null;
             if ("/dro/netm/v1.0/qc".equals(str2)) {
-                gVar = g.f13148b;
+                gVar = g.f13149b;
             } else if ("/dro/netm/v1.0/gctcbs".equals(str2)) {
                 gVar = g.c;
             }
             jVar.a(gVar);
-            h hVar = new h(this.f13121a, jVar);
+            h hVar = new h(this.f13122a, jVar);
             fVar = new com.sdk.base.framework.a.f<>(hVar);
             try {
                 fVar.c(hVar);
@@ -136,13 +136,13 @@ public class a<T> {
         String str2;
         try {
             if (this.g == null) {
-                this.g = com.sdk.base.framework.c.a.a(this.f13121a);
+                this.g = com.sdk.base.framework.c.a.a(this.f13122a);
             }
             if (this.h == null) {
                 this.h = com.sdk.base.framework.c.a.a();
             }
             if (this.i == null) {
-                this.i = com.sdk.base.framework.c.a.b(this.f13121a);
+                this.i = com.sdk.base.framework.c.a.b(this.f13122a);
             }
             ArrayList arrayList = new ArrayList();
             Iterator<KInfo> it = this.i.iterator();
@@ -156,14 +156,14 @@ public class a<T> {
                 arrayList.add(mobileKInfo);
             }
             if (this.f == null) {
-                this.f = com.sdk.base.framework.c.a.c(this.f13121a);
+                this.f = com.sdk.base.framework.c.a.c(this.f13122a);
             }
             str2 = "{app:" + this.g + ",sdk:" + this.h + ",device:" + this.f + ",sim:" + arrayList + ",data:" + dataInfo + "}";
         } catch (Exception e2) {
             com.sdk.base.framework.a.a.c.b(d, e2.toString(), Boolean.valueOf(e));
             str2 = null;
         }
-        return com.sdk.base.framework.f.j.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f13121a, f.f13117a), str);
+        return com.sdk.base.framework.f.j.a.a(str2, com.sdk.base.framework.f.b.a.b(this.f13122a, f.f13118a), str);
     }
 
     public final com.sdk.base.framework.a.f<T> a(String str, String str2, DataInfo dataInfo, com.sdk.base.framework.b.b<T> bVar, int i, i iVar) {

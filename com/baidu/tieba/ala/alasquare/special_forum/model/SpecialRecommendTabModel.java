@@ -75,12 +75,12 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         MessageManager.getInstance().registerListener(this.gIW);
     }
 
-    public void WE() {
+    public void WF() {
         this.pn = 0;
         loadData(0);
     }
 
-    public void bUR() {
+    public void bUS() {
         loadData(this.pn);
     }
 
@@ -164,7 +164,7 @@ public class SpecialRecommendTabModel extends BdBaseModel {
         return false;
     }
 
-    public List<bz> bVD() {
+    public List<bz> bVE() {
         return this.gJb;
     }
 }

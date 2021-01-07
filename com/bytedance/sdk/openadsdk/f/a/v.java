@@ -12,10 +12,10 @@ import org.json.JSONObject;
 public class v {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Collection<String> f7448a;
+    private final Collection<String> f7449a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, u> f7449b;
+    private final Map<String, u> f7450b;
     private final k c;
     private final Set<a> d;
 
@@ -26,7 +26,7 @@ public class v {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public u a(@NonNull String str) {
-        if (!this.f7448a.contains(str) && !TextUtils.equals(str, "host")) {
+        if (!this.f7449a.contains(str) && !TextUtils.equals(str, "host")) {
             throw new IllegalArgumentException("Namespace: " + str + " not registered.");
         }
         return a(str, null);
@@ -38,10 +38,10 @@ public class v {
     }
 
     private u a(String str, @Nullable JSONObject jSONObject) {
-        u uVar = this.f7449b.get(str);
+        u uVar = this.f7450b.get(str);
         if (uVar == null) {
             u uVar2 = new u(str, this.c.c(), this.c.a(), this.c.b(), jSONObject);
-            this.f7449b.put(str, uVar2);
+            this.f7450b.put(str, uVar2);
             return uVar2;
         } else if (jSONObject != null) {
             uVar.a(jSONObject);

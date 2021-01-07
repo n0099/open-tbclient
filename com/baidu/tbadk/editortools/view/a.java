@@ -49,13 +49,14 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.acZ = editorTools;
     }
 
-    protected void b(com.baidu.tbadk.editortools.a aVar) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void b(com.baidu.tbadk.editortools.a aVar) {
         if (this.acZ != null) {
             this.acZ.b(aVar);
         }
     }
 
-    public b bFW() {
+    public b bFX() {
         return this.fHg;
     }
 
@@ -63,7 +64,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.fHg = bVar;
     }
 
-    public InterfaceC0595a bFX() {
+    public InterfaceC0595a bFY() {
         return this.fHh;
     }
 
@@ -119,11 +120,11 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.VV = i;
     }
 
-    public int bFY() {
+    public int bFZ() {
         return this.fHk;
     }
 
-    public CommonTabHost.a bFZ() {
+    public CommonTabHost.a bGa() {
         return this.fHj;
     }
 
@@ -131,7 +132,7 @@ public abstract class a implements com.baidu.tbadk.editortools.b {
         this.fHb = bVar;
     }
 
-    public CommonTabContentView.b bGa() {
+    public CommonTabContentView.b bGb() {
         return this.fHb;
     }
 }

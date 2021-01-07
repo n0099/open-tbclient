@@ -10,20 +10,20 @@ import java.util.Map;
 class h<K extends m, V> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a<K, V> f10491a = new a<>();
+    private final a<K, V> f10492a = new a<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<K, a<K, V>> f10492b = new HashMap();
+    private final Map<K, a<K, V>> f10493b = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a<K, V> {
 
         /* renamed from: a  reason: collision with root package name */
-        final K f10493a;
+        final K f10494a;
 
         /* renamed from: b  reason: collision with root package name */
-        a<K, V> f10494b;
+        a<K, V> f10495b;
         a<K, V> c;
         private List<V> d;
 
@@ -33,8 +33,8 @@ class h<K extends m, V> {
 
         a(K k) {
             this.c = this;
-            this.f10494b = this;
-            this.f10493a = k;
+            this.f10495b = this;
+            this.f10494a = k;
         }
 
         @Nullable
@@ -63,34 +63,34 @@ class h<K extends m, V> {
 
     private void a(a<K, V> aVar) {
         d(aVar);
-        aVar.c = this.f10491a;
-        aVar.f10494b = this.f10491a.f10494b;
+        aVar.c = this.f10492a;
+        aVar.f10495b = this.f10492a.f10495b;
         c(aVar);
     }
 
     private void b(a<K, V> aVar) {
         d(aVar);
-        aVar.c = this.f10491a.c;
-        aVar.f10494b = this.f10491a;
+        aVar.c = this.f10492a.c;
+        aVar.f10495b = this.f10492a;
         c(aVar);
     }
 
     private static <K, V> void c(a<K, V> aVar) {
-        aVar.f10494b.c = aVar;
-        aVar.c.f10494b = aVar;
+        aVar.f10495b.c = aVar;
+        aVar.c.f10495b = aVar;
     }
 
     private static <K, V> void d(a<K, V> aVar) {
-        aVar.c.f10494b = aVar.f10494b;
-        aVar.f10494b.c = aVar.c;
+        aVar.c.f10495b = aVar.f10495b;
+        aVar.f10495b.c = aVar.c;
     }
 
     @Nullable
     public V a() {
-        a aVar = this.f10491a.c;
+        a aVar = this.f10492a.c;
         while (true) {
             a aVar2 = aVar;
-            if (aVar2.equals(this.f10491a)) {
+            if (aVar2.equals(this.f10492a)) {
                 return null;
             }
             V v = (V) aVar2.a();
@@ -98,18 +98,18 @@ class h<K extends m, V> {
                 return v;
             }
             d(aVar2);
-            this.f10492b.remove(aVar2.f10493a);
-            ((m) aVar2.f10493a).a();
+            this.f10493b.remove(aVar2.f10494a);
+            ((m) aVar2.f10494a).a();
             aVar = aVar2.c;
         }
     }
 
     @Nullable
     public V a(K k) {
-        a<K, V> aVar = this.f10492b.get(k);
+        a<K, V> aVar = this.f10493b.get(k);
         if (aVar == null) {
             aVar = new a<>(k);
-            this.f10492b.put(k, aVar);
+            this.f10493b.put(k, aVar);
         } else {
             k.a();
         }
@@ -118,11 +118,11 @@ class h<K extends m, V> {
     }
 
     public void a(K k, V v) {
-        a<K, V> aVar = this.f10492b.get(k);
+        a<K, V> aVar = this.f10493b.get(k);
         if (aVar == null) {
             aVar = new a<>(k);
             b(aVar);
-            this.f10492b.put(k, aVar);
+            this.f10493b.put(k, aVar);
         } else {
             k.a();
         }
@@ -132,9 +132,9 @@ class h<K extends m, V> {
     public String toString() {
         StringBuilder sb = new StringBuilder("GroupedLinkedMap( ");
         boolean z = false;
-        for (a aVar = this.f10491a.f10494b; !aVar.equals(this.f10491a); aVar = aVar.f10494b) {
+        for (a aVar = this.f10492a.f10495b; !aVar.equals(this.f10492a); aVar = aVar.f10495b) {
             z = true;
-            sb.append('{').append(aVar.f10493a).append(':').append(aVar.b()).append("}, ");
+            sb.append('{').append(aVar.f10494a).append(':').append(aVar.b()).append("}, ");
         }
         if (z) {
             sb.delete(sb.length() - 2, sb.length());

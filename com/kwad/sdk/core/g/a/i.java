@@ -10,17 +10,17 @@ import org.json.JSONObject;
 public class i implements com.kwad.sdk.core.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f9470a;
+    private String f9471a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f9471b;
+    private String f9472b;
     private int c;
     private int d;
 
     public static i a() {
         i iVar = new i();
-        iVar.f9470a = ah.l();
-        iVar.f9471b = ah.k(KsAdSDKImpl.get().getContext());
+        iVar.f9471a = ah.l();
+        iVar.f9472b = ah.k(KsAdSDKImpl.get().getContext());
         iVar.c = v.d(KsAdSDKImpl.get().getContext());
         iVar.d = v.e(KsAdSDKImpl.get().getContext());
         return iVar;
@@ -29,8 +29,8 @@ public class i implements com.kwad.sdk.core.b {
     @Override // com.kwad.sdk.core.b
     public JSONObject toJson() {
         JSONObject jSONObject = new JSONObject();
-        o.a(jSONObject, TableDefine.UserInfoColumns.COLUMN_IP, this.f9470a);
-        o.a(jSONObject, "mac", this.f9471b);
+        o.a(jSONObject, TableDefine.UserInfoColumns.COLUMN_IP, this.f9471a);
+        o.a(jSONObject, "mac", this.f9472b);
         o.a(jSONObject, "connectionType", this.c);
         o.a(jSONObject, "operatorType", this.d);
         return jSONObject;

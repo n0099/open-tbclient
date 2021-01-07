@@ -15,33 +15,33 @@ import com.baidu.tbadk.core.util.ao;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class TransmitForumAdapter extends com.baidu.adp.widget.ListView.a<TransmitForumData, TransmitForumViewHolder> {
-    private a obh;
-    private w obi;
+    private a obg;
+    private w obh;
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TransmitForumAdapter(Context context, BdUniqueId bdUniqueId) {
         super(context, bdUniqueId);
-        this.obi = new w() { // from class: com.baidu.tieba.write.transmit.TransmitForumAdapter.1
+        this.obh = new w() { // from class: com.baidu.tieba.write.transmit.TransmitForumAdapter.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId2, ViewGroup viewGroup, int i, long j) {
                 if (nVar instanceof TransmitForumData) {
                     CheckBox checkBox = (CheckBox) view.findViewById(R.id.transmit_check_box);
                     boolean isChecked = checkBox.isChecked();
-                    boolean dYO = TransmitForumAdapter.this.obh != null ? TransmitForumAdapter.this.obh.dYO() : false;
-                    if (!isChecked && dYO) {
-                        TransmitForumAdapter.this.obh.dYP();
+                    boolean dYP = TransmitForumAdapter.this.obg != null ? TransmitForumAdapter.this.obg.dYP() : false;
+                    if (!isChecked && dYP) {
+                        TransmitForumAdapter.this.obg.dYQ();
                     }
-                    if (isChecked || !dYO) {
+                    if (isChecked || !dYP) {
                         checkBox.setChecked(checkBox.isChecked() ? false : true);
                         ((TransmitForumData) nVar).checked = checkBox.isChecked();
-                        if (TransmitForumAdapter.this.obh != null) {
-                            TransmitForumAdapter.this.obh.dYQ();
+                        if (TransmitForumAdapter.this.obg != null) {
+                            TransmitForumAdapter.this.obg.dYR();
                         }
                     }
                 }
             }
         };
-        a(this.obi);
+        a(this.obh);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -76,6 +76,6 @@ public class TransmitForumAdapter extends com.baidu.adp.widget.ListView.a<Transm
     }
 
     public void a(a aVar) {
-        this.obh = aVar;
+        this.obg = aVar;
     }
 }

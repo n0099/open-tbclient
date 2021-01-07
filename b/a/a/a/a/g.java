@@ -8,7 +8,7 @@ import android.telephony.TelephonyManager;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class g extends ag {
     TelephonyManager An;
     volatile z Ao;
@@ -44,7 +44,7 @@ public final class g extends ag {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static /* synthetic */ void a(g gVar) {
-        if (gVar.f1054b) {
+        if (gVar.f1055b) {
             gVar.f = true;
             c.a(gVar.Ap, gVar);
         }
@@ -69,7 +69,7 @@ public final class g extends ag {
         gVar.i = arrayList;
         if (zVar != null) {
             gVar.Ao = zVar;
-            if (!gVar.f1054b || gVar.Ao == null) {
+            if (!gVar.f1055b || gVar.Ao == null) {
                 return;
             }
             long currentTimeMillis = System.currentTimeMillis();

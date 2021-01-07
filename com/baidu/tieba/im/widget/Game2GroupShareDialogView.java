@@ -55,10 +55,10 @@ public class Game2GroupShareDialogView extends LinearLayout {
         this.jOV.setPadding(context.getResources().getDimensionPixelSize(R.dimen.ds20), 0, 0, 0);
         this.kJw = (TextView) findViewById(R.id.game_to_group_share);
         ao.setViewTextColor(this.kJw, R.color.CAM_X0108, 1);
-        cPk();
+        cPl();
     }
 
-    public void cPk() {
+    public void cPl() {
         this.mRootView.setFocusable(true);
         this.mRootView.setFocusableInTouchMode(true);
         this.mRootView.requestFocus();

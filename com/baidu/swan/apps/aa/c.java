@@ -18,21 +18,21 @@ public class c extends i {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         View inflate = layoutInflater.inflate(a.g.aiapps_webview_fragment, viewGroup, false);
         inflate.findViewById(a.f.ai_apps_title_bar_root).setVisibility(8);
-        this.cVp = amk();
-        this.cVp.a(amL());
-        this.cEG = this.cVp.amr();
+        this.cVp = aml();
+        this.cVp.a(amM());
+        this.cEG = this.cVp.ams();
         this.cVp.loadUrl(this.mUrl);
         this.cVp.b((FrameLayout) inflate.findViewById(a.f.aiapps_webView_container), this.cEG.covertToView());
-        return a(ase() ? az(inflate) : inflate, this);
+        return a(asf() ? az(inflate) : inflate, this);
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    public com.baidu.swan.apps.adaptation.b.f amk() {
-        return com.baidu.swan.apps.core.turbo.d.avA().avB().ck(getContext());
+    public com.baidu.swan.apps.adaptation.b.f aml() {
+        return com.baidu.swan.apps.core.turbo.d.avB().avC().ck(getContext());
     }
 
     @Override // com.baidu.swan.apps.core.d.i
-    protected com.baidu.swan.apps.core.f.d amL() {
+    protected com.baidu.swan.apps.core.f.d amM() {
         return new com.baidu.swan.apps.core.f.a() { // from class: com.baidu.swan.apps.aa.c.1
             @Override // com.baidu.swan.apps.core.f.a, com.baidu.swan.apps.core.f.d
             public boolean jh(String str) {
@@ -40,15 +40,15 @@ public class c extends i {
                     Map<String, String> stringToMap = ai.stringToMap(ai.getParams(str));
                     if (stringToMap != null && stringToMap.get("statusCode") != null) {
                         try {
-                            e.aHc().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), URLDecoder.decode(stringToMap.get("result"), "UTF-8"));
+                            e.aHd().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), URLDecoder.decode(stringToMap.get("result"), "UTF-8"));
                         } catch (UnsupportedEncodingException e) {
                             e.printStackTrace();
-                            e.aHc().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), null);
+                            e.aHd().onPayResult(Integer.valueOf(stringToMap.get("statusCode")).intValue(), null);
                         }
                     } else {
-                        e.aHc().onPayResult(6, null);
+                        e.aHd().onPayResult(6, null);
                     }
-                    i.ath();
+                    i.ati();
                     return true;
                 }
                 return super.jh(str);

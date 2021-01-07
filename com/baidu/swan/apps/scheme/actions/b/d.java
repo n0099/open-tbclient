@@ -17,9 +17,9 @@ public class d extends b {
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b
     protected void b(final com.baidu.swan.apps.runtime.e eVar, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, final String str) {
-        SwanFavorDataManager.ayj().b(this.dJB, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.scheme.actions.b.d.1
+        SwanFavorDataManager.ayk().b(this.dJB, new com.baidu.swan.apps.favordata.a.b() { // from class: com.baidu.swan.apps.scheme.actions.b.d.1
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void arJ() {
+            public void arK() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "1");
@@ -29,13 +29,13 @@ public class d extends b {
                     }
                 }
                 if (d.this.dJC) {
-                    com.baidu.swan.apps.res.widget.b.d.u(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_success).kM(2).aLV();
+                    com.baidu.swan.apps.res.widget.b.d.u(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_success).kM(2).aLW();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
             }
 
             @Override // com.baidu.swan.apps.favordata.a.b
-            public void arK() {
+            public void arL() {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     jSONObject.put("success", "0");
@@ -45,11 +45,11 @@ public class d extends b {
                     }
                 }
                 if (d.this.dJC) {
-                    com.baidu.swan.apps.res.widget.b.d.u(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_fail).kM(2).aLS();
+                    com.baidu.swan.apps.res.widget.b.d.u(eVar.getApplicationContext(), a.h.aiapps_cancel_fav_fail).kM(2).aLT();
                 }
                 UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), str);
             }
-        }, com.baidu.swan.apps.env.c.c.axF().iL(3).axG());
+        }, com.baidu.swan.apps.env.c.c.axG().iL(3).axH());
     }
 
     @Override // com.baidu.swan.apps.scheme.actions.b.b

@@ -44,7 +44,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
     private View.OnClickListener lqk = new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            MissionCustomDialogActivity.this.dik();
+            MissionCustomDialogActivity.this.dil();
         }
     };
     SignItemView.a lql = new SignItemView.a() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.3
@@ -61,14 +61,14 @@ public class MissionCustomDialogActivity extends BaseActivity {
         super.onCreate(bundle);
         setContentView(R.layout.activity_mission_custom_dialog);
         initView();
-        cKl();
+        cKm();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        q.blA().blJ().blP();
+        q.blB().blK().blQ();
     }
 
     private void initView() {
@@ -89,24 +89,24 @@ public class MissionCustomDialogActivity extends BaseActivity {
         this.ghE.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.missionCustomDialog.MissionCustomDialogActivity.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                TiebaStatic.log(new aq("c13742").an("obj_source", c.bkT().bkY() ? 2 : 1).an("obj_type", 3));
+                TiebaStatic.log(new aq("c13742").an("obj_source", c.bkU().bkZ() ? 2 : 1).an("obj_type", 3));
                 MissionCustomDialogActivity.this.finish();
             }
         });
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    private void cKl() {
-        ActiveCenterData blD = q.blA().blD();
-        if (blD == null || blD.mission == null || blD.mission_status_list == null || blD.mission_status_list.size() <= 0) {
+    private void cKm() {
+        ActiveCenterData blE = q.blB().blE();
+        if (blE == null || blE.mission == null || blE.mission_status_list == null || blE.mission_status_list.size() <= 0) {
             finish();
             return;
         }
-        q.blA().ja(true);
-        this.eHe = blD;
+        q.blB().ja(true);
+        this.eHe = blE;
         this.lqc.setText(at.cutChineseAndEnglishWithSuffix(this.eHe.win_title, 14, StringHelper.STRING_MORE));
         this.lqd.setText(at.cutChineseAndEnglishWithSuffix(this.eHe.win_desc, 30, StringHelper.STRING_MORE));
-        this.lqe.setData(blD);
+        this.lqe.setData(blE);
         d(this.eHe.getTodayMissionStatus());
     }
 
@@ -153,7 +153,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
                     }
                 } else {
                     if (this.eHe.mission.task_type == 6) {
-                        if (q.blA().blJ().areNotificationsEnabled()) {
+                        if (q.blB().blK().areNotificationsEnabled()) {
                             activeCenterStatusData.is_completed = true;
                         } else {
                             activeCenterStatusData.is_completed = false;
@@ -187,7 +187,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
         ao.setBackgroundColor(this.lqa, R.color.CAM_X0211);
-        SvgManager.bwq().a(this.lqb, R.drawable.ic_pic_mask_newuser_background_svg, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.lqb, R.drawable.ic_pic_mask_newuser_background_svg, SvgManager.SvgResourceStateType.NORMAL);
         ao.setViewTextColor(this.lqc, R.color.CAM_X0311);
         ao.setViewTextColor(this.lqd, R.color.CAM_X0301);
         ao.setBackgroundColor(this.lqf, R.color.CAM_X0204);
@@ -219,46 +219,37 @@ public class MissionCustomDialogActivity extends BaseActivity {
     public void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
         if (i == 25046 && TbadkCoreApplication.isLogin()) {
-            dik();
+            dil();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dik() {
-        TiebaStatic.log(new aq("c13742").an("obj_source", c.bkT().bkY() ? 2 : 1).an("obj_type", 2));
+    public void dil() {
+        TiebaStatic.log(new aq("c13742").an("obj_source", c.bkU().bkZ() ? 2 : 1).an("obj_type", 2));
         if (this.eHe != null) {
             int curTaskType = this.eHe.getCurTaskType();
             if (curTaskType == 12) {
-                dil();
-            } else if (curTaskType == 6) {
                 dim();
-            } else if (curTaskType == 10) {
+            } else if (curTaskType == 6) {
                 din();
-            } else if (curTaskType == 7) {
+            } else if (curTaskType == 10) {
                 dio();
-            } else if (curTaskType == 5) {
+            } else if (curTaskType == 7) {
                 dip();
-            } else if (curTaskType == 9) {
+            } else if (curTaskType == 5) {
                 diq();
-            } else if (curTaskType == 13) {
+            } else if (curTaskType == 9) {
                 dir();
+            } else if (curTaskType == 13) {
+                dis();
             }
         }
     }
 
-    private void dil() {
-        if (TbadkCoreApplication.isLogin()) {
-            q.blA().blI().e(getPageContext());
-            q.blA().blI().blP();
-            finish();
-            return;
-        }
-        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
-    }
-
     private void dim() {
         if (TbadkCoreApplication.isLogin()) {
-            q.blA().blJ().e(getPageContext());
+            q.blB().blJ().e(getPageContext());
+            q.blB().blJ().blQ();
             finish();
             return;
         }
@@ -267,7 +258,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void din() {
         if (TbadkCoreApplication.isLogin()) {
-            q.blA().blK().e(getPageContext());
+            q.blB().blK().e(getPageContext());
             finish();
             return;
         }
@@ -276,7 +267,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void dio() {
         if (TbadkCoreApplication.isLogin()) {
-            q.blA().blL().e(getPageContext());
+            q.blB().blL().e(getPageContext());
             finish();
             return;
         }
@@ -285,7 +276,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void dip() {
         if (TbadkCoreApplication.isLogin()) {
-            q.blA().blM().e(getPageContext());
+            q.blB().blM().e(getPageContext());
             finish();
             return;
         }
@@ -294,7 +285,7 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void diq() {
         if (TbadkCoreApplication.isLogin()) {
-            q.blA().blN().e(getPageContext());
+            q.blB().blN().e(getPageContext());
             finish();
             return;
         }
@@ -303,7 +294,16 @@ public class MissionCustomDialogActivity extends BaseActivity {
 
     private void dir() {
         if (TbadkCoreApplication.isLogin()) {
-            q.blA().blO().e(getPageContext());
+            q.blB().blO().e(getPageContext());
+            finish();
+            return;
+        }
+        sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getActivity(), true, RequestResponseCode.REQUEST_GUARD_CLUB_RANK)));
+    }
+
+    private void dis() {
+        if (TbadkCoreApplication.isLogin()) {
+            q.blB().blP().e(getPageContext());
             finish();
             return;
         }

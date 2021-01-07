@@ -10,7 +10,7 @@ import org.json.JSONObject;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private l f7425a;
+    private l f7426a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static h a(l lVar) {
@@ -18,14 +18,14 @@ public class h {
     }
 
     private h(l lVar) {
-        this.f7425a = lVar;
+        this.f7426a = lVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public <T> T a(@NonNull String str, @NonNull Type type) throws JSONException {
         a(str);
-        return (type.equals(JSONObject.class) || ((type instanceof Class) && JSONObject.class.isAssignableFrom((Class) type))) ? (T) new JSONObject(str) : (T) this.f7425a.a(str, type);
+        return (type.equals(JSONObject.class) || ((type instanceof Class) && JSONObject.class.isAssignableFrom((Class) type))) ? (T) new JSONObject(str) : (T) this.f7426a.a(str, type);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -38,7 +38,7 @@ public class h {
         if ((t instanceof JSONObject) || (t instanceof JSONArray)) {
             obj = t.toString();
         } else {
-            obj = this.f7425a.a(t);
+            obj = this.f7426a.a(t);
         }
         a(obj);
         return obj;

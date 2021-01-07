@@ -19,8 +19,8 @@ public class a {
             com.baidu.adp.lib.util.a.copyToClipboard(shareItem.fxK);
             Activity activity = (Activity) context;
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(activity);
-            aVar.Bo(context.getString(R.string.command_share_tips));
-            aVar.Bp(shareItem.fxK);
+            aVar.Bn(context.getString(R.string.command_share_tips));
+            aVar.Bo(shareItem.fxK);
             aVar.setAutoNight(false);
             aVar.jH(true);
             aVar.setTitleShowCenter(true);
@@ -42,7 +42,7 @@ public class a {
             if (onCancelListener != null) {
                 aVar.d(onCancelListener);
             }
-            aVar.btX();
+            aVar.btY();
         }
     }
 
@@ -51,7 +51,7 @@ public class a {
         Intent intent = null;
         if (i == 3 || i == 2) {
             if (!F(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).bud();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_wechat_not_install)).bue();
                 return;
             }
             intent = new Intent("android.intent.action.MAIN");
@@ -62,7 +62,7 @@ public class a {
             context.startActivity(intent);
         } else if (i == 8 || i == 4) {
             if (!F(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).bud();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_qq_not_install)).bue();
                 return;
             }
             intent = context.getPackageManager().getLaunchIntentForPackage("com.tencent.mobileqq");
@@ -70,7 +70,7 @@ public class a {
             context.startActivity(intent);
         } else if (i == 6) {
             if (!F(context, i)) {
-                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).bud();
+                BdToast.b(context.getApplicationContext(), context.getText(R.string.share_sina_weibo_not_install)).bue();
                 return;
             }
             intent = new Intent();

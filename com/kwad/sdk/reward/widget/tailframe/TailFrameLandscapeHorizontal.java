@@ -22,10 +22,10 @@ import org.json.JSONObject;
 public class TailFrameLandscapeHorizontal extends LinearLayout implements View.OnClickListener, a {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f10976a;
+    private ImageView f10977a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TailFrameBarAppLandscape f10977b;
+    private TailFrameBarAppLandscape f10978b;
     private TailFrameBarH5Landscape c;
     private b d;
     private AdTemplate e;
@@ -50,7 +50,7 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
 
     private void c() {
         inflate(getContext(), R.layout.ksad_video_tf_view_landscape_horizontal, this);
-        this.f10976a = (ImageView) findViewById(R.id.ksad_video_thumb_img);
+        this.f10977a = (ImageView) findViewById(R.id.ksad_video_thumb_img);
         this.j = (KsLogoView) findViewById(R.id.ksad_video_tf_logo);
     }
 
@@ -61,10 +61,10 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
             this.c.setVisibility(0);
             return;
         }
-        this.f10977b = (TailFrameBarAppLandscape) findViewById(R.id.ksad_video_app_tail_frame);
-        this.f10977b.setModel(this.e);
-        this.f10977b.setVisibility(0);
-        this.i = this.f10977b.getTextProgressBar();
+        this.f10978b = (TailFrameBarAppLandscape) findViewById(R.id.ksad_video_app_tail_frame);
+        this.f10978b.setModel(this.e);
+        this.f10978b.setVisibility(0);
+        this.i = this.f10978b.getTextProgressBar();
         e();
         this.i.setOnClickListener(this);
     }
@@ -73,31 +73,31 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
         this.h = new com.kwad.sdk.core.download.b.b(this.e, this.g, new c() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.1
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFailed() {
-                TailFrameLandscapeHorizontal.this.f10977b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
+                TailFrameLandscapeHorizontal.this.f10978b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
                 TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.w(TailFrameLandscapeHorizontal.this.f), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onDownloadFinished() {
-                TailFrameLandscapeHorizontal.this.f10977b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
+                TailFrameLandscapeHorizontal.this.f10978b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
                 TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.a(TailFrameLandscapeHorizontal.this.e), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onIdle() {
-                TailFrameLandscapeHorizontal.this.f10977b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
+                TailFrameLandscapeHorizontal.this.f10978b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
                 TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.w(TailFrameLandscapeHorizontal.this.f), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onInstalled() {
-                TailFrameLandscapeHorizontal.this.f10977b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
+                TailFrameLandscapeHorizontal.this.f10978b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
                 TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.b(), 0);
             }
 
             @Override // com.kwad.sdk.api.KsAppDownloadListener
             public void onProgressUpdate(int i) {
-                TailFrameLandscapeHorizontal.this.f10977b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
+                TailFrameLandscapeHorizontal.this.f10978b.a(com.kwad.sdk.core.response.b.c.j(TailFrameLandscapeHorizontal.this.e));
                 TailFrameLandscapeHorizontal.this.i.a(com.kwad.sdk.core.response.b.a.a(i), i);
             }
         });
@@ -120,15 +120,15 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
         this.g = jSONObject;
         this.d = bVar;
         this.j.a(this.e);
-        KSImageLoader.loadImage(this.f10976a, com.kwad.sdk.core.response.b.a.f(this.f), this.e);
+        KSImageLoader.loadImage(this.f10977a, com.kwad.sdk.core.response.b.a.f(this.f), this.e);
         d();
         setOnClickListener(this);
     }
 
     public void b() {
-        if (this.f10977b != null) {
-            this.f10977b.a();
-            this.f10977b.setVisibility(8);
+        if (this.f10978b != null) {
+            this.f10978b.a();
+            this.f10978b.setVisibility(8);
         }
         if (this.c != null) {
             this.c.a();
@@ -140,8 +140,8 @@ public class TailFrameLandscapeHorizontal extends LinearLayout implements View.O
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         com.kwad.sdk.core.download.b.b.a(this.h, view == this.i);
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1064a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.e, new a.InterfaceC1105a() { // from class: com.kwad.sdk.reward.widget.tailframe.TailFrameLandscapeHorizontal.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
             public void a() {
                 if (TailFrameLandscapeHorizontal.this.d != null) {
                     TailFrameLandscapeHorizontal.this.d.a();

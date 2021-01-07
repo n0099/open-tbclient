@@ -20,10 +20,10 @@ public class a implements Serializable {
     private boolean B;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f3349a;
+    public String f3350a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f3350b;
+    public String f3351b;
     public String c;
     public int f;
     public String i;
@@ -51,7 +51,7 @@ public class a implements Serializable {
 
     public a(String str, String str2) {
         this.i = str;
-        this.f3349a = str2;
+        this.f3350a = str2;
     }
 
     public void a(String str, String str2, String str3, boolean z) {
@@ -62,7 +62,7 @@ public class a implements Serializable {
     }
 
     public void a(String str, String str2) {
-        this.f3350b = str;
+        this.f3351b = str;
         this.c = str2;
     }
 
@@ -75,9 +75,9 @@ public class a implements Serializable {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, this.g.getCode());
-            jSONObject.put("filename", this.f3350b);
+            jSONObject.put("filename", this.f3351b);
             jSONObject.put("folder", this.c);
-            jSONObject.put("title", this.f3349a);
+            jSONObject.put("title", this.f3350a);
             jSONObject.put("contentLength", this.d);
             jSONObject.put("pk", this.i);
             jSONObject.put("qk", this.n);

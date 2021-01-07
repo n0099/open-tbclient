@@ -4,10 +4,10 @@ import com.facebook.imagepipeline.common.Priority;
 import com.facebook.imagepipeline.request.ImageRequest;
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ap extends d {
     public ap(ImageRequest imageRequest, ak akVar) {
-        this(imageRequest, akVar.getId(), akVar.eAe(), akVar.evp(), akVar.eAf(), akVar.eAg(), akVar.eAi(), akVar.eAh());
+        this(imageRequest, akVar.getId(), akVar.eAI(), akVar.evw(), akVar.eAJ(), akVar.eAK(), akVar.eAM(), akVar.eAL());
     }
 
     public ap(ImageRequest imageRequest, String str, am amVar, Object obj, ImageRequest.RequestLevel requestLevel, boolean z, boolean z2, Priority priority) {

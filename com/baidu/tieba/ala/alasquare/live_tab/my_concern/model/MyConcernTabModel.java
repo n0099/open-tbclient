@@ -39,7 +39,7 @@ public class MyConcernTabModel extends BdBaseModel {
                 }
                 MyConcernTabModel.this.gEs.c(alaLiveTabMyConcernResponse, MyConcernTabModel.this.pn == 1);
                 if (MyConcernTabModel.this.gEr != null) {
-                    MyConcernTabModel.this.gEr.b(MyConcernTabModel.this.gEs.bUU(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
+                    MyConcernTabModel.this.gEr.b(MyConcernTabModel.this.gEs.bUV(), alaLiveTabMyConcernResponse.hasMore, MyConcernTabModel.this.pn == 1);
                 }
                 MyConcernTabModel.this.pn = alaLiveTabMyConcernResponse.pn + 1;
             }
@@ -56,11 +56,11 @@ public class MyConcernTabModel extends BdBaseModel {
     public MyConcernTabModel(TbPageContext tbPageContext) {
         this.mTbPageContext = tbPageContext;
         this.gEs = new b(this.mTbPageContext);
-        bUe();
+        bUf();
         MessageManager.getInstance().registerListener(this.gEt);
     }
 
-    private void bUe() {
+    private void bUf() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -69,13 +69,13 @@ public class MyConcernTabModel extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void WE() {
+    public void WF() {
         this.pn = 1;
         this.gEs.clearData();
         loadData(1);
     }
 
-    public void bUR() {
+    public void bUS() {
         loadData(this.pn);
     }
 

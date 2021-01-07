@@ -7,8 +7,8 @@ public class b {
         if (dVar == null) {
             return 0.5f;
         }
-        int parseInt = Integer.parseInt(dVar.onC.f5631a);
-        int parseInt2 = Integer.parseInt(dVar.onC.f5632b);
+        int parseInt = Integer.parseInt(dVar.onB.f5632a);
+        int parseInt2 = Integer.parseInt(dVar.onB.f5633b);
         if (parseInt == 0 && parseInt2 == 0) {
             return 0.5f;
         }

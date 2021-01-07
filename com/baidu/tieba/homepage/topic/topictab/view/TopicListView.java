@@ -35,7 +35,7 @@ public class TopicListView extends FrameLayout {
     private h mRefreshView;
     private int mSkinType;
 
-    public void cbX() {
+    public void cbY() {
         this.Yc.removeOnScrollListener(this.mOnScrollListener);
         this.Yc.addOnScrollListener(this.mOnScrollListener);
     }
@@ -44,7 +44,7 @@ public class TopicListView extends FrameLayout {
         if (this.jXb != null) {
             this.jXb.b(this.jXc);
             this.jXb.a(this.jXc);
-            this.jXc.cRN();
+            this.jXc.cRO();
         }
     }
 
@@ -67,7 +67,7 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void Zh() {
+    public void Zi() {
         this.Yc.setNextPage(this.gCf);
         this.gCf.endLoadData();
         this.gCf.showEmptyView(TbadkCoreApplication.getInst().getMainTabBottomBarHeight());
@@ -79,7 +79,7 @@ public class TopicListView extends FrameLayout {
         this.Yc.setSelection(0);
         startPullRefresh();
         if (this.jXc != null) {
-            this.jXc.cRN();
+            this.jXc.cRO();
         }
     }
 
@@ -93,22 +93,22 @@ public class TopicListView extends FrameLayout {
         this.gDf.setRefreshing(true);
     }
 
-    public void bUO() {
+    public void bUP() {
         this.gDf.setRefreshing(false);
     }
 
-    public void caY() {
+    public void caZ() {
         if (this.Yc != null) {
             this.Yc.setVisibility(0);
         }
     }
 
     public void it(boolean z) {
-        if (!cts()) {
+        if (!ctt()) {
             if (this.gLj == null) {
                 this.gLj = new g(getContext());
                 int height = (((getHeight() - TbadkCoreApplication.getInst().getMainTabBottomBarHeight()) - l.getDimens(getContext(), R.dimen.tbds304)) / 2) - (TbadkCoreApplication.getInst().getMainTabBottomBarHeight() / 2);
-                this.gLj.bGs();
+                this.gLj.bGt();
                 this.gLj.setTopMargin(height);
                 this.gLj.onChangeSkinType();
             }
@@ -123,7 +123,7 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public boolean cts() {
+    public boolean ctt() {
         if (this.gLj != null) {
             return this.gLj.isViewAttached();
         }
@@ -131,7 +131,7 @@ public class TopicListView extends FrameLayout {
     }
 
     public void pU(boolean z) {
-        if (!ctt()) {
+        if (!ctu()) {
             if (this.mRefreshView == null) {
                 this.mRefreshView = new h(getContext(), new View.OnClickListener() { // from class: com.baidu.tieba.homepage.topic.topictab.view.TopicListView.1
                     @Override // android.view.View.OnClickListener
@@ -149,14 +149,14 @@ public class TopicListView extends FrameLayout {
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this);
             this.mRefreshView = null;
         }
     }
 
-    public boolean ctt() {
+    public boolean ctu() {
         if (this.mRefreshView != null) {
             return this.mRefreshView.isViewAttached();
         }
@@ -205,8 +205,8 @@ public class TopicListView extends FrameLayout {
             this.jXb.b(this.jXc);
         }
         this.Yc.removeOnScrollListener(this.mOnScrollListener);
-        bUO();
+        bUP();
         hideLoadingView();
-        Zi();
+        Zj();
     }
 }

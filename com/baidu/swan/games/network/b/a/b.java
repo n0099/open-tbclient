@@ -19,13 +19,13 @@ public class b extends c implements com.baidu.swan.games.network.b.a {
     @Override // com.baidu.swan.games.network.a
     public void j(com.baidu.swan.games.binding.model.c cVar) {
         super.j(cVar);
-        this.elO.bbk();
+        this.elO.bbl();
     }
 
     @Override // com.baidu.swan.games.network.c.c
     protected void d(Request request) {
         if (this.elx != null) {
-            d.bbj().a(this.elx.optString("url"), this);
+            d.bbk().a(this.elx.optString("url"), this);
             super.d(request);
         }
     }

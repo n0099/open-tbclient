@@ -54,10 +54,10 @@ public class j {
         if (bVar != null && !this.cly.contains(bVar)) {
             this.cly.add(bVar);
         }
-        aev();
+        aew();
     }
 
-    private void aev() {
+    private void aew() {
         if (!isLoaded() && !isLoading()) {
             synchronized (this) {
                 if (!isLoaded() && !isLoading()) {
@@ -65,9 +65,9 @@ public class j {
                         this.clz = new a();
                         this.clz.I(this);
                     }
-                    com.baidu.minivideo.arface.a.b adL = com.baidu.minivideo.arface.b.adL();
-                    if (adL != null) {
-                        adL.a(this.mUrl, this.cle.getParent(), this.cle.getName(), this.clz);
+                    com.baidu.minivideo.arface.a.b adM = com.baidu.minivideo.arface.b.adM();
+                    if (adM != null) {
+                        adM.a(this.mUrl, this.cle.getParent(), this.cle.getName(), this.clz);
                     }
                 }
             }

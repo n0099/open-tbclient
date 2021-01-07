@@ -11,10 +11,10 @@ import android.widget.ImageView;
 public class RoundAngleImageView extends ImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private Path f9663a;
+    private Path f9664a;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f9664b;
+    private float f9665b;
     private RectF c;
 
     public RoundAngleImageView(Context context) {
@@ -27,13 +27,13 @@ public class RoundAngleImageView extends ImageView {
 
     public RoundAngleImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f9663a = new Path();
+        this.f9664a = new Path();
         this.c = new RectF();
     }
 
     @Override // android.widget.ImageView, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.f9664b == 0.0f) {
+        if (this.f9665b == 0.0f) {
             super.onDraw(canvas);
             return;
         }
@@ -42,16 +42,16 @@ public class RoundAngleImageView extends ImageView {
         }
         int measuredWidth = getMeasuredWidth();
         int measuredHeight = getMeasuredHeight();
-        float f = this.f9664b * 2.0f;
-        if (measuredWidth >= this.f9664b * 2.0f && measuredHeight > f) {
+        float f = this.f9665b * 2.0f;
+        if (measuredWidth >= this.f9665b * 2.0f && measuredHeight > f) {
             this.c.set(0.0f, 0.0f, measuredWidth, measuredHeight);
-            this.f9663a.addRoundRect(this.c, this.f9664b, this.f9664b, Path.Direction.CW);
-            canvas.clipPath(this.f9663a);
+            this.f9664a.addRoundRect(this.c, this.f9665b, this.f9665b, Path.Direction.CW);
+            canvas.clipPath(this.f9664a);
         }
         super.onDraw(canvas);
     }
 
     public void setRadius(float f) {
-        this.f9664b = f;
+        this.f9665b = f;
     }
 }

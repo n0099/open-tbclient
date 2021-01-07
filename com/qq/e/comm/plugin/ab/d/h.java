@@ -5,18 +5,18 @@ import android.view.View;
 import com.tencent.smtt.export.external.extension.interfaces.IX5WebViewExtension;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class h implements a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final i f12060a = new i();
+    private final i f12061a = new i();
 
     /* renamed from: b  reason: collision with root package name */
-    private final g f12061b = new g();
+    private final g f12062b = new g();
     private final com.qq.e.comm.plugin.ab.f.i c;
 
     public h(Context context, JSONObject jSONObject) {
-        this.c = new com.qq.e.comm.plugin.ab.f.i(context, this.f12060a, this.f12061b, jSONObject);
+        this.c = new com.qq.e.comm.plugin.ab.f.i(context, this.f12061a, this.f12062b, jSONObject);
     }
 
     @Override // com.qq.e.comm.plugin.ab.d.a
@@ -26,8 +26,8 @@ public class h implements a {
 
     @Override // com.qq.e.comm.plugin.ab.d.a
     public void a(f fVar) {
-        this.f12060a.a(fVar);
-        this.f12061b.a(fVar);
+        this.f12061a.a(fVar);
+        this.f12062b.a(fVar);
     }
 
     @Override // com.qq.e.comm.plugin.ab.d.a
@@ -76,6 +76,6 @@ public class h implements a {
 
     @Override // com.qq.e.comm.plugin.ab.d.a
     public void f() {
-        this.f12060a.a();
+        this.f12061a.a();
     }
 }

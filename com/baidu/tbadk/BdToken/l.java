@@ -10,7 +10,7 @@ public class l extends h {
         this.eGX = System.currentTimeMillis();
     }
 
-    public synchronized long blu() {
+    public synchronized long blv() {
         this.eGX = System.currentTimeMillis() + AppStatusRules.DEFAULT_GRANULARITY;
         return this.eGX;
     }

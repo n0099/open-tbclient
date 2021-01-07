@@ -27,20 +27,20 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
         super(context);
         this.cTi = false;
         this.mContext = context;
-        arr();
+        ars();
     }
 
-    protected void arr() {
-        amr().setVisibility(8);
-        amr().setBackgroundColor(0);
-        File file = new File(com.baidu.swan.games.c.d.aZh().aZk(), "index.html");
+    protected void ars() {
+        ams().setVisibility(8);
+        ams().setBackgroundColor(0);
+        File file = new File(com.baidu.swan.games.c.d.aZi().aZl(), "index.html");
         if (file.exists() && file.isFile()) {
             loadUrl(Uri.fromFile(file).toString());
             ff(false);
             return;
         }
         loadUrl("file:///android_asset/aiapps/sConsole.html");
-        f.aZu();
+        f.aZv();
         ff(true);
     }
 
@@ -49,11 +49,11 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
             Log.d("SwanAppConsoleManager", "call downloadConsoleCore: " + z);
         }
         if (!this.cTi || z) {
-            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.d("sconsole-core", f.aZt(), 2), new com.baidu.swan.games.c.a.a(new com.baidu.swan.games.c.b.a() { // from class: com.baidu.swan.apps.core.c.d.1
+            com.baidu.swan.pms.c.a(new com.baidu.swan.pms.c.d.d("sconsole-core", f.aZu(), 2), new com.baidu.swan.games.c.a.a(new com.baidu.swan.games.c.b.a() { // from class: com.baidu.swan.apps.core.c.d.1
                 @Override // com.baidu.swan.games.c.b.a
                 @NonNull
-                public File ars() {
-                    return com.baidu.swan.games.c.d.aZh().aZk();
+                public File art() {
+                    return com.baidu.swan.games.c.d.aZi().aZl();
                 }
 
                 @Override // com.baidu.swan.games.c.b.a
@@ -73,7 +73,7 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    protected void aqQ() {
+    protected void aqR() {
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
@@ -89,15 +89,15 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
         HashMap hashMap = new HashMap();
         hashMap.put("logType", str);
         hashMap.put("logs", jSONArray.toString());
-        com.baidu.swan.apps.v.f.aDG().a("console", new com.baidu.swan.apps.event.a.b("searchboxSConsole", hashMap));
+        com.baidu.swan.apps.v.f.aDH().a("console", new com.baidu.swan.apps.event.a.b("searchboxSConsole", hashMap));
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void amh() {
+    public void ami() {
         com.baidu.swan.apps.console.c.fa(false);
-        ViewParent parent = amr().getParent();
+        ViewParent parent = ams().getParent();
         if (parent instanceof ViewGroup) {
-            ((ViewGroup) parent).removeView(amr());
+            ((ViewGroup) parent).removeView(ams());
         }
         destroy();
     }
@@ -105,18 +105,18 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
     @Override // com.baidu.swan.apps.adaptation.b.a
     public void C(ViewGroup viewGroup) {
         if (viewGroup != null) {
-            b(viewGroup, amr());
+            b(viewGroup, ams());
         }
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
     public void eO(boolean z) {
-        amr().setVisibility(z ? 0 : 8);
+        ams().setVisibility(z ? 0 : 8);
     }
 
     @Override // com.baidu.swan.apps.adaptation.b.a
-    public void amg() {
-        eO(amr().getVisibility() != 0);
+    public void amh() {
+        eO(ams().getVisibility() != 0);
     }
 
     private void b(ViewGroup viewGroup, View view) {
@@ -136,22 +136,22 @@ public class d extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String amt() {
+    public String amu() {
         return "console";
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public void amu() {
-        super.amu();
+    public void amv() {
+        super.amv();
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
     public void destroy() {
-        amm();
+        amn();
         super.destroy();
     }
 
-    private void amm() {
+    private void amn() {
         if (this.mContext != null && (this.mContext instanceof Activity)) {
             w.forceHiddenSoftInput(this.mContext, ((Activity) this.mContext).getWindow().getDecorView().getWindowToken());
         }

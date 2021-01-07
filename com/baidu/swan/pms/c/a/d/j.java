@@ -31,15 +31,15 @@ public class j<T> {
         this.exl = fVar.exl;
     }
 
-    public void bgP() {
+    public void bgQ() {
         if (!this.exl.get()) {
             if (!ConnectManager.isNetworkConnected(AppRuntime.getAppContext())) {
                 this.exj.exh = new com.baidu.swan.pms.model.a(PushConstants.ONTIME_NOTIFICATION, "download : network error");
-            } else if (!this.exv.bgJ()) {
+            } else if (!this.exv.bgK()) {
                 this.exj.exh = new com.baidu.swan.pms.model.a(2204, "download : path not writable");
             } else {
-                GetRequest.GetRequestBuilder url = com.baidu.swan.a.c.a.bfE().getRequest().url(this.exj.exi.downloadUrl);
-                this.exv.bgF();
+                GetRequest.GetRequestBuilder url = com.baidu.swan.a.c.a.bfF().getRequest().url(this.exj.exi.downloadUrl);
+                this.exv.bgG();
                 Response response = null;
                 try {
                     response = url.build().executeSync();
@@ -129,7 +129,7 @@ public class j<T> {
                 return false;
             } else {
                 this.exj.exi.currentSize = j;
-                this.exv.bgG();
+                this.exv.bgH();
                 if (source != null && source.isOpen()) {
                     com.baidu.swan.c.d.closeSafely(source);
                 }
@@ -179,7 +179,7 @@ public class j<T> {
                 outputStream.write(bArr, 0, i);
                 j2 += i;
                 this.exj.exi.currentSize = j2;
-                this.exv.bgG();
+                this.exv.bgH();
             }
         }
         if (com.baidu.swan.pms.d.DEBUG) {

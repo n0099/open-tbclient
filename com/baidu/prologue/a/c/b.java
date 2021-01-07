@@ -1,7 +1,7 @@
 package com.baidu.prologue.a.c;
 
 import java.util.Calendar;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class b {
     public static boolean a(Long l, Long l2) {
         if (l == null || l2 == null) {

@@ -43,7 +43,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i, String str) {
                 k kVar = new k();
-                kVar.AO(str);
+                kVar.AN(str);
                 b.c("c13750", kVar, i);
             }
 
@@ -74,7 +74,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i, String str) {
                 k kVar = new k();
-                kVar.AO(str);
+                kVar.AN(str);
                 b.c("c13750", kVar, i);
             }
 
@@ -105,7 +105,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i2, String str) {
                 k kVar = new k();
-                kVar.AO(str);
+                kVar.AN(str);
                 b.c("c13750", kVar, i2);
             }
 
@@ -167,7 +167,7 @@ public class HomePageTabFeedHeaderView extends LinearLayout implements View.OnCl
                     @Override // com.baidu.tbadk.h.c
                     public void a(View view, boolean z, Object obj) {
                         if (z) {
-                            b.MA("c13751");
+                            b.Mz("c13751");
                         }
                     }
                 });

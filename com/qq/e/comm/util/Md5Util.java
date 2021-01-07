@@ -7,11 +7,11 @@ import com.baidu.pass.biometrics.face.liveness.d.b;
 import java.io.File;
 import java.io.FileInputStream;
 import java.security.MessageDigest;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class Md5Util {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f13054a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", b.f4080a, "c", "d", "e", "f"};
+    private static final String[] f13055a = {"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", b.f4081a, "c", "d", "e", "f"};
 
     public static String byteArrayToHexString(byte[] bArr) {
         StringBuffer stringBuffer = new StringBuffer();
@@ -19,7 +19,7 @@ public class Md5Util {
             if (i < 0) {
                 i += 256;
             }
-            stringBuffer.append(f13054a[i / 16] + f13054a[i % 16]);
+            stringBuffer.append(f13055a[i / 16] + f13055a[i % 16]);
         }
         return stringBuffer.toString();
     }

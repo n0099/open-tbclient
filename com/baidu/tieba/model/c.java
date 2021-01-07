@@ -32,7 +32,7 @@ public class c {
                     }
                     int error = responsedMessage.getError();
                     if (error == 0 && c.this.recommendGodData != null) {
-                        if (x.isEmpty(c.this.recommendGodData.mxt)) {
+                        if (x.isEmpty(c.this.recommendGodData.mxs)) {
                             error = c.this.lqB ? 3 : 2;
                         }
                     } else {

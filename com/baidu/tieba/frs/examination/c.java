@@ -89,12 +89,12 @@ public class c {
         if (this.jsJ != null) {
             this.jsJ.a(this.mInputManager);
         }
-        cJv();
+        cJw();
     }
 
-    private void cJv() {
+    private void cJw() {
         this.fGa.f(this.jsI);
-        this.fGa.dQB();
+        this.fGa.dQC();
         showLoadingDialog();
     }
 

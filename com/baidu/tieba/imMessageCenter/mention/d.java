@@ -37,7 +37,7 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public View bYm() {
+    public View bYn() {
         this.rootView = this.kMV.getActivity().getLayoutInflater().inflate(R.layout.at_me_activity, (ViewGroup) null);
         this.kMV.setContentView(this.rootView);
         this.kNd = (BdListView) this.rootView.findViewById(R.id.atme_lv);
@@ -68,10 +68,10 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
         this.kNd.setExOnSrollToBottomListener(new BdListView.f() { // from class: com.baidu.tieba.imMessageCenter.mention.d.2
             @Override // com.baidu.adp.widget.ListView.BdListView.f
             public void v(BdListView bdListView) {
-                d.this.kMV.cIc();
+                d.this.kMV.cId();
             }
         });
-        this.kNc = new com.baidu.tbadk.mvc.f.d<>(this.kMV.getPageContext(), a.class, R.layout.mention_atme_item, this.kMV.bHi());
+        this.kNc = new com.baidu.tbadk.mvc.f.d<>(this.kMV.getPageContext(), a.class, R.layout.mention_atme_item, this.kMV.bHj());
         this.kNc.a(NoDataViewFactory.c.a(NoDataViewFactory.ImgType.CREATE, com.baidu.tbadk.core.util.i.fa(this.kMV)), NoDataViewFactory.d.dY(null, this.kMV.getResources().getString(R.string.mention_atme_nodata)), (NoDataViewFactory.b) null, (FrameLayout.LayoutParams) null);
         this.kNd.setAdapter((ListAdapter) this.kNc);
         return this.rootView;
@@ -88,7 +88,7 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
             bVar.a(aVar);
             bVar.a(new b.a() { // from class: com.baidu.tieba.imMessageCenter.mention.d.3
                 @Override // com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.a
-                public void daW() {
+                public void daX() {
                     if (!x.isEmpty(d.this.mDataList)) {
                         d.this.mDataList.remove(feedData);
                         if (d.this.kNc != null) {
@@ -105,9 +105,9 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
     public void a(com.baidu.tbadk.mvc.b.a aVar) {
         if (aVar instanceof f) {
             f fVar = (f) aVar;
-            this.mDataList = fVar.dbl();
+            this.mDataList = fVar.dbm();
             if (this.kNc != null) {
-                this.kNc.bN(fVar.dbl());
+                this.kNc.bN(fVar.dbm());
             }
         }
     }
@@ -125,7 +125,7 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
         this.kNe.onChangeSkinType(tbPageContext, i);
     }
 
-    public void daU() {
+    public void daV() {
         if (this.kNd != null) {
             this.kNd.completePullRefreshPostDelayed(0L);
         }
@@ -147,11 +147,11 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
         if (bVar instanceof com.baidu.tbadk.mvc.d.a) {
             com.baidu.tbadk.mvc.d.a aVar = (com.baidu.tbadk.mvc.d.a) bVar;
             if (this.iBe != null) {
-                if (aVar.bHd()) {
+                if (aVar.bHe()) {
                     this.iBe.rV();
-                    if (aVar.bHb()) {
+                    if (aVar.bHc()) {
                         this.iBe.sS(R.string.loading);
-                    } else if (aVar.bHc()) {
+                    } else if (aVar.bHd()) {
                         this.iBe.sS(R.string.loading);
                     } else {
                         this.iBe.sT(R.string.no_more_msg);
@@ -161,14 +161,14 @@ public class d extends com.baidu.adp.base.d<AtMessageActivity> {
                 }
             }
             if (aVar.isPullRefreshing()) {
-                daV();
+                daW();
             } else {
-                daU();
+                daV();
             }
         }
     }
 
-    public void daV() {
+    public void daW() {
         if (this.mPullView != null) {
             this.mPullView.setListPullRefreshListener(null);
         }

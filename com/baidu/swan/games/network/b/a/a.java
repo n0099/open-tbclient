@@ -24,7 +24,7 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
     @Override // com.baidu.swan.games.network.a
     public void j(c cVar) {
         super.j(cVar);
-        this.elO.bbk();
+        this.elO.bbl();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -35,7 +35,7 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
             if (DEBUG) {
                 Log.d("PreDownloadTask", "doDownload start: " + optString);
             }
-            com.baidu.swan.games.network.b.d.bbj().a(optString, this);
+            com.baidu.swan.games.network.b.d.bbk().a(optString, this);
             super.a(request, str, str2, bVar, dVar);
         }
     }
@@ -44,7 +44,7 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
     @Nullable
     protected String xR(@NonNull String str) {
         File parentFile;
-        String ug = f.aDG().aDm().ug(str);
+        String ug = f.aDH().aDn().ug(str);
         if (ug == null || ug.endsWith(File.separator) || (parentFile = new File(ug).getParentFile()) == null) {
             return null;
         }
@@ -95,7 +95,7 @@ public class a extends com.baidu.swan.games.network.a.b implements com.baidu.swa
     }
 
     private boolean xS(String str) {
-        String ug = f.aDG().aDm().ug(str);
+        String ug = f.aDH().aDn().ug(str);
         if (TextUtils.isEmpty(ug)) {
             return false;
         }

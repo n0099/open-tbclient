@@ -75,7 +75,7 @@ public class AlaHeadlineActivity extends BaseFragmentActivity {
         super.onCreate(bundle);
         setContentView(a.g.sdk_headline_dialog);
         initView();
-        bZS();
+        bZT();
         mi(UtilHelper.getRealScreenOrientation(getActivity()) == 2);
     }
 
@@ -106,7 +106,7 @@ public class AlaHeadlineActivity extends BaseFragmentActivity {
                 String HX = ac.HX();
                 if (HX == null || HX.length() == 0) {
                     AlaHeadlineActivity.this.hfN = true;
-                    new e(AlaHeadlineActivity.this.getPageContext(), true).ho(q.XF());
+                    new e(AlaHeadlineActivity.this.getPageContext(), true).ho(q.XG());
                     return;
                 }
                 AlaHeadlineActivity.this.hfA.setVisibility(8);
@@ -135,7 +135,7 @@ public class AlaHeadlineActivity extends BaseFragmentActivity {
         xVar.mLiveInfo.room_id = getIntent().getLongExtra("ala_get_headline_room_id", 0L);
         xVar.mLiveInfo.appId = getIntent().getStringExtra("ala_get_headline_appId");
         xVar.mLiveInfo.feed_id = getIntent().getStringExtra("ala_get_headline_feed_id");
-        xVar.aKS = bZR();
+        xVar.aKS = bZS();
         this.otherParams = getIntent().getStringExtra("ala_get_headline_other_params");
         setData(xVar, this.otherParams);
         if (xVar.isHost) {
@@ -145,7 +145,7 @@ public class AlaHeadlineActivity extends BaseFragmentActivity {
         }
     }
 
-    private m bZR() {
+    private m bZS() {
         m mVar = new m();
         mVar.aJI = getIntent().getBooleanExtra("ala_get_headline_headline_info_is_open", true);
         mVar.endTime = getIntent().getLongExtra("ala_get_headline_headline_info_end_time", 0L);
@@ -187,7 +187,7 @@ public class AlaHeadlineActivity extends BaseFragmentActivity {
         }
     }
 
-    private void bZS() {
+    private void bZT() {
         this.aBj = new CustomMessageListener(2913129) { // from class: com.baidu.tieba.ala.headline.dialog.AlaHeadlineActivity.5
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener

@@ -48,7 +48,7 @@ public class TabTextView extends TextView {
         dh(z);
     }
 
-    private boolean Wr() {
+    private boolean Ws() {
         return (this.startTextColor == -1 || this.endTextColor == -1) ? false : true;
     }
 
@@ -75,7 +75,7 @@ public class TabTextView extends TextView {
     }
 
     private void dh(boolean z) {
-        if (z && Wr()) {
+        if (z && Ws()) {
             if (this.bLY == null) {
                 if (getMeasuredWidth() == 0) {
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);

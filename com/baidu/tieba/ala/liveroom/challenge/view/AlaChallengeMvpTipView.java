@@ -131,7 +131,7 @@ public class AlaChallengeMvpTipView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public a cgY() {
+    public a cgZ() {
         return this.hAj.peek();
     }
 
@@ -269,7 +269,7 @@ public class AlaChallengeMvpTipView extends LinearLayout {
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     AlaChallengeMvpTipView.this.hAk = false;
-                    if (AlaChallengeMvpTipView.this.cgY() != null) {
+                    if (AlaChallengeMvpTipView.this.cgZ() != null) {
                         AlaChallengeMvpTipView.this.handler.post(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeMvpTipView.3.1.1
                             @Override // java.lang.Runnable
                             public void run() {

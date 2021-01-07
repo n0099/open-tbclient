@@ -1,5 +1,5 @@
 package com.qq.e.comm.managers.status;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public enum NetworkType {
     UNKNOWN(0, 1, "unknown"),
     WIFI(1, 2, "wifi"),
@@ -9,20 +9,20 @@ public enum NetworkType {
     
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11866a;
+    private int f11867a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11867b;
+    private int f11868b;
     private String c;
 
     NetworkType(int i, int i2, String str) {
-        this.f11866a = i;
-        this.f11867b = i2;
+        this.f11867a = i;
+        this.f11868b = i2;
         this.c = str;
     }
 
     public final int getConnValue() {
-        return this.f11866a;
+        return this.f11867a;
     }
 
     public final String getNameValue() {
@@ -30,6 +30,6 @@ public enum NetworkType {
     }
 
     public final int getPermValue() {
-        return this.f11867b;
+        return this.f11868b;
     }
 }

@@ -41,7 +41,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
     public void ax(@NonNull LottieAnimationView lottieAnimationView) {
         super.ax(lottieAnimationView);
         try {
-            b bVar = (b) aoz();
+            b bVar = (b) aoA();
             lottieAnimationView.loop(bVar.loop);
             lottieAnimationView.enableMergePathsForKitKatAndAbove(true);
             lottieAnimationView.setAnimationFromJson(this.cNU, bVar.cNO);
@@ -52,7 +52,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
                 d(lottieAnimationView, bVar);
             }
         } catch (Exception e) {
-            bp(this.cNU, e.aMm());
+            bp(this.cNU, e.aMn());
         }
     }
 
@@ -81,7 +81,7 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
     }
 
     private void c(@NonNull LottieAnimationView lottieAnimationView, @NonNull b bVar) {
-        if (aoD()) {
+        if (aoE()) {
             if (DEBUG) {
                 Log.d("Component-AnimationView", "renderAction");
             }
@@ -150,6 +150,6 @@ public final class a extends com.baidu.swan.apps.component.a.d.a<LottieAnimation
         if (DEBUG) {
             Log.d("Component-AnimationView", "reportLottieAnimationCrash: " + jSONObject2);
         }
-        new c.a(10009).tw(jSONObject2).tv(e.aMm()).axJ();
+        new c.a(10009).tw(jSONObject2).tv(e.aMn()).axK();
     }
 }

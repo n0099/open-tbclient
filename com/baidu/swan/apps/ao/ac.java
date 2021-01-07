@@ -85,7 +85,7 @@ public class ac {
             return 0;
         }
         if (Build.VERSION.SDK_INT >= 28) {
-            return aRz();
+            return aRA();
         }
         if (dD(context)) {
             if (isMiui()) {
@@ -119,12 +119,12 @@ public class ac {
     }
 
     @RequiresApi(28)
-    private static int aRz() {
+    private static int aRA() {
         DisplayCutout displayCutout;
         int i = 0;
-        if (com.baidu.swan.apps.runtime.e.aMk() != null && com.baidu.swan.apps.runtime.e.aMk().getActivity() != null) {
+        if (com.baidu.swan.apps.runtime.e.aMl() != null && com.baidu.swan.apps.runtime.e.aMl().getActivity() != null) {
             try {
-                WindowInsets rootWindowInsets = com.baidu.swan.apps.runtime.e.aMk().getActivity().getWindow().getDecorView().getRootWindowInsets();
+                WindowInsets rootWindowInsets = com.baidu.swan.apps.runtime.e.aMl().getActivity().getWindow().getDecorView().getRootWindowInsets();
                 if (rootWindowInsets != null && (displayCutout = rootWindowInsets.getDisplayCutout()) != null) {
                     i = displayCutout.getSafeInsetTop();
                     if (DEBUG) {

@@ -7,23 +7,23 @@ import com.baidu.ufosdk.R;
 final class ew implements View.OnFocusChangeListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ RelativeLayout f5862a;
+    final /* synthetic */ RelativeLayout f5863a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ ev f5863b;
+    final /* synthetic */ ev f5864b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public ew(ev evVar, RelativeLayout relativeLayout) {
-        this.f5863b = evVar;
-        this.f5862a = relativeLayout;
+        this.f5864b = evVar;
+        this.f5863a = relativeLayout;
     }
 
     @Override // android.view.View.OnFocusChangeListener
     public final void onFocusChange(View view, boolean z) {
         if (z) {
-            this.f5862a.setBackgroundResource(R.drawable.dialog_edit_bg_selected);
+            this.f5863a.setBackgroundResource(R.drawable.dialog_edit_bg_selected);
         } else {
-            this.f5862a.setBackgroundResource(R.drawable.dialog_checkbox_bg_normal);
+            this.f5863a.setBackgroundResource(R.drawable.dialog_checkbox_bg_normal);
         }
     }
 }

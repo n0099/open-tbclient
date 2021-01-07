@@ -25,7 +25,7 @@ public class a {
                     if (a(excContent)) {
                         c a2 = f.a(tbPageContext, excContent);
                         if (a2 != null) {
-                            if (a2.duZ()) {
+                            if (a2.dva()) {
                                 if (gVar2 != null) {
                                     this.list.add(gVar2);
                                 }
@@ -33,7 +33,7 @@ public class a {
                                 gVar = null;
                             } else {
                                 gVar = gVar2 == null ? new g() : gVar2;
-                                gVar.t(a2.duY());
+                                gVar.t(a2.duZ());
                             }
                         }
                     } else {

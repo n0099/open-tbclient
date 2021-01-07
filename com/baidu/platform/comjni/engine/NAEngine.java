@@ -4,14 +4,14 @@ import android.content.Context;
 import android.os.Bundle;
 import com.baidu.platform.comapi.longlink.LongLinkClient;
 import com.baidu.platform.comjni.NativeComponent;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class NAEngine extends NativeComponent {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LongLinkClient f4716a;
+    private static LongLinkClient f4717a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f4717b = false;
+    private static boolean f4718b = false;
 
     public NAEngine() {
         create();
@@ -19,7 +19,7 @@ public class NAEngine extends NativeComponent {
 
     public static void a() {
         nativeInitClass(new Bundle(), 0);
-        f4717b = true;
+        f4718b = true;
     }
 
     public static void a(String str, int i) {
@@ -27,7 +27,7 @@ public class NAEngine extends NativeComponent {
     }
 
     public static boolean a(Context context, String str) {
-        if (!f4717b) {
+        if (!f4718b) {
             a();
         }
         try {
@@ -39,10 +39,10 @@ public class NAEngine extends NativeComponent {
 
     public static boolean b() {
         try {
-            if (f4716a != null) {
-                f4716a.unRegister(null);
-                f4716a.release();
-                f4716a = null;
+            if (f4717a != null) {
+                f4717a.unRegister(null);
+                f4717a.release();
+                f4717a = null;
             }
             return nativeUninitEngine();
         } catch (Throwable th) {
@@ -97,9 +97,9 @@ public class NAEngine extends NativeComponent {
     private static native boolean nativeUninitEngine();
 
     public static void restartLongLink() {
-        if (f4716a != null) {
+        if (f4717a != null) {
             try {
-                f4716a.start();
+                f4717a.start();
             } catch (Exception e) {
             }
         }
@@ -110,9 +110,9 @@ public class NAEngine extends NativeComponent {
     }
 
     public static void stopLongLink() {
-        if (f4716a != null) {
+        if (f4717a != null) {
             try {
-                f4716a.stop();
+                f4717a.stop();
             } catch (Exception e) {
             }
         }

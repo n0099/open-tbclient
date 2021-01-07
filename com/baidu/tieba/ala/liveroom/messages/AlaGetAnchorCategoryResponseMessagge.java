@@ -18,7 +18,7 @@ public class AlaGetAnchorCategoryResponseMessagge extends JsonHttpResponsedMessa
         this.hJD.parse(optJSONObject);
     }
 
-    public com.baidu.tieba.ala.category.b.a clJ() {
+    public com.baidu.tieba.ala.category.b.a clK() {
         return this.hJD;
     }
 }

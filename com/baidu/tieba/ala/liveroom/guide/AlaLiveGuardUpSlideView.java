@@ -49,12 +49,12 @@ public class AlaLiveGuardUpSlideView extends FrameLayout {
         this.giH = (ImageView) findViewById(a.f.ala_liveroom_guard_image_hand);
     }
 
-    public void ciD() {
+    public void ciE() {
         setVisibility(0);
-        ciE();
+        ciF();
     }
 
-    private void ciE() {
+    private void ciF() {
         try {
             if (this.hEy == null) {
                 this.hEy = new AnimatorSet();

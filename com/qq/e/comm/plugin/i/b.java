@@ -20,16 +20,16 @@ import java.util.Iterator;
 import java.util.List;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private ai.a f12386a = null;
+    private ai.a f12387a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f12387b = GDTADManager.getInstance().getAppContext();
+    private Context f12388b = GDTADManager.getInstance().getAppContext();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private interface a extends f.a {
     }
 
@@ -93,7 +93,7 @@ public class b {
                             com.qq.e.comm.plugin.a.b.a(a2, true);
                         }
                         n.a(a2);
-                        ai.a("ApkInstallWorker.SUCCESS", b.this.f12386a);
+                        ai.a("ApkInstallWorker.SUCCESS", b.this.f12387a);
                     }
                 }
 
@@ -120,10 +120,10 @@ public class b {
                 if (!d.a(cVar) && !com.qq.e.comm.plugin.a.e.a.a(GDTADManager.getInstance().getAppContext(), cVar.h())) {
                     cVar.a(true);
                     l.a().b(cVar);
-                    ai.a(cVar.toString() + " , , time=" + (1.0f * ((float) (System.currentTimeMillis() - cVar.d()))) + "ms", this.f12386a);
+                    ai.a(cVar.toString() + " , , time=" + (1.0f * ((float) (System.currentTimeMillis() - cVar.d()))) + "ms", this.f12387a);
                     at.a("downloaded_not_installed_apk", System.currentTimeMillis());
                     u.a(100412, 1, new com.qq.e.comm.plugin.y.c().b(cVar.l()));
-                    if (com.qq.e.comm.plugin.a.e.a.a(cVar) && com.qq.e.comm.plugin.a.e.a.a(d.c(cVar), cVar.h(), this.f12387b)) {
+                    if (com.qq.e.comm.plugin.a.e.a.a(cVar) && com.qq.e.comm.plugin.a.e.a.a(d.c(cVar), cVar.h(), this.f12388b)) {
                         a(iGDTApkListener, d.b(cVar));
                         return;
                     }
@@ -133,7 +133,7 @@ public class b {
                 Iterator<com.qq.e.comm.plugin.a.c> it = e.iterator();
                 while (it.hasNext()) {
                     com.qq.e.comm.plugin.a.c next = it.next();
-                    if (d.a(next) || com.qq.e.comm.plugin.a.e.a.a(GDTADManager.getInstance().getAppContext(), next.h()) || !com.qq.e.comm.plugin.a.e.a.a(next) || !com.qq.e.comm.plugin.a.e.a.a(d.c(next), next.h(), this.f12387b)) {
+                    if (d.a(next) || com.qq.e.comm.plugin.a.e.a.a(GDTADManager.getInstance().getAppContext(), next.h()) || !com.qq.e.comm.plugin.a.e.a.a(next) || !com.qq.e.comm.plugin.a.e.a.a(d.c(next), next.h(), this.f12388b)) {
                         it.remove();
                     }
                 }

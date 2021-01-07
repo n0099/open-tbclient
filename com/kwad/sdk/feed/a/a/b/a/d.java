@@ -16,7 +16,7 @@ import com.kwad.sdk.widget.RCPVADFrameLayout;
 public class d extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private RCPVADFrameLayout f10121b;
+    private RCPVADFrameLayout f10122b;
     private ImageView c;
     private TextView d;
     private TextView e;
@@ -28,7 +28,7 @@ public class d extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i) {
-        com.kwad.sdk.core.report.b.a(this.g, i, this.f10121b.getTouchCoords());
+        com.kwad.sdk.core.report.b.a(this.g, i, this.f10122b.getTouchCoords());
     }
 
     private KsAppDownloadListener e() {
@@ -67,16 +67,16 @@ public class d extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
     @Override // com.kwad.sdk.lib.widget.recycler.b.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.g = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10751a).i;
+        this.g = (AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10752a).i;
         this.h = com.kwad.sdk.core.response.b.c.j(this.g);
-        this.i = ((com.kwad.sdk.feed.a.a.a.b) this.f10751a).f10109b;
-        com.kwad.sdk.glide.c.a(((com.kwad.sdk.feed.a.a.a.b) this.f10751a).d).a(com.kwad.sdk.core.response.b.c.q(this.g)).a(o().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).c(o().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).a((h<Bitmap>) new com.kwad.sdk.support.a()).a(this.c);
+        this.i = ((com.kwad.sdk.feed.a.a.a.b) this.f10752a).f10110b;
+        com.kwad.sdk.glide.c.a(((com.kwad.sdk.feed.a.a.a.b) this.f10752a).d).a(com.kwad.sdk.core.response.b.c.q(this.g)).a(o().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).c(o().getResources().getDrawable(R.drawable.ksad_photo_default_author_icon)).a((h<Bitmap>) new com.kwad.sdk.support.a()).a(this.c);
         String v = com.kwad.sdk.core.response.b.c.v(this.g);
         if (ag.a(v) && com.kwad.sdk.core.response.b.c.c(this.g)) {
             v = o().getString(R.string.ksad_ad_default_username_normal);
         }
         this.d.setText(v);
-        String x = com.kwad.sdk.core.response.b.c.x((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10751a).i);
+        String x = com.kwad.sdk.core.response.b.c.x((AdTemplate) ((com.kwad.sdk.feed.a.a.a.b) this.f10752a).i);
         if (ag.a(x)) {
             this.e.setVisibility(8);
         } else {
@@ -105,7 +105,7 @@ public class d extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10121b = (RCPVADFrameLayout) b(R.id.ksad_feed_item_root);
+        this.f10122b = (RCPVADFrameLayout) b(R.id.ksad_feed_item_root);
         this.c = (ImageView) b(R.id.ksad_feed_item_author_icon);
         this.d = (TextView) b(R.id.ksad_feed_item_author_name);
         this.e = (TextView) b(R.id.ksad_feed_item_photo_desc);
@@ -122,8 +122,8 @@ public class d extends com.kwad.sdk.feed.a.a.a.a implements View.OnClickListener
         } else if (view == this.f) {
             i = 83;
         }
-        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.g, new a.InterfaceC1064a() { // from class: com.kwad.sdk.feed.a.a.b.a.d.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+        com.kwad.sdk.core.download.b.a.a(view.getContext(), this.g, new a.InterfaceC1105a() { // from class: com.kwad.sdk.feed.a.a.b.a.d.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
             public void a() {
                 d.this.a(i);
             }

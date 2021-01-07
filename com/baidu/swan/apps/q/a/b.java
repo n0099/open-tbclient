@@ -26,7 +26,7 @@ public class b extends PopupWindow {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void aoK();
+        void aoL();
 
         void hW(int i);
     }
@@ -119,7 +119,7 @@ public class b extends PopupWindow {
     public void dismiss() {
         super.dismiss();
         if (this.dhj != null) {
-            this.dhj.aoK();
+            this.dhj.aoL();
         }
     }
 

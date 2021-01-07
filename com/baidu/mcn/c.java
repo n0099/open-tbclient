@@ -38,7 +38,7 @@ public class c {
         @Override // com.baidu.mcn.McnVideoAdView.a
         public void c(a aVar) {
             if (aVar != null && !StringUtils.isNull(aVar.ciq)) {
-                b.adu().jC(aVar.ciq);
+                b.adv().jC(aVar.ciq);
             }
         }
     };
@@ -74,9 +74,9 @@ public class c {
         }
     }
 
-    public void adv() {
+    public void adw() {
         if (this.civ != null) {
-            this.civ.adv();
+            this.civ.adw();
         }
     }
 

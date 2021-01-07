@@ -33,12 +33,12 @@ public class f {
     private volatile boolean bPK = false;
     private com.baidu.live.videochat.e.g bPL = new com.baidu.live.videochat.e.g() { // from class: com.baidu.live.videochat.f.3
         @Override // com.baidu.live.videochat.e.g
-        public void Yt() {
+        public void Yu() {
             if (f.this.bPB != null) {
-                f.this.bPB.Zb();
+                f.this.bPB.Zc();
             }
             if (f.this.bPC != null) {
-                f.this.bPC.XU();
+                f.this.bPC.XV();
             }
         }
 
@@ -54,9 +54,9 @@ public class f {
         }
 
         @Override // com.baidu.live.videochat.e.g
-        public void Yu() {
+        public void Yv() {
             if (f.this.bPB != null) {
-                f.this.bPB.Zd();
+                f.this.bPB.Ze();
             }
             if (f.this.mChatStatus != 1) {
                 f.this.mChatStatus = 1;
@@ -76,7 +76,7 @@ public class f {
             } else if (f.this.mChatStatus != 3) {
                 f.this.mChatStatus = 3;
                 if (f.this.bPB != null) {
-                    f.this.bPB.Zd();
+                    f.this.bPB.Ze();
                 }
                 if (f.this.bPB != null) {
                     f.this.bPB.d(aVar.chatId, false);
@@ -96,13 +96,13 @@ public class f {
         public void a(int i, String str, AlaLiveInfoData alaLiveInfoData, com.baidu.live.videochat.b.a aVar, com.baidu.live.videochat.b.c cVar) {
             if (f.this.mChatStatus != 2) {
                 if (f.this.bPB != null) {
-                    f.this.bPB.Zd();
+                    f.this.bPB.Ze();
                 }
             } else if (i == 1) {
-                f.this.Yq();
+                f.this.Yr();
             } else if (i != 2) {
                 if (f.this.bPB != null) {
-                    f.this.bPB.Zd();
+                    f.this.bPB.Ze();
                 }
                 if (f.this.mChatStatus != 1) {
                     f.this.mChatStatus = 1;
@@ -113,7 +113,7 @@ public class f {
                 }
             } else if (aVar == null || alaLiveInfoData == null || aVar.chatId == 0) {
                 if (f.this.bPB != null) {
-                    f.this.bPB.Zd();
+                    f.this.bPB.Ze();
                 }
                 if (f.this.mChatStatus != 1) {
                     f.this.mChatStatus = 1;
@@ -125,7 +125,7 @@ public class f {
             } else {
                 f.this.mChatStatus = 3;
                 if (f.this.bPB != null) {
-                    f.this.bPB.Zd();
+                    f.this.bPB.Ze();
                 }
                 if (f.this.bPB != null) {
                     f.this.bPB.d(aVar.chatId, false);
@@ -136,7 +136,7 @@ public class f {
 
         @Override // com.baidu.live.videochat.e.c
         public void a(boolean z, com.baidu.live.videochat.b.b bVar, com.baidu.live.videochat.b.d dVar, com.baidu.live.videochat.b.d dVar2) {
-            f.this.bPK = (bVar == null || bVar.YC() != TbadkCoreApplication.getCurrentAccountId() || TbadkCoreApplication.getCurrentAccountId() == 0) ? false : true;
+            f.this.bPK = (bVar == null || bVar.YD() != TbadkCoreApplication.getCurrentAccountId() || TbadkCoreApplication.getCurrentAccountId() == 0) ? false : true;
             f.this.a(f.this.bPK, bVar, dVar, dVar2, z);
         }
 
@@ -146,7 +146,7 @@ public class f {
         }
 
         @Override // com.baidu.live.videochat.e.c
-        public void Yp() {
+        public void Yq() {
             f.this.dt(false);
         }
 
@@ -198,7 +198,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Yq() {
+    public void Yr() {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -214,7 +214,7 @@ public class f {
         boolean a2 = this.bPz.a(alaLiveInfoData, alaAvtsData, alaAvtsConfigInfo);
         if (this.bPC != null) {
             if (a2) {
-                this.bPC.a(true, j, this.bPz.Yx(), this.bPz.Yy());
+                this.bPC.a(true, j, this.bPz.Yy(), this.bPz.Yz());
             } else {
                 dt(true);
             }
@@ -222,9 +222,9 @@ public class f {
         return a2;
     }
 
-    private void Yr() {
+    private void Ys() {
         if (this.bPz != null) {
-            this.bPz.Yv();
+            this.bPz.Yw();
         }
     }
 
@@ -232,14 +232,14 @@ public class f {
         if (this.bPA != null && !this.bPA.isStarted() && bVar != null && dVar2 != null) {
             this.bPA.e(dVar2.aQM);
             if (this.bPC != null) {
-                this.bPC.a(false, bVar.YB(), this.bPA.Yx(), this.bDt.getLivePlayer());
+                this.bPC.a(false, bVar.YC(), this.bPA.Yy(), this.bDt.getLivePlayer());
             }
         }
     }
 
-    private void Ys() {
+    private void Yt() {
         if (!this.bPK && this.bPA != null) {
-            this.bPA.Yz();
+            this.bPA.YA();
         }
     }
 
@@ -250,12 +250,12 @@ public class f {
             if (!z) {
                 b(bVar, dVar, dVar2);
                 if (this.bPC != null) {
-                    this.bPC.a(z, bVar.YB(), dVar2.aQy, z2);
+                    this.bPC.a(z, bVar.YC(), dVar2.aQy, z2);
                 }
-            } else if (this.bPz != null && !this.bPz.Yw()) {
-                a(z, bVar.YB(), bVar, dVar, dVar2);
+            } else if (this.bPz != null && !this.bPz.Yx()) {
+                a(z, bVar.YC(), bVar, dVar, dVar2);
             } else if (this.bPC != null) {
-                this.bPC.a(z, bVar.YB(), dVar2.aQy, z2);
+                this.bPC.a(z, bVar.YC(), dVar2.aQy, z2);
             }
         }
     }
@@ -263,25 +263,25 @@ public class f {
     /* JADX INFO: Access modifiers changed from: private */
     public void dt(boolean z) {
         if (this.bPB != null) {
-            this.bPB.Zf();
+            this.bPB.Zg();
         }
         if (this.mChatStatus != 1) {
             this.mChatStatus = 1;
             if (z) {
                 if (this.bPK) {
-                    Yr();
+                    Ys();
                     if (this.bPC != null) {
                         this.bPC.ds(true);
                     }
                     this.bDt.c(this.brX);
                 } else {
-                    Ys();
+                    Yt();
                     if (this.bPC != null) {
                         this.bPC.ds(false);
                     }
                 }
             } else {
-                Yr();
+                Ys();
                 if (this.bPC != null) {
                     this.bPC.ds(true);
                 }
@@ -295,9 +295,9 @@ public class f {
     public void du(boolean z) {
         if (this.bPz != null) {
             if (z) {
-                this.bPz.XK();
-            } else {
                 this.bPz.XL();
+            } else {
+                this.bPz.XM();
             }
         }
     }
@@ -308,7 +308,7 @@ public class f {
                 b(z, bVar, dVar, dVar2);
             }
         } else if (bVar != null) {
-            bx(bVar.YB());
+            bx(bVar.YC());
         }
     }
 
@@ -317,7 +317,7 @@ public class f {
             this.bPH = this.bPC.a(dVar == null ? null : dVar.aQy, new g() { // from class: com.baidu.live.videochat.f.5
             });
             if (!this.bPH && bVar != null) {
-                bx(bVar.YB());
+                bx(bVar.YC());
             }
         }
     }
@@ -327,7 +327,7 @@ public class f {
             this.bPB.bz(j);
         }
         if (this.bPB != null) {
-            this.bPB.Zf();
+            this.bPB.Zg();
         }
         this.mChatStatus = 1;
     }

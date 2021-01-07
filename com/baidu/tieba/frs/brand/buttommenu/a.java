@@ -83,7 +83,7 @@ public class a implements BottomMenuView.a {
     public void a(BottomMenuView.MenuItemView menuItemView, BottomMenu bottomMenu) {
         long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
         if (bottomMenu != null && x.getCount(bottomMenu.submenu) == 0) {
-            be.bwu().b(this.mPageContext, new String[]{bottomMenu.url});
+            be.bwv().b(this.mPageContext, new String[]{bottomMenu.url});
             TiebaStatic.log(new aq("c13117").dX("fid", this.fGG != null ? this.fGG.getId() : "").dX("fname", this.fGG != null ? this.fGG.getName() : "").w("uid", currentAccountId).dX("obj_param1", bottomMenu.name));
             return;
         }
@@ -93,7 +93,7 @@ public class a implements BottomMenuView.a {
     @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
     public void a(BottomMenuView.SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu) {
         if (subBottomMenu != null) {
-            be.bwu().b(this.mPageContext, new String[]{subBottomMenu.url});
+            be.bwv().b(this.mPageContext, new String[]{subBottomMenu.url});
             TiebaStatic.log(new aq("c13117").dX("fid", this.fGG != null ? this.fGG.getId() : "").dX("fname", this.fGG != null ? this.fGG.getName() : "").w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("obj_param1", subBottomMenu.name));
         }
     }

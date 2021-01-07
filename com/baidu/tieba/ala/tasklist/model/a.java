@@ -57,7 +57,7 @@ public class a extends BdBaseModel {
                 }
                 a.this.ihk = liveFlowerTaskRewardResponsedMessage.ihk;
                 a.this.ihl = liveFlowerTaskRewardResponsedMessage.ihl;
-                a.this.crP();
+                a.this.crQ();
                 if (a.this.ihm != null) {
                     a.this.ihm.a(liveFlowerTaskRewardResponsedMessage.ihk, liveFlowerTaskRewardResponsedMessage.ihl);
                 }
@@ -74,17 +74,17 @@ public class a extends BdBaseModel {
     }
 
     public a() {
-        crM();
         crN();
+        crO();
         MessageManager.getInstance().registerListener(this.ihn);
         MessageManager.getInstance().registerListener(this.iho);
     }
 
-    public aq crL() {
+    public aq crM() {
         return this.ihl;
     }
 
-    private void crM() {
+    private void crN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021065, b.aAV);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -93,7 +93,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void crN() {
+    private void crO() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021066, b.aAW);
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedAddCommenParam(true);
@@ -102,7 +102,7 @@ public class a extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void crO() {
+    public void crP() {
         HttpMessage httpMessage = new HttpMessage(1021065);
         httpMessage.setTag(getUniqueId());
         MessageManager.getInstance().sendMessage(httpMessage);
@@ -116,7 +116,7 @@ public class a extends BdBaseModel {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void crP() {
+    public void crQ() {
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "petal_pickup"));
     }
 

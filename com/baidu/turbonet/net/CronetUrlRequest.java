@@ -313,7 +313,7 @@ public final class CronetUrlRequest implements UrlRequest {
                             synchronized (CronetUrlRequest.this.mUrlRequestAdapterLock) {
                                 if (!CronetUrlRequest.this.isDoneLocked()) {
                                     CronetUrlRequest.this.oKo.attachNativeAdapterToRequest(CronetUrlRequest.this.mUrlRequestAdapter);
-                                    CronetUrlRequest.this.ehB();
+                                    CronetUrlRequest.this.ehC();
                                 }
                             }
                         }
@@ -321,7 +321,7 @@ public final class CronetUrlRequest implements UrlRequest {
                     return;
                 }
                 this.mStarted = true;
-                ehB();
+                ehC();
             } catch (RuntimeException e) {
                 Ae(false);
                 throw e;
@@ -331,7 +331,7 @@ public final class CronetUrlRequest implements UrlRequest {
 
     /* JADX INFO: Access modifiers changed from: private */
     @GuardedBy("mUrlRequestAdapterLock")
-    public void ehB() {
+    public void ehC() {
         if (this.oJO != null) {
             this.oJO.onRequestStarted();
         }
@@ -386,13 +386,13 @@ public final class CronetUrlRequest implements UrlRequest {
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void ehC() {
+    public void ehD() {
         checkNotStarted();
         this.oKg = true;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void ehD() {
+    public void ehE() {
         checkNotStarted();
         this.oKh = true;
     }
@@ -428,13 +428,13 @@ public final class CronetUrlRequest implements UrlRequest {
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void WV(String str) {
+    public void WU(String str) {
         checkNotStarted();
         this.oKm = str;
     }
 
     @Override // com.baidu.turbonet.net.UrlRequest
-    public void WW(String str) {
+    public void WV(String str) {
         checkNotStarted();
         this.oKn = str;
     }
@@ -547,7 +547,7 @@ public final class CronetUrlRequest implements UrlRequest {
                     this.oKd = new RequestTimeInfo();
                 }
                 if (this.oJO != null) {
-                    this.oJO.ehE();
+                    this.oJO.ehF();
                 }
                 nativeDestroy(this.mUrlRequestAdapter, z);
                 if (this.mTag != null) {
@@ -635,7 +635,7 @@ public final class CronetUrlRequest implements UrlRequest {
                 synchronized (CronetUrlRequest.this.mUrlRequestAdapterLock) {
                     if (!CronetUrlRequest.this.isDoneLocked()) {
                         if (CronetUrlRequest.this.oJO != null) {
-                            CronetUrlRequest.this.oJO.ehF();
+                            CronetUrlRequest.this.oJO.ehG();
                         }
                         CronetUrlRequest.this.mWaitingOnRead = true;
                         try {
@@ -739,14 +739,14 @@ public final class CronetUrlRequest implements UrlRequest {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ehE() {
+        public void ehF() {
             if (this.oKu != null && this.oKw == null) {
                 this.oKw = Long.valueOf(SystemClock.elapsedRealtime() - this.oKu.longValue());
             }
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void ehF() {
+        public void ehG() {
             if (this.oKu != null && this.oKv == null) {
                 this.oKv = Long.valueOf(SystemClock.elapsedRealtime() - this.oKu.longValue());
             }

@@ -31,18 +31,18 @@ public class c extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
             return false;
         }
-        Activity aMe = context instanceof Activity ? (Activity) context : eVar.aMe();
-        if (aMe == null) {
+        Activity aMf = context instanceof Activity ? (Activity) context : eVar.aMf();
+        if (aMf == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "the context is not an activity");
             return false;
         }
-        com.baidu.swan.apps.setting.b.a.a(aMe, "mobile", null, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
+        com.baidu.swan.apps.setting.b.a.a(aMf, "mobile", null, false, new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.b.a>() { // from class: com.baidu.swan.apps.setting.a.c.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
             public void L(com.baidu.swan.apps.setting.b.a aVar) {
                 com.baidu.swan.apps.console.c.d("OpenData", "onOpenDataCallback:: ", aVar);
-                if (!aVar.aOD()) {
+                if (!aVar.aOE()) {
                     com.baidu.swan.apps.setting.oauth.c.a(aVar, callbackHandler, optString);
                 } else {
                     callbackHandler.handleSchemeDispatchCallback(optString, UnitedSchemeUtility.wrapCallbackParams(aVar.dMd, 0).toString());

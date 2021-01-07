@@ -28,11 +28,11 @@ public class HeadPendantClickableView extends HeadPendantView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.HeadPendantClickableView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HeadPendantClickableView.this.aim != null && HeadPendantClickableView.this.aim.brq() != null && !StringUtils.isNull(HeadPendantClickableView.this.aim.brq().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.aim.brq().getUserId())) {
+                if (HeadPendantClickableView.this.aim != null && HeadPendantClickableView.this.aim.brr() != null && !StringUtils.isNull(HeadPendantClickableView.this.aim.brr().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.aim.brr().getUserId())) {
                     String str = "";
                     if (!HeadPendantClickableView.this.aim.eWd) {
-                        if (!HeadPendantClickableView.this.aim.btl()) {
-                            if (HeadPendantClickableView.this.aim.boV()) {
+                        if (!HeadPendantClickableView.this.aim.btm()) {
+                            if (HeadPendantClickableView.this.aim.boW()) {
                                 str = AddFriendActivityConfig.TYPE_FRS_HEAD;
                             }
                         } else {
@@ -41,13 +41,13 @@ public class HeadPendantClickableView extends HeadPendantView {
                     } else {
                         str = AddFriendActivityConfig.TYPE_HOME_HEAD;
                     }
-                    AlaUserInfoData alaUserData = HeadPendantClickableView.this.aim.brq().getAlaUserData();
+                    AlaUserInfoData alaUserData = HeadPendantClickableView.this.aim.brr().getAlaUserData();
                     if (alaUserData != null && alaUserData.live_status == 1 && alaUserData.live_id > 0) {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                         alaLiveInfoCoreData.liveID = alaUserData.live_id;
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(HeadPendantClickableView.this.mContext, alaLiveInfoCoreData, "person_attention", null, false, "")));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aim.brq().getUserId(), HeadPendantClickableView.this.aim.brq().getName_show(), HeadPendantClickableView.this.aim.bru(), str, HeadPendantClickableView.this.aim.getTid(), HeadPendantClickableView.this.aim.bpO())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aim.brr().getUserId(), HeadPendantClickableView.this.aim.brr().getName_show(), HeadPendantClickableView.this.aim.brv(), str, HeadPendantClickableView.this.aim.getTid(), HeadPendantClickableView.this.aim.bpP())));
                     }
                     if (HeadPendantClickableView.this.akV != null) {
                         HeadPendantClickableView.this.akV.onClick(view);
@@ -64,11 +64,11 @@ public class HeadPendantClickableView extends HeadPendantView {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tbadk.core.view.HeadPendantClickableView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (HeadPendantClickableView.this.aim != null && HeadPendantClickableView.this.aim.brq() != null && !StringUtils.isNull(HeadPendantClickableView.this.aim.brq().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.aim.brq().getUserId())) {
+                if (HeadPendantClickableView.this.aim != null && HeadPendantClickableView.this.aim.brr() != null && !StringUtils.isNull(HeadPendantClickableView.this.aim.brr().getName_show()) && !StringUtils.isNull(HeadPendantClickableView.this.aim.brr().getUserId())) {
                     String str = "";
                     if (!HeadPendantClickableView.this.aim.eWd) {
-                        if (!HeadPendantClickableView.this.aim.btl()) {
-                            if (HeadPendantClickableView.this.aim.boV()) {
+                        if (!HeadPendantClickableView.this.aim.btm()) {
+                            if (HeadPendantClickableView.this.aim.boW()) {
                                 str = AddFriendActivityConfig.TYPE_FRS_HEAD;
                             }
                         } else {
@@ -77,13 +77,13 @@ public class HeadPendantClickableView extends HeadPendantView {
                     } else {
                         str = AddFriendActivityConfig.TYPE_HOME_HEAD;
                     }
-                    AlaUserInfoData alaUserData = HeadPendantClickableView.this.aim.brq().getAlaUserData();
+                    AlaUserInfoData alaUserData = HeadPendantClickableView.this.aim.brr().getAlaUserData();
                     if (alaUserData != null && alaUserData.live_status == 1 && alaUserData.live_id > 0) {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
                         alaLiveInfoCoreData.liveID = alaUserData.live_id;
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(HeadPendantClickableView.this.mContext, alaLiveInfoCoreData, "person_attention", null, false, "")));
                     } else {
-                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aim.brq().getUserId(), HeadPendantClickableView.this.aim.brq().getName_show(), HeadPendantClickableView.this.aim.bru(), str, HeadPendantClickableView.this.aim.getTid(), HeadPendantClickableView.this.aim.bpO())));
+                        MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(HeadPendantClickableView.this.mContext, HeadPendantClickableView.this.aim.brr().getUserId(), HeadPendantClickableView.this.aim.brr().getName_show(), HeadPendantClickableView.this.aim.brv(), str, HeadPendantClickableView.this.aim.getTid(), HeadPendantClickableView.this.aim.bpP())));
                     }
                     if (HeadPendantClickableView.this.akV != null) {
                         HeadPendantClickableView.this.akV.onClick(view);
@@ -100,23 +100,23 @@ public class HeadPendantClickableView extends HeadPendantView {
     }
 
     public void setData(bz bzVar, boolean z) {
-        if (bzVar != null && bzVar.brq() != null) {
+        if (bzVar != null && bzVar.brr() != null) {
             this.aim = bzVar;
-            MetaData brq = bzVar.brq();
-            setContentDescription(brq.getName_show() + this.mContext.getString(R.string.somebodys_portrait));
-            getHeadView().setUserId(brq.getUserId());
-            getHeadView().setUserName(brq.getUserName());
-            getHeadView().setUrl(brq.getAvater());
-            if (brq.isDefaultAvatar && com.baidu.tbadk.a.d.bmE()) {
+            MetaData brr = bzVar.brr();
+            setContentDescription(brr.getName_show() + this.mContext.getString(R.string.somebodys_portrait));
+            getHeadView().setUserId(brr.getUserId());
+            getHeadView().setUserName(brr.getUserName());
+            getHeadView().setUrl(brr.getAvater());
+            if (brr.isDefaultAvatar && com.baidu.tbadk.a.d.bmF()) {
                 getHeadView().startLoad(String.valueOf(R.drawable.pic_mask_pass_head), 24, false);
-            } else if (!StringUtils.isNull(brq.getAvater()) && brq.getAvater().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                getHeadView().startLoad(brq.getAvater(), 10, false);
+            } else if (!StringUtils.isNull(brr.getAvater()) && brr.getAvater().startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
+                getHeadView().startLoad(brr.getAvater(), 10, false);
             } else if (z) {
-                getHeadView().startLoad(brq.getAvater(), 25, false);
+                getHeadView().startLoad(brr.getAvater(), 25, false);
             } else {
-                getHeadView().startLoad(brq.getAvater(), 28, false);
+                getHeadView().startLoad(brr.getAvater(), 28, false);
             }
-            a(brq, 0);
+            a(brr, 0);
         }
     }
 

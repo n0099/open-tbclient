@@ -31,11 +31,11 @@ public abstract class a implements View.OnClickListener {
     protected NavigationBar mNavigationBar;
     protected View mRoot;
 
-    public abstract void bFN();
+    public abstract void bFO();
 
-    protected abstract void cJp();
+    protected abstract void cJq();
 
-    public abstract void cJr();
+    public abstract void cJs();
 
     protected abstract void initUI();
 
@@ -45,11 +45,11 @@ public abstract class a implements View.OnClickListener {
         this.jsv = serializableItemInfo;
         this.jsw = new c(this.iJr, this.iJr.getUniqueId(), this.jst, this.jsv);
         initUI();
-        bIk();
-        cJp();
+        bIl();
+        cJq();
     }
 
-    protected void bIk() {
+    protected void bIl() {
         if (this.mNavigationBar != null) {
             this.jsu = new TextView(this.iJr);
             this.jsu.setAlpha(0.5f);
@@ -74,7 +74,7 @@ public abstract class a implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void cJq() {
+    public void cJr() {
         if (this.jsy == null) {
             this.jsy = new SaveDraftDialogView(this.iJr);
             this.jsy.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.examination.a.1
@@ -83,10 +83,10 @@ public abstract class a implements View.OnClickListener {
                     if (view != null) {
                         int id = view.getId();
                         if (id == R.id.save_draft_dialog_not_save) {
-                            a.this.cJs();
+                            a.this.cJt();
                             a.this.iJr.finish();
                         } else if (id == R.id.save_draft_dialog_save) {
-                            a.this.bFN();
+                            a.this.bFO();
                             a.this.iJr.finish();
                         }
                         a.this.jsx.dismiss();
@@ -102,7 +102,7 @@ public abstract class a implements View.OnClickListener {
         this.jsx.SY();
     }
 
-    protected void cJs() {
+    protected void cJt() {
         if (this.jst != null) {
             y.g(String.valueOf(this.jst.forumId), null);
         }

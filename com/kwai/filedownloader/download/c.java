@@ -10,10 +10,10 @@ import java.net.SocketException;
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final int f11202a;
+    final int f11203a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final ConnectTask f11203b;
+    private final ConnectTask f11204b;
     private final f c;
     private final String d;
     private final boolean e;
@@ -25,31 +25,31 @@ public class c implements Runnable {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final ConnectTask.a f11204a = new ConnectTask.a();
+        private final ConnectTask.a f11205a = new ConnectTask.a();
 
         /* renamed from: b  reason: collision with root package name */
-        private f f11205b;
+        private f f11206b;
         private String c;
         private Boolean d;
         private Integer e;
 
         public a a(int i) {
-            this.f11204a.a(i);
+            this.f11205a.a(i);
             return this;
         }
 
         public a a(com.kwai.filedownloader.d.b bVar) {
-            this.f11204a.a(bVar);
+            this.f11205a.a(bVar);
             return this;
         }
 
         public a a(com.kwai.filedownloader.download.a aVar) {
-            this.f11204a.a(aVar);
+            this.f11205a.a(aVar);
             return this;
         }
 
         public a a(f fVar) {
-            this.f11205b = fVar;
+            this.f11206b = fVar;
             return this;
         }
 
@@ -59,7 +59,7 @@ public class c implements Runnable {
         }
 
         public a a(String str) {
-            this.f11204a.a(str);
+            this.f11205a.a(str);
             return this;
         }
 
@@ -69,15 +69,15 @@ public class c implements Runnable {
         }
 
         public c a() {
-            if (this.f11205b == null || this.c == null || this.d == null || this.e == null) {
-                throw new IllegalArgumentException(com.kwai.filedownloader.f.f.a("%s %s %B", this.f11205b, this.c, this.d));
+            if (this.f11206b == null || this.c == null || this.d == null || this.e == null) {
+                throw new IllegalArgumentException(com.kwai.filedownloader.f.f.a("%s %s %B", this.f11206b, this.c, this.d));
             }
-            ConnectTask a2 = this.f11204a.a();
-            return new c(a2.f11189a, this.e.intValue(), a2, this.f11205b, this.d.booleanValue(), this.c);
+            ConnectTask a2 = this.f11205a.a();
+            return new c(a2.f11190a, this.e.intValue(), a2, this.f11206b, this.d.booleanValue(), this.c);
         }
 
         public a b(String str) {
-            this.f11204a.b(str);
+            this.f11205a.b(str);
             return this;
         }
 
@@ -89,11 +89,11 @@ public class c implements Runnable {
 
     private c(int i, int i2, ConnectTask connectTask, f fVar, boolean z, String str) {
         this.h = i;
-        this.f11202a = i2;
+        this.f11203a = i2;
         this.g = false;
         this.c = fVar;
         this.d = str;
-        this.f11203b = connectTask;
+        this.f11204b = connectTask;
         this.e = z;
     }
 
@@ -118,19 +118,19 @@ public class c implements Runnable {
     public void run() {
         Process.setThreadPriority(10);
         com.kwai.filedownloader.a.b bVar = null;
-        long j = this.f11203b.e().f11198b;
+        long j = this.f11204b.e().f11199b;
         boolean z = false;
         while (!this.g) {
             try {
                 try {
                     try {
-                        bVar = this.f11203b.a();
+                        bVar = this.f11204b.a();
                         int e = bVar.e();
-                        if (com.kwai.filedownloader.f.d.f11227a) {
-                            com.kwai.filedownloader.f.d.c(this, "the connection[%d] for %d, is connected %s with requestHttpCode[%d]", Integer.valueOf(this.f11202a), Integer.valueOf(this.h), this.f11203b.e(), Integer.valueOf(e));
+                        if (com.kwai.filedownloader.f.d.f11228a) {
+                            com.kwai.filedownloader.f.d.c(this, "the connection[%d] for %d, is connected %s with requestHttpCode[%d]", Integer.valueOf(this.f11203a), Integer.valueOf(this.h), this.f11204b.e(), Integer.valueOf(e));
                         }
                         if (e != 206 && e != 200) {
-                            throw new SocketException(com.kwai.filedownloader.f.f.a("Connection failed with request[%s] response[%s] http-state[%d] on task[%d-%d], which is changed after verify connection, so please try again.", this.f11203b.d(), bVar.c(), Integer.valueOf(e), Integer.valueOf(this.h), Integer.valueOf(this.f11202a)));
+                            throw new SocketException(com.kwai.filedownloader.f.f.a("Connection failed with request[%s] response[%s] http-state[%d] on task[%d-%d], which is changed after verify connection, so please try again.", this.f11204b.d(), bVar.c(), Integer.valueOf(e), Integer.valueOf(this.h), Integer.valueOf(this.f11203a)));
                             break;
                         }
                         try {
@@ -142,7 +142,7 @@ public class c implements Runnable {
                                 }
                                 return;
                             }
-                            this.f = aVar.b(this.h).a(this.f11202a).a(this.c).a(this).a(this.e).a(bVar).a(this.f11203b.e()).a(this.d).a();
+                            this.f = aVar.b(this.h).a(this.f11203a).a(this.c).a(this).a(this.e).a(bVar).a(this.f11204b.e()).a(this.d).a();
                             this.f.b();
                             if (this.g) {
                                 this.f.a();
@@ -174,7 +174,7 @@ public class c implements Runnable {
                                 }
                                 return;
                             } else {
-                                this.c.a(e, this.f.f11210a - j);
+                                this.c.a(e, this.f.f11211a - j);
                             }
                             if (bVar != null) {
                                 bVar.f();

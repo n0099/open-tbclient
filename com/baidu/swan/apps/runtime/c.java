@@ -9,7 +9,7 @@ public class c extends d {
     public final e dGv = new e(this, "");
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppProcessInfo aJu() {
+    public SwanAppProcessInfo aJv() {
         return SwanAppProcessInfo.current();
     }
 
@@ -19,32 +19,32 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
+    public boolean aJx() {
+        return false;
+    }
+
+    @Override // com.baidu.swan.apps.runtime.h
     public boolean aJw() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public boolean aJv() {
-        return false;
-    }
-
-    @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppCores aJx() {
+    public SwanAppCores aJy() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public int ajk() {
+    public int ajl() {
         return -1;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.process.messaging.client.a aMb() {
+    public com.baidu.swan.apps.process.messaging.client.a aMc() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public e aMc() {
+    public e aMd() {
         return this.dGv;
     }
 
@@ -58,7 +58,7 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public void aMd() {
+    public void aMe() {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
@@ -70,12 +70,12 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public SwanAppActivity aMe() {
+    public SwanAppActivity aMf() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.runtime.d
-    protected com.baidu.swan.pms.c.f aMf() {
+    protected com.baidu.swan.pms.c.f aMg() {
         return null;
     }
 }

@@ -2,15 +2,15 @@ package com.baidu.mapapi.search.core;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class TransitBaseInfo implements Parcelable {
     public static final Parcelable.Creator<TransitBaseInfo> CREATOR = new o();
 
     /* renamed from: a  reason: collision with root package name */
-    private String f2979a;
+    private String f2980a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f2980b;
+    private String f2981b;
     private String c;
     private String d;
     private String e;
@@ -20,8 +20,8 @@ public class TransitBaseInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public TransitBaseInfo(Parcel parcel) {
-        this.f2979a = parcel.readString();
-        this.f2980b = parcel.readString();
+        this.f2980a = parcel.readString();
+        this.f2981b = parcel.readString();
         this.c = parcel.readString();
         this.d = parcel.readString();
         this.e = parcel.readString();
@@ -41,7 +41,7 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     public String getDepartureStation() {
-        return this.f2980b;
+        return this.f2981b;
     }
 
     public String getDepartureTime() {
@@ -49,7 +49,7 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     public String getName() {
-        return this.f2979a;
+        return this.f2980a;
     }
 
     public void setArriveStation(String str) {
@@ -61,7 +61,7 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     public void setDepartureStation(String str) {
-        this.f2980b = str;
+        this.f2981b = str;
     }
 
     public void setDepartureTime(String str) {
@@ -69,13 +69,13 @@ public class TransitBaseInfo implements Parcelable {
     }
 
     public void setName(String str) {
-        this.f2979a = str;
+        this.f2980a = str;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeString(this.f2979a);
-        parcel.writeString(this.f2980b);
+        parcel.writeString(this.f2980a);
+        parcel.writeString(this.f2981b);
         parcel.writeString(this.c);
         parcel.writeString(this.d);
         parcel.writeString(this.e);

@@ -15,7 +15,7 @@ public class b extends d {
     private Boolean cml;
     private Context mContext;
 
-    public static final b aeG() {
+    public static final b aeH() {
         if (cmm == null) {
             createInst();
         }
@@ -51,13 +51,13 @@ public class b extends d {
         super.a(aVar);
     }
 
-    private String aeH() {
+    private String aeI() {
         return this.cmj;
     }
 
-    private File aeI() {
-        if (this.cmk == null && com.baidu.minivideo.arface.b.adM() != null && !TextUtils.isEmpty(com.baidu.minivideo.arface.c.adU())) {
-            this.cmk = new File(com.baidu.minivideo.arface.c.adU());
+    private File aeJ() {
+        if (this.cmk == null && com.baidu.minivideo.arface.b.adN() != null && !TextUtils.isEmpty(com.baidu.minivideo.arface.c.adV())) {
+            this.cmk = new File(com.baidu.minivideo.arface.c.adV());
         }
         return this.cmk;
     }
@@ -66,13 +66,13 @@ public class b extends d {
         if (this.cml != null) {
             return this.cml.booleanValue();
         }
-        String aeH = aeH();
-        File aeI = aeI();
+        String aeI = aeI();
+        File aeJ = aeJ();
         if (isDebug()) {
-            log(String.format("from %s to %s ", aeH, aeI));
+            log(String.format("from %s to %s ", aeI, aeJ));
         }
-        String t = (aeI != null && aeI.exists() && aeI.isDirectory()) ? f.t(new File(aeI, "version")) : null;
-        String Q = TextUtils.isEmpty(t) ? null : f.Q(this.mContext, aeH + "/version");
+        String t = (aeJ != null && aeJ.exists() && aeJ.isDirectory()) ? f.t(new File(aeJ, "version")) : null;
+        String Q = TextUtils.isEmpty(t) ? null : f.Q(this.mContext, aeI + "/version");
         if (isDebug()) {
             log("assets=" + Q + ", sdcard=" + t);
         }
@@ -85,7 +85,7 @@ public class b extends d {
     public void bG(Context context) {
         boolean z = true;
         if (!isValid()) {
-            z = c(context, aeH(), aeI());
+            z = c(context, aeI(), aeJ());
         }
         if (z) {
             this.cml = null;
@@ -126,7 +126,7 @@ public class b extends d {
 
     @Override // com.baidu.minivideo.arface.utils.d
     public void run() {
-        ThreadPool.aeK().execute(new Runnable() { // from class: com.baidu.minivideo.arface.utils.b.1
+        ThreadPool.aeL().execute(new Runnable() { // from class: com.baidu.minivideo.arface.utils.b.1
             @Override // java.lang.Runnable
             public void run() {
                 b.this.bG(b.this.mContext);

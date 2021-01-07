@@ -10,9 +10,9 @@ import com.vivo.push.PushClientConstants;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i extends e {
-    private static final boolean DEBUG = com.baidu.prologue.a.b.a.ctd.get().ago();
+    private static final boolean DEBUG = com.baidu.prologue.a.b.a.ctd.get().agp();
     private static final String[] cvh = {"deeplink", "open"};
 
     @Override // com.baidu.prologue.c.e

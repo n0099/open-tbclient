@@ -120,7 +120,7 @@ public class a {
     private int fCY = 10;
     private boolean fCV = j.isNetWorkAvailable();
 
-    public static a bEv() {
+    public static a bEw() {
         return fCU;
     }
 
@@ -131,16 +131,16 @@ public class a {
             if (z) {
                 kL(true);
             } else {
-                bEw();
+                bEx();
             }
         }
     }
 
-    private void bEw() {
+    private void bEx() {
         this.handler.removeMessages(1);
     }
 
-    private void bEx() {
+    private void bEy() {
         this.handler.removeMessages(1);
         this.handler.sendEmptyMessageDelayed(1, this.fCX);
     }
@@ -164,15 +164,15 @@ public class a {
     public void kJ(boolean z) {
         MessageManager messageManager = MessageManager.getInstance();
         if (z) {
-            messageManager.registerTask(bEA());
+            messageManager.registerTask(bEB());
         }
-        messageManager.registerTask(bEy());
+        messageManager.registerTask(bEz());
         messageManager.registerListener(this.fCZ);
         messageManager.registerListener(this.fDa);
         messageManager.registerListener(this.downloadListener);
     }
 
-    private HttpMessageTask bEy() {
+    private HttpMessageTask bEz() {
         HttpMessageTask httpMessageTask = new HttpMessageTask(1003000, TbConfig.SERVER_ADDRESS + TbConfig.LOG_TOGETHER + "?cmd=" + CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
         httpMessageTask.setResponsedClass(DistributeHttpResponse.class);
         return httpMessageTask;
@@ -219,7 +219,7 @@ public class a {
         }
     }
 
-    private boolean bEz() {
+    private boolean bEA() {
         return this.handler.hasMessages(1);
     }
 
@@ -227,12 +227,12 @@ public class a {
     public void kL(boolean z) {
         if (this.fCV && this.isUpload) {
             List<AdReq> kM = kM(z);
-            if (z || !bEz()) {
-                bEx();
+            if (z || !bEA()) {
+                bEy();
             }
             if (kM != null && kM.size() != 0) {
                 if (!z) {
-                    bEx();
+                    bEy();
                 }
                 MessageManager.getInstance().sendMessage(new DistributeRequest(kM));
             }
@@ -259,7 +259,7 @@ public class a {
         return arrayList;
     }
 
-    private SocketMessageTask bEA() {
+    private SocketMessageTask bEB() {
         SocketMessageTask socketMessageTask = new SocketMessageTask(CmdConfigSocket.CMD_UPLOAD_ACTUAL_LOG);
         socketMessageTask.setNeedAck(true);
         socketMessageTask.setResponsedClass(DistributeSocketResponse.class);
@@ -348,7 +348,7 @@ public class a {
         }
         c a2 = h.a(downloadStaticsData, 101, 0);
         a2.gg(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "start");
-        e.dFV().a(a2);
+        e.dFW().a(a2);
         if (downloadStaticsData != null && "1".equals(downloadStaticsData.getDa_range_nt())) {
             downloadStaticsData.setDa_range_nt("0");
         }
@@ -379,7 +379,7 @@ public class a {
                 return;
             }
             a2.gg(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, str2);
-            e.dFV().a(a2);
+            e.dFW().a(a2);
         }
     }
 
@@ -389,7 +389,7 @@ public class a {
             c a2 = h.a(downloadStaticsData, 101, 0);
             a2.setDownloadStaticsData(null);
             a2.gg(IXAdCommonUtils.PKGS_PREF_DOWNLOAD_STATUS, "delete");
-            e.dFV().a(a2);
+            e.dFW().a(a2);
         }
     }
 

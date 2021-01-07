@@ -46,29 +46,29 @@ public class g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FrsViewData cFE;
+            FrsViewData cFF;
             ForumData forum;
             String name;
             SignData signData;
             boolean z;
             int i;
             boolean z2;
-            if (g.this.jhE != null && (customResponsedMessage instanceof SignMessage) && (cFE = g.this.jhE.cFE()) != null && cFE.getForum() != null && (name = (forum = cFE.getForum()).getName()) != null && name.equals(FrsActivityStatic.forumName) && customResponsedMessage.getOrginalMessage().getTag() == g.this.jJu) {
+            if (g.this.jhE != null && (customResponsedMessage instanceof SignMessage) && (cFF = g.this.jhE.cFF()) != null && cFF.getForum() != null && (name = (forum = cFF.getForum()).getName()) != null && name.equals(FrsActivityStatic.forumName) && customResponsedMessage.getOrginalMessage().getTag() == g.this.jJu) {
                 TiebaStatic.eventStat(g.this.jhE.getActivity(), "sign_end_time", System.currentTimeMillis() + "");
                 String name2 = forum.getName();
                 SignMessage signMessage = (SignMessage) customResponsedMessage;
                 if (!AntiHelper.bP(signMessage.mSignErrorCode, signMessage.mSignErrorString)) {
-                    h cEW = g.this.jhE.cEW();
+                    h cEX = g.this.jhE.cEX();
                     if (signMessage == null || signMessage.signData == null) {
                         signData = null;
                         z = false;
                     } else {
                         SignData signData2 = signMessage.signData;
                         if (signData2.forumId != null && signData2.forumId.equals(forum.getId())) {
-                            if (cEW != null) {
-                                cEW.LK(name2);
+                            if (cEX != null) {
+                                cEX.LJ(name2);
                             }
-                            cFE.updateSignData(signData2);
+                            cFF.updateSignData(signData2);
                             signData2.forumId = forum.getId();
                             signData2.forumName = forum.getName();
                             signData = signData2;
@@ -79,7 +79,7 @@ public class g {
                     }
                     if (z) {
                         int user_level = forum.getUser_level();
-                        if (cEW != null ? cEW.cNW() : false) {
+                        if (cEX != null ? cEX.cNX() : false) {
                             i = forum.getUser_level();
                             if (user_level >= i) {
                                 i++;
@@ -97,24 +97,24 @@ public class g {
                             z2 = false;
                         }
                         if (!z2 || !g.this.jJx) {
-                            if (g.this.cNE() && signData.contDays > 0) {
-                                com.baidu.tbadk.coreExtra.messageCenter.f.bCb().CZ(signData.userInfoJson);
+                            if (g.this.cNF() && signData.contDays > 0) {
+                                com.baidu.tbadk.coreExtra.messageCenter.f.bCc().CY(signData.userInfoJson);
                                 TbPageContext<?> tbPageContext = g.this.jhE.getTbPageContext();
                                 TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(g.this.jhE.getActivity(), "", g.this.jJt, false, true, true);
                                 tbWebViewActivityConfig.setPageTranslucent("open_full_screen_opacity_web_page");
                                 tbPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig));
-                                q.blA().blK().blP();
+                                q.blB().blL().blQ();
                                 return;
                             }
-                            com.baidu.tbadk.coreExtra.messageCenter.f.bCb().CZ(null);
-                            if (cEW == null || cEW.cNT()) {
+                            com.baidu.tbadk.coreExtra.messageCenter.f.bCc().CY(null);
+                            if (cEX == null || cEX.cNU()) {
                                 g.this.jhE.showToast(TbadkCoreApplication.getInst().getString(R.string.frs_sign_pointer, new Object[]{Integer.valueOf(signData.sign_bonus_point), Integer.valueOf(signData.user_sign_rank)}));
                             } else {
                                 g.this.jhE.showToast(TbadkCoreApplication.getInst().getString(R.string.frs_sign_success, new Object[]{Integer.valueOf(signData.user_sign_rank)}));
                             }
-                            com.baidu.tieba.frs.q cEZ = g.this.jhE.cEZ();
-                            if (cEZ != null) {
-                                com.baidu.tbadk.coreExtra.messageCenter.f.bCb().a(g.this.jhE.getTbPageContext(), cEZ.cqg());
+                            com.baidu.tieba.frs.q cFa = g.this.jhE.cFa();
+                            if (cFa != null) {
+                                com.baidu.tbadk.coreExtra.messageCenter.f.bCc().a(g.this.jhE.getTbPageContext(), cFa.cqh());
                                 return;
                             }
                             return;
@@ -132,7 +132,7 @@ public class g {
                                 jSONObject.put("icon_lifecycle", g.this.mSignActivityInfo.icon_lifecycle);
                                 jSONObject.put("activity_name", g.this.mSignActivityInfo.activity_name);
                                 jSONObject.put("image_url", g.this.mSignActivityInfo.image_url);
-                                com.baidu.tbadk.coreExtra.messageCenter.f.bCb().CZ(jSONObject.toString());
+                                com.baidu.tbadk.coreExtra.messageCenter.f.bCc().CY(jSONObject.toString());
                             } catch (Exception e2) {
                             }
                         }
@@ -140,11 +140,11 @@ public class g {
                         TbWebViewActivityConfig tbWebViewActivityConfig2 = new TbWebViewActivityConfig(g.this.jhE.getActivity(), "", g.this.jJy, false, true, true);
                         tbWebViewActivityConfig2.setPageTranslucent("open_full_screen_opacity_web_page");
                         tbPageContext2.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, tbWebViewActivityConfig2));
-                        q.blA().blK().blP();
+                        q.blB().blL().blQ();
                         return;
                     }
-                    if (signMessage.mSignErrorCode == 160002 && cEW != null) {
-                        cEW.BX(1);
+                    if (signMessage.mSignErrorCode == 160002 && cEX != null) {
+                        cEX.BX(1);
                     }
                     g.this.jhE.showToast(signMessage.mSignErrorString);
                     return;
@@ -173,19 +173,19 @@ public class g {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            FrsViewData cFE;
+            FrsViewData cFF;
             int i;
-            if (g.this.jhE != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (cFE = g.this.jhE.cFE()) != null && cFE.getForum() != null) {
-                ForumData forum = cFE.getForum();
+            if (g.this.jhE != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof SignData) && (cFF = g.this.jhE.cFF()) != null && cFF.getForum() != null) {
+                ForumData forum = cFF.getForum();
                 SignData signData = (SignData) customResponsedMessage.getData();
                 int user_level = forum.getUser_level();
                 if (signData.forumId != null && signData.forumId.equals(forum.getId())) {
-                    cFE.updateSignData(signData);
-                    h cEW = g.this.jhE.cEW();
+                    cFF.updateSignData(signData);
+                    h cEX = g.this.jhE.cEX();
                     boolean z = false;
-                    if (cEW != null) {
-                        cEW.l(cFE);
-                        z = cEW.cNW();
+                    if (cEX != null) {
+                        cEX.l(cFF);
+                        z = cEX.cNX();
                     }
                     if (z) {
                         i = forum.getUser_level();
@@ -219,7 +219,7 @@ public class g {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cNE() {
+    public boolean cNF() {
         return !TextUtils.isEmpty(this.jJt);
     }
 
@@ -238,22 +238,22 @@ public class g {
                 styleConfig.a(R.drawable.icon_pure_frs_sign16, 0, TBSpecificationButtonConfig.IconType.WEBP);
             }
             this.jJs.setTextSize(R.dimen.T_X08);
-            this.jJs.bxO();
+            this.jJs.bxP();
             this.jJs.setVisibility(0);
         }
     }
 
     public void rv(boolean z) {
         if (z) {
+            cNI();
+        } else if (cNF()) {
             cNH();
-        } else if (cNE()) {
-            cNG();
         } else {
-            cNF();
+            cNG();
         }
     }
 
-    private void cNF() {
+    private void cNG() {
         if (this.jJs != null) {
             int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds42);
             this.jJs.getLayoutParams().width = UtilHelper.getDimenPixelSize(R.dimen.tbds158);
@@ -263,23 +263,7 @@ public class g {
             TBSpecificationButtonConfig styleConfig = this.jJs.getStyleConfig();
             styleConfig.setIconSize(dimenPixelSize);
             styleConfig.a(R.drawable.icon_pure_frs_sign16, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.jJs.bxO();
-        }
-    }
-
-    private void cNG() {
-        if (this.jJs != null) {
-            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds52);
-            this.jJs.getLayoutParams().width = -2;
-            this.jJs.setPadding(0, 0, 0, 0);
-            this.jJs.setTextSize(R.dimen.T_X08);
-            this.jJs.setText(TbadkCoreApplication.getInst().getString(R.string.sign));
-            TBSpecificationButtonConfig styleConfig = this.jJs.getStyleConfig();
-            styleConfig.setIconSize(dimenPixelSize);
-            styleConfig.rr(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
-            styleConfig.a(TBSpecificationButtonConfig.WebpType.MASK);
-            styleConfig.a(R.drawable.icon_mask_frs_gold20, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.jJs.bxO();
+            this.jJs.bxP();
         }
     }
 
@@ -294,14 +278,30 @@ public class g {
             styleConfig.setIconSize(dimenPixelSize);
             styleConfig.rr(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
             styleConfig.a(TBSpecificationButtonConfig.WebpType.MASK);
+            styleConfig.a(R.drawable.icon_mask_frs_gold20, 0, TBSpecificationButtonConfig.IconType.WEBP);
+            this.jJs.bxP();
+        }
+    }
+
+    private void cNI() {
+        if (this.jJs != null) {
+            int dimenPixelSize = UtilHelper.getDimenPixelSize(R.dimen.tbds52);
+            this.jJs.getLayoutParams().width = -2;
+            this.jJs.setPadding(0, 0, 0, 0);
+            this.jJs.setTextSize(R.dimen.T_X08);
+            this.jJs.setText(TbadkCoreApplication.getInst().getString(R.string.sign));
+            TBSpecificationButtonConfig styleConfig = this.jJs.getStyleConfig();
+            styleConfig.setIconSize(dimenPixelSize);
+            styleConfig.rr(com.baidu.adp.lib.util.l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X002));
+            styleConfig.a(TBSpecificationButtonConfig.WebpType.MASK);
             styleConfig.a(R.drawable.icon_mask_frs_gift20, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.jJs.bxO();
+            this.jJs.bxP();
         }
     }
 
     public void rw(boolean z) {
         if (z && !this.jJw) {
-            aq.BY("c13560").an("obj_type", 1).bwn();
+            aq.BX("c13560").an("obj_type", 1).bwo();
             this.jJw = true;
         }
     }
@@ -347,7 +347,7 @@ public class g {
         if (frsViewData != null && frsViewData.getForum() != null && bVar != null && (signData = (forum = frsViewData.getForum()).getSignData()) != null) {
             bVar.a(forum, frsViewData);
             bVar.Cu(signData.is_signed);
-            if (signData.sign_bonus_point > 0 && bVar.cOX()) {
+            if (signData.sign_bonus_point > 0 && bVar.cOY()) {
                 a(bVar, signData);
                 forum.setCurScore(this.jbt);
                 forum.setLevelupScore(this.jJv);
@@ -366,12 +366,12 @@ public class g {
         this.jJx = z;
         TbSingleton.getInstance().setActivityId(str);
         if (this.jhE != null) {
-            FrsViewData cFE = this.jhE.cFE();
+            FrsViewData cFF = this.jhE.cFF();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null || currentAccount.length() <= 0) {
                 TbadkCoreApplication.getInst().login(this.jhE.getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(this.jhE.getActivity(), true, RequestResponseCode.REQUEST_LOGIN_SIGN)));
-            } else if (cFE != null && cFE.getForum() != null) {
-                ForumData forum = cFE.getForum();
+            } else if (cFF != null && cFF.getForum() != null) {
+                ForumData forum = cFF.getForum();
                 forum.setFromPage("frs");
                 FrsActivityStatic.forumName = forum.getName() == null ? "" : forum.getName();
                 CustomMessage customMessage = new CustomMessage((int) CmdConfigCustom.CMD_SIGN_MODEL_TASK, forum);
@@ -382,21 +382,21 @@ public class g {
     }
 
     public void T(int i, int i2, int i3) {
-        FrsViewData cFE;
-        if (this.jhE != null && i > 0 && i2 > 0 && (cFE = this.jhE.cFE()) != null && cFE.getForum() != null && cFE.getSignData() != null) {
-            ForumData forum = cFE.getForum();
-            SignData signData = cFE.getSignData();
+        FrsViewData cFF;
+        if (this.jhE != null && i > 0 && i2 > 0 && (cFF = this.jhE.cFF()) != null && cFF.getForum() != null && cFF.getSignData() != null) {
+            ForumData forum = cFF.getForum();
+            SignData signData = cFF.getSignData();
             signData.levelup_score = forum.getLevelupScore();
             signData.sign_bonus_point = i3;
             signData.miss_sign_num -= i2;
             signData.count_sign_num = i;
-            cFE.updateSignData(signData);
+            cFF.updateSignData(signData);
             signData.forumId = forum.getId();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_SIGN_REFRESH_SIGN_STATE, signData));
-            h cEW = this.jhE.cEW();
-            boolean cNW = cEW != null ? cEW.cNW() : false;
+            h cEX = this.jhE.cEX();
+            boolean cNX = cEX != null ? cEX.cNX() : false;
             int i4 = -1;
-            if (cNW) {
+            if (cNX) {
                 i4 = forum.getUser_level() + 1;
             }
             TbadkCoreApplication.getInst().addSignedForum(forum.getName(), signData.sign_bonus_point, i4);

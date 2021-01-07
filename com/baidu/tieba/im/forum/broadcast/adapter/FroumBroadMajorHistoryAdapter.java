@@ -54,10 +54,10 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
                 layoutParams.topMargin = this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds62);
                 froumBroadMajorHistoryItemViewHolder.kBH.setLayoutParams(layoutParams);
             }
-            if (bd.eb(bVar.cXO() * 1000)) {
-                froumBroadMajorHistoryItemViewHolder.kBH.setText(at.dM(bVar.cXO() * 1000));
+            if (bd.eb(bVar.cXP() * 1000)) {
+                froumBroadMajorHistoryItemViewHolder.kBH.setText(at.dM(bVar.cXP() * 1000));
             } else {
-                froumBroadMajorHistoryItemViewHolder.kBH.setText(at.dN(bVar.cXO() * 1000));
+                froumBroadMajorHistoryItemViewHolder.kBH.setText(at.dN(bVar.cXP() * 1000));
             }
             if (StringUtils.isNull(bVar.getPicUrl())) {
                 froumBroadMajorHistoryItemViewHolder.kCa.setVisibility(8);
@@ -80,7 +80,7 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
                 froumBroadMajorHistoryItemViewHolder.kBK.setVisibility(0);
                 froumBroadMajorHistoryItemViewHolder.kBK.setText(bVar.getContent());
             }
-            froumBroadMajorHistoryItemViewHolder.kBI.setText(bVar.cXT().forum_name);
+            froumBroadMajorHistoryItemViewHolder.kBI.setText(bVar.cXU().forum_name);
             froumBroadMajorHistoryItemViewHolder.kBU.setShowOval(true);
             froumBroadMajorHistoryItemViewHolder.kBU.setAutoChangeStyle(true);
             froumBroadMajorHistoryItemViewHolder.kBU.setStrokeWith(l.getDimens(this.mContext, R.dimen.tbds1));
@@ -88,25 +88,25 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
             froumBroadMajorHistoryItemViewHolder.kBU.setShowOuterBorder(false);
             froumBroadMajorHistoryItemViewHolder.kBU.setShowInnerBorder(true);
             froumBroadMajorHistoryItemViewHolder.kBU.setPlaceHolder(1);
-            froumBroadMajorHistoryItemViewHolder.kBU.startLoad(bVar.cXT().avatar, 10, false);
-            froumBroadMajorHistoryItemViewHolder.kBL.setText(this.mContext.getString(R.string.forum_broadcast_major_history_reacht_number, at.dY(bVar.cXP())));
-            froumBroadMajorHistoryItemViewHolder.kBM.setText(this.mContext.getString(R.string.forum_broadcast_major_history_read_number, at.dY(bVar.cXQ())));
-            int parseFloat = (int) (Float.parseFloat(bVar.cXR()) * 100.0f);
+            froumBroadMajorHistoryItemViewHolder.kBU.startLoad(bVar.cXU().avatar, 10, false);
+            froumBroadMajorHistoryItemViewHolder.kBL.setText(this.mContext.getString(R.string.forum_broadcast_major_history_reacht_number, at.dY(bVar.cXQ())));
+            froumBroadMajorHistoryItemViewHolder.kBM.setText(this.mContext.getString(R.string.forum_broadcast_major_history_read_number, at.dY(bVar.cXR())));
+            int parseFloat = (int) (Float.parseFloat(bVar.cXS()) * 100.0f);
             if (parseFloat < 0) {
                 parseFloat = 0;
             } else if (parseFloat > 100) {
                 parseFloat = 100;
             }
-            if (!StringUtils.isNull(bVar.cXR())) {
+            if (!StringUtils.isNull(bVar.cXS())) {
                 froumBroadMajorHistoryItemViewHolder.kBN.setText(this.mContext.getString(R.string.forum_broadcast_major_history_ctr_number, Integer.valueOf(parseFloat), "%"));
             } else {
                 froumBroadMajorHistoryItemViewHolder.kBN.setText("0%");
             }
-            if (bVar.cXU() != null) {
-                if (bVar.cXU().is_deleted.intValue() != 1) {
-                    if (bVar.cJE() != 1) {
-                        if (bVar.cJE() != 6) {
-                            if (bVar.cJE() == 10) {
+            if (bVar.cXV() != null) {
+                if (bVar.cXV().is_deleted.intValue() != 1) {
+                    if (bVar.cJF() != 1) {
+                        if (bVar.cJF() != 6) {
+                            if (bVar.cJF() == 10) {
                                 froumBroadMajorHistoryItemViewHolder.kBT.setVisibility(0);
                                 froumBroadMajorHistoryItemViewHolder.kBW.setVisibility(0);
                                 froumBroadMajorHistoryItemViewHolder.kBS.setVisibility(8);
@@ -142,7 +142,7 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
                     froumBroadMajorHistoryItemViewHolder.kBS.setVisibility(0);
                     froumBroadMajorHistoryItemViewHolder.kBZ.setVisibility(8);
                     froumBroadMajorHistoryItemViewHolder.kBO.setText(this.mContext.getString(R.string.forum_broadcast_major_history_pb_deleted));
-                    if (bVar.cJE() == 1 || bVar.cJE() == 6) {
+                    if (bVar.cJF() == 1 || bVar.cJF() == 6) {
                         froumBroadMajorHistoryItemViewHolder.kBT.setVisibility(8);
                         froumBroadMajorHistoryItemViewHolder.kBW.setVisibility(8);
                     } else {
@@ -154,7 +154,7 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
                 froumBroadMajorHistoryItemViewHolder.kBS.setVisibility(0);
                 froumBroadMajorHistoryItemViewHolder.kBZ.setVisibility(8);
                 froumBroadMajorHistoryItemViewHolder.kBO.setText(this.mContext.getString(R.string.forum_broadcast_major_history_pb_deleted));
-                if (bVar.cJE() == 1 || bVar.cJE() == 6) {
+                if (bVar.cJF() == 1 || bVar.cJF() == 6) {
                     froumBroadMajorHistoryItemViewHolder.kBT.setVisibility(8);
                     froumBroadMajorHistoryItemViewHolder.kBW.setVisibility(8);
                 } else {
@@ -184,7 +184,7 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
         ao.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kBN, R.color.CAM_X0107);
         ao.setBackgroundColor(froumBroadMajorHistoryItemViewHolder.kBW, R.color.CAM_X0203);
         ao.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kBP, R.color.CAM_X0105);
-        a.bwU().qq(0).m(R.color.CAM_X0601, R.color.CAM_X0606).ai(l.getDimens(this.mContext, R.dimen.tbds21)).ah(l.getDimens(this.mContext, R.dimen.tbds21)).bz(froumBroadMajorHistoryItemViewHolder.kBX);
+        a.bwV().qq(0).m(R.color.CAM_X0601, R.color.CAM_X0606).ai(l.getDimens(this.mContext, R.dimen.tbds21)).ah(l.getDimens(this.mContext, R.dimen.tbds21)).bz(froumBroadMajorHistoryItemViewHolder.kBX);
         if (TbadkCoreApplication.getInst().getSkinType() == 0) {
             if (i != 0) {
                 LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) froumBroadMajorHistoryItemViewHolder.kBH.getLayoutParams();
@@ -193,7 +193,7 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
             }
             froumBroadMajorHistoryItemViewHolder.kBR.setPadding(this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds23), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds21), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds21), this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds75));
             froumBroadMajorHistoryItemViewHolder.kBY.setVisibility(0);
-            a.bwT().qI(R.color.CAM_X0205).qD(l.getDimens(this.mContext, R.dimen.tbds31)).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.mContext, R.dimen.tbds10)).qG(0).qH(l.getDimens(this.mContext, R.dimen.tbds5)).bz(froumBroadMajorHistoryItemViewHolder.kBY);
+            a.bwU().qI(R.color.CAM_X0205).qD(l.getDimens(this.mContext, R.dimen.tbds31)).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.mContext, R.dimen.tbds10)).qG(0).qH(l.getDimens(this.mContext, R.dimen.tbds5)).bz(froumBroadMajorHistoryItemViewHolder.kBY);
         } else {
             FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) froumBroadMajorHistoryItemViewHolder.kBR.getLayoutParams();
             layoutParams2.leftMargin = l.getDimens(this.mContext, R.dimen.tbds21);
@@ -202,12 +202,12 @@ public class FroumBroadMajorHistoryAdapter extends RecyclerView.Adapter<FroumBro
             froumBroadMajorHistoryItemViewHolder.kBR.setLayoutParams(layoutParams2);
             froumBroadMajorHistoryItemViewHolder.kBR.setPadding(0, 0, 0, this.mContext.getResources().getDimensionPixelOffset(R.dimen.tbds54));
             froumBroadMajorHistoryItemViewHolder.kBY.setVisibility(8);
-            a.bwU().qq(0).qx(l.getDimens(this.mContext, R.dimen.tbds31)).qr(R.color.CAM_X0205).bz(froumBroadMajorHistoryItemViewHolder.kBR);
+            a.bwV().qq(0).qx(l.getDimens(this.mContext, R.dimen.tbds31)).qr(R.color.CAM_X0205).bz(froumBroadMajorHistoryItemViewHolder.kBR);
         }
-        if (bVar.cXU() != null) {
-            if (bVar.cXU().is_deleted.intValue() != 1) {
-                if (bVar.cJE() != 1) {
-                    if (bVar.cJE() != 6) {
+        if (bVar.cXV() != null) {
+            if (bVar.cXV().is_deleted.intValue() != 1) {
+                if (bVar.cJF() != 1) {
+                    if (bVar.cJF() != 6) {
                         return;
                     }
                     ao.setViewTextColor(froumBroadMajorHistoryItemViewHolder.kBO, R.color.CAM_X0301);

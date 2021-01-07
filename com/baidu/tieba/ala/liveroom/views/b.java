@@ -301,7 +301,7 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
                 nameShow = "";
             }
             this.hPW.setText("长按二维码认识 " + nameShow);
-            if (cnQ()) {
+            if (cnR()) {
                 this.hPY.setVisibility(0);
                 this.hPZ.setText(this.mContext.getResources().getString(a.h.ala_live_end_official_qq_group) + " " + com.baidu.live.af.a.SE().bwi.aPc.aKE);
                 this.hQa.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.b.4
@@ -350,7 +350,7 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
     }
 
-    private boolean cnQ() {
+    private boolean cnR() {
         return (com.baidu.live.af.a.SE().bwi == null || com.baidu.live.af.a.SE().bwi.aPc == null || TextUtils.isEmpty(com.baidu.live.af.a.SE().bwi.aPc.aKE)) ? false : true;
     }
 
@@ -389,7 +389,7 @@ public class b extends com.baidu.live.liveroom.middleware.a.a {
         this.hPI.setVisibility(0);
         this.hPJ.setVisibility(4);
         this.hPR.setVisibility(0);
-        if (cnQ()) {
+        if (cnR()) {
             this.hPY.setVisibility(0);
         }
         this.hPT.setAlpha(0.0f);

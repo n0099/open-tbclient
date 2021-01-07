@@ -11,23 +11,23 @@ import java.util.List;
 import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ab {
     private int B;
 
     /* renamed from: a  reason: collision with root package name */
-    long f2591a = 0;
+    long f2592a = 0;
     private a z;
 
     /* renamed from: b  reason: collision with root package name */
-    private static ArrayList<String> f2590b = new ArrayList<>();
+    private static ArrayList<String> f2591b = new ArrayList<>();
     private static ArrayList<String> c = new ArrayList<>();
     private static ArrayList<String> d = new ArrayList<>();
-    private static String e = com.baidu.location.e.k.f2731a + "/yo.dat";
-    private static String f = com.baidu.location.e.k.f2731a + "/yoh.dat";
-    private static String g = com.baidu.location.e.k.f2731a + "/yom.dat";
-    private static String h = com.baidu.location.e.k.f2731a + "/yol.dat";
-    private static String i = com.baidu.location.e.k.f2731a + "/yor.dat";
+    private static String e = com.baidu.location.e.k.f2732a + "/yo.dat";
+    private static String f = com.baidu.location.e.k.f2732a + "/yoh.dat";
+    private static String g = com.baidu.location.e.k.f2732a + "/yom.dat";
+    private static String h = com.baidu.location.e.k.f2732a + "/yol.dat";
+    private static String i = com.baidu.location.e.k.f2732a + "/yor.dat";
     private static File j = null;
     private static int k = 8;
     private static int l = 8;
@@ -47,14 +47,14 @@ public class ab {
     private static ab A = null;
     private static long C = 0;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     private class a extends com.baidu.location.e.f {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f2592a = false;
+        boolean f2593a = false;
 
         /* renamed from: b  reason: collision with root package name */
-        int f2593b = 0;
+        int f2594b = 0;
         int c = 0;
         private ArrayList<String> e = new ArrayList<>();
         private boolean f = true;
@@ -66,20 +66,20 @@ public class ab {
         @Override // com.baidu.location.e.f
         public void a() {
             this.h = com.baidu.location.e.l.e();
-            if (this.f2593b != 1) {
+            if (this.f2594b != 1) {
                 this.h = com.baidu.location.e.l.g();
             }
             this.i = 2;
             if (this.e != null) {
                 for (int i = 0; i < this.e.size(); i++) {
-                    if (this.f2593b == 1) {
+                    if (this.f2594b == 1) {
                         this.k.put("cldc[" + i + "]", this.e.get(i));
                     } else {
                         this.k.put("cltr[" + i + "]", this.e.get(i));
                     }
                 }
                 this.k.put("trtm", String.format(Locale.CHINA, "%d", Long.valueOf(System.currentTimeMillis())));
-                if (this.f2593b != 1) {
+                if (this.f2594b != 1) {
                     this.k.put("qt", "cltrg");
                 }
             }
@@ -103,34 +103,34 @@ public class ab {
             if (this.k != null) {
                 this.k.clear();
             }
-            this.f2592a = false;
+            this.f2593a = false;
         }
 
         public synchronized void b() {
             int i = 0;
             synchronized (this) {
-                if (!this.f2592a) {
+                if (!this.f2593a) {
                     if (p <= 4 || this.c >= p) {
                         this.c = 0;
-                        this.f2592a = true;
-                        this.f2593b = 0;
+                        this.f2593a = true;
+                        this.f2594b = 0;
                         try {
                             if (this.e == null || this.e.size() < 1) {
                                 if (this.e == null) {
                                     this.e = new ArrayList<>();
                                 }
-                                this.f2593b = 0;
+                                this.f2594b = 0;
                                 while (true) {
-                                    String b2 = this.f2593b < 2 ? ab.b() : null;
-                                    if (b2 == null && this.f2593b != 1 && this.f) {
-                                        this.f2593b = 2;
+                                    String b2 = this.f2594b < 2 ? ab.b() : null;
+                                    if (b2 == null && this.f2594b != 1 && this.f) {
+                                        this.f2594b = 2;
                                         try {
                                             b2 = j.a();
                                         } catch (Exception e) {
                                             b2 = null;
                                         }
                                     } else {
-                                        this.f2593b = 1;
+                                        this.f2594b = 1;
                                     }
                                     if (b2 == null) {
                                         break;
@@ -147,8 +147,8 @@ public class ab {
                                 if (this.e != null) {
                                     this.e.clear();
                                 }
-                                this.f2592a = false;
-                            } else if (this.f2593b != 1) {
+                                this.f2593a = false;
+                            } else if (this.f2594b != 1) {
                                 ExecutorService c = z.a().c();
                                 if (c != null) {
                                     a(c, com.baidu.location.e.l.g());
@@ -274,7 +274,7 @@ public class ab {
         String str3 = null;
         if (i2 == 1) {
             str = f;
-            arrayList = f2590b;
+            arrayList = f2591b;
         } else if (i2 == 2) {
             str = g;
             arrayList = c;
@@ -325,10 +325,10 @@ public class ab {
             if (z) {
                 return;
             }
-            arrayList = f2590b;
+            arrayList = f2591b;
         } else if (i2 == 2) {
             str = g;
-            arrayList = z ? f2590b : c;
+            arrayList = z ? f2591b : c;
         } else if (i2 == 3) {
             str = h;
             arrayList = z ? c : d;
@@ -508,7 +508,7 @@ public class ab {
     }
 
     private static boolean a(Location location, com.baidu.location.c.h hVar) {
-        if (location == null || hVar == null || hVar.f2696a == null || hVar.f2696a.isEmpty() || hVar.b(y)) {
+        if (location == null || hVar == null || hVar.f2697a == null || hVar.f2697a.isEmpty() || hVar.b(y)) {
             return false;
         }
         if (x == null) {
@@ -592,7 +592,7 @@ public class ab {
             if (file.exists()) {
                 return;
             }
-            File file2 = new File(com.baidu.location.e.k.f2731a);
+            File file2 = new File(com.baidu.location.e.k.f2732a);
             if (!file2.exists()) {
                 file2.mkdirs();
             }
@@ -676,7 +676,7 @@ public class ab {
             if (!str.contains("err!")) {
                 int i2 = com.baidu.location.e.l.q;
                 if (i2 == 1) {
-                    arrayList = f2590b;
+                    arrayList = f2591b;
                 } else if (i2 == 2) {
                     arrayList = c;
                 } else if (i2 == 3) {

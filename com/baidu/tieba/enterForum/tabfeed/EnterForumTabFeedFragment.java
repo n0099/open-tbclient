@@ -41,7 +41,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
         if (this.iNi == null) {
             this.iNi = new EnterForumTabFeedNetModel(getPageContext(), this, getUniqueId());
             this.iNi.eS(this.tabCode, this.tabName);
-            this.iNi.czM();
+            this.iNi.czN();
         }
     }
 
@@ -72,13 +72,13 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onPause() {
         super.onPause();
-        s.cva().pv(false);
+        s.cvb().pv(false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        s.cva().pv(false);
+        s.cvb().pv(false);
         if (this.iNi != null) {
             this.iNi.destory();
         }
@@ -139,9 +139,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
     }
 
     @Override // com.baidu.tieba.enterForum.tabfeed.b
-    public void czD() {
+    public void czE() {
         if (this.iNi != null) {
-            this.iNi.bUp();
+            this.iNi.bUq();
         }
     }
 
@@ -149,7 +149,7 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
         if (this.iNi != null) {
             if (this.iNj != null && z) {
                 if (this.iNi.hasData()) {
-                    this.iNj.czQ();
+                    this.iNj.czR();
                     this.iNj.lU(true);
                 } else {
                     hideNetRefreshView(this.rootView);
@@ -228,9 +228,9 @@ public class EnterForumTabFeedFragment extends BaseFragment implements b {
         }
     }
 
-    public boolean cyI() {
+    public boolean cyJ() {
         if (this.iNj != null) {
-            return this.iNj.czR();
+            return this.iNj.czS();
         }
         return true;
     }

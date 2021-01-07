@@ -169,18 +169,18 @@ public final class DownloadManager {
             download.mCurrentLength = j2;
             download.mFileLength = j3;
             long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - download.f1733a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
-                download.f1733a = currentTimeMillis;
+            if (currentTimeMillis - download.f1734a >= DownloadManager.MIN_PROGRESS_INTERVAL) {
+                download.f1734a = currentTimeMillis;
                 int progress = download.getProgress();
                 if (progress != download.c) {
                     DownloadManager.this.notifyProgressChange(j, progress);
                     download.c = progress;
                 }
-                if (currentTimeMillis - download.f1734b > 2000) {
+                if (currentTimeMillis - download.f1735b > 2000) {
                     long currentTimeMillis2 = System.currentTimeMillis();
                     DownloadManager.this.mDbHelper.b(download);
                     LogUtil.logE("DownloadManager", "1新的更新数据库用时time:" + (System.currentTimeMillis() - currentTimeMillis2) + "ms");
-                    download.f1734b = currentTimeMillis;
+                    download.f1735b = currentTimeMillis;
                 }
             }
         }

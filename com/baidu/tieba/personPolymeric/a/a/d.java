@@ -25,20 +25,20 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     private int hWZ;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
+    private int mvl;
     private int mvm;
-    private int mvn;
 
     public d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
         this.alQ = true;
+        this.mvl = 0;
         this.mvm = 0;
-        this.mvn = 0;
         this.hWZ = 0;
         this.ahf = new aa<k>() { // from class: com.baidu.tieba.personPolymeric.a.a.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, k kVar) {
-                if (view != null && kVar != null && kVar.boO() != null && view.getId() == R.id.forum_name_text) {
+                if (view != null && kVar != null && kVar.boP() != null && view.getId() == R.id.forum_name_text) {
                     com.baidu.tieba.personPolymeric.a.a(view, kVar, 7);
                 }
             }
@@ -56,8 +56,8 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
         dVar.setPageUniqueId(this.fJu);
         dVar.bt(1024);
         dVar.bt(32768);
-        if (this.mvm > 0) {
-            dVar.bs(this.mvm);
+        if (this.mvl > 0) {
+            dVar.bs(this.mvl);
         }
         dVar.aC(false);
         dVar.aD(false);
@@ -77,7 +77,7 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
         tw.setSourceForPb(4);
         ThreadCardViewHolder<k> threadCardViewHolder = new ThreadCardViewHolder<>(tw);
         threadCardViewHolder.setPageId(this.fJu);
-        threadCardViewHolder.bE(this.mvn);
+        threadCardViewHolder.bE(this.mvm);
         a(new w() { // from class: com.baidu.tieba.personPolymeric.a.a.d.2
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
@@ -118,12 +118,12 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 
     public void Im(int i) {
-        this.mvm = i;
+        this.mvl = i;
     }
 
     public void setTabType(int i) {
@@ -135,6 +135,6 @@ public class d extends com.baidu.adp.widget.ListView.a<k, ThreadCardViewHolder<k
     }
 
     public void Il(int i) {
-        this.mvn = i;
+        this.mvm = i;
     }
 }

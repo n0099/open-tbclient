@@ -1,19 +1,19 @@
 package com.baidu.b.f;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f1614a;
+    private String f1615a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f1615b;
+    private boolean f1616b;
     private boolean c;
 
     public a(String str, boolean z, boolean z2) {
-        this.f1614a = str;
-        this.f1615b = z;
+        this.f1615a = str;
+        this.f1616b = z;
         this.c = z2;
     }
 
@@ -58,13 +58,13 @@ public class a {
             iArr[6] = (byte) (((sArr[3] & 3) << 3) | ((sArr[4] >> 5) & 7));
             iArr[7] = (byte) (sArr[4] & 31);
             for (int i4 = 0; i4 < iArr.length - a2; i4++) {
-                char charAt = this.f1614a.charAt(iArr[i4]);
+                char charAt = this.f1615a.charAt(iArr[i4]);
                 if (this.c) {
                     charAt = Character.toLowerCase(charAt);
                 }
                 byteArrayOutputStream.write(charAt);
             }
-            if (this.f1615b) {
+            if (this.f1616b) {
                 for (int length = iArr.length - a2; length < iArr.length; length++) {
                     byteArrayOutputStream.write(61);
                 }

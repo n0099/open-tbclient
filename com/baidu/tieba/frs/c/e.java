@@ -31,7 +31,7 @@ public class e {
         return String.format("%s_%s_%s", objArr);
     }
 
-    public boolean cMW() {
+    public boolean cMX() {
         return this.joP;
     }
 
@@ -39,7 +39,7 @@ public class e {
         this.joP = z;
     }
 
-    public boolean cMX() {
+    public boolean cMY() {
         return this.jHH;
     }
 
@@ -51,7 +51,7 @@ public class e {
         this.jHI = z;
     }
 
-    public boolean cMY() {
+    public boolean cMZ() {
         return this.jHI;
     }
 }

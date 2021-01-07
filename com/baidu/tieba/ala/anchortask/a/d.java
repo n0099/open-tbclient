@@ -31,7 +31,7 @@ public class d {
                 cVar.url = d.this.gNe;
                 cVar.bXf = 510.0f;
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913232, cVar));
-                d.this.bVT();
+                d.this.bVU();
                 d.this.handler.removeCallbacksAndMessages(null);
                 d.this.handler.postDelayed(d.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
             }
@@ -40,7 +40,7 @@ public class d {
     private Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ala.anchortask.a.d.2
         @Override // java.lang.Runnable
         public void run() {
-            d.this.bVT();
+            d.this.bVU();
             d.this.handler.postDelayed(d.this.runnable, AppStatusRules.DEFAULT_GRANULARITY);
         }
     };
@@ -97,7 +97,7 @@ public class d {
         MessageManager.getInstance().registerListener(this.gMS);
     }
 
-    public void bVT() {
+    public void bVU() {
         if (this.alaLiveShowData != null) {
             long j = this.alaLiveShowData.mLiveInfo.live_id;
             long j2 = this.alaLiveShowData.mLiveInfo.user_id;

@@ -30,7 +30,7 @@ public class n extends d {
         this.oSk = (TextView) this.mConvertView.findViewById(a.f.bd_im_chating_time_txt);
         this.oSn = (ImageView) this.mConvertView.findViewById(a.f.bd_im_headview);
         this.jnJ = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_name);
-        this.mtx = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
+        this.mtw = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_agetime);
         this.oSo = (TextView) this.mConvertView.findViewById(a.f.bd_im_user_constellation);
         this.mConvertView.setTag(this);
     }
@@ -45,19 +45,19 @@ public class n extends d {
         return this.mContentView;
     }
 
-    public void ele() {
+    public void elf() {
         this.mProgressBar.setVisibility(0);
     }
 
-    public void elf() {
+    public void elg() {
         this.mProgressBar.setVisibility(4);
     }
 
-    public void elg() {
+    public void elh() {
         this.oTv.setVisibility(8);
     }
 
-    public void elh() {
+    public void eli() {
         this.oTv.setVisibility(8);
     }
 
@@ -77,7 +77,7 @@ public class n extends d {
         this.jNe.setImageResource(a.e.bd_im_loading_default);
         try {
             if (this.mContentView != null) {
-                if (ThemeManager.enQ() == ThemeManager.ThemeMode.NIGHT) {
+                if (ThemeManager.enR() == ThemeManager.ThemeMode.NIGHT) {
                     this.mContentView.setBackground(null);
                 } else {
                     this.mContentView.setBackground(null);

@@ -11,7 +11,7 @@ public class c implements com.baidu.swan.config.a {
     }
 
     @Override // com.baidu.swan.config.a
-    public CookieManager aBI() {
-        return com.baidu.swan.apps.t.a.aAQ().alT();
+    public CookieManager aBJ() {
+        return com.baidu.swan.apps.t.a.aAR().alU();
     }
 }

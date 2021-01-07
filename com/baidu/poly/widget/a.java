@@ -11,7 +11,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.baidu.poly.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a extends RelativeLayout implements View.OnClickListener {
     private ImageView cqP;
     private TextView cqQ;
@@ -20,7 +20,7 @@ public class a extends RelativeLayout implements View.OnClickListener {
     private InterfaceC0323a cqT;
 
     /* renamed from: com.baidu.poly.widget.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface InterfaceC0323a {
         void a();
     }
@@ -44,7 +44,7 @@ public class a extends RelativeLayout implements View.OnClickListener {
         String icon = oVar.getIcon();
         int P = oVar.P();
         int N = oVar.N();
-        com.baidu.poly.a.d.b.aft().b(this.cqP, icon);
+        com.baidu.poly.a.d.b.afu().b(this.cqP, icon);
         this.cqQ.setText(displayName);
         if (P == 1) {
             this.cqS.setImageResource(b.d.channel_checked);

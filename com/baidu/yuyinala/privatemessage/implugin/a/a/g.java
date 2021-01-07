@@ -64,9 +64,9 @@ public class g extends f {
             public void onClick(View view) {
             }
         });
-        eld();
+        ele();
     }
 
-    private void eld() {
+    private void ele() {
     }
 }

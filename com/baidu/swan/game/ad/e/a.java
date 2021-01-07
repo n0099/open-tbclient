@@ -7,7 +7,7 @@ public class a {
     private static volatile a ecJ;
     private List<k> mCallbacks = new CopyOnWriteArrayList();
 
-    public static a aWe() {
+    public static a aWf() {
         if (ecJ == null) {
             synchronized (a.class) {
                 if (ecJ == null) {

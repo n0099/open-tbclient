@@ -33,7 +33,7 @@ public class f extends g {
         return this;
     }
 
-    public int bgT() {
+    public int bgU() {
         return this.exO;
     }
 
@@ -45,19 +45,19 @@ public class f extends g {
         return this.exJ;
     }
 
-    public String bgY() {
+    public String bgZ() {
         return this.exQ;
     }
 
-    public int bha() {
+    public int bhb() {
         return this.exT;
     }
 
-    public String bgU() {
+    public String bgV() {
         return this.exM;
     }
 
-    public String bgV() {
+    public String bgW() {
         return this.exN;
     }
 }

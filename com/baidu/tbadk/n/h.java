@@ -96,22 +96,22 @@ public class h extends g {
         }
     }
 
-    public void bHC() {
-        m mVar = (m) k.bHF().sW(this.mSubType);
+    public void bHD() {
+        m mVar = (m) k.bHG().sW(this.mSubType);
         if (mVar != null) {
             mVar.a(this);
         }
     }
 
     public void ln(boolean z) {
-        m mVar = (m) k.bHF().sW(this.mSubType);
+        m mVar = (m) k.bHG().sW(this.mSubType);
         if (mVar != null) {
             mVar.a(this, z);
         }
     }
 
     public void sV(int i) {
-        m mVar = (m) k.bHF().sW(this.mSubType);
+        m mVar = (m) k.bHG().sW(this.mSubType);
         if (mVar != null) {
             mVar.a(this, i);
         }

@@ -6,16 +6,16 @@ import java.util.Arrays;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Charset f9335a = Charset.forName("ISO-8859-1");
+    private static final Charset f9336a = Charset.forName("ISO-8859-1");
 
     /* loaded from: classes5.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f9336a = new a(false, false);
+        static final a f9337a = new a(false, false);
 
         /* renamed from: b  reason: collision with root package name */
-        static final a f9337b = new a(true, false);
+        static final a f9338b = new a(true, false);
         private static final int[] c = new int[256];
         private static final int[] d = new int[256];
         private final boolean e;
@@ -170,7 +170,7 @@ public class c {
         }
 
         public byte[] a(String str) {
-            return a(str.getBytes(c.f9335a));
+            return a(str.getBytes(c.f9336a));
         }
 
         public byte[] a(byte[] bArr) {
@@ -188,10 +188,10 @@ public class c {
         private final boolean j;
 
         /* renamed from: a  reason: collision with root package name */
-        static final b f9338a = new b(false, null, -1, true);
+        static final b f9339a = new b(false, null, -1, true);
 
         /* renamed from: b  reason: collision with root package name */
-        static final b f9339b = new b(true, null, -1, false);
+        static final b f9340b = new b(true, null, -1, false);
         private static final char[] d = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '+', '/'};
         private static final char[] e = {'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '-', '_'};
         private static final byte[] f = {13, 10};
@@ -299,10 +299,10 @@ public class c {
     }
 
     public static b a() {
-        return b.f9338a;
+        return b.f9339a;
     }
 
     public static a b() {
-        return a.f9336a;
+        return a.f9337a;
     }
 }

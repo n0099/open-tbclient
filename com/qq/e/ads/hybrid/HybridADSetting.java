@@ -2,7 +2,7 @@ package com.qq.e.ads.hybrid;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class HybridADSetting implements Parcelable {
     public static final Parcelable.Creator<HybridADSetting> CREATOR = new Parcelable.Creator<HybridADSetting>() { // from class: com.qq.e.ads.hybrid.HybridADSetting.1
         /* JADX DEBUG: Method merged with bridge method */
@@ -22,10 +22,10 @@ public class HybridADSetting implements Parcelable {
     public static final int TYPE_REWARD_VIDEO = 1;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11760a;
+    private int f11761a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11761b;
+    private int f11762b;
     private int c;
     private int d;
     private int e;
@@ -36,8 +36,8 @@ public class HybridADSetting implements Parcelable {
     private int j;
 
     public HybridADSetting() {
-        this.f11760a = 1;
-        this.f11761b = 44;
+        this.f11761a = 1;
+        this.f11762b = 44;
         this.c = -1;
         this.d = -14013133;
         this.e = 16;
@@ -46,15 +46,15 @@ public class HybridADSetting implements Parcelable {
     }
 
     protected HybridADSetting(Parcel parcel) {
-        this.f11760a = 1;
-        this.f11761b = 44;
+        this.f11761a = 1;
+        this.f11762b = 44;
         this.c = -1;
         this.d = -14013133;
         this.e = 16;
         this.i = -1776153;
         this.j = 16;
-        this.f11760a = parcel.readInt();
-        this.f11761b = parcel.readInt();
+        this.f11761a = parcel.readInt();
+        this.f11762b = parcel.readInt();
         this.c = parcel.readInt();
         this.d = parcel.readInt();
         this.e = parcel.readInt();
@@ -110,7 +110,7 @@ public class HybridADSetting implements Parcelable {
     }
 
     public int getTitleBarHeight() {
-        return this.f11761b;
+        return this.f11762b;
     }
 
     public int getTitleColor() {
@@ -122,7 +122,7 @@ public class HybridADSetting implements Parcelable {
     }
 
     public int getType() {
-        return this.f11760a;
+        return this.f11761a;
     }
 
     public HybridADSetting separatorColor(int i) {
@@ -141,7 +141,7 @@ public class HybridADSetting implements Parcelable {
     }
 
     public HybridADSetting titleBarHeight(int i) {
-        this.f11761b = i;
+        this.f11762b = i;
         return this;
     }
 
@@ -156,14 +156,14 @@ public class HybridADSetting implements Parcelable {
     }
 
     public HybridADSetting type(int i) {
-        this.f11760a = i;
+        this.f11761a = i;
         return this;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeInt(this.f11760a);
-        parcel.writeInt(this.f11761b);
+        parcel.writeInt(this.f11761a);
+        parcel.writeInt(this.f11762b);
         parcel.writeInt(this.c);
         parcel.writeInt(this.d);
         parcel.writeInt(this.e);

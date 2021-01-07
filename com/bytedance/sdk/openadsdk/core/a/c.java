@@ -11,10 +11,10 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     protected static int A;
 
     /* renamed from: a  reason: collision with root package name */
-    private static float f6742a;
+    private static float f6743a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static float f6743b;
+    private static float f6744b;
     private static float c;
     private static float d;
     private static long e;
@@ -36,8 +36,8 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
         if (ViewConfiguration.get(p.a()) != null) {
             A = ViewConfiguration.get(p.a()).getScaledTouchSlop();
         }
-        f6742a = 0.0f;
-        f6743b = 0.0f;
+        f6743a = 0.0f;
+        f6744b = 0.0f;
         c = 0.0f;
         d = 0.0f;
         e = 0L;
@@ -71,10 +71,10 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
                 i = 3;
                 break;
             case 2:
-                c += Math.abs(motionEvent.getX() - f6742a);
-                d += Math.abs(motionEvent.getY() - f6743b);
-                f6742a = motionEvent.getX();
-                f6743b = motionEvent.getY();
+                c += Math.abs(motionEvent.getX() - f6743a);
+                d += Math.abs(motionEvent.getY() - f6744b);
+                f6743a = motionEvent.getX();
+                f6744b = motionEvent.getY();
                 if (System.currentTimeMillis() - e > 200 && (c > A || d > A)) {
                     i = 1;
                     break;
@@ -97,17 +97,17 @@ public abstract class c implements View.OnClickListener, View.OnTouchListener {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f6744a;
+        public int f6745a;
 
         /* renamed from: b  reason: collision with root package name */
-        public double f6745b;
+        public double f6746b;
         public double c;
         public long d;
 
         public a(int i, double d, double d2, long j) {
-            this.f6744a = -1;
-            this.f6744a = i;
-            this.f6745b = d;
+            this.f6745a = -1;
+            this.f6745a = i;
+            this.f6746b = d;
             this.c = d2;
             this.d = j;
         }

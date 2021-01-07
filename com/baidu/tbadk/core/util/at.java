@@ -418,7 +418,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return String.valueOf(time / MS_TO_DAY) + fdr;
     }
 
-    public static boolean Ca(String str) {
+    public static boolean BZ(String str) {
         if (str.length() != 10) {
             return false;
         }
@@ -1278,14 +1278,14 @@ public class at extends com.baidu.adp.lib.util.k {
         return sb.toString();
     }
 
-    public static boolean Cb(String str) {
+    public static boolean Ca(String str) {
         if (str == null || str.length() == 0) {
             return false;
         }
-        return Cc(str) || uQ(str);
+        return Cb(str) || uQ(str);
     }
 
-    public static boolean Cc(String str) {
+    public static boolean Cb(String str) {
         return str != null && str.length() > 6 && str.substring(0, 7).equalsIgnoreCase("http://");
     }
 
@@ -1293,7 +1293,7 @@ public class at extends com.baidu.adp.lib.util.k {
         return str != null && str.length() > 7 && str.substring(0, 8).equalsIgnoreCase(SapiUtils.COOKIE_HTTPS_URL_PREFIX);
     }
 
-    public static boolean Cd(String str) {
+    public static boolean Cc(String str) {
         if (isEmpty(str)) {
             return false;
         }

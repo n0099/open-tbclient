@@ -1,32 +1,32 @@
 package com.qq.e.comm.plugin.s;
 
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    int f12746a;
+    int f12747a;
 
     /* renamed from: b  reason: collision with root package name */
-    String f12747b;
+    String f12748b;
     String c;
     String d;
     String e;
 
     public c(JSONObject jSONObject) {
-        this.f12746a = jSONObject.optInt("type");
-        this.f12747b = jSONObject.optString("cta_txt");
+        this.f12747a = jSONObject.optInt("type");
+        this.f12748b = jSONObject.optString("cta_txt");
         this.c = jSONObject.optString("form_url");
         this.d = jSONObject.optString("consult_url");
         this.e = jSONObject.optString("tel");
     }
 
     public int a() {
-        return this.f12746a;
+        return this.f12747a;
     }
 
     public String b() {
-        return this.f12747b;
+        return this.f12748b;
     }
 
     public String c() {

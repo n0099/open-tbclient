@@ -7,14 +7,14 @@ import java.security.MessageDigest;
 public final class a implements c {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final a f10281b = new a();
+    private static final a f10282b = new a();
 
     private a() {
     }
 
     @NonNull
     public static a a() {
-        return f10281b;
+        return f10282b;
     }
 
     @Override // com.kwad.sdk.glide.load.c

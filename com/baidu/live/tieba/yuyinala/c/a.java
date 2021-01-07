@@ -13,11 +13,11 @@ public class a {
         }
     }
 
-    public String Xm() {
+    public String Xn() {
         return this.bOr;
     }
 
-    public int Xn() {
+    public int Xo() {
         return this.bOs;
     }
 

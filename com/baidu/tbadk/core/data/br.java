@@ -30,20 +30,20 @@ public class br extends a {
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public bz boO() {
+    public bz boP() {
         return null;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public at boQ() {
+    public at boR() {
         return new at();
     }
 
-    public List<MetaData> bqD() {
+    public List<MetaData> bqE() {
         return this.eRX;
     }
 
-    public boolean bqE() {
+    public boolean bqF() {
         return this.eRW;
     }
 

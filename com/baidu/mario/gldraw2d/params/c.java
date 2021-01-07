@@ -2,7 +2,7 @@ package com.baidu.mario.gldraw2d.params;
 
 import android.opengl.EGLContext;
 import com.baidu.mario.gldraw2d.d.d;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class c implements Cloneable, Comparable<c> {
     private int cgN;
     private boolean cgO;
@@ -29,7 +29,7 @@ public class c implements Cloneable, Comparable<c> {
         this.mEGLContext = eGLContext;
     }
 
-    public d acv() {
+    public d acw() {
         return this.cgz;
     }
 
@@ -37,15 +37,15 @@ public class c implements Cloneable, Comparable<c> {
         this.cgz = dVar;
     }
 
-    public com.baidu.mario.gldraw2d.d.c acw() {
+    public com.baidu.mario.gldraw2d.d.c acx() {
         return this.cgA;
     }
 
-    public com.baidu.mario.gldraw2d.d.a acx() {
+    public com.baidu.mario.gldraw2d.d.a acy() {
         return this.cgJ;
     }
 
-    public a acy() {
+    public a acz() {
         return this.cgK;
     }
 
@@ -53,11 +53,11 @@ public class c implements Cloneable, Comparable<c> {
         this.cgK = aVar;
     }
 
-    public boolean acz() {
+    public boolean acA() {
         return this.cgL;
     }
 
-    public com.baidu.mario.gldraw2d.c.c acA() {
+    public com.baidu.mario.gldraw2d.c.c acB() {
         return this.cgx;
     }
 
@@ -65,7 +65,7 @@ public class c implements Cloneable, Comparable<c> {
         this.cgx = cVar;
     }
 
-    public b acB() {
+    public b acC() {
         return this.cgM;
     }
 
@@ -73,11 +73,11 @@ public class c implements Cloneable, Comparable<c> {
         this.cgM = bVar;
     }
 
-    public int acC() {
+    public int acD() {
         return this.cgN;
     }
 
-    public boolean acD() {
+    public boolean acE() {
         return this.cgO;
     }
 
@@ -85,11 +85,11 @@ public class c implements Cloneable, Comparable<c> {
     @Override // java.lang.Comparable
     /* renamed from: a */
     public int compareTo(c cVar) {
-        return this.cgN < cVar.acC() ? -1 : 1;
+        return this.cgN < cVar.acD() ? -1 : 1;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: acE */
+    /* renamed from: acF */
     public c clone() {
         c cVar;
         try {

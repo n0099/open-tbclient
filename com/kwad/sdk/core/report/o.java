@@ -17,7 +17,7 @@ import org.json.JSONObject;
 public class o extends com.kwad.sdk.core.network.b {
 
     /* renamed from: b  reason: collision with root package name */
-    int f9726b;
+    int f9727b;
     private AdTemplate c;
     @Nullable
     private a d;
@@ -28,10 +28,10 @@ public class o extends com.kwad.sdk.core.network.b {
     public static class a extends com.kwad.sdk.core.response.a.a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f9727a;
+        public int f9728a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f9728b;
+        public int f9729b;
         public int c;
         public int d;
         s.a e;
@@ -52,7 +52,7 @@ public class o extends com.kwad.sdk.core.network.b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public o(@NonNull AdTemplate adTemplate, int i, @Nullable a aVar, @Nullable JSONObject jSONObject) {
         this.c = adTemplate;
-        this.f9726b = i;
+        this.f9727b = i;
         this.d = aVar;
         this.e = jSONObject;
     }
@@ -61,8 +61,8 @@ public class o extends com.kwad.sdk.core.network.b {
         if (aVar == null || TextUtils.isEmpty(str)) {
             return;
         }
-        if (aVar.f9728b != 0) {
-            a("itemClickType", aVar.f9728b);
+        if (aVar.f9729b != 0) {
+            a("itemClickType", aVar.f9729b);
         }
         if (TextUtils.isEmpty(aVar.f)) {
             return;
@@ -96,8 +96,8 @@ public class o extends com.kwad.sdk.core.network.b {
         if (aVar.c != 0) {
             a("itemCloseType", aVar.c);
         }
-        if (aVar.f9727a > 0) {
-            a("photoPlaySecond", aVar.f9727a);
+        if (aVar.f9728a > 0) {
+            a("photoPlaySecond", aVar.f9728a);
         }
         if (aVar.d != 0) {
             a("elementType", aVar.d);
@@ -138,10 +138,10 @@ public class o extends com.kwad.sdk.core.network.b {
     public String a() {
         String replaceFirst;
         AdInfo j = com.kwad.sdk.core.response.b.c.j(this.c);
-        if (this.f9726b == 1) {
+        if (this.f9727b == 1) {
             replaceFirst = j.adBaseInfo.showUrl.replaceFirst("__PR__", String.valueOf(this.c.mBidEcpm)).replaceFirst("__TYPE__", String.valueOf(this.c.mVideoPlayerStatus.mVideoPlayerType)).replaceFirst("__BEHAVIOR__", String.valueOf(this.c.mVideoPlayerStatus.mVideoPlayerBehavior));
             a(replaceFirst, this.c);
-        } else if (this.f9726b == 2) {
+        } else if (this.f9727b == 2) {
             String str = j.adBaseInfo.clickUrl;
             if (this.d != null) {
                 str = s.b(str, this.d.e);
@@ -150,7 +150,7 @@ public class o extends com.kwad.sdk.core.network.b {
             a(replaceFirst, this.d);
             a(replaceFirst, this.c);
         } else {
-            replaceFirst = j.adBaseInfo.convUrl.replaceFirst("__ACTION__", String.valueOf(this.f9726b)).replaceFirst("__PR__", String.valueOf(this.c.mBidEcpm)).replaceFirst("__TYPE__", String.valueOf(this.c.mVideoPlayerStatus.mVideoPlayerType)).replaceFirst("__BEHAVIOR__", String.valueOf(this.c.mVideoPlayerStatus.mVideoPlayerBehavior));
+            replaceFirst = j.adBaseInfo.convUrl.replaceFirst("__ACTION__", String.valueOf(this.f9727b)).replaceFirst("__PR__", String.valueOf(this.c.mBidEcpm)).replaceFirst("__TYPE__", String.valueOf(this.c.mVideoPlayerStatus.mVideoPlayerType)).replaceFirst("__BEHAVIOR__", String.valueOf(this.c.mVideoPlayerStatus.mVideoPlayerBehavior));
             b(replaceFirst, this.d);
         }
         a(this.e);
@@ -159,7 +159,7 @@ public class o extends com.kwad.sdk.core.network.b {
 
     @Override // com.kwad.sdk.core.network.b, com.kwad.sdk.core.network.g
     public JSONObject d() {
-        return this.f9615a;
+        return this.f9616a;
     }
 
     @Override // com.kwad.sdk.core.network.b
@@ -183,7 +183,7 @@ public class o extends com.kwad.sdk.core.network.b {
                     break;
                 }
                 AdInfo.AdTrackInfo next = it.next();
-                if (next.type == this.f9726b && next.urls != null) {
+                if (next.type == this.f9727b && next.urls != null) {
                     adTrackInfo = next;
                     break;
                 }

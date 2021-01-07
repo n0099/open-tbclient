@@ -33,7 +33,7 @@ public class a {
         return this.icon;
     }
 
-    public int enj() {
+    public int enk() {
         return this.pal;
     }
 

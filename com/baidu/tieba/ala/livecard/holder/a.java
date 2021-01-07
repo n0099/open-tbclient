@@ -59,13 +59,13 @@ public class a implements View.OnClickListener {
     }
 
     public void refreshView() {
-        if (this.aim != null && this.aim.brq() != null) {
+        if (this.aim != null && this.aim.brr() != null) {
             k(this.aim, this.mForumName);
         }
     }
 
     public void k(bz bzVar, String str) {
-        if (bzVar != null && bzVar.brq() != null) {
+        if (bzVar != null && bzVar.brr() != null) {
             this.aim = bzVar;
             this.mForumName = str;
             this.hnx.setVisibility(0);
@@ -75,7 +75,7 @@ public class a implements View.OnClickListener {
             }
             this.hny.setUserAfterClickListener(this.alk);
             bzVar.z(false, true);
-            this.mTextTitle.setText(bzVar.brZ());
+            this.mTextTitle.setText(bzVar.bsa());
             this.hnB.getController().a(bzVar, str, "", false);
             this.hnB.getController().startPlayAnimation();
             this.hnz.setReplyTimeVisible(false);
@@ -109,7 +109,7 @@ public class a implements View.OnClickListener {
         this.hnB.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
         this.hnx.setBackgroundDrawable(ao.qe(R.color.CAM_X0205));
         ao.setBackgroundColor(this.dDI, R.color.CAM_X0204);
-        if (bzVar != null && m.Jp(bzVar.getId())) {
+        if (bzVar != null && m.Jo(bzVar.getId())) {
             ao.setViewTextColor(this.mTextTitle, R.color.CAM_X0109);
         } else {
             ao.setViewTextColor(this.mTextTitle, R.color.CAM_X0105);
@@ -124,7 +124,7 @@ public class a implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.hnx || view == this.hnz.getCommentContainer()) {
             if (this.aim != null) {
-                m.Jo(this.aim.getId());
+                m.Jn(this.aim.getId());
             }
             if (this.hnC != null) {
                 this.hnC.c(view, this.aim);

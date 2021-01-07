@@ -7,10 +7,10 @@ import androidx.annotation.RestrictTo;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public final String f8348a;
+    public final String f8349a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final String f8349b;
+    public final String f8350b;
     public final double c;
     final int d;
     public final int e;
@@ -24,8 +24,8 @@ public class b {
     public final boolean k;
 
     public b(String str, String str2, double d, int i, int i2, double d2, double d3, @ColorInt int i3, @ColorInt int i4, double d4, boolean z) {
-        this.f8348a = str;
-        this.f8349b = str2;
+        this.f8349a = str;
+        this.f8350b = str2;
         this.c = d;
         this.d = i;
         this.e = i2;
@@ -39,6 +39,6 @@ public class b {
 
     public int hashCode() {
         long doubleToLongBits = Double.doubleToLongBits(this.f);
-        return (((((((((int) ((((this.f8348a.hashCode() * 31) + this.f8349b.hashCode()) * 31) + this.c)) * 31) + this.d) * 31) + this.e) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.h;
+        return (((((((((int) ((((this.f8349a.hashCode() * 31) + this.f8350b.hashCode()) * 31) + this.c)) * 31) + this.d) * 31) + this.e) * 31) + ((int) (doubleToLongBits ^ (doubleToLongBits >>> 32)))) * 31) + this.h;
     }
 }

@@ -25,7 +25,7 @@ public class b {
     public boolean mIsRequestImage = false;
     public int mImageType = 0;
 
-    public g bwD() {
+    public g bwE() {
         return this.fei;
     }
 
@@ -65,25 +65,25 @@ public class b {
         }
         int netType = j.netType();
         sVar.addPostData("net_type", String.valueOf(netType));
-        String bzt = com.baidu.tbadk.coreExtra.b.a.bzq().bzt();
+        String bzu = com.baidu.tbadk.coreExtra.b.a.bzr().bzu();
         if (TbSingleton.getInstance().isVisitPreviewServer()) {
-            bzt = bzt + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
+            bzu = bzu + "pub_env=" + TbSingleton.getInstance().getPubEnvValue() + ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR;
         }
         if (1 == netType) {
             if (TbadkCoreApplication.getInst().getKeepaliveWifi() == 1) {
-                bzt = bzt + "ka=open";
+                bzu = bzu + "ka=open";
                 z = true;
             }
             z = false;
         } else {
             if (TbadkCoreApplication.getInst().getKeepaliveNonWifi() == 1) {
-                bzt = bzt + "ka=open";
+                bzu = bzu + "ka=open";
                 z = true;
             }
             z = false;
         }
         com.baidu.adp.lib.network.a.a.al(z);
-        com.baidu.adp.lib.network.a.a.bM(bzt);
+        com.baidu.adp.lib.network.a.a.bM(bzu);
         if (this.mIsNeedTbs) {
             if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
                 sVar.addPostData("tbs", com.baidu.tbadk.mutiprocess.f.getTbs());
@@ -97,7 +97,7 @@ public class b {
         sVar.addPostData("cuid_gid", TbadkCoreApplication.getInst().getCuidGid());
         sVar.addPostData("timestamp", Long.toString(System.currentTimeMillis()));
         sVar.addPostData("model", Build.MODEL);
-        if (com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
+        if (com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.ANDROID_SAFE_SDK_OPEN, 0) == 1) {
             sVar.addPostData("z_id", TbadkCoreApplication.getInst().getZid());
         }
         sVar.addPostData("active_timestamp", String.valueOf(TbSingleton.getInstance().getActiveTimeStamp()));

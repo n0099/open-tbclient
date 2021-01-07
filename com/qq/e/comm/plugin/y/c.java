@@ -2,15 +2,15 @@ package com.qq.e.comm.plugin.y;
 
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final JSONObject f12996a = new JSONObject();
+    private final JSONObject f12997a = new JSONObject();
 
     public c a(String str) {
         try {
-            this.f12996a.putOpt("pid", str);
+            this.f12997a.putOpt("pid", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -18,15 +18,15 @@ public class c {
     }
 
     public JSONObject a() {
-        if (this.f12996a.length() > 0) {
-            return this.f12996a;
+        if (this.f12997a.length() > 0) {
+            return this.f12997a;
         }
         return null;
     }
 
     public c b(String str) {
         try {
-            this.f12996a.putOpt("aid", str);
+            this.f12997a.putOpt("aid", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -35,7 +35,7 @@ public class c {
 
     public c c(String str) {
         try {
-            this.f12996a.putOpt("traceid", str);
+            this.f12997a.putOpt("traceid", str);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -43,6 +43,6 @@ public class c {
     }
 
     public String toString() {
-        return this.f12996a.toString();
+        return this.f12997a.toString();
     }
 }

@@ -289,7 +289,8 @@ public class PluginBaseActivity extends PluginContextWrapper implements Componen
         return this.mProxyActivity.proxyMoveTaskToBack(z);
     }
 
-    protected void onActivityResult(int i, int i2, Intent intent) {
+    /* JADX INFO: Access modifiers changed from: protected */
+    public void onActivityResult(int i, int i2, Intent intent) {
         this.mProxyActivity.proxyOnActivityResult(i, i2, intent);
     }
 

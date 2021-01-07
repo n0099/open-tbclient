@@ -38,14 +38,14 @@ public class b {
         if (!x.isEmpty(b3)) {
             arrayList.addAll(b3);
         }
-        List<n> bUS = bUS();
-        if (!x.isEmpty(bUS)) {
-            arrayList.addAll(bUS);
+        List<n> bUT = bUT();
+        if (!x.isEmpty(bUT)) {
+            arrayList.addAll(bUT);
         }
         return arrayList;
     }
 
-    private List<n> bUS() {
+    private List<n> bUT() {
         ArrayList arrayList = new ArrayList();
         if (!x.isEmpty(this.gEy)) {
             g gVar = new g();
@@ -65,7 +65,7 @@ public class b {
                 arrayList.add(gVar);
             }
             if (!x.isEmpty(this.gEw)) {
-                arrayList.addAll(bUT());
+                arrayList.addAll(bUU());
             } else if (z) {
                 e eVar = new e();
                 eVar.followStatus = alaLiveTabMyConcernResponse.followStatus;
@@ -105,7 +105,7 @@ public class b {
         return arrayList;
     }
 
-    private List<n> bUT() {
+    private List<n> bUU() {
         ArrayList arrayList = new ArrayList();
         if (!x.isEmpty(this.gEw)) {
             int size = this.gEw.size();
@@ -190,7 +190,7 @@ public class b {
         }
     }
 
-    public List<n> bUU() {
+    public List<n> bUV() {
         return this.gEv;
     }
 

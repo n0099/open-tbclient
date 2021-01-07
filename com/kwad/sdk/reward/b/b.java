@@ -36,7 +36,7 @@ import java.io.InputStream;
 public class b extends com.kwad.sdk.reward.d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f10829b = "RewardMiddleEndCardPresenter";
+    private static String f10830b = "RewardMiddleEndCardPresenter";
     private View c;
     private KsLogoView d;
     private ImageView e;
@@ -50,7 +50,7 @@ public class b extends com.kwad.sdk.reward.d {
     private com.kwad.sdk.contentalliance.detail.video.e m = new f() { // from class: com.kwad.sdk.reward.b.b.1
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f10831b = false;
+        private boolean f10832b = false;
         private int c = -1;
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
@@ -60,18 +60,18 @@ public class b extends com.kwad.sdk.reward.d {
             }
             if (this.c > 0) {
                 int i = this.c * 1000;
-                if (this.f10831b || j2 <= i) {
+                if (this.f10832b || j2 <= i) {
                     return;
                 }
                 b.this.f();
-                this.f10831b = true;
+                this.f10832b = true;
             }
         }
     };
     private a.b n = new a.b() { // from class: com.kwad.sdk.reward.b.b.5
         @Override // com.kwad.sdk.core.webview.jshandler.a.b
         public void a() {
-            b.this.f10949a.f10824b.a();
+            b.this.f10950a.f10825b.a();
         }
     };
 
@@ -183,10 +183,10 @@ public class b extends com.kwad.sdk.reward.d {
     }
 
     private View p() {
-        AdInfo j = com.kwad.sdk.core.response.b.c.j(this.f10949a.f);
+        AdInfo j = com.kwad.sdk.core.response.b.c.j(this.f10950a.f);
         Context context = this.c.getContext();
-        com.kwad.sdk.reward.widget.tailframe.a tailFramePortraitVertical = this.f10949a.e == 0 ? a(j) ? new TailFramePortraitVertical(context) : new TailFramePortraitHorizontal(context) : a(j) ? new TailFrameLandscapeVertical(context) : new TailFrameLandscapeHorizontal(context);
-        tailFramePortraitVertical.a(this.f10949a.f, this.f10949a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.b.4
+        com.kwad.sdk.reward.widget.tailframe.a tailFramePortraitVertical = this.f10950a.e == 0 ? a(j) ? new TailFramePortraitVertical(context) : new TailFramePortraitHorizontal(context) : a(j) ? new TailFrameLandscapeVertical(context) : new TailFrameLandscapeHorizontal(context);
+        tailFramePortraitVertical.a(this.f10950a.f, this.f10950a.d, new com.kwad.sdk.reward.widget.tailframe.b() { // from class: com.kwad.sdk.reward.b.b.4
             @Override // com.kwad.sdk.reward.widget.tailframe.b
             public void a() {
                 b.this.q();
@@ -197,35 +197,35 @@ public class b extends com.kwad.sdk.reward.d {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void q() {
-        com.kwad.sdk.core.report.b.a(this.f10949a.f, 2, this.f10949a.h.getTouchCoords(), this.f10949a.d);
-        this.f10949a.f10824b.a();
+        com.kwad.sdk.core.report.b.a(this.f10950a.f, 2, this.f10950a.h.getTouchCoords(), this.f10950a.d);
+        this.f10950a.f10825b.a();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f10949a.i.a(this.m);
-        this.j = this.f10949a.m;
+        this.f10950a.i.a(this.m);
+        this.j = this.f10950a.m;
         if (this.j != null) {
             this.j.a(e());
-            AdTemplate adTemplate = this.f10949a.f;
+            AdTemplate adTemplate = this.f10950a.f;
             this.j.a(this.n);
-            this.j.a(this.h, this.f10949a.h, adTemplate, this.f10949a.j, this.f10949a.e);
-            this.j.a(this.f10949a.g);
+            this.j.a(this.h, this.f10950a.h, adTemplate, this.f10950a.j, this.f10950a.e);
+            this.j.a(this.f10950a.g);
             this.j.g();
             if (adTemplate.adInfoList.size() > 0) {
                 a(com.kwad.sdk.core.response.b.a.f(adTemplate.adInfoList.get(0)));
             }
         }
-        this.d.a(this.f10949a.f);
+        this.d.a(this.f10950a.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10949a.i.b(this.m);
+        this.f10950a.i.b(this.m);
         if (this.j != null) {
             this.j.i();
         }

@@ -3,10 +3,10 @@ package com.bytedance.embedapplog.util;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f6134a = {"https://toblog.ctobsnssdk.com", "https://tobapplog.ctobsnssdk.com"};
+    private static final String[] f6135a = {"https://toblog.ctobsnssdk.com", "https://tobapplog.ctobsnssdk.com"};
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String[] f6135b = {"https://toblog.tobsnssdk.com", "https://tobapplog.tobsnssdk.com"};
+    private static final String[] f6136b = {"https://toblog.tobsnssdk.com", "https://tobapplog.tobsnssdk.com"};
     private static final String[] c = {"https://toblog.itobsnssdk.com", "https://tobapplog.itobsnssdk.com"};
     private String d;
     private String e;
@@ -20,7 +20,7 @@ public class a {
         this.e = "https://toblog.ctobsnssdk.com/service/2/app_alert_check/";
         this.f = "https://toblog.ctobsnssdk.com/service/2/log_settings/";
         this.g = "https://toblog.ctobsnssdk.com/service/2/abtest_config/";
-        this.h = f6134a;
+        this.h = f6135a;
         this.i = "https://success.ctobsnssdk.com";
     }
 
@@ -29,7 +29,7 @@ public class a {
         this.e = "https://toblog.tobsnssdk.com/service/2/app_alert_check/";
         this.f = "https://toblog.tobsnssdk.com/service/2/log_settings/";
         this.g = "https://toblog.tobsnssdk.com/service/2/abtest_config/";
-        this.h = f6135b;
+        this.h = f6136b;
         this.i = "https://success.tobsnssdk.com";
     }
 
@@ -65,27 +65,27 @@ public class a {
         return aVar;
     }
 
-    public String epB() {
+    public String epC() {
         return this.d;
     }
 
-    public String epC() {
+    public String epD() {
         return this.e;
     }
 
-    public String epD() {
+    public String epE() {
         return this.f;
     }
 
-    public String epE() {
+    public String epF() {
         return this.g;
     }
 
-    public String[] epF() {
+    public String[] epG() {
         return this.h;
     }
 
-    public String epG() {
+    public String epH() {
         return this.i;
     }
 }

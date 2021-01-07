@@ -4,14 +4,14 @@ package com.sdk.base.framework.a.c;
 public final class f<Data> {
 
     /* renamed from: a  reason: collision with root package name */
-    final c f13081a;
+    final c f13082a;
 
     /* renamed from: b  reason: collision with root package name */
-    final Data[] f13082b;
+    final Data[] f13083b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(c cVar, Data... dataArr) {
-        this.f13081a = cVar;
-        this.f13082b = dataArr;
+        this.f13082a = cVar;
+        this.f13083b = dataArr;
     }
 }

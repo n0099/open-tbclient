@@ -30,7 +30,7 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a am(com.baidu.swan.pms.c.c.e eVar) {
-        this.ewT.aud();
+        this.ewT.aue();
         com.baidu.swan.pms.g.a.k(this.ddf.getCategory(), eVar.maxAge);
         f.b(eVar.data, (this.ewT == this.exx || this.ewT == this.exy) ? null : this.ewT, this.exx, this.exy);
         return null;
@@ -45,7 +45,7 @@ public class e extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.e> {
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String bgq() {
+    protected String bgr() {
         return "updatecore";
     }
 }

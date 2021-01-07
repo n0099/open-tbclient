@@ -94,7 +94,7 @@ public class e {
                                     }
                                 }
                             }, 2000L);
-                            ((HotTopicActivity) e.this.eXu.getOrignalPage()).cUH();
+                            ((HotTopicActivity) e.this.eXu.getOrignalPage()).cUI();
                         }
                     });
                     this.kux.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.view.e.2
@@ -121,7 +121,7 @@ public class e {
                                     }
                                 }
                             }, 2000L);
-                            ((HotTopicActivity) e.this.eXu.getOrignalPage()).cUH();
+                            ((HotTopicActivity) e.this.eXu.getOrignalPage()).cUI();
                         }
                     });
                 }

@@ -61,7 +61,7 @@ public class a {
     private f.d kcP = new f.d() { // from class: com.baidu.tieba.homepage.video.d.a.1
         @Override // com.baidu.tbadk.core.view.f.d
         public void onListPullToRefresh(boolean z) {
-            a.this.cSo();
+            a.this.cSp();
         }
     };
     private f.b kcQ = new f.b() { // from class: com.baidu.tieba.homepage.video.d.a.2
@@ -92,11 +92,11 @@ public class a {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ThreadCardViewHolder cSp;
+            ThreadCardViewHolder cSq;
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof KeyEvent)) {
                 KeyEvent keyEvent = (KeyEvent) customResponsedMessage.getData();
-                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (cSp = a.this.cSp()) != null && cSp.ty() != null) {
-                    cSp.ty().b(new a.C0090a(3));
+                if (keyEvent.getAction() == 0 && keyEvent.getKeyCode() == 24 && (cSq = a.this.cSq()) != null && cSq.ty() != null) {
+                    cSq.ty().b(new a.C0090a(3));
                 }
             }
         }
@@ -110,7 +110,7 @@ public class a {
                     a.this.iOh.dv(view);
                 }
                 if (view.getTag() instanceof HomePageCardVideoViewHolder) {
-                    ((HomePageCardVideoViewHolder) view.getTag()).cvG().stopPlay();
+                    ((HomePageCardVideoViewHolder) view.getTag()).cvH().stopPlay();
                 }
             }
         }
@@ -128,7 +128,7 @@ public class a {
                 if (this.gEG == 1) {
                     a.this.sn(true);
                 } else {
-                    a.this.cUq();
+                    a.this.cUr();
                 }
             }
         }
@@ -155,11 +155,11 @@ public class a {
     };
 
     /* JADX INFO: Access modifiers changed from: private */
-    public ThreadCardViewHolder cSp() {
-        if (this.iOh == null || this.iOh.dBE() == null || !(this.iOh.dBE().getTag() instanceof ThreadCardViewHolder)) {
+    public ThreadCardViewHolder cSq() {
+        if (this.iOh == null || this.iOh.dBF() == null || !(this.iOh.dBF().getTag() instanceof ThreadCardViewHolder)) {
             return null;
         }
-        return (ThreadCardViewHolder) this.iOh.dBE().getTag();
+        return (ThreadCardViewHolder) this.iOh.dBF().getTag();
     }
 
     public a(TbPageContext tbPageContext, BdUniqueId bdUniqueId, NEGFeedBackView.a aVar) {
@@ -201,7 +201,7 @@ public class a {
         this.kof.i(this.mBdUniqueId);
         this.kog.b(this.kof);
         this.gEA = this.mRootView.findViewById(R.id.video_tab_divider_shadow);
-        bxO();
+        bxP();
     }
 
     public void init() {
@@ -247,7 +247,7 @@ public class a {
         }
     }
 
-    public void bUD() {
+    public void bUE() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.Yc.setNextPage(this.gCf);
@@ -271,7 +271,7 @@ public class a {
         }
     }
 
-    public void bUE() {
+    public void bUF() {
         if (this.gCf != null) {
             if (this.gCf.getView().getParent() == null) {
                 this.Yc.setNextPage(this.gCf);
@@ -301,11 +301,11 @@ public class a {
         }
         this.mRefreshView.hideRefreshButton();
         this.mRefreshView.sO(R.drawable.new_pic_emotion_03);
-        this.mRefreshView.Eh(this.mPageContext.getString(R.string.no_data_common_txt));
+        this.mRefreshView.Eg(this.mPageContext.getString(R.string.no_data_common_txt));
         this.mRefreshView.attachView(this.mContentLayout, false);
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.mRefreshView != null) {
             this.mRefreshView.dettachView(this.mContentLayout);
             this.mRefreshView = null;
@@ -320,7 +320,7 @@ public class a {
         this.jXd.c(eVar);
     }
 
-    public void cUp() {
+    public void cUq() {
         qD(false);
     }
 
@@ -334,7 +334,7 @@ public class a {
         this.mIsBackground = z;
     }
 
-    public void cQH() {
+    public void cQI() {
         qD(true);
     }
 
@@ -343,13 +343,13 @@ public class a {
         this.mIsBackground = z;
         if (this.iOh != null) {
             this.iOh.tE(!z);
-            ThreadCardViewHolder cSp = cSp();
-            if (cSp != null && cSp.ty() != null) {
-                z2 = cSp.ty().b(new a.C0090a(8, Boolean.valueOf(z)));
+            ThreadCardViewHolder cSq = cSq();
+            if (cSq != null && cSq.ty() != null) {
+                z2 = cSq.ty().b(new a.C0090a(8, Boolean.valueOf(z)));
             }
             if (!z2) {
                 if (z) {
-                    this.iOh.cSo();
+                    this.iOh.cSp();
                 } else if (this.kcO) {
                     this.iOh.b(this.jhq, this.gAO, this.jia, true);
                 }
@@ -361,15 +361,15 @@ public class a {
         this.kcO = z;
     }
 
-    public void cSn() {
+    public void cSo() {
         if (this.iOh != null && this.kcO) {
             this.iOh.b(this.jhq, this.gAO, this.jia, true);
         }
     }
 
-    public void cSo() {
+    public void cSp() {
         if (this.iOh != null) {
-            this.iOh.cSo();
+            this.iOh.cSp();
         }
     }
 
@@ -377,10 +377,10 @@ public class a {
         if (this.kog != null) {
             this.kog.setData(list);
         }
-        cSn();
+        cSo();
     }
 
-    public void Mv(String str) {
+    public void Mu(String str) {
         List<Integer> b2 = b(str, this.Yc);
         int intValue = b2.get(0).intValue();
         int intValue2 = b2.get(1).intValue();
@@ -401,7 +401,7 @@ public class a {
                 n item = bdTypeRecyclerView.getItem(i2);
                 if (item instanceof b) {
                     b bVar = (b) item;
-                    if (bVar.boO() != null && bVar.boO().getTid().equals(str)) {
+                    if (bVar.boP() != null && bVar.boP().getTid().equals(str)) {
                         if (!z) {
                             i4 = i2;
                         }
@@ -426,11 +426,11 @@ public class a {
         return null;
     }
 
-    public void cSq() {
+    public void cSr() {
         bs(new LinkedList());
     }
 
-    public void cSm() {
+    public void cSn() {
         if (this.Yc != null) {
             this.Yc.setSelection(0);
         }
@@ -454,7 +454,7 @@ public class a {
         }
     }
 
-    public void bxO() {
+    public void bxP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.gLj != null) {
             this.gLj.setSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -485,12 +485,12 @@ public class a {
         if (this.iOh != null) {
             this.iOh.destroy();
         }
-        cSr();
+        cSs();
         MessageManager.getInstance().unRegisterListener(this.jgX);
         MessageManager.getInstance().unRegisterListener(this.eNg);
     }
 
-    private void cSr() {
+    private void cSs() {
         if (this.Yc != null) {
             this.Yc.removeOnScrollListener(this.mScrollListener);
             this.Yc.setRecyclerListener(null);
@@ -511,7 +511,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUq() {
+    public void cUr() {
         if (c(this.Yc)) {
             sn(false);
         } else {

@@ -13,26 +13,26 @@ public class an extends com.baidu.tbadk.core.view.userLike.c {
     private bz alW;
     private String anD;
     public boolean isBigV;
-    public boolean lUk;
+    public boolean lUj;
+    private int lUk;
     private int lUl;
-    private int lUm;
     private TbPageContext mPageContext;
 
     public an(TbPageContext tbPageContext, com.baidu.tbadk.core.view.userLike.b bVar, int i) {
         super(tbPageContext, bVar);
-        this.lUk = false;
+        this.lUj = false;
         this.isBigV = false;
-        this.lUl = 0;
-        this.lUl = i;
+        this.lUk = 0;
+        this.lUk = i;
         this.mPageContext = tbPageContext;
-        if (this.lUl == 1) {
-            super.Bb("4");
-        } else if (this.lUl == 3) {
-            super.Bb("5");
+        if (this.lUk == 1) {
+            super.Ba("4");
+        } else if (this.lUk == 3) {
+            super.Ba("5");
         } else if (i == 4 || i == 5 || i == 6) {
-            super.Bb("4");
+            super.Ba("4");
         } else {
-            super.Bb("0");
+            super.Ba("0");
         }
     }
 
@@ -45,10 +45,10 @@ public class an extends com.baidu.tbadk.core.view.userLike.c {
     }
 
     public void Hn(int i) {
-        this.lUm = i;
+        this.lUl = i;
     }
 
-    private int drF() {
+    private int drG() {
         String fromPageKey = UtilHelper.getFromPageKey(this.mPageContext);
         if (fromPageKey == null) {
             return 3;
@@ -80,25 +80,25 @@ public class an extends com.baidu.tbadk.core.view.userLike.c {
         int i2 = 2;
         if (view != null && view.getAlpha() >= 0.4d) {
             String userId = this.fqP != null ? this.fqP.getUserId() : "";
-            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c12408").an("obj_source", drF()).dX("obj_id", userId).dX("tid", this.anD));
-            if (this.lUl != 1) {
-                if (this.lUl == 3) {
+            TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c12408").an("obj_source", drG()).dX("obj_id", userId).dX("tid", this.anD));
+            if (this.lUk != 1) {
+                if (this.lUk == 3) {
                     i = 2;
-                } else if (this.lUl == 5) {
+                } else if (this.lUk == 5) {
                     i = 5;
-                } else if (this.lUl == 7) {
+                } else if (this.lUk == 7) {
                     i = 7;
-                } else if (this.lUl == 6) {
+                } else if (this.lUk == 6) {
                     i = 6;
                 } else {
-                    i = this.lUl == 4 ? 4 : 0;
+                    i = this.lUk == 4 ? 4 : 0;
                 }
             }
             com.baidu.tbadk.core.util.aq aqVar = new com.baidu.tbadk.core.util.aq("c12507");
             aqVar.an("obj_locate", i);
             aqVar.dX("obj_id", userId);
             aqVar.dX("tid", this.anD);
-            aqVar.an("obj_param1", this.lUm);
+            aqVar.an("obj_param1", this.lUl);
             if (!com.baidu.tbadk.core.util.at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 aqVar.dX("obj_source", TbadkCoreApplication.getInst().getTaskId());
             }
@@ -108,7 +108,7 @@ public class an extends com.baidu.tbadk.core.view.userLike.c {
             aqVar2.w("uid", TbadkCoreApplication.getCurrentAccountId());
             aqVar2.dX("tid", this.anD);
             if (this.alW != null) {
-                aqVar2.dX(IntentConfig.NID, this.alW.bpO());
+                aqVar2.dX(IntentConfig.NID, this.alW.bpP());
                 if (this.alW.getBaijiahaoData() != null && !com.baidu.tbadk.core.util.at.isEmpty(this.alW.getBaijiahaoData().oriUgcVid)) {
                     aqVar2.dX("obj_param6", this.alW.getBaijiahaoData().oriUgcVid);
                 }
@@ -122,13 +122,13 @@ public class an extends com.baidu.tbadk.core.view.userLike.c {
             }
             TiebaStatic.log(aqVar2);
             super.onClick(view);
-            if (this.lUk && this.fqP != null) {
+            if (this.lUj && this.fqP != null) {
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c11924").dX("obj_id", this.fqP.getUserId()));
             }
             if (this.isBigV && this.fqP != null) {
-                if (this.lUl == 1) {
+                if (this.lUk == 1) {
                     i2 = 1;
-                } else if (this.lUl != 2) {
+                } else if (this.lUk != 2) {
                     i2 = 0;
                 }
                 TiebaStatic.log(new com.baidu.tbadk.core.util.aq("c12150").an("obj_locate", i2).dX("obj_id", this.fqP.getUserId()));

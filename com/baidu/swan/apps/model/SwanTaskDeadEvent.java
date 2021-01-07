@@ -71,16 +71,16 @@ public class SwanTaskDeadEvent implements Parcelable {
         return this.taskId;
     }
 
-    public String aFU() {
+    public String aFV() {
         return this.pageScheme;
     }
 
-    public ArrayList<Integer> aFV() {
+    public ArrayList<Integer> aFW() {
         return this.stackList;
     }
 
     @Nullable
-    public SparseArray<SwanTaskDeadEvent> aFW() {
+    public SparseArray<SwanTaskDeadEvent> aFX() {
         if (this.historyCache == null) {
             return null;
         }
@@ -106,7 +106,7 @@ public class SwanTaskDeadEvent implements Parcelable {
                     break;
                 }
                 if (sparseArray.valueAt(i2) != null) {
-                    sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).aFX());
+                    sparseArray2.put(sparseArray.keyAt(i2), sparseArray.valueAt(i2).aFY());
                 }
                 i = i2 + 1;
             }
@@ -115,7 +115,7 @@ public class SwanTaskDeadEvent implements Parcelable {
     }
 
     @NonNull
-    private String[] aFX() {
+    private String[] aFY() {
         StringBuilder sb = new StringBuilder();
         if (this.stackList != null) {
             int size = this.stackList.size();
@@ -126,7 +126,7 @@ public class SwanTaskDeadEvent implements Parcelable {
                 }
             }
         }
-        return new String[]{getAppId(), aFU(), sb.toString()};
+        return new String[]{getAppId(), aFV(), sb.toString()};
     }
 
     @Nullable

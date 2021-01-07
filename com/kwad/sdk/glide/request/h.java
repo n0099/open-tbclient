@@ -7,10 +7,10 @@ public class h implements c, d {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    private final d f10653a;
+    private final d f10654a;
 
     /* renamed from: b  reason: collision with root package name */
-    private c f10654b;
+    private c f10655b;
     private c c;
     private boolean d;
 
@@ -20,39 +20,39 @@ public class h implements c, d {
     }
 
     public h(@Nullable d dVar) {
-        this.f10653a = dVar;
+        this.f10654a = dVar;
     }
 
     private boolean j() {
-        return this.f10653a == null || this.f10653a.b(this);
+        return this.f10654a == null || this.f10654a.b(this);
     }
 
     private boolean k() {
-        return this.f10653a == null || this.f10653a.d(this);
+        return this.f10654a == null || this.f10654a.d(this);
     }
 
     private boolean l() {
-        return this.f10653a == null || this.f10653a.c(this);
+        return this.f10654a == null || this.f10654a.c(this);
     }
 
     private boolean m() {
-        return this.f10653a != null && this.f10653a.i();
+        return this.f10654a != null && this.f10654a.i();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public void a() {
         this.d = true;
-        if (!this.f10654b.e_() && !this.c.c()) {
+        if (!this.f10655b.e_() && !this.c.c()) {
             this.c.a();
         }
-        if (!this.d || this.f10654b.c()) {
+        if (!this.d || this.f10655b.c()) {
             return;
         }
-        this.f10654b.a();
+        this.f10655b.a();
     }
 
     public void a(c cVar, c cVar2) {
-        this.f10654b = cVar;
+        this.f10655b = cVar;
         this.c = cVar2;
     }
 
@@ -60,11 +60,11 @@ public class h implements c, d {
     public boolean a(c cVar) {
         if (cVar instanceof h) {
             h hVar = (h) cVar;
-            if (this.f10654b == null) {
-                if (hVar.f10654b != null) {
+            if (this.f10655b == null) {
+                if (hVar.f10655b != null) {
                     return false;
                 }
-            } else if (!this.f10654b.a(hVar.f10654b)) {
+            } else if (!this.f10655b.a(hVar.f10655b)) {
                 return false;
             }
             if (this.c == null) {
@@ -83,27 +83,27 @@ public class h implements c, d {
     public void b() {
         this.d = false;
         this.c.b();
-        this.f10654b.b();
+        this.f10655b.b();
     }
 
     @Override // com.kwad.sdk.glide.request.d
     public boolean b(c cVar) {
-        return j() && (cVar.equals(this.f10654b) || !this.f10654b.e());
+        return j() && (cVar.equals(this.f10655b) || !this.f10655b.e());
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean c() {
-        return this.f10654b.c();
+        return this.f10655b.c();
     }
 
     @Override // com.kwad.sdk.glide.request.d
     public boolean c(c cVar) {
-        return l() && cVar.equals(this.f10654b) && !i();
+        return l() && cVar.equals(this.f10655b) && !i();
     }
 
     @Override // com.kwad.sdk.glide.request.d
     public boolean d(c cVar) {
-        return k() && cVar.equals(this.f10654b);
+        return k() && cVar.equals(this.f10655b);
     }
 
     @Override // com.kwad.sdk.glide.request.d
@@ -111,8 +111,8 @@ public class h implements c, d {
         if (cVar.equals(this.c)) {
             return;
         }
-        if (this.f10653a != null) {
-            this.f10653a.e(this);
+        if (this.f10654a != null) {
+            this.f10654a.e(this);
         }
         if (this.c.e_()) {
             return;
@@ -122,34 +122,34 @@ public class h implements c, d {
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean e() {
-        return this.f10654b.e() || this.c.e();
+        return this.f10655b.e() || this.c.e();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean e_() {
-        return this.f10654b.e_() || this.c.e_();
+        return this.f10655b.e_() || this.c.e_();
     }
 
     @Override // com.kwad.sdk.glide.request.d
     public void f(c cVar) {
-        if (cVar.equals(this.f10654b) && this.f10653a != null) {
-            this.f10653a.f(this);
+        if (cVar.equals(this.f10655b) && this.f10654a != null) {
+            this.f10654a.f(this);
         }
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean f() {
-        return this.f10654b.f();
+        return this.f10655b.f();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public boolean g() {
-        return this.f10654b.g();
+        return this.f10655b.g();
     }
 
     @Override // com.kwad.sdk.glide.request.c
     public void h() {
-        this.f10654b.h();
+        this.f10655b.h();
         this.c.h();
     }
 

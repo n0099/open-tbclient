@@ -26,11 +26,11 @@ public class aa extends h {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (c(aVar) || d(aVar) || aVar == null || aVar.boO() == null || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boO().btA()) && com.baidu.tbadk.core.util.x.getCount(aVar.boO().btB()) <= 1) || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boO().btB()) && com.baidu.tbadk.core.util.x.getCount(aVar.boO().btA()) <= 1) || com.baidu.tbadk.core.util.x.getCount(aVar.boO().btA()) + com.baidu.tbadk.core.util.x.getCount(aVar.boO().btB()) <= 1))) {
+        if (c(aVar) || d(aVar) || aVar == null || aVar.boP() == null || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boP().btB()) && com.baidu.tbadk.core.util.x.getCount(aVar.boP().btC()) <= 1) || ((com.baidu.tbadk.core.util.x.isEmpty(aVar.boP().btC()) && com.baidu.tbadk.core.util.x.getCount(aVar.boP().btB()) <= 1) || com.baidu.tbadk.core.util.x.getCount(aVar.boP().btB()) + com.baidu.tbadk.core.util.x.getCount(aVar.boP().btC()) <= 1))) {
             this.aiA.setVisibility(8);
             return;
         }
-        this.aiA.n(aVar.boO().btA(), aVar.boO().btB());
+        this.aiA.n(aVar.boP().btB(), aVar.boP().btC());
         this.aiA.setVisibility(0);
     }
 
@@ -40,10 +40,10 @@ public class aa extends h {
     }
 
     private boolean c(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boO() == null || aVar.boO().btz() == null || aVar.boO().btz().getOptions() == null || aVar.boO().btz().getOptions().size() <= 0) ? false : true;
+        return (aVar == null || aVar.boP() == null || aVar.boP().btA() == null || aVar.boP().btA().getOptions() == null || aVar.boP().btA().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean d(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boO() == null || !aVar.boO().bpV() || aVar.boO().brH() == null) ? false : true;
+        return (aVar == null || aVar.boP() == null || !aVar.boP().bpW() || aVar.boP().brI() == null) ? false : true;
     }
 }

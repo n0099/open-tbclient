@@ -6,39 +6,39 @@ import android.content.ServiceConnection;
 import android.os.IBinder;
 import android.util.SparseArray;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class TuringDIDService {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a implements r {
 
         /* renamed from: a  reason: collision with root package name */
-        public final /* synthetic */ x f13755a;
+        public final /* synthetic */ x f13756a;
 
         public a(x xVar) {
-            this.f13755a = xVar;
+            this.f13756a = xVar;
         }
 
         @Override // com.tencent.turingfd.sdk.ams.au.r
         public int a() {
-            return ((ap) this.f13755a).d;
+            return ((ap) this.f13756a).d;
         }
 
         @Override // com.tencent.turingfd.sdk.ams.au.r
         public String b() {
-            return ((ap) this.f13755a).f;
+            return ((ap) this.f13756a).f;
         }
 
         @Override // com.tencent.turingfd.sdk.ams.au.r
         public String c() {
-            return ((ap) this.f13755a).g;
+            return ((ap) this.f13756a).g;
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class aa {
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public static class bb implements ServiceConnection {
             @Override // android.content.ServiceConnection
             public native void onServiceConnected(ComponentName componentName, IBinder iBinder);
@@ -63,7 +63,7 @@ public class TuringDIDService {
 
     public static r a(Context context) {
         int a2 = bg.a();
-        return a(a2 != 0 ? ap.a(a2) : an.f13774a.a(context, true));
+        return a(a2 != 0 ? ap.a(a2) : an.f13775a.a(context, true));
     }
 
     public static r a(x xVar) {
@@ -80,7 +80,7 @@ public class TuringDIDService {
         if (a3 != 0) {
             a2 = ap.a(a3);
         } else {
-            an anVar = an.f13774a;
+            an anVar = an.f13775a;
             a2 = anVar.a(context);
             int a4 = anVar.a(a2);
             if (a4 != 1) {

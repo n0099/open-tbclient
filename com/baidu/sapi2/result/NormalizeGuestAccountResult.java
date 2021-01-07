@@ -8,30 +8,30 @@ public class NormalizeGuestAccountResult extends SapiResult {
     public static final String ERROR_MSG_PARSE_XML = "xml解析失败";
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, Integer> f5296a = new HashMap<>(3);
+    private HashMap<String, Integer> f5297a = new HashMap<>(3);
     public Activity activity;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f5297b;
+    private String f5298b;
     public boolean isAccountMerge;
 
     public NormalizeGuestAccountResult() {
-        this.f5296a.put("sms_upgrade", 1);
-        this.f5296a.put("sms_upgrade_exist", 2);
-        this.f5296a.put("pwd_upgrade", 3);
+        this.f5297a.put("sms_upgrade", 1);
+        this.f5297a.put("sms_upgrade_exist", 2);
+        this.f5297a.put("pwd_upgrade", 3);
     }
 
     public void finishActivity() {
     }
 
     public int getNormalizeWay() {
-        if (this.f5296a.containsKey(this.f5297b)) {
-            return this.f5296a.get(this.f5297b).intValue();
+        if (this.f5297a.containsKey(this.f5298b)) {
+            return this.f5297a.get(this.f5298b).intValue();
         }
         return 0;
     }
 
     public void setNormalizeWay(String str) {
-        this.f5297b = str;
+        this.f5298b = str;
     }
 }

@@ -16,24 +16,24 @@ public class e {
 
     /* loaded from: classes10.dex */
     public interface a {
-        void bWk();
+        void bWl();
 
         void onCancel();
     }
 
     public e(Context context) {
         this.mContext = context;
-        bWi();
+        bWj();
     }
 
-    private void bWi() {
+    private void bWj() {
         this.gNX = new b("so");
         this.gNY.add(this.gNX);
         this.gNW = new b("source");
         this.gNY.add(this.gNW);
     }
 
-    public boolean bWj() {
+    public boolean bWk() {
         if (this.gNZ == null) {
             this.gNZ = new HashSet();
             for (j jVar : this.gNY) {
@@ -51,19 +51,19 @@ public class e {
     }
 
     public void a(final a aVar) {
-        if (!bWj()) {
-            aVar.bWk();
+        if (!bWk()) {
+            aVar.bWl();
             return;
         }
         ArrayList arrayList = new ArrayList();
         for (j jVar : this.gNZ) {
             jVar.load();
-            arrayList.add(jVar.bWb());
+            arrayList.add(jVar.bWc());
         }
         f.a(this.mContext, new com.baidu.tieba.ala.b.a((g[]) arrayList.toArray(new g[0]))).o(new Runnable() { // from class: com.baidu.tieba.ala.b.e.3
             @Override // java.lang.Runnable
             public void run() {
-                aVar.bWk();
+                aVar.bWl();
             }
         }).p(new Runnable() { // from class: com.baidu.tieba.ala.b.e.2
             @Override // java.lang.Runnable

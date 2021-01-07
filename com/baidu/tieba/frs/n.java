@@ -20,7 +20,7 @@ public class n implements com.baidu.adp.widget.ListView.n {
         this.height = i;
     }
 
-    public int cEP() {
+    public int cEQ() {
         return this.jeS;
     }
 

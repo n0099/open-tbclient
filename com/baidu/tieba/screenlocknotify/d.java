@@ -10,12 +10,12 @@ public class d {
     public String groupName;
     public boolean isAcceptNotify;
     public long lastTime;
-    public int mXB;
-    public String mXC = "";
-    public long mXD;
+    public int mXA;
+    public String mXB = "";
+    public long mXC;
     public long msgId;
     public int msgType;
-    public boolean mwA;
+    public boolean mwz;
     public String nameShow;
     public String pic;
     public long serviceId;
@@ -37,7 +37,7 @@ public class d {
     }
 
     private static void e(d dVar) {
-        dVar.mXB = 0;
+        dVar.mXA = 0;
         dVar.msgType = 4;
         dVar.customGroupType = 4;
         dVar.lastTime = System.currentTimeMillis();

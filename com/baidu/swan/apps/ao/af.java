@@ -47,7 +47,7 @@ public final class af {
         boolean z = false;
         HashMap hashMap = new HashMap();
         ArrayList arrayList = new ArrayList();
-        String aPp = com.baidu.swan.apps.storage.b.aPp();
+        String aPq = com.baidu.swan.apps.storage.b.aPq();
         boolean z2 = c.hasGingerbread() ? !Environment.isExternalStorageRemovable() : false;
         String externalStorageState = Environment.getExternalStorageState();
         z = (externalStorageState.equals("mounted") || externalStorageState.equals("mounted_ro")) ? true : true;
@@ -76,9 +76,9 @@ public final class af {
                             stringTokenizer.nextToken();
                             boolean contains = Arrays.asList(stringTokenizer.nextToken().split(",")).contains("ro");
                             if (readLine.contains("vfat") || readLine.contains("/mnt")) {
-                                if (nextToken2.equals(aPp)) {
-                                    hashSet.add(aPp);
-                                    hashMap.put(nextToken, new a(aPp, z2, contains, -1));
+                                if (nextToken2.equals(aPq)) {
+                                    hashSet.add(aPq);
+                                    hashMap.put(nextToken, new a(aPq, z2, contains, -1));
                                 } else if (readLine.contains("/dev/block/vold")) {
                                     if (!readLine.contains("/mnt/secure") && !readLine.contains("/mnt/asec") && !readLine.contains("/mnt/obb") && !readLine.contains("/dev/mapper") && !readLine.contains("tmpfs")) {
                                         hashSet.add(nextToken2);
@@ -123,8 +123,8 @@ public final class af {
                             arrayList.add(aVar);
                         }
                     }
-                    if (!hashSet.contains(aPp) && z) {
-                        arrayList.add(0, new a(aPp, z2, equals, -1));
+                    if (!hashSet.contains(aPq) && z) {
+                        arrayList.add(0, new a(aPq, z2, equals, -1));
                     }
                     com.baidu.swan.c.d.closeSafely(bufferedReader2);
                 } catch (FileNotFoundException e) {

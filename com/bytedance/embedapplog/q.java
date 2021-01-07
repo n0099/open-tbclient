@@ -20,7 +20,7 @@ public class q extends ch {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.embedapplog.ch
     public boolean a(JSONObject jSONObject) {
-        String mac = b.eoX() != null ? b.eoX().epq().getMac() : "";
+        String mac = b.eoY() != null ? b.eoY().epr().getMac() : "";
         if (!TextUtils.isEmpty(mac)) {
             jSONObject.put(Config.DEVICE_MAC_ID, mac);
             return true;

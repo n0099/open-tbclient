@@ -7,15 +7,15 @@ public class k {
     private final int eby;
     private final int ebz;
 
-    public TbPageContext<?> bzM() {
+    public TbPageContext<?> bzN() {
         return this.eXu;
     }
 
-    public int aVJ() {
+    public int aVK() {
         return this.ebz;
     }
 
-    public int aVI() {
+    public int aVJ() {
         return this.eby;
     }
 

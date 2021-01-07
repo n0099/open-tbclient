@@ -163,7 +163,7 @@ public class a {
                     a.this.gCf.setOnClickListener(null);
                     if (a.this.hasMore) {
                         a.this.gCf.showLoading();
-                        a.this.ioh.ctu();
+                        a.this.ioh.ctv();
                         return;
                     }
                     a.this.gCf.setText(a.this.ioh.getResources().getString(R.string.list_has_no_more));
@@ -176,21 +176,21 @@ public class a {
     };
 
     public void setData(f fVar) {
-        e ctW;
+        e ctX;
         if (fVar != null) {
             this.hasMore = fVar.getHasMore();
-            if (fVar.ctW() != null && (ctW = fVar.ctW()) != null) {
-                this.status = ctW.getStatus();
+            if (fVar.ctX() != null && (ctX = fVar.ctX()) != null) {
+                this.status = ctX.getStatus();
                 if (this.status == d.iso) {
                     this.ioE.setVisibility(8);
                     this.ioH.setVisibility(8);
                     this.ioA.setVisibility(8);
                 }
-                NoticeContent ctT = ctW.ctT();
-                if (ctT != null && !TextUtils.isEmpty(ctT.public_notice)) {
-                    Jh(ctT.public_notice + "占");
+                NoticeContent ctU = ctX.ctU();
+                if (ctU != null && !TextUtils.isEmpty(ctU.public_notice)) {
+                    Jg(ctU.public_notice + "占");
                 } else {
-                    Jh(this.ioh.getResources().getString(R.string.vote_ueg_tip) + "占");
+                    Jg(this.ioh.getResources().getString(R.string.vote_ueg_tip) + "占");
                 }
             }
             this.iow.setData(fVar);
@@ -207,12 +207,12 @@ public class a {
                 this.ioA.setData(VoteCandidateCard.isA, fVar);
                 this.ioG.setVisibility(8);
                 this.iox.setVisibility(8);
-                this.ioE.setRank(fVar.ctW().ctN());
-                if (fVar.ctX() != null) {
-                    ManagerElection ctX = fVar.ctX();
-                    if (!x.isEmpty(ctX.vote_condition_pic) || !x.isEmpty(ctX.vote_condition_title) || !x.isEmpty(ctX.vote_condition)) {
+                this.ioE.setRank(fVar.ctX().ctO());
+                if (fVar.ctY() != null) {
+                    ManagerElection ctY = fVar.ctY();
+                    if (!x.isEmpty(ctY.vote_condition_pic) || !x.isEmpty(ctY.vote_condition_title) || !x.isEmpty(ctY.vote_condition)) {
                         this.ioB.setVisibility(0);
-                        this.ioD.setData(ctX.vote_condition_pic, ctX.vote_condition_title, ctX.vote_condition);
+                        this.ioD.setData(ctY.vote_condition_pic, ctY.vote_condition_title, ctY.vote_condition);
                     } else {
                         this.ioB.setVisibility(8);
                     }
@@ -224,12 +224,12 @@ public class a {
                 this.iox.setVisibility(8);
                 this.ioB.setVisibility(8);
             }
-            ctD();
+            ctE();
             N(TbadkCoreApplication.getInst().getSkinType(), true);
         }
     }
 
-    private void Jh(String str) {
+    private void Jg(String str) {
         SpannableString spannableString = new SpannableString(str);
         Drawable drawable = ao.getDrawable(R.drawable.icon_common_explain12_gray66);
         drawable.setBounds(0, 0, UtilHelper.getDimenPixelSize(R.dimen.tbds32), UtilHelper.getDimenPixelSize(R.dimen.tbds32));
@@ -299,7 +299,7 @@ public class a {
                 });
                 aVar.b(a.this.ioh.getPageContext());
                 ao.d(aVar.getRealView(), l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds30), R.color.CAM_X0201, R.color.CAM_X0201);
-                aVar.btX();
+                aVar.btY();
             }
         });
         this.ioy = (TextView) this.ioq.findViewById(R.id.vote_ueg_tip_tv);
@@ -327,11 +327,11 @@ public class a {
         this.gCf.setTextSize(R.dimen.tbfontsize33);
         this.gCf.setTextColor(ao.getColor(R.color.CAM_X0107));
         this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.gCf.bxC();
+        this.gCf.bxD();
         this.gCe = (NoNetworkView) this.bNf.findViewById(R.id.no_network_view);
     }
 
-    public void ctD() {
+    public void ctE() {
         if (this.status == d.iso) {
             this.gCf.showEmptyView(l.getDimens(this.ioh, R.dimen.tbds152));
         }
@@ -353,7 +353,7 @@ public class a {
         return this.iov;
     }
 
-    public PbListView ctE() {
+    public PbListView ctF() {
         return this.gCf;
     }
 
@@ -367,22 +367,22 @@ public class a {
         }
     }
 
-    public void Ji(String str) {
+    public void Jh(String str) {
         if (this.gDQ != null) {
             this.gDQ.dettachView(this.mListContainer);
             this.gDQ = null;
         }
         this.ioh.hideLoadingView(getRootView());
         if (this.mNoDataView == null) {
-            this.mNoDataView = NoDataViewFactory.a(this.ioh, this.ioJ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 300), NoDataViewFactory.d.Cw(str), null);
+            this.mNoDataView = NoDataViewFactory.a(this.ioh, this.ioJ, NoDataViewFactory.c.a(NoDataViewFactory.ImgType.NODATA, 300), NoDataViewFactory.d.Cv(str), null);
             this.mNoDataView.setOnClickListener(this.eKl);
         }
-        this.mNoDataView.setTextOption(NoDataViewFactory.d.Cw(str));
+        this.mNoDataView.setTextOption(NoDataViewFactory.d.Cv(str));
         this.mNoDataView.onChangeSkinType(this.ioh.getPageContext(), TbadkApplication.getInst().getSkinType());
         this.mNoDataView.setVisibility(0);
     }
 
-    public void bUH() {
+    public void bUI() {
         if (this.iov != null) {
             this.iov.setVisibility(8);
         }
@@ -415,7 +415,7 @@ public class a {
                     ao.setViewTextColor(this.iou, R.color.CAM_X0105, 1, i);
                     ao.setViewTextColor(this.mNavigationBar.mCenterText, R.color.CAM_X0105, 1, i);
                 } else if (this.iop <= 0.5d) {
-                    if (this.mVoteData == null || this.mVoteData.ctW() == null || this.mVoteData.ctW().getStatus() > 2 || this.mVoteData.ctW().getStatus() < 1) {
+                    if (this.mVoteData == null || this.mVoteData.ctX() == null || this.mVoteData.ctX().getStatus() > 2 || this.mVoteData.ctX().getStatus() < 1) {
                         ao.setImageResource(this.mNavigationBar.getBackImageView(), R.drawable.icon_return_bg_s, i);
                         ao.setViewTextColor(this.iou, R.color.CAM_X0105, 1, i);
                         ao.setViewTextColor(this.mNavigationBar.mCenterText, R.color.CAM_X0105, 1, i);

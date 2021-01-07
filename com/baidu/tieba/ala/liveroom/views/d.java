@@ -42,8 +42,8 @@ public class d {
                 return;
             }
             d.this.mLocation.requestLocate();
-            d.this.isShowLocation = d.this.cot();
-            d.this.coy();
+            d.this.isShowLocation = d.this.cou();
+            d.this.coz();
             d.this.mHandler.postDelayed(this, IMConnection.RETRY_DELAY_TIMES);
             d.e(d.this);
         }
@@ -53,7 +53,7 @@ public class d {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba()) {
-                d.this.isShowLocation = d.this.cot();
+                d.this.isShowLocation = d.this.cou();
                 if (d.this.isShowLocation) {
                     d.this.hSs.setText(a.h.ala_live_prepare_locating);
                 } else {
@@ -67,9 +67,9 @@ public class d {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            d.this.isShowLocation = d.this.cot();
-            d.this.coy();
-            if (d.this.cot() && d.this.mLocation != null) {
+            d.this.isShowLocation = d.this.cou();
+            d.this.coz();
+            if (d.this.cou() && d.this.mLocation != null) {
                 LocationInfo locationInfo = d.this.mLocation.getLocationInfo();
                 if (locationInfo == null || StringUtils.isNull(locationInfo.getCurCityName())) {
                     d.this.hSs.setText(a.h.ala_live_prepare_locate_fail);
@@ -91,7 +91,7 @@ public class d {
     public d(TbPageContext tbPageContext) {
         this.isShowLocation = true;
         this.mPageContext = tbPageContext;
-        this.isShowLocation = cot();
+        this.isShowLocation = cou();
         MessageManager.getInstance().registerListener(this.hSv);
         MessageManager.getInstance().registerListener(this.hSw);
         this.mHandler = new Handler();
@@ -104,31 +104,31 @@ public class d {
         this.mLocation = LocationManager.getInstance().buildLocation();
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isOther()) {
             if (!checkPermission()) {
-                cox();
-            } else {
                 coy();
+            } else {
+                coz();
             }
         } else {
-            coy();
+            coz();
         }
         this.hSq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.d.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                d.this.cov();
+                d.this.cow();
             }
         });
     }
 
-    public boolean cot() {
+    public boolean cou() {
         return UtilHelper.isSystemLocationProviderEnabled(this.mPageContext.getPageActivity());
     }
 
-    public boolean cou() {
-        return cot();
+    public boolean cov() {
+        return cou();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cjE() {
+    public boolean cjF() {
         boolean z = false;
         if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo() || TbadkCoreApplication.getInst().isTieba()) {
             com.baidu.live.d.Ba().getBoolean("has_request_location", false);
@@ -153,24 +153,24 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cov() {
+    public void cow() {
         if (this.isShowLocation) {
             LogManager.getLiveRecordLogger().doClickLiveLocationAlreadyButtonLog("");
         } else {
             LogManager.getLiveRecordLogger().doClickLiveLocationAllowButtonLog("");
         }
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.LIVE_ACTION, "location"));
-        if (!cjE()) {
+        if (!cjF()) {
             this.isShowLocation = !this.isShowLocation;
-            cow();
+            cox();
         }
     }
 
-    private void cow() {
-        coy();
+    private void cox() {
+        coz();
     }
 
-    private void cox() {
+    private void coy() {
         if (!com.baidu.live.d.Ba().getBoolean("has_master_show_location_dialog", false)) {
             com.baidu.live.d.Ba().putBoolean("has_master_show_location_dialog", true);
             BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mPageContext.getPageActivity());
@@ -184,7 +184,7 @@ public class d {
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
                 public void onClick(BdAlertDialog bdAlertDialog2) {
                     bdAlertDialog2.dismiss();
-                    d.this.cjE();
+                    d.this.cjF();
                 }
             }).setNegativeButton(a.h.sdk_cancel, new BdAlertDialog.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.views.d.5
                 @Override // com.baidu.live.tbadk.core.dialog.BdAlertDialog.OnClickListener
@@ -197,7 +197,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void coy() {
+    public void coz() {
         if (this.isShowLocation) {
             if (this.mLocation != null) {
                 LocationInfo locationInfo = this.mLocation.getLocationInfo();
@@ -219,12 +219,12 @@ public class d {
         this.hSs.setTextColor(this.isShowLocation ? this.mPageContext.getResources().getColor(a.c.sdk_cp_cont_g) : this.mPageContext.getResources().getColor(a.c.sdk_cp_cont_i_alpha50));
     }
 
-    public void coz() {
-        this.isShowLocation = cot();
-        coy();
+    public void coA() {
+        this.isShowLocation = cou();
+        coz();
     }
 
-    public String coA() {
+    public String coB() {
         return this.hSt;
     }
 

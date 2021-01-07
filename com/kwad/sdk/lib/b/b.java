@@ -27,7 +27,7 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
         this.e = false;
         this.f = false;
         this.g = null;
-        this.f10720b.a(n, i, str);
+        this.f10721b.a(n, i, str);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -35,9 +35,9 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
     public void a(PAGE page, boolean z) {
         boolean n = n();
         this.d = b((b<MODEL, PAGE>) page);
-        a((b<MODEL, PAGE>) page, this.f10719a);
+        a((b<MODEL, PAGE>) page, this.f10720a);
         this.h = page;
-        this.f10720b.b(n, z);
+        this.f10721b.b(n, z);
         this.e = false;
         this.f = false;
         this.g = null;
@@ -83,7 +83,7 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
     }
 
     public final void i() {
-        this.f10720b.a();
+        this.f10721b.a();
     }
 
     @Override // com.kwad.sdk.lib.b.c
@@ -110,7 +110,7 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
         if (this.d || this.f) {
             this.e = true;
             if (n() && b() && (d = d()) != null) {
-                this.f10720b.a(n(), true);
+                this.f10721b.a(n(), true);
                 this.c.post(new Runnable() { // from class: com.kwad.sdk.lib.b.b.1
                     @Override // java.lang.Runnable
                     public void run() {
@@ -121,7 +121,7 @@ public abstract class b<MODEL, PAGE extends BaseResultData> extends a<PAGE, MODE
             }
             this.g = a();
             if (this.g != null) {
-                this.f10720b.a(n(), false);
+                this.f10721b.a(n(), false);
                 this.g.a(new j<com.kwad.sdk.core.network.g, PAGE>() { // from class: com.kwad.sdk.lib.b.b.2
                     @Override // com.kwad.sdk.core.network.j, com.kwad.sdk.core.network.h
                     public void a(@NonNull com.kwad.sdk.core.network.g gVar, final int i, final String str) {

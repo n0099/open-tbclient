@@ -8,8 +8,8 @@ public class ag {
     }
 
     public static boolean cY(long j) {
-        SwanCoreVersion avV = com.baidu.swan.apps.core.turbo.d.avA().avV();
-        long j2 = avV != null ? avV.swanCoreVersion : 0L;
+        SwanCoreVersion avW = com.baidu.swan.apps.core.turbo.d.avB().avW();
+        long j2 = avW != null ? avW.swanCoreVersion : 0L;
         com.baidu.swan.apps.console.c.i("SwanAppSwanCoreUtils", "targetSwanVersionCode =" + j + ";curSwanVersionCode: " + j2);
         return j2 < j;
     }

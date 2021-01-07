@@ -6,10 +6,10 @@ import org.json.JSONObject;
 public class f implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9868a;
+    private final com.kwad.sdk.core.webview.a f9869a;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f9869b;
+    private a f9870b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -20,18 +20,18 @@ public class f implements com.kwad.sdk.core.webview.a.a {
     public static final class b implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f9870a;
+        private int f9871a;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "screenOrientation", this.f9870a);
+            com.kwad.sdk.utils.o.a(jSONObject, "screenOrientation", this.f9871a);
             return jSONObject;
         }
     }
 
     public f(com.kwad.sdk.core.webview.a aVar) {
-        this.f9868a = aVar;
+        this.f9869a = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
@@ -41,20 +41,20 @@ public class f implements com.kwad.sdk.core.webview.a.a {
     }
 
     public void a(a aVar) {
-        this.f9869b = aVar;
+        this.f9870b = aVar;
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        if (this.f9868a.f9836b == null) {
+        if (this.f9869a.f9837b == null) {
             cVar.a(-1, "native adTemplate is null");
             return;
         }
-        if (this.f9869b != null) {
-            this.f9869b.a();
+        if (this.f9870b != null) {
+            this.f9870b.a();
         }
         b bVar = new b();
-        bVar.f9870a = this.f9868a.f9835a;
+        bVar.f9871a = this.f9869a.f9836a;
         cVar.a(bVar);
     }
 

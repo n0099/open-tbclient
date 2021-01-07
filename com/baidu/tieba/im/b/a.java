@@ -23,11 +23,11 @@ public class a {
     private a() {
     }
 
-    public static a cZP() {
+    public static a cZQ() {
         return kIM;
     }
 
-    public void cZQ() {
+    public void cZR() {
         String str;
         String str2 = null;
         if (this.kIN != null) {
@@ -59,7 +59,7 @@ public class a {
         new AddMsgRecordModel().reqViewAndClick(str, str2);
     }
 
-    public void cZR() {
+    public void cZS() {
         if (this.kIO != null && this.kIO.length() > 0) {
             this.kIO.delete(0, this.kIO.length());
         }
@@ -70,10 +70,10 @@ public class a {
 
     public void a(ChatMessage chatMessage, Context context) {
         UserData userInfo;
-        d NC;
+        d NB;
         if (chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null) {
-            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (NC = c.NC(chatMessage.getContent())) != null && !TextUtils.isEmpty(NC.taskId) && this.kIN.add(NC.taskId)) {
-                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", NC.kBb, "task_id", NC.taskId);
+            if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (NB = c.NB(chatMessage.getContent())) != null && !TextUtils.isEmpty(NB.taskId) && this.kIN.add(NB.taskId)) {
+                TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", NB.kBb, "task_id", NB.taskId);
             }
         }
     }
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    public void Ny(String str) {
+    public void Nx(String str) {
         if (str != null && str.length() > 0) {
             this.kIO.append(str).append(",");
         }

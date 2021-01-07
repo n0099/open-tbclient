@@ -23,7 +23,7 @@ public class PTRLayoutView extends RelativeLayout {
     private View fVe;
     private float gda;
     private Context mContext;
-    public float ntp;
+    public float nto;
     private b peH;
     public float peI;
     private float peJ;
@@ -69,7 +69,7 @@ public class PTRLayoutView extends RelativeLayout {
         this.peJ = 0.0f;
         this.peK = 200.0f;
         this.peL = 200.0f;
-        this.ntp = 8.0f;
+        this.nto = 8.0f;
         this.peN = false;
         this.peO = false;
         this.peP = 2.0f;
@@ -78,7 +78,7 @@ public class PTRLayoutView extends RelativeLayout {
         this.pff = new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                PTRLayoutView.this.ntp = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ)))));
+                PTRLayoutView.this.nto = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ)))));
                 if (!PTRLayoutView.this.peO) {
                     if (PTRLayoutView.this.state != 2 || PTRLayoutView.this.peI > PTRLayoutView.this.peK) {
                         if (PTRLayoutView.this.state == 4 && (-PTRLayoutView.this.peJ) <= PTRLayoutView.this.peL) {
@@ -93,10 +93,10 @@ public class PTRLayoutView extends RelativeLayout {
                 }
                 if (PTRLayoutView.this.peI <= 0.0f) {
                     if (PTRLayoutView.this.peJ < 0.0f) {
-                        PTRLayoutView.this.peJ += PTRLayoutView.this.ntp;
+                        PTRLayoutView.this.peJ += PTRLayoutView.this.nto;
                     }
                 } else {
-                    PTRLayoutView.this.peI -= PTRLayoutView.this.ntp;
+                    PTRLayoutView.this.peI -= PTRLayoutView.this.nto;
                 }
                 if (PTRLayoutView.this.peI < 0.0f) {
                     PTRLayoutView.this.peI = 0.0f;
@@ -133,7 +133,7 @@ public class PTRLayoutView extends RelativeLayout {
         this.peJ = 0.0f;
         this.peK = 200.0f;
         this.peL = 200.0f;
-        this.ntp = 8.0f;
+        this.nto = 8.0f;
         this.peN = false;
         this.peO = false;
         this.peP = 2.0f;
@@ -142,7 +142,7 @@ public class PTRLayoutView extends RelativeLayout {
         this.pff = new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                PTRLayoutView.this.ntp = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ)))));
+                PTRLayoutView.this.nto = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ)))));
                 if (!PTRLayoutView.this.peO) {
                     if (PTRLayoutView.this.state != 2 || PTRLayoutView.this.peI > PTRLayoutView.this.peK) {
                         if (PTRLayoutView.this.state == 4 && (-PTRLayoutView.this.peJ) <= PTRLayoutView.this.peL) {
@@ -157,10 +157,10 @@ public class PTRLayoutView extends RelativeLayout {
                 }
                 if (PTRLayoutView.this.peI <= 0.0f) {
                     if (PTRLayoutView.this.peJ < 0.0f) {
-                        PTRLayoutView.this.peJ += PTRLayoutView.this.ntp;
+                        PTRLayoutView.this.peJ += PTRLayoutView.this.nto;
                     }
                 } else {
-                    PTRLayoutView.this.peI -= PTRLayoutView.this.ntp;
+                    PTRLayoutView.this.peI -= PTRLayoutView.this.nto;
                 }
                 if (PTRLayoutView.this.peI < 0.0f) {
                     PTRLayoutView.this.peI = 0.0f;
@@ -197,7 +197,7 @@ public class PTRLayoutView extends RelativeLayout {
         this.peJ = 0.0f;
         this.peK = 200.0f;
         this.peL = 200.0f;
-        this.ntp = 8.0f;
+        this.nto = 8.0f;
         this.peN = false;
         this.peO = false;
         this.peP = 2.0f;
@@ -206,7 +206,7 @@ public class PTRLayoutView extends RelativeLayout {
         this.pff = new Handler() { // from class: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {
-                PTRLayoutView.this.ntp = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ)))));
+                PTRLayoutView.this.nto = (float) (8.0d + (5.0d * Math.tan((1.5707963267948966d / PTRLayoutView.this.getMeasuredHeight()) * (PTRLayoutView.this.peI + Math.abs(PTRLayoutView.this.peJ)))));
                 if (!PTRLayoutView.this.peO) {
                     if (PTRLayoutView.this.state != 2 || PTRLayoutView.this.peI > PTRLayoutView.this.peK) {
                         if (PTRLayoutView.this.state == 4 && (-PTRLayoutView.this.peJ) <= PTRLayoutView.this.peL) {
@@ -221,10 +221,10 @@ public class PTRLayoutView extends RelativeLayout {
                 }
                 if (PTRLayoutView.this.peI <= 0.0f) {
                     if (PTRLayoutView.this.peJ < 0.0f) {
-                        PTRLayoutView.this.peJ += PTRLayoutView.this.ntp;
+                        PTRLayoutView.this.peJ += PTRLayoutView.this.nto;
                     }
                 } else {
-                    PTRLayoutView.this.peI -= PTRLayoutView.this.ntp;
+                    PTRLayoutView.this.peI -= PTRLayoutView.this.nto;
                 }
                 if (PTRLayoutView.this.peI < 0.0f) {
                     PTRLayoutView.this.peI = 0.0f;
@@ -374,7 +374,7 @@ public class PTRLayoutView extends RelativeLayout {
         }
     }
 
-    private void eoz() {
+    private void eoA() {
         this.pfd = true;
         this.pfe = true;
     }
@@ -388,7 +388,7 @@ public class PTRLayoutView extends RelativeLayout {
                 this.gda = this.brn;
                 this.peM.cancel();
                 this.pfc = 0;
-                eoz();
+                eoA();
                 break;
             case 1:
                 if (this.peI > this.peK || (-this.peJ) > this.peL) {
@@ -411,7 +411,7 @@ public class PTRLayoutView extends RelativeLayout {
                 float abs = Math.abs(motionEvent.getY() - this.brn);
                 float abs2 = Math.abs(motionEvent.getX() - this.brm);
                 if (this.pfc == 0 && Math.pow(abs2, 2.0d) / Math.pow(abs, 2.0d) <= 3.0d) {
-                    if (this.peI > 0.0f || (((com.baidu.yuyinala.privatemessage.session.view.smrlistview.a) this.pfb).eoA() && this.pfd && this.state != 4)) {
+                    if (this.peI > 0.0f || (((com.baidu.yuyinala.privatemessage.session.view.smrlistview.a) this.pfb).eoB() && this.pfd && this.state != 4)) {
                         this.peI += (motionEvent.getY() - this.gda) / this.peP;
                         if (this.peI < 0.0f) {
                             this.peI = 0.0f;
@@ -424,7 +424,7 @@ public class PTRLayoutView extends RelativeLayout {
                         if (this.state == 2) {
                             this.peO = true;
                         }
-                    } else if (this.peJ < 0.0f || (((com.baidu.yuyinala.privatemessage.session.view.smrlistview.a) this.pfb).eoB() && this.pfe && this.state != 2)) {
+                    } else if (this.peJ < 0.0f || (((com.baidu.yuyinala.privatemessage.session.view.smrlistview.a) this.pfb).eoC() && this.pfe && this.state != 2)) {
                         this.peJ += (motionEvent.getY() - this.gda) / this.peP;
                         if (this.peJ > 0.0f) {
                             this.peJ = 0.0f;
@@ -438,7 +438,7 @@ public class PTRLayoutView extends RelativeLayout {
                             this.peO = true;
                         }
                     } else {
-                        eoz();
+                        eoA();
                     }
                 } else {
                     this.pfc = 0;
@@ -509,7 +509,7 @@ public class PTRLayoutView extends RelativeLayout {
     /* loaded from: classes11.dex */
     public class a {
         private Handler handler;
-        private C0956a pfh;
+        private C0994a pfh;
         private Timer timer = new Timer();
 
         public a(Handler handler) {
@@ -521,7 +521,7 @@ public class PTRLayoutView extends RelativeLayout {
                 this.pfh.cancel();
                 this.pfh = null;
             }
-            this.pfh = new C0956a(this.handler);
+            this.pfh = new C0994a(this.handler);
             this.timer.schedule(this.pfh, 0L, j);
         }
 
@@ -535,10 +535,10 @@ public class PTRLayoutView extends RelativeLayout {
         /* JADX INFO: Access modifiers changed from: package-private */
         /* renamed from: com.baidu.yuyinala.privatemessage.session.view.smrlistview.PTRLayoutView$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        public class C0956a extends TimerTask {
+        public class C0994a extends TimerTask {
             private Handler handler;
 
-            public C0956a(Handler handler) {
+            public C0994a(Handler handler) {
                 this.handler = handler;
             }
 

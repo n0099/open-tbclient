@@ -105,10 +105,10 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                 } else {
                     this.frg.setVisibility(4);
                 }
-                this.fHb = aVar.bGa();
+                this.fHb = aVar.bGb();
                 ArrayList arrayList = new ArrayList();
                 for (int i5 = 0; i5 < i4; i5++) {
-                    if (aVar.bFY() == 0) {
+                    if (aVar.bFZ() == 0) {
                         GridView gridView2 = new GridView(getContext());
                         gridView2.setVerticalSpacing(aVar.getVerticalSpacing());
                         gridView2.setGravity(17);
@@ -120,7 +120,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                         gridView2.setSelection(-1);
                         gridView = gridView2;
                     } else {
-                        gridView = (GridView) LayoutInflater.from(getContext()).inflate(aVar.bFY(), (ViewGroup) null);
+                        gridView = (GridView) LayoutInflater.from(getContext()).inflate(aVar.bFZ(), (ViewGroup) null);
                     }
                     if (this.fHb != null) {
                         gridView.setOnItemClickListener(this.mOnItemClickListener);
@@ -131,7 +131,7 @@ public class CommonTabContentView extends LinearLayout implements ViewPager.OnPa
                     } else {
                         i = count - (this.fHa * (i4 - 1));
                     }
-                    gridView.setAdapter((ListAdapter) new a(getContext(), i, i5 * this.fHa, aVar.bFX()));
+                    gridView.setAdapter((ListAdapter) new a(getContext(), i, i5 * this.fHa, aVar.bFY()));
                     arrayList.add(gridView);
                 }
                 this.fGZ = new CommonViewPagerAdapter(arrayList);

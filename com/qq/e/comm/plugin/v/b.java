@@ -10,37 +10,37 @@ import com.qq.e.comm.util.GDTLogger;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Set<String> f12907a;
+    private Set<String> f12908a;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final b f12908a = new b();
+        private static final b f12909a = new b();
     }
 
     private b() {
-        this.f12907a = new HashSet();
-        this.f12907a.add("V1818A");
+        this.f12908a = new HashSet();
+        this.f12908a.add("V1818A");
         String string = GDTADManager.getInstance().getSM().getString("express_reward_video_adapt_height_devices");
         if (TextUtils.isEmpty(string)) {
             return;
         }
-        this.f12907a.addAll(Arrays.asList(string.split(",")));
+        this.f12908a.addAll(Arrays.asList(string.split(",")));
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static b a() {
-        return a.f12908a;
+        return a.f12909a;
     }
 
     private boolean b() {
         String str = Build.MODEL;
-        for (String str2 : this.f12907a) {
+        for (String str2 : this.f12908a) {
             if (TextUtils.equals(str2, str)) {
                 return true;
             }

@@ -115,7 +115,7 @@ public class c {
     }
 
     public void a(com.baidu.tieba.ala.alasquare.a.e eVar, int i) {
-        if (eVar == null || eVar.gAx == null || eVar.gAx.brJ() == null) {
+        if (eVar == null || eVar.gAx == null || eVar.gAx.brK() == null) {
             getView().setVisibility(4);
             return;
         }
@@ -128,15 +128,15 @@ public class c {
         if (this.gEY) {
             this.gEW = true;
             this.gEY = false;
-        } else if ((tag instanceof String) && !StringUtils.isNull(this.gAx.brJ().cover) && !((String) tag).equals(this.gAx.brJ().cover)) {
+        } else if ((tag instanceof String) && !StringUtils.isNull(this.gAx.brK().cover) && !((String) tag).equals(this.gAx.brK().cover)) {
             this.gEW = true;
-        } else if (!StringUtils.isNull(this.mCoverUrl) && !StringUtils.isNull(this.gAx.brJ().cover) && !this.mCoverUrl.equals(this.gAx.brJ().cover)) {
+        } else if (!StringUtils.isNull(this.mCoverUrl) && !StringUtils.isNull(this.gAx.brK().cover) && !this.mCoverUrl.equals(this.gAx.brK().cover)) {
             this.gEW = true;
         } else {
             this.gEW = false;
         }
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.TOP_BOTTOM, this.gET);
-        this.mCoverUrl = this.gAx.brJ().cover;
+        this.mCoverUrl = this.gAx.brK().cover;
         this.gEK.setTag(this.mCoverUrl);
         if (eVar.isLeft) {
             this.gEK.setConrers(5);
@@ -152,7 +152,7 @@ public class c {
             this.gEK.setPlaceHolder(3);
         }
         this.gEK.setRadius((int) gEP);
-        this.gEK.startLoad(this.gAx.brJ().cover, 10, false);
+        this.gEK.startLoad(this.gAx.brK().cover, 10, false);
         this.gEN.setBackgroundDrawable(gradientDrawable);
         this.gEK.setEvent(new TbImageView.b() { // from class: com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.c.2
             String url;
@@ -171,13 +171,13 @@ public class c {
             public void onCancel() {
             }
         });
-        this.gEL.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.live_tab_audience_label, at.dV(this.gAx.brJ().audience_count)));
-        if (this.gAx.brq() != null) {
-            String name_show = this.gAx.brq().getName_show();
+        this.gEL.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.live_tab_audience_label, at.dV(this.gAx.brK().audience_count)));
+        if (this.gAx.brr() != null) {
+            String name_show = this.gAx.brr().getName_show();
             if (!StringUtils.isNull(name_show)) {
                 this.bFt.setText(name_show);
             }
-            this.gEO.startLoad(this.gAx.brq().getPortrait(), 12, false);
+            this.gEO.startLoad(this.gAx.brr().getPortrait(), 12, false);
         }
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

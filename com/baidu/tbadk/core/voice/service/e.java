@@ -14,7 +14,7 @@ public class e extends MediaPlayer implements c {
     private e() {
     }
 
-    public static e bzo() {
+    public static e bzp() {
         if (fsl == null) {
             synchronized (fsk) {
                 if (fsl == null) {
@@ -30,7 +30,7 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public boolean CM(String str) {
+    public boolean CL(String str) {
         this.errorNo = -1;
         if (!this.fsm) {
             this.fsn = true;
@@ -64,13 +64,13 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void bzl() {
+    public void bzm() {
         start();
         this.fsn = false;
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void bzh() {
+    public void bzi() {
         if (!this.fsn) {
             stop();
             this.fsn = true;
@@ -79,12 +79,12 @@ public class e extends MediaPlayer implements c {
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void bzm() {
+    public void bzn() {
         pause();
     }
 
     @Override // com.baidu.tbadk.core.voice.service.c
-    public void bzn() {
+    public void bzo() {
         reset();
         this.fsm = false;
         this.fsn = true;

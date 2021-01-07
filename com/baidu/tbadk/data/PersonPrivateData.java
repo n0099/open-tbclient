@@ -13,7 +13,7 @@ public class PersonPrivateData extends OrmObject {
     private int fCv = 1;
     private int fCw = 1;
 
-    public int bEc() {
+    public int bEd() {
         return this.fCs;
     }
 

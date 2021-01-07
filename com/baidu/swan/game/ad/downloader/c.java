@@ -16,9 +16,9 @@ public class c {
             str = jSONObject.toString();
         }
         bundle.putString(PushConstants.PARAMS, str);
-        com.baidu.swan.apps.process.messaging.client.a aJh = com.baidu.swan.apps.process.messaging.client.a.aJh();
-        if (aJh != null) {
-            aJh.b(bundle, b.class, new d(aVar, swanAppDownloadType));
+        com.baidu.swan.apps.process.messaging.client.a aJi = com.baidu.swan.apps.process.messaging.client.a.aJi();
+        if (aJi != null) {
+            aJi.b(bundle, b.class, new d(aVar, swanAppDownloadType));
             return true;
         }
         return true;

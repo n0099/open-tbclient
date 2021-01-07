@@ -45,11 +45,11 @@ public class d extends BdBaseModel {
     public d(TbPageContext tbPageContext, a aVar) {
         this.mPageContext = tbPageContext;
         this.hlc = aVar;
-        cbg();
+        cbh();
         registerListener(this.hld);
     }
 
-    private void cbg() {
+    private void cbh() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021039, TbConfig.SERVER_ADDRESS + "ala/user/getUserInfoSDK");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

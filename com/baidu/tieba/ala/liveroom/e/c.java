@@ -66,8 +66,8 @@ public class c {
             }
             if (!TextUtils.isEmpty(bVar.getTitle())) {
                 this.mTitleView.setText(bVar.getTitle());
-            } else if (bVar.cfn() != 0) {
-                this.mTitleView.setText(bVar.cfn());
+            } else if (bVar.cfo() != 0) {
+                this.mTitleView.setText(bVar.cfo());
             }
             if (!TextUtils.isEmpty(bVar.getScheme())) {
                 this.mUrl = bVar.getScheme();
@@ -75,7 +75,7 @@ public class c {
         }
     }
 
-    public void cfo() {
+    public void cfp() {
         try {
             if (!TextUtils.isEmpty(this.mUrl) && this.mContext != null) {
                 Intent intent = new Intent();
@@ -92,7 +92,7 @@ public class c {
         return this.mView;
     }
 
-    public View cfp() {
+    public View cfq() {
         return this.hup;
     }
 }

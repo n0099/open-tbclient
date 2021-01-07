@@ -40,12 +40,12 @@ public class RecommendBarPageAdapter extends PagerAdapter {
     }
 
     public void a(com.baidu.tieba.homepage.concern.a.c cVar) {
-        if (cVar != null && !com.baidu.tbadk.core.util.x.isEmpty(cVar.cQX())) {
+        if (cVar != null && !com.baidu.tbadk.core.util.x.isEmpty(cVar.cQY())) {
             this.jYy.clear();
-            this.jYy.addAll(cVar.cQX());
+            this.jYy.addAll(cVar.cQY());
             for (int i = 0; i < this.jYy.size() && i < this.jYz.size(); i++) {
                 com.baidu.tieba.homepage.concern.b.b bVar = this.jYz.get(i);
-                bVar.rT(!cVar.cQY());
+                bVar.rT(!cVar.cQZ());
                 bVar.a((com.baidu.adp.widget.ListView.n) com.baidu.tbadk.core.util.x.getItem(this.jYy, i));
             }
             notifyDataSetChanged();
@@ -56,7 +56,7 @@ public class RecommendBarPageAdapter extends PagerAdapter {
                     an = an.dX("obj_name", dVar.jYJ);
                 }
                 TiebaStatic.log(an);
-                aq an2 = new aq("c13643").dX("uid", TbadkApplication.getCurrentAccount()).dX("fid", dVar.cQZ()).an("obj_locate", this.jYx);
+                aq an2 = new aq("c13643").dX("uid", TbadkApplication.getCurrentAccount()).dX("fid", dVar.cRa()).an("obj_locate", this.jYx);
                 TiebaStatic.log(StringUtils.isNull(dVar.jYJ) ? an2 : an2.dX("obj_name", dVar.jYJ));
             }
         }
@@ -107,10 +107,10 @@ public class RecommendBarPageAdapter extends PagerAdapter {
         if (!com.baidu.tbadk.core.util.x.isEmpty(this.jYz)) {
             for (int i = 0; i < this.jYz.size(); i++) {
                 com.baidu.tieba.homepage.concern.b.b bVar = this.jYz.get(i);
-                com.baidu.tieba.homepage.concern.a.d cRg = bVar.cRg();
-                if (cRg != null) {
-                    for (int i2 = 0; i2 < cRg.jYL.length; i2++) {
-                        if (cRg.jYL[i2].getForumId() == j) {
+                com.baidu.tieba.homepage.concern.a.d cRh = bVar.cRh();
+                if (cRh != null) {
+                    for (int i2 = 0; i2 < cRh.jYL.length; i2++) {
+                        if (cRh.jYL[i2].getForumId() == j) {
                             bVar.W(i2, z);
                         }
                     }

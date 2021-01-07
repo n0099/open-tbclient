@@ -106,7 +106,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         initWebView();
         this.gjf = new c(this);
         initData();
-        this.gjf.bod();
+        this.gjf.boe();
         this.gjf.h(new View.OnClickListener() { // from class: com.baidu.tieba.ad.browser.newstyle.AdBaseWebViewActivity.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -120,7 +120,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         });
         this.gjf.jf(this.mIsLogin);
         this.gjf.jf(isNeedShowMenuItem());
-        if (!this.gjf.bob() && UtilHelper.canUseStyleImmersiveSticky()) {
+        if (!this.gjf.boc() && UtilHelper.canUseStyleImmersiveSticky()) {
             bg.d(this.gjf.mRoot, R.color.CAM_X0303, false);
         }
         adjustResizeForSoftInput();
@@ -276,7 +276,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         dismissAllPopupWindow();
         hideListMenu();
         if (this.gjf != null) {
-            this.gjf.bes();
+            this.gjf.bet();
         }
     }
 
@@ -432,15 +432,15 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         super.onClick(view);
         int id = view.getId();
         if (id == R.id.webview_more_pop_item_share_friend_layout) {
-            this.gjf.bes();
+            this.gjf.bet();
             loadUrl("javascript:window.local_obj.getSource(document.getElementsByTagName('html')[0].innerHTML);");
             e.mB().post(this.mShareRunnable);
             this.mShareResultToFe = true;
         } else if (id == R.id.webview_more_pop_item_open_browser_layout) {
-            this.gjf.bes();
+            this.gjf.bet();
             com.baidu.tieba.ad.browser.a.startExternWebActivity(getPageContext().getPageActivity(), this.mUrl);
         } else if (id == R.id.webview_more_pop_item_copy_link_layout) {
-            this.gjf.bes();
+            this.gjf.bet();
             com.baidu.adp.lib.util.a.copyToClipboard(this.mUrl);
             l.showToast(view.getContext(), view.getResources().getString(R.string.copy_pb_url_success));
         }
@@ -532,7 +532,7 @@ public abstract class AdBaseWebViewActivity extends BaseActivity<AdBaseWebViewAc
         boolean z;
         String str = "";
         String str2 = "";
-        a.b AB = com.baidu.tbadk.core.a.a.bov().AB(TbadkCoreApplication.getCurrentBduss());
+        a.b AB = com.baidu.tbadk.core.a.a.bow().AB(TbadkCoreApplication.getCurrentBduss());
         if (AB != null) {
             if (AB.mBduss != null) {
                 str = AB.mBduss;

@@ -33,14 +33,14 @@ public class s extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
             return false;
         }
-        final com.baidu.swan.apps.adaptation.b.d aDr = com.baidu.swan.apps.v.f.aDG().aDr();
-        if (aDr != null) {
-            ValueAnimator ofInt = ValueAnimator.ofInt(aDr.getWebViewScrollY(), com.baidu.swan.apps.api.module.e.d.a(aDr, ah.dip2px(context, optInt)));
+        final com.baidu.swan.apps.adaptation.b.d aDs = com.baidu.swan.apps.v.f.aDH().aDs();
+        if (aDs != null) {
+            ValueAnimator ofInt = ValueAnimator.ofInt(aDs.getWebViewScrollY(), com.baidu.swan.apps.api.module.e.d.a(aDs, ah.dip2px(context, optInt)));
             ofInt.setDuration(optInt2);
             ofInt.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.swan.apps.scheme.actions.s.1
                 @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                 public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                    aDr.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+                    aDs.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
                 }
             });
             ofInt.start();

@@ -7,7 +7,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class CompletableTimer extends a {
     final long delay;
     final v scheduler;
@@ -20,7 +20,7 @@ public final class CompletableTimer extends a {
         timerDisposable.setFuture(this.scheduler.b(timerDisposable, this.delay, this.unit));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class TimerDisposable extends AtomicReference<b> implements b, Runnable {
         private static final long serialVersionUID = 3167244060586201109L;
         final c actual;

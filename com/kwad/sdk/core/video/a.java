@@ -7,21 +7,21 @@ import android.view.View;
 public class a extends TextureView {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9737a;
+    private int f9738a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f9738b;
+    private int f9739b;
 
     public a(Context context) {
         super(context);
     }
 
     public void a(int i, int i2) {
-        if (this.f9738b == i || this.f9737a == i2) {
+        if (this.f9739b == i || this.f9738a == i2) {
             return;
         }
-        this.f9738b = i;
-        this.f9737a = i2;
+        this.f9739b = i;
+        this.f9738a = i2;
         requestLayout();
     }
 
@@ -39,9 +39,9 @@ public class a extends TextureView {
             i3 = i2;
             i4 = i;
         }
-        int defaultSize = getDefaultSize(this.f9738b, i4);
-        int defaultSize2 = getDefaultSize(this.f9737a, i3);
-        if (this.f9738b <= 0 || this.f9737a <= 0) {
+        int defaultSize = getDefaultSize(this.f9739b, i4);
+        int defaultSize2 = getDefaultSize(this.f9738a, i3);
+        if (this.f9739b <= 0 || this.f9738a <= 0) {
             i5 = defaultSize2;
         } else {
             int mode = View.MeasureSpec.getMode(i4);
@@ -49,39 +49,39 @@ public class a extends TextureView {
             int mode2 = View.MeasureSpec.getMode(i3);
             i5 = View.MeasureSpec.getSize(i3);
             if (mode == 1073741824 && mode2 == 1073741824) {
-                if (this.f9738b * i5 < this.f9737a * size) {
-                    defaultSize = (this.f9738b * i5) / this.f9737a;
-                } else if (this.f9738b * i5 > this.f9737a * size) {
-                    i5 = (this.f9737a * size) / this.f9738b;
+                if (this.f9739b * i5 < this.f9738a * size) {
+                    defaultSize = (this.f9739b * i5) / this.f9738a;
+                } else if (this.f9739b * i5 > this.f9738a * size) {
+                    i5 = (this.f9738a * size) / this.f9739b;
                     defaultSize = size;
                 } else {
                     defaultSize = size;
                 }
             } else if (mode == 1073741824) {
-                int i7 = (this.f9737a * size) / this.f9738b;
+                int i7 = (this.f9738a * size) / this.f9739b;
                 if (mode2 != Integer.MIN_VALUE || i7 <= i5) {
                     i5 = i7;
                     defaultSize = size;
                 } else {
-                    defaultSize = (this.f9738b * i5) / this.f9737a;
+                    defaultSize = (this.f9739b * i5) / this.f9738a;
                 }
             } else if (mode2 == 1073741824) {
-                i6 = (this.f9738b * i5) / this.f9737a;
+                i6 = (this.f9739b * i5) / this.f9738a;
                 if (mode == Integer.MIN_VALUE && i6 > size) {
-                    i5 = (this.f9737a * size) / this.f9738b;
+                    i5 = (this.f9738a * size) / this.f9739b;
                     defaultSize = size;
                 }
                 defaultSize = i6;
             } else {
-                i6 = this.f9738b;
-                int i8 = this.f9737a;
+                i6 = this.f9739b;
+                int i8 = this.f9738a;
                 if (mode2 != Integer.MIN_VALUE || i8 <= i5) {
                     i5 = i8;
                 } else {
-                    i6 = (this.f9738b * i5) / this.f9737a;
+                    i6 = (this.f9739b * i5) / this.f9738a;
                 }
                 if (mode == Integer.MIN_VALUE && i6 > size) {
-                    i5 = (this.f9737a * size) / this.f9738b;
+                    i5 = (this.f9738a * size) / this.f9739b;
                     defaultSize = size;
                 }
                 defaultSize = i6;

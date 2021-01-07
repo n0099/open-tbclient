@@ -19,7 +19,7 @@ public class f extends i {
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.Request
     public String getHost() {
-        return Yn("http://ext.baidu.com/") + "api/subscribe/v1/relation/get";
+        return Ym("http://ext.baidu.com/") + "api/subscribe/v1/relation/get";
     }
 
     @Override // com.baidu.android.imsdk.utils.BaseHttpRequest, com.baidu.android.imsdk.utils.HttpHelper.ResponseHandler

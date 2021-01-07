@@ -150,9 +150,9 @@ public class BdContextMenuView extends FrameLayout implements a.b {
 
         public void mh(int i) {
             com.baidu.swan.apps.res.widget.a.b bVar = this.mDataList.get(i);
-            b.a aLJ = bVar.aLJ();
-            if (aLJ != null) {
-                aLJ.b(bVar);
+            b.a aLK = bVar.aLK();
+            if (aLK != null) {
+                aLK.b(bVar);
             }
         }
 

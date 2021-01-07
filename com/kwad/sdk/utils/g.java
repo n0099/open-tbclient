@@ -10,10 +10,10 @@ import android.os.Build;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private AudioManager f11117a;
+    private AudioManager f11118a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AudioManager.OnAudioFocusChangeListener f11118b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.g.1
+    private AudioManager.OnAudioFocusChangeListener f11119b = new AudioManager.OnAudioFocusChangeListener() { // from class: com.kwad.sdk.utils.g.1
         @Override // android.media.AudioManager.OnAudioFocusChangeListener
         public void onAudioFocusChange(int i) {
             if (g.this.c == null) {
@@ -36,12 +36,12 @@ public class g {
     }
 
     public g(Context context) {
-        this.f11117a = (AudioManager) context.getSystemService("audio");
+        this.f11118a = (AudioManager) context.getSystemService("audio");
     }
 
     @TargetApi(26)
     private AudioFocusRequest c() {
-        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f11118b).build();
+        return new AudioFocusRequest.Builder(2).setAudioAttributes(new AudioAttributes.Builder().setLegacyStreamType(3).setUsage(1).setContentType(2).build()).setAcceptsDelayedFocusGain(false).setOnAudioFocusChangeListener(this.f11119b).build();
     }
 
     public void a(a aVar) {
@@ -49,16 +49,16 @@ public class g {
     }
 
     public boolean a() {
-        if (this.f11118b == null || this.f11117a == null) {
+        if (this.f11119b == null || this.f11118a == null) {
             return false;
         }
-        return Build.VERSION.SDK_INT >= 26 ? 1 == this.f11117a.requestAudioFocus(c()) : 1 == this.f11117a.requestAudioFocus(this.f11118b, 3, 2);
+        return Build.VERSION.SDK_INT >= 26 ? 1 == this.f11118a.requestAudioFocus(c()) : 1 == this.f11118a.requestAudioFocus(this.f11119b, 3, 2);
     }
 
     public boolean b() {
-        if (this.f11118b == null || this.f11117a == null) {
+        if (this.f11119b == null || this.f11118a == null) {
             return false;
         }
-        return Build.VERSION.SDK_INT >= 26 ? 1 == this.f11117a.abandonAudioFocusRequest(c()) : 1 == this.f11117a.abandonAudioFocus(this.f11118b);
+        return Build.VERSION.SDK_INT >= 26 ? 1 == this.f11118a.abandonAudioFocusRequest(c()) : 1 == this.f11118a.abandonAudioFocus(this.f11119b);
     }
 }

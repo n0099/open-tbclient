@@ -6,7 +6,7 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 /* loaded from: classes8.dex */
 public class h {
-    private a muu;
+    private a mut;
     private boolean isLoading = false;
     private com.baidu.adp.framework.listener.a eFZ = new com.baidu.adp.framework.listener.a(CmdConfigHttp.CMD_HISTORY_SWAN, 309638) { // from class: com.baidu.tieba.personExtra.h.1
         @Override // com.baidu.adp.framework.listener.a
@@ -41,7 +41,7 @@ public class h {
         MessageManager.getInstance().registerListener(this.eFZ);
     }
 
-    public void bIm() {
+    public void bIn() {
         if (!this.isLoading) {
             this.isLoading = true;
             MessageManager.getInstance().sendMessage(new SmartAppBrowseHistoryRequestMessage());
@@ -50,12 +50,12 @@ public class h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(boolean z, com.baidu.tieba.personExtra.a aVar) {
-        if (this.muu != null) {
-            this.muu.a(z, aVar);
+        if (this.mut != null) {
+            this.mut.a(z, aVar);
         }
     }
 
     public void a(a aVar) {
-        this.muu = aVar;
+        this.mut = aVar;
     }
 }

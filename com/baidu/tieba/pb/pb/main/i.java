@@ -4,54 +4,54 @@ import com.baidu.adp.lib.cache.l;
 import com.baidu.live.adp.lib.cache.BdKVCache;
 /* loaded from: classes2.dex */
 public class i {
-    private static i lKx;
+    private static i lKw;
+    private com.baidu.adp.lib.cache.l<byte[]> lKx = null;
     private com.baidu.adp.lib.cache.l<byte[]> lKy = null;
-    private com.baidu.adp.lib.cache.l<byte[]> lKz = null;
 
-    public static synchronized i doB() {
+    public static synchronized i doC() {
         i iVar;
         synchronized (i.class) {
-            if (lKx == null) {
-                lKx = new i();
+            if (lKw == null) {
+                lKw = new i();
             }
-            iVar = lKx;
+            iVar = lKw;
         }
         return iVar;
     }
 
     private i() {
-        bhY();
+        bhZ();
     }
 
-    private void bhY() {
-        if (this.lKy == null) {
-            this.lKy = com.baidu.tbadk.core.c.a.btS().Bm("tb.pb_mark");
+    private void bhZ() {
+        if (this.lKx == null) {
+            this.lKx = com.baidu.tbadk.core.c.a.btT().Bl("tb.pb_mark");
         }
-        if (this.lKz == null) {
-            this.lKz = com.baidu.tbadk.core.c.a.btS().Bm("tb.pb_normal");
+        if (this.lKy == null) {
+            this.lKy = com.baidu.tbadk.core.c.a.btT().Bl("tb.pb_normal");
         }
     }
 
     public void aV(String str, boolean z) {
         if (z) {
-            if (this.lKy != null && str != null) {
-                this.lKy.asyncSet(str, new byte[0], 0L);
+            if (this.lKx != null && str != null) {
+                this.lKx.asyncSet(str, new byte[0], 0L);
             }
-        } else if (this.lKz != null && str != null) {
-            this.lKz.asyncSet(str, new byte[0], 0L);
+        } else if (this.lKy != null && str != null) {
+            this.lKy.asyncSet(str, new byte[0], 0L);
         }
     }
 
     public byte[] aW(String str, boolean z) {
         l.b<byte[]> by;
         if (z) {
-            if (this.lKy != null && str != null) {
-                by = this.lKy.by(str);
+            if (this.lKx != null && str != null) {
+                by = this.lKx.by(str);
             }
             by = null;
         } else {
-            if (this.lKz != null && str != null) {
-                by = this.lKz.by(str);
+            if (this.lKy != null && str != null) {
+                by = this.lKy.by(str);
             }
             by = null;
         }
@@ -63,19 +63,19 @@ public class i {
 
     public void a(String str, boolean z, byte[] bArr) {
         if (str != null) {
-            bhY();
+            bhZ();
             if (z) {
-                this.lKy.set(str, bArr, 604800000L);
+                this.lKx.set(str, bArr, 604800000L);
             } else {
-                this.lKz.set(str, bArr, 86400000L);
+                this.lKy.set(str, bArr, 86400000L);
             }
         }
     }
 
     public void o(String str, byte[] bArr) {
         if (bArr != null && str != null) {
-            bhY();
-            this.lKy.set(str, bArr, BdKVCache.MILLS_30Days);
+            bhZ();
+            this.lKx.set(str, bArr, BdKVCache.MILLS_30Days);
         }
     }
 }

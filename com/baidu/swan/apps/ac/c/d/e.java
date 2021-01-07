@@ -18,7 +18,7 @@ public class e extends a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.swan.apps.ac.c.d.b
-    public String aIq() {
+    public String aIr() {
         return "snsapi_userinfo";
     }
 
@@ -26,7 +26,7 @@ public class e extends a {
     void a(SwanAppActivity swanAppActivity, String str, com.baidu.swan.apps.ac.c.b.b bVar, final com.baidu.swan.apps.setting.b.a aVar, final com.baidu.swan.apps.core.f.b<com.baidu.swan.apps.ac.c.c.a> bVar2) {
         final com.baidu.swan.apps.ac.c.c.a aVar2 = new com.baidu.swan.apps.ac.c.c.a(bVar.cNO);
         aVar2.cNP = bVar.cNP;
-        if (aVar == null || aVar.dMV.aQF() != 0) {
+        if (aVar == null || aVar.dMV.aQG() != 0) {
             com.baidu.swan.apps.ac.d.a.print("open data result failure");
             bVar2.N(aVar2);
             return;
@@ -35,7 +35,7 @@ public class e extends a {
         b.a aVar3 = new b.a(bVar.pageParams);
         Bundle bundle = new Bundle();
         bundle.putString("__plugin__", bVar.duX);
-        com.baidu.swan.apps.runtime.d.aMg().aMc().aMw().a(swanAppActivity, aVar3, bundle, new com.baidu.swan.apps.ao.e.b<h<f.c>>() { // from class: com.baidu.swan.apps.ac.c.d.e.1
+        com.baidu.swan.apps.runtime.d.aMh().aMd().aMx().a(swanAppActivity, aVar3, bundle, new com.baidu.swan.apps.ao.e.b<h<f.c>>() { // from class: com.baidu.swan.apps.ac.c.d.e.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */

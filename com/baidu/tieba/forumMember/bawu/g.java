@@ -49,9 +49,9 @@ public class g {
             /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.forumMember.bawu.BawuTeamInfoActivity */
             /* JADX WARN: Multi-variable type inference failed */
             @Override // com.baidu.tieba.forumMember.bawu.h.b
-            public void Kw(String str) {
+            public void Kv(String str) {
                 if (!TbadkCoreApplication.isLogin() || !StringUtils.isNull(TbadkCoreApplication.getCurrentAccountName())) {
-                    be.bwu().b(g.this.jaK.getPageContext(), new String[]{str});
+                    be.bwv().b(g.this.jaK.getPageContext(), new String[]{str});
                 } else {
                     g.this.i(TbadkCoreApplication.getCurrentAccountInfo());
                 }
@@ -67,16 +67,16 @@ public class g {
             this.jaM = false;
         }
         if (z && this.jaM) {
-            cDn();
+            cDo();
             return;
         }
-        cDo();
+        cDp();
         this.jaL.ay(arrayList);
         this.jaL.a(lVar);
         this.jaL.notifyDataSetChanged();
     }
 
-    public boolean cDm() {
+    public boolean cDn() {
         return this.jaM;
     }
 
@@ -88,12 +88,12 @@ public class g {
         this.jaL.notifyDataSetChanged();
     }
 
-    public void cDn() {
+    public void cDo() {
         this.WV.setVisibility(8);
         this.jaK.showNetRefreshView(this.mRoot, this.jaK.getPageContext().getResources().getString(R.string.no_data_text), true);
     }
 
-    public void cDo() {
+    public void cDp() {
         this.jaK.hideNetRefreshView(this.mRoot);
         this.WV.setVisibility(0);
     }
@@ -107,7 +107,7 @@ public class g {
         if (this.fso == null) {
             this.fso = new com.baidu.tbadk.coreExtra.view.b(this.jaK);
         }
-        this.fso.bDb();
+        this.fso.bDc();
         this.fso.setAccountData(accountData);
         this.fso.se(1);
     }

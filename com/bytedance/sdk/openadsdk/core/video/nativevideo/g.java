@@ -97,7 +97,7 @@ public class g extends h {
         this.aq = new View.OnTouchListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.7
 
             /* renamed from: b  reason: collision with root package name */
-            private float f7042b;
+            private float f7043b;
 
             @Override // android.view.View.OnTouchListener
             @SuppressLint({"ClickableViewAccessibility"})
@@ -105,10 +105,10 @@ public class g extends h {
                 float x = motionEvent.getX();
                 switch (motionEvent.getActionMasked()) {
                     case 0:
-                        this.f7042b = x;
+                        this.f7043b = x;
                         break;
                     case 1:
-                        g.this.ap = Math.abs(this.f7042b - motionEvent.getX()) < 10.0f;
+                        g.this.ap = Math.abs(this.f7043b - motionEvent.getX()) < 10.0f;
                         break;
                     case 2:
                         view2.getParent().requestDisallowInterceptTouchEvent(true);
@@ -125,7 +125,7 @@ public class g extends h {
         this.az = new Rect();
         this.z = p.a().getApplicationContext();
         c(z2);
-        this.f7043a = view;
+        this.f7044a = view;
         this.u = z;
         this.ao = new com.bytedance.sdk.openadsdk.core.widget.g(this);
         this.ao.a(this.u);
@@ -136,7 +136,7 @@ public class g extends h {
         this.E = cVar;
         this.y = lVar;
         c(8);
-        a(context, this.f7043a);
+        a(context, this.f7044a);
         a();
         n();
     }
@@ -168,7 +168,7 @@ public class g extends h {
     public void a() {
         int i = 8;
         super.a();
-        this.ao.a(this.f7043a);
+        this.ao.a(this.f7044a);
         ak.a((View) this.K, (this.u || this.x.contains(b.a.hideCloseBtn)) ? 8 : 0);
         this.K.setOnClickListener(new View.OnClickListener() { // from class: com.bytedance.sdk.openadsdk.core.video.nativevideo.g.1
             @Override // android.view.View.OnClickListener
@@ -287,7 +287,7 @@ public class g extends h {
                 i2 = this.r;
                 i = i6;
             }
-            this.f7044b.a(i, i2);
+            this.f7045b.a(i, i2);
         }
     }
 
@@ -349,7 +349,7 @@ public class g extends h {
     public void a(l lVar, WeakReference<Context> weakReference, boolean z) {
         String a2;
         if (lVar != null) {
-            a(this.f7043a, p.a());
+            a(this.f7044a, p.a());
             a(false, this.u);
             ak.a(this.h, 0);
             ak.a((View) this.i, 0);
@@ -426,7 +426,7 @@ public class g extends h {
         this.W.setText(ac.b(this.z, "tt_00_00"));
         c(8);
         if (x()) {
-            this.f7044b.setVisibility(8);
+            this.f7045b.setVisibility(8);
         }
         if (this.f != null) {
             this.f.setImageDrawable(null);
@@ -456,9 +456,9 @@ public class g extends h {
 
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void a(@Nullable ViewGroup viewGroup) {
-        if (viewGroup != null && (this.f7043a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if (viewGroup != null && (this.f7044a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             this.Z = true;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f7043a.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f7044a.getLayoutParams();
             this.ac = marginLayoutParams.leftMargin;
             this.ab = marginLayoutParams.topMargin;
             this.ad = marginLayoutParams.width;
@@ -467,7 +467,7 @@ public class g extends h {
             marginLayoutParams.height = -1;
             marginLayoutParams.topMargin = 0;
             marginLayoutParams.leftMargin = 0;
-            this.f7043a.setLayoutParams(marginLayoutParams);
+            this.f7044a.setLayoutParams(marginLayoutParams);
             ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
@@ -485,7 +485,7 @@ public class g extends h {
             this.X.setImageDrawable(ac.c(this.z, "tt_shrink_video"));
             this.U.setThumb(ac.c(this.z, "tt_seek_thumb_fullscreen_selector"));
             this.U.setThumbOffset(0);
-            com.bytedance.sdk.openadsdk.core.video.d.a.a(this.f7043a, false);
+            com.bytedance.sdk.openadsdk.core.video.d.a.a(this.f7044a, false);
             e(this.Z);
             ak.a(this.L, 8);
             if (!this.u) {
@@ -500,14 +500,14 @@ public class g extends h {
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void b(@Nullable ViewGroup viewGroup) {
         u.f("FullScreen", "Detail exitFullScreen.....");
-        if (viewGroup != null && this.f7043a != null && (this.f7043a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
+        if (viewGroup != null && this.f7044a != null && (this.f7044a.getLayoutParams() instanceof ViewGroup.MarginLayoutParams)) {
             this.Z = false;
-            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f7043a.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.f7044a.getLayoutParams();
             marginLayoutParams.width = this.ad;
             marginLayoutParams.height = this.ae;
             marginLayoutParams.leftMargin = this.ac;
             marginLayoutParams.topMargin = this.ab;
-            this.f7043a.setLayoutParams(marginLayoutParams);
+            this.f7044a.setLayoutParams(marginLayoutParams);
             ViewGroup.LayoutParams layoutParams = viewGroup.getLayoutParams();
             if (layoutParams instanceof RelativeLayout.LayoutParams) {
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) layoutParams;
@@ -521,7 +521,7 @@ public class g extends h {
             this.X.setImageDrawable(ac.c(this.z, "tt_enlarge_video"));
             this.U.setThumb(ac.c(this.z, "tt_seek_thumb_normal"));
             this.U.setThumbOffset(0);
-            com.bytedance.sdk.openadsdk.core.video.d.a.a(this.f7043a, true);
+            com.bytedance.sdk.openadsdk.core.video.d.a.a(this.f7044a, true);
             e(this.Z);
             ak.a(this.L, 8);
             if (this.x.contains(b.a.alwayShowBackBtn)) {
@@ -733,7 +733,7 @@ public class g extends h {
     @Override // com.bytedance.sdk.openadsdk.core.video.nativevideo.h
     public void c(int i) {
         this.w = i;
-        ak.a(this.f7043a, i);
+        ak.a(this.f7044a, i);
         if (i != 0) {
             this.aB = false;
         } else if (this.aA) {

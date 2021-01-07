@@ -6,31 +6,31 @@ import android.content.SharedPreferences;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile d f6780a = null;
+    private static volatile d f6781a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private final SharedPreferences f6781b;
+    private final SharedPreferences f6782b;
 
     private d(Context context) {
-        this.f6781b = context.getSharedPreferences("ttopenadsdk", 0);
+        this.f6782b = context.getSharedPreferences("ttopenadsdk", 0);
     }
 
     public static d a(Context context) {
-        if (f6780a == null) {
+        if (f6781a == null) {
             synchronized (d.class) {
-                if (f6780a == null) {
-                    f6780a = new d(context);
+                if (f6781a == null) {
+                    f6781a = new d(context);
                 }
             }
         }
-        return f6780a;
+        return f6781a;
     }
 
     public void a(String str, String str2) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, str2);
         } else {
-            this.f6781b.edit().putString(str, str2).apply();
+            this.f6782b.edit().putString(str, str2).apply();
         }
     }
 
@@ -38,14 +38,14 @@ public class d {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.b("ttopenadsdk", str, str2);
         }
-        return this.f6781b.getString(str, str2);
+        return this.f6782b.getString(str, str2);
     }
 
     public void a(String str, int i) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, Integer.valueOf(i));
         } else {
-            this.f6781b.edit().putInt(str, i).apply();
+            this.f6782b.edit().putInt(str, i).apply();
         }
     }
 
@@ -53,14 +53,14 @@ public class d {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, i);
         }
-        return this.f6781b.getInt(str, i);
+        return this.f6782b.getInt(str, i);
     }
 
     public void a(String str, boolean z) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, Boolean.valueOf(z));
         } else {
-            this.f6781b.edit().putBoolean(str, z).apply();
+            this.f6782b.edit().putBoolean(str, z).apply();
         }
     }
 
@@ -68,14 +68,14 @@ public class d {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, z);
         }
-        return this.f6781b.getBoolean(str, z);
+        return this.f6782b.getBoolean(str, z);
     }
 
     public void a(String str, long j) {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, Long.valueOf(j));
         } else {
-            this.f6781b.edit().putLong(str, j).apply();
+            this.f6782b.edit().putLong(str, j).apply();
         }
     }
 
@@ -84,7 +84,7 @@ public class d {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             j2 = com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, j);
         } else {
-            j2 = this.f6781b.getLong(str, j);
+            j2 = this.f6782b.getLong(str, j);
         }
         return Long.valueOf(j2);
     }
@@ -93,7 +93,7 @@ public class d {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, Float.valueOf(f));
         } else {
-            this.f6781b.edit().putFloat(str, f).apply();
+            this.f6782b.edit().putFloat(str, f).apply();
         }
     }
 
@@ -101,6 +101,6 @@ public class d {
         if (com.bytedance.sdk.openadsdk.multipro.b.b()) {
             return com.bytedance.sdk.openadsdk.multipro.d.a.a("ttopenadsdk", str, f);
         }
-        return this.f6781b.getFloat(str, f);
+        return this.f6782b.getFloat(str, f);
     }
 }

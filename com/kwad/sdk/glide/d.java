@@ -16,13 +16,13 @@ import java.util.Map;
 public final class d {
 
     /* renamed from: b  reason: collision with root package name */
-    private i f10259b;
+    private i f10260b;
     private com.kwad.sdk.glide.load.engine.bitmap_recycle.e c;
     private com.kwad.sdk.glide.load.engine.bitmap_recycle.b d;
     private com.kwad.sdk.glide.load.engine.a.h e;
     private com.kwad.sdk.glide.load.engine.b.a f;
     private com.kwad.sdk.glide.load.engine.b.a g;
-    private a.InterfaceC1102a h;
+    private a.InterfaceC1143a h;
     private com.kwad.sdk.glide.load.engine.a.i i;
     private com.kwad.sdk.glide.c.d j;
     @Nullable
@@ -34,7 +34,7 @@ public final class d {
     private boolean q;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<Class<?>, h<?, ?>> f10258a = new ArrayMap();
+    private final Map<Class<?>, h<?, ?>> f10259a = new ArrayMap();
     private int k = 4;
     private com.kwad.sdk.glide.request.f l = new com.kwad.sdk.glide.request.f();
 
@@ -73,15 +73,15 @@ public final class d {
         if (this.h == null) {
             this.h = new com.kwad.sdk.glide.load.engine.a.f(context);
         }
-        if (this.f10259b == null) {
-            this.f10259b = new com.kwad.sdk.glide.load.engine.i(this.e, this.h, this.g, this.f, com.kwad.sdk.glide.load.engine.b.a.c(), com.kwad.sdk.glide.load.engine.b.a.d(), this.o);
+        if (this.f10260b == null) {
+            this.f10260b = new com.kwad.sdk.glide.load.engine.i(this.e, this.h, this.g, this.f, com.kwad.sdk.glide.load.engine.b.a.c(), com.kwad.sdk.glide.load.engine.b.a.d(), this.o);
         }
         if (this.p == null) {
             this.p = Collections.emptyList();
         } else {
             this.p = Collections.unmodifiableList(this.p);
         }
-        return new c(context, this.f10259b, this.e, this.c, this.d, new k(this.m), this.j, this.k, this.l.i(), this.f10258a, this.p, this.q);
+        return new c(context, this.f10260b, this.e, this.c, this.d, new k(this.m), this.j, this.k, this.l.i(), this.f10259a, this.p, this.q);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

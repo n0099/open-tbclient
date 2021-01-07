@@ -11,15 +11,15 @@ public class c extends ProviderDelegation {
     @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
     public Bundle execCall(Bundle bundle) {
         Bundle bundle2 = new Bundle();
-        bundle2.putLong("result", com.baidu.swan.apps.t.a.aAD().ale());
+        bundle2.putLong("result", com.baidu.swan.apps.t.a.aAE().alf());
         return bundle2;
     }
 
-    public static long aHd() {
+    public static long aHe() {
         if (dsY >= 0) {
             return dsY;
         }
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aAr(), c.class, null);
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aAs(), c.class, null);
         dsY = callOnMainWithContentProvider.isOk() ? callOnMainWithContentProvider.mResult.getLong("result", 0L) : 0L;
         return dsY;
     }

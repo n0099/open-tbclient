@@ -6,7 +6,7 @@ import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.internal.functions.Functions;
 import io.reactivex.m;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, m<T> {
     private static final long serialVersionUID = -6076952298809384986L;
     final io.reactivex.b.a onComplete;
@@ -68,6 +68,6 @@ public final class MaybeCallbackObserver<T> extends AtomicReference<io.reactivex
     }
 
     public boolean hasCustomOnError() {
-        return this.onError != Functions.qgt;
+        return this.onError != Functions.qib;
     }
 }

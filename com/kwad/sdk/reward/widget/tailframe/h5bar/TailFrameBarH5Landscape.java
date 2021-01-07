@@ -16,10 +16,10 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class TailFrameBarH5Landscape extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextView f11004a;
+    private TextView f11005a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f11005b;
+    private TextView f11006b;
     private ValueAnimator c;
 
     public TailFrameBarH5Landscape(Context context) {
@@ -37,8 +37,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
 
     private void a(Context context) {
         inflate(context, R.layout.ksad_video_tf_bar_h5_landscape, this);
-        this.f11004a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
-        this.f11005b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
+        this.f11005a = (TextView) findViewById(R.id.ksad_tf_h5_ad_desc);
+        this.f11006b = (TextView) findViewById(R.id.ksad_tf_h5_open_btn);
     }
 
     private void b() {
@@ -54,8 +54,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
-                TailFrameBarH5Landscape.this.f11005b.setScaleY(floatValue);
-                TailFrameBarH5Landscape.this.f11005b.setScaleX(floatValue);
+                TailFrameBarH5Landscape.this.f11006b.setScaleY(floatValue);
+                TailFrameBarH5Landscape.this.f11006b.setScaleX(floatValue);
             }
         });
         this.c.start();
@@ -71,8 +71,8 @@ public class TailFrameBarH5Landscape extends LinearLayout {
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        this.f11004a.setText(a.n(j));
-        this.f11005b.setText(a.w(j));
+        this.f11005a.setText(a.n(j));
+        this.f11006b.setText(a.w(j));
         b();
     }
 }

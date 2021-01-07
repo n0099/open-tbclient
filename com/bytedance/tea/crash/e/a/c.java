@@ -14,18 +14,18 @@ import org.json.JSONObject;
 public abstract class c {
 
     /* renamed from: a  reason: collision with root package name */
-    protected com.bytedance.tea.crash.c f7935a;
+    protected com.bytedance.tea.crash.c f7936a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected Context f7936b;
-    protected com.bytedance.tea.crash.d pqc = h.esE().esy();
+    protected Context f7937b;
+    protected com.bytedance.tea.crash.d pqc = h.esF().esz();
     protected b pqd;
     protected d pqe;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(com.bytedance.tea.crash.c cVar, Context context, b bVar, d dVar) {
-        this.f7935a = cVar;
-        this.f7936b = context;
+        this.f7936a = cVar;
+        this.f7937b = context;
         this.pqd = bVar;
         this.pqe = dVar;
     }
@@ -44,18 +44,18 @@ public abstract class c {
             aVar.a(this.pqd);
         }
         aVar.iv(h.f());
-        aVar.a("is_background", Boolean.valueOf(!com.bytedance.tea.crash.g.a.a(this.f7936b)));
+        aVar.a("is_background", Boolean.valueOf(!com.bytedance.tea.crash.g.a.a(this.f7937b)));
         aVar.a("pid", Integer.valueOf(Process.myPid()));
         aVar.a("battery", Integer.valueOf(this.pqe.a()));
         aVar.J(this.pqc.e());
-        aVar.K(h.esI());
+        aVar.K(h.esJ());
         aVar.ca(h.j(), h.k());
         aVar.gI(this.pqc.f());
-        aVar.eS(n.a(this.f7936b));
+        aVar.eS(n.a(this.f7937b));
         if (a()) {
             e(aVar);
         }
-        aVar.YZ(this.pqc.d());
+        aVar.YY(this.pqc.d());
         String g = h.g();
         if (g != null) {
             aVar.a(Constant.KEY_BUSINESS, g);
@@ -63,13 +63,13 @@ public abstract class c {
         if (h.h()) {
             aVar.a("is_mp", 1);
         }
-        aVar.L(h.esF().a());
+        aVar.L(h.esG().a());
         aVar.a("crash_uuid", UUID.randomUUID().toString());
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void c(com.bytedance.tea.crash.c.a aVar) {
-        Map<String, Object> a2 = h.esE().a();
+        Map<String, Object> a2 = h.esF().a();
         if (a2 != null) {
             if (a2.containsKey("app_version")) {
                 aVar.a("crash_version", a2.get("app_version"));
@@ -95,11 +95,11 @@ public abstract class c {
     }
 
     private void d(com.bytedance.tea.crash.c.a aVar) {
-        List<com.bytedance.tea.crash.a> b2 = h.esF().b(this.f7935a);
+        List<com.bytedance.tea.crash.a> b2 = h.esG().b(this.f7936a);
         if (b2 != null) {
             JSONObject jSONObject = new JSONObject();
             for (com.bytedance.tea.crash.a aVar2 : b2) {
-                Map<? extends String, ? extends String> a2 = aVar2.a(this.f7935a);
+                Map<? extends String, ? extends String> a2 = aVar2.a(this.f7936a);
                 if (a2 != null) {
                     try {
                         for (String str : a2.keySet()) {
@@ -114,7 +114,7 @@ public abstract class c {
     }
 
     protected void e(com.bytedance.tea.crash.c.a aVar) {
-        aVar.gJ(com.bytedance.tea.crash.e.e.a(h.esH().b(), h.esH().c()));
+        aVar.gJ(com.bytedance.tea.crash.e.e.a(h.esI().b(), h.esI().c()));
     }
 
     protected boolean a() {

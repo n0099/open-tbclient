@@ -7,7 +7,7 @@ public abstract class d {
     private Exception RI;
     private b dLH;
 
-    protected abstract boolean aOe() throws Exception;
+    protected abstract boolean aOf() throws Exception;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Exception getException() {
@@ -26,13 +26,13 @@ public abstract class d {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public d aOf() {
+    public d aOg() {
         AsyncTask.execute(new Runnable() { // from class: com.baidu.swan.apps.setting.oauth.d.1
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    if (d.this.aOe()) {
-                        d.this.aOg();
+                    if (d.this.aOf()) {
+                        d.this.aOh();
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -43,7 +43,7 @@ public abstract class d {
         return this;
     }
 
-    public void aOg() {
+    public void aOh() {
         x(null);
     }
 

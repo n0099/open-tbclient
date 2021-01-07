@@ -22,7 +22,7 @@ public class LiveVideoChatSendStartResponseMessage extends JsonHttpResponsedMess
         }
     }
 
-    public e Za() {
+    public e Zb() {
         return this.bRw;
     }
 }

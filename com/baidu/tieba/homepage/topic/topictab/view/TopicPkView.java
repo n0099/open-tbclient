@@ -316,10 +316,10 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
                         }
                     });
                 }
-                if (cUl()) {
+                if (cUm()) {
                     i = 1;
                 } else {
-                    i = cUm() ? 2 : 0;
+                    i = cUn() ? 2 : 0;
                 }
                 if (view == this.kmT) {
                     sk(1 != i);
@@ -549,11 +549,11 @@ public class TopicPkView extends RelativeLayout implements View.OnClickListener 
         this.kmY.setVisibility(4);
     }
 
-    private boolean cUl() {
+    private boolean cUm() {
         return (this.kmQ == null || this.kmQ.kmr == null || !this.kmQ.kmr.kmx) ? false : true;
     }
 
-    private boolean cUm() {
+    private boolean cUn() {
         return (this.kmQ == null || this.kmQ.kms == null || !this.kmQ.kms.kmx) ? false : true;
     }
 

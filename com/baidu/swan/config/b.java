@@ -13,7 +13,7 @@ public class b extends i {
         private static final b dYd = new b();
     }
 
-    public static b aTE() {
+    public static b aTF() {
         return a.dYd;
     }
 }

@@ -10,13 +10,13 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import java.lang.ref.WeakReference;
 import javax.annotation.Nullable;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class k extends m {
     @Nullable
     private final Bitmap mBitmap;
     private final Paint mBorderPaint;
     private final Paint mPaint;
-    private WeakReference<Bitmap> pwY;
+    private WeakReference<Bitmap> pxf;
 
     public k(Resources resources, @Nullable Bitmap bitmap, @Nullable Paint paint) {
         super(new BitmapDrawable(resources, bitmap));
@@ -32,15 +32,15 @@ public class k extends m {
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable
     public void draw(Canvas canvas) {
-        if (!evM()) {
+        if (!evT()) {
             super.draw(canvas);
             return;
         }
-        evO();
-        evN();
+        evV();
+        evU();
         updatePaint();
         int save = canvas.save();
-        canvas.concat(this.pxv);
+        canvas.concat(this.pxC);
         canvas.drawPath(this.mPath, this.mPaint);
         if (this.mBorderWidth > 0.0f) {
             this.mBorderPaint.setStrokeWidth(this.mBorderWidth);
@@ -51,21 +51,21 @@ public class k extends m {
     }
 
     private void updatePaint() {
-        if (this.pwY == null || this.pwY.get() != this.mBitmap) {
-            this.pwY = new WeakReference<>(this.mBitmap);
+        if (this.pxf == null || this.pxf.get() != this.mBitmap) {
+            this.pxf = new WeakReference<>(this.mBitmap);
             this.mPaint.setShader(new BitmapShader(this.mBitmap, Shader.TileMode.CLAMP, Shader.TileMode.CLAMP));
-            this.pxl = true;
+            this.pxs = true;
         }
-        if (this.pxl) {
-            this.mPaint.getShader().setLocalMatrix(this.pxx);
-            this.pxl = false;
+        if (this.pxs) {
+            this.mPaint.getShader().setLocalMatrix(this.pxE);
+            this.pxs = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.facebook.drawee.drawable.m
-    public boolean evM() {
-        return super.evM() && this.mBitmap != null;
+    public boolean evT() {
+        return super.evT() && this.mBitmap != null;
     }
 
     @Override // com.facebook.drawee.drawable.m, android.graphics.drawable.Drawable

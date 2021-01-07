@@ -90,7 +90,7 @@ public class VoteView extends LinearLayout {
                     if (VoteView.this.foL != null) {
                         VoteView.this.foL.notifyDataSetChanged();
                     }
-                    VoteView.this.byp();
+                    VoteView.this.byq();
                 } else if (!StringUtils.isNull(str)) {
                     VoteView.this.mPageContext.showToast(str);
                 }
@@ -156,7 +156,7 @@ public class VoteView extends LinearLayout {
                                             ((PollOptionData) VoteView.this.mData.get(i2)).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum() - 1);
                                             VoteView.this.eWv.getOptions().get(i2).setNum(((PollOptionData) VoteView.this.mData.get(i2)).getNum());
                                         }
-                                        VoteView.this.byp();
+                                        VoteView.this.byq();
                                     }
                                 });
                             }
@@ -369,7 +369,7 @@ public class VoteView extends LinearLayout {
         }
         ao.setViewTextColor(this.fow, R.color.CAM_X0105);
         ao.setViewTextColor(this.fox, R.color.CAM_X0109);
-        byp();
+        byq();
         if (this.foL != null) {
             this.foL.notifyDataSetChanged();
         }
@@ -392,7 +392,7 @@ public class VoteView extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void byp() {
+    public void byq() {
         GradientDrawable gradientDrawable = new GradientDrawable();
         gradientDrawable.setCornerRadii(fov);
         gradientDrawable.setColor(com.baidu.tieba.tbadkCore.c.m(ao.getColor(R.color.CAM_X0302), 0.08f));
@@ -449,11 +449,11 @@ public class VoteView extends LinearLayout {
         a(aVar, R.color.CAM_X0207, z);
         if (z) {
             ao.setViewTextColor(aVar.foP, R.color.CAM_X0302);
-            SvgManager.bwq().a(aVar.foT, R.drawable.ic_icon_pure_toast_complete24_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(aVar.foT, R.drawable.ic_icon_pure_toast_complete24_svg, R.color.CAM_X0302, SvgManager.SvgResourceStateType.NORMAL);
             return;
         }
         ao.setViewTextColor(aVar.foP, R.color.CAM_X0105);
-        SvgManager.bwq().a(aVar.foT, R.drawable.ic_icon_pure_strok3_24_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(aVar.foT, R.drawable.ic_icon_pure_strok3_24_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     private void a(a aVar, int i, boolean z) {

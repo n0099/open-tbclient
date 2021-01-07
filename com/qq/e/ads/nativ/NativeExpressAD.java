@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class NativeExpressAD extends AbstractAD<NEADI> {
     public static final int EVENT_TYPE_AD_WILL_OPEN_OVERLAY = 20;
     public static final int EVENT_TYPE_ON_AD_CLICKED = 6;
@@ -43,10 +43,10 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
     public static final int EVENT_TYPE_ON_VIDEO_START = 14;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f11772a;
+    private volatile int f11773a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile int f11773b;
+    private volatile int f11774b;
     private volatile int c;
     private List<Integer> d = Collections.synchronizedList(new ArrayList());
     private VideoOption e;
@@ -55,21 +55,21 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
     private String h;
     private LoadAdParams i;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class ADListenerAdapter implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private NativeExpressADListener f11774a;
+        private NativeExpressADListener f11775a;
 
         /* renamed from: b  reason: collision with root package name */
-        private NativeExpressMediaListener f11775b;
+        private NativeExpressMediaListener f11776b;
 
         public ADListenerAdapter(NativeExpressADListener nativeExpressADListener) {
-            this.f11774a = nativeExpressADListener;
+            this.f11775a = nativeExpressADListener;
         }
 
         public ADListenerAdapter(NativeExpressMediaListener nativeExpressMediaListener) {
-            this.f11775b = nativeExpressMediaListener;
+            this.f11776b = nativeExpressMediaListener;
         }
 
         @Override // com.qq.e.comm.adevent.ADListener
@@ -85,7 +85,7 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
                 case 8:
                 case 9:
                 case 10:
-                    NativeExpressAD.a(this.f11774a, aDEvent);
+                    NativeExpressAD.a(this.f11775a, aDEvent);
                     return;
                 case 11:
                 case 12:
@@ -97,7 +97,7 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
                 case 18:
                 case 19:
                 case 21:
-                    NativeExpressAD.a(this.f11775b, aDEvent);
+                    NativeExpressAD.a(this.f11776b, aDEvent);
                     return;
                 case 20:
                 default:
@@ -106,7 +106,7 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface NativeExpressADListener extends AbstractAD.BasicADListener {
         void onADClicked(NativeExpressADView nativeExpressADView);
 
@@ -351,8 +351,8 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
     @Override // com.qq.e.ads.AbstractAD
     protected final /* synthetic */ void a(NEADI neadi) {
         NEADI neadi2 = neadi;
-        neadi2.setMinVideoDuration(this.f11772a);
-        neadi2.setMaxVideoDuration(this.f11773b);
+        neadi2.setMinVideoDuration(this.f11773a);
+        neadi2.setMaxVideoDuration(this.f11774b);
         neadi2.setVideoPlayPolicy(this.c);
         if (this.e != null) {
             setVideoOption(this.e);
@@ -405,24 +405,24 @@ public class NativeExpressAD extends AbstractAD<NEADI> {
     }
 
     public void setMaxVideoDuration(int i) {
-        this.f11773b = i;
-        if (this.f11773b > 0 && this.f11772a > this.f11773b) {
+        this.f11774b = i;
+        if (this.f11774b > 0 && this.f11773a > this.f11774b) {
             GDTLogger.e("maxVideoDuration 设置值非法，不得小于minVideoDuration");
         }
         NEADI a2 = a();
         if (a2 != null) {
-            a2.setMaxVideoDuration(this.f11773b);
+            a2.setMaxVideoDuration(this.f11774b);
         }
     }
 
     public void setMinVideoDuration(int i) {
-        this.f11772a = i;
-        if (this.f11773b > 0 && this.f11772a > this.f11773b) {
+        this.f11773a = i;
+        if (this.f11774b > 0 && this.f11773a > this.f11774b) {
             GDTLogger.e("minVideoDuration 设置值非法，不得大于maxVideoDuration");
         }
         NEADI a2 = a();
         if (a2 != null) {
-            a2.setMinVideoDuration(this.f11772a);
+            a2.setMinVideoDuration(this.f11773a);
         }
     }
 

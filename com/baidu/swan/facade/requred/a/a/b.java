@@ -3,7 +3,7 @@ package com.baidu.swan.facade.requred.a.a;
 public class b {
     private static volatile a dYw;
 
-    public static synchronized a aTZ() {
+    public static synchronized a aUa() {
         a aVar;
         synchronized (b.class) {
             if (dYw == null) {

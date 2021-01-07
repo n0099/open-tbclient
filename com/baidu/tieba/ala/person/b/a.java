@@ -49,7 +49,7 @@ public class a implements e {
                         if (a.this.hWQ != null) {
                             a.this.hWQ.aE(updateAttentionMessage.getData().toUid, !updateAttentionMessage.isAttention());
                         }
-                        if (!com.baidu.live.view.a.Zx().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false)) {
+                        if (!com.baidu.live.view.a.Zy().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false)) {
                             if (!TextUtils.isEmpty(updateAttentionMessage.getData().usermsg)) {
                                 string = updateAttentionMessage.getData().usermsg;
                             } else if (!TextUtils.isEmpty(updateAttentionMessage.getData().errmsg)) {
@@ -70,7 +70,7 @@ public class a implements e {
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
                     if (message != null && message.getTag() != null && message.getTag().equals(a.this.gQC)) {
                         if (updateAttentionMessage.getData().isAttention) {
-                            com.baidu.live.view.a.Zx().a(a.this.mPageContext, true);
+                            com.baidu.live.view.a.Zy().a(a.this.mPageContext, true);
                         } else {
                             CustomToast.newInstance().showToast(a.this.mPageContext.getPageActivity().getResources().getString(a.h.sdk_unfollow_success_toast));
                         }

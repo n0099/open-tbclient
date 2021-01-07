@@ -19,11 +19,11 @@ public final class h {
     }
 
     private final void aJ(JSONObject jSONObject) {
-        com.baidu.swan.apps.storage.c.h.aPH().putString("alliance_login_uk", jSONObject.optString("uk"));
+        com.baidu.swan.apps.storage.c.h.aPI().putString("alliance_login_uk", jSONObject.optString("uk"));
     }
 
-    public final void anc() {
-        com.baidu.swan.apps.storage.c.h.aPH().putString("alliance_login_uk", "");
+    public final void and() {
+        com.baidu.swan.apps.storage.c.h.aPI().putString("alliance_login_uk", "");
         cGK = null;
     }
 }

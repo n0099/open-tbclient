@@ -8,18 +8,18 @@ import java.util.HashMap;
 public class f extends com.baidu.mobads.vo.d {
 
     /* renamed from: a  reason: collision with root package name */
-    private Boolean f3479a;
+    private Boolean f3480a;
 
     public f(Context context, Activity activity, IXAdConstants4PDK.SlotType slotType, Boolean bool) {
         super(context, activity, slotType);
-        this.f3479a = bool;
+        this.f3480a = bool;
         if (c().booleanValue()) {
-            this.f3562b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
+            this.f3563b = this.i.replaceURLWithSupportProtocol("http://mobads.baidu.com/ads/index.htm");
         }
     }
 
     public Boolean c() {
-        return this.f3479a;
+        return this.f3480a;
     }
 
     @Override // com.baidu.mobads.vo.d

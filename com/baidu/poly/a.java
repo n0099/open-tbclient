@@ -6,18 +6,18 @@ import com.baidu.poly.util.d;
 import com.baidu.poly.util.g;
 import com.baidu.poly.widget.PolyActivity;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     private long cnn;
 
     /* renamed from: com.baidu.poly.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class C0307a {
         private Context context;
         private int cno = 1;
         private boolean debug = false;
 
-        public a afm() {
+        public a afn() {
             return new a(this);
         }
 
@@ -37,7 +37,7 @@ public class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static abstract class b {
         public abstract void onResult(int i, String str);
     }

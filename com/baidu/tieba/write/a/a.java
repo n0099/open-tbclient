@@ -5,20 +5,20 @@ public class a {
     public String eQC;
     public String linkUrl;
     public String linkUrlCode;
+    public String nZM;
     public String nZN;
     public String nZO;
-    public String nZP;
-    public boolean nZL = false;
-    public int nZM = 1;
+    public boolean nZK = false;
+    public int nZL = 1;
     public String videoUrl = "";
     public long videoSize = 0;
     public int videoDuration = 0;
     public String videoFormat = "";
-    public int nZQ = 0;
+    public int nZP = 0;
     public int videoWidth = 0;
     public int videoHeight = 0;
-    public String nZR = "";
+    public String nZQ = "";
+    public int nZR = 0;
     public int nZS = 0;
     public int nZT = 0;
-    public int nZU = 0;
 }

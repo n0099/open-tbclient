@@ -14,11 +14,11 @@ public abstract class AdOperateBarHolder<M extends ICardInfo> {
     protected c kYO;
     protected TbPageContext mPageContext;
     protected final View mRootView;
-    protected final int mTB;
+    protected final int mTA;
 
     public AdOperateBarHolder(TbPageContext tbPageContext, int i, View view) {
         this.mPageContext = tbPageContext;
-        this.mTB = i;
+        this.mTA = i;
         this.mRootView = view;
     }
 

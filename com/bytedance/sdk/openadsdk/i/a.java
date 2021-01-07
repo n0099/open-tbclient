@@ -17,7 +17,7 @@ import java.util.WeakHashMap;
 public class a extends com.bytedance.sdk.adnet.b.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f7484b;
+    private static String f7485b;
     private WeakHashMap<String, String> c = new WeakHashMap<>();
     private final com.bytedance.sdk.openadsdk.b.a d = new com.bytedance.sdk.openadsdk.b.d();
 
@@ -142,11 +142,11 @@ public class a extends com.bytedance.sdk.adnet.b.a {
     }
 
     private static String b() {
-        if (TextUtils.isEmpty(f7484b)) {
+        if (TextUtils.isEmpty(f7485b)) {
             File file = new File(com.bytedance.sdk.adnet.a.b(p.a()), "diskImage");
             file.mkdirs();
-            f7484b = file.getAbsolutePath();
+            f7485b = file.getAbsolutePath();
         }
-        return f7484b;
+        return f7485b;
     }
 }

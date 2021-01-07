@@ -13,10 +13,10 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public abstract class BackupView extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f6914a;
+    protected Context f6915a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected com.bytedance.sdk.openadsdk.core.d.l f6915b;
+    protected com.bytedance.sdk.openadsdk.core.d.l f6916b;
     protected com.bytedance.sdk.openadsdk.dislike.b c;
     protected TTDislikeDialogAbstract d;
     protected String e;
@@ -48,8 +48,8 @@ public abstract class BackupView extends FrameLayout {
     }
 
     public void setDislikeOuter(TTDislikeDialogAbstract tTDislikeDialogAbstract) {
-        if (tTDislikeDialogAbstract != null && this.f6915b != null) {
-            tTDislikeDialogAbstract.setMaterialMeta(this.f6915b);
+        if (tTDislikeDialogAbstract != null && this.f6916b != null) {
+            tTDislikeDialogAbstract.setMaterialMeta(this.f6916b);
         }
         this.d = tTDislikeDialogAbstract;
     }
@@ -64,49 +64,49 @@ public abstract class BackupView extends FrameLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getNameOrSource() {
-        if (this.f6915b == null) {
+        if (this.f6916b == null) {
             return "";
         }
-        if (this.f6915b.U() != null && !TextUtils.isEmpty(this.f6915b.U().c())) {
-            return this.f6915b.U().c();
+        if (this.f6916b.U() != null && !TextUtils.isEmpty(this.f6916b.U().c())) {
+            return this.f6916b.U().c();
         }
-        if (!TextUtils.isEmpty(this.f6915b.G())) {
-            return this.f6915b.G();
+        if (!TextUtils.isEmpty(this.f6916b.G())) {
+            return this.f6916b.G();
         }
         return "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getTitle() {
-        if (this.f6915b.U() != null && !TextUtils.isEmpty(this.f6915b.U().c())) {
-            return this.f6915b.U().c();
+        if (this.f6916b.U() != null && !TextUtils.isEmpty(this.f6916b.U().c())) {
+            return this.f6916b.U().c();
         }
-        if (!TextUtils.isEmpty(this.f6915b.G())) {
-            return this.f6915b.G();
+        if (!TextUtils.isEmpty(this.f6916b.G())) {
+            return this.f6916b.G();
         }
-        if (!TextUtils.isEmpty(this.f6915b.Q())) {
-            return this.f6915b.Q();
+        if (!TextUtils.isEmpty(this.f6916b.Q())) {
+            return this.f6916b.Q();
         }
         return "";
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public String getDescription() {
-        if (!TextUtils.isEmpty(this.f6915b.Q())) {
-            return this.f6915b.Q();
+        if (!TextUtils.isEmpty(this.f6916b.Q())) {
+            return this.f6916b.Q();
         }
-        if (!TextUtils.isEmpty(this.f6915b.R())) {
-            return this.f6915b.R();
+        if (!TextUtils.isEmpty(this.f6916b.R())) {
+            return this.f6916b.R();
         }
         return "";
     }
 
     public float getRealWidth() {
-        return ak.b(this.f6914a, this.f);
+        return ak.b(this.f6915a, this.f);
     }
 
     public float getRealHeight() {
-        return ak.b(this.f6914a, this.g);
+        return ak.b(this.f6915a, this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -114,9 +114,9 @@ public abstract class BackupView extends FrameLayout {
         com.bytedance.sdk.openadsdk.core.a.b bVar;
         if (view != null) {
             if (z) {
-                bVar = new com.bytedance.sdk.openadsdk.core.a.a(this.f6914a, this.f6915b, this.e, aj.a(this.e));
+                bVar = new com.bytedance.sdk.openadsdk.core.a.a(this.f6915a, this.f6916b, this.e, aj.a(this.e));
             } else {
-                bVar = new com.bytedance.sdk.openadsdk.core.a.b(this.f6914a, this.f6915b, this.e, aj.a(this.e));
+                bVar = new com.bytedance.sdk.openadsdk.core.a.b(this.f6915a, this.f6916b, this.e, aj.a(this.e));
             }
             view.setOnTouchListener(bVar);
             view.setOnClickListener(bVar);

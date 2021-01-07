@@ -22,7 +22,7 @@ public class a implements d {
 
     @Override // com.baidu.swan.apps.t.b.d
     public void a(String str, boolean z, boolean z2, d.a aVar) {
-        BDLocation eT = gnU.eT(bQr());
+        BDLocation eT = gnU.eT(bQs());
         boolean z3 = eT != null;
         if (z3) {
             aVar.a(a(eT, str));
@@ -50,7 +50,7 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public com.baidu.swan.apps.scheme.actions.f.b aBR() {
+    public com.baidu.swan.apps.scheme.actions.f.b aBS() {
         BDLocation bDLocation = gnU.gnW;
         if (bDLocation == null) {
             return null;
@@ -59,9 +59,9 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public void aBS() {
-        long bQr = bQr();
-        if (gnU.gnW == null || (bQr > 0 && !gnU.eS(bQr))) {
+    public void aBT() {
+        long bQs = bQs();
+        if (gnU.gnW == null || (bQs > 0 && !gnU.eS(bQs))) {
             if (DEBUG) {
                 Log.i("SwanAppLocationImpl", "onWarmUp");
             }
@@ -93,15 +93,15 @@ public class a implements d {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
-    public void aBT() {
-    }
-
-    @Override // com.baidu.swan.apps.t.b.d
     public void aBU() {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
     public void aBV() {
+    }
+
+    @Override // com.baidu.swan.apps.t.b.d
+    public void aBW() {
     }
 
     @Override // com.baidu.swan.apps.t.b.d
@@ -128,7 +128,7 @@ public class a implements d {
         return dArr;
     }
 
-    private long bQr() {
+    private long bQs() {
         return gnT;
     }
 

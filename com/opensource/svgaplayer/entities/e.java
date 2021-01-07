@@ -4,9 +4,9 @@ import android.graphics.Path;
 @kotlin.e
 /* loaded from: classes6.dex */
 public final class e {
-    private static final Path pSi = new Path();
+    private static final Path pTQ = new Path();
 
-    public static final Path eEm() {
-        return pSi;
+    public static final Path eEQ() {
+        return pTQ;
     }
 }

@@ -42,7 +42,7 @@ public class c {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         c.this.mIsChecked = !c.this.mIsChecked;
-                        c.this.btU();
+                        c.this.btV();
                     }
                 });
                 onChangeSkinType();
@@ -50,8 +50,8 @@ public class c {
                 this.jiY.a(tbPageContext.getString(R.string.frs_move_area_popup_confirm), new a.b() { // from class: com.baidu.tieba.frs.view.c.2
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                        com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean("key_frs_move_area_tip", !c.this.mIsChecked);
-                        com.baidu.tieba.frs.a.cDQ().cn(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
+                        com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean("key_frs_move_area_tip", !c.this.mIsChecked);
+                        com.baidu.tieba.frs.a.cDR().cn(frsTabInfo.tab_id.intValue(), frsTabInfo2.tab_id.intValue());
                         c.this.jiY.dismiss();
                         c.this.jiY = null;
                     }
@@ -63,20 +63,20 @@ public class c {
                         c.this.jiY = null;
                     }
                 });
-                this.jiY.b(tbPageContext).btX();
+                this.jiY.b(tbPageContext).btY();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void btU() {
+    public void btV() {
         Drawable a2;
         if (this.ito != null) {
             ImageView imageView = this.ito;
             if (this.mIsChecked) {
-                a2 = SvgManager.bwq().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+                a2 = SvgManager.bwr().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
-                a2 = SvgManager.bwq().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                a2 = SvgManager.bwr().a(R.drawable.ic_icon_mask_use_check16_svg, null);
             }
             imageView.setImageDrawable(a2);
         }
@@ -89,7 +89,7 @@ public class c {
         if (this.cWc != null) {
             ao.setViewTextColor(this.cWc, R.color.CAM_X0107);
         }
-        btU();
+        btV();
         if (this.jiZ != null) {
             ao.setViewTextColor(this.jiZ, R.color.CAM_X0107);
         }

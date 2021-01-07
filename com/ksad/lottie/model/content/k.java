@@ -5,15 +5,15 @@ import com.ksad.lottie.a.a.p;
 public class k implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8382a;
+    private final String f8383a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f8383b;
+    private final int f8384b;
     private final com.ksad.lottie.model.a.h c;
 
     public k(String str, int i, com.ksad.lottie.model.a.h hVar) {
-        this.f8382a = str;
-        this.f8383b = i;
+        this.f8383a = str;
+        this.f8384b = i;
         this.c = hVar;
     }
 
@@ -23,7 +23,7 @@ public class k implements b {
     }
 
     public String a() {
-        return this.f8382a;
+        return this.f8383a;
     }
 
     public com.ksad.lottie.model.a.h b() {
@@ -31,6 +31,6 @@ public class k implements b {
     }
 
     public String toString() {
-        return "ShapePath{name=" + this.f8382a + ", index=" + this.f8383b + '}';
+        return "ShapePath{name=" + this.f8383a + ", index=" + this.f8384b + '}';
     }
 }

@@ -9,7 +9,7 @@ import com.baidu.swan.menu.f;
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b {
     private i evl;
     private List<h> evm;
@@ -26,7 +26,7 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
     private List<List<h>> evo = new ArrayList();
     private int evu = -1;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface a {
         void a(g gVar, boolean z);
     }
@@ -52,7 +52,7 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
         }
     }
 
-    private void bfm() {
+    private void bfn() {
         this.evo.clear();
         int size = this.evn.size();
         if (size > 0 && size <= 5) {
@@ -85,7 +85,7 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
             this.evt.f(this.mStyle, this.evm);
         }
         o(z, i);
-        bfm();
+        bfn();
         this.evl.b(this.evo, view, z2, this.mScreenOrientation);
         if (this.evs != null) {
             this.evs.a(this, true);
@@ -131,9 +131,9 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
 
     public void iC(boolean z) {
         a(ni(5), z);
-        bfm();
-        this.evl.aFP();
-        bfi();
+        bfn();
+        this.evl.aFQ();
+        bfj();
     }
 
     public void dismiss() {
@@ -151,9 +151,9 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
         return this.evl != null && this.evl.isShowing();
     }
 
-    public void bfi() {
+    public void bfj() {
         if (this.evl != null) {
-            this.evl.bfi();
+            this.evl.bfj();
         }
     }
 
@@ -260,7 +260,7 @@ public class g implements View.OnKeyListener, e, com.baidu.swan.menu.viewpager.b
             Long l = valueOf;
             for (h hVar : this.evn) {
                 if (hVar.getItemId() == i) {
-                    l = Long.valueOf(l.longValue() + hVar.bfo());
+                    l = Long.valueOf(l.longValue() + hVar.bfp());
                     hVar.nk(l.longValue() > 0 ? 1 : 0);
                     hVar.dk(l.longValue());
                 }

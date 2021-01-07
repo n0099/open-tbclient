@@ -13,9 +13,9 @@ import com.baidu.prologue.b;
 import com.baidu.prologue.b.a;
 import com.baidu.prologue.business.a.a;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class d extends b<com.baidu.prologue.business.b.c> implements a.InterfaceC0328a {
-    private static final boolean DEBUG = com.baidu.prologue.a.b.a.ctd.get().ago();
+    private static final boolean DEBUG = com.baidu.prologue.a.b.a.ctd.get().agp();
     private String ctW;
     private View cuE;
     private FrameLayout cuG;
@@ -69,8 +69,8 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
 
             @Override // com.baidu.prologue.b.b
             public boolean W(int i, int i2) {
-                d.this.ahd().aha();
-                d.this.ahg();
+                d.this.ahe().ahb();
+                d.this.ahh();
                 return false;
             }
 
@@ -91,7 +91,7 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
         this.cuR = new a.InterfaceC0326a() { // from class: com.baidu.prologue.business.c.d.2
             @Override // com.baidu.prologue.b.a.InterfaceC0326a
             public void hr(int i) {
-                d.this.ahd().aha();
+                d.this.ahe().ahb();
             }
         };
     }
@@ -137,21 +137,21 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public void abn() {
+    public void abo() {
         this.cuG = (FrameLayout) this.mRootView.findViewById(b.C0327b.video_splash_view_content);
         this.cuE = this.mRootView.findViewById(b.C0327b.video_splash_clickable);
         this.mMaskView = this.mRootView.findViewById(b.C0327b.video_mask_view);
         this.cuH = (ImageView) this.mRootView.findViewById(b.C0327b.video_splash_view_bs);
         if (this.cuM) {
-            ahj();
+            ahk();
         }
-        ahk();
+        ahl();
         if (this.cuL) {
-            ahl();
+            ahm();
         }
     }
 
-    private void ahj() {
+    private void ahk() {
         Bitmap bitmap;
         MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
         try {
@@ -170,7 +170,7 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
         }
     }
 
-    private void ahk() {
+    private void ahl() {
         View th = this.cuO.th();
         if (th != null && th.getParent() != this.cuG) {
             if (th.getParent() != null) {
@@ -187,7 +187,7 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
         }
     }
 
-    private void ahl() {
+    private void ahm() {
         if (this.cuO != null) {
             this.cuQ = false;
             this.cuO.a(this.cuI, this.cuJ, this.cub, this.ctW, this, this.cuR, this.cuc);
@@ -196,10 +196,10 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
     }
 
     @Override // com.baidu.prologue.business.c.b
-    public void ahf() {
-        super.ahf();
+    public void ahg() {
+        super.ahg();
         this.cuQ = true;
-        if (this.cuO != null && this.cuO.agX()) {
+        if (this.cuO != null && this.cuO.agY()) {
             this.cuO.pause();
             this.cuO.release();
         }
@@ -215,8 +215,8 @@ public class d extends b<com.baidu.prologue.business.b.c> implements a.Interface
     }
 
     @Override // com.baidu.prologue.business.c.a
-    public View agY() {
-        return this.cuO != null ? this.cuO.agY() : this.cuE;
+    public View agZ() {
+        return this.cuO != null ? this.cuO.agZ() : this.cuE;
     }
 
     @Override // com.baidu.prologue.business.a.a.InterfaceC0328a

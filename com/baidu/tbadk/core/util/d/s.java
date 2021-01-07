@@ -18,17 +18,17 @@ public class s extends a {
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwM() {
+    public int bwN() {
         return com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwN() {
+    public int bwO() {
         return com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
     }
 
     @Override // com.baidu.tbadk.core.util.d.a
-    public int bwO() {
+    public int bwP() {
         return this.procType;
     }
 
@@ -44,21 +44,21 @@ public class s extends a {
         long currentTimeMillis = System.currentTimeMillis();
         com.baidu.adp.widget.ImageView.a aVar = null;
         byte[] bArr = new byte[0];
-        com.baidu.adp.lib.Disk.ops.c Cl = Cl(av.getNameMd5FromUrl(str2));
-        if (Cl == null) {
+        com.baidu.adp.lib.Disk.ops.c Ck = Ck(av.getNameMd5FromUrl(str2));
+        if (Ck == null) {
             return null;
         }
-        Cl.a(DiskFileOperate.OperateType.TRY_SUCCESS);
-        Cl.setSubFolder(true);
-        Cl.setIsFormatData(false);
-        Cl.setLock(bArr);
-        Cl.setSdCard(false);
+        Ck.a(DiskFileOperate.OperateType.TRY_SUCCESS);
+        Ck.setSubFolder(true);
+        Ck.setIsFormatData(false);
+        Ck.setLock(bArr);
+        Ck.setSdCard(false);
         if (bVar != null) {
             d dVar = new d();
-            dVar.f(Cl);
+            dVar.f(Ck);
             bVar.Np = dVar;
         }
-        if (!com.baidu.adp.lib.Disk.d.lh().c(Cl)) {
+        if (!com.baidu.adp.lib.Disk.d.lh().c(Ck)) {
             com.baidu.adp.lib.e.a.c(false, 0L);
             return null;
         }
@@ -72,8 +72,8 @@ public class s extends a {
             } catch (InterruptedException e) {
             }
         }
-        if (Cl.isSuccess()) {
-            aVar = a(Cl, str2, i, i2);
+        if (Ck.isSuccess()) {
+            aVar = a(Ck, str2, i, i2);
         }
         com.baidu.adp.lib.e.a.c(aVar != null, System.currentTimeMillis() - currentTimeMillis);
         return aVar;

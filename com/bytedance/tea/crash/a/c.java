@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    static volatile boolean f7911a = true;
+    static volatile boolean f7912a = true;
     private final Context d;
     private volatile long e;
     private volatile boolean f = false;
@@ -65,7 +65,7 @@ public class c {
         JSONObject it = g.it(uptimeMillis);
         JSONArray C = g.C(100, uptimeMillis);
         try {
-            jSONObject = e.AP(f7911a);
+            jSONObject = e.AP(f7912a);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -93,9 +93,9 @@ public class c {
                 aVar.a("crash_time", Long.valueOf(System.currentTimeMillis()));
                 aVar.a("anr_info", a2);
                 aVar.a("all_thread_stacks", m.a((String) null));
-                com.bytedance.tea.crash.c.a a3 = com.bytedance.tea.crash.e.a.e.esz().a(com.bytedance.tea.crash.c.ANR, aVar);
+                com.bytedance.tea.crash.c.a a3 = com.bytedance.tea.crash.e.a.e.esA().a(com.bytedance.tea.crash.c.ANR, aVar);
                 com.bytedance.tea.crash.g.d.a(this.d, com.bytedance.tea.crash.c.ANR.a(), null);
-                com.bytedance.tea.crash.upload.a.esJ().b(a3.a());
+                com.bytedance.tea.crash.upload.a.esK().b(a3.a());
                 a(a2);
             } catch (Throwable th) {
                 j.b(th);
@@ -105,7 +105,7 @@ public class c {
     }
 
     private static void a(String str) {
-        for (com.bytedance.tea.crash.e eVar : h.esF().c()) {
+        for (com.bytedance.tea.crash.e eVar : h.esG().c()) {
             eVar.a(com.bytedance.tea.crash.c.ANR, str, null);
         }
     }

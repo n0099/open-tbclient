@@ -187,7 +187,7 @@ public class a {
         }
     }
 
-    public static boolean bHV() {
+    public static boolean bHW() {
         try {
             return Settings.Secure.getInt(ContentResolverProxy.getContentResolver(), "adb_enabled", 0) > 0;
         } catch (Exception e) {

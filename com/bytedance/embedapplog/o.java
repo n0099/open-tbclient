@@ -9,10 +9,10 @@ import java.util.Locale;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final CharSequence f6132a = "sony";
+    private static final CharSequence f6133a = "sony";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final CharSequence f6133b = "amigo";
+    private static final CharSequence f6134b = "amigo";
     private static final CharSequence c = "funtouch";
 
     public static boolean a() {

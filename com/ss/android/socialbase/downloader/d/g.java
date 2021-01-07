@@ -23,7 +23,7 @@ public interface g extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof g)) {
                 return (g) queryLocalInterface;
             }
-            return new C1211a(iBinder);
+            return new C1252a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -49,18 +49,18 @@ public interface g extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.g$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1211a implements g {
+        private static class C1252a implements g {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13410a;
+            private IBinder f13411a;
 
-            C1211a(IBinder iBinder) {
-                this.f13410a = iBinder;
+            C1252a(IBinder iBinder) {
+                this.f13411a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13410a;
+                return this.f13411a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.g
@@ -82,7 +82,7 @@ public interface g extends IInterface {
                         obtain.writeInt(0);
                     }
                     obtain.writeInt(i);
-                    this.f13410a.transact(1, obtain, obtain2, 0);
+                    this.f13411a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                 } finally {
                     obtain2.recycle();

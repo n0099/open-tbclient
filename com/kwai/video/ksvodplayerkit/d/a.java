@@ -13,11 +13,11 @@ public class a extends b {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwai.video.ksvodplayerkit.d.b
     public AbstractHodorPreloadTask a() {
-        this.f11362a.a(false);
-        if (this.f11362a.f() <= 0 || this.f11362a.e() || this.f11363b.get() >= i.a().e() || !this.f11362a.a()) {
+        this.f11363a.a(false);
+        if (this.f11363a.f() <= 0 || this.f11363a.e() || this.f11364b.get() >= i.a().e() || !this.f11363a.a()) {
             return null;
         }
-        this.h = m.a(this.f11362a.g());
+        this.h = m.a(this.f11363a.g());
         this.e = new VodAdaptivePreloadPriorityTask(this.h, this.i);
         return this.e;
     }

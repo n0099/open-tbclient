@@ -73,7 +73,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         setContentView(R.layout.image_activity_2);
         initData(bundle);
         initUI();
-        cWi();
+        cWj();
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -90,7 +90,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     protected void onNewIntent(Intent intent) {
         super.onNewIntent(intent);
         setIntent(intent);
-        cWi();
+        cWj();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -192,12 +192,12 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                 } else if (AbsMsgImageActivity.this.kwe) {
                     if (AbsMsgImageActivity.this.kwa.getVisibility() != 0) {
                         AbsMsgImageActivity.this.kwa.setVisibility(0);
-                        AbsMsgImageActivity.this.kwb.bDc();
+                        AbsMsgImageActivity.this.kwb.bDd();
                         AbsMsgImageActivity.this.kwd = new AlphaAnimation(0.0f, 1.0f);
                     } else {
                         AbsMsgImageActivity.this.kwd = new AlphaAnimation(1.0f, 0.0f);
                         AbsMsgImageActivity.this.kwf = true;
-                        AbsMsgImageActivity.this.kwb.bDe();
+                        AbsMsgImageActivity.this.kwb.bDf();
                     }
                     AbsMsgImageActivity.this.kwd.setDuration(300L);
                     AbsMsgImageActivity.this.kwd.setFillAfter(true);
@@ -229,7 +229,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
             public void onPageSelected(int i) {
                 AbsMsgImageActivity.this.cS(AbsMsgImageActivity.this.mIndex, i);
                 AbsMsgImageActivity.this.mIndex = i;
-                AbsMsgImageActivity.this.cLa();
+                AbsMsgImageActivity.this.cLb();
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
@@ -307,7 +307,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.kwb.setOffscreenPageLimit(2, TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth());
         this.kwb.setOnPageChangeListener(this.mOnPageChangeListener);
         this.kwb.setItemOnclickListener(this.mOnClickListener);
-        this.kwb.setCurrentItem(cWh(), false);
+        this.kwb.setCurrentItem(cWi(), false);
         this.kwb.setOnScrollOutListener(this.kwc);
         this.kwb.setItemOnLongClickListener(onLongClickListener);
         this.kwb.setHasNext(false);
@@ -319,7 +319,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLa() {
+    public void cLb() {
         if (this.kvX != null) {
             String valueOf = String.valueOf(this.mIndex + 1);
             if (this.mCount > 0) {
@@ -335,7 +335,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         }
     }
 
-    private int cWh() {
+    private int cWi() {
         if (this.kvX != null && this.kvX.size() > 0) {
             int size = this.kvX.size();
             if (this.mIndex >= size) {
@@ -388,7 +388,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
         this.kwj = new HashMap<>();
     }
 
-    private void cWi() {
+    private void cWj() {
         if (TextUtils.isEmpty(this.id)) {
             finish();
         }
@@ -431,7 +431,7 @@ public abstract class AbsMsgImageActivity extends BaseActivity<AbsMsgImageActivi
                         AbsMsgImageActivity.this.mIndex = AbsMsgImageActivity.this.mCount - 1;
                     }
                     AbsMsgImageActivity.this.mTextView.setVisibility(0);
-                    AbsMsgImageActivity.this.cLa();
+                    AbsMsgImageActivity.this.cLb();
                     AbsMsgImageActivity.this.kwb.setIsFromCDN(true);
                     AbsMsgImageActivity.this.kwb.setAllowLocalUrl(true);
                     AbsMsgImageActivity.this.kwb.setAssistUrls(hashMap);

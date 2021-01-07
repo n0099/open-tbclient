@@ -3,7 +3,7 @@ package com.baidu.swan.gamecenter.c;
 public class e {
     private static volatile d eew;
 
-    public static synchronized d aXl() {
+    public static synchronized d aXm() {
         d dVar;
         synchronized (e.class) {
             if (eew == null) {

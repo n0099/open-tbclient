@@ -1,7 +1,7 @@
 package io.reactivex.internal.util;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class h {
-    public static int Tk(int i) {
+    public static int TA(int i) {
         return 1 << (32 - Integer.numberOfLeadingZeros(i - 1));
     }
 }

@@ -16,10 +16,10 @@ import org.json.JSONObject;
 public class aw {
 
     /* renamed from: b  reason: collision with root package name */
-    private static aw f3752b = new aw();
+    private static aw f3753b = new aw();
 
     /* renamed from: a  reason: collision with root package name */
-    public a f3753a;
+    public a f3754a;
     private Handler d;
     private volatile int e;
     private int f;
@@ -36,7 +36,7 @@ public class aw {
     }
 
     public static aw a() {
-        return f3752b;
+        return f3753b;
     }
 
     private aw() {
@@ -186,11 +186,11 @@ public class aw {
             } catch (Exception e6) {
             }
             try {
-                jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f3751b));
+                jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f3752b));
             } catch (Exception e7) {
             }
             try {
-                jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f3750a));
+                jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f3751a));
             } catch (Exception e8) {
             }
             try {
@@ -233,8 +233,8 @@ public class aw {
             jSONObject.put("ev", new JSONArray(this.h.toString()));
             jSONObject.put(Config.FEED_LIST_PART, new JSONArray(this.j.toString()));
             jSONObject.put("sv", new JSONArray(this.k.toString()));
-            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f3751b));
-            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f3750a));
+            jSONObject.put(Config.EVENT_PAGE_MAPPING, au.a().a(au.a.f3752b));
+            jSONObject.put(Config.EVENT_PATH_MAPPING, au.a().a(au.a.f3751a));
             jSONObject.put("sd", au.a().a(au.a.c));
         } catch (Exception e) {
         }
@@ -291,9 +291,9 @@ public class aw {
 
     private void b(Context context, String str) {
         LogSender.instance().saveLogData(context, str, true);
-        if (this.f3753a != null) {
+        if (this.f3754a != null) {
             try {
-                this.f3753a.a(new JSONObject(str));
+                this.f3754a.a(new JSONObject(str));
             } catch (Exception e) {
             }
         }
@@ -335,7 +335,7 @@ public class aw {
             if (this.i.length() != 0) {
                 long a2 = a(this.i);
                 if (a2 > 0) {
-                    d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f3751b), au.a().a(aoVar.b(), au.a.c)));
+                    d(context, aoVar.a(a2, au.a().a(aoVar.a(), au.a.f3752b), au.a().a(aoVar.b(), au.a.c)));
                     c(context);
                 }
             }
@@ -521,7 +521,7 @@ public class aw {
             Iterator<aq> it = arrayList.iterator();
             while (it.hasNext()) {
                 aq next = it.next();
-                JSONObject a2 = next.a(au.a().a(next.b(), au.a.f3751b), au.a().a(next.f(), au.a.c), bj.c(next.c()));
+                JSONObject a2 = next.a(au.a().a(next.b(), au.a.f3752b), au.a().a(next.f(), au.a.c), bj.c(next.c()));
                 if (a2 != null) {
                     jSONArray.put(a2);
                 }

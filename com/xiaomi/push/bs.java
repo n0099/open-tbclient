@@ -8,16 +8,16 @@ import com.xiaomi.push.ai;
 public class bs extends ai.a {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ bp f14191a;
+    final /* synthetic */ bp f14192a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public bs(bp bpVar) {
-        this.f14191a = bpVar;
+        this.f14192a = bpVar;
     }
 
     @Override // com.xiaomi.push.ai.a
     /* renamed from: a */
-    public int mo185a() {
+    public int mo196a() {
         return 10053;
     }
 
@@ -26,12 +26,12 @@ public class bs extends ai.a {
         cf cfVar;
         cf cfVar2;
         Context context;
-        cfVar = this.f14191a.f216a;
+        cfVar = this.f14192a.f217a;
         if (cfVar != null) {
-            cfVar2 = this.f14191a.f216a;
-            context = this.f14191a.f213a;
+            cfVar2 = this.f14192a.f217a;
+            context = this.f14192a.f214a;
             cfVar2.b(context);
-            this.f14191a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
+            this.f14192a.b(DBTableDefine.GroupInfoColumns.COLUMN_DELETE_TIEM);
         }
     }
 }

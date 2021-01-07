@@ -6,7 +6,7 @@ import com.qq.e.ads.cfg.VideoOption;
 import com.qq.e.ads.interstitial2.UnifiedInterstitialMediaListener;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface UIADI {
     public static final Map<String, String> ext = new HashMap();
 

@@ -25,19 +25,19 @@ public class at {
     private final Handler.Callback jke = new Handler.Callback() { // from class: com.baidu.tieba.frs.at.1
         @Override // android.os.Handler.Callback
         public boolean handleMessage(Message message) {
-            if ((message.what == 1 || message.what == 2) && at.this.cHs()) {
+            if ((message.what == 1 || message.what == 2) && at.this.cHt()) {
                 at.this.mHandler.sendEmptyMessageDelayed(message.what, 100L);
                 return true;
             }
             switch (message.what) {
                 case 1:
-                    at.this.cHq();
+                    at.this.cHr();
                     return true;
                 case 2:
-                    at.this.cHo();
+                    at.this.cHp();
                     return true;
                 case 3:
-                    at.this.cHp();
+                    at.this.cHq();
                     return true;
                 default:
                     return false;
@@ -82,7 +82,7 @@ public class at {
     };
     private boolean bMm = UtilHelper.canUseStyleImmersiveSticky();
 
-    public com.baidu.tieba.f.b cHn() {
+    public com.baidu.tieba.f.b cHo() {
         return this.jkd;
     }
 
@@ -97,53 +97,53 @@ public class at {
     public at(Context context, q qVar, com.baidu.tieba.frs.vc.h hVar) {
         this.mContext = context;
         this.jjY = qVar;
-        this.mNavigationBar = qVar.bYq();
-        this.jjX = qVar.cFU();
+        this.mNavigationBar = qVar.bYr();
+        this.jjX = qVar.cFV();
         this.jjZ = hVar;
-        Ws();
+        Wt();
         this.jkd = new com.baidu.tieba.f.b(context);
         this.jkd.a(this.iEb);
     }
 
-    public void cHo() {
+    public void cHp() {
         ab(false, false);
     }
 
-    public void cHp() {
+    public void cHq() {
         ab(false, true);
     }
 
     public void ab(boolean z, boolean z2) {
-        if (this.jjX != null && this.jjY != null && this.jjY.cGe() != null && this.jjY.cGe().cJf()) {
+        if (this.jjX != null && this.jjY != null && this.jjY.cGf() != null && this.jjY.cGf().cJg()) {
             aa(false, true);
         }
     }
 
-    public void cHq() {
-        if (this.jjX != null && this.jjY != null && this.jjY.cGe() != null && !this.jjY.cGe().cJf()) {
+    public void cHr() {
+        if (this.jjX != null && this.jjY != null && this.jjY.cGf() != null && !this.jjY.cGf().cJg()) {
             aa(true, true);
         }
     }
 
-    public void bJb() {
+    public void bJc() {
         this.mHandler.removeMessages(2);
         if (!this.mHandler.hasMessages(1)) {
             this.mHandler.sendEmptyMessageDelayed(1, 60L);
         }
     }
 
-    public void bJc() {
+    public void bJd() {
         this.mHandler.removeMessages(1);
         if (!this.mHandler.hasMessages(2)) {
             this.mHandler.sendEmptyMessageDelayed(2, 110L);
         }
     }
 
-    public void cHr() {
+    public void cHs() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
-    public boolean cHs() {
+    public boolean cHt() {
         return cW(this.jjX);
     }
 
@@ -160,23 +160,23 @@ public class at {
 
     public void hideFloatingView() {
         if (this.jkb && this.jkc && this.jjX != null && this.fPD >= this.jka) {
-            bJc();
+            bJd();
         }
     }
 
     public void showFloatingView() {
         if (this.jkb && this.jkc && this.jjX != null) {
-            bJb();
+            bJc();
         }
     }
 
-    private void Ws() {
-        if (this.jjY != null && this.jjY.Wx() != null) {
-            View Wx = this.jjY.Wx();
-            if (this.bMm && Wx.getLayoutParams() != null) {
-                ViewGroup.LayoutParams layoutParams = Wx.getLayoutParams();
+    private void Wt() {
+        if (this.jjY != null && this.jjY.Wy() != null) {
+            View Wy = this.jjY.Wy();
+            if (this.bMm && Wy.getLayoutParams() != null) {
+                ViewGroup.LayoutParams layoutParams = Wy.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight();
-                Wx.setLayoutParams(layoutParams);
+                Wy.setLayoutParams(layoutParams);
                 di(true);
                 return;
             }
@@ -185,12 +185,12 @@ public class at {
     }
 
     private void di(boolean z) {
-        if (this.jjY != null && this.jjY.Wx() != null) {
-            View Wx = this.jjY.Wx();
-            if (this.bMm && z && Wx.getVisibility() != 0) {
-                Wx.setVisibility(0);
-            } else if (!z && Wx.getVisibility() != 8) {
-                Wx.setVisibility(8);
+        if (this.jjY != null && this.jjY.Wy() != null) {
+            View Wy = this.jjY.Wy();
+            if (this.bMm && z && Wy.getVisibility() != 0) {
+                Wy.setVisibility(0);
+            } else if (!z && Wy.getVisibility() != 8) {
+                Wy.setVisibility(8);
             }
         }
     }

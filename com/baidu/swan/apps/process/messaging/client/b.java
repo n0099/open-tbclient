@@ -16,9 +16,9 @@ public class b implements a.b {
     private final Deque<Message> dwp = new ArrayDeque();
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
-    public void aJa() {
-        a aJh = a.aJh();
-        while (aJh.aJl() && !this.dwp.isEmpty()) {
+    public void aJb() {
+        a aJi = a.aJi();
+        while (aJi.aJm() && !this.dwp.isEmpty()) {
             Message peek = this.dwp.peek();
             if (peek == null || B(peek)) {
                 this.dwp.poll();
@@ -36,28 +36,28 @@ public class b implements a.b {
 
     @Override // com.baidu.swan.apps.process.messaging.a.b
     public void a(@NonNull c cVar) {
-        Message aJb = cVar.aJb();
-        aJb.arg1 = SwanAppProcessInfo.current().index;
-        if (d.aMg().aJw() && (aJb.obj instanceof Bundle)) {
-            Bundle bundle = (Bundle) aJb.obj;
+        Message aJc = cVar.aJc();
+        aJc.arg1 = SwanAppProcessInfo.current().index;
+        if (d.aMh().aJx() && (aJc.obj instanceof Bundle)) {
+            Bundle bundle = (Bundle) aJc.obj;
             if (!bundle.containsKey("ai_apps_id")) {
-                bundle.putString("ai_apps_id", d.aMg().getAppId());
+                bundle.putString("ai_apps_id", d.aMh().getAppId());
             }
         }
-        if (!B(aJb) && cVar.isSticky()) {
-            this.dwp.offer(aJb);
-            a.aJh().aJj();
+        if (!B(aJc) && cVar.isSticky()) {
+            this.dwp.offer(aJc);
+            a.aJi().aJk();
         }
     }
 
     private boolean B(Message message) {
-        a aJh = a.aJh();
-        if (message != null && aJh.aJl()) {
+        a aJi = a.aJi();
+        if (message != null && aJi.aJm()) {
             try {
-                aJh.aJi().send(message);
+                aJi.aJj().send(message);
                 return true;
             } catch (RemoteException e) {
-                aJh.aJm();
+                aJi.aJn();
                 if (DEBUG) {
                     e.printStackTrace();
                 }

@@ -100,7 +100,7 @@ public class a {
         return this;
     }
 
-    public b bLW() {
+    public b bLX() {
         return new b(this.gbr);
     }
 }

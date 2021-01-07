@@ -28,7 +28,7 @@ public class bo extends bz {
         return this.title;
     }
 
-    public ArrayList<bq> bqx() {
+    public ArrayList<bq> bqy() {
         return this.eRP;
     }
 

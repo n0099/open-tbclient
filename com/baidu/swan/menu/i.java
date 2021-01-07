@@ -17,7 +17,7 @@ import com.baidu.swan.menu.f;
 import java.util.ArrayList;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class i extends PopupWindow implements View.OnClickListener {
     private FrameLayout ajW;
     private boolean cUm;
@@ -60,7 +60,7 @@ public class i extends PopupWindow implements View.OnClickListener {
 
     private void showView() {
         if (!isShowing()) {
-            aFP();
+            aFQ();
             this.evI.reset();
             this.evH = this.evI;
             if (this.cUm) {
@@ -80,18 +80,18 @@ public class i extends PopupWindow implements View.OnClickListener {
                         @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
                         public void onGlobalLayout() {
                             i.this.evI.nc(contentView.getHeight());
-                            i.this.aFQ();
+                            i.this.aFR();
                             contentView.getViewTreeObserver().removeOnGlobalLayoutListener(this);
                         }
                     });
                 } else {
-                    aFQ();
+                    aFR();
                 }
             }
         }
     }
 
-    public void aFP() {
+    public void aFQ() {
         if (this.evK != null) {
             this.evK.a(this.evI);
         }
@@ -140,12 +140,12 @@ public class i extends PopupWindow implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public void bfi() {
-        this.evI.bfi();
+    public void bfj() {
+        this.evI.bfj();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aFQ() {
+    public void aFR() {
         this.dqj.setAlpha(0.0f);
         this.evI.setTranslationY(this.evI.getHeight());
         ObjectAnimator a2 = c.a(this.dqj, this.evI);

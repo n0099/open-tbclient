@@ -13,10 +13,10 @@ import java.util.Map;
 public class c implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f7361a;
+    private final WeakReference<Context> f7362a;
 
     public c(Context context) {
-        this.f7361a = new WeakReference<>(context);
+        this.f7362a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.a.a.a.g
@@ -50,8 +50,8 @@ public class c implements g {
                 i = 0;
                 break;
         }
-        i esi = i.esi();
-        new j(i, str2, esi) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
+        i esj = i.esj();
+        new j(i, str2, esj) { // from class: com.bytedance.sdk.openadsdk.downloadnew.a.a.c.1
             @Override // com.bytedance.sdk.adnet.core.Request
             protected Map<String, String> c() throws com.bytedance.sdk.adnet.err.a {
                 HashMap hashMap = new HashMap();
@@ -62,13 +62,13 @@ public class c implements g {
             }
         }.build(com.bytedance.sdk.openadsdk.i.e.a(com.bytedance.sdk.openadsdk.core.p.a()).d());
         try {
-            pVar2 = esi.get();
+            pVar2 = esj.get();
         } catch (Throwable th) {
             pVar2 = null;
         }
         if (pVar2 != null && pVar2.a()) {
             if (pVar != null) {
-                pVar.a((String) pVar2.f6344a);
+                pVar.a((String) pVar2.f6345a);
                 return;
             }
             return;

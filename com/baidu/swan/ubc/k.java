@@ -36,7 +36,7 @@ public class k {
         return this.mId;
     }
 
-    public int biz() {
+    public int biA() {
         return this.eBl;
     }
 
@@ -44,11 +44,11 @@ public class k {
         return this.mContent;
     }
 
-    public JSONObject biB() {
+    public JSONObject biC() {
         return this.eBm;
     }
 
-    public long biG() {
+    public long biH() {
         return this.acA;
     }
 
@@ -56,7 +56,7 @@ public class k {
         return this.mEndTime;
     }
 
-    public String biH() {
+    public String biI() {
         return this.mState;
     }
 
@@ -64,7 +64,7 @@ public class k {
         return this.mOption;
     }
 
-    public String biA() {
+    public String biB() {
         return this.eBn;
     }
 
@@ -96,9 +96,9 @@ public class k {
         this.eBn = str;
     }
 
-    public void biD() {
-        if (d.bij().zp(this.mId)) {
-            this.eBn = e.bin().aGU();
+    public void biE() {
+        if (d.bik().zp(this.mId)) {
+            this.eBn = e.bio().aGV();
         }
     }
 
@@ -114,7 +114,7 @@ public class k {
         this.eBo = z;
     }
 
-    public boolean biw() {
+    public boolean bix() {
         return this.eBo;
     }
 
@@ -128,7 +128,7 @@ public class k {
         }
     }
 
-    public JSONArray biI() {
+    public JSONArray biJ() {
         return this.eBq;
     }
 }

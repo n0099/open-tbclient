@@ -13,14 +13,14 @@ import java.util.concurrent.BlockingQueue;
 public class k extends Thread {
 
     /* renamed from: a  reason: collision with root package name */
-    private final BlockingQueue<Request<?>> f6338a;
+    private final BlockingQueue<Request<?>> f6339a;
     private volatile boolean e = false;
     private final com.bytedance.sdk.adnet.e.c ppv;
     private final com.bytedance.sdk.adnet.e.b ppw;
     private final com.bytedance.sdk.adnet.e.d ppx;
 
     public k(BlockingQueue<Request<?>> blockingQueue, com.bytedance.sdk.adnet.e.c cVar, com.bytedance.sdk.adnet.e.b bVar, com.bytedance.sdk.adnet.e.d dVar) {
-        this.f6338a = blockingQueue;
+        this.f6339a = blockingQueue;
         this.ppv = cVar;
         this.ppw = bVar;
         this.ppx = dVar;
@@ -55,7 +55,7 @@ public class k extends Thread {
     }
 
     private void b() throws InterruptedException {
-        b(this.f6338a.take());
+        b(this.f6339a.take());
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [193=6] */

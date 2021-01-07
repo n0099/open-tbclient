@@ -21,13 +21,13 @@ import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes15.dex */
 public final class p {
-    public aq pHA;
-    public l pHB;
-    public FunAdLoadListener pHC;
-    public FunAdSlot.AdLoadMode pHD;
-    public au pHx;
-    public bg pHy;
-    public af pHz;
+    public au pJf;
+    public bg pJg;
+    public af pJh;
+    public aq pJi;
+    public l pJj;
+    public FunAdLoadListener pJk;
+    public FunAdSlot.AdLoadMode pJl;
     public boolean h = true;
     public Handler j = new a(Looper.getMainLooper());
     public Map<String, FunRippedAd> k = new HashMap();
@@ -46,15 +46,15 @@ public final class p {
             p pVar;
             FunAdLoadListener funAdLoadListener;
             for (Map.Entry<String, b> entry : p.this.f.entrySet()) {
-                if (entry.getValue().f8085b && (funAdLoadListener = (pVar = p.this).pHC) != null) {
-                    funAdLoadListener.onAdLoaded(pVar.pHx.f8057a);
+                if (entry.getValue().f8086b && (funAdLoadListener = (pVar = p.this).pJk) != null) {
+                    funAdLoadListener.onAdLoaded(pVar.pJf.f8058a);
                     return;
                 }
             }
             p pVar2 = p.this;
-            FunAdLoadListener funAdLoadListener2 = pVar2.pHC;
+            FunAdLoadListener funAdLoadListener2 = pVar2.pJk;
             if (funAdLoadListener2 != null) {
-                funAdLoadListener2.onError(pVar2.pHx.f8057a);
+                funAdLoadListener2.onError(pVar2.pJf.f8058a);
             }
         }
     }
@@ -63,25 +63,25 @@ public final class p {
     public static class b {
 
         /* renamed from: a */
-        public int f8084a = 0;
+        public int f8085a = 0;
 
         /* renamed from: b */
-        public boolean f8085b = false;
+        public boolean f8086b = false;
         public long c = 0;
 
         public void a() {
-            this.f8084a = 0;
-            this.f8085b = false;
+            this.f8085a = 0;
+            this.f8086b = false;
             this.c = 0L;
         }
     }
 
     public p(au auVar, bg bgVar, af afVar, aq aqVar, l lVar) {
-        this.pHx = auVar;
-        this.pHy = bgVar;
-        this.pHz = afVar;
-        this.pHA = aqVar;
-        this.pHB = lVar;
+        this.pJf = auVar;
+        this.pJg = bgVar;
+        this.pJh = afVar;
+        this.pJi = aqVar;
+        this.pJj = lVar;
     }
 
     public static /* synthetic */ void a(p pVar, String str, String str2, String str3) {
@@ -90,17 +90,17 @@ public final class p {
             b bVar = pVar.f.get(str3);
             if (bVar != null) {
                 bVar.c = System.currentTimeMillis();
-                bVar.f8085b = true;
-                if ((pVar.pHD == FunAdSlot.AdLoadMode.PRIORITY_FIRST && bVar.f8084a == 0) || pVar.pHD == FunAdSlot.AdLoadMode.TIME_FIRST) {
-                    pVar.pHD = FunAdSlot.AdLoadMode.PRIORITY_FIRST;
+                bVar.f8086b = true;
+                if ((pVar.pJl == FunAdSlot.AdLoadMode.PRIORITY_FIRST && bVar.f8085a == 0) || pVar.pJl == FunAdSlot.AdLoadMode.TIME_FIRST) {
+                    pVar.pJl = FunAdSlot.AdLoadMode.PRIORITY_FIRST;
                     pVar.h = false;
                     pVar.j.removeMessages(0);
-                    FunAdLoadListener funAdLoadListener = pVar.pHC;
+                    FunAdLoadListener funAdLoadListener = pVar.pJk;
                     if (funAdLoadListener != null) {
-                        funAdLoadListener.onAdLoaded(pVar.pHx.f8057a);
+                        funAdLoadListener.onAdLoaded(pVar.pJf.f8058a);
                     }
                 }
-                ((d.a) d.pHm).c(str, str2, str3);
+                ((d.a) d.pIU).c(str, str2, str3);
                 return;
             }
             Log.e("FunAdSdk", "FunAdLoader 不应该走到这里");
@@ -110,29 +110,29 @@ public final class p {
     }
 
     public final boolean a(au.a aVar) {
-        j jVar = j.pHt;
-        String str = this.pHx.f8057a;
-        String str2 = aVar.f8059a;
+        j jVar = j.pJb;
+        String str = this.pJf.f8058a;
+        String str2 = aVar.f8060a;
         if (jVar != null) {
-            String str3 = jVar.f8082a.get(str.concat(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).concat(str2));
-            FunRippedAd funRippedAd = this.k.get(aVar.f8059a);
+            String str3 = jVar.f8083a.get(str.concat(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).concat(str2));
+            FunRippedAd funRippedAd = this.k.get(aVar.f8060a);
             if (funRippedAd == null) {
                 funRippedAd = b(aVar);
-                this.k.put(aVar.f8059a, funRippedAd);
+                this.k.put(aVar.f8060a, funRippedAd);
             }
             if (funRippedAd != null && !TextUtils.isEmpty(funRippedAd.uniqueId)) {
-                m.a("FunAdLoader 广告去重，sid: " + this.pHx.f8057a + "adUniqueID：" + funRippedAd.uniqueId);
-                m.a("FunAdLoader 广告去重，sid: " + this.pHx.f8057a + "showAdUniqueID：" + str3);
+                m.a("FunAdLoader 广告去重，sid: " + this.pJf.f8058a + "adUniqueID：" + funRippedAd.uniqueId);
+                m.a("FunAdLoader 广告去重，sid: " + this.pJf.f8058a + "showAdUniqueID：" + str3);
                 boolean equals = TextUtils.equals(funRippedAd.uniqueId, str3);
                 if (equals) {
                     return equals;
                 }
-                j jVar2 = j.pHt;
-                String str4 = this.pHx.f8057a;
-                String str5 = aVar.f8059a;
+                j jVar2 = j.pJb;
+                String str4 = this.pJf.f8058a;
+                String str5 = aVar.f8060a;
                 String str6 = funRippedAd.uniqueId;
                 if (jVar2 != null) {
-                    jVar2.f8082a.put(str4.concat(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).concat(str5), str6);
+                    jVar2.f8083a.put(str4.concat(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS).concat(str5), str6);
                     return equals;
                 }
                 throw null;
@@ -146,7 +146,7 @@ public final class p {
         if (pVar != null) {
             m.a("FunAdLoader 广告加载失败，广告ID：" + str3 + "，code：" + i + "，message：" + str4);
             if (pVar.f.get(str3) != null) {
-                ((d.a) d.pHm).a(str, str2, str3, i, str4);
+                ((d.a) d.pIU).a(str, str2, str3, i, str4);
                 return;
             } else {
                 Log.e("FunAdSdk", "FunAdLoader 不应该走到这里");
@@ -157,7 +157,7 @@ public final class p {
     }
 
     public final void a(Activity activity, FunAdView funAdView, au.a aVar, FunAdInteractionListener funAdInteractionListener) {
-        String str = aVar.f8060b;
+        String str = aVar.f8061b;
         char c = 65535;
         switch (str.hashCode()) {
             case -1900686778:
@@ -335,13 +335,13 @@ public final class p {
             case '\b':
             case '\t':
             case '\n':
-                String str2 = this.pHx.f8057a;
-                bg bgVar = this.pHy;
+                String str2 = this.pJf.f8058a;
+                bg bgVar = this.pJg;
                 am amVar = new am(this, funAdInteractionListener, str2, aVar);
                 if (bgVar != null) {
-                    bd bdVar = bgVar.f8067a.get(bgVar.a(str2, aVar.f8059a));
+                    bd bdVar = bgVar.f8068a.get(bgVar.a(str2, aVar.f8060a));
                     if (bdVar == null) {
-                        Log.e("FunAdSdk", "CSJAdLoaderFactory: 广告展示错误，必须先load广告 sid: " + str2 + ", adId: " + aVar.f8059a);
+                        Log.e("FunAdSdk", "CSJAdLoaderFactory: 广告展示错误，必须先load广告 sid: " + str2 + ", adId: " + aVar.f8060a);
                         return;
                     } else {
                         bdVar.a(activity, funAdView, amVar);
@@ -354,13 +354,13 @@ public final class p {
             case '\r':
             case 14:
             case 15:
-                String str3 = this.pHx.f8057a;
-                af afVar = this.pHz;
+                String str3 = this.pJf.f8058a;
+                af afVar = this.pJh;
                 ag agVar = new ag(this, funAdInteractionListener, str3, aVar);
                 if (afVar != null) {
-                    ac acVar = afVar.f8045a.get(afVar.a(str3, aVar.f8059a));
+                    ac acVar = afVar.f8046a.get(afVar.a(str3, aVar.f8060a));
                     if (acVar == null) {
-                        Log.e("FunAdSdk", "KSAdLoaderFactory: 广告展示错误，必须先load广告 sid: " + str3 + ", adId: " + aVar.f8059a);
+                        Log.e("FunAdSdk", "KSAdLoaderFactory: 广告展示错误，必须先load广告 sid: " + str3 + ", adId: " + aVar.f8060a);
                         return;
                     } else {
                         acVar.a(activity, funAdView, agVar);
@@ -376,13 +376,13 @@ public final class p {
             case 21:
             case 22:
             case 23:
-                String str4 = this.pHx.f8057a;
-                aq aqVar = this.pHA;
+                String str4 = this.pJf.f8058a;
+                aq aqVar = this.pJi;
                 aa aaVar = new aa(this, funAdInteractionListener, str4, aVar);
                 if (aqVar != null) {
-                    an anVar = aqVar.f8053a.get(aqVar.a(str4, aVar.f8059a));
+                    an anVar = aqVar.f8054a.get(aqVar.a(str4, aVar.f8060a));
                     if (anVar == null) {
-                        Log.e("FunAdSdk", "GDTAdLoaderFactory: 广告展示错误，必须先load广告 sid: " + str4 + ", adId: " + aVar.f8059a);
+                        Log.e("FunAdSdk", "GDTAdLoaderFactory: 广告展示错误，必须先load广告 sid: " + str4 + ", adId: " + aVar.f8060a);
                         return;
                     } else {
                         anVar.a(activity, funAdView, aaVar);
@@ -393,13 +393,13 @@ public final class p {
             case 24:
             case 25:
             case 26:
-                String str5 = this.pHx.f8057a;
-                l lVar = this.pHB;
+                String str5 = this.pJf.f8058a;
+                l lVar = this.pJj;
                 u uVar = new u(this, funAdInteractionListener, str5, aVar);
                 if (lVar != null) {
-                    i iVar = lVar.f8083a.get(lVar.a(str5, aVar.f8059a));
+                    i iVar = lVar.f8084a.get(lVar.a(str5, aVar.f8060a));
                     if (iVar == null) {
-                        Log.e("FunAdSdk", "JYAdLoaderFactory: 广告展示错误，必须先load广告 sid: " + str5 + ", adId: " + aVar.f8059a);
+                        Log.e("FunAdSdk", "JYAdLoaderFactory: 广告展示错误，必须先load广告 sid: " + str5 + ", adId: " + aVar.f8060a);
                         return;
                     } else {
                         iVar.a(activity, funAdView, uVar);
@@ -413,7 +413,7 @@ public final class p {
     }
 
     public final FunRippedAd b(au.a aVar) {
-        String str = aVar.f8060b;
+        String str = aVar.f8061b;
         char c = 65535;
         switch (str.hashCode()) {
             case -1900686778:
@@ -591,12 +591,12 @@ public final class p {
             case '\b':
             case '\t':
             case '\n':
-                bg bgVar = this.pHy;
-                String str2 = this.pHx.f8057a;
+                bg bgVar = this.pJg;
+                String str2 = this.pJf.f8058a;
                 if (bgVar != null) {
-                    bd bdVar = bgVar.f8067a.get(bgVar.a(str2, aVar.f8059a));
+                    bd bdVar = bgVar.f8068a.get(bgVar.a(str2, aVar.f8060a));
                     if (bdVar != null) {
-                        return bdVar.eBl();
+                        return bdVar.eBP();
                     }
                     return null;
                 }
@@ -606,12 +606,12 @@ public final class p {
             case '\r':
             case 14:
             case 15:
-                af afVar = this.pHz;
-                String str3 = this.pHx.f8057a;
+                af afVar = this.pJh;
+                String str3 = this.pJf.f8058a;
                 if (afVar != null) {
-                    ac acVar = afVar.f8045a.get(afVar.a(str3, aVar.f8059a));
+                    ac acVar = afVar.f8046a.get(afVar.a(str3, aVar.f8060a));
                     if (acVar != null) {
-                        return acVar.eBl();
+                        return acVar.eBP();
                     }
                     return null;
                 }
@@ -624,12 +624,12 @@ public final class p {
             case 21:
             case 22:
             case 23:
-                aq aqVar = this.pHA;
-                String str4 = this.pHx.f8057a;
+                aq aqVar = this.pJi;
+                String str4 = this.pJf.f8058a;
                 if (aqVar != null) {
-                    an anVar = aqVar.f8053a.get(aqVar.a(str4, aVar.f8059a));
+                    an anVar = aqVar.f8054a.get(aqVar.a(str4, aVar.f8060a));
                     if (anVar != null) {
-                        return anVar.eBl();
+                        return anVar.eBP();
                     }
                     return null;
                 }
@@ -637,11 +637,11 @@ public final class p {
             case 24:
             case 25:
             case 26:
-                l lVar = this.pHB;
-                String str5 = this.pHx.f8057a;
+                l lVar = this.pJj;
+                String str5 = this.pJf.f8058a;
                 if (lVar != null) {
-                    i iVar = lVar.f8083a.get(lVar.a(str5, aVar.f8059a));
-                    return iVar != null ? iVar.eBl() : null;
+                    i iVar = lVar.f8084a.get(lVar.a(str5, aVar.f8060a));
+                    return iVar != null ? iVar.eBP() : null;
                 }
                 throw null;
             default:

@@ -13,12 +13,12 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.pb.data.f;
 /* loaded from: classes2.dex */
 public class PbThreadPostView extends LinearLayout {
-    private f lKf;
+    private f lKe;
     private Context mContext;
     private View.OnClickListener mOnClickListener;
-    public View mbe;
+    public View mbd;
+    public TextView mbe;
     public TextView mbf;
-    public TextView mbg;
 
     public PbThreadPostView(Context context) {
         this(context, null);
@@ -40,26 +40,26 @@ public class PbThreadPostView extends LinearLayout {
     }
 
     private void tN() {
-        this.mbe = findViewById(R.id.pb_thread_post_container);
-        this.mbf = (TextView) findViewById(R.id.pb_thread_post_content);
-        this.mbg = (TextView) findViewById(R.id.pb_thread_post_button);
+        this.mbd = findViewById(R.id.pb_thread_post_container);
+        this.mbe = (TextView) findViewById(R.id.pb_thread_post_content);
+        this.mbf = (TextView) findViewById(R.id.pb_thread_post_button);
     }
 
     public void setData(f fVar) {
-        this.lKf = fVar;
+        this.lKe = fVar;
         vU(TbadkCoreApplication.getInst().getSkinType());
     }
 
     public void setChildOnClickLinstener(View.OnClickListener onClickListener) {
         if (this.mOnClickListener == null) {
             this.mOnClickListener = onClickListener;
-            this.mbg.setOnClickListener(this.mOnClickListener);
+            this.mbf.setOnClickListener(this.mOnClickListener);
         }
     }
 
     public void vU(int i) {
-        ao.setBackgroundColor(this.mbe, R.color.CAM_X0205, i);
-        ao.setViewTextColor(this.mbf, R.color.CAM_X0107);
-        ao.setViewTextColor(this.mbg, R.color.CAM_X0302);
+        ao.setBackgroundColor(this.mbd, R.color.CAM_X0205, i);
+        ao.setViewTextColor(this.mbe, R.color.CAM_X0107);
+        ao.setViewTextColor(this.mbf, R.color.CAM_X0302);
     }
 }

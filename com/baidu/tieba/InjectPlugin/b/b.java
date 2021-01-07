@@ -44,7 +44,7 @@ public class b extends g {
         this.geK = list;
     }
 
-    public List<Object> bMY() {
+    public List<Object> bMZ() {
         return this.geM;
     }
 
@@ -52,7 +52,7 @@ public class b extends g {
         this.geM = list;
     }
 
-    public List<n> bMZ() {
+    public List<n> bNa() {
         return this.geL;
     }
 
@@ -60,7 +60,7 @@ public class b extends g {
         this.geL = list;
     }
 
-    public boolean bNa() {
+    public boolean bNb() {
         return this.geN;
     }
 
@@ -68,7 +68,7 @@ public class b extends g {
         this.geN = z;
     }
 
-    public boolean bNb() {
+    public boolean bNc() {
         return this.geO;
     }
 
@@ -76,7 +76,7 @@ public class b extends g {
         this.geO = z;
     }
 
-    public int bNc() {
+    public int bNd() {
         return this.currentPage;
     }
 
@@ -92,7 +92,7 @@ public class b extends g {
         this.akW = i;
     }
 
-    public boolean bNd() {
+    public boolean bNe() {
         return this.geP;
     }
 
@@ -116,27 +116,27 @@ public class b extends g {
         this.forumId = str;
     }
 
-    public String bNe() {
+    public String bNf() {
         return this.eSm;
     }
 
-    public void Fe(String str) {
+    public void Fd(String str) {
         this.eSm = str;
     }
 
-    public String bNf() {
+    public String bNg() {
         return this.geQ;
     }
 
-    public void Ff(String str) {
+    public void Fe(String str) {
         this.geQ = str;
     }
 
-    public String bNg() {
+    public String bNh() {
         return this.geR;
     }
 
-    public void Fg(String str) {
+    public void Ff(String str) {
         this.geR = str;
     }
 }

@@ -85,7 +85,7 @@ public class a extends Dialog implements View.OnClickListener {
         if (this.hNj != null) {
             if (view == this.hNd) {
                 if (this.hNi != null && this.hNi.user_info != null) {
-                    if (cmV()) {
+                    if (cmW()) {
                         TiebaInitialize.log("c12271");
                         a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.1
                             @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
@@ -111,7 +111,7 @@ public class a extends Dialog implements View.OnClickListener {
                 }
             } else if (view == this.hNe) {
                 if (this.hNi != null && this.hNi.user_info != null) {
-                    if (cmU()) {
+                    if (cmV()) {
                         TiebaInitialize.log("c12271");
                         a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.3
                             @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
@@ -137,7 +137,7 @@ public class a extends Dialog implements View.OnClickListener {
                 }
             } else if (view == this.hNf) {
                 if (this.hNi != null && this.hNi.login_user_info != null) {
-                    if (cmW()) {
+                    if (cmX()) {
                         TiebaInitialize.log("c12270");
                         a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.5
                             @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
@@ -148,7 +148,7 @@ public class a extends Dialog implements View.OnClickListener {
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.ala_person_appoint_admin_confirm_tip), this.hNi.user_info.getNameShow()));
-                    } else if (cmX()) {
+                    } else if (cmY()) {
                         TiebaInitialize.log("c12272");
                         a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.6
                             @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
@@ -159,7 +159,7 @@ public class a extends Dialog implements View.OnClickListener {
                                 }
                             }
                         }, String.format(getContext().getResources().getString(a.h.ala_person_fire_admin_confirm_tip), this.hNi.user_info.getNameShow()));
-                    } else if (cmY()) {
+                    } else if (cmZ()) {
                         TiebaInitialize.log("c12269");
                         a(new InterfaceC0688a() { // from class: com.baidu.tieba.ala.liveroom.r.a.7
                             @Override // com.baidu.tieba.ala.liveroom.r.a.InterfaceC0688a
@@ -217,13 +217,13 @@ public class a extends Dialog implements View.OnClickListener {
                 this.hNk = 1;
             }
         }
-        if (cmZ() || cna()) {
+        if (cna() || cnb()) {
             xx(8);
             xy(8);
-        } else if (cmU()) {
+        } else if (cmV()) {
             xx(8);
             this.hNe.setText(a.h.ala_person_relieve_forbidden_forever);
-        } else if (cmV()) {
+        } else if (cmW()) {
             xx(0);
             this.hNd.setText(a.h.ala_person_relieve_forbidden_this);
             this.hNe.setText(a.h.ala_person_forbid_forever);
@@ -232,14 +232,14 @@ public class a extends Dialog implements View.OnClickListener {
             this.hNd.setText(a.h.ala_person_forbid_this);
             this.hNe.setText(a.h.ala_person_forbid_forever);
         }
-        if (cmT()) {
+        if (cmU()) {
             this.hNf.setVisibility(8);
             this.hNh.setVisibility(8);
-        } else if (cmX()) {
+        } else if (cmY()) {
             this.hNf.setText(a.h.ala_person_fire_admin);
-        } else if (cmW()) {
+        } else if (cmX()) {
             this.hNf.setText(a.h.ala_person_appoint_admin);
-        } else if (cmZ() && cmY()) {
+        } else if (cna() && cmZ()) {
             this.hNf.setText(a.h.ala_person_resign_admin);
         } else {
             this.hNf.setVisibility(8);
@@ -251,35 +251,35 @@ public class a extends Dialog implements View.OnClickListener {
         this.hNj = bVar;
     }
 
-    private boolean cmT() {
+    private boolean cmU() {
         return (this.hNi == null || this.hNi.user_info == null || this.hNi.user_info.is_block <= 0) ? false : true;
     }
 
-    private boolean cmU() {
+    private boolean cmV() {
         return (this.hNi == null || this.hNi.user_info == null || this.hNi.user_info.is_block != 2) ? false : true;
     }
 
-    private boolean cmV() {
+    private boolean cmW() {
         return (this.hNi == null || this.hNi.user_info == null || this.hNi.user_info.is_block != 1) ? false : true;
     }
 
-    private boolean cmW() {
+    private boolean cmX() {
         return this.hNi != null && this.hNi.user_info != null && this.boZ && this.hNi.user_info.is_live_admin == 0;
     }
 
-    private boolean cmX() {
+    private boolean cmY() {
         return this.hNi != null && this.hNi.user_info != null && this.boZ && this.hNi.user_info.is_live_admin == 1;
     }
 
-    private boolean cmY() {
+    private boolean cmZ() {
         return (this.hNi == null || this.hNi.login_user_info == null || this.boZ || this.hNi.login_user_info.is_live_admin != 1) ? false : true;
     }
 
-    private boolean cmZ() {
+    private boolean cna() {
         return (this.hNi == null || this.hNi.user_info == null || TextUtils.isEmpty(this.aGB) || !this.aGB.equals(this.hNi.user_info.user_id)) ? false : true;
     }
 
-    private boolean cna() {
+    private boolean cnb() {
         return (this.hNi == null || this.hNi.user_info == null || this.hNi.user_info.is_live_admin != 1) ? false : true;
     }
 

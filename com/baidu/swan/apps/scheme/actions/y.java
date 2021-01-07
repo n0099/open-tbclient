@@ -53,7 +53,7 @@ public class y extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
                 return false;
             }
-            eVar.aMw().b(context, "mapp_images", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
+            eVar.aMx().b(context, "mapp_images", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.y.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -88,7 +88,7 @@ public class y extends aa {
         com.baidu.swan.apps.ab.a.a("android.permission.WRITE_EXTERNAL_STORAGE", new String[]{"android.permission.WRITE_EXTERNAL_STORAGE"}, 3, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.scheme.actions.y.2
             @Override // com.baidu.swan.apps.ab.b
             public void kN(String str2) {
-                boolean f = com.baidu.swan.apps.ao.c.aQV() ? y.this.f(context, file) : y.this.g(context, file);
+                boolean f = com.baidu.swan.apps.ao.c.aQW() ? y.this.f(context, file) : y.this.g(context, file);
                 int i = f ? 0 : 1001;
                 String str3 = f ? "save success" : "can not save to album : " + file;
                 com.baidu.swan.apps.console.c.i("SaveImage", str3);
@@ -105,13 +105,13 @@ public class y extends aa {
 
     private File a(com.baidu.swan.apps.runtime.e eVar, String str, URI uri) {
         String uf;
-        com.baidu.swan.apps.storage.b.c aDm = com.baidu.swan.apps.v.f.aDG().aDm();
+        com.baidu.swan.apps.storage.b.c aDn = com.baidu.swan.apps.v.f.aDH().aDn();
         if ("bdfile".equalsIgnoreCase(uri.getScheme())) {
-            uf = aDm.ug(str);
-        } else if (com.baidu.swan.apps.ad.a.a.j(eVar.aju())) {
-            uf = aDm.tV(str);
+            uf = aDn.ug(str);
+        } else if (com.baidu.swan.apps.ad.a.a.j(eVar.ajv())) {
+            uf = aDn.tV(str);
         } else {
-            uf = aDm.uf(str);
+            uf = aDn.uf(str);
         }
         if (TextUtils.isEmpty(uf)) {
             return null;

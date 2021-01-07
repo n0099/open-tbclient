@@ -20,11 +20,11 @@ public class f extends Drawable {
     @ColorInt
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7107a;
+    private int f7108a;
     @ColorInt
 
     /* renamed from: b  reason: collision with root package name */
-    private int f7108b;
+    private int f7109b;
     @Nullable
     private int[] c;
     @Nullable
@@ -41,10 +41,10 @@ public class f extends Drawable {
     private Paint k;
 
     public f(@ColorInt int i, @Nullable int[] iArr, @Nullable float[] fArr, @ColorInt int i2, @Nullable LinearGradient linearGradient, int i3, int i4, int i5, int i6) {
-        this.f7107a = i;
+        this.f7108a = i;
         this.c = iArr;
         this.d = fArr;
-        this.f7108b = i2;
+        this.f7109b = i2;
         this.e = linearGradient;
         this.f = i3;
         this.g = i4;
@@ -87,7 +87,7 @@ public class f extends Drawable {
         LinearGradient linearGradient;
         this.k = new Paint();
         this.k.setAntiAlias(true);
-        this.k.setShadowLayer(this.g, this.h, this.i, this.f7108b);
+        this.k.setShadowLayer(this.g, this.h, this.i, this.f7109b);
         if (this.j != null && this.c != null && this.c.length > 1) {
             boolean z = this.d != null && this.d.length > 0 && this.d.length == this.c.length;
             Paint paint = this.k;
@@ -99,7 +99,7 @@ public class f extends Drawable {
             paint.setShader(linearGradient);
             return;
         }
-        this.k.setColor(this.f7107a);
+        this.k.setColor(this.f7108a);
     }
 
     public static void a(View view, a aVar) {
@@ -120,11 +120,11 @@ public class f extends Drawable {
         @ColorInt
 
         /* renamed from: a  reason: collision with root package name */
-        private int f7109a = ac.j(p.a(), "tt_ssxinmian8");
+        private int f7110a = ac.j(p.a(), "tt_ssxinmian8");
         @ColorInt
 
         /* renamed from: b  reason: collision with root package name */
-        private int f7110b = ac.j(p.a(), "tt_ssxinxian3");
+        private int f7111b = ac.j(p.a(), "tt_ssxinxian3");
         private int f = 10;
         private int g = 16;
 
@@ -136,12 +136,12 @@ public class f extends Drawable {
         }
 
         public a a(@ColorInt int i) {
-            this.f7109a = i;
+            this.f7110a = i;
             return this;
         }
 
         public a b(@ColorInt int i) {
-            this.f7110b = i;
+            this.f7111b = i;
             return this;
         }
 
@@ -166,7 +166,7 @@ public class f extends Drawable {
         }
 
         public f a() {
-            return new f(this.f7109a, this.c, this.d, this.f7110b, this.e, this.f, this.g, this.h, this.i);
+            return new f(this.f7110a, this.c, this.d, this.f7111b, this.e, this.f, this.g, this.h, this.i);
         }
     }
 }

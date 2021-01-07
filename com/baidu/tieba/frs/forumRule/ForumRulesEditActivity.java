@@ -38,7 +38,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         this.jtw = new ForumRuleEditModel(getPageContext(), this, this.mForumId);
         setContentView(this.rootView);
         setSwipeBackEnabled(false);
-        KS(this.mForumId);
+        KR(this.mForumId);
         addGlobalLayoutListener();
         adjustResizeForSoftInput(R.color.CAM_X0201, true);
     }
@@ -78,7 +78,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
         if (i == 4) {
-            this.jtv.cJZ();
+            this.jtv.cKa();
             return true;
         }
         return super.onKeyDown(i, keyEvent);
@@ -94,8 +94,8 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         return "a073";
     }
 
-    public void KS(String str) {
-        this.jtw.KS(str);
+    public void KR(String str) {
+        this.jtw.KR(str);
     }
 
     @Override // com.baidu.tieba.frs.forumRule.a.b
@@ -114,13 +114,13 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (ForumRuleEditActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.jtx)) {
             this.jtv.b(this.jtz, false);
         }
-        new BdTopToast(this, 2000).yW(false).UY(str).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
+        new BdTopToast(this, 2000).yW(false).UX(str).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
     }
 
     @Override // com.baidu.tieba.frs.forumRule.a.b
     public void a(ForumRuleBaseData forumRuleBaseData, boolean z) {
         if (TextUtils.isEmpty(this.mForumId)) {
-            new BdTopToast(this, 2000).yW(false).UY(getString(R.string.forum_rule_defalt_commit_fail_no_forum)).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
+            new BdTopToast(this, 2000).yW(false).UX(getString(R.string.forum_rule_defalt_commit_fail_no_forum)).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
         } else {
             this.jtw.a(this.mForumId, forumRuleBaseData, z);
         }
@@ -131,7 +131,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
         if (i == 0) {
             Intent intent = getIntent();
             if (z) {
-                this.jtv.cKa();
+                this.jtv.cKb();
                 intent.putExtra("group_name", getString(R.string.save_success));
                 intent.putExtra("from", true);
             } else {
@@ -142,7 +142,7 @@ public class ForumRulesEditActivity extends BaseActivity<ForumRulesEditActivity>
             finish();
             return;
         }
-        new BdTopToast(this, 2000).yW(false).UY(str).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
+        new BdTopToast(this, 2000).yW(false).UX(str).aR((ViewGroup) this.rootView.findViewById(R.id.ll_forum_rule_all));
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

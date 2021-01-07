@@ -46,7 +46,7 @@ public class s implements aj {
                 e.printStackTrace();
             }
         }
-        SwanAppNetworkUtils.a(alp(), jSONObject.toString(), new a(new com.baidu.swan.apps.ae.a() { // from class: com.baidu.swan.apps.adaptation.implementation.s.1
+        SwanAppNetworkUtils.a(alq(), jSONObject.toString(), new a(new com.baidu.swan.apps.ae.a() { // from class: com.baidu.swan.apps.adaptation.implementation.s.1
             @Override // com.baidu.swan.apps.ae.a
             public void aI(JSONObject jSONObject2) {
                 String str3;
@@ -95,7 +95,7 @@ public class s implements aj {
     @Override // com.baidu.swan.apps.adaptation.a.aj
     public void a(@NonNull String str, com.baidu.swan.apps.n.b bVar) {
         String hH = hH(cFv);
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bfE().postFormRequest().url(hH)).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT())).addParam("appkey", str).build().executeAsyncOnUIBack(new a(bVar));
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bfF().postFormRequest().url(hH)).cookieManager(com.baidu.swan.apps.t.a.aAR().alU())).addParam("appkey", str).build().executeAsyncOnUIBack(new a(bVar));
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
@@ -126,10 +126,10 @@ public class s implements aj {
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.aj
-    public String all() {
+    public String alm() {
         long seconds = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
-        Uri.Builder buildUpon = Uri.parse(alq()).buildUpon();
-        buildUpon.appendQueryParameter("timestamp", String.valueOf(seconds)).appendQueryParameter("rasign", com.baidu.swan.apps.i.b.aoU().bU(seconds)).appendQueryParameter("delta", "smartapp_formid");
+        Uri.Builder buildUpon = Uri.parse(alr()).buildUpon();
+        buildUpon.appendQueryParameter("timestamp", String.valueOf(seconds)).appendQueryParameter("rasign", com.baidu.swan.apps.i.b.aoV().bU(seconds)).appendQueryParameter("delta", "smartapp_formid");
         return buildUpon.toString();
     }
 
@@ -145,16 +145,16 @@ public class s implements aj {
         String str2;
         String str3 = "timestamp=" + TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis());
         if (i == cFv) {
-            sb = new StringBuilder(alm());
-            str = "rasign=" + com.baidu.swan.apps.i.b.aoU().bU(seconds);
+            sb = new StringBuilder(aln());
+            str = "rasign=" + com.baidu.swan.apps.i.b.aoV().bU(seconds);
             str2 = "delta=smartapp_formid";
         } else if (i == cFx) {
-            sb = new StringBuilder(aln());
-            str = "rasign=" + com.baidu.swan.apps.i.b.aoU().bU(seconds);
+            sb = new StringBuilder(alo());
+            str = "rasign=" + com.baidu.swan.apps.i.b.aoV().bU(seconds);
             str2 = "delta=smartapp_formid";
         } else {
-            sb = new StringBuilder(alo());
-            str = "rasign=" + com.baidu.swan.apps.i.b.aoU().bV(seconds);
+            sb = new StringBuilder(alp());
+            str = "rasign=" + com.baidu.swan.apps.i.b.aoV().bV(seconds);
             str2 = "delta=payid";
         }
         sb.append(ETAG.ITEM_SEPARATOR);
@@ -165,7 +165,7 @@ public class s implements aj {
     }
 
     private void a(String str, String str2, com.baidu.swan.apps.ae.a aVar) {
-        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bfE().postFormRequest().url(str)).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT())).addParam("appkey", str2).build().executeAsyncOnUIBack(new a(aVar));
+        ((PostFormRequest.PostFormRequestBuilder) ((PostFormRequest.PostFormRequestBuilder) com.baidu.swan.a.c.a.bfF().postFormRequest().url(str)).cookieManager(com.baidu.swan.apps.t.a.aAR().alU())).addParam("appkey", str2).build().executeAsyncOnUIBack(new a(aVar));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -218,23 +218,23 @@ public class s implements aj {
         }
     }
 
-    public static String alm() {
+    public static String aln() {
         return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/formid/new", BaseUrlManager.ONLINE_URL));
     }
 
-    public static String aln() {
+    public static String alo() {
         return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/component/sub/create", BaseUrlManager.ONLINE_URL));
     }
 
-    public static String alo() {
+    public static String alp() {
         return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/payid/new", BaseUrlManager.ONLINE_URL));
     }
 
-    public static String alp() {
+    public static String alq() {
         return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/component/msgtpl", BaseUrlManager.ONLINE_URL));
     }
 
-    public static String alq() {
+    public static String alr() {
         return com.baidu.swan.apps.i.c.processCommonParams(String.format("%s/ma/formid/multi_action", BaseUrlManager.ONLINE_URL));
     }
 }

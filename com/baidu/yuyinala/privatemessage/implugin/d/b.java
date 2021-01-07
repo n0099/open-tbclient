@@ -36,7 +36,7 @@ public class b {
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.d.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0941b extends IGetUserStatusListener {
+    public interface InterfaceC0979b extends IGetUserStatusListener {
     }
 
     /* loaded from: classes11.dex */
@@ -59,7 +59,7 @@ public class b {
     public interface g extends IGetUsersProfileBatchListener {
     }
 
-    public static synchronized b ell() {
+    public static synchronized b elm() {
         b bVar;
         synchronized (b.class) {
             if (oUu == null) {
@@ -176,8 +176,8 @@ public class b {
         }
     }
 
-    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0941b interfaceC0941b) {
-        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0941b);
+    public void a(Context context, ArrayList<Long> arrayList, InterfaceC0979b interfaceC0979b) {
+        ChatUserManagerImpl.getInstance(context).getUsersStatus(arrayList, interfaceC0979b);
     }
 
     public void a(boolean z, String str, String str2, String str3, String str4, String str5, String str6, String str7) {
@@ -198,7 +198,7 @@ public class b {
         return AccountManager.isCuidLogin(context);
     }
 
-    public boolean elm() {
+    public boolean eln() {
         return false;
     }
 

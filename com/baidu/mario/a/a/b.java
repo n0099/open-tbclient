@@ -11,7 +11,7 @@ import com.baidu.mario.a.b.d;
 import com.baidu.mario.a.b.e;
 import com.baidu.mario.a.b.g;
 import java.util.ArrayList;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private HandlerThread chV;
@@ -45,9 +45,9 @@ public class b {
         }
     }
 
-    public long acN() {
+    public long acO() {
         if (this.chY != null) {
-            return this.chY.acN();
+            return this.chY.acO();
         }
         return 0L;
     }
@@ -98,7 +98,7 @@ public class b {
         }
     }
 
-    public void adi() {
+    public void adj() {
         if (this.chW != null && this.chQ) {
             this.chW.removeMessages(1005);
         }
@@ -112,7 +112,7 @@ public class b {
         }
     }
 
-    public void add() {
+    public void ade() {
         if (this.chW != null) {
             this.chW.removeCallbacksAndMessages(null);
             this.chW.sendMessage(this.chW.obtainMessage(1007));
@@ -122,7 +122,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.mario.a.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class HandlerC0267b extends Handler {
         public HandlerC0267b(Looper looper) {
             super(looper);
@@ -136,7 +136,7 @@ public class b {
                     b.this.a(aVar.chG, aVar.cgY);
                     return;
                 case 1002:
-                    b.this.ade();
+                    b.this.adf();
                     return;
                 case 1003:
                     b.this.r((ArrayList) message.obj);
@@ -148,13 +148,13 @@ public class b {
                     b.this.bH((message.arg1 << 32) | (message.arg2 & 4294967295L));
                     return;
                 case 1006:
-                    b.this.adj();
-                    return;
-                case 1007:
                     b.this.adk();
                     return;
-                case 1008:
+                case 1007:
                     b.this.adl();
+                    return;
+                case 1008:
+                    b.this.adm();
                     return;
                 default:
                     return;
@@ -173,9 +173,9 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ade() {
+    public void adf() {
         if (Build.VERSION.SDK_INT >= 18 && this.chY != null) {
-            this.chY.adp();
+            this.chY.adq();
         }
     }
 
@@ -202,26 +202,26 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adj() {
+    public void adk() {
         if (Build.VERSION.SDK_INT >= 18 && this.chY != null) {
             this.chY.dV(true);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adk() {
+    public void adl() {
         if (Build.VERSION.SDK_INT >= 18 && this.chY != null) {
+            this.chY.adp();
             this.chY.ado();
-            this.chY.adn();
             this.chY = null;
             this.chx = null;
-            this.chX.acb();
+            this.chX.acc();
             this.chX = null;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void adl() {
+    public void adm() {
         if (this.chW != null) {
             this.chW.removeCallbacksAndMessages(null);
             this.chW = null;
@@ -232,7 +232,7 @@ public class b {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     class a {
         d cgY;
         ArrayList<com.baidu.mario.gldraw2d.params.c> chG;

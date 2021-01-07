@@ -28,7 +28,7 @@ public class b implements SensorEventListener {
     private List<com.baidu.swan.impl.map.item.c> eqU = new ArrayList(1);
 
     public b() {
-        bdU();
+        bdV();
     }
 
     public boolean a(com.baidu.swan.impl.map.item.c cVar) {
@@ -61,7 +61,7 @@ public class b implements SensorEventListener {
     }
 
     public void resume() {
-        bdU();
+        bdV();
         for (com.baidu.swan.impl.map.item.c cVar : this.eqU) {
             cVar.esf.onResume();
         }
@@ -93,7 +93,7 @@ public class b implements SensorEventListener {
                 MyLocationData locationData = cVar.esf.getMap().getLocationData();
                 if (locationData != null && cVar.isShowLocation) {
                     cVar.esf.getMap().setMyLocationData(new MyLocationData.Builder().direction((float) d).accuracy(locationData.accuracy).latitude(locationData.latitude).longitude(locationData.longitude).satellitesNum(locationData.satellitesNum).build());
-                    bdT();
+                    bdU();
                 }
             }
         }
@@ -128,7 +128,7 @@ public class b implements SensorEventListener {
         }
     }
 
-    private void bdT() {
+    private void bdU() {
         if (this.eqW == null) {
             this.eqW = new LocationClient(AppRuntime.getAppContext());
             this.eqW.registerLocationListener(new a());
@@ -144,23 +144,23 @@ public class b implements SensorEventListener {
     public void stopLocation() {
         if (this.eqZ && this.eqW != null && this.eqW.isStarted()) {
             this.eqW.stop();
-            bdW();
+            bdX();
             com.baidu.swan.apps.console.c.w("map", "stop location");
         }
     }
 
-    private void bdU() {
+    private void bdV() {
         if (this.eqZ) {
-            bdT();
+            bdU();
             if (this.eqW != null && !this.eqW.isStarted()) {
                 this.eqW.start();
-                bdV();
+                bdW();
                 com.baidu.swan.apps.console.c.w("map", "start location");
             }
         }
     }
 
-    private void bdV() {
+    private void bdW() {
         if (!this.eqX) {
             this.mSensorManager = (SensorManager) AppRuntime.getAppContext().getSystemService("sensor");
             if (this.mSensorManager != null) {
@@ -170,25 +170,25 @@ public class b implements SensorEventListener {
         }
     }
 
-    private void bdW() {
+    private void bdX() {
         if (this.mSensorManager != null && this.eqX) {
             this.mSensorManager.unregisterListener(this);
             this.eqX = false;
         }
     }
 
-    public boolean bdX() {
+    public boolean bdY() {
         return this.eqW != null && this.eqW.isStarted();
     }
 
-    public BDLocation bdY() {
+    public BDLocation bdZ() {
         return this.eqY;
     }
 
     public void ir(boolean z) {
         if (z) {
             this.eqZ = true;
-            bdU();
+            bdV();
             return;
         }
         stopLocation();

@@ -11,7 +11,7 @@ import com.bun.miitmdid.supplier.b;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.a;
 @Keep
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class MdidSdk implements SupplierListener {
     private IIdentifierListener _InnerListener;
     private b _setting;

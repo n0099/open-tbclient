@@ -8,10 +8,10 @@ import java.util.concurrent.ConcurrentHashMap;
 public final class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Context f7969a;
+    private static Context f7970a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f7970b;
+    private static long f7971b;
     private static volatile ConcurrentHashMap<Integer, String> h;
     private static volatile int j;
     private static volatile String k;
@@ -23,18 +23,18 @@ public final class h {
     private static b pqr = new b();
     private static j pqs = null;
 
-    public static com.bytedance.tea.crash.e.a esE() {
+    public static com.bytedance.tea.crash.e.a esF() {
         return pqp;
     }
 
-    public static b esF() {
+    public static b esG() {
         return pqr;
     }
 
-    public static j esG() {
+    public static j esH() {
         if (pqs == null) {
             synchronized (h.class) {
-                pqs = new j(f7969a);
+                pqs = new j(f7970a);
             }
         }
         return pqs;
@@ -42,21 +42,21 @@ public final class h {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(Context context, d dVar) {
-        f7970b = System.currentTimeMillis();
-        f7969a = context;
-        pqp = new com.bytedance.tea.crash.e.a(f7969a, dVar);
+        f7971b = System.currentTimeMillis();
+        f7970a = context;
+        pqp = new com.bytedance.tea.crash.e.a(f7970a, dVar);
     }
 
     public static Context d() {
-        return f7969a;
+        return f7970a;
     }
 
-    public static com.bytedance.tea.crash.e.b esH() {
+    public static com.bytedance.tea.crash.e.b esI() {
         return pqq;
     }
 
     public static long f() {
-        return f7970b;
+        return f7971b;
     }
 
     public static String g() {
@@ -67,7 +67,7 @@ public final class h {
         return d;
     }
 
-    public static ConcurrentHashMap<Integer, String> esI() {
+    public static ConcurrentHashMap<Integer, String> esJ() {
         return h;
     }
 

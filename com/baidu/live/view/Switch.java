@@ -359,7 +359,7 @@ public class Switch extends CompoundButton {
                         } else {
                             f = f3 > 0.0f ? 1.0f : -1.0f;
                         }
-                        if (ZO()) {
+                        if (ZP()) {
                             f = -f;
                         }
                         if (this.mThumbPosition + f < 0.0f) {
@@ -402,7 +402,7 @@ public class Switch extends CompoundButton {
             this.mVelocityTracker.computeCurrentVelocity(1000);
             float xVelocity = this.mVelocityTracker.getXVelocity();
             if (Math.abs(xVelocity) > this.mMinFlingVelocity) {
-                if (ZO()) {
+                if (ZP()) {
                     if (xVelocity >= 0.0f) {
                         z = false;
                     }
@@ -483,7 +483,7 @@ public class Switch extends CompoundButton {
                 rect.setEmpty();
             }
         }
-        if (ZO()) {
+        if (ZP()) {
             i5 = getPaddingLeft() + 0;
             width = ((this.mSwitchWidth + i5) - 0) - 0;
         } else {
@@ -581,7 +581,7 @@ public class Switch extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingLeft() {
-        if (!ZO()) {
+        if (!ZP()) {
             return super.getCompoundPaddingLeft();
         }
         int compoundPaddingLeft = super.getCompoundPaddingLeft() + this.mSwitchWidth;
@@ -593,7 +593,7 @@ public class Switch extends CompoundButton {
 
     @Override // android.widget.CompoundButton, android.widget.TextView
     public int getCompoundPaddingRight() {
-        if (ZO()) {
+        if (ZP()) {
             return super.getCompoundPaddingRight();
         }
         int compoundPaddingRight = super.getCompoundPaddingRight() + this.mSwitchWidth;
@@ -605,7 +605,7 @@ public class Switch extends CompoundButton {
 
     private int getThumbOffset() {
         float f;
-        if (ZO()) {
+        if (ZP()) {
             f = 1.0f - this.mThumbPosition;
         } else {
             f = this.mThumbPosition;
@@ -687,7 +687,7 @@ public class Switch extends CompoundButton {
         }
     }
 
-    private boolean ZO() {
+    private boolean ZP() {
         return false;
     }
 

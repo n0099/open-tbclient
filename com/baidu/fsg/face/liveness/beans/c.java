@@ -14,10 +14,10 @@ import org.json.JSONException;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final String f2318a = "request_data";
+    public static final String f2319a = "request_data";
 
     /* renamed from: b  reason: collision with root package name */
-    private static c f2319b = null;
+    private static c f2320b = null;
     private static final String d = "RIM_LIVENESS_VIDEO_PREFERENCE";
     private static final String e = "RIM_LIVENESS_VIDEO_VIDEOENCODINGBITRATE";
     private HashMap<String, SapiBiometricDto> c = new HashMap<>();
@@ -26,10 +26,10 @@ public class c {
     }
 
     public static c a() {
-        if (f2319b == null) {
-            f2319b = new c();
+        if (f2320b == null) {
+            f2320b = new c();
         }
-        return f2319b;
+        return f2320b;
     }
 
     public SapiBiometricDto a(String str) {

@@ -11,7 +11,7 @@ public final class a extends f {
     private ByteBuffer mBuffer;
     private final int oLV;
     private final d oLW;
-    private final UploadDataProvider oLJ = new C0924a();
+    private final UploadDataProvider oLJ = new C0962a();
     private boolean mConnected = false;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -71,7 +71,7 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void eiy() throws IOException {
+    public void eiz() throws IOException {
         this.mConnected = true;
         if (this.mBuffer.position() < this.oLV) {
             throw new ProtocolException("Content received is less than Content-Length");
@@ -81,19 +81,19 @@ public final class a extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void eiz() throws IOException {
+    public void eiA() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider eiA() {
+    public UploadDataProvider eiB() {
         return this.oLJ;
     }
 
     /* renamed from: com.baidu.turbonet.net.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    private class C0924a extends UploadDataProvider {
-        private C0924a() {
+    private class C0962a extends UploadDataProvider {
+        private C0962a() {
         }
 
         @Override // com.baidu.turbonet.net.UploadDataProvider

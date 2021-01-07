@@ -17,11 +17,11 @@ import java.util.concurrent.FutureTask;
 public class k<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Executor f8328a = Executors.newCachedThreadPool();
+    public static Executor f8329a = Executors.newCachedThreadPool();
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    private Thread f8329b;
+    private Thread f8330b;
     private final Set<h<T>> c;
     private final Set<h<Throwable>> d;
     private final Handler e;
@@ -42,7 +42,7 @@ public class k<T> {
         this.g = null;
         this.f = new FutureTask<>(callable);
         if (!z) {
-            f8328a.execute(this.f);
+            f8329a.execute(this.f);
             b();
             return;
         }
@@ -100,27 +100,27 @@ public class k<T> {
 
     private synchronized void b() {
         if (!d() && this.g == null) {
-            this.f8329b = new Thread("LottieTaskObserver") { // from class: com.ksad.lottie.k.2
+            this.f8330b = new Thread("LottieTaskObserver") { // from class: com.ksad.lottie.k.2
 
                 /* renamed from: b  reason: collision with root package name */
-                private boolean f8332b = false;
+                private boolean f8333b = false;
 
                 @Override // java.lang.Thread, java.lang.Runnable
                 public void run() {
-                    while (!isInterrupted() && !this.f8332b) {
+                    while (!isInterrupted() && !this.f8333b) {
                         if (k.this.f.isDone()) {
                             try {
                                 k.this.a((j) k.this.f.get());
                             } catch (InterruptedException | ExecutionException e) {
                                 k.this.a(new j(e));
                             }
-                            this.f8332b = true;
+                            this.f8333b = true;
                             k.this.c();
                         }
                     }
                 }
             };
-            this.f8329b.start();
+            this.f8330b.start();
             c.a("Starting TaskObserver thread");
         }
     }
@@ -128,14 +128,14 @@ public class k<T> {
     /* JADX INFO: Access modifiers changed from: private */
     public synchronized void c() {
         if (d() && (this.c.isEmpty() || this.g != null)) {
-            this.f8329b.interrupt();
-            this.f8329b = null;
+            this.f8330b.interrupt();
+            this.f8330b = null;
             c.a("Stopping TaskObserver thread");
         }
     }
 
     private boolean d() {
-        return this.f8329b != null && this.f8329b.isAlive();
+        return this.f8330b != null && this.f8330b.isAlive();
     }
 
     public synchronized k<T> a(h<T> hVar) {

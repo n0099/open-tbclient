@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.intersitial2;
 
 import com.qq.e.comm.managers.GDTADManager;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class h {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static double a() {

@@ -5,25 +5,25 @@ import android.content.Context;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f1445a;
+    private Context f1446a;
 
     public a(Context context) {
-        this.f1445a = context;
+        this.f1446a = context;
     }
 
     public c a(h hVar) {
         switch (hVar) {
             case MSG_ID_HANDSHAKE:
-                return new b(this.f1445a);
+                return new b(this.f1446a);
             case MSG_ID_HEARTBEAT_SERVER:
             case MSG_ID_TINY_HEARTBEAT_SERVER:
-                return new l(this.f1445a);
+                return new l(this.f1446a);
             case MSG_ID_HEARTBEAT_CLIENT:
             case MSG_ID_TINY_HEARTBEAT_CLIENT:
             default:
                 return null;
             case MSG_ID_PUSH_MSG:
-                return new j(this.f1445a);
+                return new j(this.f1446a);
         }
     }
 }

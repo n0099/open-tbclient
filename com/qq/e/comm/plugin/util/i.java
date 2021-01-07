@@ -6,7 +6,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import com.qq.e.comm.util.GDTLogger;
 import java.io.File;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class i {
     public static long a(Context context) {
         if (context == null) {

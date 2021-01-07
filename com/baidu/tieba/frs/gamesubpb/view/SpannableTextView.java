@@ -32,7 +32,7 @@ public class SpannableTextView extends TextView {
     private int jAL;
     private int jAM;
     private boolean jAN;
-    private a.InterfaceC0740a jzO;
+    private a.InterfaceC0747a jzO;
 
     public SpannableTextView(Context context) {
         super(context);
@@ -57,11 +57,11 @@ public class SpannableTextView extends TextView {
 
     public void f(d dVar) {
         setText(g(dVar));
-        setMovementMethod(a.cLd());
+        setMovementMethod(a.cLe());
     }
 
-    public void setClickListener(a.InterfaceC0740a interfaceC0740a) {
-        this.jzO = interfaceC0740a;
+    public void setClickListener(a.InterfaceC0747a interfaceC0747a) {
+        this.jzO = interfaceC0747a;
     }
 
     private SpannableString g(d dVar) {
@@ -74,7 +74,7 @@ public class SpannableTextView extends TextView {
         String str3 = dVar.jAo ? dVar.userName + "  楼主: " : dVar.userName + ": ";
         String str4 = dVar.content;
         int length4 = str4 != null ? str4.length() : 0;
-        if ((Ll(new StringBuilder().append(str3).append(str4).toString()) % this.jAM) + Ll(new StringBuilder().append("|").append(dVar.jAg).toString()) >= this.jAM) {
+        if ((Lk(new StringBuilder().append(str3).append(str4).toString()) % this.jAM) + Lk(new StringBuilder().append("|").append(dVar.jAg).toString()) >= this.jAM) {
             str = "\n" + dVar.jAg;
         } else {
             str = " " + dVar.jAg;
@@ -83,7 +83,7 @@ public class SpannableTextView extends TextView {
         boolean equals = String.valueOf(this.gHx).equals(dVar.userId);
         String str5 = "|  删除";
         if (equals) {
-            if (Ll("|  删除") + (Ll(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.jAM) >= this.jAM) {
+            if (Lk("|  删除") + (Lk(new StringBuilder().append(str3).append(str4).append(str).toString()) % this.jAM) >= this.jAM) {
                 str5 = "\n删除";
             } else {
                 str5 = "  删除";
@@ -115,7 +115,7 @@ public class SpannableTextView extends TextView {
         return spannableString;
     }
 
-    private int Ll(String str) {
+    private int Lk(String str) {
         if (TextUtils.isEmpty(str)) {
             return 0;
         }
@@ -228,7 +228,7 @@ public class SpannableTextView extends TextView {
             return Touch.onTouchEvent(textView, spannable, motionEvent);
         }
 
-        public static a cLd() {
+        public static a cLe() {
             if (jAO == null) {
                 jAO = new a();
             }

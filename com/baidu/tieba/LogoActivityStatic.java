@@ -8,6 +8,6 @@ public class LogoActivityStatic {
 
     static {
         TbadkCoreApplication.getInst().RegisterIntent(LogoActivityConfig.class, LogoActivity.class);
-        gfz = c.bMI();
+        gfz = c.bMJ();
     }
 }

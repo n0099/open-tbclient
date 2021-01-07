@@ -9,7 +9,7 @@ public class e {
     private e() {
     }
 
-    public static e bMT() {
+    public static e bMU() {
         return geD;
     }
 

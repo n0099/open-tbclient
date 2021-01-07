@@ -43,28 +43,28 @@ public class PlayDrawable extends Drawable {
     @Override // android.graphics.drawable.Drawable
     protected void onBoundsChange(Rect rect) {
         super.onBoundsChange(rect);
-        bYf();
+        bYg();
     }
 
-    private void bYf() {
-        Rect bYg = bYg();
+    private void bYg() {
+        Rect bYh = bYh();
         int width = (int) (0.074f * getWidth());
-        this.gWj = new float[]{bYg.left + width, bYg.top, ((int) bYh()) + width, (bYg.height() * 0.25f) + bYg.top, ((int) bYh()) + width, (bYg.height() * 0.75f) + bYg.top, bYg.left + width, bYg.height() + bYg.top};
-        this.gWk = new float[]{((int) bYh()) + width, (bYg.height() * 0.25f) + bYg.top, bYg.left + bYg.width() + width, bYi(), bYg.left + bYg.width() + width, bYi(), width + ((int) bYh()), (bYg.height() * 0.75f) + bYg.top};
-        this.gWl = new float[]{bYg.left, bYg.top, bYg.left + (bYg.width() * 0.285f), bYg.top, bYg.left + (bYg.width() * 0.285f), bYg.top + bYg.height(), bYg.left, bYg.top + bYg.height()};
-        this.gWm = new float[]{bYg.left + (bYg.width() * 0.715f), bYg.top, bYg.left + bYg.width(), bYg.top, bYg.left + bYg.width(), bYg.top + bYg.height(), bYg.left + (bYg.width() * 0.715f), bYg.height() + bYg.top};
+        this.gWj = new float[]{bYh.left + width, bYh.top, ((int) bYi()) + width, (bYh.height() * 0.25f) + bYh.top, ((int) bYi()) + width, (bYh.height() * 0.75f) + bYh.top, bYh.left + width, bYh.height() + bYh.top};
+        this.gWk = new float[]{((int) bYi()) + width, (bYh.height() * 0.25f) + bYh.top, bYh.left + bYh.width() + width, bYj(), bYh.left + bYh.width() + width, bYj(), width + ((int) bYi()), (bYh.height() * 0.75f) + bYh.top};
+        this.gWl = new float[]{bYh.left, bYh.top, bYh.left + (bYh.width() * 0.285f), bYh.top, bYh.left + (bYh.width() * 0.285f), bYh.top + bYh.height(), bYh.left, bYh.top + bYh.height()};
+        this.gWm = new float[]{bYh.left + (bYh.width() * 0.715f), bYh.top, bYh.left + bYh.width(), bYh.top, bYh.left + bYh.width(), bYh.top + bYh.height(), bYh.left + (bYh.width() * 0.715f), bYh.height() + bYh.top};
     }
 
-    private Rect bYg() {
+    private Rect bYh() {
         float width = getWidth();
         float height = getHeight();
-        float bYj = bYj();
         float bYk = bYk();
+        float bYl = bYl();
         Rect rect = new Rect();
-        rect.left = (int) ((width - bYj) / 2.0f);
-        rect.top = (int) ((height - bYk) / 2.0f);
-        rect.right = (int) (rect.left + bYj);
-        rect.bottom = (int) (rect.top + bYk);
+        rect.left = (int) ((width - bYk) / 2.0f);
+        rect.top = (int) ((height - bYl) / 2.0f);
+        rect.right = (int) (rect.left + bYk);
+        rect.bottom = (int) (rect.top + bYl);
         return rect;
     }
 
@@ -111,19 +111,19 @@ public class PlayDrawable extends Drawable {
         return getBounds().height();
     }
 
-    private float bYh() {
+    private float bYi() {
         return getBounds().exactCenterX();
     }
 
-    private float bYi() {
+    private float bYj() {
         return getBounds().exactCenterY();
     }
 
-    private float bYj() {
+    private float bYk() {
         return 0.33f * getWidth();
     }
 
-    private float bYk() {
+    private float bYl() {
         return 0.38f * getHeight();
     }
 

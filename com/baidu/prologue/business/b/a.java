@@ -7,7 +7,7 @@ import com.baidu.prologue.business.d;
 import com.baidu.prologue.business.data.e;
 import com.baidu.prologue.business.data.f;
 import com.baidu.prologue.service.network.Als;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a<T extends com.baidu.prologue.business.c.b> {
     private T cuf = null;
     e cug;
@@ -28,7 +28,7 @@ public class a<T extends com.baidu.prologue.business.c.b> {
         t.kd(this.cug.ctI).ej(this.cug.isFullScreen()).hs(this.cug.ctK).kc(String.valueOf(this.cug.ctJ)).ek(this.cug.ctQ).ke(this.cug.ctH);
     }
 
-    public T agZ() {
+    public T aha() {
         return this.cuf;
     }
 
@@ -42,10 +42,10 @@ public class a<T extends com.baidu.prologue.business.c.b> {
     }
 
     public void onAdShow() {
-        if (this.cui != null && this.cuh != null && this.cuh.agG() != null) {
-            this.cui.agJ();
+        if (this.cui != null && this.cuh != null && this.cuh.agH() != null) {
+            this.cui.agK();
             this.cuh.onAdShow();
-            this.cuh.agG().addView(agZ().getRootView());
+            this.cuh.agH().addView(aha().getRootView());
             com.baidu.prologue.business.data.d.e(this.cug);
             f.h(this.cug);
             Log.d("SplashAdBasePresenter", "onadshow currate: " + this.cug.ctP);
@@ -53,7 +53,7 @@ public class a<T extends com.baidu.prologue.business.c.b> {
     }
 
     public void onAdClick(String str) {
-        if (this.cug.agU()) {
+        if (this.cug.agV()) {
             this.cui.a(Als.Area.IMAGE, str);
         } else {
             this.cui.a(Als.Area.VIDEO, str);
@@ -63,21 +63,21 @@ public class a<T extends com.baidu.prologue.business.c.b> {
         kb(Als.CloseType.CLICK_AD_AREA.value);
     }
 
-    public void agH() {
-        this.cuh.agH();
+    public void agI() {
+        this.cuh.agI();
         kb(Als.CloseType.CLICK_SKIP_BUTTON.value);
     }
 
     protected void kb(String str) {
         if (Als.CloseType.COUNTDOWN_TIME_FINISH.value.equals(str)) {
-            this.cui.i(str, this.cuf.ahc());
+            this.cui.i(str, this.cuf.ahd());
         } else {
-            this.cui.i(str, this.cuf.ahb());
+            this.cui.i(str, this.cuf.ahc());
         }
         com.baidu.prologue.business.a.a(com.baidu.prologue.a.b.a.ctd.get());
     }
 
-    public void aha() {
-        this.cuh.agI();
+    public void ahb() {
+        this.cuh.agJ();
     }
 }

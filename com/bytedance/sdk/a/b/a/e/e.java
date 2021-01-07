@@ -7,7 +7,7 @@ public final class e {
     private static final String[] d = {"DATA", "HEADERS", "PRIORITY", "RST_STREAM", "SETTINGS", "PUSH_PROMISE", "PING", "GOAWAY", "WINDOW_UPDATE", "CONTINUATION"};
 
     /* renamed from: b  reason: collision with root package name */
-    static final String[] f6194b = new String[64];
+    static final String[] f6195b = new String[64];
     static final String[] c = new String[256];
 
     static {
@@ -15,25 +15,25 @@ public final class e {
         for (int i = 0; i < c.length; i++) {
             c[i] = com.bytedance.sdk.a.b.a.c.a("%8s", Integer.toBinaryString(i)).replace(' ', '0');
         }
-        f6194b[0] = "";
-        f6194b[1] = "END_STREAM";
+        f6195b[0] = "";
+        f6195b[1] = "END_STREAM";
         int[] iArr2 = {1};
-        f6194b[8] = "PADDED";
+        f6195b[8] = "PADDED";
         for (int i2 : iArr2) {
-            f6194b[i2 | 8] = f6194b[i2] + "|PADDED";
+            f6195b[i2 | 8] = f6195b[i2] + "|PADDED";
         }
-        f6194b[4] = "END_HEADERS";
-        f6194b[32] = "PRIORITY";
-        f6194b[36] = "END_HEADERS|PRIORITY";
+        f6195b[4] = "END_HEADERS";
+        f6195b[32] = "PRIORITY";
+        f6195b[36] = "END_HEADERS|PRIORITY";
         for (int i3 : new int[]{4, 32, 36}) {
             for (int i4 : iArr2) {
-                f6194b[i4 | i3] = f6194b[i4] + '|' + f6194b[i3];
-                f6194b[i4 | i3 | 8] = f6194b[i4] + '|' + f6194b[i3] + "|PADDED";
+                f6195b[i4 | i3] = f6195b[i4] + '|' + f6195b[i3];
+                f6195b[i4 | i3 | 8] = f6195b[i4] + '|' + f6195b[i3] + "|PADDED";
             }
         }
-        for (int i5 = 0; i5 < f6194b.length; i5++) {
-            if (f6194b[i5] == null) {
-                f6194b[i5] = c[i5];
+        for (int i5 = 0; i5 < f6195b.length; i5++) {
+            if (f6195b[i5] == null) {
+                f6195b[i5] = c[i5];
             }
         }
     }
@@ -79,7 +79,7 @@ public final class e {
                 return b3 == 1 ? "ACK" : c[b3];
             case 5:
             default:
-                String str = b3 < f6194b.length ? f6194b[b3] : c[b3];
+                String str = b3 < f6195b.length ? f6195b[b3] : c[b3];
                 if (b2 == 5 && (b3 & 4) != 0) {
                     return str.replace("HEADERS", "PUSH_PROMISE");
                 }

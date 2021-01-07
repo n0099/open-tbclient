@@ -81,7 +81,7 @@ public class HotRankEntryView extends RelativeLayout {
         if (i != this.mSkinType) {
             this.mSkinType = i;
             ao.setBackgroundResource(this, this.joO ? R.drawable.frs_red_list_entrance_bg_black : R.drawable.frs_red_list_entrance_bg_white);
-            SvgManager.bwq().a(this.jPx, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.jPx, R.drawable.svg_icon_mask_first16, SvgManager.SvgResourceStateType.NORMAL);
             this.jFH.onChangeSkinType();
             ao.setViewTextColor(this.jPy, R.color.CAM_X0101);
             WebPManager.a(this.mArrow, R.drawable.icon_pure_arrow12_right, R.color.CAM_X0101, WebPManager.ResourceStateType.NORMAL_PRESS);

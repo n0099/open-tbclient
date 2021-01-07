@@ -44,7 +44,7 @@ public class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        boolean equals = TextUtils.equals(h.aPH().getString("enableSwitch", "1"), "1");
+        boolean equals = TextUtils.equals(h.aPI().getString("enableSwitch", "1"), "1");
         JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
         if (optParamsAsJo == null || optParamsAsJo.length() <= 0 || !equals) {
             com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "param is null");
@@ -58,11 +58,11 @@ public class a extends aa {
             }
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (!apw()) {
+        } else if (!apx()) {
             ag(context, "404");
             return false;
         } else {
-            if (f.cGI.amZ() || apv().contains(com.baidu.swan.apps.t.a.aAw().cc(context)) || cPw.contains(cH(context))) {
+            if (f.cGI.ana() || apw().contains(com.baidu.swan.apps.t.a.aAx().cc(context)) || cPw.contains(cH(context))) {
                 a(context, unitedSchemeEntity, callbackHandler);
             } else {
                 com.baidu.swan.apps.a.b.a(this.cPs.appKey, new e.a() { // from class: com.baidu.swan.apps.console.debugger.a.a.1
@@ -91,11 +91,11 @@ public class a extends aa {
         }
     }
 
-    private Set<String> apv() {
+    private Set<String> apw() {
         if (cPv == null) {
             cPv = new HashSet();
             try {
-                JSONArray jSONArray = new JSONArray(h.aPH().getString("authWlist", ""));
+                JSONArray jSONArray = new JSONArray(h.aPI().getString("authWlist", ""));
                 for (int i = 0; i < jSONArray.length(); i++) {
                     cPv.add(jSONArray.optString(i));
                 }
@@ -108,22 +108,22 @@ public class a extends aa {
         return cPv;
     }
 
-    private boolean apw() {
+    private boolean apx() {
         return (this.cPs.cPB == null || this.cPs.cPB.length() <= 0 || TextUtils.isEmpty(this.cPs.aAt)) ? false : true;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public String cH(Context context) {
-        return com.baidu.swan.apps.t.a.aAw().cc(context) + this.cPs.appKey;
+        return com.baidu.swan.apps.t.a.aAx().cc(context) + this.cPs.appKey;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context, final UnitedSchemeEntity unitedSchemeEntity, final CallbackHandler callbackHandler) {
         int i = 0;
-        d.a(apx());
-        final File apN = d.e.apN();
-        if (apN.exists()) {
-            apN.delete();
+        d.a(apy());
+        final File apO = d.e.apO();
+        if (apO.exists()) {
+            apO.delete();
         }
         this.cPt = Executors.newFixedThreadPool(4);
         this.cPu = 0;
@@ -142,7 +142,7 @@ public class a extends aa {
                     this.cPt.execute(new Runnable() { // from class: com.baidu.swan.apps.console.debugger.a.a.2
                         @Override // java.lang.Runnable
                         public void run() {
-                            a.this.a(context, ia, apN, unitedSchemeEntity, callbackHandler);
+                            a.this.a(context, ia, apO, unitedSchemeEntity, callbackHandler);
                         }
                     });
                 }
@@ -156,14 +156,14 @@ public class a extends aa {
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [296=4] */
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Context context, String str, File file, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        c.a apx = apx();
-        d.apF();
-        d.apz().mQ("downloadstart");
+        c.a apy = apy();
+        d.apG();
+        d.apA().mQ("downloadstart");
         try {
-            Response executeSync = com.baidu.swan.a.c.a.bfE().getRequest().url(str + "/app.zip").connectionTimeout(3000).build().executeSync();
+            Response executeSync = com.baidu.swan.a.c.a.bfF().getRequest().url(str + "/app.zip").connectionTimeout(3000).build().executeSync();
             if (executeSync != null && executeSync.code() == 200 && executeSync.body() != null) {
                 com.baidu.swan.c.f.streamToFile(executeSync.body().byteStream(), file);
-                Intent a2 = com.baidu.swan.apps.u.c.c.a(context, apx);
+                Intent a2 = com.baidu.swan.apps.u.c.c.a(context, apy);
                 a2.putExtra("remoteDebugUrl", str);
                 context.startActivity(a2);
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
@@ -171,8 +171,8 @@ public class a extends aa {
                     this.cPt.shutdownNow();
                     this.cPt = null;
                 }
-                d.b(apx);
-                d.apz().mQ("downloadsuccess");
+                d.b(apy);
+                d.apA().mQ("downloadsuccess");
             }
             if (executeSync != null) {
                 if (0 != 0) {
@@ -188,22 +188,22 @@ public class a extends aa {
             if (i >= this.cPs.cPB.length()) {
                 com.baidu.swan.apps.console.c.e("DebuggerLaunchAction", "IPs are invalid");
                 ag(context, "404");
-                d.apz().mQ("downloadfail");
+                d.apA().mQ("downloadfail");
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ag(Context context, String str) {
-        String string = h.aPH().getString("errorURL", "");
+        String string = h.aPI().getString("errorURL", "");
         if (TextUtils.isEmpty(string)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, mP(str)).aLS();
+            com.baidu.swan.apps.res.widget.b.d.a(context, mP(str)).aLT();
         } else {
             SchemeRouter.invoke(context, SchemeConfig.getSchemeHead() + "://v1/easybrowse/open?url=" + getEncodeValue(string + "?" + str));
         }
     }
 
-    private c.a apx() {
+    private c.a apy() {
         if (this.cPx == null) {
             this.cPx = (c.a) ((c.a) ((c.a) ((c.a) new c.a().pK(this.cPs.appKey)).fW(false)).pP(this.cPs.page)).pR("1");
         }

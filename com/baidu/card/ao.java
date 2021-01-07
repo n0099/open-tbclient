@@ -44,13 +44,13 @@ public class ao extends h {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.boO() != null && aVar.boO().eVB != null && aVar.boO().eVB.item != null) {
-            if (aVar.boO().eVB.ePW) {
+        if (aVar != null && aVar.boP() != null && aVar.boP().eVB != null && aVar.boP().eVB.item != null) {
+            if (aVar.boP().eVB.ePW) {
                 this.ajW.setVisibility(8);
                 return;
             }
             this.ajW.setVisibility(0);
-            this.aib.setData(aVar.boO().eVB.item, 13);
+            this.aib.setData(aVar.boP().eVB.item, 13);
             return;
         }
         this.ajW.setVisibility(8);

@@ -12,14 +12,14 @@ import java.io.File;
 public class e implements com.kwai.sodler.lib.a.g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f11309a;
+    private final Context f11310a;
 
     /* renamed from: b  reason: collision with root package name */
-    private g.a f11310b;
+    private g.a f11311b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(Context context) {
-        this.f11309a = context.getApplicationContext();
+        this.f11310a = context.getApplicationContext();
     }
 
     @TargetApi(11)
@@ -34,18 +34,18 @@ public class e implements com.kwai.sodler.lib.a.g {
             return;
         }
         a.a("Sodler.update", "Using online plugin.");
-        com.kwai.sodler.lib.b.b a2 = f.a(this.f11309a, fVar);
+        com.kwai.sodler.lib.b.b a2 = f.a(this.f11310a, fVar);
         if (a2 == null) {
             a.a("Sodler.update", "No available plugin, abort.");
             fVar.a(-3);
             return;
         }
-        a.a("Sodler.update", "Download new plugin, version = " + a2.f11303b + ", url = " + a2.c);
+        a.a("Sodler.update", "Download new plugin, version = " + a2.f11304b + ", url = " + a2.c);
         fVar.a(3);
         fVar.g(a2.c);
         fVar.a(a2.d);
         fVar.f(a2.f);
-        fVar.b(a2.f11303b);
+        fVar.b(a2.f11304b);
     }
 
     private void a(com.kwai.sodler.lib.a.f fVar, PluginError.UpdateError updateError) {
@@ -57,10 +57,10 @@ public class e implements com.kwai.sodler.lib.a.g {
     }
 
     private void a(com.kwai.sodler.lib.a.f fVar, File file) {
-        if (this.f11310b == null) {
+        if (this.f11311b == null) {
             throw new RuntimeException("not yet supported!");
         }
-        this.f11310b.a(fVar, file);
+        this.f11311b.a(fVar, file);
     }
 
     private void c(com.kwai.sodler.lib.a.f fVar) {
@@ -100,7 +100,7 @@ public class e implements com.kwai.sodler.lib.a.g {
                             break;
                         }
                         try {
-                            com.kwai.sodler.lib.c.a.a(this.f11309a, fVar.o(), d);
+                            com.kwai.sodler.lib.c.a.a(this.f11310a, fVar.o(), d);
                             a.a("Sodler.update", "Extract plugin from assets success.");
                             fVar.d(d.getAbsolutePath());
                             fVar.a(1);
@@ -165,7 +165,7 @@ public class e implements com.kwai.sodler.lib.a.g {
 
     @Override // com.kwai.sodler.lib.a.g
     public com.kwai.sodler.lib.a.g a(g.a aVar) {
-        this.f11310b = aVar;
+        this.f11311b = aVar;
         return this;
     }
 

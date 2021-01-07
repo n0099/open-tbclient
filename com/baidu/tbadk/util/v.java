@@ -31,7 +31,7 @@ public class v {
                     return;
                 }
                 MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new com.baidu.tieba.tbadkCore.data.m(TbadkApplication.getInst().getApplicationContext(), "GodDialog", hashMap)));
-                com.baidu.tbadk.core.sharedPref.b.bvq().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
+                com.baidu.tbadk.core.sharedPref.b.bvr().putLong("key_new_god_dialog_showed_time", System.currentTimeMillis());
             }
         }
     };
@@ -44,7 +44,7 @@ public class v {
     private v() {
     }
 
-    public static synchronized v bJa() {
+    public static synchronized v bJb() {
         v vVar;
         synchronized (v.class) {
             if (fPz == null) {
@@ -57,7 +57,7 @@ public class v {
 
     private boolean a(int i, NewGodData newGodData) {
         if (i != 5) {
-            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bvq().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bvq().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
+            return (((((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bvr().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) > Config.THREAD_IMAGE_SAVE_MAX_TIME ? 1 : (((System.currentTimeMillis() - com.baidu.tbadk.core.sharedPref.b.bvr().getLong("key_new_god_dialog_showed_time", 0L)) + IMConnection.RETRY_DELAY_TIMES) == Config.THREAD_IMAGE_SAVE_MAX_TIME ? 0 : -1)) < 0) || newGodData == null || !newGodData.isNewGodInvited()) ? false : true;
         }
         return true;
     }

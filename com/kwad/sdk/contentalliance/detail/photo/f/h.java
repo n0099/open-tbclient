@@ -13,23 +13,23 @@ public class h extends com.kwad.sdk.contentalliance.detail.photo.f.a<i> {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static Set<Long> f8820a = new HashSet();
+        private static Set<Long> f8821a = new HashSet();
 
         public static void a(long j) {
-            f8820a.add(Long.valueOf(j));
+            f8821a.add(Long.valueOf(j));
         }
 
         public static void b(long j) {
-            f8820a.remove(Long.valueOf(j));
+            f8821a.remove(Long.valueOf(j));
         }
 
         public static boolean c(long j) {
-            return f8820a.contains(Long.valueOf(j));
+            return f8821a.contains(Long.valueOf(j));
         }
     }
 
     private long p() {
-        long s = com.kwad.sdk.core.response.b.c.s(this.f8692a.j);
+        long s = com.kwad.sdk.core.response.b.c.s(this.f8693a.j);
         long j = s >= 0 ? s : 0L;
         return a.c(this.d) ? j + 1 : j;
     }
@@ -38,7 +38,7 @@ public class h extends com.kwad.sdk.contentalliance.detail.photo.f.a<i> {
     @Override // com.kwad.sdk.contentalliance.detail.photo.f.a, com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = com.kwad.sdk.core.response.b.c.z(this.f8692a.j);
+        this.d = com.kwad.sdk.core.response.b.c.z(this.f8693a.j);
         this.f = p();
         this.e.a(a.c(this.d) ? 2 : 1, this.f);
         this.e.setOnClickListener(this);
@@ -68,7 +68,7 @@ public class h extends com.kwad.sdk.contentalliance.detail.photo.f.a<i> {
 
     public void h() {
         if (this.e.a()) {
-            com.kwad.sdk.core.report.e.a(this.f8692a.j, 2, 1);
+            com.kwad.sdk.core.report.e.a(this.f8693a.j, 2, 1);
             return;
         }
         this.e.setLikeState(2);
@@ -77,7 +77,7 @@ public class h extends com.kwad.sdk.contentalliance.detail.photo.f.a<i> {
         this.f = j;
         iVar.setLikeCount(j);
         a.a(this.d);
-        com.kwad.sdk.core.report.e.a(this.f8692a.j, 1, 1);
+        com.kwad.sdk.core.report.e.a(this.f8693a.j, 1, 1);
     }
 
     @Override // android.view.View.OnClickListener
@@ -89,7 +89,7 @@ public class h extends com.kwad.sdk.contentalliance.detail.photo.f.a<i> {
             this.f = j;
             iVar.setLikeCount(j);
             a.b(this.d);
-            com.kwad.sdk.core.report.e.d(this.f8692a.j);
+            com.kwad.sdk.core.report.e.d(this.f8693a.j);
             return;
         }
         this.e.setLikeState(2);
@@ -98,6 +98,6 @@ public class h extends com.kwad.sdk.contentalliance.detail.photo.f.a<i> {
         this.f = j2;
         iVar2.setLikeCount(j2);
         a.a(this.d);
-        com.kwad.sdk.core.report.e.a(this.f8692a.j, 1, 2);
+        com.kwad.sdk.core.report.e.a(this.f8693a.j, 1, 2);
     }
 }

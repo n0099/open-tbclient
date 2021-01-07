@@ -18,10 +18,10 @@ public class AdSettings {
     private static String i;
 
     /* renamed from: a  reason: collision with root package name */
-    private static HashSet<String> f3290a = new HashSet<>();
+    private static HashSet<String> f3291a = new HashSet<>();
 
     /* renamed from: b  reason: collision with root package name */
-    private static JSONArray f3291b = new JSONArray();
+    private static JSONArray f3292b = new JSONArray();
     private static String j = b.HTTP_PROTOCOL_TYPE.a() + "";
     private static HashSet<String> k = new HashSet<>();
     private static JSONArray l = new JSONArray();
@@ -126,13 +126,13 @@ public class AdSettings {
 
     public static JSONObject getAttr() {
         JSONObject jSONObject = new JSONObject();
-        Iterator<String> it = f3290a.iterator();
-        f3291b = new JSONArray();
+        Iterator<String> it = f3291a.iterator();
+        f3292b = new JSONArray();
         while (it.hasNext()) {
-            f3291b.put(it.next());
+            f3292b.put(it.next());
         }
         try {
-            jSONObject.putOpt("KEY", f3291b);
+            jSONObject.putOpt("KEY", f3292b);
             jSONObject.putOpt("RPT", j);
         } catch (Exception e2) {
         }
@@ -142,13 +142,13 @@ public class AdSettings {
     @Deprecated
     public static void setKey(String[] strArr) {
         for (String str : strArr) {
-            f3290a.add(str);
+            f3291a.add(str);
         }
     }
 
     @Deprecated
     public static void setKey(List<String> list) {
-        f3290a.addAll(list);
+        f3291a.addAll(list);
     }
 
     @Deprecated

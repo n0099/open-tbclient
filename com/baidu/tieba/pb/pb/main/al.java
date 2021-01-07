@@ -6,10 +6,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 /* loaded from: classes2.dex */
 public class al {
     private com.baidu.tieba.c.e eYv;
-    private PbFragment lUh;
+    private PbFragment lUg;
 
     public al(PbFragment pbFragment) {
-        this.lUh = pbFragment;
+        this.lUg = pbFragment;
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003374, TbConfig.SERVER_ADDRESS + TbConfig.SUBMIT_SHOW_PB_TIPS);
         tbHttpMessageTask.setResponsedClass(SubmitPbShowTipHttpResponseMessage.class);
         tbHttpMessageTask.setIsNeedTbs(true);

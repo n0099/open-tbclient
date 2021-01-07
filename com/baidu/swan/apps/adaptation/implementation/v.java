@@ -4,6 +4,6 @@ import com.baidu.swan.apps.adaptation.a.an;
 /* loaded from: classes9.dex */
 public class v implements an {
     @Override // com.baidu.swan.apps.adaptation.a.an
-    public void alt() {
+    public void alu() {
     }
 }

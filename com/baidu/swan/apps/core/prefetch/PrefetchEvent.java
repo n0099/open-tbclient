@@ -137,7 +137,7 @@ public class PrefetchEvent extends SwanAppIPCData {
             return this;
         }
 
-        public PrefetchEvent auF() {
+        public PrefetchEvent auG() {
             return this.cYx;
         }
     }

@@ -37,7 +37,7 @@ public class a extends k<bz, CardViewHolder<w>> implements x {
     }
 
     @Override // com.baidu.tieba.card.x
-    public String agu() {
+    public String agv() {
         return "FrsHottopicVideoDelegateAdapter";
     }
 
@@ -53,11 +53,11 @@ public class a extends k<bz, CardViewHolder<w>> implements x {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.k, com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bz bzVar, CardViewHolder<w> cardViewHolder) {
-        if (cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().c(this.gEi);
-        cardViewHolder.cvG().a(bzVar);
+        cardViewHolder.cvH().c(this.gEi);
+        cardViewHolder.cvH().a(bzVar);
         return cardViewHolder.getView();
     }
 

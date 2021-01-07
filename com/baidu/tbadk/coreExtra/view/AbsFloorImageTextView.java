@@ -48,7 +48,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
 
             @Override // com.baidu.tieba.pb.a.c.a
             public boolean onSingleTapConfirmed(View view, MotionEvent motionEvent) {
-                AbsFloorImageTextView.this.bCL();
+                AbsFloorImageTextView.this.bCM();
                 return true;
             }
         };
@@ -69,7 +69,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
         this.mUserId = str;
     }
 
-    public void bCL() {
+    public void bCM() {
         if (this.fxZ != null) {
             PbActivityConfig createHistoryCfg = new PbActivityConfig(getContext()).createHistoryCfg(String.valueOf(this.fxZ.threadId), String.valueOf(this.fxZ.postId), this.fxZ.mIsSeeHost, this.fxZ.mIsReserver, null);
             if (this.fxZ.isFirstPost) {
@@ -82,7 +82,7 @@ public abstract class AbsFloorImageTextView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public Pair<Integer, Integer> Di(String str) {
+    public Pair<Integer, Integer> Dh(String str) {
         return ad.u(str, fxY, fxX);
     }
 

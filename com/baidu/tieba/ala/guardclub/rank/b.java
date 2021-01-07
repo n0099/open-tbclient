@@ -54,7 +54,7 @@ public class b implements d.a {
 
         void aF(String str, int i);
 
-        ViewGroup bYR();
+        ViewGroup bYS();
 
         void wa(int i);
 
@@ -69,11 +69,11 @@ public class b implements d.a {
         this.hcI = aVar;
         k(intent);
         Ku();
-        bZh();
+        bZi();
         Ky();
     }
 
-    public void bZf() {
+    public void bZg() {
         if (this.bgO == null) {
             this.bgO = new com.baidu.live.p.c();
             this.bgO.initListener();
@@ -96,7 +96,7 @@ public class b implements d.a {
                 }
             });
         }
-        this.hcK.HG(str);
+        this.hcK.HF(str);
     }
 
     public void release() {
@@ -159,7 +159,7 @@ public class b implements d.a {
     }
 
     @Override // com.baidu.tieba.ala.guardclub.rank.d.a
-    public void bZg() {
+    public void bZh() {
         if (this.hcI != null) {
             this.hcI.O(new Intent().putExtra("guard_club_rank_hit", true));
         }
@@ -189,7 +189,7 @@ public class b implements d.a {
         MessageManager.getInstance().registerListener(this.bih);
     }
 
-    private void bZh() {
+    private void bZi() {
         this.bql = new CustomMessageListener(2913095) { // from class: com.baidu.tieba.ala.guardclub.rank.b.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
@@ -227,17 +227,17 @@ public class b implements d.a {
         }
         if (this.hcI != null) {
             this.hcI.y(str, j);
-            ViewGroup bYR = this.hcI.bYR();
-            if (bYR != null && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
+            ViewGroup bYS = this.hcI.bYS();
+            if (bYS != null && (currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo()) != null) {
                 if (this.hcL == null) {
                     this.hcL = new com.baidu.tieba.ala.guardclub.i(this.mContext.getPageActivity());
                 }
                 this.hcL.setOtherParams(this.mOtherParams);
                 int[] iArr = new int[2];
-                bYR.getLocationOnScreen(iArr);
+                bYS.getLocationOnScreen(iArr);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
                 layoutParams.topMargin = iArr[1] * (-1);
-                this.hcL.a(bYR, layoutParams, currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow());
+                this.hcL.a(bYS, layoutParams, currentAccountInfo.getPortrait(), currentAccountInfo.getAccountNameShow());
             }
         }
         if (!TextUtils.isEmpty(str2)) {

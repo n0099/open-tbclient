@@ -214,7 +214,7 @@ public class d implements com.baidu.live.liveroom.e.d {
         }
     }
 
-    public a cAK() {
+    public a cAL() {
         return this.iQP;
     }
 }

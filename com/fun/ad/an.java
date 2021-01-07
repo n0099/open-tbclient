@@ -10,32 +10,32 @@ import com.fun.ad.sdk.FunRippedAd;
 public abstract class an {
 
     /* renamed from: a  reason: collision with root package name */
-    public au.a f8051a;
+    public au.a f8052a;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f8052b = false;
-    public ak pHZ;
-    public ah pIa;
+    public boolean f8053b = false;
+    public ak pJH;
+    public ah pJI;
 
     public an(au.a aVar) {
-        this.f8051a = aVar;
+        this.f8052a = aVar;
     }
 
     public void a() {
-        m.a("GDTAdLoader destroy adId: " + this.f8051a.f8059a);
-        this.pHZ = null;
-        this.pIa = null;
+        m.a("GDTAdLoader destroy adId: " + this.f8052a.f8060a);
+        this.pJH = null;
+        this.pJI = null;
     }
 
-    public abstract FunRippedAd eBl();
+    public abstract FunRippedAd eBP();
 
     public void a(Context context, FunAdSlot funAdSlot, ak akVar) {
-        m.a("GDTAdLoader load adId: " + this.f8051a.f8059a);
-        this.pHZ = akVar;
+        m.a("GDTAdLoader load adId: " + this.f8052a.f8060a);
+        this.pJH = akVar;
     }
 
     public void a(Activity activity, FunAdView funAdView, ah ahVar) {
-        m.a("GDTAdLoader show adId: " + this.f8051a.f8059a);
-        this.pIa = ahVar;
+        m.a("GDTAdLoader show adId: " + this.f8052a.f8060a);
+        this.pJI = ahVar;
     }
 }

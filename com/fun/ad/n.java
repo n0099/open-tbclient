@@ -18,26 +18,26 @@ public class n extends bt {
         public void onError(int i, String str) {
             m.a("CSJNative onError code: " + i + ", message: " + str);
             n nVar = n.this;
-            nVar.f8064b = false;
-            ba baVar = nVar.pIn;
+            nVar.f8065b = false;
+            ba baVar = nVar.pJV;
             if (baVar != null) {
-                ((aj) baVar).a(nVar.f8063a.f8059a, i, str);
+                ((aj) baVar).a(nVar.f8064a.f8060a, i, str);
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.TTAdNative.FeedAdListener
         public void onFeedAdLoad(List<TTFeedAd> list) {
             m.a("CSJNative onFeedAdLoad");
-            n.this.f8064b = false;
+            n.this.f8065b = false;
             if (list != null && !list.isEmpty()) {
-                n.this.pIJ = list.get(0);
-                m.a("CSJNative onFeedAdLoad imageMode: " + n.this.pIJ.getImageMode());
+                n.this.pKr = list.get(0);
+                m.a("CSJNative onFeedAdLoad imageMode: " + n.this.pKr.getImageMode());
                 n nVar = n.this;
-                ba baVar = nVar.pIn;
+                ba baVar = nVar.pJV;
                 if (baVar != null) {
-                    ((aj) baVar).b(nVar.f8063a.f8059a);
+                    ((aj) baVar).b(nVar.f8064a.f8060a);
                 }
-                AdRipper.ripCSJ(n.this.pIJ);
+                AdRipper.ripCSJ(n.this.pKr);
                 return;
             }
             m.a("CSJNative onFeedAdLoad error: adList is null or empty");
@@ -50,12 +50,12 @@ public class n extends bt {
 
     @Override // com.fun.ad.bt
     public void c() {
-        AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f8063a.f8059a).setSupportDeepLink(true);
-        au.a aVar = this.f8063a;
-        this.pIp.loadFeedAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).setAdCount(1).build(), new a());
-        ba baVar = this.pIn;
+        AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.f8064a.f8060a).setSupportDeepLink(true);
+        au.a aVar = this.f8064a;
+        this.pJX.loadFeedAd(supportDeepLink.setImageAcceptedSize(aVar.c, aVar.d).setAdCount(1).build(), new a());
+        ba baVar = this.pJV;
         if (baVar != null) {
-            ((aj) baVar).a(this.f8063a.f8059a);
+            ((aj) baVar).a(this.f8064a.f8060a);
         }
     }
 }

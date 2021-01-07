@@ -4,22 +4,22 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class BannedListHttpResponseMessage extends JsonHttpResponsedMessage {
-    private a okn;
+    private a okm;
 
     public BannedListHttpResponseMessage() {
         super(1031038);
     }
 
-    public a ebL() {
-        return this.okn;
+    public a ebM() {
+        return this.okm;
     }
 
     @Override // com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (getError() == 0) {
-            this.okn = new a();
-            this.okn.parserJson(jSONObject);
+            this.okm = new a();
+            this.okm.parserJson(jSONObject);
         }
     }
 }

@@ -36,17 +36,17 @@ class b {
                     synchronized (b.class) {
                         com.baidu.swan.c.d.saveToFile(str, bW, true);
                     }
-                    b.aqB();
+                    b.aqC();
                 }
             }, "saveLaunchTipsLog");
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public static void aqB() {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl != null && !TextUtils.isEmpty(aMl.getAppId())) {
-            File file = new File(com.baidu.swan.apps.r.d.aAh().getPath() + File.separator + "launch_tips");
+    public static void aqC() {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm != null && !TextUtils.isEmpty(aMm.getAppId())) {
+            File file = new File(com.baidu.swan.apps.r.d.aAi().getPath() + File.separator + "launch_tips");
             if (file.exists() && file.isDirectory()) {
                 com.baidu.swan.c.d.deleteFile(file);
             }
@@ -56,14 +56,14 @@ class b {
     private static File bW(long j) {
         long parseLong;
         File file = null;
-        File[] aqD = aqD();
-        if (aqD == null || aqD.length == 0) {
+        File[] aqE = aqE();
+        if (aqE == null || aqE.length == 0) {
             return bX(j);
         }
-        int length = aqD.length;
+        int length = aqE.length;
         int i = 0;
         while (i < length) {
-            File file2 = aqD[i];
+            File file2 = aqE[i];
             try {
                 parseLong = Long.parseLong(file2.getName());
             } catch (NumberFormatException e) {
@@ -87,9 +87,9 @@ class b {
         return file;
     }
 
-    public static String aqC() {
-        File[] aqD = aqD();
-        if (aqD == null) {
+    public static String aqD() {
+        File[] aqE = aqE();
+        if (aqE == null) {
             return null;
         }
         TreeMap treeMap = new TreeMap(new Comparator<Long>() { // from class: com.baidu.swan.apps.core.b.2
@@ -101,7 +101,7 @@ class b {
             }
         });
         long bY = bY(System.currentTimeMillis());
-        for (File file : aqD) {
+        for (File file : aqE) {
             try {
                 long parseLong = Long.parseLong(file.getName());
                 if (bY - parseLong >= Config.THREAD_IMAGE_SAVE_MAX_TIME) {
@@ -129,12 +129,12 @@ class b {
         return null;
     }
 
-    private static File[] aqD() {
-        String aqE = aqE();
-        if (aqE == null) {
+    private static File[] aqE() {
+        String aqF = aqF();
+        if (aqF == null) {
             return null;
         }
-        File file = new File(aqE);
+        File file = new File(aqF);
         if (file.exists() && file.isDirectory()) {
             return file.listFiles();
         }
@@ -142,11 +142,11 @@ class b {
     }
 
     private static File bX(long j) {
-        String aqE = aqE();
-        if (aqE == null) {
+        String aqF = aqF();
+        if (aqF == null) {
             return null;
         }
-        File file = new File(aqE + File.separator + j);
+        File file = new File(aqF + File.separator + j);
         if (file.exists()) {
             com.baidu.swan.c.d.safeDeleteFile(file);
         }
@@ -154,16 +154,16 @@ class b {
         return file;
     }
 
-    private static String aqE() {
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null) {
+    private static String aqF() {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm == null) {
             return null;
         }
-        String appId = aMl.getAppId();
+        String appId = aMm.getAppId();
         if (TextUtils.isEmpty(appId)) {
             return null;
         }
-        return com.baidu.swan.apps.r.d.aAh().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
+        return com.baidu.swan.apps.r.d.aAi().getPath() + File.separator + "launch_tips_v2" + File.separator + appId;
     }
 
     private static long bY(long j) {

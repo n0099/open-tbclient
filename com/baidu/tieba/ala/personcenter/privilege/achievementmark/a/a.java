@@ -16,11 +16,11 @@ public class a {
         return (b) x.getItem(this.ibw, i);
     }
 
-    public String cpP() {
+    public String cpQ() {
         return this.ibv;
     }
 
-    public void IV(String str) {
+    public void IU(String str) {
         this.ibv = str;
     }
 

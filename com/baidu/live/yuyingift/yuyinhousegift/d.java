@@ -54,12 +54,12 @@ public abstract class d {
     }
 
     public static AlaWheatInfoData aY(String str, String str2) {
-        AlaWheatInfoData jp = com.baidu.live.aq.a.aam().jp(str);
+        AlaWheatInfoData jp = com.baidu.live.aq.a.aan().jp(str);
         if (jp == null) {
-            if (com.baidu.live.aq.a.aam().jn(str)) {
-                AlaWheatInfoData aan = com.baidu.live.aq.a.aam().aan();
-                aan.locationCenterX = 0.0f;
-                return aan;
+            if (com.baidu.live.aq.a.aan().jn(str)) {
+                AlaWheatInfoData aao = com.baidu.live.aq.a.aan().aao();
+                aao.locationCenterX = 0.0f;
+                return aao;
             }
             AlaWheatInfoData alaWheatInfoData = new AlaWheatInfoData();
             alaWheatInfoData.locationCenterX = 0.0f;

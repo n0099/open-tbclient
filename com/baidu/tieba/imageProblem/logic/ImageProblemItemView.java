@@ -26,14 +26,14 @@ public class ImageProblemItemView extends FrameLayout {
     public ImageProblemItemView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        bDg();
+        bDh();
         i(attributeSet);
     }
 
     public ImageProblemItemView(Context context) {
         super(context);
         this.mContext = context;
-        bDg();
+        bDh();
     }
 
     public void displayTip() {
@@ -114,7 +114,7 @@ public class ImageProblemItemView extends FrameLayout {
         this.fAq.setBackgroundDrawable(drawable);
     }
 
-    protected void bDg() {
+    protected void bDh() {
         LayoutInflater.from(this.mContext).inflate(R.layout.image_problem_item_view, (ViewGroup) this, true);
         this.fAp = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);

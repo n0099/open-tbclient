@@ -83,7 +83,7 @@ public class XGridLayout extends AdapterLayout {
     }
 
     @Override // com.baidu.tbadk.widget.extend.AdapterLayout
-    protected void bKm() {
+    protected void bKn() {
         if (this.fUv != null) {
             removeAllViews();
             int min = Math.min(this.fUv.getCount(), this.fUB);

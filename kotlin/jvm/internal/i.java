@@ -22,7 +22,7 @@ public final class i {
         return new k(sArr);
     }
 
-    public static final y u(int[] iArr) {
+    public static final y w(int[] iArr) {
         p.o(iArr, com.baidu.fsg.base.statistics.b.j);
         return new f(iArr);
     }

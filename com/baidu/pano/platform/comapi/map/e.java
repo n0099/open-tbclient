@@ -13,7 +13,7 @@ import com.baidu.pano.platform.comjni.JNITool;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class e {
     private float c;
     private float i;
@@ -26,10 +26,10 @@ public class e {
     private Context p;
 
     /* renamed from: a  reason: collision with root package name */
-    private com.baidu.pano.platform.c.a f3963a = new com.baidu.pano.platform.c.a();
+    private com.baidu.pano.platform.c.a f3964a = new com.baidu.pano.platform.c.a();
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3964b = 0;
+    private int f3965b = 0;
     private final long d = 16;
     private final int e = 1001;
     private final int f = 1002;
@@ -53,7 +53,7 @@ public class e {
     }
 
     public boolean a(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        if (this.f3964b == 1) {
+        if (this.f3965b == 1) {
             if (Math.abs(f) < 1.0f) {
                 f = 0.0f;
             } else if (Math.abs(f2) < 1.0f) {
@@ -80,19 +80,19 @@ public class e {
             c = 60.0f;
         }
         if (c == 60.0f) {
-            this.f3963a.a(60.0f, 40.0f);
+            this.f3964a.a(60.0f, 40.0f);
             c(1);
         } else if (c == 40.0f) {
-            this.f3963a.a(40.0f, 20.0f);
+            this.f3964a.a(40.0f, 20.0f);
             c(2);
         } else if (c == 20.0f) {
-            this.f3963a.a(20.0f, 60.0f);
+            this.f3964a.a(20.0f, 60.0f);
             c(3);
         } else if (c > 20.0f && c < 40.0f) {
-            this.f3963a.a(c, 20.0f);
+            this.f3964a.a(c, 20.0f);
             c(4);
         } else if (c > 40.0f && c < 60.0f) {
-            this.f3963a.a(c, 40.0f);
+            this.f3964a.a(c, 40.0f);
             c(5);
         }
         return true;
@@ -102,13 +102,13 @@ public class e {
         float f = 60.0f;
         switch (motionEvent.getAction() & 255) {
             case 0:
-                this.f3964b = 1;
+                this.f3965b = 1;
                 break;
             case 1:
-                this.f3964b = 0;
+                this.f3965b = 0;
                 break;
             case 2:
-                if (this.f3964b == 2) {
+                if (this.f3965b == 2) {
                     float d = d(motionEvent);
                     float f2 = (float) (d / this.h);
                     if (Math.abs(1.0f - f2) > 0.01f) {
@@ -125,12 +125,12 @@ public class e {
                 }
                 return true;
             case 5:
-                this.f3964b = 2;
+                this.f3965b = 2;
                 this.c = c();
                 this.h = d(motionEvent);
                 break;
             case 6:
-                this.f3964b = 0;
+                this.f3965b = 0;
                 break;
         }
         return false;

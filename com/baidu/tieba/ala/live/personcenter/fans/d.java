@@ -13,15 +13,15 @@ public class d {
     private int total_count = 0;
     private int eRb = 0;
 
-    public int bqb() {
+    public int bqc() {
         return this.total_count;
     }
 
-    public int bqd() {
+    public int bqe() {
         return this.current_page;
     }
 
-    public int bqf() {
+    public int bqg() {
         return this.has_more;
     }
 

@@ -14,10 +14,10 @@ import java.util.concurrent.LinkedBlockingQueue;
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<String> f7733a = new ArrayList();
+    private final List<String> f7734a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.preload.geckox.e.b f7734b = new com.bytedance.sdk.openadsdk.preload.geckox.e.b();
+    private com.bytedance.sdk.openadsdk.preload.geckox.e.b f7735b = new com.bytedance.sdk.openadsdk.preload.geckox.e.b();
     private Queue<String> c = new LinkedBlockingQueue();
     private b d;
     private File e;
@@ -69,7 +69,7 @@ public final class a {
                 }
                 try {
                     try {
-                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "update finished", com.bytedance.sdk.openadsdk.preload.geckox.j.a.a(aVar, a.this.e, a.this.d, a.this.f7734b, map, map2, str).a((com.bytedance.sdk.openadsdk.preload.a.b<Object>) str));
+                        com.bytedance.sdk.openadsdk.preload.geckox.h.b.a("gecko-debug-tag", "update finished", com.bytedance.sdk.openadsdk.preload.geckox.j.a.a(aVar, a.this.e, a.this.d, a.this.f7735b, map, map2, str).a((com.bytedance.sdk.openadsdk.preload.a.b<Object>) str));
                         if (aVar != null) {
                             aVar.a();
                         }
@@ -138,7 +138,7 @@ public final class a {
     }
 
     public void a(Class<? extends d<?, ?>> cls, com.bytedance.sdk.openadsdk.preload.a.b.a aVar) {
-        this.f7734b.a(cls, aVar);
+        this.f7735b.a(cls, aVar);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

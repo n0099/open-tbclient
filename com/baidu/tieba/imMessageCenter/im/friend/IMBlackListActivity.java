@@ -28,7 +28,7 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
         public void onMessage(SocketResponsedMessage socketResponsedMessage) {
             ResponseUpdateMaskInfoMessage responseUpdateMaskInfoMessage;
             Message<?> orginalMessage;
-            IMBlackListActivity.this.kLj.daq();
+            IMBlackListActivity.this.kLj.dar();
             IMBlackListActivity.this.closeLoadingDialog();
             if (socketResponsedMessage != null) {
                 if (socketResponsedMessage.getCmd() == 104103 && (socketResponsedMessage instanceof ResponseGetMaskInfoMessage)) {
@@ -111,17 +111,17 @@ public class IMBlackListActivity extends BaseActivity<IMBlackListActivity> {
     }
 
     private void a(BlackListItemData blackListItemData) {
-        NG(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.bCB()));
-        this.adc.btX();
+        NF(String.format(getPageContext().getString(R.string.black_list_ensure_toremove_text), blackListItemData.bCC()));
+        this.adc.btY();
     }
 
-    private void NG(String str) {
+    private void NF(String str) {
         this.adc = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-        this.adc.Bp(str);
+        this.adc.Bo(str);
         this.adc.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.imMessageCenter.im.friend.IMBlackListActivity.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar) {
-                aVar.btX();
+                aVar.btY();
                 if (IMBlackListActivity.this.kLk != null) {
                     IMBlackListActivity.this.showLoadingDialog();
                     IMBlackListActivity.this.kLi.removeFromBlackList(IMBlackListActivity.this.kLk.getUserId());

@@ -26,12 +26,12 @@ public abstract class a<T> {
         void c(a<T> aVar);
     }
 
-    protected abstract boolean bSd();
-
     protected abstract boolean bSe();
 
+    protected abstract boolean bSf();
+
     public void a(final b bVar) {
-        if (!bSd()) {
+        if (!bSe()) {
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -54,18 +54,18 @@ public abstract class a<T> {
                 this.gtw = new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        if (!a.this.bSe()) {
-                            a.this.bSf();
+                        if (!a.this.bSf()) {
+                            a.this.bSg();
                         }
                     }
                 };
-                ThreadPool.aeK().execute(this.gtw);
+                ThreadPool.aeL().execute(this.gtw);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bSf() {
+    public void bSg() {
         this.gtw = null;
         this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.alaar.makeup.a.3
             @Override // java.lang.Runnable
@@ -79,7 +79,7 @@ public abstract class a<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bSg() {
+    public void bSh() {
         if (this.gtv != null && !this.gtv.isEmpty()) {
             int i = 0;
             while (true) {

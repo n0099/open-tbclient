@@ -47,19 +47,19 @@ public class a extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.ala.alasq
         if (aVar != null) {
             if (this.from == 1) {
                 if (aVar.gCV != null) {
-                    com.baidu.tieba.ala.alasquare.b.a.bVl().e(com.baidu.tieba.ala.alasquare.b.a.bVl().a(this.isSmallFollow, "c12117", aVar.gCV.tabId, aVar.gCV.entryName, aVar.gCV.boO()));
+                    com.baidu.tieba.ala.alasquare.b.a.bVm().e(com.baidu.tieba.ala.alasquare.b.a.bVm().a(this.isSmallFollow, "c12117", aVar.gCV.tabId, aVar.gCV.entryName, aVar.gCV.boP()));
                 }
                 if (aVar.gCW != null) {
-                    com.baidu.tieba.ala.alasquare.b.a.bVl().e(com.baidu.tieba.ala.alasquare.b.a.bVl().a(this.isSmallFollow, "c12117", aVar.gCW.tabId, aVar.gCW.entryName, aVar.gCW.boO()));
+                    com.baidu.tieba.ala.alasquare.b.a.bVm().e(com.baidu.tieba.ala.alasquare.b.a.bVm().a(this.isSmallFollow, "c12117", aVar.gCW.tabId, aVar.gCW.entryName, aVar.gCW.boP()));
                 }
             } else if (this.from == 2) {
-                if (aVar.gCV != null && aVar.gCV.boO() != null && aVar.gCV.boO().brJ() != null) {
-                    bz boO = aVar.gCV.boO();
-                    TiebaStatic.log(new aq("c12115").w("obj_id", boO.brJ().live_id).dX(TiebaInitialize.Params.OBJ_PARAM3, boO.brJ().appId).dX("locate_type", aVar.gCV.entryName));
+                if (aVar.gCV != null && aVar.gCV.boP() != null && aVar.gCV.boP().brK() != null) {
+                    bz boP = aVar.gCV.boP();
+                    TiebaStatic.log(new aq("c12115").w("obj_id", boP.brK().live_id).dX(TiebaInitialize.Params.OBJ_PARAM3, boP.brK().appId).dX("locate_type", aVar.gCV.entryName));
                 }
-                if (aVar.gCW != null && aVar.gCW.boO() != null && aVar.gCW.boO().brJ() != null) {
-                    bz boO2 = aVar.gCW.boO();
-                    TiebaStatic.log(new aq("c12115").w("obj_id", boO2.brJ().live_id).dX(TiebaInitialize.Params.OBJ_PARAM3, boO2.brJ().appId).dX("locate_type", aVar.gCW.entryName));
+                if (aVar.gCW != null && aVar.gCW.boP() != null && aVar.gCW.boP().brK() != null) {
+                    bz boP2 = aVar.gCW.boP();
+                    TiebaStatic.log(new aq("c12115").w("obj_id", boP2.brK().live_id).dX(TiebaInitialize.Params.OBJ_PARAM3, boP2.brK().appId).dX("locate_type", aVar.gCW.entryName));
                 }
             }
         }

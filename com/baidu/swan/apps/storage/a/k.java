@@ -17,7 +17,7 @@ public class k extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, com.baidu.swan.apps.runtime.e eVar) {
-        if (context == null || callbackHandler == null || eVar == null || eVar.aMv() == null) {
+        if (context == null || callbackHandler == null || eVar == null || eVar.aMw() == null) {
             com.baidu.swan.apps.console.c.e("saveFile", "execute fail");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
@@ -38,7 +38,7 @@ public class k extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        int tY = eVar.aMv().tY(cE);
+        int tY = eVar.aMw().tY(cE);
         if (DEBUG) {
             Log.d("SaveFileAction", "——> handle: statusCode " + tY);
         }
@@ -47,7 +47,7 @@ public class k extends aa {
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(tY, com.baidu.swan.apps.scheme.f.getErrMessage(tY)));
             return false;
         }
-        String tZ = eVar.aMv().tZ(cE);
+        String tZ = eVar.aMw().tZ(cE);
         if (TextUtils.isEmpty(tZ)) {
             com.baidu.swan.apps.console.c.e("saveFile", "save file path is null");
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(2003, com.baidu.swan.apps.scheme.f.getErrMessage(2003)));
@@ -55,7 +55,7 @@ public class k extends aa {
         }
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("savedFilePath", com.baidu.swan.apps.storage.b.cH(tZ, com.baidu.swan.apps.runtime.e.aMm()));
+            jSONObject.put("savedFilePath", com.baidu.swan.apps.storage.b.cH(tZ, com.baidu.swan.apps.runtime.e.aMn()));
             if (DEBUG) {
                 Log.d("SaveFileAction", "——> handle: saveFilePath saveFilePath " + tZ + " update saveFilePath " + jSONObject.get("savedFilePath"));
             }

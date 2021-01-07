@@ -52,7 +52,7 @@ public class b extends BaseAdapter {
             }
         }
         if (aVar != null) {
-            aVar.bxO();
+            aVar.bxP();
             aVar.b(this.mDataList.get(i));
         }
         return view;
@@ -63,14 +63,14 @@ public class b extends BaseAdapter {
         public TextView fni;
         public BarImageView lyW;
         public int mSkinType = 3;
-        public View oaY;
+        public View oaX;
 
         public a(View view) {
             if (view != null) {
                 this.fni = (TextView) view.findViewById(R.id.transmit_forum_name);
                 this.lyW = (BarImageView) view.findViewById(R.id.forum_avatar);
                 this.lyW.setShowOval(true);
-                this.oaY = view.findViewById(R.id.divider_line);
+                this.oaX = view.findViewById(R.id.divider_line);
             }
         }
 
@@ -81,10 +81,10 @@ public class b extends BaseAdapter {
             }
         }
 
-        public void bxO() {
+        public void bxP() {
             if (b.lyU != this.mSkinType) {
                 ao.setViewTextColor(this.fni, R.color.CAM_X0105);
-                ao.setBackgroundColor(this.oaY, R.color.CAM_X0204);
+                ao.setBackgroundColor(this.oaX, R.color.CAM_X0204);
             }
             this.mSkinType = b.lyU;
         }

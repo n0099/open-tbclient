@@ -73,8 +73,8 @@ public class BearLayout extends LinearLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (!BearLayout.this.dTd) {
-                    BearLayout.this.aSm();
-                    aVar.aSn();
+                    BearLayout.this.aSn();
+                    aVar.aSo();
                     return;
                 }
                 BearLayout.this.vg(swanAppBearInfo.bearHomeUrl);
@@ -161,7 +161,7 @@ public class BearLayout extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aSm() {
+    public void aSn() {
         if (this.dTc != null && this.dTb != null) {
             this.dTb.setVisibility(4);
             this.dTc.setVisibility(0);

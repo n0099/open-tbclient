@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class b {
-    private InterfaceC0801b lBK;
+    private InterfaceC0835b lBK;
     private a lBL;
     private List<com.baidu.tieba.newinterest.data.b> lBM;
     private final BdUniqueId mBdUniqueId;
@@ -71,7 +71,7 @@ public class b {
                             b.this.lBK.onError(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString());
                         }
                     } else if (b.this.lBL != null) {
-                        b.this.lBL.bWs();
+                        b.this.lBL.bWt();
                     }
                 }
             }
@@ -80,12 +80,12 @@ public class b {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void bWs();
+        void bWt();
     }
 
     /* renamed from: com.baidu.tieba.newinterest.b.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0801b {
+    public interface InterfaceC0835b {
         void a(c cVar);
 
         void onError(int i, String str);
@@ -103,9 +103,9 @@ public class b {
         this.lBO.setTag(this.mBdUniqueId);
         MessageManager.getInstance().registerListener(this.lBN);
         MessageManager.getInstance().registerListener(this.lBO);
+        dln();
         dlm();
         dll();
-        dlk();
     }
 
     private List<Integer> fi(List<com.baidu.tieba.newinterest.data.b> list) {
@@ -118,7 +118,7 @@ public class b {
         return arrayList;
     }
 
-    private void dlk() {
+    private void dll() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT, TbConfig.SERVER_ADDRESS + TbConfig.GUIDE_INTEREST_COMMIT_URL);
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(InterestCommitHttpResMsg.class);
@@ -126,7 +126,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void dll() {
+    private void dlm() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GUIDE_INTERESTED_FORUM, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.GUIDE_INTERESTED_FORUM_URL, 309654));
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(InterestedForumHttpResMsg.class);
@@ -134,7 +134,7 @@ public class b {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    private void dlm() {
+    private void dln() {
         com.baidu.tbadk.task.b bVar = new com.baidu.tbadk.task.b(309654);
         bVar.setResponsedClass(InterestedForumSocketResMsg.class);
         bVar.setNeedAck(true);
@@ -163,8 +163,8 @@ public class b {
         return this.gson.toJson(hashMap);
     }
 
-    public void a(InterfaceC0801b interfaceC0801b) {
-        this.lBK = interfaceC0801b;
+    public void a(InterfaceC0835b interfaceC0835b) {
+        this.lBK = interfaceC0835b;
     }
 
     public void a(a aVar) {
@@ -176,7 +176,7 @@ public class b {
         this.mPageNum = 1;
     }
 
-    public void dln() {
+    public void dlo() {
         InterestedForumReqMsg interestedForumReqMsg = new InterestedForumReqMsg();
         if (this.lBM == null) {
             interestedForumReqMsg.classidList = fi(null);

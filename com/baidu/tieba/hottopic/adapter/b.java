@@ -48,10 +48,10 @@ public class b extends com.baidu.adp.widget.ListView.a<com.baidu.tieba.hottopic.
 
     private void a(HotRankListManualItemHolder hotRankListManualItemHolder, final com.baidu.tieba.hottopic.data.b bVar) {
         if (hotRankListManualItemHolder != null && bVar != null) {
-            String string = StringUtils.isNull(bVar.cUV()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.cUV();
-            hotRankListManualItemHolder.krU.setText(bVar.cUU());
+            String string = StringUtils.isNull(bVar.cUW()) ? this.mContext.getResources().getString(R.string.hot_topic_hot_trend) : bVar.cUW();
+            hotRankListManualItemHolder.krU.setText(bVar.cUV());
             hotRankListManualItemHolder.krS.setText(string);
-            hotRankListManualItemHolder.krY.startLoad(bVar.cUT(), 10, false);
+            hotRankListManualItemHolder.krY.startLoad(bVar.cUU(), 10, false);
             if (StringUtils.isNull(bVar.getName())) {
                 hotRankListManualItemHolder.krT.setVisibility(8);
                 hotRankListManualItemHolder.krU.setPadding(0, 0, 0, 0);

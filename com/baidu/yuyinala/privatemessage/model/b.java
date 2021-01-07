@@ -37,10 +37,10 @@ public class b extends BdBaseModel {
     }
 
     public b() {
-        eob();
+        eoc();
     }
 
-    private void eob() {
+    private void eoc() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1031060, com.baidu.live.a.aAH + "ala/audio/user/getUserInfo");
         tbHttpMessageTask.setIsNeedTbs(true);
         tbHttpMessageTask.setIsUseCurrentBDUSS(true);

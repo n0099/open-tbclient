@@ -20,11 +20,11 @@ public final class a {
     private static C0490a dOZ;
 
     public static void k(boolean z, int i) {
-        h.aPH().putBoolean(ll(i), z);
+        h.aPI().putBoolean(ll(i), z);
     }
 
     public static boolean lk(int i) {
-        return h.aPH().getBoolean(ll(i), false) || !i(i, lm(i)).isAvailable();
+        return h.aPI().getBoolean(ll(i), false) || !i(i, lm(i)).isAvailable();
     }
 
     private static String ll(int i) {
@@ -32,25 +32,25 @@ public final class a {
     }
 
     public static long lm(int i) {
-        return h.aPH().getLong(lr(i), 0L);
+        return h.aPI().getLong(lr(i), 0L);
     }
 
     public static void ln(int i) {
-        h.aPH().putLong(lr(i), 0L);
+        h.aPI().putLong(lr(i), 0L);
     }
 
     public static C0490a lo(int i) {
-        return i == 1 ? aPR() : aPS();
+        return i == 1 ? aPS() : aPT();
     }
 
-    private static C0490a aPR() {
+    private static C0490a aPS() {
         if (dOZ == null) {
             dOZ = C0490a.c(lt(1), 1);
         }
         return dOZ;
     }
 
-    private static C0490a aPS() {
+    private static C0490a aPT() {
         if (dOY == null) {
             dOY = C0490a.c(lt(0), 0);
         }
@@ -67,8 +67,8 @@ public final class a {
                 n = null;
             } else {
                 C0490a lo = lo(i);
-                long j = h.aPH().getLong(lq(i), 0L);
-                long uo = com.baidu.swan.apps.swancore.b.uo(lo.aPT());
+                long j = h.aPI().getLong(lq(i), 0L);
+                long uo = com.baidu.swan.apps.swancore.b.uo(lo.aPU());
                 if (DEBUG) {
                     Log.d("PresetSwanCoreControl", "onPresetUpdate curVer: " + j + " newVer: " + uo);
                 }
@@ -89,7 +89,7 @@ public final class a {
         ArrayList arrayList = new ArrayList();
         arrayList.add(Long.valueOf(j));
         com.baidu.swan.apps.swancore.b.b(ls(i), arrayList);
-        h.aPH().putLong(lr(i), j);
+        h.aPI().putLong(lr(i), j);
         if (i == 0) {
             SwanJSVersionUpdateEvent.sendEvent(j);
         }
@@ -97,7 +97,7 @@ public final class a {
         if (DEBUG) {
             String e = e.e(new File(lq(i)), false);
             if (!TextUtils.isEmpty(e)) {
-                h.aPH().putString(com.baidu.swan.apps.swancore.a.kZ(i), e);
+                h.aPI().putString(com.baidu.swan.apps.swancore.a.kZ(i), e);
             }
         }
         return null;
@@ -170,7 +170,7 @@ public final class a {
             return i == 1 ? "game-core-version" : "swan-core-version";
         }
 
-        public String aPT() {
+        public String aPU() {
             return TextUtils.isEmpty(this.dPa) ? "0" : this.dPa;
         }
     }

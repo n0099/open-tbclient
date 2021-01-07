@@ -58,7 +58,7 @@ public class b {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.isNetWorkAvailable()) {
-                if (b.this.gAx != null && b.this.gAx.brJ() != null && b.this.gIx != null) {
+                if (b.this.gAx != null && b.this.gAx.brK() != null && b.this.gIx != null) {
                     b.this.gIx.a(b.this.tabId, b.this.gEU, b.this.gAx);
                     return;
                 }
@@ -114,7 +114,7 @@ public class b {
     }
 
     public void a(e eVar, int i) {
-        if (eVar == null || eVar.gAx == null || eVar.gAx.brJ() == null) {
+        if (eVar == null || eVar.gAx == null || eVar.gAx.brK() == null) {
             getView().setVisibility(4);
             return;
         }
@@ -133,16 +133,16 @@ public class b {
         if (this.gEY) {
             this.gEW = true;
             this.gEY = false;
-        } else if ((tag instanceof String) && !StringUtils.isNull(this.gAx.brJ().cover) && !((String) tag).equals(this.gAx.brJ().cover)) {
+        } else if ((tag instanceof String) && !StringUtils.isNull(this.gAx.brK().cover) && !((String) tag).equals(this.gAx.brK().cover)) {
             this.gEW = true;
-        } else if (!StringUtils.isNull(this.mCoverUrl) && !StringUtils.isNull(this.gAx.brJ().cover) && !this.mCoverUrl.equals(this.gAx.brJ().cover)) {
+        } else if (!StringUtils.isNull(this.mCoverUrl) && !StringUtils.isNull(this.gAx.brK().cover) && !this.mCoverUrl.equals(this.gAx.brK().cover)) {
             this.gEW = true;
         } else {
             this.gEW = false;
         }
-        this.mCoverUrl = this.gAx.brJ().cover;
+        this.mCoverUrl = this.gAx.brK().cover;
         this.gEK.setTag(this.mCoverUrl);
-        this.gEK.startLoad(this.gAx.brJ().cover, 10, false);
+        this.gEK.startLoad(this.gAx.brK().cover, 10, false);
         this.gEK.setEvent(new TbImageView.b() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.view.b.2
             String url;
 
@@ -160,9 +160,9 @@ public class b {
             public void onCancel() {
             }
         });
-        this.gEL.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, at.numberUniformFormatExtra(this.gAx.brJ().audience_count)));
-        if (this.gAx.brq() != null) {
-            String name_show = this.gAx.brq().getName_show();
+        this.gEL.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, at.numberUniformFormatExtra(this.gAx.brK().audience_count)));
+        if (this.gAx.brr() != null) {
+            String name_show = this.gAx.brr().getName_show();
             if (ad.getTextLengthWithEmoji(name_show) > 10) {
                 name_show = ad.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
@@ -177,18 +177,18 @@ public class b {
             gradientDrawable.setCornerRadii(new float[]{0.0f, 0.0f, 0.0f, 0.0f, dimensionPixelSize, dimensionPixelSize, 0.0f, 0.0f});
             gradientDrawable.setColor(-50901);
             this.gJP.setBackgroundDrawable(gradientDrawable);
-        } else if (this.gAx.brJ().label != null) {
+        } else if (this.gAx.brK().label != null) {
             GradientDrawable gradientDrawable2 = new GradientDrawable();
             float dimensionPixelSize2 = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds9);
             gradientDrawable2.setCornerRadii(new float[]{0.0f, 0.0f, 0.0f, 0.0f, dimensionPixelSize2, dimensionPixelSize2, 0.0f, 0.0f});
-            if (!StringUtils.isNull(this.gAx.brJ().label.labelColor)) {
-                gradientDrawable2.setColor(Color.parseColor(this.gAx.brJ().label.labelColor));
+            if (!StringUtils.isNull(this.gAx.brK().label.labelColor)) {
+                gradientDrawable2.setColor(Color.parseColor(this.gAx.brK().label.labelColor));
             }
             this.gJP.setBackgroundDrawable(gradientDrawable2);
-            this.gJP.setText(this.gAx.brJ().label.labelName);
+            this.gJP.setText(this.gAx.brK().label.labelName);
             this.gJP.setVisibility(0);
             this.gJQ.setVisibility(8);
-        } else if (this.gAx.brJ().mChallengeInfoData != null && this.gAx.brJ().mChallengeInfoData.challenge_id > 0) {
+        } else if (this.gAx.brK().mChallengeInfoData != null && this.gAx.brK().mChallengeInfoData.challenge_id > 0) {
             GradientDrawable gradientDrawable3 = new GradientDrawable();
             float dimensionPixelSize3 = this.mTbPageContext.getPageActivity().getResources().getDimensionPixelSize(R.dimen.tbds9);
             gradientDrawable3.setCornerRadii(new float[]{0.0f, 0.0f, 0.0f, 0.0f, dimensionPixelSize3, dimensionPixelSize3, 0.0f, 0.0f});
@@ -200,7 +200,7 @@ public class b {
             this.gJP.setVisibility(8);
             this.gJQ.setVisibility(8);
         }
-        if (this.gAx.brJ().haveRedpkg) {
+        if (this.gAx.brK().haveRedpkg) {
             this.gGN.setVisibility(0);
         } else {
             this.gGN.setVisibility(8);

@@ -31,7 +31,7 @@ public class AlaPreLoadMarkImgResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public List<String> clL() {
+    public List<String> clM() {
         return this.hJP;
     }
 }

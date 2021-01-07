@@ -19,10 +19,10 @@ import com.kwad.sdk.api.core.BaseSystemDialogFragment;
 public class e extends BaseSystemDialogFragment {
 
     /* renamed from: a  reason: collision with root package name */
-    public static e f10950a;
+    public static e f10951a;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f10951b;
+    private a f10952b;
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -34,20 +34,20 @@ public class e extends BaseSystemDialogFragment {
     }
 
     public static void a(Activity activity, String str, a aVar) {
-        f10950a = new e();
+        f10951a = new e();
         Bundle bundle = new Bundle();
         bundle.putString("key_title", str);
-        f10950a.setArguments(bundle);
-        f10950a.a(aVar);
-        f10950a.show(activity.getFragmentManager(), "videoCloseDialog");
+        f10951a.setArguments(bundle);
+        f10951a.a(aVar);
+        f10951a.show(activity.getFragmentManager(), "videoCloseDialog");
     }
 
     private void a(a aVar) {
-        this.f10951b = aVar;
+        this.f10952b = aVar;
     }
 
     public static boolean a() {
-        return f10950a != null && f10950a.b();
+        return f10951a != null && f10951a.b();
     }
 
     public boolean b() {
@@ -68,8 +68,8 @@ public class e extends BaseSystemDialogFragment {
         getDialog().setCanceledOnTouchOutside(false);
         window.setLayout(-1, -1);
         getDialog().getWindow().setBackgroundDrawable(new ColorDrawable(0));
-        if (this.f10951b != null) {
-            this.f10951b.a();
+        if (this.f10952b != null) {
+            this.f10952b.a();
         }
     }
 
@@ -83,8 +83,8 @@ public class e extends BaseSystemDialogFragment {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
-                if (e.this.f10951b != null) {
-                    e.this.f10951b.b();
+                if (e.this.f10952b != null) {
+                    e.this.f10952b.b();
                 }
             }
         });
@@ -92,8 +92,8 @@ public class e extends BaseSystemDialogFragment {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 e.this.dismiss();
-                if (e.this.f10951b != null) {
-                    e.this.f10951b.c();
+                if (e.this.f10952b != null) {
+                    e.this.f10952b.c();
                 }
             }
         });

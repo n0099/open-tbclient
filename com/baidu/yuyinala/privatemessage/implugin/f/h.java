@@ -13,7 +13,7 @@ public class h {
     public int oUG;
     public int oUH = -1;
 
-    public void Yl(String str) {
+    public void Yk(String str) {
         try {
             JSONObject jSONObject = new JSONObject(str);
             this.oUH = jSONObject.optInt(BaseJsonData.TAG_ERRNO);
@@ -43,7 +43,7 @@ public class h {
         return this.oUE;
     }
 
-    public int elo() {
+    public int elp() {
         return this.oUG;
     }
 
@@ -52,18 +52,18 @@ public class h {
     }
 
     public String getType() {
-        return Ym("type") ? this.mType : "";
+        return Yl("type") ? this.mType : "";
     }
 
-    public String elp() {
-        return Ym("third_id") ? this.oUE : "";
+    public String elq() {
+        return Yl("third_id") ? this.oUE : "";
     }
 
     public boolean isDataValid() {
         return this.oUH == 0;
     }
 
-    private boolean Ym(String str) {
+    private boolean Yl(String str) {
         return isDataValid() && this.mData != null && this.mData.has(str);
     }
 }

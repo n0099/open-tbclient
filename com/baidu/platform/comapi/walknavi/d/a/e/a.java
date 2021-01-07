@@ -11,14 +11,14 @@ import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f4448a = null;
+    private static a f4449a = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private d f4449b;
+    private d f4450b;
     private com.baidu.platform.comapi.walknavi.d.a.a.a c;
     private String d;
     private Context e;
@@ -27,14 +27,14 @@ public class a {
     }
 
     public static a a() {
-        if (f4448a == null) {
+        if (f4449a == null) {
             synchronized (a.class) {
-                if (f4448a == null) {
-                    f4448a = new a();
+                if (f4449a == null) {
+                    f4449a = new a();
                 }
             }
         }
-        return f4448a;
+        return f4449a;
     }
 
     public void a(Context context, com.baidu.platform.comapi.walknavi.d.a.a.a aVar) {
@@ -61,7 +61,7 @@ public class a {
     }
 
     private void a(Context context, Map<String, String> map) {
-        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f4456a + com.baidu.platform.comapi.walknavi.d.a.g.d.c + "/count_ar";
+        String str = com.baidu.platform.comapi.walknavi.d.a.g.d.f4457a + com.baidu.platform.comapi.walknavi.d.a.g.d.c + "/count_ar";
         String uuid = new e(context).a().toString();
         JSONObject jSONObject = new JSONObject();
         try {
@@ -89,17 +89,17 @@ public class a {
             jSONObject.put(HttpConstants.HTTP_SYSTEM_VERSION, Build.VERSION.SDK_INT);
         } catch (Exception e) {
         }
-        this.f4449b = new d(str, null);
-        this.f4449b.execute(jSONObject.toString());
+        this.f4450b = new d(str, null);
+        this.f4450b.execute(jSONObject.toString());
     }
 
     public void b() {
-        if (this.f4449b != null && !this.f4449b.isCancelled()) {
-            this.f4449b.cancel(true);
-            this.f4449b = null;
+        if (this.f4450b != null && !this.f4450b.isCancelled()) {
+            this.f4450b.cancel(true);
+            this.f4450b = null;
         }
-        if (f4448a != null) {
-            f4448a = null;
+        if (f4449a != null) {
+            f4449a = null;
         }
         this.d = null;
     }

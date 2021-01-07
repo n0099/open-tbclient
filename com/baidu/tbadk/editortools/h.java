@@ -1,7 +1,7 @@
 package com.baidu.tbadk.editortools;
 /* loaded from: classes.dex */
 public interface h extends b {
-    void bEH();
+    void bEI();
 
     int getToolId();
 

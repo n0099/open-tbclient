@@ -29,7 +29,7 @@ public final class b {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void ajU();
+        void ajV();
     }
 
     private b(Context context) {
@@ -48,7 +48,7 @@ public final class b {
     }
 
     public void onTerminate() {
-        if (ave()) {
+        if (avf()) {
             BdSailor.getInstance().destroy();
         }
     }
@@ -57,7 +57,7 @@ public final class b {
         n(false, z);
     }
 
-    public void avd() {
+    public void ave() {
         n(true, ProcessUtils.checkIsMainProcess(ProcessUtils.getCurProcessName()));
     }
 
@@ -74,7 +74,7 @@ public final class b {
                             synchronized (b.this.cZg) {
                                 b.this.cZe = true;
                                 b.this.cZg.notifyAll();
-                                b.this.avf();
+                                b.this.avg();
                             }
                         }
                     });
@@ -124,7 +124,7 @@ public final class b {
         BdSailor.initCookieSyncManager(this.mContext);
     }
 
-    public boolean ave() {
+    public boolean avf() {
         return this.cZc;
     }
 
@@ -137,7 +137,7 @@ public final class b {
                 this.mListeners.add(aVar);
             }
             if (this.cZe) {
-                avf();
+                avg();
             }
         }
     }
@@ -151,14 +151,14 @@ public final class b {
         }
     }
 
-    public void avf() {
+    public void avg() {
         synchronized (this.cZg) {
             if (DEBUG) {
                 android.util.Log.d("BlinkInitHelper", "notifyBlinkLoaded.");
             }
             Iterator<a> it = this.mListeners.iterator();
             while (it.hasNext()) {
-                it.next().ajU();
+                it.next().ajV();
             }
             this.mListeners.clear();
         }

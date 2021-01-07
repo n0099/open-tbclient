@@ -29,7 +29,7 @@ public class i extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.aMv().aPr().remove(aX);
+        eVar.aMw().aPs().remove(aX);
         com.baidu.swan.apps.al.e.dQM.update();
         UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
         return true;

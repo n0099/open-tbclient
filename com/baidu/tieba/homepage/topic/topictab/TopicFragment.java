@@ -45,7 +45,7 @@ public class TopicFragment extends BaseFragment implements f.c, am, a {
             ((ViewGroup) this.kmm.getParent()).removeView(this.kmm);
         }
         if (this.jWR) {
-            this.kmm.cbX();
+            this.kmm.cbY();
             this.jWR = false;
         }
         return this.kmm;
@@ -63,20 +63,20 @@ public class TopicFragment extends BaseFragment implements f.c, am, a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         this.kmm.it(false);
-        this.kml.cUj();
+        this.kml.cUk();
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void WE() {
+    public void WF() {
         this.kmm.reload();
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUJ() {
+    public void bUK() {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bUK() {
+    public void bUL() {
     }
 
     @Override // com.baidu.tieba.frs.am
@@ -88,7 +88,7 @@ public class TopicFragment extends BaseFragment implements f.c, am, a {
     }
 
     @Override // com.baidu.tieba.frs.am
-    public void bxO() {
+    public void bxP() {
         onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
     }
 
@@ -99,30 +99,30 @@ public class TopicFragment extends BaseFragment implements f.c, am, a {
 
     @Override // com.baidu.tbadk.core.view.f.c
     public void onListPullRefresh(boolean z) {
-        this.kml.cUj();
+        this.kml.cUk();
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void loadData() {
         if (j.isNetWorkAvailable()) {
-            this.kmm.Zi();
+            this.kmm.Zj();
             this.kmm.it(false);
-            this.kml.cUj();
+            this.kml.cUk();
         }
     }
 
     @Override // com.baidu.tieba.homepage.topic.topictab.a
     public void o(int i, List<n> list) {
         this.kmm.hideLoadingView();
-        this.kmm.bUO();
+        this.kmm.bUP();
         if (i != 0 || x.isEmpty(list)) {
             this.kmm.pU(false);
             return;
         }
-        this.kmm.Zi();
-        this.kmm.caY();
+        this.kmm.Zj();
+        this.kmm.caZ();
         this.kmm.setData(list);
-        this.kmm.Zh();
+        this.kmm.Zi();
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tbadk.m.a

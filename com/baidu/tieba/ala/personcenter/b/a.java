@@ -79,7 +79,7 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
         gc(tbPageContext.getPageActivity());
     }
 
-    private void bUH() {
+    private void bUI() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(this.eXu.getPageActivity(), new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.b.a.1
                 @Override // android.view.View.OnClickListener
@@ -102,7 +102,7 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
         this.gJf = true;
     }
 
-    private void Zi() {
+    private void Zj() {
         if (this.mRefreshView != null && this.mRefreshView.getAttachedView().getParent() != null) {
             ((ViewGroup) this.mRefreshView.getAttachedView().getParent()).removeView(this.mRefreshView.getAttachedView());
         }
@@ -154,14 +154,14 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                a.this.cbd();
                 a.this.cbe();
+                a.this.cbf();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbd() {
+    public void cbe() {
         if (Build.VERSION.SDK_INT >= 11 && this.hZC.getChildAt(0) != null) {
             int dimension = (int) this.eXu.getResources().getDimension(R.dimen.ds98);
             int i = this.hkN - (-this.hZC.getChildAt(0).getTop());
@@ -186,7 +186,7 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbe() {
+    public void cbf() {
         if (2 != TbadkCoreApplication.getInst().getSkinType()) {
             float alpha = this.mNavigationBar.getBarBgView().getAlpha();
             if (alpha < 0.5f) {
@@ -249,13 +249,13 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
     @Override // com.baidu.tieba.ala.personcenter.model.a
     public void d(Object obj, int i) {
         if (obj != null) {
-            Zi();
+            Zj();
             if ((obj instanceof c) && i == 1) {
                 this.hZA = (c) obj;
                 this.hZA.setIsHost(this.mIsHost);
                 this.gLj.dettachView(this.mRootView);
                 this.hZC.setVisibility(0);
-                cpF();
+                cpG();
             }
         }
     }
@@ -267,7 +267,7 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
         }
         this.hZC.setVisibility(0);
         if (this.hZC != null && x.isEmpty(this.hZC.getData())) {
-            bUH();
+            bUI();
         }
     }
 
@@ -281,7 +281,7 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
         }
     }
 
-    public void cpF() {
+    public void cpG() {
         ArrayList arrayList;
         if (this.hZA != null) {
             if (this.mIsHost) {
@@ -352,9 +352,9 @@ public class a implements com.baidu.tieba.ala.personcenter.d.a, com.baidu.tieba.
         this.hZE = this.mNavigationBar.setCenterTextTitle(sb.toString());
     }
 
-    public void IU(String str) {
+    public void IT(String str) {
         if (this.hZB != null) {
-            this.hZB.IU(str);
+            this.hZB.IT(str);
         }
     }
 

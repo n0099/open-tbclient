@@ -34,7 +34,7 @@ public class a implements d {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.a.d
-    public boolean enh() {
+    public boolean eni() {
         return false;
     }
 
@@ -51,7 +51,7 @@ public class a implements d {
                 if (this.mVelocityTracker != null) {
                     this.mVelocityTracker.addMovement(motionEvent);
                 } else {
-                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.eni().i("CupcakeGestureDetector", "Velocity tracker is null");
+                    com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.photoview.b.a.enj().i("CupcakeGestureDetector", "Velocity tracker is null");
                 }
                 this.bHU = ar(motionEvent);
                 this.bHV = as(motionEvent);

@@ -29,35 +29,35 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     private NoDataView mNoDataView;
     private ViewGroup mRootView;
     private BdListView jHk = null;
-    private a ndT = null;
+    private a ndS = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
         setContentView(R.layout.official_account_push_activity);
-        bYC();
+        bYD();
+        bOp();
         bOo();
-        bOn();
-    }
-
-    private void bOn() {
-        if (!j.isNetWorkAvailable() && x.isEmpty(this.list)) {
-            dKu();
-        } else if (x.isEmpty(this.list)) {
-            cLK();
-        } else if (this.ndT == null) {
-            this.ndT = new a(getPageContext());
-            this.ndT.setData(this.list);
-            this.jHk.setAdapter((ListAdapter) this.ndT);
-            this.ndT.setSwitchStateChangeListener(this);
-        } else {
-            this.ndT.setData(this.list);
-            this.ndT.notifyDataSetChanged();
-        }
     }
 
     private void bOo() {
+        if (!j.isNetWorkAvailable() && x.isEmpty(this.list)) {
+            dKv();
+        } else if (x.isEmpty(this.list)) {
+            cLL();
+        } else if (this.ndS == null) {
+            this.ndS = new a(getPageContext());
+            this.ndS.setData(this.list);
+            this.jHk.setAdapter((ListAdapter) this.ndS);
+            this.ndS.setSwitchStateChangeListener(this);
+        } else {
+            this.ndS.setData(this.list);
+            this.ndS.notifyDataSetChanged();
+        }
+    }
+
+    private void bOp() {
         this.mRootView = (ViewGroup) findViewById(R.id.official_account_push_container);
         this.mNavigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_CENTER, NavigationBar.ControlType.BACK_BUTTON);
@@ -77,21 +77,21 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
         this.mNetworkView.onChangeSkinType(getPageContext(), i);
     }
 
-    private void bYC() {
+    private void bYD() {
         Intent intent = getIntent();
         if (intent != null) {
             this.list = intent.getParcelableArrayListExtra(OfficialAccountPushActivityConfig.OFFICIAL_LIST);
         }
     }
 
-    public void cLK() {
+    public void cLL() {
         this.jHk.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.ra(R.string.no_data_text));
         ao.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
     }
 
-    public void dKu() {
+    public void dKv() {
         this.jHk.setVisibility(8);
         this.mNoDataView.setVisibility(0);
         this.mNoDataView.setTextOption(NoDataViewFactory.d.ra(R.string.refresh_view_title_text));
@@ -122,9 +122,9 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
     }
 
     private void o(boolean z, long j) {
-        if (this.list != null && this.ndT != null) {
+        if (this.list != null && this.ndS != null) {
             if (!j.isNetWorkAvailable()) {
-                this.ndT.notifyDataSetChanged();
+                this.ndS.notifyDataSetChanged();
                 return;
             }
             for (int i = 0; i < this.list.size(); i++) {
@@ -136,7 +136,7 @@ public class OfficialAccountPushActivity extends BaseActivity<OfficialAccountPus
                     }
                 }
             }
-            this.ndT.notifyDataSetChanged();
+            this.ndS.notifyDataSetChanged();
         }
     }
 

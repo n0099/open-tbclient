@@ -23,8 +23,8 @@ public class a {
         if (z) {
             return f.io(SoLoader.load(AppRuntime.getAppContext(), "v8.engine"));
         }
-        if (avc()) {
-            avb();
+        if (avd()) {
+            avc();
             boolean o = d.o("zeusv8", cYZ, true);
             if (!d.o("arcore_sdk_c", cYY, false) || !d.o("arcore_sdk_jni", cYY, false) || !d.o("c++_shared", cYY, false) || !d.o("v8.engine", cYY, false)) {
                 z2 = false;
@@ -41,7 +41,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static void avb() {
+    private static void avc() {
         Throwable th;
         FileLock fileLock;
         FileChannel fileChannel;
@@ -202,7 +202,7 @@ public class a {
         }
     }
 
-    public static boolean avc() {
+    public static boolean avd() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 }

@@ -32,30 +32,30 @@ public class a extends aa {
         if (DEBUG) {
             Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
         }
-        f ajs = com.baidu.swan.apps.v.f.aDG().ajs();
-        if (ajs == null) {
+        f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
+        if (ajt == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        c asT = ajs.asT();
-        if (asT == null) {
+        c asU = ajt.asU();
+        if (asU == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        if (eVar.aMD() && (asT instanceof com.baidu.swan.apps.core.d.j)) {
-            View aty = ((com.baidu.swan.apps.core.d.j) asT).aty();
-            if (aty == null) {
+        if (eVar.aME() && (asU instanceof com.baidu.swan.apps.core.d.j)) {
+            View atz = ((com.baidu.swan.apps.core.d.j) asU).atz();
+            if (atz == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            unitedSchemeEntity.result = aP(aty);
+            unitedSchemeEntity.result = aP(atz);
         } else {
-            SwanAppActionBar arV = asT.arV();
-            if (arV == null) {
+            SwanAppActionBar arW = asU.arW();
+            if (arW == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            View rightMenu = arV.getRightMenu();
+            View rightMenu = arW.getRightMenu();
             if (rightMenu == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
@@ -67,8 +67,8 @@ public class a extends aa {
 
     private JSONObject aP(View view) {
         JSONObject wrapCallbackParams;
-        e aMk = e.aMk();
-        int px2dpFloat = aMk != null ? aMk.aMD() : false ? 0 : (int) (ah.px2dpFloat(ah.getStatusBarHeight()) + 0.5f);
+        e aMl = e.aMl();
+        int px2dpFloat = aMl != null ? aMl.aME() : false ? 0 : (int) (ah.px2dpFloat(ah.getStatusBarHeight()) + 0.5f);
         int px2dpFloat2 = (int) (ah.px2dpFloat(view.getLeft()) + 0.5f);
         int px2dpFloat3 = (int) (ah.px2dpFloat(view.getRight()) + 0.5f);
         int px2dpFloat4 = ((int) (ah.px2dpFloat(view.getTop()) + 0.5f)) + px2dpFloat;

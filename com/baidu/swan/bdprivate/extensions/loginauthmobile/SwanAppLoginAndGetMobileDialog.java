@@ -45,7 +45,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
 
     protected abstract void a(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup);
 
-    protected abstract void aTj();
+    protected abstract void aTk();
 
     protected abstract void updateUI();
 
@@ -61,7 +61,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // androidx.fragment.app.Fragment
     @Nullable
     public View onCreateView(LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        asx();
+        asy();
         getDialog().requestWindowFeature(1);
         getDialog().setCanceledOnTouchOutside(true);
         Window window = getDialog().getWindow();
@@ -71,7 +71,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         c(window);
         a(layoutInflater, viewGroup);
         updateUI();
-        aTj();
+        aTk();
         return this.mRootView;
     }
 
@@ -85,7 +85,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
             public boolean onTouch(View view, MotionEvent motionEvent) {
                 if (motionEvent.getAction() == 4) {
                     SwanAppLoginAndGetMobileDialog.this.hM(true);
-                    SwanAppLoginAndGetMobileDialog.this.aTk();
+                    SwanAppLoginAndGetMobileDialog.this.aTl();
                 }
                 return true;
             }
@@ -101,7 +101,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
         this.dWY = z;
     }
 
-    private void asx() {
+    private void asy() {
         Bundle arguments = getArguments();
         if (arguments != null) {
             this.dWN = arguments.getString("auth_tip");
@@ -124,9 +124,9 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     @Override // androidx.fragment.app.Fragment
     public void onResume() {
         super.onResume();
-        boolean alD = com.baidu.swan.apps.t.a.aAN().alD();
-        if (alD != this.dAP) {
-            hN(alD);
+        boolean alE = com.baidu.swan.apps.t.a.aAO().alE();
+        if (alE != this.dAP) {
+            hN(alE);
         }
     }
 
@@ -143,7 +143,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void aTk() {
+    public void aTl() {
         if (this.dWW != null) {
             this.dWW.hL(this.dWY);
         }
@@ -152,7 +152,7 @@ public abstract class SwanAppLoginAndGetMobileDialog extends DialogFragment {
 
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
-        aTk();
+        aTl();
         super.onConfigurationChanged(configuration);
     }
 

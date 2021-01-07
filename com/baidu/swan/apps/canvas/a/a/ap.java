@@ -32,7 +32,7 @@ public class ap extends a {
 
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
-        if (bVar.aoj() == 0) {
+        if (bVar.aok() == 0) {
             bVar.hS(canvas.save());
         }
         Matrix matrix = new Matrix();

@@ -45,32 +45,32 @@ public class NoTipAgainView extends LinearLayout implements View.OnClickListener
     public void onClick(View view) {
         if (view == this.eXg) {
             this.eXi = !this.eXi;
-            btU();
+            btV();
             if (this.eXj != null) {
-                this.eXj.btY();
+                this.eXj.btZ();
             }
         }
     }
 
     public void onChangeSkinType() {
-        btU();
+        btV();
         ao.setViewTextColor(this.eXh, R.color.CAM_X0107);
     }
 
-    private void btU() {
+    private void btV() {
         Drawable a2;
         if (this.eXg != null) {
             ImageView imageView = this.eXg;
             if (this.eXi) {
-                a2 = SvgManager.bwq().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
+                a2 = SvgManager.bwr().a(R.drawable.ic_icon_mask_use_complete16_svg, null);
             } else {
-                a2 = SvgManager.bwq().a(R.drawable.ic_icon_mask_use_check16_svg, null);
+                a2 = SvgManager.bwr().a(R.drawable.ic_icon_mask_use_check16_svg, null);
             }
             imageView.setImageDrawable(a2);
         }
     }
 
-    public boolean btV() {
+    public boolean btW() {
         return this.eXi;
     }
 

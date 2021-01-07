@@ -25,7 +25,7 @@ public class LiveBBVideoCheckStatusResponseMessage extends JsonHttpResponsedMess
         return this.bSo;
     }
 
-    public boolean Zk() {
+    public boolean Zl() {
         return this.bSp == 0;
     }
 }

@@ -88,7 +88,7 @@ public class ThreadCardViewHolder<T extends com.baidu.tbadk.core.data.a> extends
             return;
         }
         if (this.ajN == null) {
-            this.ajN = new j(getTbPageContext(), com.baidu.tbadk.a.d.bmE());
+            this.ajN = new j(getTbPageContext(), com.baidu.tbadk.a.d.bmF());
             this.ajN.setOnClickEvent(aVar);
         }
         this.ajN.setPageUniqueId(this.mId);
@@ -147,17 +147,17 @@ public class ThreadCardViewHolder<T extends com.baidu.tbadk.core.data.a> extends
             this.ajI.getView().setVisibility(8);
             return;
         }
-        if (t.boO() != null) {
-            t.boO().getTid();
+        if (t.boP() != null) {
+            t.boP().getTid();
         }
-        if (t.boO() != null && t.boO().brq() != null) {
-            t.boO().brq().getName_show();
+        if (t.boP() != null && t.boP().brr() != null) {
+            t.boP().brr().getName_show();
         }
         this.ajI.getView().setVisibility(0);
         if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.aiC != null) {
-            if (!t.isSelf() && t.boQ() != null) {
+            if (!t.isSelf() && t.boR() != null) {
                 this.mNegFeedBackItem.g(t);
-                this.mNegFeedBackItem.D(t.boQ());
+                this.mNegFeedBackItem.D(t.boR());
                 this.mNegFeedBackItem.aiC.setVisibility(0);
                 z = true;
             } else if (this.mNegFeedBackItem != null && this.mNegFeedBackItem.aiC != null) {
@@ -165,31 +165,31 @@ public class ThreadCardViewHolder<T extends com.baidu.tbadk.core.data.a> extends
             }
         }
         if (this.ajJ != null) {
-            if (c(t.boO())) {
+            if (c(t.boP())) {
                 c(this.ajJ);
             } else {
                 this.ajJ.g(t);
-                this.ajJ.D(t.boO());
+                this.ajJ.D(t.boP());
             }
         }
         if (this.ajL != null) {
             this.ajL.aJ(z);
-            this.ajL.D(t.boO());
+            this.ajL.D(t.boP());
         }
         if (this.ajK != null) {
-            this.ajK.D(t.boO());
+            this.ajK.D(t.boP());
         }
         if (this.ajM != null) {
             this.ajM.g(t);
-            this.ajM.D(t.boO());
+            this.ajM.D(t.boP());
         }
         if (this.ajN != null) {
             this.ajN.a(t, z);
-            this.ajN.D(t.boO());
+            this.ajN.D(t.boP());
         }
         if (this.ajO != null) {
-            if (c(t.boO())) {
-                this.ajO.D(t.boO());
+            if (c(t.boP())) {
+                this.ajO.D(t.boP());
             } else {
                 c(this.ajO);
             }
@@ -207,6 +207,6 @@ public class ThreadCardViewHolder<T extends com.baidu.tbadk.core.data.a> extends
     }
 
     private boolean c(bz bzVar) {
-        return (bzVar == null || bzVar.brq() == null || !bzVar.eWe || !com.baidu.tbadk.a.d.bmN() || bzVar.brq().hadConcerned() || ay.x(bzVar)) ? false : true;
+        return (bzVar == null || bzVar.brr() == null || !bzVar.eWe || !com.baidu.tbadk.a.d.bmO() || bzVar.brr().hadConcerned() || ay.x(bzVar)) ? false : true;
     }
 }

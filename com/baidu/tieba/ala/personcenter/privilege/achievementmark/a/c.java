@@ -18,14 +18,14 @@ public class c {
             for (int i = 0; i < optJSONArray.length(); i++) {
                 b bVar = new b();
                 bVar.parserJson(optJSONArray.optJSONObject(i));
-                bVar.IV(this.ibv);
+                bVar.IU(this.ibv);
                 bVar.xO(this.ibx);
                 this.list.add(bVar);
             }
         }
     }
 
-    public String cpP() {
+    public String cpQ() {
         return this.ibv;
     }
 

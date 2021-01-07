@@ -30,7 +30,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         this.rootView = LayoutInflater.from(this).inflate(R.layout.forum_broadcast_history_list, (ViewGroup) null);
         this.kBE = new com.baidu.tieba.im.forum.broadcast.view.a(getPageContext(), this, this.rootView, this.mForumId, this.mForumName, this.jtx, bundle);
         setContentView(this.rootView);
-        this.kBD.cXX();
+        this.kBD.cXY();
         refresh();
     }
 
@@ -61,9 +61,9 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
     }
 
     @Override // com.baidu.tieba.im.forum.broadcast.a
-    public void bUp() {
+    public void bUq() {
         if (this.kBD != null) {
-            this.kBD.bUp();
+            this.kBD.bUq();
         }
     }
 
@@ -106,7 +106,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         super.onNewIntent(intent);
         refresh();
         if ("broadcast_publish_success".equals(intent.getStringExtra("from")) && this.kBE != null) {
-            this.kBE.cYa();
+            this.kBE.cYb();
         }
     }
 

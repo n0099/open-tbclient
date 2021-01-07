@@ -14,7 +14,7 @@ public class b implements com.baidu.tieba.ala.alaar.sticker.download.a.b {
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b
     public void onStarted() {
         this.guP.setStatus(101);
-        this.guP.bSY().onStarted();
+        this.guP.bSZ().onStarted();
     }
 
     @Override // com.baidu.tieba.ala.alaar.sticker.download.a.b

@@ -91,9 +91,9 @@ public class a extends BaseAdapter {
         if (gVar != null) {
             gVar.b(getItem(i));
             if (this.gwM == i) {
-                gVar.bTU();
+                gVar.bTV();
             } else {
-                gVar.bTT();
+                gVar.bTU();
             }
         }
         if (i == 0 && this.gyj != 0) {
@@ -108,7 +108,7 @@ public class a extends BaseAdapter {
     public void a(com.baidu.live.ar.i iVar, int i, g gVar, int[] iArr, boolean z) {
         if (iVar != null) {
             this.gwN = i;
-            if (com.baidu.tieba.ala.alaar.sticker.a.e.Gp(iVar.CL())) {
+            if (com.baidu.tieba.ala.alaar.sticker.a.e.Go(iVar.CL())) {
                 if (this.gyi != null) {
                     this.gyi.a(i, iArr, z);
                 }
@@ -128,7 +128,7 @@ public class a extends BaseAdapter {
                 @Override // com.baidu.tieba.ala.alaar.sticker.a.e.a
                 public void onStarted() {
                     if (gVar != null) {
-                        gVar.bTG();
+                        gVar.bTH();
                     }
                 }
 

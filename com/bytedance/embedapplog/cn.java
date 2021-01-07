@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class cn {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f6125a;
+    private final Context f6126a;
     private final SharedPreferences c;
     private final SharedPreferences e;
     private volatile JSONObject f;
@@ -21,16 +21,16 @@ public class cn {
     private final SharedPreferences phK;
 
     public cn(Context context, l lVar) {
-        this.f6125a = context;
+        this.f6126a = context;
         this.phJ = lVar;
-        this.e = this.f6125a.getSharedPreferences("embed_applog_stats", 0);
-        this.c = this.f6125a.getSharedPreferences("embed_header_custom", 0);
-        this.phK = this.f6125a.getSharedPreferences("embed_last_sp_session", 0);
+        this.e = this.f6126a.getSharedPreferences("embed_applog_stats", 0);
+        this.c = this.f6126a.getSharedPreferences("embed_header_custom", 0);
+        this.phK = this.f6126a.getSharedPreferences("embed_last_sp_session", 0);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String a() {
-        return this.phJ.epd();
+        return this.phJ.epe();
     }
 
     public String c() {
@@ -45,20 +45,20 @@ public class cn {
         return this.phK.getInt("session_order", 0);
     }
 
-    public SharedPreferences epH() {
+    public SharedPreferences epI() {
         return this.e;
     }
 
     public boolean f() {
-        return this.phJ.epa();
+        return this.phJ.epb();
     }
 
-    public JSONObject epI() {
+    public JSONObject epJ() {
         return this.g;
     }
 
     public void a(JSONObject jSONObject) {
-        if (au.f6085b) {
+        if (au.f6086b) {
             au.a("setConfig, " + jSONObject.toString(), null);
         }
         this.g = jSONObject;
@@ -94,7 +94,7 @@ public class cn {
         } else {
             edit.remove("bav_log_collect");
         }
-        au.f6084a = optBoolean;
+        au.f6085a = optBoolean;
         if (jSONObject.optBoolean("bav_ab_config", false)) {
             edit.putBoolean("bav_ab_config", true);
         } else {
@@ -131,7 +131,7 @@ public class cn {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String l() {
-        return this.phJ.epb();
+        return this.phJ.epc();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -141,7 +141,7 @@ public class cn {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String n() {
-        return this.phJ.epc();
+        return this.phJ.epd();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -166,7 +166,7 @@ public class cn {
 
     public boolean r() {
         if (this.phJ.getProcess() == 0) {
-            this.phJ.AI(!av.a(this.f6125a).contains(":"));
+            this.phJ.AI(!av.a(this.f6126a).contains(":"));
         }
         return this.phJ.getProcess() == 1;
     }
@@ -183,10 +183,10 @@ public class cn {
     }
 
     public String t() {
-        return !TextUtils.isEmpty(this.phJ.epj()) ? this.phJ.epj() : this.c.getString("ab_version", null);
+        return !TextUtils.isEmpty(this.phJ.epk()) ? this.phJ.epk() : this.c.getString("ab_version", null);
     }
 
-    public JSONObject epJ() {
+    public JSONObject epK() {
         JSONObject jSONObject = this.f;
         if (jSONObject == null) {
             synchronized (this) {
@@ -211,11 +211,11 @@ public class cn {
         return this.e.getBoolean("bav_log_collect", false);
     }
 
-    public long epK() {
+    public long epL() {
         return this.e.getLong("session_interval", 30000L);
     }
 
-    public long epL() {
+    public long epM() {
         return this.e.getLong("batch_event_interval", 30000L);
     }
 
@@ -226,7 +226,7 @@ public class cn {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public String A() {
-        return this.phJ.eoZ();
+        return this.phJ.epa();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -245,7 +245,7 @@ public class cn {
     public void a(long j) {
     }
 
-    public long epM() {
+    public long epN() {
         return 10000L;
     }
 
@@ -258,11 +258,11 @@ public class cn {
     }
 
     public int F() {
-        return this.phJ.epg();
+        return this.phJ.eph();
     }
 
     public int G() {
-        return this.phJ.eph();
+        return this.phJ.epi();
     }
 
     public String H() {
@@ -270,38 +270,38 @@ public class cn {
     }
 
     public String I() {
-        return this.phJ.epf();
+        return this.phJ.epg();
     }
 
     public String J() {
-        return this.phJ.epi();
+        return this.phJ.epj();
     }
 
     public String K() {
-        return this.phJ.epk();
-    }
-
-    public String L() {
         return this.phJ.epl();
     }
 
-    public String M() {
+    public String L() {
         return this.phJ.epm();
     }
 
+    public String M() {
+        return this.phJ.epn();
+    }
+
     public String N() {
-        return this.phJ.epp() == null ? "" : this.phJ.epp();
+        return this.phJ.epq() == null ? "" : this.phJ.epq();
     }
 
     public boolean O() {
-        return this.phJ.epo();
+        return this.phJ.epp();
     }
 
-    public l epN() {
+    public l epO() {
         return this.phJ;
     }
 
-    public CharSequence epO() {
-        return this.phJ.epn();
+    public CharSequence epP() {
+        return this.phJ.epo();
     }
 }

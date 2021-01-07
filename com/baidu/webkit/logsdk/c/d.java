@@ -2,15 +2,15 @@ package com.baidu.webkit.logsdk.c;
 
 import java.io.File;
 import java.util.Comparator;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 final class d implements Comparator<File> {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ c f6008a;
+    final /* synthetic */ c f6009a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(c cVar) {
-        this.f6008a = cVar;
+        this.f6009a = cVar;
     }
 
     /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object, java.lang.Object] */

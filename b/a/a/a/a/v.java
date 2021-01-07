@@ -1,13 +1,13 @@
 package b.a.a.a.a;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class v {
     public static final v AV = new v();
 
     /* renamed from: a  reason: collision with root package name */
-    final Object f1079a;
+    final Object f1080a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1080b;
+    public String f1081b;
     public long c;
     private final int e;
     private final byte[] f;
@@ -19,7 +19,7 @@ public final class v {
         this.e = -1;
         this.f = null;
         this.g = null;
-        this.f1079a = null;
+        this.f1080a = null;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,7 +28,7 @@ public final class v {
         this.e = 1;
         this.f = bArr;
         this.g = str;
-        this.f1079a = obj;
+        this.f1080a = obj;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

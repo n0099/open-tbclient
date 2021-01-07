@@ -13,7 +13,7 @@ public class b {
         this.dve = new com.baidu.swan.apps.event.a.b("beforeRequestPayment", treeMap);
     }
 
-    public com.baidu.swan.apps.event.a.b aIo() {
+    public com.baidu.swan.apps.event.a.b aIp() {
         return this.dve;
     }
 }

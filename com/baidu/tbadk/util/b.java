@@ -18,7 +18,7 @@ public class b {
     private b() {
     }
 
-    public static synchronized b bIu() {
+    public static synchronized b bIv() {
         b bVar;
         synchronized (b.class) {
             if (fOM == null) {
@@ -29,14 +29,14 @@ public class b {
         return bVar;
     }
 
-    public void bIv() {
-        String bIw = bIw();
-        if (!TextUtils.isEmpty(bIw)) {
-            com.baidu.adp.lib.e.d.mx().a(bIw, 10, null, 0, 0, null, new Object[0]);
+    public void bIw() {
+        String bIx = bIx();
+        if (!TextUtils.isEmpty(bIx)) {
+            com.baidu.adp.lib.e.d.mx().a(bIx, 10, null, 0, 0, null, new Object[0]);
         }
     }
 
-    public String bIw() {
+    public String bIx() {
         return TbadkSettings.getInst().loadString("ad_url", null);
     }
 

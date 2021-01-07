@@ -292,20 +292,20 @@ public abstract class b<T extends b<T>> implements a.b {
             throw new AndroidRuntimeException("Animations may only be started on the main thread");
         }
         if (!this.mRunning) {
-            ctn();
+            cto();
         }
     }
 
-    private void ctn() {
+    private void cto() {
         if (!this.mRunning) {
             this.mRunning = true;
             if (!this.inE) {
-                this.mValue = ctp();
+                this.mValue = ctq();
             }
             if (this.mValue > this.inH || this.mValue < this.inI) {
                 throw new IllegalArgumentException("Starting value need to be in between min value and max value");
             }
-            com.baidu.tieba.b.a.ctj().a(this, 0L);
+            com.baidu.tieba.b.a.ctk().a(this, 0L);
         }
     }
 
@@ -331,7 +331,7 @@ public abstract class b<T extends b<T>> implements a.b {
     private void ph(boolean z) {
         int i = 0;
         this.mRunning = false;
-        com.baidu.tieba.b.a.ctj().a(this);
+        com.baidu.tieba.b.a.ctk().a(this);
         this.ink = 0L;
         this.inE = false;
         while (true) {
@@ -366,11 +366,11 @@ public abstract class b<T extends b<T>> implements a.b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public float cto() {
+    public float ctp() {
         return this.inJ * 0.75f;
     }
 
-    private float ctp() {
+    private float ctq() {
         return this.inG.aJ(this.inF);
     }
 }

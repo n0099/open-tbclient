@@ -30,7 +30,7 @@ public class TbSettingTextTipView extends FrameLayout {
         super(context, attributeSet);
         this.fAs = true;
         this.mContext = context;
-        bDg();
+        bDh();
         i(attributeSet);
     }
 
@@ -38,7 +38,7 @@ public class TbSettingTextTipView extends FrameLayout {
         super(context);
         this.fAs = true;
         this.mContext = context;
-        bDg();
+        bDh();
     }
 
     public void displayTip() {
@@ -93,7 +93,7 @@ public class TbSettingTextTipView extends FrameLayout {
         this.fAq.setBackgroundDrawable(drawable);
     }
 
-    protected void bDg() {
+    protected void bDh() {
         LayoutInflater.from(this.mContext).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
         this.fAp = (LinearLayout) findViewById(R.id.container);
         this.textView = (TextView) findViewById(R.id.text);
@@ -139,7 +139,7 @@ public class TbSettingTextTipView extends FrameLayout {
         this.fAq.setTextSize(0, f);
     }
 
-    public void bDh() {
+    public void bDi() {
         int dimens = l.getDimens(this.mContext, R.dimen.tbds42);
         int dimens2 = l.getDimens(this.mContext, R.dimen.tbds33);
         setMainTextSize(dimens);
@@ -155,7 +155,7 @@ public class TbSettingTextTipView extends FrameLayout {
         ao.setBackgroundColor(this.mTopLine, R.color.CAM_X0205);
         ao.setViewTextColor(this.textView, R.color.CAM_X0105);
         ao.setViewTextColor(this.fAq, this.fAt == 0 ? R.color.CAM_X0109 : this.fAt);
-        SvgManager.bwq().a(this.fAu, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.fAu, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
         if (this.fAp != null) {
             this.fAp.setBackgroundDrawable(ao.qe(R.color.CAM_X0205));
         }

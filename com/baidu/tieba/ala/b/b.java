@@ -12,24 +12,24 @@ public class b extends g implements j {
 
     public b(String str) {
         this.gNT = str;
-        bVW();
+        bVX();
     }
 
-    private void bVW() {
-        this.gNS = c.GO(this.gNT);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bVX() {
-        if (bWn() != null) {
-            bWn().b(this);
-        }
+    private void bVX() {
+        this.gNS = c.GN(this.gNT);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bVY() {
-        if (bWn() != null) {
-            bWn().a(this);
+        if (bWo() != null) {
+            bWo().b(this);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bVZ() {
+        if (bWo() != null) {
+            bWo().a(this);
         }
     }
 
@@ -43,27 +43,27 @@ public class b extends g implements j {
 
     @Override // com.baidu.tieba.ala.b.j
     public void load() {
-        if (bWn() != null) {
-            bWn().a(this, getProgress());
+        if (bWo() != null) {
+            bWo().a(this, getProgress());
         }
-        bVZ();
+        bWa();
     }
 
-    public void bVZ() {
+    public void bWa() {
         if (this.gNS == null) {
-            bVX();
+            bVY();
         } else if (!this.mIsLoading) {
             this.mIsLoading = true;
             if (!this.gNS.isLoaded()) {
-                this.gNS.bWg();
-                bWa();
+                this.gNS.bWh();
+                bWb();
                 return;
             }
-            bVY();
+            bVZ();
         }
     }
 
-    private void bWa() {
+    private void bWb() {
         DownloadData downloadData = new DownloadData();
         downloadData.setType(20);
         downloadData.setUrl(this.gNS.mUrl);
@@ -76,12 +76,12 @@ public class b extends g implements j {
                     if (file.exists()) {
                         file.delete();
                     }
-                    b.this.bVX();
+                    b.this.bVY();
                     return;
                 }
                 b.this.dUA = downloadData2.getProcess();
-                if (b.this.bWn() != null) {
-                    b.this.bWn().a(b.this, b.this.getProgress());
+                if (b.this.bWo() != null) {
+                    b.this.bWo().a(b.this, b.this.getProgress());
                 }
             }
 
@@ -99,9 +99,9 @@ public class b extends g implements j {
             public void onFileDownloadSucceed(DownloadData downloadData2) {
                 if (downloadData2 != null && !StringUtils.isNull(downloadData2.getPath())) {
                     if (!b.this.gNS.onResLoaded(downloadData2.getPath())) {
-                        b.this.bVX();
-                    } else {
                         b.this.bVY();
+                    } else {
+                        b.this.bVZ();
                     }
                 }
             }
@@ -112,14 +112,14 @@ public class b extends g implements j {
                 if (file.exists()) {
                     file.delete();
                 }
-                b.this.bVX();
+                b.this.bVY();
             }
         });
-        com.baidu.tbadk.download.d.bEE().f(downloadData);
+        com.baidu.tbadk.download.d.bEF().f(downloadData);
     }
 
     @Override // com.baidu.tieba.ala.b.j
-    public g bWb() {
+    public g bWc() {
         return this;
     }
 

@@ -44,15 +44,15 @@ public class h extends UnitedSchemeBaseDispatcher {
             String optString = optParamsAsJo.optString("orderInfo");
             String optString2 = optParamsAsJo.optString("version");
             String optString3 = optParamsAsJo.optString("cb");
-            com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-            if (aMk == null) {
+            com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+            if (aMl == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (aMk.aMe() == null) {
+            } else if (aMl.aMf() == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                com.baidu.swan.apps.aa.b bVar = new com.baidu.swan.apps.aa.b(aMk, unitedSchemeEntity, callbackHandler, optString2, aMk.getAppKey(), optString3);
+                com.baidu.swan.apps.aa.b bVar = new com.baidu.swan.apps.aa.b(aMl, unitedSchemeEntity, callbackHandler, optString2, aMl.getAppKey(), optString3);
                 if ("requestPayment".equals(path)) {
                     com.baidu.swan.apps.console.c.i("SwanWalletDispatcher", "start PAYMENT");
                     return bVar.cj("mapp_request_duxiaoman", optString);

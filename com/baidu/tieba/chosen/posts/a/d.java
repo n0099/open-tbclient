@@ -33,7 +33,7 @@ public class d implements com.baidu.tbadk.mvc.b.a {
 
     public CustomMessage<ImageViewerConfig> gf(Context context) {
         ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-        aVar.x(this.iBx).ot(this.index).AE(this.forumName).AF(this.forumId).AG(this.threadId).ji(true).jj(false).AH(this.iBx.get(this.iBx.size() - 1));
+        aVar.x(this.iBx).ot(this.index).AD(this.forumName).AE(this.forumId).AF(this.threadId).ji(true).jj(false).AG(this.iBx.get(this.iBx.size() - 1));
         return new CustomMessage<>((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eS(context));
     }
 }

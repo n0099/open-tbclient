@@ -5,19 +5,19 @@ import com.baidu.tbadk.core.data.ForumData;
 /* loaded from: classes.dex */
 public class o implements com.baidu.adp.widget.ListView.n {
     private ForumData jPU;
-    private final boolean nqd;
+    private final boolean nqc;
 
     public o(ForumData forumData, boolean z) {
         this.jPU = forumData;
-        this.nqd = z;
+        this.nqc = z;
     }
 
-    public ForumData bFK() {
+    public ForumData bFL() {
         return this.jPU;
     }
 
-    public boolean dOn() {
-        return this.nqd;
+    public boolean dOo() {
+        return this.nqc;
     }
 
     @Override // com.baidu.adp.widget.ListView.n

@@ -59,7 +59,7 @@ public class a implements com.baidu.live.e.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (a.this.oHn != null) {
                 a.this.oHn.oZ(false);
-                a.this.oHn.cbN();
+                a.this.oHn.cbO();
             }
         }
     };
@@ -73,21 +73,21 @@ public class a implements com.baidu.live.e.b {
                 NetWorkChangedMessage netWorkChangedMessage = (NetWorkChangedMessage) customResponsedMessage;
                 if (netWorkChangedMessage.mLastNetState != netType || !BdNetTypeUtil.isWifiNet() || netWorkChangedMessage.mlastChangedTime != 0) {
                     if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                        a.this.cjL();
+                        a.this.cjM();
                         if (a.this.oHn != null) {
                             a.this.oHn.oW(false);
                             return;
                         }
                         return;
                     }
-                    if (BdNetTypeUtil.isMobileNet() && m.XA()) {
-                        a.this.cjK();
+                    if (BdNetTypeUtil.isMobileNet() && m.XB()) {
+                        a.this.cjL();
                     } else if (BdNetTypeUtil.isWifiNet()) {
-                        a.this.cjM();
+                        a.this.cjN();
                     }
                     if (a.this.oHn != null) {
                         a.this.oHn.onStart();
-                        a.this.oHn.cqV();
+                        a.this.oHn.cqW();
                     }
                 }
             }
@@ -98,7 +98,7 @@ public class a implements com.baidu.live.e.b {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage.getData() instanceof AccountData) {
-                a.this.cqk();
+                a.this.cql();
             }
         }
     };
@@ -108,18 +108,18 @@ public class a implements com.baidu.live.e.b {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof BackgroundSwitchMessage) && !((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    a.this.cjL();
+                    a.this.cjM();
                     if (a.this.oHn != null) {
                         a.this.oHn.oW(false);
                     }
                 } else if (a.this.oHn != null) {
-                    if (a.this.oHn.cqE()) {
-                        if (!TbadkCoreApplication.isShownNetChangeDialog.booleanValue() && BdNetTypeUtil.isMobileNet() && m.XA()) {
+                    if (a.this.oHn.cqF()) {
+                        if (!TbadkCoreApplication.isShownNetChangeDialog.booleanValue() && BdNetTypeUtil.isMobileNet() && m.XB()) {
                             TbadkCoreApplication.isShownNetChangeDialog = true;
-                            a.this.cjK();
+                            a.this.cjL();
                         }
-                    } else if (BdNetTypeUtil.isMobileNet() && m.XA()) {
-                        a.this.cjK();
+                    } else if (BdNetTypeUtil.isMobileNet() && m.XB()) {
+                        a.this.cjL();
                     }
                 }
             }
@@ -164,7 +164,7 @@ public class a implements com.baidu.live.e.b {
         this.mLastScreenHeight = screenDimensions[1];
         this.mLastScreenWidth = screenDimensions[0];
         if (!UtilHelper.isARM()) {
-            cjF();
+            cjG();
             return;
         }
         Intent intent = getPageContext().getPageActivity().getIntent();
@@ -177,7 +177,7 @@ public class a implements com.baidu.live.e.b {
         b(false, false, -1L);
     }
 
-    private void cjF() {
+    private void cjG() {
         BdAlertDialog bdAlertDialog = new BdAlertDialog(getPageContext().getPageActivity());
         bdAlertDialog.setAutoNight(false);
         bdAlertDialog.setTitle((String) null);
@@ -211,12 +211,12 @@ public class a implements com.baidu.live.e.b {
                 a.this.availableHeight = rect.bottom;
                 if (a.this.mLastScreenHeight != screenFullSize[1]) {
                     if (a.this.oHn != null) {
-                        a.this.oHn.cqM();
+                        a.this.oHn.cqN();
                     }
                     a.this.mLastScreenHeight = screenFullSize[1];
                 } else if (a.this.mLastScreenWidth != screenFullSize[0]) {
                     if (a.this.oHn != null) {
-                        a.this.oHn.cqM();
+                        a.this.oHn.cqN();
                     }
                     a.this.mLastScreenWidth = screenFullSize[0];
                 }
@@ -238,14 +238,14 @@ public class a implements com.baidu.live.e.b {
         int realScreenOrientation = UtilHelper.getRealScreenOrientation(getPageContext().getPageActivity());
         if (this.oHn != null) {
             if (realScreenOrientation == 2) {
-                this.oHn.cqN();
-            } else {
                 this.oHn.cqO();
+            } else {
+                this.oHn.cqP();
             }
         }
     }
 
-    public boolean cqi() {
+    public boolean cqj() {
         return false;
     }
 
@@ -260,20 +260,20 @@ public class a implements com.baidu.live.e.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjM() {
+    public void cjN() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getResources().getString(a.h.ala_watch_live_user_has_change_to_wifi));
         }
     }
 
-    public void cjK() {
+    public void cjL() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getResources().getString(a.h.ala_watch_live_mobile_net_tip));
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjL() {
+    public void cjM() {
         if (getPageContext() != null) {
             getPageContext().showToast(getPageContext().getPageActivity().getString(a.h.ala_create_no_network));
         }
@@ -326,14 +326,14 @@ public class a implements com.baidu.live.e.b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cqk() {
+    public void cql() {
         if (!TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
             this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.tieba.yuyinala.player.a.8
                 @Override // java.lang.Runnable
                 public void run() {
                     if (a.this.oHn != null) {
                         a.this.oHn.nN(true);
-                        a.this.oHn.cqD();
+                        a.this.oHn.cqE();
                         a.this.oHn.Ab(false);
                     }
                 }
@@ -349,7 +349,7 @@ public class a implements com.baidu.live.e.b {
         aj.HZ();
         com.baidu.live.entereffect.a.FB().release();
         if (this.oHn != null) {
-            this.oHn.cqU();
+            this.oHn.cqV();
         }
         if (this.oHm != null) {
             this.oHm.a(z, !z2, j);

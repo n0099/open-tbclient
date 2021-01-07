@@ -30,7 +30,7 @@ public class b {
     private static b dYz;
     private OkHttpClient mOkHttpClient = createOkHttpClient();
 
-    public static b aUc() {
+    public static b aUd() {
         if (dYz == null) {
             dYz = new b();
         }

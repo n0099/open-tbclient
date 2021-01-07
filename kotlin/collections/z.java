@@ -4,7 +4,7 @@ import java.util.Iterator;
 @kotlin.e
 /* loaded from: classes5.dex */
 public abstract class z implements Iterator<Long> {
-    public abstract long eCt();
+    public abstract long eCX();
 
     @Override // java.util.Iterator
     public void remove() {
@@ -13,8 +13,8 @@ public abstract class z implements Iterator<Long> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // java.util.Iterator
-    /* renamed from: eLZ */
+    /* renamed from: eMD */
     public final Long next() {
-        return Long.valueOf(eCt());
+        return Long.valueOf(eCX());
     }
 }

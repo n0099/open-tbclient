@@ -10,7 +10,7 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import com.baidu.prologue.a.c.h;
 import java.io.FileInputStream;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class a {
     private InterfaceC0326a cuR;
     private b cub;
@@ -22,7 +22,7 @@ public class a {
     private ViewGroup mViewGroup;
 
     /* renamed from: com.baidu.prologue.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface InterfaceC0326a {
         void hr(int i);
     }
@@ -121,7 +121,7 @@ public class a {
     @SuppressLint({"NewApi"})
     public void a(@NonNull c cVar, @NonNull boolean z) {
         if (this.cvb != 1) {
-            if (com.baidu.prologue.a.b.a.ctd.get().ago()) {
+            if (com.baidu.prologue.a.b.a.ctd.get().agp()) {
                 throw new IllegalStateException();
             }
             return;
@@ -159,17 +159,17 @@ public class a {
     public void prepareAsync() {
         if (this.cvb == 2 || this.cvb == 6) {
             this.mMediaPlayer.prepareAsync();
-        } else if (com.baidu.prologue.a.b.a.ctd.get().ago()) {
+        } else if (com.baidu.prologue.a.b.a.ctd.get().agp()) {
             throw new IllegalStateException();
         }
     }
 
     public void start() {
         if (this.cvb == 5 || this.cvb == 4 || this.cvb == 3 || this.cvb == 7) {
-            ahp();
+            ahq();
             this.mMediaPlayer.start();
             this.cvb = 4;
-        } else if (com.baidu.prologue.a.b.a.ctd.get().ago()) {
+        } else if (com.baidu.prologue.a.b.a.ctd.get().agp()) {
             throw new IllegalStateException();
         }
     }
@@ -178,7 +178,7 @@ public class a {
         if (this.cvb == 5 || this.cvb == 4) {
             this.mMediaPlayer.pause();
             this.cvb = 5;
-        } else if (com.baidu.prologue.a.b.a.ctd.get().ago()) {
+        } else if (com.baidu.prologue.a.b.a.ctd.get().agp()) {
             throw new IllegalStateException();
         }
     }
@@ -198,11 +198,11 @@ public class a {
         }
     }
 
-    public boolean agX() {
+    public boolean agY() {
         return this.cvb == 5 || this.cvb == 4;
     }
 
-    private boolean ahp() {
+    private boolean ahq() {
         if (this.mAudioManager == null) {
             this.mAudioManager = (AudioManager) this.mContext.getSystemService("audio");
             if (this.mAudioManager == null) {

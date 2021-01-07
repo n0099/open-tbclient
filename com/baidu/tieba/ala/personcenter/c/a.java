@@ -12,7 +12,7 @@ public class a extends com.baidu.tbadk.core.data.n {
         }
     }
 
-    public String cpG() {
+    public String cpH() {
         return this.hZI;
     }
 }

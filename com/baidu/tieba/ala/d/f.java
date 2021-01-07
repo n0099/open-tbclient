@@ -82,8 +82,8 @@ public class f implements View.OnClickListener {
         this.gTw = eVar;
         initView();
         initData();
-        bXj();
         bXk();
+        bXl();
         this.gTc.setVisibility(4);
         this.gTc.post(new Runnable() { // from class: com.baidu.tieba.ala.d.f.1
             @Override // java.lang.Runnable
@@ -173,7 +173,7 @@ public class f implements View.OnClickListener {
             this.aTX = clVar.aTX;
             str = clVar.aTY;
             strArr = clVar.aTZ;
-            if (bXl()) {
+            if (bXm()) {
                 this.gTk = this.aTX;
             } else {
                 this.gTk = this.gTC;
@@ -238,7 +238,7 @@ public class f implements View.OnClickListener {
         this.gST.setVisibility(8);
     }
 
-    private void bXj() {
+    private void bXk() {
         this.gSP.addTextChangedListener(new TextWatcher() { // from class: com.baidu.tieba.ala.d.f.2
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
@@ -308,7 +308,7 @@ public class f implements View.OnClickListener {
         });
     }
 
-    private void bXk() {
+    private void bXl() {
         this.gSP.setOnFocusChangeListener(new View.OnFocusChangeListener() { // from class: com.baidu.tieba.ala.d.f.4
             @Override // android.view.View.OnFocusChangeListener
             public void onFocusChange(View view, boolean z) {
@@ -364,9 +364,9 @@ public class f implements View.OnClickListener {
                 this.gSP.setText(String.valueOf(this.gTm));
                 return true;
             } else {
-                boolean z3 = bXl() && j < this.aTW;
+                boolean z3 = bXm() && j < this.aTW;
                 this.gTm = j;
-                if (bXl()) {
+                if (bXm()) {
                     this.gTk = this.aTX;
                 }
                 if (j < this.gTh || j > this.gTi) {
@@ -377,7 +377,7 @@ public class f implements View.OnClickListener {
                     this.gSR.setVisibility(0);
                     this.gTq = false;
                 } else {
-                    if (z && this.gSQ != null && bXm() && !this.gSQ.hasFocus()) {
+                    if (z && this.gSQ != null && bXn() && !this.gSQ.hasFocus()) {
                         boolean z4 = !this.gTD;
                         if (!z4 && this.gSQ.getText() != null) {
                             String obj2 = this.gSQ.getText().toString();
@@ -386,7 +386,7 @@ public class f implements View.OnClickListener {
                             }
                         }
                         if (z4) {
-                            if (bXl()) {
+                            if (bXm()) {
                                 long j2 = this.gTm / this.aTX;
                                 if (this.aTP > 0 && j2 > this.aTP) {
                                     j2 = this.aTP;
@@ -466,7 +466,7 @@ public class f implements View.OnClickListener {
             s sVar = new s();
             sVar.fi(this.gTm);
             sVar.fj(this.gTn);
-            sVar.Hp(str);
+            sVar.Ho(str);
             if (this.gTw != null) {
                 this.gTw.a(sVar);
             }
@@ -548,11 +548,11 @@ public class f implements View.OnClickListener {
         }
     }
 
-    private boolean bXl() {
-        return bXm() && this.gTm >= this.aTW && this.gTm <= this.gTi;
+    private boolean bXm() {
+        return bXn() && this.gTm >= this.aTW && this.gTm <= this.gTi;
     }
 
-    private boolean bXm() {
+    private boolean bXn() {
         return this.aTW >= ((long) this.gTh) && this.aTX > 0;
     }
 }

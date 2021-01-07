@@ -10,7 +10,7 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7937a;
+    private int f7938a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(Context context) {
@@ -25,7 +25,7 @@ public class d {
     }
 
     public int a() {
-        return this.f7937a;
+        return this.f7938a;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -37,7 +37,7 @@ public class d {
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
             if ("android.intent.action.BATTERY_CHANGED".equals(intent.getAction())) {
-                d.this.f7937a = (int) ((intent.getIntExtra(MapBundleKey.MapObjKey.OBJ_LEVEL, 0) * 100.0f) / intent.getIntExtra("scale", 100));
+                d.this.f7938a = (int) ((intent.getIntExtra(MapBundleKey.MapObjKey.OBJ_LEVEL, 0) * 100.0f) / intent.getIntExtra("scale", 100));
             }
         }
     }

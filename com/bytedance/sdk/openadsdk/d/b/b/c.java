@@ -7,10 +7,10 @@ import java.lang.reflect.Field;
 final class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Class f7227a;
+    private static Class f7228a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Object f7228b = b();
+    private final Object f7229b = b();
     private final Field c = c();
 
     @Override // com.bytedance.sdk.openadsdk.d.b.b.b
@@ -25,9 +25,9 @@ final class c extends b {
     }
 
     boolean b(AccessibleObject accessibleObject) {
-        if (this.f7228b != null && this.c != null) {
+        if (this.f7229b != null && this.c != null) {
             try {
-                f7227a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f7228b, accessibleObject, Long.valueOf(((Long) f7227a.getMethod("objectFieldOffset", Field.class).invoke(this.f7228b, this.c)).longValue()), true);
+                f7228a.getMethod("putBoolean", Object.class, Long.TYPE, Boolean.TYPE).invoke(this.f7229b, accessibleObject, Long.valueOf(((Long) f7228a.getMethod("objectFieldOffset", Field.class).invoke(this.f7229b, this.c)).longValue()), true);
                 return true;
             } catch (Exception e) {
             }
@@ -37,8 +37,8 @@ final class c extends b {
 
     private static Object b() {
         try {
-            f7227a = Class.forName("sun.misc.Unsafe");
-            Field declaredField = f7227a.getDeclaredField("theUnsafe");
+            f7228a = Class.forName("sun.misc.Unsafe");
+            Field declaredField = f7228a.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
             return declaredField.get(null);
         } catch (Exception e) {

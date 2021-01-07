@@ -36,7 +36,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bKt();
+        void bKu();
     }
 
     public PullLeftRefreshLayout(@NonNull Context context) {
@@ -76,7 +76,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            PullLeftRefreshLayout.this.bKp();
+                            PullLeftRefreshLayout.this.bKq();
                         }
                     });
                     this.valueAnimator.start();
@@ -133,7 +133,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            PullLeftRefreshLayout.this.bKp();
+                            PullLeftRefreshLayout.this.bKq();
                         }
                     });
                     this.valueAnimator.start();
@@ -190,7 +190,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
                         @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                         public void onAnimationEnd(Animator animator) {
-                            PullLeftRefreshLayout.this.bKp();
+                            PullLeftRefreshLayout.this.bKq();
                         }
                     });
                     this.valueAnimator.start();
@@ -230,7 +230,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         this.fVq = z;
     }
 
-    public boolean bKn() {
+    public boolean bKo() {
         return this.fVq;
     }
 
@@ -296,7 +296,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
                 this.mLastX = x;
                 this.fVn = y;
                 this.mLastY = y;
-                if (Math.abs(i) > Math.abs(y - this.fVn) && this.fVq && i < 0 && !bKr() && this.fVf == 0) {
+                if (Math.abs(i) > Math.abs(y - this.fVn) && this.fVq && i < 0 && !bKs() && this.fVf == 0) {
                     if (getParent() != null) {
                         getParent().requestDisallowInterceptTouchEvent(true);
                     }
@@ -332,10 +332,10 @@ public class PullLeftRefreshLayout extends FrameLayout {
                 this.fVn = 0;
                 this.mLastY = 0;
                 if (Math.abs(this.fVo) < this.fVj) {
-                    bKo();
+                    bKp();
                     return true;
                 }
-                bKq();
+                bKr();
                 return true;
             case 2:
                 int i = x - this.mLastX;
@@ -373,7 +373,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
         return super.onTouchEvent(motionEvent);
     }
 
-    private void bKo() {
+    private void bKp() {
         if (this.fVk != null) {
             this.fVk.cancel();
         }
@@ -395,7 +395,7 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                PullLeftRefreshLayout.this.bKp();
+                PullLeftRefreshLayout.this.bKq();
             }
         });
         this.fVk.start();
@@ -415,13 +415,13 @@ public class PullLeftRefreshLayout extends FrameLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bKp() {
+    public void bKq() {
         this.fVf = 0;
         this.fVo = 0.0f;
         setTranslationStatus(0.0f);
     }
 
-    private void bKq() {
+    private void bKr() {
         if (this.fVl != null) {
             this.fVl.cancel();
         }
@@ -443,11 +443,11 @@ public class PullLeftRefreshLayout extends FrameLayout {
 
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                PullLeftRefreshLayout.this.bKp();
+                PullLeftRefreshLayout.this.bKq();
                 PullLeftRefreshLayout.this.postDelayed(new Runnable() { // from class: com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.5.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        PullLeftRefreshLayout.this.bKs();
+                        PullLeftRefreshLayout.this.bKt();
                     }
                 }, 50L);
             }
@@ -474,13 +474,13 @@ public class PullLeftRefreshLayout extends FrameLayout {
         }
     }
 
-    public boolean bKr() {
+    public boolean bKs() {
         return ViewCompat.canScrollHorizontally(this.mRecyclerView, 1);
     }
 
-    public void bKs() {
+    public void bKt() {
         if (this.fVp != null) {
-            this.fVp.bKt();
+            this.fVp.bKu();
         }
     }
 }

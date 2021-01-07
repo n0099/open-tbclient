@@ -157,7 +157,7 @@ public class CameraView extends FrameLayout {
 
     private void init() {
         this.iqK = new com.baidu.tieba.barselect.idCard.b(getContext());
-        this.ipQ = this.iqK.cub();
+        this.ipQ = this.iqK.cuc();
         addView(this.ipQ);
         this.iqL = new MaskView(getContext());
         addView(this.iqL);
@@ -194,8 +194,8 @@ public class CameraView extends FrameLayout {
     /* JADX INFO: Access modifiers changed from: private */
     public Bitmap a(File file, byte[] bArr, int i) {
         try {
-            Rect cuj = this.iqK.cuj();
-            if (this.iqL.getWidth() == 0 || this.iqL.getHeight() == 0 || cuj.width() == 0 || cuj.height() == 0) {
+            Rect cuk = this.iqK.cuk();
+            if (this.iqL.getWidth() == 0 || this.iqL.getHeight() == 0 || cuk.width() == 0 || cuk.height() == 0) {
                 return null;
             }
             BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, true);
@@ -206,17 +206,17 @@ public class CameraView extends FrameLayout {
             int height2 = (frameRect.top * height) / this.iqL.getHeight();
             int width3 = (frameRect.right * width) / this.iqL.getWidth();
             int height3 = (frameRect.bottom * height) / this.iqL.getHeight();
-            if (cuj.top < 0) {
-                int height4 = (cuj.height() * getWidth()) / cuj.width();
-                int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / cuj.width();
-                height2 = (((((height4 - frameRect.height()) / 2) * getWidth()) / cuj.width()) * height) / cuj.height();
-                height3 = (height5 * height) / cuj.height();
-            } else if (cuj.left < 0) {
-                int width4 = (cuj.width() * getHeight()) / cuj.height();
-                int width5 = (((width4 - this.iqL.getFrameRect().width()) / 2) * getHeight()) / cuj.height();
-                int width6 = (((width4 + this.iqL.getFrameRect().width()) / 2) * getHeight()) / cuj.height();
-                width2 = (width5 * width) / cuj.width();
-                width3 = (width6 * width) / cuj.width();
+            if (cuk.top < 0) {
+                int height4 = (cuk.height() * getWidth()) / cuk.width();
+                int height5 = (((height4 + frameRect.height()) / 2) * getWidth()) / cuk.width();
+                height2 = (((((height4 - frameRect.height()) / 2) * getWidth()) / cuk.width()) * height) / cuk.height();
+                height3 = (height5 * height) / cuk.height();
+            } else if (cuk.left < 0) {
+                int width4 = (cuk.width() * getHeight()) / cuk.height();
+                int width5 = (((width4 - this.iqL.getFrameRect().width()) / 2) * getHeight()) / cuk.height();
+                int width6 = (((width4 + this.iqL.getFrameRect().width()) / 2) * getHeight()) / cuk.height();
+                width2 = (width5 * width) / cuk.width();
+                width3 = (width6 * width) / cuk.width();
             }
             Rect rect = new Rect();
             rect.left = width2;

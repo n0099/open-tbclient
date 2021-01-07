@@ -49,11 +49,11 @@ public class TDialog extends b {
     private class THandler extends Handler {
 
         /* renamed from: b  reason: collision with root package name */
-        private OnTimeListener f13664b;
+        private OnTimeListener f13665b;
 
         public THandler(OnTimeListener onTimeListener, Looper looper) {
             super(looper);
-            this.f13664b = onTimeListener;
+            this.f13665b = onTimeListener;
         }
 
         @Override // android.os.Handler
@@ -61,10 +61,10 @@ public class TDialog extends b {
             f.b("openSDK_LOG.TDialog", "--handleMessage--msg.WHAT = " + message.what);
             switch (message.what) {
                 case 1:
-                    this.f13664b.a((String) message.obj);
+                    this.f13665b.a((String) message.obj);
                     return;
                 case 2:
-                    this.f13664b.onCancel();
+                    this.f13665b.onCancel();
                     return;
                 case 3:
                     if (TDialog.this.e != null && TDialog.this.e.get() != null) {
@@ -89,10 +89,10 @@ public class TDialog extends b {
     private static class OnTimeListener implements IUiListener {
 
         /* renamed from: a  reason: collision with root package name */
-        String f13661a;
+        String f13662a;
 
         /* renamed from: b  reason: collision with root package name */
-        String f13662b;
+        String f13663b;
         private WeakReference<Context> c;
         private String d;
         private IUiListener e;
@@ -100,8 +100,8 @@ public class TDialog extends b {
         public OnTimeListener(Context context, String str, String str2, String str3, IUiListener iUiListener) {
             this.c = new WeakReference<>(context);
             this.d = str;
-            this.f13661a = str2;
-            this.f13662b = str3;
+            this.f13662a = str2;
+            this.f13663b = str3;
             this.e = iUiListener;
         }
 
@@ -118,7 +118,7 @@ public class TDialog extends b {
         @Override // com.tencent.tauth.IUiListener
         public void onComplete(Object obj) {
             JSONObject jSONObject = (JSONObject) obj;
-            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f13661a, false);
+            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, jSONObject.optInt(Constants.KEYS.RET, -6), this.f13662a, false);
             if (this.e != null) {
                 this.e.onComplete(jSONObject);
                 this.e = null;
@@ -127,7 +127,7 @@ public class TDialog extends b {
 
         @Override // com.tencent.tauth.IUiListener
         public void onError(UiError uiError) {
-            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, uiError.errorMessage != null ? uiError.errorMessage + this.f13661a : this.f13661a, false);
+            g.a().a(this.d + "_H5", SystemClock.elapsedRealtime(), 0L, 0L, uiError.errorCode, uiError.errorMessage != null ? uiError.errorMessage + this.f13662a : this.f13662a, false);
             if (this.e != null) {
                 this.e.onError(uiError);
                 this.e = null;
@@ -188,7 +188,7 @@ public class TDialog extends b {
     protected void a(String str) {
         f.b("openSDK_LOG.TDialog", "--onConsoleMessage--");
         try {
-            this.f13684a.a(this.k, str);
+            this.f13685a.a(this.k, str);
         } catch (Exception e) {
         }
     }
@@ -198,7 +198,7 @@ public class TDialog extends b {
         this.k.setVerticalScrollBarEnabled(false);
         this.k.setHorizontalScrollBarEnabled(false);
         this.k.setWebViewClient(new FbWebViewClient());
-        this.k.setWebChromeClient(this.f13685b);
+        this.k.setWebChromeClient(this.f13686b);
         this.k.clearFormData();
         WebSettings settings = this.k.getSettings();
         if (settings != null) {
@@ -215,7 +215,7 @@ public class TDialog extends b {
                 settings.setDatabasePath(this.e.get().getApplicationContext().getDir(NgWebView.APP_DATABASE_PATH, 0).getPath());
             }
             settings.setDomStorageEnabled(true);
-            this.f13684a.a(new JsListener(), "sdk_js_if");
+            this.f13685a.a(new JsListener(), "sdk_js_if");
             this.k.loadUrl(this.g);
             this.k.setLayoutParams(c);
             this.k.setVisibility(4);

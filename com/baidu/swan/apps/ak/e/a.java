@@ -33,7 +33,7 @@ public class a {
     private a() {
     }
 
-    public static a aQg() {
+    public static a aQh() {
         if (dPA == null) {
             synchronized (a.class) {
                 if (dPA == null) {
@@ -52,7 +52,7 @@ public class a {
         this.dPG = interfaceC0380a;
     }
 
-    public void aQh() {
+    public void aQi() {
         if (this.mContext == null) {
             c.e(MapController.COMPASS_LAYER_TAG, "start error, none context");
         } else if (this.dPp) {
@@ -62,8 +62,8 @@ public class a {
             if (this.mSensorManager != null) {
                 this.dPm = this.mSensorManager.getDefaultSensor(1);
                 this.dPC = this.mSensorManager.getDefaultSensor(2);
-                this.mSensorManager.registerListener(aQc(), this.dPm, 1);
-                this.mSensorManager.registerListener(aQj(), this.dPC, 1);
+                this.mSensorManager.registerListener(aQd(), this.dPm, 1);
+                this.mSensorManager.registerListener(aQk(), this.dPC, 1);
                 this.dPp = true;
                 c.i(MapController.COMPASS_LAYER_TAG, "start listen");
                 return;
@@ -72,7 +72,7 @@ public class a {
         }
     }
 
-    public void aQi() {
+    public void aQj() {
         if (!this.dPp) {
             c.w(MapController.COMPASS_LAYER_TAG, "has already stop");
             return;
@@ -94,14 +94,14 @@ public class a {
 
     public static void release() {
         if (dPA != null) {
-            dPA.aQb();
+            dPA.aQc();
         }
     }
 
-    private void aQb() {
+    private void aQc() {
         c.i(MapController.COMPASS_LAYER_TAG, "release");
         if (this.dPp) {
-            aQi();
+            aQj();
         }
         this.mSensorManager = null;
         this.dPC = null;
@@ -113,7 +113,7 @@ public class a {
         dPA = null;
     }
 
-    private SensorEventListener aQc() {
+    private SensorEventListener aQd() {
         c.i(MapController.COMPASS_LAYER_TAG, "get Accelerometer listener");
         if (this.dPl != null) {
             return this.dPl;
@@ -125,7 +125,7 @@ public class a {
                     a.this.dPD = sensorEvent.values;
                     a.this.dPF = sensorEvent.accuracy;
                     c.d("SwanAppCompassManager", "accelerometer changed accuracy: " + a.this.dPF);
-                    a.this.aQl();
+                    a.this.aQm();
                     return;
                 }
                 c.w(MapController.COMPASS_LAYER_TAG, "illegal accelerometer event");
@@ -138,7 +138,7 @@ public class a {
         return this.dPl;
     }
 
-    private SensorEventListener aQj() {
+    private SensorEventListener aQk() {
         c.i(MapController.COMPASS_LAYER_TAG, "get MagneticFiled listener");
         if (this.dPB != null) {
             return this.dPB;
@@ -150,7 +150,7 @@ public class a {
                     a.this.dPE = sensorEvent.values;
                     a.this.dPF = sensorEvent.accuracy;
                     c.d("SwanAppCompassManager", "magneticFiled changed accuracy: " + a.this.dPF);
-                    a.this.aQl();
+                    a.this.aQm();
                     return;
                 }
                 c.w(MapController.COMPASS_LAYER_TAG, "illegal magnetic filed event");
@@ -163,7 +163,7 @@ public class a {
         return this.dPB;
     }
 
-    private float aQk() {
+    private float aQl() {
         float[] fArr = new float[3];
         float[] fArr2 = new float[9];
         SensorManager.getRotationMatrix(fArr2, null, this.dPD, this.dPE);
@@ -172,11 +172,11 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aQl() {
+    public void aQm() {
         if (this.dPG != null && System.currentTimeMillis() - this.dPq > 200) {
-            float aQk = aQk();
-            c.d("SwanAppCompassManager", "orientation changed, orientation : " + aQk);
-            this.dPG.b(aQk, this.dPF);
+            float aQl = aQl();
+            c.d("SwanAppCompassManager", "orientation changed, orientation : " + aQl);
+            this.dPG.b(aQl, this.dPF);
             this.dPq = System.currentTimeMillis();
         }
     }

@@ -12,18 +12,18 @@ public class am {
     private static String fdg;
 
     public static boolean isEmui() {
-        return bwg();
-    }
-
-    public static boolean bwg() {
-        return check(RomUtils.ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
+        return bwh();
     }
 
     public static boolean bwh() {
-        return check("ONEPLUS");
+        return check(RomUtils.ROM_EMUI) && Build.VERSION.SDK_INT >= 24;
     }
 
     public static boolean bwi() {
+        return check("ONEPLUS");
+    }
+
+    public static boolean bwj() {
         return check(RomUtils.ROM_OPPO);
     }
 

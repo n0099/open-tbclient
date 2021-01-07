@@ -46,7 +46,7 @@ public class g {
         }
     }
 
-    public void azR() {
+    public void azS() {
         this.eji.clear();
     }
 }

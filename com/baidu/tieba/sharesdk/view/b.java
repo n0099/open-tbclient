@@ -21,15 +21,15 @@ public class b extends d {
     private k.b kSv;
     private k.b kSx;
     private Context mContext;
+    private LinearLayout nfF;
     private LinearLayout nfG;
-    private LinearLayout nfH;
+    private View nfH;
     private View nfI;
-    private View nfJ;
     private String originImgText;
     private boolean showAddEmotion;
     private boolean showQRCode;
-    private static final int nfK = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds187);
-    private static final int nfL = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds239);
+    private static final int nfJ = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds187);
+    private static final int nfK = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds239);
     private static final int kRV = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds34);
 
     public b(Context context, String str, boolean z, boolean z2, k.b bVar, k.b bVar2, k.b bVar3, k.b bVar4, k.b bVar5, View.OnClickListener onClickListener) {
@@ -44,13 +44,13 @@ public class b extends d {
         this.kSu = bVar4;
         this.kSx = bVar5;
         this.kRU = onClickListener;
-        this.nfG = (LinearLayout) this.mRootView.findViewById(R.id.first_line);
-        this.nfH = (LinearLayout) this.mRootView.findViewById(R.id.second_line);
-        dLa();
+        this.nfF = (LinearLayout) this.mRootView.findViewById(R.id.first_line);
+        this.nfG = (LinearLayout) this.mRootView.findViewById(R.id.second_line);
+        dLb();
     }
 
-    private void dLa() {
-        this.nfy.clear();
+    private void dLb() {
+        this.nfx.clear();
         a(R.string.share_qq_friends, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qq40_svg));
         a(R.string.share_qzone, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_qqzone40_svg));
         a(R.string.share_weixin, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_wechat40_svg));
@@ -59,7 +59,7 @@ public class b extends d {
         aVar.setItemName(R.string.share_weixin_emotion_1);
         aVar.Kl(R.string.share_weixin_emotion_2);
         aVar.setOnClickListener(this);
-        this.nfy.add(aVar.dLc());
+        this.nfx.add(aVar.dLd());
         a(R.string.share_weixin_timeline, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_circle40_svg));
         a(R.string.share_sina_weibo, new com.baidu.tbadk.core.util.e.b(R.drawable.icon_mask_share_weibo40_svg));
         if (this.originImgText != null) {
@@ -68,7 +68,7 @@ public class b extends d {
         LinearLayout dr = dr(R.string.save_to_local, R.drawable.icon_pure_share_download40);
         dr.setOnClickListener(this);
         dr.setTag(Integer.valueOf(R.drawable.icon_pure_share_download40 + R.string.save_to_local));
-        this.nfy.add(dr);
+        this.nfx.add(dr);
         if (this.showAddEmotion) {
             ds(R.string.save_to_emotion, R.drawable.icon_share_homepage_expression40);
         }
@@ -76,33 +76,33 @@ public class b extends d {
         if (this.showQRCode) {
             ds(R.string.image_qr_code, R.drawable.icon_share_homepage_qrcode40);
         }
+        this.nfH = new View(this.mContext);
         this.nfI = new View(this.mContext);
-        this.nfJ = new View(this.mContext);
     }
 
     @Override // com.baidu.tieba.sharesdk.view.d
-    public boolean dLb() {
+    public boolean dLc() {
+        this.nfF.removeAllViews();
         this.nfG.removeAllViews();
-        this.nfH.removeAllViews();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= Math.min(6, this.nfy.size())) {
+            if (i2 >= Math.min(6, this.nfx.size())) {
                 break;
             }
-            this.nfG.addView(this.nfy.get(i2), new ViewGroup.LayoutParams(nfK, nfL));
+            this.nfF.addView(this.nfx.get(i2), new ViewGroup.LayoutParams(nfJ, nfK));
             i = i2 + 1;
         }
-        this.nfG.addView(this.nfI, new ViewGroup.LayoutParams(kRV, -1));
-        for (int i3 = 6; i3 < this.nfy.size(); i3++) {
-            this.nfH.addView(this.nfy.get(i3), new ViewGroup.LayoutParams(nfK, nfL));
+        this.nfF.addView(this.nfH, new ViewGroup.LayoutParams(kRV, -1));
+        for (int i3 = 6; i3 < this.nfx.size(); i3++) {
+            this.nfG.addView(this.nfx.get(i3), new ViewGroup.LayoutParams(nfJ, nfK));
         }
-        this.nfH.addView(this.nfJ, new ViewGroup.LayoutParams(kRV, -1));
+        this.nfG.addView(this.nfI, new ViewGroup.LayoutParams(kRV, -1));
         return true;
     }
 
     @Override // com.baidu.tieba.sharesdk.view.d
-    protected View cIx() {
+    protected View cIy() {
         return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.image_viewer_share_dialog_layout, (ViewGroup) null);
     }
 
@@ -147,8 +147,8 @@ public class b extends d {
     /* loaded from: classes8.dex */
     public class a extends ShareDialogItemView {
         private Context context;
-        private EMTextView nfM;
-        private LinearLayout.LayoutParams nfN;
+        private EMTextView nfL;
+        private LinearLayout.LayoutParams nfM;
 
         public a(Context context) {
             super(context);
@@ -156,27 +156,27 @@ public class b extends d {
         }
 
         public void setItemIcon(int i) {
-            this.ngp = new ImageView(this.context);
+            this.ngo = new ImageView(this.context);
             setTag(Integer.valueOf(i));
-            this.ngp.setScaleType(ImageView.ScaleType.FIT_XY);
-            WebPManager.a(this.ngp, i, (WebPManager.ResourceStateType) null);
-            dLh();
+            this.ngo.setScaleType(ImageView.ScaleType.FIT_XY);
+            WebPManager.a(this.ngo, i, (WebPManager.ResourceStateType) null);
+            dLi();
         }
 
         public void Kl(int i) {
-            this.nfM = new EMTextView(this.context);
-            this.nfM.setTextSize(0, ngo);
-            this.nfM.setText(i);
-            ao.setViewTextColor(this.nfM, R.color.CAM_X0107);
-            this.nfN = new LinearLayout.LayoutParams(-2, -2);
-            this.nfN.topMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_T_X001);
-            this.nfN.gravity = 1;
+            this.nfL = new EMTextView(this.context);
+            this.nfL.setTextSize(0, ngn);
+            this.nfL.setText(i);
+            ao.setViewTextColor(this.nfL, R.color.CAM_X0107);
+            this.nfM = new LinearLayout.LayoutParams(-2, -2);
+            this.nfM.topMargin = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.M_T_X001);
+            this.nfM.gravity = 1;
         }
 
         @Override // com.baidu.tieba.sharesdk.view.ShareDialogItemView
-        public ShareDialogItemView dLc() {
-            super.dLc();
-            addView(this.nfM, this.nfN);
+        public ShareDialogItemView dLd() {
+            super.dLd();
+            addView(this.nfL, this.nfM);
             return this;
         }
     }

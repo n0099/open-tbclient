@@ -7,8 +7,8 @@ import java.util.concurrent.TimeUnit;
 import org.apache.http.cookie.ClientCookie;
 /* loaded from: classes4.dex */
 public final class g {
-    public static final g plo = new a().erp().ers();
-    public static final g plp = new a().erq().a(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.SECONDS).ers();
+    public static final g plo = new a().erq().ert();
+    public static final g plp = new a().ers().a(ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED, TimeUnit.SECONDS).ert();
     String c;
     private final boolean d;
     private final boolean e;
@@ -40,8 +40,8 @@ public final class g {
     }
 
     g(a aVar) {
-        this.d = aVar.f6256a;
-        this.e = aVar.f6257b;
+        this.d = aVar.f6257a;
+        this.e = aVar.f6258b;
         this.f = aVar.c;
         this.g = -1;
         this.h = false;
@@ -240,10 +240,10 @@ public final class g {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        boolean f6256a;
+        boolean f6257a;
 
         /* renamed from: b  reason: collision with root package name */
-        boolean f6257b;
+        boolean f6258b;
         int c = -1;
         int d = -1;
         int e = -1;
@@ -251,8 +251,8 @@ public final class g {
         boolean g;
         boolean h;
 
-        public a erp() {
-            this.f6256a = true;
+        public a erq() {
+            this.f6257a = true;
             return this;
         }
 
@@ -265,12 +265,12 @@ public final class g {
             return this;
         }
 
-        public a erq() {
+        public a ers() {
             this.f = true;
             return this;
         }
 
-        public g ers() {
+        public g ert() {
             return new g(this);
         }
     }

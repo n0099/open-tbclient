@@ -4,11 +4,11 @@ import android.os.Bundle;
 import androidx.core.view.ViewCompat;
 import com.baidu.mapapi.model.LatLng;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class PolygonOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2863a;
+    int f2864a;
     Bundle c;
     private Stroke d;
     private List<LatLng> f;
@@ -19,21 +19,21 @@ public final class PolygonOptions extends OverlayOptions {
     private int j = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2864b = true;
+    boolean f2865b = true;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Polygon polygon = new Polygon();
-        polygon.B = this.f2864b;
-        polygon.A = this.f2863a;
+        polygon.B = this.f2865b;
+        polygon.A = this.f2864a;
         polygon.C = this.c;
         if (this.f == null || this.f.size() < 2) {
             throw new IllegalStateException("BDMapSDKException: when you add polyline, you must at least supply 2 points");
         }
         polygon.c = this.f;
-        polygon.f2861b = this.e;
-        polygon.f2860a = this.d;
+        polygon.f2862b = this.e;
+        polygon.f2861a = this.d;
         polygon.d = this.g;
         polygon.e = this.h;
         polygon.f = this.i;
@@ -88,11 +88,11 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2863a;
+        return this.f2864a;
     }
 
     public boolean isVisible() {
-        return this.f2864b;
+        return this.f2865b;
     }
 
     public PolygonOptions points(List<LatLng> list) {
@@ -132,12 +132,12 @@ public final class PolygonOptions extends OverlayOptions {
     }
 
     public PolygonOptions visible(boolean z) {
-        this.f2864b = z;
+        this.f2865b = z;
         return this;
     }
 
     public PolygonOptions zIndex(int i) {
-        this.f2863a = i;
+        this.f2864a = i;
         return this;
     }
 }

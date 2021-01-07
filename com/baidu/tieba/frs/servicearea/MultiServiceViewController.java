@@ -99,8 +99,8 @@ public class MultiServiceViewController implements b {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
                     if (!TextUtils.equals(view2.getResources().getString(R.string.hot_user_rank), ServiceViewHolder.this.jFB.imageUrl) || ServiceViewHolder.this.jFx == null || ServiceViewHolder.this.jFx.getForum() == null || TextUtils.isEmpty(ServiceViewHolder.this.jFx.getForum().getId())) {
-                        if (ServiceViewHolder.this.jFB != null && ServiceViewHolder.this.jFB.nqy != null) {
-                            TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("fid", ServiceViewHolder.this.jFB.forumId).dX("obj_source", "frs_card").dX("obj_id", ServiceViewHolder.this.jFB.nqy.id).dX("obj_name", ServiceViewHolder.this.jFB.nqy.name).an("obj_param1", ServiceViewHolder.this.jFB.nqy.eGU.intValue()));
+                        if (ServiceViewHolder.this.jFB != null && ServiceViewHolder.this.jFB.nqx != null) {
+                            TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("fid", ServiceViewHolder.this.jFB.forumId).dX("obj_source", "frs_card").dX("obj_id", ServiceViewHolder.this.jFB.nqx.id).dX("obj_name", ServiceViewHolder.this.jFB.nqx.name).an("obj_param1", ServiceViewHolder.this.jFB.nqx.eGU.intValue()));
                         }
                         d.a(view2.getContext(), ServiceViewHolder.this.jFB);
                         d.c(ServiceViewHolder.this.jFB);

@@ -10,17 +10,17 @@ import com.baidu.android.common.logging.Log;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final e f8386a = new e();
+    private static final e f8387a = new e();
 
     /* renamed from: b  reason: collision with root package name */
-    private final LruCache<String, com.ksad.lottie.d> f8387b = new LruCache<>(Log.FILE_LIMETE);
+    private final LruCache<String, com.ksad.lottie.d> f8388b = new LruCache<>(Log.FILE_LIMETE);
 
     @VisibleForTesting
     e() {
     }
 
     public static e a() {
-        return f8386a;
+        return f8387a;
     }
 
     @Nullable
@@ -28,13 +28,13 @@ public class e {
         if (str == null) {
             return null;
         }
-        return this.f8387b.get(str);
+        return this.f8388b.get(str);
     }
 
     public void a(@Nullable String str, com.ksad.lottie.d dVar) {
         if (str == null) {
             return;
         }
-        this.f8387b.put(str, dVar);
+        this.f8388b.put(str, dVar);
     }
 }

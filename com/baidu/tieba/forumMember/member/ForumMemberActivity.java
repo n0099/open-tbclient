@@ -33,11 +33,11 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
                 }
             }
             if (!x.isEmpty(arrayList)) {
-                ForumMemberActivity.this.jbk.Zi();
+                ForumMemberActivity.this.jbk.Zj();
                 ForumMemberActivity.this.jbj = arrayList;
                 ForumMemberActivity.this.jbk.dk(ForumMemberActivity.this.jbj);
             } else if (x.isEmpty(ForumMemberActivity.this.jbj) && baVar != null) {
-                ForumMemberActivity.this.jbk.KA(baVar.errMsg);
+                ForumMemberActivity.this.jbk.Kz(baVar.errMsg);
             }
         }
     };
@@ -47,7 +47,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
             ForumMemberActivity.this.jbk.qi(z);
             if (z) {
                 if (x.isEmpty(ForumMemberActivity.this.jbj)) {
-                    ForumMemberActivity.this.cDq();
+                    ForumMemberActivity.this.cDr();
                 } else {
                     ForumMemberActivity.this.jbk.startPullRefresh();
                 }
@@ -66,7 +66,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
         this.jbl.setTag(getUniqueId());
         this.jbl.init();
         this.jbl.a(this.jbm);
-        cDq();
+        cDr();
     }
 
     private void initBundle(Bundle bundle) {
@@ -104,7 +104,7 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        this.jbl.cbG();
+        this.jbl.cbH();
         if (this.jbk != null) {
             this.jbk.onDestroy();
         }
@@ -121,12 +121,12 @@ public class ForumMemberActivity extends BaseActivity<ForumMemberActivity> imple
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
         if (com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
-            cDq();
+            cDr();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cDq() {
+    public void cDr() {
         this.jbk.showLoadingView();
         d dVar = this.jbl;
         d dVar2 = this.jbl;

@@ -26,7 +26,7 @@ public final class a implements i {
     private a() {
     }
 
-    public static a bOF() {
+    public static a bOG() {
         return gjb;
     }
 
@@ -79,7 +79,7 @@ public final class a implements i {
         String str2 = strArr[0];
         i.b bVar = this.mHandlers.get(getSchemaKey(str2));
         if (bVar != null) {
-            bVar.l(context, getInnerParamPair(Fp(str2)));
+            bVar.l(context, getInnerParamPair(Fo(str2)));
             return true;
         }
         Iterator<i.a> it = this.mListeners.iterator();
@@ -102,7 +102,7 @@ public final class a implements i {
         return z3;
     }
 
-    private String Fp(String str) {
+    private String Fo(String str) {
         int lastIndexOf;
         if (!StringUtils.isNull(str) && (lastIndexOf = str.lastIndexOf(":")) >= 0) {
             return str.substring(lastIndexOf + 1);
@@ -156,7 +156,7 @@ public final class a implements i {
     }
 
     @Override // com.baidu.tieba.recapp.i
-    public boolean Fq(String str) {
+    public boolean Fp(String str) {
         return pattern.matcher(str).find();
     }
 }

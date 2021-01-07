@@ -28,17 +28,17 @@ import java.util.Arrays;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final a f13048a = new a();
+    private static final a f13049a = new a();
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile Boolean f13049b = Boolean.FALSE;
+    private volatile Boolean f13050b = Boolean.FALSE;
 
     public static a a() {
-        return f13048a;
+        return f13049a;
     }
 
     /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0005 */
@@ -112,12 +112,12 @@ public class a {
     }
 
     public final void a(Context context, SM sm, final PM pm, DeviceStatus deviceStatus, APPStatus aPPStatus, long j) {
-        if (this.f13049b.booleanValue()) {
+        if (this.f13050b.booleanValue()) {
             return;
         }
         synchronized (a.class) {
             try {
-                if (!this.f13049b.booleanValue()) {
+                if (!this.f13050b.booleanValue()) {
                     String a2 = a(sm, pm, deviceStatus, aPPStatus, j);
                     GDTLogger.d("launch request: " + a2);
                     String str = StringUtil.isEmpty(sm.getSuid()) ? "http://sdk.e.qq.com/activate" : "http://sdk.e.qq.com/launch";
@@ -168,7 +168,7 @@ public class a {
                             }
                         }
                     });
-                    this.f13049b = Boolean.TRUE;
+                    this.f13050b = Boolean.TRUE;
                 }
             } catch (Throwable th) {
                 throw th;

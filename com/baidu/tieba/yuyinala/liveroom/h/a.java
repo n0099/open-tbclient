@@ -10,11 +10,11 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public abstract class a extends Dialog {
     public String hEM;
-    public InterfaceC0899a oqc;
+    public InterfaceC0937a oqb;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0899a {
+    public interface InterfaceC0937a {
         void onConfirm();
     }
 
@@ -35,10 +35,10 @@ public abstract class a extends Dialog {
     private void JK() {
         setCancelable(true);
         setCanceledOnTouchOutside(true);
-        ciI();
+        ciJ();
     }
 
-    public void ciI() {
+    public void ciJ() {
         show();
         Window window = getWindow();
         if (window != null) {
@@ -56,8 +56,8 @@ public abstract class a extends Dialog {
         }
     }
 
-    public void a(InterfaceC0899a interfaceC0899a) {
-        this.oqc = interfaceC0899a;
+    public void a(InterfaceC0937a interfaceC0937a) {
+        this.oqb = interfaceC0937a;
     }
 
     public void Ni(int i) {

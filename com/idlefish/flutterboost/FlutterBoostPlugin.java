@@ -22,7 +22,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class FlutterBoostPlugin implements FlutterPlugin {
     private static final Set<ActionAfterRegistered> sActions = new HashSet();
     private static FlutterBoostPlugin sInstance;
@@ -31,12 +31,12 @@ public class FlutterBoostPlugin implements FlutterPlugin {
     private final MethodChannel mMethodChannel;
     private final EventListener splashEventListener;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public interface ActionAfterRegistered {
         void onChannelRegistered(FlutterBoostPlugin flutterBoostPlugin);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public interface EventListener {
         void onEvent(String str, Map map);
     }
@@ -239,7 +239,7 @@ public class FlutterBoostPlugin implements FlutterPlugin {
         this.mMethodChannel.invokeMethod("__event__", hashMap);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     class BoostMethodHandler implements MethodChannel.MethodCallHandler {
         BoostMethodHandler() {
         }

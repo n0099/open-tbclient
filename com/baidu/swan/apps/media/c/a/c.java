@@ -36,7 +36,7 @@ public abstract class c {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.apps.media.c.c a2 = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, d.aFu());
+        com.baidu.swan.apps.media.c.c a2 = com.baidu.swan.apps.media.c.c.a(optParamsAsJo, d.aFv());
         if (!a2.isValid()) {
             com.baidu.swan.apps.console.c.e("vrvideo", "param is invalid");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -48,9 +48,9 @@ public abstract class c {
     @Nullable
     protected com.baidu.swan.apps.media.c.a d(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
         com.baidu.swan.apps.media.a U;
-        if (TextUtils.isEmpty(str3) || (U = com.baidu.swan.apps.media.b.U(str, str2, str3)) == null || !(U.aEa() instanceof com.baidu.swan.apps.media.c.a)) {
+        if (TextUtils.isEmpty(str3) || (U = com.baidu.swan.apps.media.b.U(str, str2, str3)) == null || !(U.aEb() instanceof com.baidu.swan.apps.media.c.a)) {
             return null;
         }
-        return (com.baidu.swan.apps.media.c.a) U.aEa();
+        return (com.baidu.swan.apps.media.c.a) U.aEb();
     }
 }

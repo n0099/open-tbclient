@@ -7,10 +7,10 @@ import com.baidu.cyberplayer.sdk.dlna.DlnaProvider;
 public class Dlna {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f1805a = "com.baidu.media.dlna.DlnaProviderImpl";
+    private static String f1806a = "com.baidu.media.dlna.DlnaProviderImpl";
 
     /* renamed from: b  reason: collision with root package name */
-    private static DlnaProvider f1806b = null;
+    private static DlnaProvider f1807b = null;
     public static int DLNA_ERROR_PLAY_ACTION_NOT_FOUND = -1001;
     public static int DLNA_ERROR_DEVICE_CONNECT_TIMEOUT = -1002;
     public static int DLNA_ERROR_SET_AV_TRANSPORT_URI_ACTION_NOT_FOUND = -1003;
@@ -34,42 +34,42 @@ public class Dlna {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final Dlna f1807a = new Dlna();
+        private static final Dlna f1808a = new Dlna();
     }
 
     private Dlna() {
     }
 
     public static Dlna getInstance() {
-        return a.f1807a;
+        return a.f1808a;
     }
 
     public static void init(ClassLoader classLoader) {
         try {
-            f1806b = (DlnaProvider) Class.forName(f1805a, true, classLoader).newInstance();
+            f1807b = (DlnaProvider) Class.forName(f1806a, true, classLoader).newInstance();
         } catch (Exception e) {
             e.printStackTrace();
-            f1806b = null;
+            f1807b = null;
         }
     }
 
     public PnPController getCtrlPoint(String str) {
-        if (f1806b == null || str == null) {
+        if (f1807b == null || str == null) {
             return null;
         }
-        return new PnPController(str, f1806b);
+        return new PnPController(str, f1807b);
     }
 
     public void refresh(DlnaProvider.DlnaSearchListener dlnaSearchListener) {
-        if (f1806b != null) {
-            f1806b.stop();
-            f1806b.search(dlnaSearchListener);
+        if (f1807b != null) {
+            f1807b.stop();
+            f1807b.search(dlnaSearchListener);
         }
     }
 
     public void stop() {
-        if (f1806b != null) {
-            f1806b.stop();
+        if (f1807b != null) {
+            f1807b.stop();
         }
     }
 }

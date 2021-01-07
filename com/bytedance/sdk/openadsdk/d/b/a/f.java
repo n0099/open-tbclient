@@ -11,7 +11,7 @@ import java.util.List;
 public final class f extends com.bytedance.sdk.openadsdk.d.d.c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Writer f7177a = new Writer() { // from class: com.bytedance.sdk.openadsdk.d.b.a.f.1
+    private static final Writer f7178a = new Writer() { // from class: com.bytedance.sdk.openadsdk.d.b.a.f.1
         @Override // java.io.Writer
         public void write(char[] cArr, int i, int i2) {
             throw new AssertionError();
@@ -29,15 +29,15 @@ public final class f extends com.bytedance.sdk.openadsdk.d.d.c {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private static final q f7178b = new q(LogConfig.TYPE_CLOSED);
+    private static final q f7179b = new q(LogConfig.TYPE_CLOSED);
     private final List<com.bytedance.sdk.openadsdk.d.l> c;
     private String d;
     private com.bytedance.sdk.openadsdk.d.l e;
 
     public f() {
-        super(f7177a);
+        super(f7178a);
         this.c = new ArrayList();
-        this.e = com.bytedance.sdk.openadsdk.d.n.f7297a;
+        this.e = com.bytedance.sdk.openadsdk.d.n.f7298a;
     }
 
     public com.bytedance.sdk.openadsdk.d.l a() {
@@ -135,7 +135,7 @@ public final class f extends com.bytedance.sdk.openadsdk.d.d.c {
 
     @Override // com.bytedance.sdk.openadsdk.d.d.c
     public com.bytedance.sdk.openadsdk.d.d.c f() throws IOException {
-        a(com.bytedance.sdk.openadsdk.d.n.f7297a);
+        a(com.bytedance.sdk.openadsdk.d.n.f7298a);
         return this;
     }
 
@@ -184,6 +184,6 @@ public final class f extends com.bytedance.sdk.openadsdk.d.d.c {
         if (!this.c.isEmpty()) {
             throw new IOException("Incomplete document");
         }
-        this.c.add(f7178b);
+        this.c.add(f7179b);
     }
 }

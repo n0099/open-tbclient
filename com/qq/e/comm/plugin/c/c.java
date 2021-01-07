@@ -10,7 +10,7 @@ import com.qq.e.comm.pi.ACTD;
 import com.qq.e.comm.plugin.util.ar;
 import com.qq.e.comm.util.GDTLogger;
 import com.qq.e.comm.util.StringUtil;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
     public static BrowserType a(String str) {
         if (StringUtil.isEmpty(str)) {

@@ -13,7 +13,7 @@ public class i extends t {
         this.phS = tVar;
     }
 
-    public final t epR() {
+    public final t epS() {
         return this.phS;
     }
 
@@ -31,8 +31,8 @@ public class i extends t {
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public long eqd() {
-        return this.phS.eqd();
+    public long eqe() {
+        return this.phS.eqe();
     }
 
     @Override // com.bytedance.sdk.a.a.t
@@ -41,8 +41,8 @@ public class i extends t {
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public long eqe() {
-        return this.phS.eqe();
+    public long eqf() {
+        return this.phS.eqf();
     }
 
     @Override // com.bytedance.sdk.a.a.t
@@ -51,13 +51,13 @@ public class i extends t {
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t eqf() {
-        return this.phS.eqf();
+    public t eqg() {
+        return this.phS.eqg();
     }
 
     @Override // com.bytedance.sdk.a.a.t
-    public t eqg() {
-        return this.phS.eqg();
+    public t eqh() {
+        return this.phS.eqh();
     }
 
     @Override // com.bytedance.sdk.a.a.t

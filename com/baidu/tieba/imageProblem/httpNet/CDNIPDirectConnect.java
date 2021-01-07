@@ -75,7 +75,7 @@ public class CDNIPDirectConnect extends e {
         try {
             this.kTv = new a();
             this.kTu = new TbCdnMobileGetIpModel();
-            dcs();
+            dct();
             this.kTp = new IPListReceiver();
             IntentFilter intentFilter = new IntentFilter();
             intentFilter.addAction(TbCDNTachometerService.TB_CDNIP_BROADCASE_ACTION);
@@ -94,11 +94,11 @@ public class CDNIPDirectConnect extends e {
         }
     }
 
-    private void dcs() {
-        CdnCacheItem dct = dct();
+    private void dct() {
+        CdnCacheItem dcu = dcu();
         long currentTimeMillis = System.currentTimeMillis();
-        if (dct != null && dct.firstUseIpTime > 0 && currentTimeMillis - dct.firstUseIpTime < 604800000) {
-            this.kTo = dct;
+        if (dcu != null && dcu.firstUseIpTime > 0 && currentTimeMillis - dcu.firstUseIpTime < 604800000) {
+            this.kTo = dcu;
         }
         if (this.kTo == null) {
             this.kTo = new CdnCacheItem();
@@ -122,7 +122,7 @@ public class CDNIPDirectConnect extends e {
             }
         } else if (this.kTo.mobileLastTachometerTime == 0 || z || (this.kTo.mobileIsUsedIp() && currentTimeMillis - this.kTo.mobileLastTachometerTime > BdKVCache.MILLS_1Hour)) {
             this.kTo.identifier = netIdentifier;
-            dcr();
+            dcs();
         }
     }
 
@@ -197,7 +197,7 @@ public class CDNIPDirectConnect extends e {
             return new HttpGet(str);
         }
         if (System.currentTimeMillis() - this.kTo.mobileLastTachometerTime > BdKVCache.MILLS_1Hour) {
-            dcr();
+            dcs();
         }
         return fE(str, mobileCdnIp);
     }
@@ -231,7 +231,7 @@ public class CDNIPDirectConnect extends e {
         TbCDNTachometerService.startTachometerService(TbadkCoreApplication.getInst().getApp(), false, false);
     }
 
-    private void dcr() {
+    private void dcs() {
         if (this.kTv.eLR) {
             this.kTo.mobileLastTachometerTime = System.currentTimeMillis();
             this.kTu.startGetMobileIpList();
@@ -271,11 +271,11 @@ public class CDNIPDirectConnect extends e {
                 }
             } else if (str2 != null && str2.length() > 0) {
                 if (this.kTo.setMoblieIPRank(i, 100.0f, str2) >= 100.0f) {
-                    dcr();
+                    dcs();
                     b(this.kTo);
                 }
             } else if (this.kTo.setMoblieIPRank(i, 100.0f, null) >= 100.0f) {
-                dcr();
+                dcs();
                 b(this.kTo);
             }
         }
@@ -343,8 +343,8 @@ public class CDNIPDirectConnect extends e {
         return null;
     }
 
-    private CdnCacheItem dct() {
-        String string = b.bvq().getString(SharedPrefConfig.CDN_IPLIST_CACHE_KEY, "");
+    private CdnCacheItem dcu() {
+        String string = b.bvr().getString(SharedPrefConfig.CDN_IPLIST_CACHE_KEY, "");
         if (string == null || string.length() == 0) {
             return null;
         }
@@ -363,7 +363,7 @@ public class CDNIPDirectConnect extends e {
             try {
                 String encodeBytes = c.encodeBytes(a2);
                 if (encodeBytes != null) {
-                    b.bvq().putString(SharedPrefConfig.CDN_IPLIST_CACHE_KEY, encodeBytes);
+                    b.bvr().putString(SharedPrefConfig.CDN_IPLIST_CACHE_KEY, encodeBytes);
                 }
             } catch (Exception e) {
                 BdLog.e(e);
@@ -372,7 +372,7 @@ public class CDNIPDirectConnect extends e {
     }
 
     public String getNetIdentifier() {
-        if (!ad.bvY()) {
+        if (!ad.bvZ()) {
             return "";
         }
         if (j.isWifiNet()) {
@@ -423,7 +423,7 @@ public class CDNIPDirectConnect extends e {
 
         @Override // android.content.BroadcastReceiver
         public void onReceive(Context context, Intent intent) {
-            if (ad.bvY()) {
+            if (ad.bvZ()) {
                 try {
                     NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
                     boolean z = false;

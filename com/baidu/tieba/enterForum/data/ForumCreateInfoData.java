@@ -9,19 +9,19 @@ public class ForumCreateInfoData extends OrmObject {
     private int iGE = 0;
     private String iGF = null;
 
-    public boolean cxH() {
+    public boolean cxI() {
         return this.iGC != 0;
     }
 
-    public boolean cxI() {
+    public boolean cxJ() {
         return this.iGD != 0;
     }
 
-    public int cxJ() {
+    public int cxK() {
         return this.iGE;
     }
 
-    public String cxK() {
+    public String cxL() {
         return this.iGF;
     }
 

@@ -6,18 +6,18 @@ import java.nio.ByteBuffer;
 public class c implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private RandomAccessFile f1477a;
+    private RandomAccessFile f1478a;
 
     public c(RandomAccessFile randomAccessFile) {
         if (randomAccessFile == null) {
             throw new NullPointerException("input RandomAccessFile is null");
         }
-        this.f1477a = randomAccessFile;
+        this.f1478a = randomAccessFile;
     }
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public int a(ByteBuffer byteBuffer) {
-        int read = this.f1477a.read(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
+        int read = this.f1478a.read(byteBuffer.array(), byteBuffer.position(), byteBuffer.remaining());
         if (read == -1) {
             return -1;
         }
@@ -27,11 +27,11 @@ public class c implements d {
 
     @Override // com.baidu.appsearch.update.patchupdate.d
     public void a(long j) {
-        this.f1477a.seek(j);
+        this.f1478a.seek(j);
     }
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        this.f1477a.close();
+        this.f1478a.close();
     }
 }

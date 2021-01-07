@@ -63,13 +63,13 @@ import java.util.Locale;
 public class ay {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final ay f3768b = new ay();
+    private static final ay f3769b = new ay();
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, String> f3769a = new HashMap<>();
+    private HashMap<String, String> f3770a = new HashMap<>();
 
     public static ay a() {
-        return f3768b;
+        return f3769b;
     }
 
     private ay() {
@@ -83,7 +83,7 @@ public class ay {
     }
 
     private void b() {
-        if (Build.VERSION.SDK_INT >= 14 && this.f3769a.size() == 0) {
+        if (Build.VERSION.SDK_INT >= 14 && this.f3770a.size() == 0) {
             try {
                 a(AutoCompleteTextView.class.getSimpleName(), "A0");
             } catch (Throwable th) {
@@ -363,12 +363,12 @@ public class ay {
     }
 
     private void a(String str, String str2) {
-        if (!TextUtils.isEmpty(str) && !this.f3769a.containsKey(str)) {
-            this.f3769a.put(str, str2.toUpperCase(Locale.ENGLISH));
+        if (!TextUtils.isEmpty(str) && !this.f3770a.containsKey(str)) {
+            this.f3770a.put(str, str2.toUpperCase(Locale.ENGLISH));
         }
     }
 
     public String a(String str) {
-        return this.f3769a.get(str);
+        return this.f3770a.get(str);
     }
 }

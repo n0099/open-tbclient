@@ -22,8 +22,8 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public TextView eKc;
     public View jQM;
     public TbPageContext mPageContext;
-    public HTypeListView mok;
-    public e mol;
+    public HTypeListView moj;
+    public e mok;
     public View rootView;
 
     public PersonInfoUserPicsHolder(View view, TbPageContext tbPageContext) {
@@ -33,13 +33,13 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.mPageContext = tbPageContext;
         this.jQM = view.findViewById(R.id.divider_view_under_photo_album);
         this.eKc = (TextView) view.findViewById(R.id.text_view_photo_album);
-        this.mok = (HTypeListView) view.findViewById(R.id.listview_photo_album);
-        this.mol = new e(this.mPageContext, this.mok);
+        this.moj = (HTypeListView) view.findViewById(R.id.listview_photo_album);
+        this.mok = new e(this.mPageContext, this.moj);
     }
 
     public void a(f fVar) {
         if (fVar != null) {
-            this.mol.setDatas(fu(fVar.getPhotoAlbum()));
+            this.mok.setDatas(fu(fVar.getPhotoAlbum()));
         }
     }
 
@@ -54,13 +54,13 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         return list;
     }
 
-    public void dxY() {
+    public void dxZ() {
         if (this.akW != TbadkCoreApplication.getInst().getSkinType()) {
             this.akW = TbadkCoreApplication.getInst().getSkinType();
             ao.setBackgroundColor(this.rootView, R.color.CAM_X0201);
             ao.setBackgroundColor(this.jQM, R.color.CAM_X0204);
             ao.setViewTextColor(this.eKc, R.color.CAM_X0109, 1);
-            this.mol.notifyDataSetChanged();
+            this.mok.notifyDataSetChanged();
         }
     }
 }

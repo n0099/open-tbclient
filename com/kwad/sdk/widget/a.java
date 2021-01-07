@@ -12,40 +12,40 @@ import com.kwad.sdk.utils.an;
 public class a extends RatioFrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f11150a;
+    private long f11151a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f11151b;
+    private boolean f11152b;
     private boolean c;
     private int d;
     private ViewTreeObserver.OnScrollChangedListener e;
     private ViewTreeObserver f;
     private an g;
-    private InterfaceC1124a h;
+    private InterfaceC1165a h;
 
     /* renamed from: com.kwad.sdk.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    public interface InterfaceC1124a {
+    public interface InterfaceC1165a {
         void a();
     }
 
     public a(@NonNull Context context) {
         super(context);
-        this.f11150a = 500L;
+        this.f11151a = 500L;
         this.c = true;
         b();
     }
 
     public a(@NonNull Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11150a = 500L;
+        this.f11151a = 500L;
         this.c = true;
         b();
     }
 
     public a(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f11150a = 500L;
+        this.f11151a = 500L;
         this.c = true;
         b();
     }
@@ -66,7 +66,7 @@ public class a extends RatioFrameLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean d() {
-        return this.g.a() && ((float) Math.abs(this.g.f11103a.height() - getHeight())) <= ((float) getHeight()) * 0.9f && getHeight() > 0 && getWidth() > 0 && this.g.f11103a.bottom > 0 && this.g.f11103a.top < this.d;
+        return this.g.a() && ((float) Math.abs(this.g.f11104a.height() - getHeight())) <= ((float) getHeight()) * 0.9f && getHeight() > 0 && getWidth() > 0 && this.g.f11104a.bottom > 0 && this.g.f11104a.top < this.d;
     }
 
     private void e() {
@@ -132,17 +132,17 @@ public class a extends RatioFrameLayout {
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         k();
-        this.f11151b = false;
+        this.f11152b = false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.View
     public void onSizeChanged(int i, int i2, int i3, int i4) {
         boolean z = true;
-        if (this.f11151b || (i3 | i4) != 0 || (i | i2) == 0) {
+        if (this.f11152b || (i3 | i4) != 0 || (i | i2) == 0) {
             z = false;
         } else {
-            this.f11151b = true;
+            this.f11152b = true;
         }
         super.onSizeChanged(i, i2, i3, i4);
         if (z) {
@@ -150,7 +150,7 @@ public class a extends RatioFrameLayout {
         }
     }
 
-    public void setVisibleListener(InterfaceC1124a interfaceC1124a) {
-        this.h = interfaceC1124a;
+    public void setVisibleListener(InterfaceC1165a interfaceC1165a) {
+        this.h = interfaceC1165a;
     }
 }

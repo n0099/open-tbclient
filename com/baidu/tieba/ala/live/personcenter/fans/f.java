@@ -59,17 +59,17 @@ public class f extends BdBaseModel<PersonListActivity> {
                         }
                         return;
                     }
-                    e cbm = ((ResponseNetPersonListMessage) httpResponsedMessage).cbm();
-                    if (cbm != null) {
-                        if (!StringUtils.isNull(cbm.eRu)) {
-                            f.this.hlz = cbm.eRu;
-                            f.this.hly = cbm.type;
+                    e cbn = ((ResponseNetPersonListMessage) httpResponsedMessage).cbn();
+                    if (cbn != null) {
+                        if (!StringUtils.isNull(cbn.eRu)) {
+                            f.this.hlz = cbn.eRu;
+                            f.this.hly = cbn.type;
                         }
-                        cbm.type = f.this.hly;
-                        cbm.eRu = f.this.hlz;
+                        cbn.type = f.this.hly;
+                        cbn.eRu = f.this.hlz;
                     }
                     if (f.this.hlr != null) {
-                        f.this.hlr.a(cbm, false);
+                        f.this.hlr.a(cbn, false);
                     }
                 }
             }
@@ -78,7 +78,7 @@ public class f extends BdBaseModel<PersonListActivity> {
         this.bmX = false;
         this.mId = null;
         this.hlr = aVar;
-        bUn();
+        bUo();
     }
 
     public void setId(String str) {
@@ -97,11 +97,11 @@ public class f extends BdBaseModel<PersonListActivity> {
         this.bmX = z;
     }
 
-    public boolean cbk() {
+    public boolean cbl() {
         return this.bmX;
     }
 
-    private void bUn() {
+    private void bUo() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
         if (this.bmX) {
@@ -121,7 +121,7 @@ public class f extends BdBaseModel<PersonListActivity> {
         return false;
     }
 
-    public void cbl() {
+    public void cbm() {
         HttpMessage httpMessage = new HttpMessage(1002004);
         HashMap hashMap = new HashMap();
         if (this.bmX) {

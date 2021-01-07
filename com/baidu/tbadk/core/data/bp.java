@@ -12,19 +12,19 @@ public class bp {
     private String eRQ;
     private List<a> eRR = new ArrayList();
 
-    public String bqy() {
+    public String bqz() {
         return StringUtils.isNull(this.eRQ) ? TbadkCoreApplication.getInst().getString(R.string.hot_topic_card_title) : this.eRQ;
     }
 
-    public com.baidu.tieba.card.data.n bqz() {
+    public com.baidu.tieba.card.data.n bqA() {
         com.baidu.tieba.card.data.n nVar = new com.baidu.tieba.card.data.n();
         ArrayList arrayList = null;
-        nVar.iAd = bqy();
+        nVar.iAd = bqz();
         if (this.eRR != null) {
             ArrayList arrayList2 = new ArrayList();
             for (a aVar : this.eRR) {
                 if (aVar != null) {
-                    arrayList2.add(aVar.bqA());
+                    arrayList2.add(aVar.bqB());
                 }
             }
             arrayList = arrayList2;
@@ -84,7 +84,7 @@ public class bp {
             }
         }
 
-        public com.baidu.tieba.card.data.m bqA() {
+        public com.baidu.tieba.card.data.m bqB() {
             com.baidu.tieba.card.data.m mVar = new com.baidu.tieba.card.data.m();
             mVar.tag = this.tag;
             mVar.desc = this.eRU;

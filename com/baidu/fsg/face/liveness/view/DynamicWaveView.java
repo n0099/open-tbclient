@@ -12,10 +12,10 @@ import com.baidu.fsg.face.base.d.h;
 public class DynamicWaveView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f2388a = 1715238655;
+    private static final int f2389a = 1715238655;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final float f2389b = 30.0f;
+    private static final float f2390b = 30.0f;
     private static final int c = 0;
     private static final int d = 3;
     private static final int e = 5;
@@ -53,10 +53,10 @@ public class DynamicWaveView extends View {
         this.s = new Paint();
         this.s.setAntiAlias(true);
         this.s.setStyle(Paint.Style.FILL);
-        this.s.setColor(f2388a);
+        this.s.setColor(f2389a);
         this.t = new PaintFlagsDrawFilter(0, 3);
         this.j = h.a(context, 5.0f);
-        this.k = h.a(context, (float) f2389b);
+        this.k = h.a(context, (float) f2390b);
         a();
     }
 

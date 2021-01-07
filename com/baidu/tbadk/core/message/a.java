@@ -92,16 +92,16 @@ public class a {
             }
             aq dX = new aq("c13271").an("obj_type", dVar.eOE).an("obj_locate", dVar.eOF).an("obj_id", dVar.eOG).an("obj_name", i).dX("post_id", agreeData.postId).dX(IntentConfig.NID, agreeData.nid);
             if (bzVar != null) {
-                dX.dX("tid", bzVar.getId()).dX(IntentConfig.NID, bzVar.bpO()).w("fid", bzVar.getFid()).dX("ab_tag", bzVar.mRecomAbTag).dX(IntentConfig.RECOM_SOURCE, bzVar.mRecomSource).dX("weight", bzVar.mRecomWeight).dX("extra", bzVar.mRecomExtra);
+                dX.dX("tid", bzVar.getId()).dX(IntentConfig.NID, bzVar.bpP()).w("fid", bzVar.getFid()).dX("ab_tag", bzVar.mRecomAbTag).dX(IntentConfig.RECOM_SOURCE, bzVar.mRecomSource).dX("weight", bzVar.mRecomWeight).dX("extra", bzVar.mRecomExtra);
                 if (bzVar.getBaijiahaoData() != null) {
                     dX.dX("obj_param4", bzVar.getBaijiahaoData().oriUgcNid);
-                    if (bzVar.bpY() || bzVar.btp()) {
+                    if (bzVar.bpZ() || bzVar.btq()) {
                         dX.dX("obj_param6", bzVar.getBaijiahaoData().oriUgcVid);
                     }
                 }
-                if (bzVar.btn()) {
+                if (bzVar.bto()) {
                     dX.an("obj_param5", 2);
-                } else if (bzVar.bpX() || bzVar.bpY()) {
+                } else if (bzVar.bpY() || bzVar.bpZ()) {
                     dX.an("obj_param5", 3);
                 } else if (bzVar.threadType == 0 || bzVar.threadType == 40) {
                     dX.an("obj_param5", 1);

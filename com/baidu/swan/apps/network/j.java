@@ -40,17 +40,17 @@ public class j extends com.baidu.swan.apps.runtime.f {
         }
     }
 
-    public void aGA() {
+    public void aGB() {
         if (this.drC != null && this.drD != null) {
             this.drC.listen(this.drD, 0);
         }
     }
 
-    public void aGB() {
+    public void aGC() {
         if (this.drB != null) {
             unregisterReceiver(this.drB);
         }
-        aGA();
+        aGB();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -88,6 +88,6 @@ public class j extends com.baidu.swan.apps.runtime.f {
     @Override // com.baidu.swan.apps.runtime.f
     public void onDestroy() {
         super.onDestroy();
-        aGB();
+        aGC();
     }
 }

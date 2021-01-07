@@ -29,35 +29,35 @@ public class b {
         return this.picUrl;
     }
 
-    public long cXO() {
+    public long cXP() {
         return this.kCd;
     }
 
-    public int cXP() {
+    public int cXQ() {
         return this.kCe;
     }
 
-    public int cXQ() {
+    public int cXR() {
         return this.pv;
     }
 
-    public String cXR() {
+    public String cXS() {
         return this.ctr;
     }
 
-    public long cXS() {
+    public long cXT() {
         return this.kCf;
     }
 
-    public int cJE() {
+    public int cJF() {
         return this.juj;
     }
 
-    public RecommendForumInfo cXT() {
+    public RecommendForumInfo cXU() {
         return this.kCg;
     }
 
-    public ThreadInfo cXU() {
+    public ThreadInfo cXV() {
         return this.kCh;
     }
 

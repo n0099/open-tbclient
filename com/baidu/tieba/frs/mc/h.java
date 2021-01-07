@@ -34,24 +34,24 @@ public class h extends j {
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof bz)) {
                     bz bzVar = (bz) customResponsedMessage.getData();
                     h.this.jCi = bzVar.getId();
-                    if (!TextUtils.isEmpty(h.this.jCi) && bzVar.brb() != null) {
-                        h.this.Br(bzVar.brb().getIsLike());
+                    if (!TextUtils.isEmpty(h.this.jCi) && bzVar.brc() != null) {
+                        h.this.Br(bzVar.brc().getIsLike());
                     }
                 }
             }
         };
         this.jDI.registerListener(this.jCq);
-        this.jEP = cMy();
+        this.jEP = cMz();
     }
 
-    public final PraiseModel cMy() {
+    public final PraiseModel cMz() {
         if (this.jEP == null) {
             this.jEP = new PraiseModel(this.jDI.getPageContext(), new PraiseModel.a() { // from class: com.baidu.tieba.frs.mc.h.1
                 @Override // com.baidu.tieba.tbadkCore.PraiseModel.a
-                public void FO(String str) {
+                public void FN(String str) {
                     int i = 1;
                     if (h.this.jEO) {
-                        if (h.this.jEN != null && h.this.jEN.brb().getIsLike() == 1) {
+                        if (h.this.jEN != null && h.this.jEN.brc().getIsLike() == 1) {
                             i = 0;
                         }
                         h.this.Br(i);
@@ -76,8 +76,8 @@ public class h extends j {
 
     public void Br(int i) {
         ArrayList<com.baidu.adp.widget.ListView.n> threadList;
-        FrsViewData cFE = this.jDI.cFE();
-        if (cFE != null && this.jfi != null && (threadList = cFE.getThreadList()) != null) {
+        FrsViewData cFF = this.jDI.cFF();
+        if (cFF != null && this.jfi != null && (threadList = cFF.getThreadList()) != null) {
             Iterator<com.baidu.adp.widget.ListView.n> it = threadList.iterator();
             while (true) {
                 if (!it.hasNext()) {
@@ -97,22 +97,22 @@ public class h extends j {
                     }
                 }
             }
-            this.jfi.cGz().b(threadList, cFE);
-            this.jfi.cGz().notifyDataSetChanged();
+            this.jfi.cGA().b(threadList, cFF);
+            this.jfi.cGA().notifyDataSetChanged();
         }
     }
 
     public void c(bz bzVar, int i) {
         if (bzVar != null) {
             if (i == 1) {
-                PraiseData brb = bzVar.brb();
+                PraiseData brc = bzVar.brc();
                 AccountData currentAccountObj = TbadkCoreApplication.getCurrentAccountObj();
                 if (currentAccountObj != null) {
                     MetaData metaData = new MetaData();
                     metaData.setName_show(currentAccountObj.getAccount());
                     metaData.setPortrait(currentAccountObj.getPortrait());
                     metaData.setUserId(currentAccountObj.getID());
-                    if (brb == null) {
+                    if (brc == null) {
                         PraiseData praiseData = new PraiseData();
                         praiseData.setIsLike(i);
                         praiseData.setNum(1L);
@@ -120,20 +120,20 @@ public class h extends j {
                         bzVar.a(praiseData);
                         return;
                     }
-                    bzVar.brb().getUser().add(0, metaData);
-                    bzVar.brb().setNum(bzVar.brb().getNum() + 1);
-                    bzVar.brb().setIsLike(i);
+                    bzVar.brc().getUser().add(0, metaData);
+                    bzVar.brc().setNum(bzVar.brc().getNum() + 1);
+                    bzVar.brc().setIsLike(i);
                 }
-            } else if (bzVar.brb() != null) {
-                bzVar.brb().setIsLike(i);
-                bzVar.brb().setNum(bzVar.brb().getNum() - 1);
-                ArrayList<MetaData> user = bzVar.brb().getUser();
+            } else if (bzVar.brc() != null) {
+                bzVar.brc().setIsLike(i);
+                bzVar.brc().setNum(bzVar.brc().getNum() - 1);
+                ArrayList<MetaData> user = bzVar.brc().getUser();
                 if (user != null) {
                     Iterator<MetaData> it = user.iterator();
                     while (it.hasNext()) {
                         MetaData next = it.next();
                         if (next.getUserId().equals(TbadkCoreApplication.getCurrentAccountObj().getID())) {
-                            bzVar.brb().getUser().remove(next);
+                            bzVar.brc().getUser().remove(next);
                             return;
                         }
                     }

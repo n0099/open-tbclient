@@ -21,7 +21,7 @@ public final class b extends Handler {
                 this.dDu.a(WheelView3d.ACTION.FLING);
                 return;
             case 3000:
-                this.dDu.aLe();
+                this.dDu.aLf();
                 return;
             default:
                 return;

@@ -9,65 +9,65 @@ import com.win.opensdk.views.MraidLayout;
 import org.apache.http.HttpHost;
 /* loaded from: classes4.dex */
 public final class q implements bn, k {
-    private y qcd;
-    private MraidLayout qcn;
-    public bq qco;
-    public bo qcp;
+    private y qdL;
+    private MraidLayout qdV;
+    public bq qdW;
+    public bo qdX;
 
     public q(Context context, af afVar) {
-        this.qcd = new y(context, afVar);
-        this.qcd.qbS = this;
-        this.qcn = new MraidLayout(context);
-        this.qcn.addView(this.qcd, new FrameLayout.LayoutParams(-1, -1));
-        this.qcd.setMraidListener(this);
+        this.qdL = new y(context, afVar);
+        this.qdL.qdA = this;
+        this.qdV = new MraidLayout(context);
+        this.qdV.addView(this.qdL, new FrameLayout.LayoutParams(-1, -1));
+        this.qdL.setMraidListener(this);
     }
 
     @Override // com.win.opensdk.bn
     public final void a(String str, Info info) {
         if (!TextUtils.isEmpty(str)) {
-            if (this.qco != null) {
-                this.qco.eJL();
+            if (this.qdW != null) {
+                this.qdW.eKp();
             }
             if (!str.startsWith(HttpHost.DEFAULT_SCHEME_NAME)) {
-                this.qcd.abK(str);
+                this.qdL.abL(str);
             } else {
-                this.qcd.loadUrl(str);
+                this.qdL.loadUrl(str);
             }
         }
     }
 
     @Override // com.win.opensdk.bn
     public final void a(bo boVar) {
-        this.qcp = boVar;
+        this.qdX = boVar;
     }
 
     @Override // com.win.opensdk.bn
-    public final View eJO() {
-        return this.qcn;
+    public final View eKs() {
+        return this.qdV;
     }
 
     @Override // com.win.opensdk.bn
-    public final void eJL() {
-        if (this.qcn != null) {
-            this.qcn.removeAllViews();
+    public final void eKp() {
+        if (this.qdV != null) {
+            this.qdV.removeAllViews();
         }
-        if (this.qcd != null) {
-            this.qcd.eJM();
-            this.qcd.destroy();
+        if (this.qdL != null) {
+            this.qdL.eKq();
+            this.qdL.destroy();
         }
     }
 
     @Override // com.win.opensdk.k
-    public final void eJM() {
-        if (this.qco != null) {
-            this.qco.eJM();
+    public final void eKq() {
+        if (this.qdW != null) {
+            this.qdW.eKq();
         }
     }
 
     @Override // com.win.opensdk.k
-    public final boolean abJ(String str) {
-        if (this.qcp != null) {
-            return this.qcp.ht(str, "");
+    public final boolean abK(String str) {
+        if (this.qdX != null) {
+            return this.qdX.hu(str, "");
         }
         return false;
     }

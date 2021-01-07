@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 /* loaded from: classes2.dex */
 public class b {
-    private View mmT;
-    private HeadImageView mmU;
+    private View mmS;
+    private HeadImageView mmT;
+    private TextView mmU;
     private TextView mmV;
-    private TextView mmW;
-    private ImageView mmX;
+    private ImageView mmW;
 
     public static b d(Context context, View view) {
         if (view == null || view.getTag() == null || !(view.getTag() instanceof b)) {
@@ -25,28 +25,28 @@ public class b {
     }
 
     private b(Context context) {
+        this.mmS = null;
         this.mmT = null;
         this.mmU = null;
         this.mmV = null;
         this.mmW = null;
-        this.mmX = null;
-        this.mmT = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
-        this.mmU = (HeadImageView) this.mmT.findViewById(R.id.zan_list_item_head);
-        this.mmV = (TextView) this.mmT.findViewById(R.id.zan_list_item_name);
-        this.mmW = (TextView) this.mmT.findViewById(R.id.zan_list_item_time);
-        this.mmX = (ImageView) this.mmT.findViewById(R.id.zan_list_item_line_bottom);
-        this.mmX.setVisibility(0);
-        this.mmT.setTag(this);
+        this.mmS = LayoutInflater.from(context).inflate(R.layout.zan_list_item, (ViewGroup) null);
+        this.mmT = (HeadImageView) this.mmS.findViewById(R.id.zan_list_item_head);
+        this.mmU = (TextView) this.mmS.findViewById(R.id.zan_list_item_name);
+        this.mmV = (TextView) this.mmS.findViewById(R.id.zan_list_item_time);
+        this.mmW = (ImageView) this.mmS.findViewById(R.id.zan_list_item_line_bottom);
+        this.mmW.setVisibility(0);
+        this.mmS.setTag(this);
     }
 
     public View getView() {
-        return this.mmT;
+        return this.mmS;
     }
 
     public void f(String str, String str2, long j, boolean z) {
-        this.mmV.setText(str);
-        this.mmU.setImageDrawable(null);
-        this.mmW.setText(at.getFormatTime(j));
-        this.mmU.startLoad(str2, 28, false);
+        this.mmU.setText(str);
+        this.mmT.setImageDrawable(null);
+        this.mmV.setText(at.getFormatTime(j));
+        this.mmT.startLoad(str2, 28, false);
     }
 }

@@ -197,10 +197,10 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
                 this.lvJ.setAlpha(0.0f);
             }
         }
-        djV();
+        djW();
     }
 
-    private void djV() {
+    private void djW() {
         if (this.kqJ != null) {
             if (this.kqJ.kqs == 1) {
                 this.lvH.setBackgroundResource(R.drawable.bg_pk_btn_select);
@@ -230,7 +230,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
             ao.setBackgroundColor(this, R.color.CAM_X0201);
             this.lvT = ao.getColorList(R.color.CAM_X0308);
             this.lvU = ao.getColorList(R.color.CAM_X0303);
-            djV();
+            djW();
             ao.setViewTextColor(this.akS, R.color.CAM_X0109);
             ao.setViewTextColor(this.eKc, R.color.CAM_X0105);
             ao.setViewTextColor(this.kss, R.color.CAM_X0105);
@@ -247,15 +247,15 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
     public void onClick(View view) {
         int id = view.getId();
         if (id == R.id.pkBtn1) {
-            djW();
-        } else if (id == R.id.pkBtn2) {
             djX();
+        } else if (id == R.id.pkBtn2) {
+            djY();
         }
     }
 
-    private void djW() {
+    private void djX() {
         if (!KE()) {
-            djY();
+            djZ();
             if (this.lvJ.getVisibility() != 0) {
                 Gu(1);
             } else if (this.lvN == null || !this.lvN.isRunning()) {
@@ -264,9 +264,9 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         }
     }
 
-    private void djX() {
+    private void djY() {
         if (!KE()) {
-            djY();
+            djZ();
             if (this.lvJ.getVisibility() != 0) {
                 Gu(2);
             } else if (this.lvN == null || !this.lvN.isRunning()) {
@@ -275,7 +275,7 @@ public class HotTopicDetailPkLayout extends RelativeLayout implements View.OnCli
         }
     }
 
-    private void djY() {
+    private void djZ() {
         TiebaStatic.log(new aq("c13818").dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("topic_id", this.pageContext.getOrignalPage().getTopicId()));
     }
 

@@ -19,7 +19,7 @@ public class s extends r {
         }
 
         @Override // kotlin.collections.m
-        public char eLR() {
+        public char eMv() {
             CharSequence charSequence = this.receiver$0;
             int i = this.index;
             this.index = i + 1;
@@ -50,7 +50,7 @@ public class s extends r {
     public static final String a(CharSequence charSequence, kotlin.b.h hVar) {
         kotlin.jvm.internal.p.o(charSequence, "$receiver");
         kotlin.jvm.internal.p.o(hVar, "range");
-        return charSequence.subSequence(hVar.eMr().intValue(), hVar.eMs().intValue() + 1).toString();
+        return charSequence.subSequence(hVar.eMV().intValue(), hVar.eMW().intValue() + 1).toString();
     }
 
     public static final boolean a(CharSequence charSequence, int i, CharSequence charSequence2, int i2, int i3, boolean z) {
@@ -90,11 +90,11 @@ public class s extends r {
             }
             return kotlin.f.k(Integer.valueOf(indexOf), Character.valueOf(c));
         }
-        kotlin.b.h hVar = !z2 ? new kotlin.b.h(kotlin.b.l.eo(i, 0), l.B(charSequence)) : kotlin.b.l.em(kotlin.b.l.ep(i, l.B(charSequence)), 0);
+        kotlin.b.h hVar = !z2 ? new kotlin.b.h(kotlin.b.l.eq(i, 0), l.B(charSequence)) : kotlin.b.l.eo(kotlin.b.l.er(i, l.B(charSequence)), 0);
         int first = hVar.getFirst();
         int last = hVar.getLast();
-        int eMp = hVar.eMp();
-        if (eMp <= 0) {
+        int eMT = hVar.eMT();
+        if (eMT <= 0) {
             if (first >= last) {
                 i2 = first;
                 while (true) {
@@ -108,7 +108,7 @@ public class s extends r {
                     }
                     if (i3 >= 0) {
                     }
-                    i2 += eMp;
+                    i2 += eMT;
                 }
             }
             return null;
@@ -134,7 +134,7 @@ public class s extends r {
                     if (i2 == last) {
                         break;
                     }
-                    i2 += eMp;
+                    i2 += eMT;
                 } else {
                     return kotlin.f.k(Integer.valueOf(i2), Character.valueOf(cArr[i3]));
                 }
@@ -159,32 +159,32 @@ public class s extends r {
     }
 
     private static final int a(CharSequence charSequence, CharSequence charSequence2, int i, int i2, boolean z, boolean z2) {
-        kotlin.b.h em;
+        kotlin.b.h eo;
         if (!z2) {
-            em = new kotlin.b.h(kotlin.b.l.eo(i, 0), kotlin.b.l.ep(i2, charSequence.length()));
+            eo = new kotlin.b.h(kotlin.b.l.eq(i, 0), kotlin.b.l.er(i2, charSequence.length()));
         } else {
-            em = kotlin.b.l.em(kotlin.b.l.ep(i, l.B(charSequence)), kotlin.b.l.eo(i2, 0));
+            eo = kotlin.b.l.eo(kotlin.b.l.er(i, l.B(charSequence)), kotlin.b.l.eq(i2, 0));
         }
         if ((charSequence instanceof String) && (charSequence2 instanceof String)) {
-            int first = em.getFirst();
-            int last = em.getLast();
-            int eMp = em.eMp();
-            if (eMp <= 0 ? first >= last : first <= last) {
+            int first = eo.getFirst();
+            int last = eo.getLast();
+            int eMT = eo.eMT();
+            if (eMT <= 0 ? first >= last : first <= last) {
                 while (!l.a((String) charSequence2, 0, (String) charSequence, first, charSequence2.length(), z)) {
                     if (first != last) {
-                        first += eMp;
+                        first += eMT;
                     }
                 }
                 return first;
             }
         } else {
-            int first2 = em.getFirst();
-            int last2 = em.getLast();
-            int eMp2 = em.eMp();
-            if (eMp2 <= 0 ? first2 >= last2 : first2 <= last2) {
+            int first2 = eo.getFirst();
+            int last2 = eo.getLast();
+            int eMT2 = eo.eMT();
+            if (eMT2 <= 0 ? first2 >= last2 : first2 <= last2) {
                 while (!l.a(charSequence2, 0, charSequence, first2, charSequence2.length(), z)) {
                     if (first2 != last2) {
-                        first2 += eMp2;
+                        first2 += eMT2;
                     }
                 }
                 return first2;
@@ -205,12 +205,12 @@ public class s extends r {
             }
             return kotlin.f.k(Integer.valueOf(a2), str);
         }
-        kotlin.b.h hVar = !z2 ? new kotlin.b.h(kotlin.b.l.eo(i, 0), charSequence.length()) : kotlin.b.l.em(kotlin.b.l.ep(i, l.B(charSequence)), 0);
+        kotlin.b.h hVar = !z2 ? new kotlin.b.h(kotlin.b.l.eq(i, 0), charSequence.length()) : kotlin.b.l.eo(kotlin.b.l.er(i, l.B(charSequence)), 0);
         if (charSequence instanceof String) {
             int first = hVar.getFirst();
             int last = hVar.getLast();
-            int eMp = hVar.eMp();
-            if (eMp <= 0 ? first >= last : first <= last) {
+            int eMT = hVar.eMT();
+            if (eMT <= 0 ? first >= last : first <= last) {
                 while (true) {
                     Iterator<T> it = collection.iterator();
                     while (true) {
@@ -231,7 +231,7 @@ public class s extends r {
                         if (first == last) {
                             break;
                         }
-                        first += eMp;
+                        first += eMT;
                     } else {
                         return kotlin.f.k(Integer.valueOf(first), str3);
                     }
@@ -240,8 +240,8 @@ public class s extends r {
         } else {
             int first2 = hVar.getFirst();
             int last2 = hVar.getLast();
-            int eMp2 = hVar.eMp();
-            if (eMp2 <= 0 ? first2 >= last2 : first2 <= last2) {
+            int eMT2 = hVar.eMT();
+            if (eMT2 <= 0 ? first2 >= last2 : first2 <= last2) {
                 while (true) {
                     Iterator<T> it2 = collection.iterator();
                     while (true) {
@@ -262,7 +262,7 @@ public class s extends r {
                         if (first2 == last2) {
                             break;
                         }
-                        first2 += eMp2;
+                        first2 += eMT2;
                     } else {
                         return kotlin.f.k(Integer.valueOf(first2), str5);
                     }

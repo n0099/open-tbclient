@@ -2,7 +2,7 @@ package com.facebook.imagepipeline.d;
 
 import android.graphics.Bitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public abstract class b extends com.facebook.datasource.a<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> {
     protected abstract void f(@Nullable Bitmap bitmap);
 
@@ -12,7 +12,7 @@ public abstract class b extends com.facebook.datasource.a<com.facebook.common.re
             com.facebook.common.references.a<com.facebook.imagepipeline.f.c> result = bVar.getResult();
             Bitmap bitmap = null;
             if (result != null && (result.get() instanceof com.facebook.imagepipeline.f.b)) {
-                bitmap = ((com.facebook.imagepipeline.f.b) result.get()).ezc();
+                bitmap = ((com.facebook.imagepipeline.f.b) result.get()).ezF();
             }
             try {
                 f(bitmap);

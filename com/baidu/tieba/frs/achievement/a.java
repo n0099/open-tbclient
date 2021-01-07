@@ -57,18 +57,18 @@ public class a implements y.a {
         this.jkM.setLayoutParams(layoutParams);
         this.jkN = (TextView) view.findViewById(R.id.qr_view_intro);
         this.jkO = view.findViewById(R.id.layout_content);
-        this.jkO.setBackground(cHx());
-        this.jjr.setBackground(cHx());
+        this.jkO.setBackground(cHy());
+        this.jjr.setBackground(cHy());
         this.jkJ = new b(tbPageContext);
-        this.jkJ.cHz();
-        cHy();
+        this.jkJ.cHA();
+        cHz();
         this.jkK = new y(tbPageContext);
         this.jkK.a(view, this.jjr, this);
         this.jkK.setData(this.jkJ.url, this.jkJ.fname);
         this.jkK.setFrom(5);
     }
 
-    private GradientDrawable cHx() {
+    private GradientDrawable cHy() {
         GradientDrawable gradientDrawable = new GradientDrawable(GradientDrawable.Orientation.BOTTOM_TOP, new int[]{ao.getColor(R.color.CAM_X0201), ao.getColor(R.color.CAM_X0201)});
         gradientDrawable.setGradientType(0);
         gradientDrawable.setShape(0);
@@ -80,9 +80,9 @@ public class a implements y.a {
         this.rootView.setVisibility(z ? 0 : 8);
     }
 
-    private void cHy() {
+    private void cHz() {
         this.jkG.setText("你好，朋友！");
-        this.jkH.setText(this.jkJ.cHB());
+        this.jkH.setText(this.jkJ.cHC());
         this.jkI.setText(this.jkJ.nickName + "\n" + new SimpleDateFormat("yyyy年MM月dd日").format(new Date(System.currentTimeMillis())));
         Az(this.jkJ.shareUrl);
     }
@@ -103,13 +103,13 @@ public class a implements y.a {
     }
 
     @Override // com.baidu.tieba.frs.y.a
-    public void cGT() {
-        this.jjr.setBackground(cHx());
+    public void cGU() {
+        this.jjr.setBackground(cHy());
         this.jkM.setImageResource(R.drawable.pic_yaoqinghan_980x364);
     }
 
     @Override // com.baidu.tieba.frs.y.a
-    public void cGU() {
+    public void cGV() {
         this.jjr.setBackground(new ColorDrawable(ao.getColor(R.color.CAM_X0201)));
         this.jkM.setImageResource(R.drawable.pic_yaoqinghan_square_corner);
     }

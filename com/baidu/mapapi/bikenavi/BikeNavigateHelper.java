@@ -19,15 +19,15 @@ import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.model.c;
 import com.baidu.platform.comapi.wnplatform.model.datastruct.WLocData;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class BikeNavigateHelper {
     private static BikeNavigateHelper d;
 
     /* renamed from: a  reason: collision with root package name */
-    boolean f2751a;
+    boolean f2752a;
 
     /* renamed from: b  reason: collision with root package name */
-    Activity f2752b;
+    Activity f2753b;
     private a c = new a();
 
     private BikeNavigateHelper() {
@@ -53,8 +53,8 @@ public class BikeNavigateHelper {
             this.c.d();
             this.c = null;
         }
-        this.f2751a = false;
-        this.f2752b = null;
+        this.f2752a = false;
+        this.f2753b = null;
         if (d != null) {
             d = null;
         }
@@ -137,11 +137,11 @@ public class BikeNavigateHelper {
 
     public boolean startBikeNavi(Activity activity) {
         if (b.a().a(activity, (Bundle) null)) {
-            if (!this.f2751a) {
+            if (!this.f2752a) {
                 if (!b.a().s()) {
                     return false;
                 }
-                this.f2751a = true;
+                this.f2752a = true;
             }
             return true;
         }
@@ -156,7 +156,7 @@ public class BikeNavigateHelper {
 
     public View onCreate(Activity activity) {
         if (this.c != null) {
-            this.f2752b = activity;
+            this.f2753b = activity;
             return this.c.a(activity);
         }
         return null;
@@ -186,7 +186,7 @@ public class BikeNavigateHelper {
     }
 
     public void resume() {
-        if (this.f2752b != null && !this.f2752b.isFinishing()) {
+        if (this.f2753b != null && !this.f2753b.isFinishing()) {
             b.a().i();
             if (this.c != null) {
                 this.c.c();
@@ -205,8 +205,8 @@ public class BikeNavigateHelper {
             this.c.d();
             this.c = null;
         }
-        this.f2751a = false;
-        this.f2752b = null;
+        this.f2752a = false;
+        this.f2753b = null;
         if (d != null) {
             d = null;
         }

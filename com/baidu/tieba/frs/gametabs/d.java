@@ -37,7 +37,7 @@ public class d {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == d.this.hxw) {
-                d.this.cLt();
+                d.this.cLu();
             } else if (d.this.jhJ == null || view != d.this.jhJ.getView()) {
                 if (view != d.this.gYH) {
                     if (view == d.this.jCg) {
@@ -82,7 +82,7 @@ public class d {
         return this.jCf != null ? this.jCf.getForumName() : "";
     }
 
-    public NavigationBar bYq() {
+    public NavigationBar bYr() {
         return this.mNavigationBar;
     }
 
@@ -92,12 +92,12 @@ public class d {
             ao.setViewTextColor(this.mNavigationBar.mTextTitle, R.color.CAM_X0105, 1);
             ao.setViewTextColor(this.mNavigationBar.mCenterText, R.color.CAM_X0105, 1);
             ao.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.CAM_X0204);
-            SvgManager.bwq().a(this.hxw, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.hxw, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             if (this.jhJ != null) {
                 this.jhJ.onChangeSkinType(i);
             }
             ao.setNavbarIconSrc(this.gYH, R.drawable.selector_web_topbar_other_black, R.drawable.selector_web_topbar_other_white);
-            SvgManager.bwq().a(this.jCg, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a(this.jCg, R.drawable.icon_pure_topbar_share44_svg, R.color.CAM_X0106, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -124,7 +124,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cLt() {
+    public void cLu() {
         CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(CmdConfigCustom.CMD_CLICK_CLOSE_GAME_FRS_CONFIRM);
         customResponsedMessage.setmOrginalMessage(new CustomMessage((int) CmdConfigCustom.CMD_GAME_FRS_TAB_CHANGE, this.eXW.getUniqueId()));
         MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);

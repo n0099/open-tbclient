@@ -44,8 +44,8 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.swan.apps.ao.e.d
-    /* renamed from: aIS */
-    public b aCr() {
+    /* renamed from: aIT */
+    public b aCs() {
         return this;
     }
 
@@ -53,12 +53,12 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
         return this.mId;
     }
 
-    public b aIT() {
+    public b aIU() {
         return cH(dvI);
     }
 
     public b cH(long j) {
-        b aCr;
+        b aCs;
         synchronized (this.dvJ) {
             if (DEBUG) {
                 D(NotificationCompat.CATEGORY_CALL, "timeoutAtLeast=" + j);
@@ -68,14 +68,14 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
                 if (DEBUG) {
                     D(NotificationCompat.CATEGORY_CALL, "joinTimeout=" + cI);
                 }
-                com.baidu.swan.apps.process.messaging.a.aIX().a(aIU());
-                aCU();
+                com.baidu.swan.apps.process.messaging.a.aIY().a(aIV());
+                aCV();
             } else {
                 this.dvJ.a(this, new IllegalStateException("invalid session call"));
             }
-            aCr = aCr();
+            aCs = aCs();
         }
-        return aCr;
+        return aCs;
     }
 
     public boolean valid() {
@@ -98,21 +98,21 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
     }
 
     public b gF(boolean z) {
-        b aCr;
+        b aCs;
         synchronized (this.dvJ) {
             this.dvP = z;
-            aCr = aCr();
+            aCs = aCs();
         }
-        return aCr;
+        return aCs;
     }
 
     public b jX(int i) {
-        b aCr;
+        b aCs;
         synchronized (this.dvJ) {
             this.dvN.add(Integer.valueOf(i));
-            aCr = aCr();
+            aCs = aCs();
         }
-        return aCr;
+        return aCs;
     }
 
     public b t(com.baidu.swan.apps.ao.e.b<b> bVar) {
@@ -138,7 +138,7 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
                 this.dvP = false;
                 this.dvM.clear();
                 this.dvN.clear();
-                aCU();
+                aCV();
             }
         }
         return this;
@@ -195,13 +195,13 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
         }
     }
 
-    private com.baidu.swan.apps.process.messaging.c aIU() {
+    private com.baidu.swan.apps.process.messaging.c aIV() {
         Bundle bundle = toBundle();
         bundle.putString("ipc_session_id", this.mId);
         bundle.putLong("ipc_session_timeout", this.dvO);
         bundle.putInt("ipc_session_repal", SwanAppProcessInfo.current().index);
         bundle.putString("ipc_topic", this.dvJ.c(this));
-        com.baidu.swan.apps.process.messaging.c gH = new com.baidu.swan.apps.process.messaging.c(aIV(), bundle).gG(true).gH(!SwanAppProcessInfo.current().isSwanService || this.dvP);
+        com.baidu.swan.apps.process.messaging.c gH = new com.baidu.swan.apps.process.messaging.c(aIW(), bundle).gG(true).gH(!SwanAppProcessInfo.current().isSwanService || this.dvP);
         for (Integer num : this.dvN) {
             int intValue = num.intValue();
             if (SwanAppProcessInfo.checkProcessId(intValue)) {
@@ -224,7 +224,7 @@ public final class b extends com.baidu.swan.apps.u.c.a.c<b> implements a {
         return "IpcSession: id=" + this.mId + " timeout=" + this.dvO;
     }
 
-    private int aIV() {
+    private int aIW() {
         boolean z = SwanAppProcessInfo.current().isSwanService;
         int i = z ? 111 : 11;
         if (DEBUG) {

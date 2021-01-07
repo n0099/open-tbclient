@@ -16,7 +16,7 @@ public class a {
 
     @NonNull
     public static a a(@NonNull com.baidu.swan.apps.extcore.model.b.a aVar) {
-        return aVar.aye() == 1 ? oI(aVar.ayd()) : oH(aVar.ayd());
+        return aVar.ayf() == 1 ? oI(aVar.aye()) : oH(aVar.aye());
     }
 
     @NonNull

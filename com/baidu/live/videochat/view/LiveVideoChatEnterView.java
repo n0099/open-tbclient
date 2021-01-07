@@ -34,7 +34,7 @@ public class LiveVideoChatEnterView extends RelativeLayout {
         this.bSW = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
-                LiveVideoChatEnterView.this.Zs();
+                LiveVideoChatEnterView.this.Zt();
             }
         };
         init(context);
@@ -50,7 +50,7 @@ public class LiveVideoChatEnterView extends RelativeLayout {
         this.bSW = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
-                LiveVideoChatEnterView.this.Zs();
+                LiveVideoChatEnterView.this.Zt();
             }
         };
         init(context);
@@ -66,7 +66,7 @@ public class LiveVideoChatEnterView extends RelativeLayout {
         this.bSW = new Runnable() { // from class: com.baidu.live.videochat.view.LiveVideoChatEnterView.1
             @Override // java.lang.Runnable
             public void run() {
-                LiveVideoChatEnterView.this.Zs();
+                LiveVideoChatEnterView.this.Zt();
             }
         };
         init(context);
@@ -102,7 +102,7 @@ public class LiveVideoChatEnterView extends RelativeLayout {
         this.bSU = i;
     }
 
-    public void Zs() {
+    public void Zt() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }

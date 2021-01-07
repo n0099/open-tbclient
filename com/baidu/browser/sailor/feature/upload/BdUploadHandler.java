@@ -20,7 +20,7 @@ import com.baidu.webkit.sdk.PermissionRequest;
 import com.baidu.webkit.sdk.WebChromeClient;
 import com.baidu.webkit.sdk.WebKitFactory;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class BdUploadHandler implements INoProGuard {
     private static final String AUDIO_MIME_TYPE = "audio/*";
     private static final String IMAGE_MIME_TYPE = "image/*";

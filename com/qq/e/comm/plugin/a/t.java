@@ -19,19 +19,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class t extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile t f11947a;
+    private static volatile t f11948a;
     private static SQLiteDatabase c;
 
     /* renamed from: b  reason: collision with root package name */
-    private AtomicInteger f11948b;
+    private AtomicInteger f11949b;
 
     private t(Context context) {
         super(new com.qq.e.comm.plugin.g.a(context), "GDTSDK.db", (SQLiteDatabase.CursorFactory) null, 9);
-        this.f11948b = new AtomicInteger();
+        this.f11949b = new AtomicInteger();
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -217,18 +217,18 @@ public class t extends SQLiteOpenHelper {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static t a(Context context) {
-        if (f11947a == null) {
+        if (f11948a == null) {
             synchronized ("GDTSDK.db") {
                 try {
-                    if (f11947a == null) {
-                        f11947a = new t(context);
+                    if (f11948a == null) {
+                        f11948a = new t(context);
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f11947a;
+        return f11948a;
     }
 
     private void a(SQLiteDatabase sQLiteDatabase, Cursor cursor) {
@@ -236,7 +236,7 @@ public class t extends SQLiteOpenHelper {
             if (cursor != null) {
                 cursor.close();
             }
-            if (sQLiteDatabase != null && this.f11948b.decrementAndGet() == 0) {
+            if (sQLiteDatabase != null && this.f11949b.decrementAndGet() == 0) {
                 sQLiteDatabase.close();
             }
         }
@@ -755,7 +755,7 @@ public class t extends SQLiteOpenHelper {
     public SQLiteDatabase getReadableDatabase() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (this) {
-            if (this.f11948b.incrementAndGet() == 1) {
+            if (this.f11949b.incrementAndGet() == 1) {
                 c = super.getReadableDatabase();
             }
             sQLiteDatabase = c;
@@ -767,7 +767,7 @@ public class t extends SQLiteOpenHelper {
     public SQLiteDatabase getWritableDatabase() {
         SQLiteDatabase sQLiteDatabase;
         synchronized (this) {
-            if (this.f11948b.incrementAndGet() == 1) {
+            if (this.f11949b.incrementAndGet() == 1) {
                 c = super.getWritableDatabase();
             }
             sQLiteDatabase = c;

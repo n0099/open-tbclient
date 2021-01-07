@@ -21,30 +21,30 @@ import org.apache.http.HttpHost;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f7485a;
+    private static String f7486a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f7486b;
+    private static String f7487b;
     private static volatile a g;
     private WeakHashMap<String, String> c = new WeakHashMap<>();
-    private final LruCache<String, C0994a> f = new LruCache<String, C0994a>(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE) { // from class: com.bytedance.sdk.openadsdk.i.a.a.1
+    private final LruCache<String, C1032a> f = new LruCache<String, C1032a>(BosClientConfiguration.DEFAULT_STREAM_BUFFER_SIZE) { // from class: com.bytedance.sdk.openadsdk.i.a.a.1
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
         /* renamed from: a */
-        public int sizeOf(String str, C0994a c0994a) {
-            int length = c0994a.f7488a != null ? 0 + c0994a.f7488a.length : 0;
-            return length == 0 ? super.sizeOf(str, c0994a) : length;
+        public int sizeOf(String str, C1032a c1032a) {
+            int length = c1032a.f7489a != null ? 0 + c1032a.f7489a.length : 0;
+            return length == 0 ? super.sizeOf(str, c1032a) : length;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // android.util.LruCache
         /* renamed from: a */
-        public void entryRemoved(boolean z, String str, C0994a c0994a, C0994a c0994a2) {
-            super.entryRemoved(z, str, c0994a, c0994a2);
-            if (z && c0994a != null) {
-                c0994a.f7488a = null;
+        public void entryRemoved(boolean z, String str, C1032a c1032a, C1032a c1032a2) {
+            super.entryRemoved(z, str, c1032a, c1032a2);
+            if (z && c1032a != null) {
+                c1032a.f7489a = null;
             }
         }
     };
@@ -66,8 +66,8 @@ public class a {
     }
 
     public synchronized void a(String str, byte[] bArr) {
-        u.f("splashLoadAd", " put GifLoader.mIsSpalsh " + b.f7490b);
-        if (b.f7490b) {
+        u.f("splashLoadAd", " put GifLoader.mIsSpalsh " + b.f7491b);
+        if (b.f7491b) {
             c(str, bArr);
         } else {
             b(str, bArr);
@@ -79,7 +79,7 @@ public class a {
         u.f("splashLoadAd", " GifCache put 将图片素材保存到本地 key " + str);
         if (!TextUtils.isEmpty(str) && bArr != null) {
             if (!a(bArr)) {
-                this.f.put(str, new C0994a(bArr));
+                this.f.put(str, new C1032a(bArr));
             }
             File file = new File(c(), str);
             if (!file.exists() || !file.isFile() || file.length() <= 0) {
@@ -127,7 +127,7 @@ public class a {
         u.f("splashLoadAd", " GifCache put 将图片素材保存到本地 key " + str);
         if (!TextUtils.isEmpty(str) && bArr != null) {
             if (!a(bArr)) {
-                this.f.put(str, new C0994a(bArr));
+                this.f.put(str, new C1032a(bArr));
             }
             u.f("splashLoadAd", " GifCache put 保存到本地图片的素材路径 getCacheDir() " + b());
             File file = new File(b(), str);
@@ -200,14 +200,14 @@ public class a {
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [256=4, 253=5, 254=5] */
-    public synchronized C0994a a(String str) {
-        C0994a c0994a;
+    public synchronized C1032a a(String str) {
+        C1032a c1032a;
         FileInputStream fileInputStream;
         if (TextUtils.isEmpty(str)) {
-            c0994a = null;
+            c1032a = null;
         } else {
-            c0994a = this.f.get(str);
-            if (c0994a == null) {
+            c1032a = this.f.get(str);
+            if (c1032a == null) {
                 File file = new File(c(), str);
                 if (file.exists()) {
                     try {
@@ -219,7 +219,7 @@ public class a {
                     try {
                         ByteBuffer allocate = ByteBuffer.allocate(Long.valueOf(file.length()).intValue());
                         fileInputStream.getChannel().read(allocate);
-                        c0994a = new C0994a(allocate.array());
+                        c1032a = new C1032a(allocate.array());
                         if (fileInputStream != null) {
                             try {
                                 fileInputStream.close();
@@ -235,26 +235,26 @@ public class a {
                             } catch (IOException e2) {
                             }
                         }
-                        c0994a = null;
-                        return c0994a;
+                        c1032a = null;
+                        return c1032a;
                     }
                 }
-                c0994a = null;
+                c1032a = null;
             }
         }
-        return c0994a;
+        return c1032a;
     }
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [305=5, 306=5, 308=4] */
-    public synchronized C0994a b(String str) {
-        C0994a c0994a;
+    public synchronized C1032a b(String str) {
+        C1032a c1032a;
         FileInputStream fileInputStream;
         u.f("splashLoadAd", " GifCache get  key " + str);
         if (TextUtils.isEmpty(str)) {
-            c0994a = null;
+            c1032a = null;
         } else {
-            c0994a = this.f.get(str);
-            if (c0994a == null) {
+            c1032a = this.f.get(str);
+            if (c1032a == null) {
                 u.f("splashLoadAd", " GifCache 从缓存文件中获取图片素材，图片路径为" + b() + " key " + str);
                 File file = new File(b(), str);
                 try {
@@ -267,7 +267,7 @@ public class a {
                         try {
                             ByteBuffer allocate = ByteBuffer.allocate(Long.valueOf(file.length()).intValue());
                             fileInputStream.getChannel().read(allocate);
-                            c0994a = new C0994a(allocate.array());
+                            c1032a = new C1032a(allocate.array());
                             if (fileInputStream != null) {
                                 try {
                                     fileInputStream.close();
@@ -284,8 +284,8 @@ public class a {
                                 }
                             }
                             u.f("splashLoadAd", " GifCache 缓存文件中不存在该图片素材  key " + str);
-                            c0994a = null;
-                            return c0994a;
+                            c1032a = null;
+                            return c1032a;
                         }
                     } catch (Throwable th3) {
                         th = th3;
@@ -293,10 +293,10 @@ public class a {
                     }
                 }
                 u.f("splashLoadAd", " GifCache 缓存文件中不存在该图片素材  key " + str);
-                c0994a = null;
+                c1032a = null;
             }
         }
-        return c0994a;
+        return c1032a;
     }
 
     public synchronized String a(String str, int i, int i2, ImageView.ScaleType scaleType) {
@@ -317,10 +317,10 @@ public class a {
     }
 
     private static String c() {
-        if (TextUtils.isEmpty(f7485a)) {
-            f7485a = c("diskGif");
+        if (TextUtils.isEmpty(f7486a)) {
+            f7486a = c("diskGif");
         }
-        return f7485a;
+        return f7486a;
     }
 
     private static String c(String str) {
@@ -363,21 +363,21 @@ public class a {
     }
 
     public static String b() {
-        if (TextUtils.isEmpty(f7486b)) {
-            f7486b = c("splash_image");
+        if (TextUtils.isEmpty(f7487b)) {
+            f7487b = c("splash_image");
         }
-        return f7486b;
+        return f7487b;
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.i.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static class C0994a {
+    public static class C1032a {
 
         /* renamed from: a  reason: collision with root package name */
-        byte[] f7488a;
+        byte[] f7489a;
 
-        public C0994a(byte[] bArr) {
-            this.f7488a = bArr;
+        public C1032a(byte[] bArr) {
+            this.f7489a = bArr;
         }
     }
 }

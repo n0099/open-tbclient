@@ -7,10 +7,10 @@ public class ax {
     private static final ax c = new ax();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3766a = false;
+    private boolean f3767a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile boolean f3767b;
+    private volatile boolean f3768b;
 
     public static ax a() {
         return c;
@@ -20,14 +20,14 @@ public class ax {
         if (!TextUtils.isEmpty(str)) {
             try {
                 JSONObject jSONObject = (JSONObject) new JSONObject(str).opt("full");
-                this.f3766a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
+                this.f3767a = (jSONObject != null ? jSONObject.optInt("close") : 0) != 0;
             } catch (Exception e) {
             }
-            this.f3767b = true;
+            this.f3768b = true;
         }
     }
 
     public boolean b() {
-        return this.f3766a;
+        return this.f3767a;
     }
 }

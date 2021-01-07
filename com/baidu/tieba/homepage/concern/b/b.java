@@ -110,7 +110,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
             for (int i2 = 0; i2 < 3; i2++) {
                 if (this.jZe[i2].getVisibility() == 0) {
                     ao.setViewTextColor(this.jZe[i2], R.color.CAM_X0101);
-                    com.baidu.tbadk.core.util.f.a.bwU().qr(this.jZl[i2]).qx(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8)).bz(this.jZe[i2]);
+                    com.baidu.tbadk.core.util.f.a.bwV().qr(this.jZl[i2]).qx(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8)).bz(this.jZe[i2]);
                 }
                 this.jZj[i2].onChangeSkinType(i);
                 ao.setViewTextColor(this.jZf[i2], R.color.CAM_X0105);
@@ -125,7 +125,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         this.jZc.setVisibility(z ? 0 : 8);
     }
 
-    public d cRg() {
+    public d cRh() {
         return this.jYW;
     }
 
@@ -147,18 +147,18 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
             this.jYW = (d) nVar;
             this.jZc.setText(this.jYW.jYJ);
             for (int i = 0; i < 3; i++) {
-                this.jZd[i].startLoad(this.jYW.jYL[i].cRa(), 10, false);
-                this.jZf[i].setText(this.jYW.jYL[i].cRb());
-                this.jZi[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_thread, new Object[]{at.dX(this.jYW.jYL[i].cRe())}));
-                this.jZh[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_concern, new Object[]{at.dX(this.jYW.jYL[i].cRd())}));
+                this.jZd[i].startLoad(this.jYW.jYL[i].cRb(), 10, false);
+                this.jZf[i].setText(this.jYW.jYL[i].cRc());
+                this.jZi[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_thread, new Object[]{at.dX(this.jYW.jYL[i].cRf())}));
+                this.jZh[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_concern, new Object[]{at.dX(this.jYW.jYL[i].cRe())}));
                 this.jZj[i].setTag(Integer.valueOf(i));
-                a(this.jZj[i], this.jYW.jYL[i].cRf());
+                a(this.jZj[i], this.jYW.jYL[i].cRg());
                 this.jZe[i].setVisibility(this.jYW.jYK ? 0 : 8);
                 ((LinearLayout.LayoutParams) this.jZf[i].getLayoutParams()).leftMargin = l.getDimens(this.pageContext.getPageActivity(), this.jYW.jYK ? R.dimen.tbds15 : R.dimen.tbds0);
-                if (!StringUtils.isNull(this.jYW.jYL[i].getSlogan()) && com.baidu.tbadk.a.d.bmL()) {
+                if (!StringUtils.isNull(this.jYW.jYL[i].getSlogan()) && com.baidu.tbadk.a.d.bmM()) {
                     this.jZg[i].setText(this.jYW.jYL[i].getSlogan());
-                } else if (!StringUtils.isNull(this.jYW.jYL[i].cRc()) && com.baidu.tbadk.a.d.bmM()) {
-                    this.jZg[i].setText(this.jYW.jYL[i].cRc());
+                } else if (!StringUtils.isNull(this.jYW.jYL[i].cRd()) && com.baidu.tbadk.a.d.bmN()) {
+                    this.jZg[i].setText(this.jYW.jYL[i].cRd());
                 } else {
                     this.jZg[i].setText(TbadkCoreApplication.getInst().getString(R.string.recommend_bar_desc));
                 }
@@ -173,7 +173,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
             int intValue = ((Integer) view.getTag()).intValue();
             d.a aVar = this.jYW.jYL[intValue];
             if (view instanceof TBSpecificationBtn) {
-                if (aVar.cRf()) {
+                if (aVar.cRg()) {
                     b(aVar, this.jZj[intValue]);
                     return;
                 }
@@ -184,12 +184,12 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
                 }
                 TiebaStatic.log(an);
             } else if (id == R.id.recommend_bar_info_1 || id == R.id.recommend_bar_info_2 || id == R.id.recommend_bar_info_3) {
-                FrsActivityConfig callFrom = new FrsActivityConfig(this.pageContext.getPageActivity()).createNormalCfg(aVar.cRb(), FrsActivityConfig.FRS_FROM_RECOMMEND_BAR_CAR).setCallFrom(3);
-                if (com.baidu.tbadk.a.d.bmM()) {
+                FrsActivityConfig callFrom = new FrsActivityConfig(this.pageContext.getPageActivity()).createNormalCfg(aVar.cRc(), FrsActivityConfig.FRS_FROM_RECOMMEND_BAR_CAR).setCallFrom(3);
+                if (com.baidu.tbadk.a.d.bmN()) {
                     Intent intent = callFrom.getIntent();
-                    if (aVar.cxV() != 0 && intent != null) {
+                    if (aVar.cxW() != 0 && intent != null) {
                         intent.putExtra("transition_type", 0);
-                        intent.putExtra(FrsActivityConfig.FRS_HOT_THREAD_ID, aVar.cxV());
+                        intent.putExtra(FrsActivityConfig.FRS_HOT_THREAD_ID, aVar.cxW());
                     }
                 }
                 this.pageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, callFrom));
@@ -215,7 +215,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         if (!this.loading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.pageContext.getPageActivity(), this.pageContext.getString(R.string.neterror));
-            } else if (aVar != null && !StringUtils.isNull(aVar.cRb()) && aVar.getForumId() > 0 && bg.checkUpIsLogin(this.pageContext.getPageActivity())) {
+            } else if (aVar != null && !StringUtils.isNull(aVar.cRc()) && aVar.getForumId() > 0 && bg.checkUpIsLogin(this.pageContext.getPageActivity())) {
                 if (this.jYZ == null) {
                     this.jYZ = new a();
                 }
@@ -224,10 +224,10 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
                     this.jYX.setLoadDataCallBack(this.jYZ);
                 }
                 this.jYZ.a(followUserButton, aVar);
-                if (at.isForumName(aVar.cRb())) {
+                if (at.isForumName(aVar.cRc())) {
                     this.loading = true;
-                    this.jYX.dOt();
-                    this.jYX.gr(aVar.cRb(), String.valueOf(aVar.getForumId()));
+                    this.jYX.dOu();
+                    this.jYX.gr(aVar.cRc(), String.valueOf(aVar.getForumId()));
                 }
             }
         }
@@ -237,7 +237,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
         if (!this.loading) {
             if (!l.isNetOk()) {
                 UtilHelper.showToast(this.pageContext.getPageActivity(), this.pageContext.getString(R.string.neterror));
-            } else if (aVar != null && !StringUtils.isNull(aVar.cRb()) && aVar.getForumId() > 0 && bg.checkUpIsLogin(this.pageContext.getPageActivity())) {
+            } else if (aVar != null && !StringUtils.isNull(aVar.cRc()) && aVar.getForumId() > 0 && bg.checkUpIsLogin(this.pageContext.getPageActivity())) {
                 if (this.jYZ == null) {
                     this.jYZ = new a();
                 }
@@ -247,7 +247,7 @@ public class b extends BdBaseViewPagerAdapter.a implements View.OnClickListener 
                 }
                 this.jYZ.a(followUserButton, aVar);
                 this.loading = true;
-                this.jYY.P(aVar.cRb(), aVar.getForumId());
+                this.jYY.P(aVar.cRc(), aVar.getForumId());
             }
         }
     }

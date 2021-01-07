@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.IMConnection;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile long f9031a = 0;
+    private static volatile long f9032a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private a f9032b;
+    private a f9033b;
     private boolean c;
 
     /* loaded from: classes5.dex */
@@ -23,31 +23,31 @@ public class d {
     }
 
     public d(@NonNull a aVar) {
-        this.f9032b = aVar;
+        this.f9033b = aVar;
     }
 
     private void b() {
-        if (this.f9032b != null) {
-            this.f9032b.b();
+        if (this.f9033b != null) {
+            this.f9033b.b();
         }
     }
 
     private void c() {
-        if (this.f9032b != null) {
-            this.f9032b.c();
+        if (this.f9033b != null) {
+            this.f9033b.c();
         }
     }
 
     @UiThread
     public void a() {
-        if (this.f9032b == null || this.f9032b.a()) {
-            f9031a = 0L;
+        if (this.f9033b == null || this.f9033b.a()) {
+            f9032a = 0L;
         } else if (!this.c) {
             c();
-        } else if (System.currentTimeMillis() - f9031a < IMConnection.RETRY_DELAY_TIMES) {
+        } else if (System.currentTimeMillis() - f9032a < IMConnection.RETRY_DELAY_TIMES) {
             c();
         } else {
-            f9031a = System.currentTimeMillis();
+            f9032a = System.currentTimeMillis();
             b();
         }
     }

@@ -7,29 +7,29 @@ import java.io.OutputStream;
 public class jp extends js {
 
     /* renamed from: a  reason: collision with root package name */
-    protected InputStream f14480a;
+    protected InputStream f14481a;
 
     /* renamed from: a  reason: collision with other field name */
-    protected OutputStream f861a;
+    protected OutputStream f862a;
 
     protected jp() {
-        this.f14480a = null;
-        this.f861a = null;
+        this.f14481a = null;
+        this.f862a = null;
     }
 
     public jp(OutputStream outputStream) {
-        this.f14480a = null;
-        this.f861a = null;
-        this.f861a = outputStream;
+        this.f14481a = null;
+        this.f862a = null;
+        this.f862a = outputStream;
     }
 
     @Override // com.xiaomi.push.js
     public int a(byte[] bArr, int i, int i2) {
-        if (this.f14480a == null) {
+        if (this.f14481a == null) {
             throw new jt(1, "Cannot read from null inputStream");
         }
         try {
-            int read = this.f14480a.read(bArr, i, i2);
+            int read = this.f14481a.read(bArr, i, i2);
             if (read < 0) {
                 throw new jt(4);
             }
@@ -41,11 +41,11 @@ public class jp extends js {
 
     @Override // com.xiaomi.push.js
     public void a(byte[] bArr, int i, int i2) {
-        if (this.f861a == null) {
+        if (this.f862a == null) {
             throw new jt(1, "Cannot write to null outputStream");
         }
         try {
-            this.f861a.write(bArr, i, i2);
+            this.f862a.write(bArr, i, i2);
         } catch (IOException e) {
             throw new jt(0, e);
         }

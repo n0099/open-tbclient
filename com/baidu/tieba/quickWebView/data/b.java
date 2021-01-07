@@ -4,6 +4,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public class b {
-    public ArrayList<String> mLN = null;
-    public HashMap<String, ArrayList<String>> mLO;
+    public ArrayList<String> mLM = null;
+    public HashMap<String, ArrayList<String>> mLN;
 }

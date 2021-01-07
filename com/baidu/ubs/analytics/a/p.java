@@ -17,15 +17,15 @@ public final class p {
         return this.oOk.J();
     }
 
-    public final void XJ(String str) {
-        this.oOk.XJ(str);
+    public final void XI(String str) {
+        this.oOk.XI(str);
     }
 
-    public final void XL(String str) {
-        this.oOk.XJ(str);
+    public final void XK(String str) {
+        this.oOk.XI(str);
     }
 
-    public final boolean XK(String str) {
-        return this.oOk.XK(str);
+    public final boolean XJ(String str) {
+        return this.oOk.XJ(str);
     }
 }

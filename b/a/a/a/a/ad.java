@@ -7,14 +7,14 @@ import com.baidu.platform.comapi.map.MapBundleKey;
 import com.tencent.map.geoloclite.tsa.TencentLiteLocation;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class ad implements TencentLiteLocation {
     public static final ad Bh = new ad(-1);
     private o Bi;
     private final Bundle Bj;
 
     /* renamed from: b  reason: collision with root package name */
-    private Location f1051b;
+    private Location f1052b;
     private final long d;
     private long e;
     private int f;
@@ -91,8 +91,8 @@ public final class ad implements TencentLiteLocation {
             o oVar = adVar.Bi;
             o oVar2 = new o();
             if (oVar != null) {
-                oVar2.f1068a = oVar.f1068a;
-                oVar2.f1069b = oVar.f1069b;
+                oVar2.f1069a = oVar.f1069a;
+                oVar2.f1070b = oVar.f1070b;
                 oVar2.c = oVar.c;
                 oVar2.d = oVar.d;
             }
@@ -113,8 +113,8 @@ public final class ad implements TencentLiteLocation {
         }
         double latitude = location.getLatitude();
         double longitude = location.getLongitude();
-        this.Bi.f1068a = Math.round(latitude * 1000000.0d) / 1000000.0d;
-        this.Bi.f1069b = Math.round(longitude * 1000000.0d) / 1000000.0d;
+        this.Bi.f1069a = Math.round(latitude * 1000000.0d) / 1000000.0d;
+        this.Bi.f1070b = Math.round(longitude * 1000000.0d) / 1000000.0d;
         this.Bi.c = location.getAltitude();
         this.Bi.d = location.getAccuracy();
     }
@@ -152,7 +152,7 @@ public final class ad implements TencentLiteLocation {
     @Override // com.tencent.map.geoloclite.tsa.TencentLiteLocation
     public final double getLatitude() {
         if (this.Bi != null) {
-            return this.Bi.f1068a;
+            return this.Bi.f1069a;
         }
         return 0.0d;
     }
@@ -160,7 +160,7 @@ public final class ad implements TencentLiteLocation {
     @Override // com.tencent.map.geoloclite.tsa.TencentLiteLocation
     public final double getLongitude() {
         if (this.Bi != null) {
-            return this.Bi.f1069b;
+            return this.Bi.f1070b;
         }
         return 0.0d;
     }
@@ -172,8 +172,8 @@ public final class ad implements TencentLiteLocation {
 
     @Override // com.tencent.map.geoloclite.tsa.TencentLiteLocation
     public final float getSpeed() {
-        if (this.f1051b != null) {
-            return this.f1051b.getSpeed();
+        if (this.f1052b != null) {
+            return this.f1052b.getSpeed();
         }
         return 0.0f;
     }

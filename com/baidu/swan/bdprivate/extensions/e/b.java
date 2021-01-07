@@ -37,10 +37,10 @@ public class b {
             DialogInterface.OnClickListener a2 = a(aVar);
             g.a aVar2 = new g.a(context);
             aVar2.a(new com.baidu.swan.apps.view.c.a());
-            g atG = aVar2.atG();
-            aVar2.iu(b.g.swan_app_guide_notify_title).sp(context.getString(b.g.swan_app_guide_notify_msg)).aLt().gW(com.baidu.swan.apps.t.a.aAN().alD()).c(b.g.swan_app_guide_positive_btn, a2).d(b.g.swan_app_guide_negative_btn, a2).aLs();
-            atG.setCancelable(false);
-            atG.show();
+            g atH = aVar2.atH();
+            aVar2.iu(b.g.swan_app_guide_notify_title).sp(context.getString(b.g.swan_app_guide_notify_msg)).aLu().gW(com.baidu.swan.apps.t.a.aAO().alE()).c(b.g.swan_app_guide_positive_btn, a2).d(b.g.swan_app_guide_negative_btn, a2).aLt();
+            atH.setCancelable(false);
+            atH.show();
         }
     }
 

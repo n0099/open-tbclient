@@ -9,7 +9,7 @@ public class c implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
     private static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
     public c() {
-        b.aGR().reset();
+        b.aGS().reset();
         if (DEBUG) {
             Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
         }
@@ -33,10 +33,10 @@ public class c implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
                         Log.w("MaUpdateReporter", "MaUpdateReporter: na_first_meaningful_paint = null !!!");
                     }
                 }
-                b.aGR().done();
+                b.aGS().done();
                 return;
             }
-            b.aGR().a(new a() { // from class: com.baidu.swan.apps.network.c.c.c.1
+            b.aGS().a(new a() { // from class: com.baidu.swan.apps.network.c.c.c.1
                 @Override // com.baidu.swan.apps.network.c.c.a
                 public boolean a(d dVar) {
                     if (dVar != null) {
@@ -45,17 +45,17 @@ public class c implements com.baidu.swan.apps.ao.e.b<HybridUbcFlow> {
                     return false;
                 }
             });
-            b.aGR().b(hybridUbcFlow);
+            b.aGS().b(hybridUbcFlow);
             if (DEBUG) {
-                Log.d("MaUpdateReporter", "na_start ts - " + rk.aHD());
-                Log.d("MaUpdateReporter", "fmp_end ts - " + rk2.aHD());
+                Log.d("MaUpdateReporter", "na_start ts - " + rk.aHE());
+                Log.d("MaUpdateReporter", "fmp_end ts - " + rk2.aHE());
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(@NonNull d dVar, @NonNull UbcFlowEvent ubcFlowEvent, @NonNull UbcFlowEvent ubcFlowEvent2) {
-        long aGT = dVar.aGT();
-        return aGT >= ubcFlowEvent.aHD() && aGT <= ubcFlowEvent2.aHD();
+        long aGU = dVar.aGU();
+        return aGU >= ubcFlowEvent.aHE() && aGU <= ubcFlowEvent2.aHE();
     }
 }

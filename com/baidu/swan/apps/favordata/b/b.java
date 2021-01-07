@@ -9,9 +9,9 @@ import com.baidu.swan.apps.runtime.e;
 public class b extends com.baidu.swan.apps.process.a.a.a {
     @Override // com.baidu.swan.apps.process.a.a.a
     public void y(@NonNull Bundle bundle) {
-        e aMl = e.aMl();
-        if (aMl != null && !TextUtils.equals(aMl.getAppKey(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
-            SwanFavorDataManager.ayj().X(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
+        e aMm = e.aMm();
+        if (aMm != null && !TextUtils.equals(aMm.getAppKey(), "sc9Tq1iKawTnj5GhG6i77vzeIt4Crt5u")) {
+            SwanFavorDataManager.ayk().X(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
         }
     }
 }

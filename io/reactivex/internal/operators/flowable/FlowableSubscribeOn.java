@@ -6,20 +6,20 @@ import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableSubscribeOn<T> extends a<T, T> {
     final boolean nonScheduledRequests;
     final v scheduler;
 
     @Override // io.reactivex.g
     public void a(org.a.c<? super T> cVar) {
-        v.c eLe = this.scheduler.eLe();
-        SubscribeOnSubscriber subscribeOnSubscriber = new SubscribeOnSubscriber(cVar, eLe, this.qgK, this.nonScheduledRequests);
+        v.c eLI = this.scheduler.eLI();
+        SubscribeOnSubscriber subscribeOnSubscriber = new SubscribeOnSubscriber(cVar, eLI, this.qit, this.nonScheduledRequests);
         cVar.onSubscribe(subscribeOnSubscriber);
-        eLe.F(subscribeOnSubscriber);
+        eLI.F(subscribeOnSubscriber);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class SubscribeOnSubscriber<T> extends AtomicReference<Thread> implements j<T>, Runnable, d {
         private static final long serialVersionUID = 8094547886072529208L;
         final org.a.c<? super T> actual;
@@ -105,7 +105,7 @@ public final class FlowableSubscribeOn<T> extends a<T, T> {
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        /* loaded from: classes3.dex */
+        /* loaded from: classes5.dex */
         public static final class a implements Runnable {
             private final long n;
             private final d s;

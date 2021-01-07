@@ -42,7 +42,7 @@ public class b implements a {
         this.hPf = true;
         this.mLiveId = str;
         this.hOY = interfaceC0691a;
-        cnA();
+        cnB();
     }
 
     public void bX(int i, int i2) {
@@ -69,7 +69,7 @@ public class b implements a {
 
     public void Id() {
         this.mLiveId = "";
-        bWQ();
+        bWR();
         this.hOY = null;
         if (this.hPd != null) {
             this.hPd.removeCallbacksAndMessages(null);
@@ -93,7 +93,7 @@ public class b implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnA() {
+    public void cnB() {
         bq bqVar = com.baidu.live.af.a.SE().bCb;
         if (bqVar == null || bqVar.aRE == null || bqVar.aRE.aUh) {
             if (TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isRotaryTableUnabled()) {
@@ -113,7 +113,7 @@ public class b implements a {
                         }
                     });
                 }
-                this.hPe.IJ(this.mLiveId);
+                this.hPe.II(this.mLiveId);
             }
         }
     }
@@ -121,7 +121,7 @@ public class b implements a {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(boolean z, String str, c cVar) {
         if (!z) {
-            cnB();
+            cnC();
         } else if (TextUtils.isEmpty(this.mLiveId)) {
         } else {
             if (TextUtils.isEmpty(str) || this.mLiveId.equals(str)) {
@@ -131,29 +131,29 @@ public class b implements a {
                         this.hPc.setContent(cVar.hPm.giftName, cVar.hPm.hPn);
                     }
                 } else {
-                    bWQ();
-                    bUy();
+                    bWR();
+                    bUz();
                 }
-                cnB();
+                cnC();
             }
         }
     }
 
-    private void cnB() {
+    private void cnC() {
         if (this.hPd == null) {
             this.hPd = new Handler();
         }
         this.hPd.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.liveroom.turntable.lucky.b.2
             @Override // java.lang.Runnable
             public void run() {
-                b.this.cnA();
+                b.this.cnB();
             }
         }, 5000L);
     }
 
     private void a(c cVar) {
         if (this.mExpiredTime != cVar.expiredTime) {
-            bWQ();
+            bWR();
             this.mExpiredTime = cVar.expiredTime;
             long j = cVar.expiredTime - cVar.aKr;
             a(cVar.hPm, j);
@@ -166,14 +166,14 @@ public class b implements a {
 
                 @Override // android.os.CountDownTimer
                 public void onFinish() {
-                    b.this.cnC();
+                    b.this.cnD();
                 }
             };
             this.gPY.start();
         }
     }
 
-    private void bWQ() {
+    private void bWR() {
         this.mExpiredTime = 0L;
         if (this.gPY != null) {
             this.gPY.cancel();
@@ -218,12 +218,12 @@ public class b implements a {
             if (j3 >= 1) {
                 this.hOY.a((((float) j) * 1.0f) / ((float) j2), j3 + "s");
             } else {
-                cnC();
+                cnD();
             }
         }
     }
 
-    private void bUy() {
+    private void bUz() {
         if (this.hPb != null) {
             this.hPb.removeAllViews();
             if (this.hOZ != null) {
@@ -238,12 +238,12 @@ public class b implements a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cnC() {
-        bWQ();
-        bUy();
+    public void cnD() {
+        bWR();
+        bUz();
         if (this.hPd != null) {
             this.hPd.removeCallbacksAndMessages(null);
         }
-        cnA();
+        cnB();
     }
 }

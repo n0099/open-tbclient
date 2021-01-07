@@ -20,7 +20,7 @@ public class ap {
         public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
             super.onLoaded((AnonymousClass2) aVar, str, i);
             if (aVar != null) {
-                com.baidu.tbadk.imageManager.c.bGp().addBitmap(str, aVar.getRawBitmap());
+                com.baidu.tbadk.imageManager.c.bGq().addBitmap(str, aVar.getRawBitmap());
             }
         }
     };
@@ -51,18 +51,18 @@ public class ap {
         com.baidu.adp.widget.ImageView.a aq2;
         BitmapDrawable bitmapDrawable;
         if (bzVar != null && spannableString != null && !StringUtils.isNull(str)) {
-            String bsi = bzVar.bsi();
             String bsj = bzVar.bsj();
-            if (!StringUtils.isNull(bsi) && !StringUtils.isNull(bsj)) {
-                Bitmap bitmap = com.baidu.tbadk.imageManager.c.bGp().getBitmap(bsi);
-                if ((bitmap == null || !com.baidu.tbadk.core.util.d.s.ap(bsi, 10)) && (aq = com.baidu.tbadk.core.util.d.s.aq(bsi, 10)) != null) {
+            String bsk = bzVar.bsk();
+            if (!StringUtils.isNull(bsj) && !StringUtils.isNull(bsk)) {
+                Bitmap bitmap = com.baidu.tbadk.imageManager.c.bGq().getBitmap(bsj);
+                if ((bitmap == null || !com.baidu.tbadk.core.util.d.s.ap(bsj, 10)) && (aq = com.baidu.tbadk.core.util.d.s.aq(bsj, 10)) != null) {
                     bitmap = aq.getRawBitmap();
-                    com.baidu.tbadk.imageManager.c.bGp().addBitmap(bsi, bitmap);
+                    com.baidu.tbadk.imageManager.c.bGq().addBitmap(bsj, bitmap);
                 }
-                Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.bGp().getBitmap(bsj);
-                if ((bitmap2 == null || !com.baidu.tbadk.core.util.d.s.ap(bsj, 10)) && (aq2 = com.baidu.tbadk.core.util.d.s.aq(bsj, 10)) != null) {
+                Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.bGq().getBitmap(bsk);
+                if ((bitmap2 == null || !com.baidu.tbadk.core.util.d.s.ap(bsk, 10)) && (aq2 = com.baidu.tbadk.core.util.d.s.aq(bsk, 10)) != null) {
                     bitmap2 = aq2.getRawBitmap();
-                    com.baidu.tbadk.imageManager.c.bGp().addBitmap(bsj, bitmap2);
+                    com.baidu.tbadk.imageManager.c.bGq().addBitmap(bsk, bitmap2);
                 }
                 Bitmap bitmap3 = bitmap2;
                 if (bitmap != null && !bitmap.isRecycled() && bitmap3 != null && !bitmap3.isRecycled()) {
@@ -84,14 +84,14 @@ public class ap {
                     }
                     return;
                 }
-                dW(bsi, bsj);
+                dW(bsj, bsk);
             }
         }
     }
 
     public static void dW(final String str, final String str2) {
-        Bitmap bitmap = com.baidu.tbadk.imageManager.c.bGp().getBitmap(str);
-        Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.bGp().getBitmap(str2);
+        Bitmap bitmap = com.baidu.tbadk.imageManager.c.bGq().getBitmap(str);
+        Bitmap bitmap2 = com.baidu.tbadk.imageManager.c.bGq().getBitmap(str2);
         if (bitmap == null || bitmap2 == null) {
             if (!com.baidu.adp.lib.util.l.isMainThread()) {
                 com.baidu.adp.lib.f.e.mB().post(new Runnable() { // from class: com.baidu.tbadk.core.util.ap.1

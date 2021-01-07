@@ -11,10 +11,10 @@ import com.baidu.pass.view.ConfirmDialog;
 public class PermissionsHelperActivity extends Activity {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final int f4149a = 8000;
+    private static final int f4150a = 8000;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int f4150b = 8001;
+    private static final int f4151b = 8001;
     private PermissionsDTO c;
     private PermissionsCallback d;
     private StringBuilder e;
@@ -23,7 +23,7 @@ public class PermissionsHelperActivity extends Activity {
     @Override // android.app.Activity
     protected void onActivityResult(int i, int i2, Intent intent) {
         super.onActivityResult(i, i2, intent);
-        if (i == f4149a) {
+        if (i == f4150a) {
             if (PassPermissions.getInstance().a(PassPermissions.getInstance().getPermissionsDTO().permissions)) {
                 this.d.onSuccess();
             } else {
@@ -56,13 +56,13 @@ public class PermissionsHelperActivity extends Activity {
             this.f = true;
             return;
         }
-        requestPermissions(this.c.permissions, f4150b);
+        requestPermissions(this.c.permissions, f4151b);
     }
 
     @Override // android.app.Activity
     public void onRequestPermissionsResult(int i, String[] strArr, int[] iArr) {
         super.onRequestPermissionsResult(i, strArr, iArr);
-        if (i == f4150b) {
+        if (i == f4151b) {
             boolean z = false;
             boolean z2 = true;
             for (int i2 = 0; i2 < strArr.length; i2++) {

@@ -59,9 +59,9 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                 String[] split = ((String) customResponsedMessage.getData()).split(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                 if (split.length == 2) {
                     if ("FrsGameLive".equals(split[0]) && 9 == com.baidu.adp.lib.f.b.toInt(split[1], 0)) {
-                        AlaFrsLiveFragment.this.bVE();
+                        AlaFrsLiveFragment.this.bVF();
                     } else if ("FrsGameLiveLive".equals(split[0]) && 2 == com.baidu.adp.lib.f.b.toInt(split[1], 0)) {
-                        AlaFrsLiveFragment.this.bVE();
+                        AlaFrsLiveFragment.this.bVF();
                     }
                 }
             }
@@ -73,7 +73,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
             if (AlaFrsLiveFragment.this.getPageContext() != null && AlaFrsLiveFragment.this.gXi != null) {
                 AlaFrsLiveFragment.this.hideLoadingView(AlaFrsLiveFragment.this.gXi.getRootView());
                 AlaFrsLiveFragment.this.gXi.completePullRefresh();
-                AlaFrsLiveFragment.this.gXi.d(AlaFrsLiveFragment.this.gXh.getData(), z, AlaFrsLiveFragment.this.gXh.bYw());
+                AlaFrsLiveFragment.this.gXi.d(AlaFrsLiveFragment.this.gXh.getData(), z, AlaFrsLiveFragment.this.gXh.bYx());
                 AlaFrsLiveFragment.this.gXi.vt(AlaFrsLiveFragment.this.gXh.getLiveCount());
                 if (x.getCount(AlaFrsLiveFragment.this.gXh.getData()) == 0) {
                     if (AlaFrsLiveFragment.this.gQS == 1) {
@@ -123,13 +123,13 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         public void onScrollToBottom() {
             boolean z = false;
             if (AlaFrsLiveFragment.this.gXh != null) {
-                z = AlaFrsLiveFragment.this.gXh.bVK();
+                z = AlaFrsLiveFragment.this.gXh.bVL();
             }
             if (AlaFrsLiveFragment.this.gXi != null) {
                 if (z) {
-                    AlaFrsLiveFragment.this.gXi.bUE();
+                    AlaFrsLiveFragment.this.gXi.bUF();
                 } else {
-                    AlaFrsLiveFragment.this.gXi.bUD();
+                    AlaFrsLiveFragment.this.gXi.bUE();
                 }
             }
         }
@@ -145,7 +145,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                 AlaFrsLiveFragment.this.gXh.setSortType(i);
                 AlaFrsLiveFragment.this.gXh.clearData();
                 if (AlaFrsLiveFragment.this.gXi != null) {
-                    AlaFrsLiveFragment.this.gXi.bYy().startPullRefresh();
+                    AlaFrsLiveFragment.this.gXi.bYz().startPullRefresh();
                 }
             }
         }
@@ -176,7 +176,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         this.gXi.setOnSrollToBottomListener(this.gXn);
         this.gXi.a(this.gXo);
         this.gXi.onChangeSkinType(this.akW);
-        bYp();
+        bYq();
         return this.gXi.getRootView();
     }
 
@@ -251,20 +251,20 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
 
     public void a(TbPageContext<?> tbPageContext, bz bzVar) {
         bz bzVar2;
-        if (tbPageContext != null && bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
+        if (tbPageContext != null && bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
             aq aqVar = new aq("c12571");
             aqVar.dX("fid", this.forumId);
-            aqVar.an("obj_type", bzVar.brJ().live_type);
+            aqVar.an("obj_type", bzVar.brK().live_type);
             TiebaStatic.log(aqVar);
             boolean z = false;
             String str = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bzVar.brq().getUserId();
+                String userId = bzVar.brr().getUserId();
                 str = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
+            alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
             for (n nVar : this.gXh.getData()) {
@@ -278,15 +278,15 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
 
     private AlaLiveInfoCoreData V(bz bzVar) {
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
-        alaLiveInfoCoreData.userName = bzVar.brq().getUserName();
+        alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
+        alaLiveInfoCoreData.userName = bzVar.brr().getUserName();
         return alaLiveInfoCoreData;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVE() {
+    public void bVF() {
         if (this.gXi != null) {
-            this.gXi.bVE();
+            this.gXi.bVF();
         }
     }
 
@@ -298,11 +298,11 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         this.forumName = str;
     }
 
-    private void bYp() {
-        if (this.gXi != null && this.gXi.bYq() != null) {
+    private void bYq() {
+        if (this.gXi != null && this.gXi.bYr() != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(R.string.forum));
-            this.gXi.bYq().setCenterTextTitle(sb.toString());
+            this.gXi.bYr().setCenterTextTitle(sb.toString());
         }
     }
 
@@ -330,8 +330,8 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         }
         LinkedList linkedList = new LinkedList();
         for (n nVar : this.gXh.getData()) {
-            if ((nVar instanceof bz) && (bzVar = (bz) nVar) != null && bzVar.brJ() != null) {
-                linkedList.add(Long.valueOf(bzVar.brJ().live_id));
+            if ((nVar instanceof bz) && (bzVar = (bz) nVar) != null && bzVar.brK() != null) {
+                linkedList.add(Long.valueOf(bzVar.brK().live_id));
             }
         }
         return linkedList;
@@ -344,7 +344,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
         if (!x.isEmpty(list) && this.gXh != null && !x.isEmpty(this.gXh.getData())) {
             LinkedList linkedList = new LinkedList();
             for (n nVar : this.gXh.getData()) {
-                if ((nVar instanceof bz) && (bzVar = (bz) nVar) != null && bzVar.brJ() != null) {
+                if ((nVar instanceof bz) && (bzVar = (bz) nVar) != null && bzVar.brK() != null) {
                     Iterator<Long> it = list.iterator();
                     while (true) {
                         if (!it.hasNext()) {
@@ -352,7 +352,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
                             break;
                         }
                         l = it.next();
-                        if (l.longValue() == bzVar.brJ().live_id) {
+                        if (l.longValue() == bzVar.brK().live_id) {
                             linkedList.add(bzVar);
                             break;
                         }
@@ -393,7 +393,7 @@ public class AlaFrsLiveFragment extends AlaAutoRefreshFragment implements ISquar
     }
 
     @Override // com.baidu.tieba.frs.ap
-    public NavigationBar bYq() {
-        return this.gXi.bYq();
+    public NavigationBar bYr() {
+        return this.gXi.bYr();
     }
 }

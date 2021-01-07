@@ -23,18 +23,18 @@ public class b {
     private k.b kOc = new k.b() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.2
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            b.this.dba();
+            b.this.dbb();
             if (b.this.kOb != null) {
-                b.this.kOb.daW();
+                b.this.kOb.daX();
             }
-            b.this.ciu();
+            b.this.civ();
         }
     };
     private f mContext;
 
     /* loaded from: classes2.dex */
     public interface a {
-        void daW();
+        void daX();
     }
 
     public b(f fVar) {
@@ -47,7 +47,7 @@ public class b {
         this.iyk.a(new k.a() { // from class: com.baidu.tieba.imMessageCenter.mention.DelReplyAtMsg.b.1
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                b.this.ciu();
+                b.this.civ();
             }
         });
         this.iyk.bB(this.iyn);
@@ -56,7 +56,7 @@ public class b {
         registerTask();
     }
 
-    public void ciu() {
+    public void civ() {
         if (this.kNY != null && this.kNY.isShowing()) {
             this.kNY.dismiss();
         }
@@ -87,7 +87,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dba() {
+    public void dbb() {
         if (this.kOa != null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_DEL_REPLY_AT_MSG);
             httpMessage.addParam("type", this.kOa.type);

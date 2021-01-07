@@ -10,7 +10,7 @@ import com.xiaomi.mipush.sdk.Constants;
 import java.util.UUID;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes6.dex */
-public final class m implements a.InterfaceC0926a {
+public final class m implements a.InterfaceC0964a {
     private static long oNY = f.Z();
     private static n oOE;
     private static long oOF;
@@ -26,13 +26,13 @@ public final class m implements a.InterfaceC0926a {
             if (currentTimeMillis - m.oOF > m.oNY) {
                 m.this.d(currentTimeMillis);
             }
-            if (com.baidu.ubs.analytics.d.ejy().i()) {
+            if (com.baidu.ubs.analytics.d.ejz().i()) {
                 com.baidu.ubs.analytics.d.c.a(new com.baidu.ubs.analytics.d.d() { // from class: com.baidu.ubs.analytics.c.m.1.1
                     @Override // com.baidu.ubs.analytics.d.d
                     protected final void a() {
                         com.baidu.ubs.analytics.d.b.I("记录一次app启动事件");
                         com.baidu.ubs.analytics.a.a("power_on", "", "", null);
-                        com.baidu.ubs.analytics.d.ejy().a(false);
+                        com.baidu.ubs.analytics.d.ejz().a(false);
                     }
                 });
             }
@@ -42,9 +42,9 @@ public final class m implements a.InterfaceC0926a {
         public final void ar() {
             d dVar;
             dVar = d.a.oOq;
-            if (dVar.ejC().size() == 0) {
+            if (dVar.ejD().size() == 0) {
                 com.baidu.ubs.analytics.d.b.I("后台应用退出了 了               ");
-                com.baidu.ubs.analytics.d.ejy().a(true);
+                com.baidu.ubs.analytics.d.ejz().a(true);
                 long unused = m.oOF = 0L;
                 return;
             }
@@ -67,11 +67,11 @@ public final class m implements a.InterfaceC0926a {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static n ejJ() {
+    public static n ejK() {
         return oOE;
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0926a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0964a
     public final void T() {
         this.aK = false;
         boolean z = this.oOG ? false : true;
@@ -88,7 +88,7 @@ public final class m implements a.InterfaceC0926a {
         }
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0926a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0964a
     public final void U() {
         this.aK = true;
         if (this.oOH != null) {
@@ -107,7 +107,7 @@ public final class m implements a.InterfaceC0926a {
                     com.baidu.ubs.analytics.d.b.I(e.getLocalizedMessage());
                 }
                 p pVar = new p();
-                if (pVar.XK(m.oOE.I())) {
+                if (pVar.XJ(m.oOE.I())) {
                     pVar.b(m.oOE);
                 } else {
                     pVar.c(m.oOE);
@@ -132,11 +132,11 @@ public final class m implements a.InterfaceC0926a {
         handler.postDelayed(runnable, 1000L);
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0926a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0964a
     public final void a(Activity activity) {
     }
 
-    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0926a
+    @Override // com.baidu.ubs.analytics.c.a.InterfaceC0964a
     public final void onActivityDestroyed(Activity activity) {
     }
 

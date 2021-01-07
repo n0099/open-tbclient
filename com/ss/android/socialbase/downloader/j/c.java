@@ -7,5 +7,5 @@ public interface c {
 
     void b();
 
-    b eJp() throws IOException, com.ss.android.socialbase.downloader.e.a, InterruptedException;
+    b eJT() throws IOException, com.ss.android.socialbase.downloader.e.a, InterruptedException;
 }

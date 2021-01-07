@@ -18,11 +18,11 @@ public class m {
         }
     }
 
-    public int bzP() {
+    public int bzQ() {
         return this.ftb;
     }
 
-    public n bzQ() {
+    public n bzR() {
         return this.ftc;
     }
 }

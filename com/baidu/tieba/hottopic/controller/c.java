@@ -22,7 +22,7 @@ public class c {
         this.jBn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.c.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                c.this.cUb();
+                c.this.cUc();
             }
         });
     }
@@ -31,12 +31,12 @@ public class c {
         this.mTopicId = str;
     }
 
-    public void DT(String str) {
+    public void DS(String str) {
         this.mPostContent = str;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cUb() {
+    public void cUc() {
         if (!WriteActivityConfig.isAsyncWriting() && this.mTopicId != null) {
             String str = null;
             if (!StringUtils.isNull(this.mPostContent)) {

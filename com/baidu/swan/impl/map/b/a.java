@@ -20,11 +20,11 @@ public class a {
         if (b2 != null && b2.erP != null) {
             str = b2.erP.id;
         }
-        JSONObject beo = C0553a.ben().v("mapId", cVar.id).v("id", str).beo();
+        JSONObject bep = C0553a.beo().v("mapId", cVar.id).v("id", str).bep();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "markertap");
-            jSONObject.put("data", beo.toString());
+            jSONObject.put("data", bep.toString());
             jSONObject.put("wvID", cVar.ese);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -35,11 +35,11 @@ public class a {
     }
 
     public static void b(c cVar, d dVar) {
-        JSONObject beo = C0553a.ben().v("mapId", cVar.id).v("id", dVar.id).beo();
+        JSONObject bep = C0553a.beo().v("mapId", cVar.id).v("id", dVar.id).bep();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "callouttap");
-            jSONObject.put("data", beo.toString());
+            jSONObject.put("data", bep.toString());
             jSONObject.put("wvID", cVar.ese);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -55,11 +55,11 @@ public class a {
         if (bi != null && bi.erN != null) {
             str = bi.erN.id;
         }
-        JSONObject beo = C0553a.ben().v("mapId", cVar.id).v("controlId", str).beo();
+        JSONObject bep = C0553a.beo().v("mapId", cVar.id).v("controlId", str).bep();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "controltap");
-            jSONObject.put("data", beo.toString());
+            jSONObject.put("data", bep.toString());
             jSONObject.put("wvID", cVar.ese);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -70,12 +70,12 @@ public class a {
     }
 
     public static void a(c cVar, MapStatus mapStatus) {
-        JSONObject beo = C0553a.ben().v("latitude", Double.valueOf(mapStatus.bound.northeast.latitude)).v("longitude", Double.valueOf(mapStatus.bound.northeast.longitude)).beo();
-        JSONObject beo2 = C0553a.ben().v("mapId", cVar.id).v("northeast", beo).v("southwest", C0553a.ben().v("latitude", Double.valueOf(mapStatus.bound.southwest.latitude)).v("longitude", Double.valueOf(mapStatus.bound.southwest.longitude)).beo()).v("scale", Float.valueOf(mapStatus.zoom)).beo();
+        JSONObject bep = C0553a.beo().v("latitude", Double.valueOf(mapStatus.bound.northeast.latitude)).v("longitude", Double.valueOf(mapStatus.bound.northeast.longitude)).bep();
+        JSONObject bep2 = C0553a.beo().v("mapId", cVar.id).v("northeast", bep).v("southwest", C0553a.beo().v("latitude", Double.valueOf(mapStatus.bound.southwest.latitude)).v("longitude", Double.valueOf(mapStatus.bound.southwest.longitude)).bep()).v("scale", Float.valueOf(mapStatus.zoom)).bep();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "regionchange");
-            jSONObject.put("data", beo2.toString());
+            jSONObject.put("data", bep2.toString());
             jSONObject.put("wvID", cVar.ese);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -86,11 +86,11 @@ public class a {
     }
 
     public static void a(c cVar, LatLng latLng) {
-        JSONObject beo = C0553a.ben().v("mapId", cVar.id).v("position", C0553a.ben().v("latitude", Double.valueOf(latLng.latitude)).v("longitude", Double.valueOf(latLng.longitude)).beo()).beo();
+        JSONObject bep = C0553a.beo().v("mapId", cVar.id).v("position", C0553a.beo().v("latitude", Double.valueOf(latLng.latitude)).v("longitude", Double.valueOf(latLng.longitude)).bep()).bep();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "tap");
-            jSONObject.put("data", beo.toString());
+            jSONObject.put("data", bep.toString());
             jSONObject.put("wvID", cVar.ese);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -101,11 +101,11 @@ public class a {
     }
 
     public static void b(c cVar) {
-        JSONObject beo = C0553a.ben().v("mapId", cVar.id).beo();
+        JSONObject bep = C0553a.beo().v("mapId", cVar.id).bep();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "updated");
-            jSONObject.put("data", beo.toString());
+            jSONObject.put("data", bep.toString());
             jSONObject.put("wvID", cVar.ese);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -117,12 +117,12 @@ public class a {
 
     public static void a(c cVar, MapPoi mapPoi) {
         LatLng position = mapPoi.getPosition();
-        C0553a.ben().v("latitude", Double.valueOf(position.latitude)).v("longitude", Double.valueOf(position.longitude)).beo();
-        JSONObject beo = C0553a.ben().v("mapId", cVar.id).v("name", mapPoi.getName()).v("latitude", Double.valueOf(position.latitude)).v("longitude", Double.valueOf(position.longitude)).beo();
+        C0553a.beo().v("latitude", Double.valueOf(position.latitude)).v("longitude", Double.valueOf(position.longitude)).bep();
+        JSONObject bep = C0553a.beo().v("mapId", cVar.id).v("name", mapPoi.getName()).v("latitude", Double.valueOf(position.latitude)).v("longitude", Double.valueOf(position.longitude)).bep();
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("vtype", "poitap");
-            jSONObject.put("data", beo.toString());
+            jSONObject.put("data", bep.toString());
             jSONObject.put("wvID", cVar.ese);
         } catch (JSONException e) {
             if (DEBUG) {
@@ -138,7 +138,7 @@ public class a {
     public static class C0553a {
         private JSONObject params = new JSONObject();
 
-        static C0553a ben() {
+        static C0553a beo() {
             return new C0553a();
         }
 
@@ -153,7 +153,7 @@ public class a {
             return this;
         }
 
-        JSONObject beo() {
+        JSONObject bep() {
             return this.params;
         }
 

@@ -25,7 +25,7 @@ public class a {
         void v(float[] fArr);
     }
 
-    public static a aQm() {
+    public static a aQn() {
         if (dPL == null) {
             synchronized (a.class) {
                 if (dPL == null) {
@@ -42,7 +42,7 @@ public class a {
             this.dPN = interfaceC0381a;
             return true;
         }
-        this.mSensorManager = (SensorManager) com.baidu.swan.apps.t.a.aAr().getSystemService("sensor");
+        this.mSensorManager = (SensorManager) com.baidu.swan.apps.t.a.aAs().getSystemService("sensor");
         if (this.mSensorManager != null) {
             this.dPN = interfaceC0381a;
             this.dPm = this.mSensorManager.getDefaultSensor(1);
@@ -51,8 +51,8 @@ public class a {
                 c.e("SwanAppOrientationManager", "Accelerometer || Magnetic is null");
                 return false;
             }
-            this.mSensorManager.registerListener(aQo(), this.dPm, i);
-            this.mSensorManager.registerListener(aQo(), this.dPC, i);
+            this.mSensorManager.registerListener(aQp(), this.dPm, i);
+            this.mSensorManager.registerListener(aQp(), this.dPC, i);
             this.dPp = true;
             c.i("SwanAppOrientationManager", "start listen");
             return true;
@@ -61,7 +61,7 @@ public class a {
         return false;
     }
 
-    public void aQn() {
+    public void aQo() {
         if (!this.dPp) {
             c.w("SwanAppOrientationManager", "has already stop");
             return;
@@ -79,14 +79,14 @@ public class a {
 
     public static void release() {
         if (dPL != null) {
-            dPL.aQb();
+            dPL.aQc();
         }
     }
 
-    private void aQb() {
+    private void aQc() {
         c.i("SwanAppOrientationManager", "release");
         if (this.dPp) {
-            aQn();
+            aQo();
         }
         this.mSensorManager = null;
         this.dPm = null;
@@ -97,7 +97,7 @@ public class a {
         dPL = null;
     }
 
-    private SensorEventListener aQo() {
+    private SensorEventListener aQp() {
         c.i("SwanAppOrientationManager", "get System Sensor listener");
         if (this.dPM != null) {
             return this.dPM;
@@ -105,7 +105,7 @@ public class a {
         this.dPM = new SensorEventListener() { // from class: com.baidu.swan.apps.ak.g.a.1
             @Override // android.hardware.SensorEventListener
             public void onSensorChanged(SensorEvent sensorEvent) {
-                float[] aQp;
+                float[] aQq;
                 if (sensorEvent != null && sensorEvent.sensor != null && sensorEvent.sensor.getType() == 1) {
                     if (sensorEvent.values != null && sensorEvent.values.length == 3) {
                         a.this.dPD = (float[]) sensorEvent.values.clone();
@@ -114,8 +114,8 @@ public class a {
                     if (sensorEvent.values != null && sensorEvent.values.length == 3) {
                         a.this.dPE = (float[]) sensorEvent.values.clone();
                     }
-                    if (a.this.dPN != null && a.this.dPD != null && a.this.dPE != null && (aQp = a.this.aQp()) != null) {
-                        a.this.dPN.v(aQp);
+                    if (a.this.dPN != null && a.this.dPD != null && a.this.dPE != null && (aQq = a.this.aQq()) != null) {
+                        a.this.dPN.v(aQq);
                     }
                 }
             }
@@ -129,7 +129,7 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
-    public float[] aQp() {
+    public float[] aQq() {
         float[] fArr = new float[9];
         float[] fArr2 = new float[9];
         float[] fArr3 = new float[3];

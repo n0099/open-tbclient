@@ -132,7 +132,7 @@ public class b extends aj {
         }
     };
 
-    public static b aaZ() {
+    public static b aba() {
         if (cao == null) {
             synchronized (b.class) {
                 if (cao == null) {
@@ -198,7 +198,7 @@ public class b extends aj {
     @Override // com.baidu.live.gift.aj
     public void HT() {
         if (AlaLiveSwitchData.isHotLive == 0) {
-            this.car.a(t.XF(), true, "enter", "gift_init");
+            this.car.a(t.XG(), true, "enter", "gift_init");
         }
     }
 
@@ -209,7 +209,7 @@ public class b extends aj {
 
     @Override // com.baidu.live.gift.aj
     public String HU() {
-        return t.XF();
+        return t.XG();
     }
 
     public void e(String str, ArrayList<h> arrayList) {
@@ -280,7 +280,7 @@ public class b extends aj {
 
     @Override // com.baidu.live.gift.aj
     protected String gU(String str) {
-        com.baidu.live.gift.c hA = aaZ().hA(str);
+        com.baidu.live.gift.c hA = aba().hA(str);
         if (hA == null || hA.aXb == null || hA.aXb.aWY == null) {
             return null;
         }
@@ -604,12 +604,12 @@ public class b extends aj {
     private void a(String str, long j, String str2, String str3, String str4, long j2, String str5, boolean z, boolean z2) {
         if (gX(str)) {
             if (!he(str)) {
-                if (BdNetTypeUtil.isWifiNet() || !m.XA()) {
+                if (BdNetTypeUtil.isWifiNet() || !m.XB()) {
                     if (this.bgH == null) {
                         this.bgH = new ArrayList<>();
                     }
                     this.bgH.add(new com.baidu.live.yuyingift.a.c(str, j, null, str2, str4, str3, "", "", false, "", "", j2, str5, 0L));
-                    com.baidu.live.gift.c hA = aaZ().hA(str);
+                    com.baidu.live.gift.c hA = aba().hA(str);
                     if (hA != null) {
                         am.Ih().a(hA.aXb, false);
                     }
@@ -629,7 +629,7 @@ public class b extends aj {
         Iterator<com.baidu.live.gift.c> it = this.bgx.iterator();
         while (it.hasNext()) {
             com.baidu.live.gift.c next = it.next();
-            if (next != null && next.aXb != null && !aaZ().gV(next.getDynamicGiftId())) {
+            if (next != null && next.aXb != null && !aba().gV(next.getDynamicGiftId())) {
                 com.baidu.live.gift.b bVar = next.aXb;
                 if (bVar.aWY != null) {
                     am.Ih().a(bVar, false);

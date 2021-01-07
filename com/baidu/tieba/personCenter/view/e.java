@@ -14,8 +14,8 @@ import com.baidu.tieba.personCenter.c.n;
 public class e extends com.baidu.tieba.card.b<n> {
     private com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a> eZB;
     private int mSkinType;
-    private LinearLayout mqD;
-    private AutoBannerView mqE;
+    private LinearLayout mqC;
+    private AutoBannerView mqD;
 
     public e(TbPageContext<?> tbPageContext) {
         super(tbPageContext);
@@ -23,35 +23,35 @@ public class e extends com.baidu.tieba.card.b<n> {
         this.eZB = new com.baidu.tbadk.core.flow.a.d<com.baidu.tieba.personCenter.c.a>() { // from class: com.baidu.tieba.personCenter.view.e.1
             @Override // com.baidu.tbadk.core.flow.a.d
             public void e(int i, String str) {
-                if (e.this.mqE != null && str != null) {
-                    if (e.this.mqE.checkIndex(i)) {
+                if (e.this.mqD != null && str != null) {
+                    if (e.this.mqD.checkIndex(i)) {
                         TiebaStatic.log(new aq("c13247").an("obj_locate", i).dX("obj_param1", str));
                     }
-                    e.this.mqE.byV();
-                    e.this.mqE.dj(str);
+                    e.this.mqD.byW();
+                    e.this.mqD.dj(str);
                 }
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tbadk.core.flow.a.d
             public void a(int i, com.baidu.tieba.personCenter.c.a aVar) {
-                if (e.this.mqE != null && aVar != null && aVar.bpl() != null && e.this.mqE.checkIndex(i)) {
-                    TiebaStatic.log(new aq("c13246").dX("uid", TbadkCoreApplication.getCurrentAccount()).an("obj_locate", i).dX("obj_param1", aVar.bpl()));
+                if (e.this.mqD != null && aVar != null && aVar.bpm() != null && e.this.mqD.checkIndex(i)) {
+                    TiebaStatic.log(new aq("c13246").dX("uid", TbadkCoreApplication.getCurrentAccount()).an("obj_locate", i).dX("obj_param1", aVar.bpm()));
                 }
             }
         };
         View view = getView();
-        this.mqD = (LinearLayout) view.findViewById(R.id.viewpager);
-        this.mqE = (AutoBannerView) view.findViewById(R.id.person_center_auto_banner_view);
-        this.mqE.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
-        this.mqE.getCoverFlowView().setCallback(this.eZB);
+        this.mqC = (LinearLayout) view.findViewById(R.id.viewpager);
+        this.mqD = (AutoBannerView) view.findViewById(R.id.person_center_auto_banner_view);
+        this.mqD.setMarqueenTime(IMConnection.RETRY_DELAY_TIMES);
+        this.mqD.getCoverFlowView().setCallback(this.eZB);
     }
 
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            if (this.mqE != null) {
-                this.mqE.onChangeSkinType(i);
+            if (this.mqD != null) {
+                this.mqD.onChangeSkinType(i);
             }
             ao.setBackgroundColor(getView(), R.color.CAM_X0205);
             this.mSkinType = i;
@@ -67,8 +67,8 @@ public class e extends com.baidu.tieba.card.b<n> {
     @Override // com.baidu.tieba.card.b
     public void a(n nVar) {
         onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
-        if (this.mqD != null && nVar != null && nVar.mpl != null && this.mqE != null && nVar.mpl.size() != 0) {
-            this.mqE.r(nVar.mpl);
+        if (this.mqC != null && nVar != null && nVar.mpk != null && this.mqD != null && nVar.mpk.size() != 0) {
+            this.mqD.r(nVar.mpk);
         }
     }
 
@@ -78,8 +78,8 @@ public class e extends com.baidu.tieba.card.b<n> {
 
     @Override // com.baidu.tieba.card.b
     public void onDestroy() {
-        if (this.mqE != null) {
-            this.mqE.byV();
+        if (this.mqD != null) {
+            this.mqD.byW();
         }
     }
 }

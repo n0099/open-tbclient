@@ -8,14 +8,14 @@ import com.qq.e.comm.plugin.rewardvideo.l;
 import com.qq.e.comm.plugin.util.ai;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b extends c {
 
     /* renamed from: a  reason: collision with root package name */
-    private final l f12682a;
+    private final l f12683a;
 
     public b(l lVar) {
-        this.f12682a = lVar;
+        this.f12683a = lVar;
     }
 
     @Override // com.qq.e.comm.plugin.ab.f.a.c
@@ -35,11 +35,11 @@ public class b extends c {
                 e = e2;
                 e.printStackTrace();
                 ai.b("gdt_tag_reward_video", "clicked from webviewlayer , antiSpam= %s", str5);
-                this.f12682a.a(i, str5);
+                this.f12683a.a(i, str5);
                 return new f<>(null);
             }
             ai.b("gdt_tag_reward_video", "clicked from webviewlayer , antiSpam= %s", str5);
-            this.f12682a.a(i, str5);
+            this.f12683a.a(i, str5);
             return new f<>(null);
         }
         return new f<>(1000, "Unsupported action");

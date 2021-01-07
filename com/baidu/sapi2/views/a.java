@@ -13,10 +13,10 @@ import com.baidu.sapi2.SapiAccountManager;
 public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private LinearLayout f5445a;
+    private LinearLayout f5446a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f5446b;
+    private TextView f5447b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -30,17 +30,17 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     class View$OnClickListenerC0353a implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ View.OnClickListener f5447a;
+        final /* synthetic */ View.OnClickListener f5448a;
 
         View$OnClickListenerC0353a(View.OnClickListener onClickListener) {
-            this.f5447a = onClickListener;
+            this.f5448a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
                 ViewUtility.dismissDialog((Activity) a.this.i, a.this);
-                this.f5447a.onClick(view);
+                this.f5448a.onClick(view);
             } catch (Exception e) {
             }
         }
@@ -50,17 +50,17 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
     class b implements View.OnClickListener {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ View.OnClickListener f5449a;
+        final /* synthetic */ View.OnClickListener f5450a;
 
         b(View.OnClickListener onClickListener) {
-            this.f5449a = onClickListener;
+            this.f5450a = onClickListener;
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             try {
                 ViewUtility.dismissDialog((Activity) a.this.i, a.this);
-                this.f5449a.onClick(view);
+                this.f5450a.onClick(view);
             } catch (Exception e) {
             }
         }
@@ -70,8 +70,8 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
         super(context, a.h.SapiSdkBeautyDialog);
         this.i = context;
         setContentView(a.f.layout_sapi_sdk_fingerprint_dialog);
-        this.f5445a = (LinearLayout) findViewById(a.e.bg_layout);
-        this.f5446b = (TextView) findViewById(a.e.title);
+        this.f5446a = (LinearLayout) findViewById(a.e.bg_layout);
+        this.f5447b = (TextView) findViewById(a.e.title);
         this.c = (TextView) findViewById(a.e.sub_title);
         this.d = (TextView) findViewById(a.e.negative_btn);
         this.e = (TextView) findViewById(a.e.positive_btn);
@@ -87,9 +87,9 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     private void c() {
         if (SapiAccountManager.getInstance().getConfignation().isDarkMode) {
-            this.f5445a.setBackgroundResource(a.d.sapi_sdk_fingerprint_dialog_dark_mode);
+            this.f5446a.setBackgroundResource(a.d.sapi_sdk_fingerprint_dialog_dark_mode);
             this.f.setImageResource(a.d.sapi_sdk_fingerprint_dark_mode);
-            this.f5446b.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
+            this.f5447b.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_dark_mode_edit_text_color));
             this.c.setTextColor(this.i.getResources().getColor(a.b.sapi_sdk_fingerprint_dialog_sub_tv_color));
             this.g.setBackgroundColor(this.i.getResources().getColor(a.b.sapi_sdk_fingerprint_dialog_divider_line));
             this.h.setBackgroundColor(this.i.getResources().getColor(a.b.sapi_sdk_fingerprint_dialog_divider_line));
@@ -129,7 +129,7 @@ public class a extends Dialog implements com.baidu.sapi2.g.b {
 
     @Override // com.baidu.sapi2.g.b
     public com.baidu.sapi2.g.b a(String str, String str2) {
-        this.f5446b.setText(str);
+        this.f5447b.setText(str);
         this.c.setText(str2);
         return this;
     }

@@ -22,7 +22,7 @@ public class AlaGetTargetInfoResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public d cfX() {
+    public d cfY() {
         return this.hvM;
     }
 }

@@ -32,17 +32,17 @@ import tbclient.RecommendForumListForBottle.ForumInfo;
 /* loaded from: classes8.dex */
 public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, TransmitSelectViewHolder> {
     private ArrayList<HotTopicBussinessData> mForumList;
-    private List<TransmitForumData> nWR;
-    private com.baidu.tieba.likedForum.a obl;
-    private w obm;
-    private a.InterfaceC0780a obn;
+    private List<TransmitForumData> nWQ;
+    private com.baidu.tieba.likedForum.a obk;
+    private w obl;
+    private a.InterfaceC0793a obm;
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean gc(long j) {
-        if (this.nWR == null) {
+        if (this.nWQ == null) {
             return false;
         }
-        for (TransmitForumData transmitForumData : this.nWR) {
+        for (TransmitForumData transmitForumData : this.nWQ) {
             if (transmitForumData != null && transmitForumData.forumId == j) {
                 return true;
             }
@@ -51,7 +51,7 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dSX() {
+    public void dSY() {
         HotTopicChangeActivityConfig hotTopicChangeActivityConfig = new HotTopicChangeActivityConfig(this.mContext, RequestResponseCode.REQUEST_HOT_TOPIC_CHANGE_FOURM, this.mForumList);
         hotTopicChangeActivityConfig.setUseOriginList(true);
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, hotTopicChangeActivityConfig));
@@ -67,7 +67,7 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* JADX INFO: Access modifiers changed from: protected */
     public TransmitSelectAdapter(Context context, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, List<TransmitForumData> list) {
         super(context, bdUniqueId, bdUniqueId2);
-        this.obm = new w() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.1
+        this.obl = new w() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId3, ViewGroup viewGroup, int i, long j) {
                 if (!j.isNetWorkAvailable()) {
@@ -75,16 +75,16 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
                 }
                 TiebaStatic.log(new aq("c12053"));
                 if (!x.isEmpty(TransmitSelectAdapter.this.mForumList)) {
-                    TransmitSelectAdapter.this.dSX();
+                    TransmitSelectAdapter.this.dSY();
                     return;
                 }
-                TransmitSelectAdapter.this.obl = new com.baidu.tieba.likedForum.a(TransmitSelectAdapter.this.mPageId);
-                TransmitSelectAdapter.this.obl.a(TransmitSelectAdapter.this.obn);
-                TransmitSelectAdapter.this.obl.loadData();
+                TransmitSelectAdapter.this.obk = new com.baidu.tieba.likedForum.a(TransmitSelectAdapter.this.mPageId);
+                TransmitSelectAdapter.this.obk.a(TransmitSelectAdapter.this.obm);
+                TransmitSelectAdapter.this.obk.loadData();
             }
         };
-        this.obn = new a.InterfaceC0780a() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.2
-            @Override // com.baidu.tieba.likedForum.a.InterfaceC0780a
+        this.obm = new a.InterfaceC0793a() { // from class: com.baidu.tieba.write.transmit.TransmitSelectAdapter.2
+            @Override // com.baidu.tieba.likedForum.a.InterfaceC0793a
             public void a(boolean z, int i, String str, List<ForumInfo> list2) {
                 ArrayList arrayList = new ArrayList();
                 if (x.getCount(list2) > 0) {
@@ -103,13 +103,13 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
                     }
                     if (TransmitSelectAdapter.this.mForumList == null) {
                         TransmitSelectAdapter.this.mForumList = arrayList;
-                        TransmitSelectAdapter.this.dSX();
+                        TransmitSelectAdapter.this.dSY();
                     }
                 }
             }
         };
-        a(this.obm);
-        this.nWR = list;
+        a(this.obl);
+        this.nWQ = list;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -124,7 +124,7 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, c cVar, TransmitSelectViewHolder transmitSelectViewHolder) {
-        ao.setViewTextColor(transmitSelectViewHolder.obp, R.color.CAM_X0302);
+        ao.setViewTextColor(transmitSelectViewHolder.obo, R.color.CAM_X0302);
         ao.setImageResource(transmitSelectViewHolder.iXO, R.drawable.icon_post_add_ba_n);
         return view;
     }
@@ -132,18 +132,18 @@ public class TransmitSelectAdapter extends com.baidu.adp.widget.ListView.a<c, Tr
     /* loaded from: classes8.dex */
     public static class TransmitSelectViewHolder extends TypeAdapter.ViewHolder {
         public ImageView iXO;
-        public TextView obp;
+        public TextView obo;
 
         public TransmitSelectViewHolder(View view) {
             super(view);
-            this.obp = (TextView) view.findViewById(R.id.select_by_self);
+            this.obo = (TextView) view.findViewById(R.id.select_by_self);
             this.iXO = (ImageView) view.findViewById(R.id.add_icon);
         }
     }
 
     public void destroy() {
-        if (this.obl != null) {
-            this.obl.destroy();
+        if (this.obk != null) {
+            this.obk.destroy();
         }
     }
 }

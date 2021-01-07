@@ -35,20 +35,20 @@ public final class SoLoader {
     }
 
     public static f loadV8EngineSo(Context context) {
-        String bcO = e.bcO();
-        if (sLoadedLibraries.contains(bcO)) {
-            return f.bcQ();
+        String bcP = e.bcP();
+        if (sLoadedLibraries.contains(bcP)) {
+            return f.bcR();
         }
         f a2 = e.a(context, new SoLoader());
         if (a2.isSuccess()) {
-            sLoadedLibraries.add(bcO);
+            sLoadedLibraries.add(bcP);
             return a2;
         }
         return a2;
     }
 
     public static String getV8SoDependentFilePath() {
-        if (!sLoadedLibraries.contains(e.bcO())) {
+        if (!sLoadedLibraries.contains(e.bcP())) {
             return null;
         }
         String v8SoDependentFilePath = e.getV8SoDependentFilePath();
@@ -70,11 +70,11 @@ public final class SoLoader {
     public static void load(Context context, String str, boolean z, boolean z2) {
         boolean load;
         if (!sLoadedLibraries.contains(str)) {
-            a bcE = a.bcE();
+            a bcF = a.bcF();
             if (!z) {
-                load = new SoLoader().loadInternalFromLocal(context, str, bcE, z2);
+                load = new SoLoader().loadInternalFromLocal(context, str, bcF, z2);
             } else {
-                load = load(context, str, bcE, z2);
+                load = load(context, str, bcF, z2);
             }
             if (load) {
                 sLoadedLibraries.add(str);
@@ -84,7 +84,7 @@ public final class SoLoader {
 
     private static boolean load(Context context, String str, b bVar, boolean z) {
         if (bVar == null) {
-            bVar = a.bcE();
+            bVar = a.bcF();
         }
         SoLoader soLoader = new SoLoader();
         if (soSources.size() == 0) {

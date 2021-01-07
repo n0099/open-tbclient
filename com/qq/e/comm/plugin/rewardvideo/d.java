@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.rewardvideo;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends com.qq.e.comm.plugin.s.a implements com.qq.e.comm.plugin.n.i {
     private JSONObject J;
     private int K;
@@ -112,7 +112,7 @@ public class d extends com.qq.e.comm.plugin.s.a implements com.qq.e.comm.plugin.
     }
 
     public String j() {
-        return this.f12742a;
+        return this.f12743a;
     }
 
     public String k() {

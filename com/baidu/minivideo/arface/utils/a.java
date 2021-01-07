@@ -54,12 +54,12 @@ public class a extends d {
 
     @Override // com.baidu.minivideo.arface.utils.d
     protected void run() {
-        boolean aeE = aeE();
+        boolean aeF = aeF();
         cmh = new JSONObject();
-        if (aeE) {
+        if (aeF) {
             try {
                 cmh.put("type", com.baidu.minivideo.arface.c.ckm ? "assets" : "soloader");
-                cmh.put("exist", aeE);
+                cmh.put("exist", aeF);
                 cmh.put("path", this.cmf);
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -73,18 +73,18 @@ public class a extends d {
                 if (isDebug()) {
                     i.d("ARSourceCopyManager", "sdk loading .. to " + this.cmf.getAbsoluteFile());
                 }
-                aeF();
+                aeG();
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
         }
     }
 
-    public boolean aeE() {
+    public boolean aeF() {
         return this.cmf != null && this.cmf.isDirectory() && this.cmf.exists();
     }
 
-    private void aeF() {
+    private void aeG() {
         this.cmc = new c(getContext());
         new AsyncTask<Void, Void, Boolean>() { // from class: com.baidu.minivideo.arface.utils.a.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -96,7 +96,7 @@ public class a extends d {
                     a.cmh = new JSONObject();
                 }
                 if (a.this.cmf != null) {
-                    if (a.this.cmg || !a.this.aeE()) {
+                    if (a.this.cmg || !a.this.aeF()) {
                         if (!a.this.cmf.isDirectory()) {
                             try {
                                 a.cmh.put("file-del", true);

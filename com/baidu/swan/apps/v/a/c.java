@@ -15,24 +15,24 @@ public class c implements com.baidu.swan.apps.v.a.a {
     private c() {
         this.mIsPaused = false;
         this.djU = new ArrayList();
-        if (a.aDT()) {
-            if (a.aDV()) {
+        if (a.aDU()) {
+            if (a.aDW()) {
                 this.djU.add(new d());
             }
-            if (a.aDW()) {
+            if (a.aDX()) {
                 this.djU.add(new com.baidu.swan.apps.v.a.b());
             }
         }
     }
 
-    public static com.baidu.swan.apps.v.a.a aDS() {
+    public static com.baidu.swan.apps.v.a.a aDT() {
         return b.djZ;
     }
 
     @Override // com.baidu.swan.apps.v.a.a
     @AnyThread
     public void onPause() {
-        if (a.aDT()) {
+        if (a.aDU()) {
             this.djV = new Runnable() { // from class: com.baidu.swan.apps.v.a.c.1
                 @Override // java.lang.Runnable
                 public void run() {
@@ -43,14 +43,14 @@ public class c implements com.baidu.swan.apps.v.a.a {
                     c.this.djV = null;
                 }
             };
-            ak.c(this.djV, a.aDU() * 1000);
+            ak.c(this.djV, a.aDV() * 1000);
         }
     }
 
     @Override // com.baidu.swan.apps.v.a.a
     @AnyThread
     public void onResume() {
-        if (a.aDT()) {
+        if (a.aDU()) {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.v.a.c.2
                 @Override // java.lang.Runnable
                 public void run() {
@@ -74,27 +74,27 @@ public class c implements com.baidu.swan.apps.v.a.a {
         private static int djX = -2;
         private static int djY = -2;
 
-        public static boolean aDT() {
+        public static boolean aDU() {
             if (djX == -2) {
-                djX = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_webview_backstage_optimize", -1);
+                djX = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_webview_backstage_optimize", -1);
             }
             return djX > -1;
         }
 
-        public static int aDU() {
+        public static int aDV() {
             return djX;
-        }
-
-        public static boolean aDV() {
-            if (djY == -2) {
-                djY = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_webview_pause_control", 3);
-            }
-            return (djY & 1) == 1;
         }
 
         public static boolean aDW() {
             if (djY == -2) {
-                djY = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_webview_pause_control", 3);
+                djY = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_webview_pause_control", 3);
+            }
+            return (djY & 1) == 1;
+        }
+
+        public static boolean aDX() {
+            if (djY == -2) {
+                djY = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_webview_pause_control", 3);
             }
             return (djY & 2) == 2;
         }

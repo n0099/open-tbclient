@@ -8,10 +8,10 @@ public class as {
     private static final as e = new as();
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f3723a = false;
+    private boolean f3724a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private float f3724b = 50.0f;
+    private float f3725b = 50.0f;
     private long c = 500;
     private volatile boolean d;
 
@@ -27,10 +27,10 @@ public class as {
                     int optInt = jSONObject.optInt("close");
                     String optString = jSONObject.optString(CreateGroupActivityActivityConfig.GROUP_ACTIVITY_AREA);
                     String optString2 = jSONObject.optString("duration");
-                    this.f3723a = optInt != 0;
+                    this.f3724a = optInt != 0;
                     if (!TextUtils.isEmpty(optString)) {
                         try {
-                            this.f3724b = Float.valueOf(optString).floatValue();
+                            this.f3725b = Float.valueOf(optString).floatValue();
                         } catch (Exception e2) {
                         }
                     }
@@ -48,12 +48,12 @@ public class as {
     }
 
     public boolean b() {
-        return this.f3723a;
+        return this.f3724a;
     }
 
     public float c() {
         float f = 0.0f;
-        float f2 = this.f3724b;
+        float f2 = this.f3725b;
         if (f2 >= 0.0f) {
             f = f2 > 100.0f ? 100.0f : f2;
         }

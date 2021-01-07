@@ -18,11 +18,11 @@ import java.util.List;
 import java.util.UUID;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public class g {
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f1700b = false;
+    private static boolean f1701b = false;
     c aoq;
     private a.C0094a aou;
     private volatile FileLock aov;
@@ -30,11 +30,11 @@ public class g {
     private com.baidu.cesium.b.b aox;
     private Context f;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes6.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final String[] f1701a = {"V", "O", "0"};
+        public static final String[] f1702a = {"V", "O", "0"};
         private String i;
         private String j;
         private String k;
@@ -177,7 +177,7 @@ public class g {
     private void a(com.baidu.cesium.e.a aVar) {
         com.baidu.cesium.b.b bVar = new com.baidu.cesium.b.b(new com.baidu.cesium.a());
         a.C0091a c0091a = new a.C0091a();
-        c0091a.f1669a = this.f;
+        c0091a.f1670a = this.f;
         c0091a.anN = aVar;
         a.c cVar = new a.c();
         for (com.baidu.cesium.b.a aVar2 : bVar.a()) {
@@ -220,12 +220,12 @@ public class g {
     public a S(String str, String str2) {
         com.baidu.cesium.b.a dl = this.aox.dl(str2);
         a.f fVar = new a.f();
-        fVar.f1671a = true;
+        fVar.f1672a = true;
         a.g a2 = dl.a(str, fVar);
         if (a2 == null || !a2.a()) {
             return null;
         }
-        return a2.f1672a;
+        return a2.f1673a;
     }
 
     public void a(a aVar) {
@@ -268,7 +268,7 @@ public class g {
             aVar.j = eVar.e.substring(0, 1);
             aVar.i = eVar.d;
             aVar.k = c(eVar.d);
-            String[] strArr = a.f1701a;
+            String[] strArr = a.f1702a;
             int length = strArr.length;
             int i = 0;
             while (true) {
@@ -296,7 +296,7 @@ public class g {
         String a2 = a(this.f);
         if (Build.VERSION.SDK_INT < 23) {
             String uuid = UUID.randomUUID().toString();
-            if (f1700b) {
+            if (f1701b) {
                 Log.d("CuidV270Manager", "uuid: " + uuid);
             }
             str2 = str + a2 + uuid;
@@ -375,7 +375,7 @@ public class g {
 
     public a d() {
         a.f fVar = new a.f();
-        fVar.f1671a = true;
+        fVar.f1672a = true;
         List<com.baidu.cesium.b.a> a2 = this.aox.a();
         Collections.sort(a2, com.baidu.cesium.b.a.d);
         List<b> b2 = this.aoq.b(this.f);
@@ -384,8 +384,8 @@ public class g {
                 if (!bVar.d && bVar.c) {
                     for (com.baidu.cesium.b.a aVar : a2) {
                         a.g a3 = aVar.a(bVar.aeJ.packageName, fVar);
-                        if (a3 != null && a3.a() && a3.f1672a != null) {
-                            return a3.f1672a;
+                        if (a3 != null && a3.a() && a3.f1673a != null) {
+                            return a3.f1673a;
                         }
                     }
                     continue;

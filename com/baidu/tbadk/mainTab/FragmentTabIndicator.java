@@ -57,7 +57,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass2) aVar, str, i);
                 if (FragmentTabIndicator.this.mIconView == null || aVar == null || !aVar.isValidNow()) {
-                    FragmentTabIndicator.this.bGw();
+                    FragmentTabIndicator.this.bGx();
                     return;
                 }
                 FragmentTabIndicator.this.mIconView.setBackgroundResource(0);
@@ -82,7 +82,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             public void onLoaded(com.baidu.adp.widget.ImageView.a aVar, String str, int i) {
                 super.onLoaded((AnonymousClass2) aVar, str, i);
                 if (FragmentTabIndicator.this.mIconView == null || aVar == null || !aVar.isValidNow()) {
-                    FragmentTabIndicator.this.bGw();
+                    FragmentTabIndicator.this.bGx();
                     return;
                 }
                 FragmentTabIndicator.this.mIconView.setBackgroundResource(0);
@@ -100,7 +100,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         this.mIconView = (ImageView) inflate.findViewById(R.id.view_bottom_icon);
         this.fJv = (TextView) inflate.findViewById(R.id.view_bottom_text);
         this.fJv.setDuplicateParentStateEnabled(true);
-        bGw();
+        bGx();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -180,7 +180,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public TbFragmentTabIndicator.a Ei(String str) {
+    public TbFragmentTabIndicator.a Eh(String str) {
         return this.mTips.get(str);
     }
 
@@ -217,7 +217,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
     public void setIconResourceId(int i) {
         this.fJs = i;
-        bGw();
+        bGx();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -275,7 +275,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         if (this.fJv != null) {
             this.fJv.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, ao.getSkinDrawable(null, this.drawableTopResId), ao.getSkinDrawable(null, this.drawableRightResId), (Drawable) null);
         }
-        bGv();
+        bGw();
         for (Map.Entry<String, TbFragmentTabIndicator.a> entry : this.mTips.entrySet()) {
             entry.getValue().onChangeSkin(i);
         }
@@ -287,7 +287,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
-    public void bGu() {
+    public void bGv() {
         if (this.animationResId > 0 && this.fJr) {
             try {
                 this.fJr = false;
@@ -338,7 +338,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             layoutParams.addRule(14, -1);
             this.mIconView.setLayoutParams(layoutParams);
         }
-        bGv();
+        bGw();
     }
 
     @Override // com.baidu.tbadk.mainTab.TbFragmentTabIndicator
@@ -358,7 +358,7 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
             layoutParams2.addRule(14, -1);
             this.mIconView.setLayoutParams(layoutParams2);
         }
-        bGv();
+        bGw();
     }
 
     @Override // android.view.View
@@ -398,20 +398,20 @@ public class FragmentTabIndicator extends TbFragmentTabIndicator {
         }
     }
 
-    private void bGv() {
+    private void bGw() {
         if (this.drawableTopResId <= 0 && this.drawableRightResId <= 0) {
             if ((TbadkCoreApplication.getInst().getSkinType() == 1) && !TextUtils.isEmpty(this.fJt)) {
                 com.baidu.adp.lib.e.d.mx().a(this.fJt, 10, this.fba, getBdUniqueId());
             } else if (!TextUtils.isEmpty(this.iconUrl)) {
                 com.baidu.adp.lib.e.d.mx().a(this.iconUrl, 10, this.fba, getBdUniqueId());
             } else {
-                bGw();
+                bGx();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bGw() {
+    public void bGx() {
         if (this.fJs > 0) {
             ao.setImageResource(this.mIconView, this.fJs);
         }

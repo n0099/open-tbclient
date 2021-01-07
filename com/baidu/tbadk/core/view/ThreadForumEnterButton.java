@@ -60,11 +60,11 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.eMv.getType() == bz.eTC) {
-            BdToast.b(this.mContext, this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bud();
-        } else if (!StringUtils.isNull(this.eMv.bru())) {
+            BdToast.b(this.mContext, this.mContext.getString(R.string.video_is_checking), R.drawable.icon_pure_toast_mistake40_svg, true).bue();
+        } else if (!StringUtils.isNull(this.eMv.brv())) {
             view.setTag(this.eMv);
             if (this.mFrom == 0) {
-                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.eMv.bru(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
+                FrsActivityConfig createNormalCfg = new FrsActivityConfig(this.mContext).createNormalCfg(this.eMv.brv(), FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND);
                 createNormalCfg.setCallFrom(14);
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, createNormalCfg));
             } else if (this.mFrom == 1) {
@@ -89,7 +89,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 int dimens = com.baidu.adp.lib.util.l.getDimens(this.mContext, R.dimen.T_X09);
                 this.mIconDrawable.setBounds(0, 0, dimens, dimens);
             }
-            byg();
+            byh();
         }
     }
 
@@ -97,14 +97,14 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         this.eMv = bzVar;
         if (bzVar != null && i > 0) {
             int paddingLeft = this.fmZ.getPaddingLeft();
-            String bru = bzVar.bru();
-            if (StringUtils.isNull(bru)) {
+            String brv = bzVar.brv();
+            if (StringUtils.isNull(brv)) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            byg();
-            this.fmZ.setText(((Object) TextUtils.ellipsize(bru, this.fmZ.getPaint(), (i - (paddingLeft * 2)) - this.fmZ.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
+            byh();
+            this.fmZ.setText(((Object) TextUtils.ellipsize(brv, this.fmZ.getPaint(), (i - (paddingLeft * 2)) - this.fmZ.getPaint().measureText(getResources().getString(R.string.forum)), TextUtils.TruncateAt.END)) + getResources().getString(R.string.forum));
             this.fmZ.setVisibility(0);
             onChangeSkinType();
             return;
@@ -112,7 +112,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         setVisibility(8);
     }
 
-    private void byg() {
+    private void byh() {
         this.fmZ.setCompoundDrawables(this.mIconDrawable, null, null, null);
     }
 

@@ -20,8 +20,6 @@ import com.baidu.live.sdk.a;
 import com.baidu.live.tbadk.widget.TbImageView;
 import com.baidu.live.tieba.view.fresco.SimpleDraweeView;
 import com.facebook.drawee.a.a.c;
-import com.facebook.fresco.animation.drawable.AnimatedDrawable2;
-import com.facebook.fresco.animation.drawable.BaseAnimationListener;
 import com.facebook.imagepipeline.f.f;
 import com.facebook.imagepipeline.request.ImageRequest;
 import com.facebook.imagepipeline.request.ImageRequestBuilder;
@@ -33,6 +31,7 @@ public class AlaEmoticonView extends FrameLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
+        void Wq();
     }
 
     /* loaded from: classes11.dex */
@@ -71,8 +70,8 @@ public class AlaEmoticonView extends FrameLayout {
     public void stopLoad() {
         if (this.bLj != null) {
             this.bLj.clearAnimation();
-            if (this.bLj.getController() != null && this.bLj.getController().evo() != null && this.bLj.getController().evo().isRunning()) {
-                this.bLj.getController().evo().stop();
+            if (this.bLj.getController() != null && this.bLj.getController().evv() != null && this.bLj.getController().evv().isRunning()) {
+                this.bLj.getController().evv().stop();
             }
         }
     }
@@ -84,16 +83,31 @@ public class AlaEmoticonView extends FrameLayout {
     private void aM(String str, final String str2) {
         if (!TextUtils.isEmpty(str)) {
             this.bLj.setVisibility(0);
-            this.bLj.setController(c.euI().bo(ImageRequest.ZF(str)).c(this.bLj.getController()).AX(true).c(new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1
+            this.bLj.setController(c.euP().bo(ImageRequest.ZF(str)).c(this.bLj.getController()).AX(true).c(new com.facebook.drawee.controller.b<f>() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.facebook.drawee.controller.b, com.facebook.drawee.controller.c
                 public void a(String str3, f fVar, Animatable animatable) {
-                    if (animatable instanceof AnimatedDrawable2) {
-                        ((AnimatedDrawable2) animatable).setAnimationListener(new BaseAnimationListener() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1.1
+                    if (animatable instanceof com.facebook.fresco.animation.c.a) {
+                        ((com.facebook.fresco.animation.c.a) animatable).a(new com.facebook.fresco.animation.c.c() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.1.1
+                            @Override // com.facebook.fresco.animation.c.c, com.facebook.fresco.animation.c.b
+                            public void a(com.facebook.fresco.animation.c.a aVar) {
+                            }
+
+                            @Override // com.facebook.fresco.animation.c.c, com.facebook.fresco.animation.c.b
+                            public void b(com.facebook.fresco.animation.c.a aVar) {
+                            }
+
+                            @Override // com.facebook.fresco.animation.c.c, com.facebook.fresco.animation.c.b
+                            public void a(com.facebook.fresco.animation.c.a aVar, int i) {
+                                super.a(aVar, i);
+                                if (aVar != null && i >= aVar.getFrameCount() - 1) {
+                                    AlaEmoticonView.this.a(aVar, str2);
+                                }
+                            }
                         });
                     }
                 }
-            }).evz());
+            }).evG());
         }
     }
 
@@ -101,6 +115,19 @@ public class AlaEmoticonView extends FrameLayout {
         this.bLk.setAlpha(f);
         this.bLk.setDefaultBgResource(a.e.sdk_transparent_bg);
         this.bLk.startLoad(str, 10, false);
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void a(com.facebook.fresco.animation.c.a aVar, String str) {
+        aVar.stop();
+        aVar.a((com.facebook.fresco.animation.c.b) null);
+        if (!TextUtils.isEmpty(str)) {
+            this.bLk.setAlpha(1.0f);
+            this.bLj.setVisibility(8);
+        }
+        if (this.bLl != null) {
+            this.bLl.Wq();
+        }
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -111,7 +138,7 @@ public class AlaEmoticonView extends FrameLayout {
 
     public static void a(String str, final String str2, final b bVar, Object obj) {
         if (!StringUtils.isNull(str, true)) {
-            c.euK().e(ImageRequestBuilder.aj(Uri.parse(str)).Bi(true).eBe(), obj).a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2
+            c.euR().e(ImageRequestBuilder.aj(Uri.parse(str)).Bi(true).eBI(), obj).a(new com.facebook.imagepipeline.d.b() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2
                 @Override // com.facebook.imagepipeline.d.b
                 public void f(@Nullable Bitmap bitmap) {
                     SafeHandler.getInst().post(new Runnable() { // from class: com.baidu.live.tieba.view.AlaEmoticonView.2.1
@@ -133,7 +160,7 @@ public class AlaEmoticonView extends FrameLayout {
                         bVar.onFail();
                     }
                 }
-            }, com.facebook.common.b.a.etO());
+            }, com.facebook.common.b.a.etS());
         }
     }
 

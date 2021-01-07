@@ -157,7 +157,7 @@ public class d implements an {
         }
     };
 
-    public void Kx(String str) {
+    public void Kw(String str) {
         ForumMemberReadCacheRequestMessage forumMemberReadCacheRequestMessage = new ForumMemberReadCacheRequestMessage();
         if (this.fJu != null) {
             forumMemberReadCacheRequestMessage.setTag(this.fJu);
@@ -231,7 +231,7 @@ public class d implements an {
                 n nVar = new n();
                 if (nVar != null) {
                     nVar.zJ(priManagerApplyInfo.assist_left_num.intValue());
-                    nVar.Kz(priManagerApplyInfo.assist_apply_url);
+                    nVar.Ky(priManagerApplyInfo.assist_apply_url);
                     nVar.zK(priManagerApplyInfo.assist_apply_status.intValue());
                 }
                 arrayList.add(nVar);
@@ -240,9 +240,9 @@ public class d implements an {
             l lVar = new l();
             if (managerApplyInfo != null) {
                 lVar.zH(managerApplyInfo.manager_left_num.intValue());
-                lVar.Ky(managerApplyInfo.manager_apply_url);
+                lVar.Kx(managerApplyInfo.manager_apply_url);
                 lVar.zJ(managerApplyInfo.assist_left_num.intValue());
-                lVar.Kz(managerApplyInfo.assist_apply_url);
+                lVar.Ky(managerApplyInfo.assist_apply_url);
                 lVar.zI(managerApplyInfo.manager_apply_status.intValue());
             }
             arrayList.add(lVar);
@@ -252,9 +252,9 @@ public class d implements an {
             arrayList.add(bVar);
         }
         a(memberGodInfo, arrayList);
-        com.baidu.adp.widget.ListView.n cDr = cDr();
-        if (cDr != null) {
-            arrayList.add(cDr);
+        com.baidu.adp.widget.ListView.n cDs = cDs();
+        if (cDs != null) {
+            arrayList.add(cDs);
         }
         return arrayList;
     }
@@ -285,7 +285,7 @@ public class d implements an {
         }
     }
 
-    private com.baidu.tieba.frs.n cDr() {
+    private com.baidu.tieba.frs.n cDs() {
         int dimens;
         if (this.mMemberGroupInfoList == null || this.mMemberGroupInfoList.size() <= 0) {
             return null;
@@ -318,7 +318,7 @@ public class d implements an {
             this.forumId = axVar.forumId;
             this.forumName = axVar.forumName;
             if (this.iXY) {
-                Kx(axVar.forumName);
+                Kw(axVar.forumName);
             } else if (axVar.pn == -1) {
                 l(com.baidu.adp.lib.f.b.toLong(axVar.forumId, 0L), axVar.forumName);
             } else {
@@ -353,7 +353,7 @@ public class d implements an {
     }
 
     @Override // com.baidu.tieba.frs.an
-    public void cbG() {
+    public void cbH() {
         MessageManager.getInstance().unRegisterListener(this.jaH);
         MessageManager.getInstance().unRegisterListener(this.jaI);
         MessageManager.getInstance().unRegisterListener(this.jbp);

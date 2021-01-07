@@ -29,7 +29,7 @@ public class HomePageYoungsterTopView extends RelativeLayout {
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cTh();
+        void cTi();
     }
 
     public HomePageYoungsterTopView(TbPageContext<?> tbPageContext) {
@@ -63,7 +63,7 @@ public class HomePageYoungsterTopView extends RelativeLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (HomePageYoungsterTopView.this.kiS != null) {
-                    HomePageYoungsterTopView.this.kiS.cTh();
+                    HomePageYoungsterTopView.this.kiS.cTi();
                 }
             }
         });
@@ -98,7 +98,7 @@ public class HomePageYoungsterTopView extends RelativeLayout {
         @Override // android.text.style.ClickableSpan
         public void onClick(@NonNull View view) {
             Context context = this.kiU.get();
-            if (context != null && com.baidu.tbadk.youngster.b.c.bMD()) {
+            if (context != null && com.baidu.tbadk.youngster.b.c.bME()) {
                 YoungsterPasswordActivityConfig youngsterPasswordActivityConfig = new YoungsterPasswordActivityConfig(context);
                 youngsterPasswordActivityConfig.setKeyYoungsterPasswordFrom(3);
                 youngsterPasswordActivityConfig.setYoungsterPasswordPageType(3);

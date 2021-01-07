@@ -54,7 +54,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
             int i = 0;
             while (i < count) {
                 if (i % 2 == 0) {
-                    linearLayout = dtK();
+                    linearLayout = dtL();
                 } else {
                     if (linearLayout2 != null) {
                         b(linearLayout2, (String) x.getItem(arrayList, i - 1));
@@ -90,7 +90,7 @@ public class PbFirstFloorTopicView extends LinearLayout implements View.OnClickL
         layoutParams.rightMargin = this.jkB;
     }
 
-    private LinearLayout dtK() {
+    private LinearLayout dtL() {
         LinearLayout linearLayout = new LinearLayout(this.mContext);
         ao.setBackgroundColor(linearLayout, R.color.transparent);
         linearLayout.setLayoutParams(new LinearLayout.LayoutParams(this.mWidth, -2));

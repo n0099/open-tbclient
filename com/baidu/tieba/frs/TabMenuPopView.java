@@ -40,7 +40,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         this.fZS = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<TextView>() { // from class: com.baidu.tieba.frs.TabMenuPopView.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: bLS */
+            /* renamed from: bLT */
             public TextView makeObject() {
                 TextView textView = new TextView(TabMenuPopView.this.mContext);
                 textView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(TabMenuPopView.this.mContext, R.dimen.fontsize28));
@@ -286,7 +286,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getTag() instanceof bc) {
-            cHw();
+            cHx();
             bc bcVar = (bc) view.getTag();
             setItemSelectState(bcVar, true);
             view.setSelected(true);
@@ -296,7 +296,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         }
     }
 
-    public void cHw() {
+    public void cHx() {
         if (this.mDataList != null && getChildCount() > 0) {
             if (this.jkx != null) {
                 this.jkx.isSelected = false;
@@ -330,7 +330,7 @@ public class TabMenuPopView extends LinearLayout implements View.OnClickListener
         return super.dispatchTouchEvent(motionEvent);
     }
 
-    public void bxO() {
+    public void bxP() {
         com.baidu.tbadk.core.util.ao.setBackgroundColor(this, R.color.CAM_X0201);
         int i = 0;
         while (true) {

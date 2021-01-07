@@ -30,8 +30,8 @@ public class SubPbView extends LinearLayout {
     private View iPK;
     private boolean mIsFinish;
     private float mRatio;
-    private BlankView mcx;
-    private boolean mdE;
+    private BlankView mcw;
+    private boolean mdD;
 
     public SubPbView(Context context) {
         this(context, null);
@@ -68,7 +68,7 @@ public class SubPbView extends LinearLayout {
     }
 
     public void setBlankView(BlankView blankView) {
-        this.mcx = blankView;
+        this.mcw = blankView;
     }
 
     public void setTopView(View view) {
@@ -87,7 +87,7 @@ public class SubPbView extends LinearLayout {
         this.aYl = relativeLayout;
     }
 
-    public boolean dum() {
+    public boolean dun() {
         return this.fAF;
     }
 
@@ -99,7 +99,7 @@ public class SubPbView extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.ViewGroup, android.view.View
     protected void onLayout(boolean z, int i, int i2, int i3, int i4) {
-        if (this.mcx == null) {
+        if (this.mcw == null) {
             super.onLayout(z, i, i2, i3, i4);
         } else if (this.fOh == 0) {
             super.onLayout(z, i, i2, i3, i4);
@@ -115,7 +115,7 @@ public class SubPbView extends LinearLayout {
 
     @Override // android.widget.LinearLayout, android.view.View
     protected void onDraw(Canvas canvas) {
-        if (this.mRatio >= 0.0f && this.mcx != null) {
+        if (this.mRatio >= 0.0f && this.mcw != null) {
             canvas.drawColor(Color.argb((int) (168.0f * this.mRatio), 0, 0, 0), PorterDuff.Mode.SRC);
         }
         super.onDraw(canvas);
@@ -124,7 +124,7 @@ public class SubPbView extends LinearLayout {
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
         boolean z;
-        if (this.mcx == null || !this.mdE) {
+        if (this.mcw == null || !this.mdD) {
             return super.dispatchTouchEvent(motionEvent);
         }
         if (this.fOg.isRunning()) {
@@ -187,6 +187,6 @@ public class SubPbView extends LinearLayout {
     }
 
     public void setEnableDragExit(boolean z) {
-        this.mdE = z;
+        this.mdD = z;
     }
 }

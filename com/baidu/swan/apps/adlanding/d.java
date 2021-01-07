@@ -21,7 +21,7 @@ public class d {
         this.cGq = i3;
     }
 
-    public com.baidu.swan.apps.media.b.c amP() {
+    public com.baidu.swan.apps.media.b.c amQ() {
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("showMuteBtn", true);

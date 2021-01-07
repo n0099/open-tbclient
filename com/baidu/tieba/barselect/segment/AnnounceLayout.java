@@ -61,7 +61,7 @@ public class AnnounceLayout extends CardBasicLayout {
         if (this.status == a.isk || this.status == a.isl) {
             this.fnx = l.getScreenSize((Activity) getContext()).widthPixels - (l.getDimens(getContext(), R.dimen.tbds96) * 2);
         }
-        c(new SpannableStringBuilder(this.irV.ctK()));
+        c(new SpannableStringBuilder(this.irV.ctL()));
     }
 
     private void c(SpannableStringBuilder spannableStringBuilder) {

@@ -4,15 +4,15 @@ package com.baidu.mobads.g;
 public class k implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ boolean f3374a;
+    final /* synthetic */ boolean f3375a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ g f3375b;
+    final /* synthetic */ g f3376b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(g gVar, boolean z) {
-        this.f3375b = gVar;
-        this.f3374a = z;
+        this.f3376b = gVar;
+        this.f3375a = z;
     }
 
     @Override // java.lang.Runnable

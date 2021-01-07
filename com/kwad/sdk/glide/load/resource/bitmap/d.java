@@ -7,14 +7,14 @@ import androidx.annotation.Nullable;
 public class d implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.glide.load.engine.s<Bitmap> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Bitmap f10571a;
+    private final Bitmap f10572a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10572b;
+    private final com.kwad.sdk.glide.load.engine.bitmap_recycle.e f10573b;
 
     public d(@NonNull Bitmap bitmap, @NonNull com.kwad.sdk.glide.load.engine.bitmap_recycle.e eVar) {
-        this.f10571a = (Bitmap) com.kwad.sdk.glide.g.j.a(bitmap, "Bitmap must not be null");
-        this.f10572b = (com.kwad.sdk.glide.load.engine.bitmap_recycle.e) com.kwad.sdk.glide.g.j.a(eVar, "BitmapPool must not be null");
+        this.f10572a = (Bitmap) com.kwad.sdk.glide.g.j.a(bitmap, "Bitmap must not be null");
+        this.f10573b = (com.kwad.sdk.glide.load.engine.bitmap_recycle.e) com.kwad.sdk.glide.g.j.a(eVar, "BitmapPool must not be null");
     }
 
     @Nullable
@@ -33,17 +33,17 @@ public class d implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.glide.l
 
     @Override // com.kwad.sdk.glide.load.engine.o
     public void b() {
-        this.f10571a.prepareToDraw();
+        this.f10572a.prepareToDraw();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public int c() {
-        return com.kwad.sdk.glide.g.k.a(this.f10571a);
+        return com.kwad.sdk.glide.g.k.a(this.f10572a);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.s
     public void d_() {
-        this.f10572b.a(this.f10571a);
+        this.f10573b.a(this.f10572a);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -51,6 +51,6 @@ public class d implements com.kwad.sdk.glide.load.engine.o, com.kwad.sdk.glide.l
     @NonNull
     /* renamed from: f */
     public Bitmap e() {
-        return this.f10571a;
+        return this.f10572a;
     }
 }

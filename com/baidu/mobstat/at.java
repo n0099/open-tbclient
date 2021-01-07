@@ -30,10 +30,10 @@ public class at {
     private static final at u = new at();
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f3725a;
+    private Context f3726a;
 
     /* renamed from: b  reason: collision with root package name */
-    private WeakReference<Activity> f3726b;
+    private WeakReference<Activity> f3727b;
     private Handler c;
     private long g;
     private long h;
@@ -56,7 +56,7 @@ public class at {
     private ViewTreeObserver.OnScrollChangedListener w = new ViewTreeObserver.OnScrollChangedListener() { // from class: com.baidu.mobstat.at.11
         @Override // android.view.ViewTreeObserver.OnScrollChangedListener
         public void onScrollChanged() {
-            at.this.a(at.this.f3726b);
+            at.this.a(at.this.f3727b);
         }
     };
     private Runnable x = null;
@@ -120,8 +120,8 @@ public class at {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(Activity activity, long j) {
-        this.f3725a = activity.getApplicationContext();
-        this.f3726b = new WeakReference<>(activity);
+        this.f3726a = activity.getApplicationContext();
+        this.f3727b = new WeakReference<>(activity);
         this.g = j;
         String e = bj.e(activity);
         if (bj.a(e, this.j)) {
@@ -209,7 +209,7 @@ public class at {
                 @Override // java.lang.Runnable
                 public void run() {
                     Activity activity;
-                    if (at.this.f3726b != null && (activity = (Activity) at.this.f3726b.get()) != null) {
+                    if (at.this.f3727b != null && (activity = (Activity) at.this.f3727b.get()) != null) {
                         String e = bj.e(activity);
                         if (!TextUtils.isEmpty(at.this.k) && at.this.k.equals(e)) {
                             at.this.c();
@@ -401,7 +401,7 @@ public class at {
         }
         a(this.e);
         if (this.d) {
-            a(this.f3726b, j);
+            a(this.f3727b, j);
             this.d = false;
         }
         a(this.s, j);
@@ -482,15 +482,15 @@ public class at {
                     String e = bj.e(activity);
                     String f = bj.f(activity);
                     ArrayList<Integer> a2 = a(activity, view);
-                    int a3 = ah.a(this.f3725a, a2.get(0).intValue());
-                    int a4 = ah.a(this.f3725a, a2.get(1).intValue());
+                    int a3 = ah.a(this.f3726a, a2.get(0).intValue());
+                    int a4 = ah.a(this.f3726a, a2.get(1).intValue());
                     ArrayList<Integer> b2 = bj.b(activity, view);
-                    int a5 = ah.a(this.f3725a, b2.get(0).intValue());
-                    int a6 = ah.a(this.f3725a, b2.get(1).intValue());
+                    int a5 = ah.a(this.f3726a, b2.get(0).intValue());
+                    int a6 = ah.a(this.f3726a, b2.get(1).intValue());
                     int i = a5 > a3 ? a5 : a3;
                     int i2 = a6 > a4 ? a6 : a4;
                     if (i != 0 && i2 != 0) {
-                        a(this.f3725a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
+                        a(this.f3726a, new ao(e, f, this.l, j2 - j, j, a5, a6, i, i2, str, this.n, this.o));
                     }
                 }
             }
@@ -628,7 +628,7 @@ public class at {
         if (this.v != null) {
             this.v.a(arrayList);
         }
-        aw.a().a(this.f3725a, arrayList);
+        aw.a().a(this.f3726a, arrayList);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -870,7 +870,7 @@ public class at {
         if (this.v != null) {
             this.v.b(arrayList);
         }
-        aw.a().b(this.f3725a, arrayList);
+        aw.a().b(this.f3726a, arrayList);
     }
 
     private ArrayList<aq> h(HashMap<String, ArrayList<aq>> hashMap) {

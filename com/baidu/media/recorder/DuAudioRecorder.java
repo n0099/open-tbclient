@@ -49,16 +49,16 @@ public class DuAudioRecorder extends CyberAudioRecorder {
     public class a extends Handler {
 
         /* renamed from: b  reason: collision with root package name */
-        private final WeakReference<DuAudioRecorder> f3250b;
+        private final WeakReference<DuAudioRecorder> f3251b;
 
         public a(DuAudioRecorder duAudioRecorder, Looper looper) {
             super(looper);
-            this.f3250b = new WeakReference<>(duAudioRecorder);
+            this.f3251b = new WeakReference<>(duAudioRecorder);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            DuAudioRecorder duAudioRecorder = this.f3250b.get();
+            DuAudioRecorder duAudioRecorder = this.f3251b.get();
             if (duAudioRecorder == null || duAudioRecorder.mNativeContext == 0) {
                 return;
             }

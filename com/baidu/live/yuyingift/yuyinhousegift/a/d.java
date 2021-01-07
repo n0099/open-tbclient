@@ -11,7 +11,7 @@ public class d extends a {
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.a
-    protected AnimatorSet aby() {
+    protected AnimatorSet abz() {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(ObjectAnimator.ofFloat(this.mTarget, "alpha", 1.0f, 1.0f));
         animatorSet.setDuration(640L);

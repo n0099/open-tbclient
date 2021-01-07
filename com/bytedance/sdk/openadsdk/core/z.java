@@ -21,10 +21,10 @@ import com.bytedance.sdk.openadsdk.utils.b;
 public class z {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f7162a = false;
+    private static boolean f7163a = false;
 
     public static void a(boolean z) {
-        f7162a = z;
+        f7163a = z;
     }
 
     public static boolean a(final Context context, final com.bytedance.sdk.openadsdk.core.d.l lVar, final int i, @Nullable TTNativeAd tTNativeAd, @Nullable TTNativeExpressAd tTNativeExpressAd, final String str, @Nullable com.bytedance.sdk.openadsdk.downloadnew.core.a aVar, final boolean z) {
@@ -108,7 +108,7 @@ public class z {
                 }
             } else {
                 com.bytedance.sdk.openadsdk.utils.b.a(context, a(context, K, lVar, i, tTNativeAd, tTNativeExpressAd, str, z), null);
-                f7162a = false;
+                f7163a = false;
             }
             return true;
         }
@@ -138,7 +138,7 @@ public class z {
                 }
             }
         } else {
-            intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (lVar.X() != 5 || f7162a) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
+            intent = tTNativeAd instanceof TTDrawFeedAd ? new Intent(context, TTWebPageActivity.class) : (lVar.X() != 5 || f7163a) ? new Intent(context, TTWebPageActivity.class) : new Intent(context, TTVideoWebPageActivity.class);
         }
         intent.putExtra("url", str);
         intent.putExtra("gecko_id", lVar.L());
@@ -161,7 +161,7 @@ public class z {
         }
         if (lVar.X() == 5) {
             if (tTNativeAd != null) {
-                aVar = tTNativeAd instanceof a.InterfaceC1001a ? ((a.InterfaceC1001a) tTNativeAd).a() : null;
+                aVar = tTNativeAd instanceof a.InterfaceC1039a ? ((a.InterfaceC1039a) tTNativeAd).a() : null;
                 if (aVar != null) {
                     intent.putExtra(TTAdConstant.MULTI_PROCESS_DATA, aVar.a().toString());
                 }

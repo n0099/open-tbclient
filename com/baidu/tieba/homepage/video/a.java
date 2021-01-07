@@ -33,7 +33,7 @@ public class a {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             a.this.g(customResponsedMessage);
             if (a.this.knJ != null) {
-                a.this.knJ.cSn();
+                a.this.knJ.cSo();
             }
         }
     };
@@ -72,7 +72,7 @@ public class a {
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
                 a.this.knJ.rW(false);
-                a.this.knI.cUn();
+                a.this.knI.cUo();
                 TiebaStatic.log(new aq("c13582"));
                 return;
             }
@@ -83,8 +83,8 @@ public class a {
     private BdListView.e kcp = new BdListView.e() { // from class: com.baidu.tieba.homepage.video.a.4
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
-            a.this.knJ.bUE();
-            a.this.knI.cIc();
+            a.this.knJ.bUF();
+            a.this.knI.cId();
         }
     };
     private b.a knK = new b.a() { // from class: com.baidu.tieba.homepage.video.a.5
@@ -92,7 +92,7 @@ public class a {
         public void o(int i, String str, boolean z) {
             a.this.knJ.b((f.e) null);
             a.this.knJ.hideLoadingView();
-            a.this.knJ.Zi();
+            a.this.knJ.Zj();
             if (x.isEmpty(a.this.knJ.getDataList())) {
                 a.this.knJ.n(new View.OnClickListener() { // from class: com.baidu.tieba.homepage.video.a.5.1
                     @Override // android.view.View.OnClickListener
@@ -115,7 +115,7 @@ public class a {
         @Override // com.baidu.tieba.homepage.video.b.b.a
         public void g(int i, boolean z, boolean z2) {
             a.this.knJ.hideLoadingView();
-            a.this.knJ.Zi();
+            a.this.knJ.Zj();
             if (z || z2) {
                 a.this.knJ.b((f.e) null);
             } else {
@@ -127,7 +127,7 @@ public class a {
             } else if (x.isEmpty(a.this.knJ.getDataList())) {
                 a.this.knJ.showNoDataView();
             } else if (z) {
-                a.this.knJ.bUD();
+                a.this.knJ.bUE();
             }
         }
     };
@@ -135,8 +135,8 @@ public class a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (a.this.knJ != null && a.this.knI != null) {
-                a.this.knJ.bUE();
-                a.this.knI.cIc();
+                a.this.knJ.bUF();
+                a.this.knI.cId();
             }
         }
     };
@@ -165,19 +165,19 @@ public class a {
 
     public void loadData() {
         if (this.knJ != null) {
-            this.knJ.cSq();
+            this.knJ.cSr();
             this.knJ.showLoadingView();
         }
         if (this.knI != null) {
-            this.knI.cUn();
+            this.knI.cUo();
         }
     }
 
-    public void WE() {
+    public void WF() {
         if (this.knJ != null) {
             this.knJ.rW(false);
-            this.knJ.cSo();
-            this.knJ.cSm();
+            this.knJ.cSp();
+            this.knJ.cSn();
             this.knJ.startPullRefresh();
         }
     }
@@ -193,16 +193,16 @@ public class a {
         return new f.e(string, 1000);
     }
 
-    public void bxO() {
+    public void bxP() {
         if (this.knJ != null) {
-            this.knJ.bxO();
+            this.knJ.bxP();
         }
     }
 
     public void onPause() {
         if (this.knJ != null) {
             this.knJ.onPause();
-            this.knJ.cQH();
+            this.knJ.cQI();
             this.knJ.setTabInForeBackgroundState(true);
         }
     }
@@ -221,9 +221,9 @@ public class a {
 
     public void setPrimary(boolean z) {
         if (z) {
-            this.knJ.cUp();
+            this.knJ.cUq();
         } else {
-            this.knJ.cQH();
+            this.knJ.cQI();
         }
     }
 
@@ -231,10 +231,10 @@ public class a {
     public void g(CustomResponsedMessage<?> customResponsedMessage) {
         if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject) && this.knI != null && !x.isEmpty(this.knI.getDataList())) {
             String optString = ((JSONObject) customResponsedMessage.getData()).optString("tid");
-            this.knI.Lx(optString);
-            this.knI.Mt(optString);
+            this.knI.Lw(optString);
+            this.knI.Ms(optString);
             if (this.knJ != null) {
-                this.knJ.Mv(optString);
+                this.knJ.Mu(optString);
             }
         }
     }

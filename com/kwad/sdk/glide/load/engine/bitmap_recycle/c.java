@@ -6,10 +6,10 @@ import androidx.annotation.VisibleForTesting;
 class c implements l {
 
     /* renamed from: a  reason: collision with root package name */
-    private final b f10486a = new b();
+    private final b f10487a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    private final h<a, Bitmap> f10487b = new h<>();
+    private final h<a, Bitmap> f10488b = new h<>();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @VisibleForTesting
@@ -17,24 +17,24 @@ class c implements l {
     public static class a implements m {
 
         /* renamed from: a  reason: collision with root package name */
-        private final b f10488a;
+        private final b f10489a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f10489b;
+        private int f10490b;
         private int c;
         private Bitmap.Config d;
 
         public a(b bVar) {
-            this.f10488a = bVar;
+            this.f10489a = bVar;
         }
 
         @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.m
         public void a() {
-            this.f10488a.a(this);
+            this.f10489a.a(this);
         }
 
         public void a(int i, int i2, Bitmap.Config config) {
-            this.f10489b = i;
+            this.f10490b = i;
             this.c = i2;
             this.d = config;
         }
@@ -42,17 +42,17 @@ class c implements l {
         public boolean equals(Object obj) {
             if (obj instanceof a) {
                 a aVar = (a) obj;
-                return this.f10489b == aVar.f10489b && this.c == aVar.c && this.d == aVar.d;
+                return this.f10490b == aVar.f10490b && this.c == aVar.c && this.d == aVar.d;
             }
             return false;
         }
 
         public int hashCode() {
-            return (this.d != null ? this.d.hashCode() : 0) + (((this.f10489b * 31) + this.c) * 31);
+            return (this.d != null ? this.d.hashCode() : 0) + (((this.f10490b * 31) + this.c) * 31);
         }
 
         public String toString() {
-            return c.c(this.f10489b, this.c, this.d);
+            return c.c(this.f10490b, this.c, this.d);
         }
     }
 
@@ -87,17 +87,17 @@ class c implements l {
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public Bitmap a() {
-        return this.f10487b.a();
+        return this.f10488b.a();
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public Bitmap a(int i, int i2, Bitmap.Config config) {
-        return this.f10487b.a((h<a, Bitmap>) this.f10486a.a(i, i2, config));
+        return this.f10488b.a((h<a, Bitmap>) this.f10487a.a(i, i2, config));
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
     public void a(Bitmap bitmap) {
-        this.f10487b.a(this.f10486a.a(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
+        this.f10488b.a(this.f10487a.a(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig()), bitmap);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.bitmap_recycle.l
@@ -116,6 +116,6 @@ class c implements l {
     }
 
     public String toString() {
-        return "AttributeStrategy:\n  " + this.f10487b;
+        return "AttributeStrategy:\n  " + this.f10488b;
     }
 }

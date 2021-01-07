@@ -8,19 +8,19 @@ import java.util.HashMap;
 import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements Cloneable {
     private Context appContext;
     private String appKey = "";
-    private String qbw = "";
+    private String qde = "";
     private String from = "";
-    private String qbx = "";
-    private String qby = "";
-    private String qbz = "";
-    private String qbA = "";
+    private String qdf = "";
+    private String qdg = "";
+    private String qdh = "";
+    private String qdi = "";
     private HashMap<String, String> extra = new HashMap<>();
 
-    private String abH(String str) {
+    private String abI(String str) {
         try {
             return URLEncoder.encode(str, "utf-8");
         } catch (UnsupportedEncodingException e) {
@@ -41,29 +41,29 @@ public class b implements Cloneable {
             }
         }
         if (z) {
-            return abH(jSONObject.toString());
+            return abI(jSONObject.toString());
         }
         return jSONObject.toString();
     }
 
     public String CA(boolean z) {
-        return z ? abH(this.qbz) : this.qbz;
+        return z ? abI(this.qdh) : this.qdh;
     }
 
     public String CB(boolean z) {
-        return z ? abH(this.qbx) : this.qbx;
+        return z ? abI(this.qdf) : this.qdf;
     }
 
-    public void abI(String str) {
-        this.qbx = str;
+    public void abJ(String str) {
+        this.qdf = str;
     }
 
     public String CC(boolean z) {
-        return z ? abH(this.qby) : this.qby;
+        return z ? abI(this.qdg) : this.qdg;
     }
 
     public String CD(boolean z) {
-        return z ? abH(this.from) : this.from;
+        return z ? abI(this.from) : this.from;
     }
 
     public void setFrom(String str) {
@@ -71,7 +71,7 @@ public class b implements Cloneable {
     }
 
     public String CE(boolean z) {
-        return z ? abH(this.appKey) : this.appKey;
+        return z ? abI(this.appKey) : this.appKey;
     }
 
     public void setAppKey(String str) {
@@ -87,11 +87,11 @@ public class b implements Cloneable {
     }
 
     public String CF(boolean z) {
-        return z ? abH(this.qbw) : this.qbw;
+        return z ? abI(this.qde) : this.qde;
     }
 
-    public boolean eJJ() {
-        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.qbx)) ? false : true;
+    public boolean eKn() {
+        return (this.appContext == null || TextUtils.isEmpty(this.appKey) || TextUtils.isEmpty(this.from) || TextUtils.isEmpty(this.qdf)) ? false : true;
     }
 
     public Object clone() {

@@ -48,7 +48,7 @@ public class FrsSchoolRecommendItemView extends ItemViewHolder {
         this.jjm = (TextView) view.findViewById(R.id.rec_user_describe);
         this.jjn = (EntelechyUserLikeButton) view.findViewById(R.id.rec_user_like);
         this.alC = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.jjn);
-        this.alC.Bb("1");
+        this.alC.Ba("1");
         this.alC.l(bdUniqueId);
     }
 

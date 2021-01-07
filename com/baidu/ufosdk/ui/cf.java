@@ -5,11 +5,11 @@ import android.view.View;
 final class cf implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackInputActivity f5770a;
+    final /* synthetic */ FeedbackInputActivity f5771a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cf(FeedbackInputActivity feedbackInputActivity) {
-        this.f5770a = feedbackInputActivity;
+        this.f5771a = feedbackInputActivity;
     }
 
     @Override // android.view.View.OnClickListener

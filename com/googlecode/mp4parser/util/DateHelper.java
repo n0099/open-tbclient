@@ -1,7 +1,7 @@
 package com.googlecode.mp4parser.util;
 
 import java.util.Date;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class DateHelper {
     public static Date convert(long j) {
         return new Date((j - 2082844800) * 1000);

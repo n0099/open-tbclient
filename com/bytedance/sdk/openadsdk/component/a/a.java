@@ -16,27 +16,27 @@ import java.util.List;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f6547a;
+    private static volatile a f6548a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final q f6548b = p.f();
+    private final q f6549b = p.f();
 
     public static a a() {
-        if (f6547a == null) {
+        if (f6548a == null) {
             synchronized (a.class) {
-                if (f6547a == null) {
-                    f6547a = new a();
+                if (f6548a == null) {
+                    f6548a = new a();
                 }
             }
         }
-        return f6547a;
+        return f6548a;
     }
 
     private a() {
     }
 
     public void a(final Context context, final AdSlot adSlot, final TTAdNative.FeedAdListener feedAdListener) {
-        this.f6548b.a(adSlot, (m) null, 5, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.a.1
+        this.f6549b.a(adSlot, (m) null, 5, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.a.1
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 feedAdListener.onError(i, str);
@@ -54,7 +54,7 @@ public class a {
                         if (lVar.X() == 5 && lVar.F() != null && lVar.F().h() != null) {
                             int d = aj.d(lVar.W());
                             if (p.h().a(String.valueOf(d)) && p.h().q(String.valueOf(d))) {
-                                com.bytedance.sdk.openadsdk.j.f.a.a().a(new com.bytedance.sdk.openadsdk.j.f.b().a(lVar.F().h()).a(com.baidu.fsg.base.statistics.b.f1984b).b(lVar.F().k()));
+                                com.bytedance.sdk.openadsdk.j.f.a.a().a(new com.bytedance.sdk.openadsdk.j.f.b().a(lVar.F().h()).a(com.baidu.fsg.base.statistics.b.f1985b).b(lVar.F().k()));
                             }
                         }
                     }
@@ -72,7 +72,7 @@ public class a {
     }
 
     public void a(final Context context, AdSlot adSlot, final TTAdNative.DrawFeedAdListener drawFeedAdListener) {
-        this.f6548b.a(adSlot, (m) null, 9, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.a.2
+        this.f6549b.a(adSlot, (m) null, 9, new q.b() { // from class: com.bytedance.sdk.openadsdk.component.a.a.2
             @Override // com.bytedance.sdk.openadsdk.core.q.b
             public void a(int i, String str) {
                 drawFeedAdListener.onError(i, str);

@@ -10,7 +10,7 @@ public class d {
     private static d gsD;
     private List<aq> gik;
 
-    public static d bRR() {
+    public static d bRS() {
         if (gsD == null) {
             synchronized (d.class) {
                 if (gsD == null) {
@@ -32,7 +32,7 @@ public class d {
         }
     }
 
-    public void bRS() {
+    public void bRT() {
         if (x.getCount(this.gik) != 0) {
             for (aq aqVar : this.gik) {
                 if (aqVar != null) {

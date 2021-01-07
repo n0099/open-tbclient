@@ -36,7 +36,7 @@ public class a {
         return this.oQb;
     }
 
-    public boolean eku() {
+    public boolean ekv() {
         return this.oQd;
     }
 
@@ -56,7 +56,7 @@ public class a {
         return this.mId;
     }
 
-    public String ekv() {
+    public String ekw() {
         return this.oQc;
     }
 

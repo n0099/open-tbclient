@@ -12,13 +12,13 @@ import java.lang.ref.WeakReference;
 public class g {
 
     /* renamed from: b  reason: collision with root package name */
-    private f f7462b;
+    private f f7463b;
     private a c;
     private Context d;
     private AudioManager e;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f7461a = -1;
+    private int f7462a = -1;
     private boolean f = false;
     private boolean g = false;
     private int h = -1;
@@ -37,11 +37,11 @@ public class g {
     }
 
     public int b() {
-        return this.f7461a;
+        return this.f7462a;
     }
 
     public void b(int i) {
-        this.f7461a = i;
+        this.f7462a = i;
     }
 
     public boolean c() {
@@ -75,17 +75,17 @@ public class g {
             if (z) {
                 int g = g();
                 if (g != 0) {
-                    this.f7461a = g;
+                    this.f7462a = g;
                 }
                 u.b("VolumeChangeObserver", "mute set volume to 0");
                 this.e.setStreamVolume(3, 0, 0);
                 this.g = true;
                 return;
             }
-            if (this.f7461a == 0) {
+            if (this.f7462a == 0) {
                 i = d() / 15;
                 i2 = 1;
-            } else if (this.f7461a == -1) {
+            } else if (this.f7462a == -1) {
                 if (z2) {
                     i = d() / 15;
                     i2 = 1;
@@ -93,17 +93,17 @@ public class g {
                     return;
                 }
             } else {
-                i = this.f7461a;
+                i = this.f7462a;
             }
-            u.b("VolumeChangeObserver", "not mute set volume to " + i + " mLastVolume=" + this.f7461a);
-            this.f7461a = -1;
+            u.b("VolumeChangeObserver", "not mute set volume to " + i + " mLastVolume=" + this.f7462a);
+            this.f7462a = -1;
             this.e.setStreamVolume(3, i, i2);
             this.g = true;
         }
     }
 
     public void a(f fVar) {
-        this.f7462b = fVar;
+        this.f7463b = fVar;
     }
 
     public void e() {
@@ -122,7 +122,7 @@ public class g {
         if (this.f) {
             try {
                 this.d.unregisterReceiver(this.c);
-                this.f7462b = null;
+                this.f7463b = null;
                 this.f = false;
             } catch (Throwable th) {
                 u.a("VolumeChangeObserver", "unregisterReceiverError: ", th);
@@ -143,17 +143,17 @@ public class g {
     }
 
     public f h() {
-        return this.f7462b;
+        return this.f7463b;
     }
 
     /* loaded from: classes4.dex */
     private static class a extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with root package name */
-        private WeakReference<g> f7463a;
+        private WeakReference<g> f7464a;
 
         public a(g gVar) {
-            this.f7463a = new WeakReference<>(gVar);
+            this.f7464a = new WeakReference<>(gVar);
         }
 
         @Override // android.content.BroadcastReceiver
@@ -163,7 +163,7 @@ public class g {
             try {
                 if (VideoReceiver.ACTION_VOLUME_CHANGED.equals(intent.getAction()) && intent.getIntExtra("android.media.EXTRA_VOLUME_STREAM_TYPE", -1) == 3) {
                     u.b("VolumeChangeObserver", "媒体音量改变通.......");
-                    g gVar = this.f7463a.get();
+                    g gVar = this.f7464a.get();
                     if (gVar != null && (h = gVar.h()) != null && (g = gVar.g()) != gVar.a()) {
                         gVar.a(g);
                         if (g >= 0) {

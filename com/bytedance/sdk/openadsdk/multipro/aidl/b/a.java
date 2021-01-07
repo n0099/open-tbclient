@@ -10,13 +10,13 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class a extends ICommonDialogListener.Stub {
 
     /* renamed from: a  reason: collision with root package name */
-    private Handler f7657a = new Handler(Looper.getMainLooper());
+    private Handler f7658a = new Handler(Looper.getMainLooper());
 
     /* renamed from: b  reason: collision with root package name */
-    private g.a f7658b;
+    private g.a f7659b;
 
     public a(g.a aVar) {
-        this.f7658b = aVar;
+        this.f7659b = aVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.ICommonDialogListener
@@ -25,8 +25,8 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f7658b != null) {
-                    a.this.f7658b.a();
+                if (a.this.f7659b != null) {
+                    a.this.f7659b.a();
                 }
             }
         });
@@ -38,8 +38,8 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.2
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f7658b != null) {
-                    a.this.f7658b.b();
+                if (a.this.f7659b != null) {
+                    a.this.f7659b.b();
                 }
             }
         });
@@ -51,14 +51,14 @@ public class a extends ICommonDialogListener.Stub {
         a(new Runnable() { // from class: com.bytedance.sdk.openadsdk.multipro.aidl.b.a.3
             @Override // java.lang.Runnable
             public void run() {
-                if (a.this.f7658b != null) {
-                    a.this.f7658b.c();
+                if (a.this.f7659b != null) {
+                    a.this.f7659b.c();
                 }
             }
         });
     }
 
     private void a(Runnable runnable) {
-        this.f7657a.post(runnable);
+        this.f7658a.post(runnable);
     }
 }

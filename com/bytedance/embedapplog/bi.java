@@ -8,7 +8,7 @@ public interface bi {
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        public String f6100b;
+        public String f6101b;
         boolean c;
     }
 

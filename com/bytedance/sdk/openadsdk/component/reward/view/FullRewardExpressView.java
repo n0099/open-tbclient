@@ -19,10 +19,10 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public class FullRewardExpressView extends NativeExpressView implements g {
 
     /* renamed from: a  reason: collision with root package name */
-    g f6655a;
+    g f6656a;
 
     /* renamed from: b  reason: collision with root package name */
-    FullRewardExpressBackupView f6656b;
+    FullRewardExpressBackupView f6657b;
 
     public FullRewardExpressView(@NonNull Context context, l lVar, AdSlot adSlot, String str) {
         super(context, lVar, adSlot, str);
@@ -45,8 +45,8 @@ public class FullRewardExpressView extends NativeExpressView implements g {
             public boolean a(NativeExpressView nativeExpressView, int i) {
                 try {
                     nativeExpressView.l();
-                    FullRewardExpressView.this.f6656b = new FullRewardExpressBackupView(nativeExpressView.getContext());
-                    FullRewardExpressView.this.f6656b.a(FullRewardExpressView.this.k, nativeExpressView, null);
+                    FullRewardExpressView.this.f6657b = new FullRewardExpressBackupView(nativeExpressView.getContext());
+                    FullRewardExpressView.this.f6657b.a(FullRewardExpressView.this.k, nativeExpressView, null);
                     return true;
                 } catch (Exception e) {
                     return false;
@@ -63,7 +63,7 @@ public class FullRewardExpressView extends NativeExpressView implements g {
     }
 
     public void setExpressVideoListenerProxy(g gVar) {
-        this.f6655a = gVar;
+        this.f6656a = gVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.NativeExpressView, com.bytedance.sdk.openadsdk.core.nativeexpress.j
@@ -118,32 +118,32 @@ public class FullRewardExpressView extends NativeExpressView implements g {
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
     public void e(boolean z) {
         u.b("FullRewardExpressView", "onMuteVideo,mute:" + z);
-        if (this.f6655a != null) {
-            this.f6655a.e(z);
+        if (this.f6656a != null) {
+            this.f6656a.e(z);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
     public void M() {
         u.b("FullRewardExpressView", "onSkipVideo");
-        if (this.f6655a != null) {
-            this.f6655a.M();
+        if (this.f6656a != null) {
+            this.f6656a.M();
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
     public void d(int i) {
         u.b("FullRewardExpressView", "onChangeVideoState,stateType:" + i);
-        if (this.f6655a != null) {
-            this.f6655a.d(i);
+        if (this.f6656a != null) {
+            this.f6656a.d(i);
         }
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
     public long N() {
         u.b("FullRewardExpressView", "onGetCurrentPlayTime");
-        if (this.f6655a != null) {
-            return this.f6655a.N();
+        if (this.f6656a != null) {
+            return this.f6656a.N();
         }
         return 0L;
     }
@@ -151,16 +151,16 @@ public class FullRewardExpressView extends NativeExpressView implements g {
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
     public int O() {
         u.b("FullRewardExpressView", "onGetVideoState");
-        if (this.f6655a != null) {
-            return this.f6655a.O();
+        if (this.f6656a != null) {
+            return this.f6656a.O();
         }
         return 0;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.nativeexpress.g
     public void P() {
-        if (this.f6655a != null) {
-            this.f6655a.P();
+        if (this.f6656a != null) {
+            this.f6656a.P();
         }
     }
 
@@ -173,6 +173,6 @@ public class FullRewardExpressView extends NativeExpressView implements g {
     }
 
     public FrameLayout getVideoFrameLayout() {
-        return m() ? this.f6656b.getVideoContainer() : this.m;
+        return m() ? this.f6657b.getVideoContainer() : this.m;
     }
 }

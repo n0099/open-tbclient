@@ -6,7 +6,7 @@ public class q {
     private String mErrorString;
     private boolean mIsSuccess;
 
-    public p bzS() {
+    public p bzT() {
         return this.fte;
     }
 

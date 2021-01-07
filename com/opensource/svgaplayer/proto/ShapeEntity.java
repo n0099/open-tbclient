@@ -15,17 +15,17 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
     public static final ProtoAdapter<ShapeEntity> ADAPTER = new ProtoAdapter_ShapeEntity();
     public static final ShapeType DEFAULT_TYPE = ShapeType.SHAPE;
     private static final long serialVersionUID = 0;
-    @WireField(eEK = "com.opensource.svgaplayer.proto.ShapeEntity$EllipseArgs#ADAPTER", tag = 4)
+    @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity$EllipseArgs#ADAPTER", tag = 4)
     public final EllipseArgs ellipse;
-    @WireField(eEK = "com.opensource.svgaplayer.proto.ShapeEntity$RectArgs#ADAPTER", tag = 3)
+    @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity$RectArgs#ADAPTER", tag = 3)
     public final RectArgs rect;
-    @WireField(eEK = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeArgs#ADAPTER", tag = 2)
+    @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeArgs#ADAPTER", tag = 2)
     public final ShapeArgs shape;
-    @WireField(eEK = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle#ADAPTER", tag = 10)
+    @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle#ADAPTER", tag = 10)
     public final ShapeStyle styles;
-    @WireField(eEK = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 11)
+    @WireField(eFo = "com.opensource.svgaplayer.proto.Transform#ADAPTER", tag = 11)
     public final Transform transform;
-    @WireField(eEK = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeType#ADAPTER", tag = 1)
+    @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeType#ADAPTER", tag = 1)
     public final ShapeType type;
 
     public ShapeEntity(ShapeType shapeType, ShapeStyle shapeStyle, Transform transform, ShapeArgs shapeArgs, RectArgs rectArgs, EllipseArgs ellipseArgs) {
@@ -199,7 +199,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         public static final ProtoAdapter<ShapeArgs> ADAPTER = new ProtoAdapter_ShapeArgs();
         public static final String DEFAULT_D = "";
         private static final long serialVersionUID = 0;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#STRING", tag = 1)
         public final String d;
 
         public ShapeArgs(String str) {
@@ -295,21 +295,21 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             @Override // com.squareup.wire2.ProtoAdapter
             public ShapeArgs decode(c cVar) throws IOException {
                 Builder builder = new Builder();
-                long eEC = cVar.eEC();
+                long eFg = cVar.eFg();
                 while (true) {
-                    int eED = cVar.eED();
-                    if (eED != -1) {
-                        switch (eED) {
+                    int eFh = cVar.eFh();
+                    if (eFh != -1) {
+                        switch (eFh) {
                             case 1:
                                 builder.d(ProtoAdapter.STRING.decode(cVar));
                                 break;
                             default:
-                                FieldEncoding eEE = cVar.eEE();
-                                builder.addUnknownField(eED, eEE, eEE.rawProtoAdapter().decode(cVar));
+                                FieldEncoding eFi = cVar.eFi();
+                                builder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
                                 break;
                         }
                     } else {
-                        cVar.iP(eEC);
+                        cVar.iS(eFg);
                         return builder.build();
                     }
                 }
@@ -328,15 +328,15 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
     /* loaded from: classes6.dex */
     public static final class RectArgs extends Message<RectArgs, Builder> {
         private static final long serialVersionUID = 0;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 5)
         public final Float cornerRadius;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
         public final Float height;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
         public final Float width;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
         public final Float x;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
         public final Float y;
         public static final ProtoAdapter<RectArgs> ADAPTER = new ProtoAdapter_RectArgs();
         public static final Float DEFAULT_X = Float.valueOf(0.0f);
@@ -494,11 +494,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             @Override // com.squareup.wire2.ProtoAdapter
             public RectArgs decode(c cVar) throws IOException {
                 Builder builder = new Builder();
-                long eEC = cVar.eEC();
+                long eFg = cVar.eFg();
                 while (true) {
-                    int eED = cVar.eED();
-                    if (eED != -1) {
-                        switch (eED) {
+                    int eFh = cVar.eFh();
+                    if (eFh != -1) {
+                        switch (eFh) {
                             case 1:
                                 builder.x(ProtoAdapter.FLOAT.decode(cVar));
                                 break;
@@ -515,12 +515,12 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                                 builder.cornerRadius(ProtoAdapter.FLOAT.decode(cVar));
                                 break;
                             default:
-                                FieldEncoding eEE = cVar.eEE();
-                                builder.addUnknownField(eED, eEE, eEE.rawProtoAdapter().decode(cVar));
+                                FieldEncoding eFi = cVar.eFi();
+                                builder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
                                 break;
                         }
                     } else {
-                        cVar.iP(eEC);
+                        cVar.iS(eFg);
                         return builder.build();
                     }
                 }
@@ -539,13 +539,13 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
     /* loaded from: classes6.dex */
     public static final class EllipseArgs extends Message<EllipseArgs, Builder> {
         private static final long serialVersionUID = 0;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
         public final Float radiusX;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
         public final Float radiusY;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
         public final Float x;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
         public final Float y;
         public static final ProtoAdapter<EllipseArgs> ADAPTER = new ProtoAdapter_EllipseArgs();
         public static final Float DEFAULT_X = Float.valueOf(0.0f);
@@ -688,11 +688,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             @Override // com.squareup.wire2.ProtoAdapter
             public EllipseArgs decode(c cVar) throws IOException {
                 Builder builder = new Builder();
-                long eEC = cVar.eEC();
+                long eFg = cVar.eFg();
                 while (true) {
-                    int eED = cVar.eED();
-                    if (eED != -1) {
-                        switch (eED) {
+                    int eFh = cVar.eFh();
+                    if (eFh != -1) {
+                        switch (eFh) {
                             case 1:
                                 builder.x(ProtoAdapter.FLOAT.decode(cVar));
                                 break;
@@ -706,12 +706,12 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                                 builder.radiusY(ProtoAdapter.FLOAT.decode(cVar));
                                 break;
                             default:
-                                FieldEncoding eEE = cVar.eEE();
-                                builder.addUnknownField(eED, eEE, eEE.rawProtoAdapter().decode(cVar));
+                                FieldEncoding eFi = cVar.eFi();
+                                builder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
                                 break;
                         }
                     } else {
-                        cVar.iP(eEC);
+                        cVar.iS(eFg);
                         return builder.build();
                     }
                 }
@@ -730,23 +730,23 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
     /* loaded from: classes6.dex */
     public static final class ShapeStyle extends Message<ShapeStyle, Builder> {
         private static final long serialVersionUID = 0;
-        @WireField(eEK = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle$RGBAColor#ADAPTER", tag = 1)
+        @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle$RGBAColor#ADAPTER", tag = 1)
         public final RGBAColor fill;
-        @WireField(eEK = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle$LineCap#ADAPTER", tag = 4)
+        @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle$LineCap#ADAPTER", tag = 4)
         public final LineCap lineCap;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 7)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 7)
         public final Float lineDashI;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 8)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 8)
         public final Float lineDashII;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 9)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 9)
         public final Float lineDashIII;
-        @WireField(eEK = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle$LineJoin#ADAPTER", tag = 5)
+        @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle$LineJoin#ADAPTER", tag = 5)
         public final LineJoin lineJoin;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 6)
         public final Float miterLimit;
-        @WireField(eEK = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle$RGBAColor#ADAPTER", tag = 2)
+        @WireField(eFo = "com.opensource.svgaplayer.proto.ShapeEntity$ShapeStyle$RGBAColor#ADAPTER", tag = 2)
         public final RGBAColor stroke;
-        @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+        @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
         public final Float strokeWidth;
         public static final ProtoAdapter<ShapeStyle> ADAPTER = new ProtoAdapter_ShapeStyle();
         public static final Float DEFAULT_STROKEWIDTH = Float.valueOf(0.0f);
@@ -915,17 +915,17 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         /* loaded from: classes6.dex */
         public static final class RGBAColor extends Message<RGBAColor, Builder> {
             private static final long serialVersionUID = 0;
-            @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
+            @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 4)
 
             /* renamed from: a  reason: collision with root package name */
-            public final Float f11672a;
-            @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
+            public final Float f11673a;
+            @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 3)
 
             /* renamed from: b  reason: collision with root package name */
-            public final Float f11673b;
-            @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
+            public final Float f11674b;
+            @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 2)
             public final Float g;
-            @WireField(eEK = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
+            @WireField(eFo = "com.squareup.wire.ProtoAdapter#FLOAT", tag = 1)
             public final Float r;
             public static final ProtoAdapter<RGBAColor> ADAPTER = new ProtoAdapter_RGBAColor();
             public static final Float DEFAULT_R = Float.valueOf(0.0f);
@@ -941,8 +941,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 super(ADAPTER, byteString);
                 this.r = f;
                 this.g = f2;
-                this.f11673b = f3;
-                this.f11672a = f4;
+                this.f11674b = f3;
+                this.f11673a = f4;
             }
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -953,8 +953,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 Builder builder = new Builder();
                 builder.r = this.r;
                 builder.g = this.g;
-                builder.f11675b = this.f11673b;
-                builder.f11674a = this.f11672a;
+                builder.f11676b = this.f11674b;
+                builder.f11675a = this.f11673a;
                 builder.addUnknownFields(unknownFields());
                 return builder;
             }
@@ -965,7 +965,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 }
                 if (obj instanceof RGBAColor) {
                     RGBAColor rGBAColor = (RGBAColor) obj;
-                    return unknownFields().equals(rGBAColor.unknownFields()) && a.equals(this.r, rGBAColor.r) && a.equals(this.g, rGBAColor.g) && a.equals(this.f11673b, rGBAColor.f11673b) && a.equals(this.f11672a, rGBAColor.f11672a);
+                    return unknownFields().equals(rGBAColor.unknownFields()) && a.equals(this.r, rGBAColor.r) && a.equals(this.g, rGBAColor.g) && a.equals(this.f11674b, rGBAColor.f11674b) && a.equals(this.f11673a, rGBAColor.f11673a);
                 }
                 return false;
             }
@@ -973,7 +973,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             public int hashCode() {
                 int i = this.hashCode;
                 if (i == 0) {
-                    int hashCode = (((this.f11673b != null ? this.f11673b.hashCode() : 0) + (((this.g != null ? this.g.hashCode() : 0) + (((this.r != null ? this.r.hashCode() : 0) + (unknownFields().hashCode() * 37)) * 37)) * 37)) * 37) + (this.f11672a != null ? this.f11672a.hashCode() : 0);
+                    int hashCode = (((this.f11674b != null ? this.f11674b.hashCode() : 0) + (((this.g != null ? this.g.hashCode() : 0) + (((this.r != null ? this.r.hashCode() : 0) + (unknownFields().hashCode() * 37)) * 37)) * 37)) * 37) + (this.f11673a != null ? this.f11673a.hashCode() : 0);
                     this.hashCode = hashCode;
                     return hashCode;
                 }
@@ -989,11 +989,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 if (this.g != null) {
                     sb.append(", g=").append(this.g);
                 }
-                if (this.f11673b != null) {
-                    sb.append(", b=").append(this.f11673b);
+                if (this.f11674b != null) {
+                    sb.append(", b=").append(this.f11674b);
                 }
-                if (this.f11672a != null) {
-                    sb.append(", a=").append(this.f11672a);
+                if (this.f11673a != null) {
+                    sb.append(", a=").append(this.f11673a);
                 }
                 return sb.replace(0, 2, "RGBAColor{").append('}').toString();
             }
@@ -1002,10 +1002,10 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             public static final class Builder extends Message.a<RGBAColor, Builder> {
 
                 /* renamed from: a  reason: collision with root package name */
-                public Float f11674a;
+                public Float f11675a;
 
                 /* renamed from: b  reason: collision with root package name */
-                public Float f11675b;
+                public Float f11676b;
                 public Float g;
                 public Float r;
 
@@ -1020,12 +1020,12 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 }
 
                 public Builder b(Float f) {
-                    this.f11675b = f;
+                    this.f11676b = f;
                     return this;
                 }
 
                 public Builder a(Float f) {
-                    this.f11674a = f;
+                    this.f11675a = f;
                     return this;
                 }
 
@@ -1033,7 +1033,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 /* JADX WARN: Can't rename method to resolve collision */
                 @Override // com.squareup.wire2.Message.a
                 public RGBAColor build() {
-                    return new RGBAColor(this.r, this.g, this.f11675b, this.f11674a, super.buildUnknownFields());
+                    return new RGBAColor(this.r, this.g, this.f11676b, this.f11675a, super.buildUnknownFields());
                 }
             }
 
@@ -1046,7 +1046,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.squareup.wire2.ProtoAdapter
                 public int encodedSize(RGBAColor rGBAColor) {
-                    return (rGBAColor.f11673b != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(3, rGBAColor.f11673b) : 0) + (rGBAColor.g != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, rGBAColor.g) : 0) + (rGBAColor.r != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, rGBAColor.r) : 0) + (rGBAColor.f11672a != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(4, rGBAColor.f11672a) : 0) + rGBAColor.unknownFields().size();
+                    return (rGBAColor.f11674b != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(3, rGBAColor.f11674b) : 0) + (rGBAColor.g != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(2, rGBAColor.g) : 0) + (rGBAColor.r != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(1, rGBAColor.r) : 0) + (rGBAColor.f11673a != null ? ProtoAdapter.FLOAT.encodedSizeWithTag(4, rGBAColor.f11673a) : 0) + rGBAColor.unknownFields().size();
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
@@ -1058,11 +1058,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                     if (rGBAColor.g != null) {
                         ProtoAdapter.FLOAT.encodeWithTag(dVar, 2, rGBAColor.g);
                     }
-                    if (rGBAColor.f11673b != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(dVar, 3, rGBAColor.f11673b);
+                    if (rGBAColor.f11674b != null) {
+                        ProtoAdapter.FLOAT.encodeWithTag(dVar, 3, rGBAColor.f11674b);
                     }
-                    if (rGBAColor.f11672a != null) {
-                        ProtoAdapter.FLOAT.encodeWithTag(dVar, 4, rGBAColor.f11672a);
+                    if (rGBAColor.f11673a != null) {
+                        ProtoAdapter.FLOAT.encodeWithTag(dVar, 4, rGBAColor.f11673a);
                     }
                     dVar.b(rGBAColor.unknownFields());
                 }
@@ -1072,11 +1072,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                 @Override // com.squareup.wire2.ProtoAdapter
                 public RGBAColor decode(c cVar) throws IOException {
                     Builder builder = new Builder();
-                    long eEC = cVar.eEC();
+                    long eFg = cVar.eFg();
                     while (true) {
-                        int eED = cVar.eED();
-                        if (eED != -1) {
-                            switch (eED) {
+                        int eFh = cVar.eFh();
+                        if (eFh != -1) {
+                            switch (eFh) {
                                 case 1:
                                     builder.r(ProtoAdapter.FLOAT.decode(cVar));
                                     break;
@@ -1090,12 +1090,12 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                                     builder.a(ProtoAdapter.FLOAT.decode(cVar));
                                     break;
                                 default:
-                                    FieldEncoding eEE = cVar.eEE();
-                                    builder.addUnknownField(eED, eEE, eEE.rawProtoAdapter().decode(cVar));
+                                    FieldEncoding eFi = cVar.eFi();
+                                    builder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
                                     break;
                             }
                         } else {
-                            cVar.iP(eEC);
+                            cVar.iS(eFg);
                             return builder.build();
                         }
                     }
@@ -1225,11 +1225,11 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
             @Override // com.squareup.wire2.ProtoAdapter
             public ShapeStyle decode(c cVar) throws IOException {
                 Builder builder = new Builder();
-                long eEC = cVar.eEC();
+                long eFg = cVar.eFg();
                 while (true) {
-                    int eED = cVar.eED();
-                    if (eED != -1) {
-                        switch (eED) {
+                    int eFh = cVar.eFh();
+                    if (eFh != -1) {
+                        switch (eFh) {
                             case 1:
                                 builder.fill(RGBAColor.ADAPTER.decode(cVar));
                                 break;
@@ -1244,7 +1244,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                                     builder.lineCap(LineCap.ADAPTER.decode(cVar));
                                     break;
                                 } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                                    builder.addUnknownField(eED, FieldEncoding.VARINT, Long.valueOf(e.value));
+                                    builder.addUnknownField(eFh, FieldEncoding.VARINT, Long.valueOf(e.value));
                                     break;
                                 }
                             case 5:
@@ -1252,7 +1252,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                                     builder.lineJoin(LineJoin.ADAPTER.decode(cVar));
                                     break;
                                 } catch (ProtoAdapter.EnumConstantNotFoundException e2) {
-                                    builder.addUnknownField(eED, FieldEncoding.VARINT, Long.valueOf(e2.value));
+                                    builder.addUnknownField(eFh, FieldEncoding.VARINT, Long.valueOf(e2.value));
                                     break;
                                 }
                             case 6:
@@ -1268,12 +1268,12 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                                 builder.lineDashIII(ProtoAdapter.FLOAT.decode(cVar));
                                 break;
                             default:
-                                FieldEncoding eEE = cVar.eEE();
-                                builder.addUnknownField(eED, eEE, eEE.rawProtoAdapter().decode(cVar));
+                                FieldEncoding eFi = cVar.eFi();
+                                builder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
                                 break;
                         }
                     } else {
-                        cVar.iP(eEC);
+                        cVar.iS(eFg);
                         return builder.build();
                     }
                 }
@@ -1337,17 +1337,17 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
         @Override // com.squareup.wire2.ProtoAdapter
         public ShapeEntity decode(c cVar) throws IOException {
             Builder builder = new Builder();
-            long eEC = cVar.eEC();
+            long eFg = cVar.eFg();
             while (true) {
-                int eED = cVar.eED();
-                if (eED != -1) {
-                    switch (eED) {
+                int eFh = cVar.eFh();
+                if (eFh != -1) {
+                    switch (eFh) {
                         case 1:
                             try {
                                 builder.type(ShapeType.ADAPTER.decode(cVar));
                                 break;
                             } catch (ProtoAdapter.EnumConstantNotFoundException e) {
-                                builder.addUnknownField(eED, FieldEncoding.VARINT, Long.valueOf(e.value));
+                                builder.addUnknownField(eFh, FieldEncoding.VARINT, Long.valueOf(e.value));
                                 break;
                             }
                         case 2:
@@ -1365,8 +1365,8 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                         case 8:
                         case 9:
                         default:
-                            FieldEncoding eEE = cVar.eEE();
-                            builder.addUnknownField(eED, eEE, eEE.rawProtoAdapter().decode(cVar));
+                            FieldEncoding eFi = cVar.eFi();
+                            builder.addUnknownField(eFh, eFi, eFi.rawProtoAdapter().decode(cVar));
                             break;
                         case 10:
                             builder.styles(ShapeStyle.ADAPTER.decode(cVar));
@@ -1376,7 +1376,7 @@ public final class ShapeEntity extends Message<ShapeEntity, Builder> {
                             break;
                     }
                 } else {
-                    cVar.iP(eEC);
+                    cVar.iS(eFg);
                     return builder.build();
                 }
             }

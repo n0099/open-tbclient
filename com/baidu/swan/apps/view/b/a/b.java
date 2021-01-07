@@ -28,8 +28,8 @@ public class b implements View.OnTouchListener {
         this.cGy = str;
         this.dVf = str2;
         this.dVg = str3;
-        aSQ();
         aSR();
+        aSS();
     }
 
     @Override // android.view.View.OnTouchListener
@@ -38,9 +38,9 @@ public class b implements View.OnTouchListener {
         return true;
     }
 
-    public static boolean aSP() {
-        SwanCoreVersion avV = d.avA().avV();
-        long j = avV != null ? avV.swanCoreVersion : 0L;
+    public static boolean aSQ() {
+        SwanCoreVersion avW = d.avB().avW();
+        long j = avW != null ? avW.swanCoreVersion : 0L;
         long uo = com.baidu.swan.apps.swancore.b.uo("1.12.0");
         if (DEBUG) {
             Log.d("SwanAppTouchListener", "targetSwanVersion =" + uo + ";curSwanVersion: " + j);
@@ -48,11 +48,11 @@ public class b implements View.OnTouchListener {
         return j >= uo;
     }
 
-    private void aSQ() {
-        this.dVh = !aSP() && TextUtils.equals("canvas", this.dVg);
+    private void aSR() {
+        this.dVh = !aSQ() && TextUtils.equals("canvas", this.dVg);
     }
 
-    private void aSR() {
+    private void aSS() {
         AbsoluteLayout qh = ak.qh(this.cGy);
         if (qh != null) {
             qh.getLocationOnScreen(this.dVi);
@@ -70,7 +70,7 @@ public class b implements View.OnTouchListener {
             this.dVk = motionEvent.getEventTime();
             this.dVl.C(motionEvent);
             view.postDelayed(this.dVl, 350L);
-            aSR();
+            aSS();
         } else if (actionMasked == 1 || actionMasked == 3 || !a(new C0499b(motionEvent.getX(), motionEvent.getY()))) {
             view.removeCallbacks(this.dVl);
         }
@@ -86,9 +86,9 @@ public class b implements View.OnTouchListener {
             Log.d("SwanAppTouchListener", "sendEventToWebView = " + gVar.mData);
         }
         if (!this.dVh) {
-            f.aDG().a(this.cGy, gVar);
+            f.aDH().a(this.cGy, gVar);
         } else {
-            f.aDG().b(gVar);
+            f.aDH().b(gVar);
         }
     }
 
@@ -98,7 +98,7 @@ public class b implements View.OnTouchListener {
         com.baidu.swan.apps.view.b.a.a aVar = new com.baidu.swan.apps.view.b.a.a(motionEvent, str);
         aVar.i(this.dVi);
         g gVar = new g();
-        gVar.mData = com.baidu.swan.apps.view.b.b.a.e(this.cGy, this.dVf, this.dVg, aVar.aSM(), aVar.aSN());
+        gVar.mData = com.baidu.swan.apps.view.b.b.a.e(this.cGy, this.dVf, this.dVg, aVar.aSN(), aVar.aSO());
         return gVar;
     }
 
@@ -107,7 +107,7 @@ public class b implements View.OnTouchListener {
         com.baidu.swan.apps.view.b.a.a aVar = new com.baidu.swan.apps.view.b.a.a(motionEvent);
         aVar.i(this.dVi);
         g gVar = new g();
-        gVar.mData = com.baidu.swan.apps.view.b.b.a.e(this.cGy, this.dVf, this.dVg, aVar.aSM(), aVar.aSN());
+        gVar.mData = com.baidu.swan.apps.view.b.b.a.e(this.cGy, this.dVf, this.dVg, aVar.aSN(), aVar.aSO());
         return gVar;
     }
 

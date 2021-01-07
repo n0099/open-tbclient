@@ -28,7 +28,7 @@ public abstract class g {
         return this.mFrom;
     }
 
-    public String bhb() {
+    public String bhc() {
         return this.ecn;
     }
 }

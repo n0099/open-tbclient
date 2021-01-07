@@ -71,10 +71,10 @@ public class BaseActivity extends TitleActivity {
     private static final int o = 1003;
 
     /* renamed from: a  reason: collision with root package name */
-    private ValueCallback<Uri> f5051a;
+    private ValueCallback<Uri> f5052a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ValueCallback<Uri[]> f5052b;
+    private ValueCallback<Uri[]> f5053b;
     private SapiWebView.PickPhotoResult c;
     private SapiWebView.BiometricsIdentifyResult d;
     private a e;
@@ -152,19 +152,19 @@ public class BaseActivity extends TitleActivity {
             activityResultCallback.onActivityResult(i, i2, intent);
         }
         if (i == 1010) {
-            if (this.f5051a != null) {
-                this.f5051a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
-                this.f5051a = null;
+            if (this.f5052a != null) {
+                this.f5052a.onReceiveValue((intent == null || i2 != -1) ? null : intent.getData());
+                this.f5052a = null;
             }
         } else if (i == 1011) {
-            if (this.f5052b != null) {
+            if (this.f5053b != null) {
                 Uri data = (intent == null || i2 != -1) ? null : intent.getData();
                 if (data != null) {
-                    this.f5052b.onReceiveValue(new Uri[]{data});
+                    this.f5053b.onReceiveValue(new Uri[]{data});
                 } else {
-                    this.f5052b.onReceiveValue(new Uri[0]);
+                    this.f5053b.onReceiveValue(new Uri[0]);
                 }
-                this.f5052b = null;
+                this.f5053b = null;
             }
         } else if (i == 1001) {
             if (this.c != null) {
@@ -473,7 +473,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(ValueCallback<Uri[]> valueCallback) {
-        this.f5052b = valueCallback;
+        this.f5053b = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");
@@ -485,7 +485,7 @@ public class BaseActivity extends TitleActivity {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(ValueCallback<Uri> valueCallback) {
-        this.f5051a = valueCallback;
+        this.f5052a = valueCallback;
         Intent intent = new Intent("android.intent.action.GET_CONTENT");
         intent.addCategory("android.intent.category.OPENABLE");
         intent.setType("image/*");

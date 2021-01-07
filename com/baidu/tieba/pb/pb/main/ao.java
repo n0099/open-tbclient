@@ -20,7 +20,7 @@ import java.util.Random;
 /* loaded from: classes2.dex */
 public class ao {
     private static TextView fPT;
-    private static final int[] lUn = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
+    private static final int[] lUm = {R.string.reply_hint_text_1, R.string.reply_hint_text_2, R.string.reply_hint_text_3};
 
     public static Intent aT(Context context, String str) {
         if (TextUtils.isEmpty(str) || context == null) {
@@ -38,11 +38,11 @@ public class ao {
         return TbadkCoreApplication.getInst().getString(i, objArr);
     }
 
-    public static int drG() {
-        return lUn[new Random().nextInt(lUn.length)];
+    public static int drH() {
+        return lUm[new Random().nextInt(lUm.length)];
     }
 
-    public static String PW(String str) {
+    public static String PV(String str) {
         return TbadkCoreApplication.getInst().getString(R.string.chosen_pb_original_bar, new Object[]{UtilHelper.getFixedBarText(str, 7, false)});
     }
 
@@ -51,9 +51,9 @@ public class ao {
             return null;
         }
         String str = "";
-        if (bzVar.btq() == 1) {
+        if (bzVar.btr() == 1) {
             str = TbadkCoreApplication.getInst().getString(R.string.yuanchuang);
-        } else if (bzVar.btq() == 2) {
+        } else if (bzVar.btr() == 2) {
             str = TbadkCoreApplication.getInst().getString(R.string.shoufa);
         }
         if (TextUtils.isEmpty(str)) {
@@ -88,16 +88,16 @@ public class ao {
         }
     }
 
-    public static int drH() {
+    public static int drI() {
         return UtilHelper.getDimenPixelSize(R.dimen.tbds88);
     }
 
     public static int r(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar == null || fVar.dmE() == null) {
+        if (fVar == null || fVar.dmF() == null) {
             return 0;
         }
-        if (fVar.dmE().bsQ()) {
-            return (com.baidu.tbadk.core.util.x.isEmpty(fVar.dnb()) && (fVar.dmD() == null || StringUtils.isNull(fVar.dmD().getForumName()))) ? 0 : 2;
+        if (fVar.dmF().bsR()) {
+            return (com.baidu.tbadk.core.util.x.isEmpty(fVar.dnc()) && (fVar.dmE() == null || StringUtils.isNull(fVar.dmE().getForumName()))) ? 0 : 2;
         }
         return 1;
     }

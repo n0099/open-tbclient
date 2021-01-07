@@ -8,16 +8,16 @@ import com.xiaomi.push.dw;
 public class BroadcastActionsReceiver extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private dw f14487a;
+    private dw f14488a;
 
     public BroadcastActionsReceiver(dw dwVar) {
-        this.f14487a = dwVar;
+        this.f14488a = dwVar;
     }
 
     @Override // android.content.BroadcastReceiver
     public void onReceive(Context context, Intent intent) {
-        if (this.f14487a != null) {
-            this.f14487a.a(context, intent);
+        if (this.f14488a != null) {
+            this.f14488a.a(context, intent);
         }
     }
 }

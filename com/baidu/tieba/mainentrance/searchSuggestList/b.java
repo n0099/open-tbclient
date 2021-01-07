@@ -33,7 +33,7 @@ public class b extends BaseAdapter {
         }
     }
 
-    public void Oj(String str) {
+    public void Oi(String str) {
         if (!StringUtils.isNull(str)) {
             this.esI = str.trim();
         }

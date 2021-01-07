@@ -28,7 +28,7 @@ public class AlaLiveExposureView extends View {
 
     /* loaded from: classes11.dex */
     interface a {
-        void cka();
+        void ckb();
 
         void onExposure(float f);
     }
@@ -157,7 +157,7 @@ public class AlaLiveExposureView extends View {
         }
     }
 
-    public void cnR() {
+    public void cnS() {
         removeCallbacks(this.hQm);
         postDelayed(this.hQm, IMConnection.RETRY_DELAY_TIMES);
     }
@@ -167,7 +167,7 @@ public class AlaLiveExposureView extends View {
         switch (motionEvent.getAction() & 255) {
             case 0:
                 if (this.hQl != null) {
-                    this.hQl.cka();
+                    this.hQl.ckb();
                 }
                 int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
                 this.mActivePointerId = MotionEventCompat.getPointerId(motionEvent, actionIndex);
@@ -181,7 +181,7 @@ public class AlaLiveExposureView extends View {
                 break;
             case 1:
             case 3:
-                cnR();
+                cnS();
                 break;
             case 2:
                 getDiffX(motionEvent);

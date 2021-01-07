@@ -10,13 +10,13 @@ public interface d extends r, WritableByteChannel {
 
     d PM(int i) throws IOException;
 
-    d YH(String str) throws IOException;
+    d YG(String str) throws IOException;
 
     d aj(byte[] bArr) throws IOException;
 
-    c epS();
+    c epT();
 
-    d eqb() throws IOException;
+    d eqc() throws IOException;
 
     @Override // com.bytedance.sdk.a.a.r, java.io.Flushable
     void flush() throws IOException;

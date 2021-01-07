@@ -99,11 +99,11 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             TiebaStatic.log(aqVar2);
             this.eLF = 3;
         }
-        bom();
+        bon();
         return true;
     }
 
-    private void bom() {
+    private void bon() {
         String user_img;
         if (this.eKz != null && this.eKz.getParams() != null) {
             ThreadAchievementShareInfo.UserBean user = this.eKz.getParams().getUser();
@@ -162,7 +162,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         this.eLn.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.u(ThreadAchievementShareDialogView.this.bon());
+                ThreadAchievementShareDialogView.this.u(ThreadAchievementShareDialogView.this.boo());
             }
         });
         this.eLo = (TextView) this.mRootView.findViewById(R.id.frs_private_share_wechat);
@@ -170,7 +170,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         this.eLo.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bon(), 3);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.boo(), 3);
             }
         });
         this.eLp = (TextView) this.mRootView.findViewById(R.id.frs_private_share_moment);
@@ -178,7 +178,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         this.eLp.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bon(), 2);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.boo(), 2);
             }
         });
         this.eLq = (TextView) this.mRootView.findViewById(R.id.frs_private_share_qzone);
@@ -186,7 +186,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         this.eLq.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bon(), 4);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.boo(), 4);
             }
         });
         this.eLr = (TextView) this.mRootView.findViewById(R.id.frs_private_share_qq);
@@ -194,7 +194,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         this.eLr.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bon(), 8);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.boo(), 8);
             }
         });
         this.eLs = (TextView) this.mRootView.findViewById(R.id.frs_private_share_weibo);
@@ -202,7 +202,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         this.eLs.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.7
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.bon(), 6);
+                ThreadAchievementShareDialogView.this.d(ThreadAchievementShareDialogView.this.boo(), 6);
             }
         });
     }
@@ -239,7 +239,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         return equipmentWidth / 6;
     }
 
-    public Bitmap bon() {
+    public Bitmap boo() {
         if (this.eLw == null) {
             ao.setBackgroundColor(this.eLz, R.color.CAM_X0201);
             ao.setBackgroundResource(this.eLx, R.drawable.pic_announcement);
@@ -253,7 +253,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u(Bitmap bitmap) {
-        if (!boo()) {
+        if (!bop()) {
             if (this.eLv == null) {
                 this.eLv = new at(this.mPageContext);
             }
@@ -270,7 +270,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         }
     }
 
-    private boolean boo() {
+    private boolean bop() {
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new PermissionJudgePolicy();
         }
@@ -281,7 +281,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(final Bitmap bitmap, final int i) {
-        if (bitmap != null && !boo()) {
+        if (bitmap != null && !bop()) {
             aq aqVar = new aq("c13724");
             if (i == 3) {
                 aqVar.an("obj_type", 2);
@@ -299,7 +299,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
             ac.a(new ab<ShareItem>() { // from class: com.baidu.tbadk.browser.newshare.ThreadAchievementShareDialogView.8
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bop */
+                /* renamed from: boq */
                 public ShareItem doInBackground() {
                     return ThreadAchievementShareDialogView.this.e(bitmap, i);
                 }
@@ -323,7 +323,7 @@ public class ThreadAchievementShareDialogView extends LinearLayout {
         shareItem.title = this.mContext.getString(R.string.app_name);
         shareItem.content = "";
         shareItem.x(bitmap);
-        shareItem.bCG();
+        shareItem.bCH();
         return shareItem;
     }
 }

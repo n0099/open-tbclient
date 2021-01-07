@@ -47,13 +47,13 @@ public class c {
     private static int mCount = 0;
     private static String dKP = null;
 
-    static /* synthetic */ int aNK() {
+    static /* synthetic */ int aNL() {
         int i = mCount;
         mCount = i + 1;
         return i;
     }
 
-    private static boolean aNH() {
+    private static boolean aNI() {
         return System.currentTimeMillis() - mLastTime <= 1000;
     }
 
@@ -91,7 +91,7 @@ public class c {
         if (!uri.toString().matches(a.dKS + ".*")) {
             return;
         }
-        if (aNH() && dKN) {
+        if (aNI() && dKN) {
             mLastTime = System.currentTimeMillis();
             return;
         }
@@ -108,7 +108,7 @@ public class c {
                             long j = cursor.getLong(cursor.getColumnIndex("date_added"));
                             long currentTimeMillis2 = System.currentTimeMillis() / 1000;
                             mImageUri = uri;
-                            if (com.baidu.swan.apps.ao.c.aQV()) {
+                            if (com.baidu.swan.apps.ao.c.aQW()) {
                                 mImageUri = ContentUris.withAppendedId(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_ROW_ID)));
                             }
                             if (DEBUG) {
@@ -117,7 +117,7 @@ public class c {
                                 Log.d("SYSTEM_SCREENSHOT", "nowSecs: " + currentTimeMillis2);
                                 Log.d("SYSTEM_SCREENSHOT", "imageUri: " + mImageUri.toString());
                             }
-                            if (aNJ()) {
+                            if (aNK()) {
                                 d.closeSafely(cursor);
                                 return;
                             }
@@ -128,12 +128,12 @@ public class c {
                                 dKO = new Runnable() { // from class: com.baidu.swan.apps.ag.c.2
                                     @Override // java.lang.Runnable
                                     public void run() {
-                                        c.aNK();
+                                        c.aNL();
                                         if (c.DEBUG) {
                                             Log.d("SYSTEM_SCREENSHOT", "mCount: " + c.mCount);
                                         }
                                         if (c.d(string, c.mImageUri) || c.mCount > 10) {
-                                            if (c.d(string, c.mImageUri) && c.aNI() && !c.c(string, c.mImageUri)) {
+                                            if (c.d(string, c.mImageUri) && c.aNJ() && !c.c(string, c.mImageUri)) {
                                                 for (com.baidu.swan.apps.ag.a aVar : c.mCallbacks) {
                                                     if (aVar != null) {
                                                         aVar.a(bVar);
@@ -180,8 +180,8 @@ public class c {
         }
     }
 
-    public static boolean aNI() {
-        return g.aDP().isForeground() && System.currentTimeMillis() - dKK > 2000;
+    public static boolean aNJ() {
+        return g.aDQ().isForeground() && System.currentTimeMillis() - dKK > 2000;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -194,7 +194,7 @@ public class c {
         int navigationBarHeight = point.y + getNavigationBarHeight();
         int i = point.x;
         double d = (i != 0 ? navigationBarHeight / (i * 1.0d) : 0.0d) * 1.2d;
-        double j = com.baidu.swan.apps.ao.c.aQV() ? j(uri) : 0.0d;
+        double j = com.baidu.swan.apps.ao.c.aQW() ? j(uri) : 0.0d;
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
@@ -218,14 +218,14 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static boolean d(String str, Uri uri) {
-        if (com.baidu.swan.apps.ao.c.aQV()) {
+        if (com.baidu.swan.apps.ao.c.aQW()) {
             return i(uri);
         }
         new BitmapFactory.Options().inJustDecodeBounds = true;
         return BitmapFactory.decodeFile(str) != null;
     }
 
-    private static boolean aNJ() {
+    private static boolean aNK() {
         return mImageUri == null || TextUtils.equals(dKP, mImageUri.toString());
     }
 

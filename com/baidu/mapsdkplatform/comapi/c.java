@@ -8,14 +8,14 @@ import com.baidu.mapapi.common.EnvironmentUtilities;
 import com.baidu.platform.comapi.util.SysOSUtil;
 import java.io.File;
 import java.io.IOException;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f3140a;
+    private static boolean f3141a;
 
     public static void a(Context context, boolean z, String str, String str2, String str3) {
-        if (f3140a) {
+        if (f3141a) {
             return;
         }
         if (context == null) {
@@ -34,7 +34,7 @@ public class c {
             EnvironmentUtilities.setSDCardPath(str2);
         }
         EnvironmentUtilities.initAppDirectory(context);
-        f3140a = true;
+        f3141a = true;
     }
 
     private static boolean a(String str) {

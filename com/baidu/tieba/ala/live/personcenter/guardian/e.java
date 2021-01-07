@@ -19,7 +19,7 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
     /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes11.dex */
     public interface a {
-        void HR(String str);
+        void HQ(String str);
 
         c b(c cVar);
     }
@@ -41,29 +41,29 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
                             } else {
                                 errorString = httpResponsedMessage.getErrorString();
                             }
-                            e.this.hme.HR(errorString);
+                            e.this.hme.HQ(errorString);
                             return;
                         }
                         return;
                     }
                     AlaGuardianListHttpResponseMessage alaGuardianListHttpResponseMessage = (AlaGuardianListHttpResponseMessage) httpResponsedMessage;
                     if (e.this.hme != null) {
-                        e.this.hme.b(alaGuardianListHttpResponseMessage.cbr());
+                        e.this.hme.b(alaGuardianListHttpResponseMessage.cbs());
                     }
                 }
             }
         };
         this.hmg = alaGuardianListActivity;
         this.hme = aVar;
-        buG();
+        buH();
         registerListener(this.hlA);
     }
 
-    public void HT(String str) {
+    public void HS(String str) {
         this.mUserId = str;
     }
 
-    private void buG() {
+    private void buH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021024, TbConfig.SERVER_ADDRESS + "ala/relation/getGuardianShipList");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -74,11 +74,11 @@ public class e extends BdBaseModel<AlaGuardianListActivity> {
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     public boolean loadData() {
-        cbs();
+        cbt();
         return false;
     }
 
-    private void cbs() {
+    private void cbt() {
         HttpMessage httpMessage = new HttpMessage(1021024);
         httpMessage.setTag(this.hmg.getUniqueId());
         httpMessage.addParam("benefit_userid", this.mUserId);

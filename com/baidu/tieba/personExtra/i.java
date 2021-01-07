@@ -21,26 +21,26 @@ public class i {
     private com.baidu.tbadk.core.dialog.g kNZ;
     private Context mContext;
     private TbPageContext mPageContext;
-    private SmartApp mut;
-    private com.baidu.tbadk.core.dialog.i muw;
-    private a mux;
-    private k.b muy = new k.b() { // from class: com.baidu.tieba.personExtra.i.1
+    private SmartApp mus;
+    private com.baidu.tbadk.core.dialog.i muv;
+    private a muw;
+    private k.b mux = new k.b() { // from class: com.baidu.tieba.personExtra.i.1
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
-            if (i.this.mut != null) {
+            if (i.this.mus != null) {
                 HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SMART_APP_DEL_BROWSE_HISTORY);
-                httpMessage.addParam("swan_app_key", i.this.mut.id);
+                httpMessage.addParam("swan_app_key", i.this.mus.id);
                 MessageManager.getInstance().sendMessage(httpMessage);
-                if (i.this.mux != null) {
-                    i.this.mux.QL(i.this.mut.id);
+                if (i.this.muw != null) {
+                    i.this.muw.QK(i.this.mus.id);
                 }
                 aq aqVar = new aq("c13436");
                 aqVar.w("uid", TbadkCoreApplication.getCurrentAccountId());
-                aqVar.w("obj_id", i.this.mut.swan_app_id.longValue());
-                aqVar.dX("obj_name", i.this.mut.name);
+                aqVar.w("obj_id", i.this.mus.swan_app_id.longValue());
+                aqVar.dX("obj_name", i.this.mus.name);
                 TiebaStatic.log(aqVar);
-                if (i.this.muw != null) {
-                    i.this.muw.dismiss();
+                if (i.this.muv != null) {
+                    i.this.muv.dismiss();
                 }
             }
         }
@@ -49,7 +49,7 @@ public class i {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void QL(String str);
+        void QK(String str);
     }
 
     static {
@@ -63,26 +63,26 @@ public class i {
     }
 
     public void create() {
-        if (this.muw == null) {
+        if (this.muv == null) {
             this.kNZ = new com.baidu.tbadk.core.dialog.g(this.mContext.getString(R.string.delete), this.iyk);
-            this.kNZ.a(this.muy);
+            this.kNZ.a(this.mux);
             this.eBG.add(this.kNZ);
             this.iyk.bB(this.eBG);
-            this.muw = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.iyk);
+            this.muv = new com.baidu.tbadk.core.dialog.i(this.mPageContext, this.iyk);
         }
     }
 
     public void a(a aVar) {
-        this.mux = aVar;
+        this.muw = aVar;
     }
 
     public void b(SmartApp smartApp) {
-        this.mut = smartApp;
+        this.mus = smartApp;
     }
 
     public void show() {
-        if (this.muw != null) {
-            this.muw.SY();
+        if (this.muv != null) {
+            this.muv.SY();
         }
     }
 }

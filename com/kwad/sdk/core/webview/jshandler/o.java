@@ -8,10 +8,10 @@ import org.json.JSONObject;
 public class o implements com.kwad.sdk.core.webview.a.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.kwad.sdk.core.webview.a f9904a;
+    private final com.kwad.sdk.core.webview.a f9905a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final com.kwad.sdk.core.download.b.b f9905b;
+    private final com.kwad.sdk.core.download.b.b f9906b;
     @Nullable
     private com.kwad.sdk.core.webview.a.c c;
     @Nullable
@@ -21,34 +21,34 @@ public class o implements com.kwad.sdk.core.webview.a.a {
     public static final class a implements com.kwad.sdk.core.b {
 
         /* renamed from: a  reason: collision with root package name */
-        public float f9907a;
+        public float f9908a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f9908b;
+        public int f9909b;
         public long c;
 
         @Override // com.kwad.sdk.core.b
         public JSONObject toJson() {
             JSONObject jSONObject = new JSONObject();
-            com.kwad.sdk.utils.o.a(jSONObject, "progress", this.f9907a);
-            com.kwad.sdk.utils.o.a(jSONObject, "status", this.f9908b);
+            com.kwad.sdk.utils.o.a(jSONObject, "progress", this.f9908a);
+            com.kwad.sdk.utils.o.a(jSONObject, "status", this.f9909b);
             com.kwad.sdk.utils.o.a(jSONObject, "totalBytes", this.c);
             return jSONObject;
         }
     }
 
     public o(com.kwad.sdk.core.webview.a aVar, @Nullable com.kwad.sdk.core.download.b.b bVar) {
-        this.f9904a = aVar;
-        this.f9905b = bVar;
+        this.f9905a = aVar;
+        this.f9906b = bVar;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, float f) {
         if (this.c != null) {
             a aVar = new a();
-            aVar.f9907a = f;
-            aVar.f9908b = i;
-            aVar.c = com.kwad.sdk.core.response.b.c.j(this.f9904a.f9836b).totalBytes;
+            aVar.f9908a = f;
+            aVar.f9909b = i;
+            aVar.c = com.kwad.sdk.core.response.b.c.j(this.f9905a.f9837b).totalBytes;
             this.c.a(aVar);
         }
     }
@@ -95,28 +95,28 @@ public class o implements com.kwad.sdk.core.webview.a.a {
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void a(String str, @NonNull com.kwad.sdk.core.webview.a.c cVar) {
-        if (this.f9904a.f9836b == null) {
+        if (this.f9905a.f9837b == null) {
             cVar.a(-1, "native photo is null");
             return;
         }
         this.c = cVar;
-        if (this.f9905b != null) {
+        if (this.f9906b != null) {
             if (this.d != null) {
-                this.f9905b.c(this.d);
+                this.f9906b.c(this.d);
                 return;
             }
             this.d = c();
-            this.f9905b.a(this.d);
+            this.f9906b.a(this.d);
         }
     }
 
     @Override // com.kwad.sdk.core.webview.a.a
     public void b() {
         this.c = null;
-        if (this.f9905b == null || this.d == null) {
+        if (this.f9906b == null || this.d == null) {
             return;
         }
-        this.f9905b.b(this.d);
+        this.f9906b.b(this.d);
         this.d = null;
     }
 }

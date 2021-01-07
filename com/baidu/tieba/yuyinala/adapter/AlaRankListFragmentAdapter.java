@@ -8,16 +8,16 @@ import java.util.ArrayList;
 /* loaded from: classes11.dex */
 public class AlaRankListFragmentAdapter extends PagerAdapter {
     private ArrayList<d> gtq;
-    private AlaRankListActivity ojJ;
+    private AlaRankListActivity ojI;
 
     public AlaRankListFragmentAdapter(AlaRankListActivity alaRankListActivity, String str) {
-        this.ojJ = alaRankListActivity;
-        VG(str);
+        this.ojI = alaRankListActivity;
+        VF(str);
     }
 
-    private void VG(String str) {
+    private void VF(String str) {
         this.gtq = new ArrayList<>();
-        this.gtq.add(new com.baidu.tieba.yuyinala.b.a(this.ojJ, str));
+        this.gtq.add(new com.baidu.tieba.yuyinala.b.a(this.ojI, str));
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter

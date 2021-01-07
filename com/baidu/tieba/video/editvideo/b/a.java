@@ -11,49 +11,49 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
     private Context mContext;
-    private com.baidu.tieba.video.editvideo.data.a nHf;
-    private b nHg;
-    b.a nHh;
+    private com.baidu.tieba.video.editvideo.data.a nHe;
+    private b nHf;
+    b.a nHg;
 
     public a(Context context) {
         this.mContext = context;
     }
 
     public void b(com.baidu.tieba.video.editvideo.data.a aVar) {
-        this.nHf = aVar;
+        this.nHe = aVar;
     }
 
-    public String dUe() {
-        return (this.nHf == null || "normal".equalsIgnoreCase(this.nHf.value)) ? "" : this.nHf.value;
+    public String dUf() {
+        return (this.nHe == null || "normal".equalsIgnoreCase(this.nHe.value)) ? "" : this.nHe.value;
     }
 
     public void gz(String str, String str2) {
-        if ((this.nHg == null || !this.nHg.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
-            this.nHg = new b(this.mContext, str, dUh(), str2);
-            if (this.nHh != null) {
-                this.nHg.a(this.nHh);
+        if ((this.nHf == null || !this.nHf.isRunning()) && !TextUtils.isEmpty(str) && new File(str).exists()) {
+            this.nHf = new b(this.mContext, str, dUi(), str2);
+            if (this.nHg != null) {
+                this.nHf.a(this.nHg);
             }
-            this.nHg.dUi();
+            this.nHf.dUj();
         }
     }
 
-    public boolean dUf() {
-        if (this.nHg != null) {
-            return this.nHg.isRunning();
+    public boolean dUg() {
+        if (this.nHf != null) {
+            return this.nHf.isRunning();
         }
         return false;
     }
 
-    public void dUg() {
-        if (this.nHg != null) {
-            this.nHg.dUj();
+    public void dUh() {
+        if (this.nHf != null) {
+            this.nHf.dUk();
         }
     }
 
     public void a(b.a aVar) {
-        this.nHh = aVar;
-        if (this.nHg != null) {
-            this.nHg.a(this.nHh);
+        this.nHg = aVar;
+        if (this.nHf != null) {
+            this.nHf.a(this.nHg);
         }
     }
 
@@ -89,7 +89,7 @@ public class a {
         }
     }
 
-    private static String dUh() {
-        return com.baidu.tieba.video.c.nFh + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
+    private static String dUi() {
+        return com.baidu.tieba.video.c.nFg + "video_addfilter_" + System.currentTimeMillis() + ".mp4";
     }
 }

@@ -102,7 +102,7 @@ public class g extends BaseCardInfo implements com.baidu.tbadk.core.util.g.a, co
         public String videoWidth;
     }
 
-    public AgreeData btk() {
+    public AgreeData btl() {
         return this.agreeData;
     }
 

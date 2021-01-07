@@ -5,18 +5,18 @@ import android.util.Log;
 import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLngBounds;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class TileOverlayOptions {
     private static Bundle c;
     private static final String j = TileOverlayOptions.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private TileProvider f2889b;
+    private TileProvider f2890b;
     public int datasource;
     public String urlString;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f2888a = 209715200;
+    private int f2889a = 209715200;
     private int d = 20;
     private int e = 3;
     private int f = 15786414;
@@ -44,17 +44,17 @@ public final class TileOverlayOptions {
         c.putInt("datasource", this.datasource);
         c.putInt("maxDisplay", this.d);
         c.putInt("minDisplay", this.e);
-        c.putInt("sdktiletmpmax", this.f2888a);
+        c.putInt("sdktiletmpmax", this.f2889a);
         return c;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public TileOverlay a(BaiduMap baiduMap) {
-        return new TileOverlay(baiduMap, this.f2889b);
+        return new TileOverlay(baiduMap, this.f2890b);
     }
 
     public TileOverlayOptions setMaxTileTmp(int i) {
-        this.f2888a = i;
+        this.f2889a = i;
         return this;
     }
 
@@ -97,7 +97,7 @@ public final class TileOverlayOptions {
         } else {
             this.datasource = 0;
         }
-        this.f2889b = tileProvider;
+        this.f2890b = tileProvider;
         int maxDisLevel = tileProvider.getMaxDisLevel();
         int minDisLevel = tileProvider.getMinDisLevel();
         if (maxDisLevel > 21 || minDisLevel < 3) {

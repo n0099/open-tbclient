@@ -8,68 +8,68 @@ import java.util.HashMap;
 public final class bx implements View.OnTouchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14030a;
+    private int f14031a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f32a;
+    private long f33a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f14031b;
+    private int f14032b;
 
     /* renamed from: case  reason: not valid java name */
-    private int f33case;
+    private int f34case;
     private int java;
-    private Info qbW;
-    private long qcD;
-    private final a qdB;
-    private float qdC;
-    private float qdD;
-    private boolean qbE = false;
-    private long qbX = 0;
+    private Info qdE;
+    private long qel;
+    private final a qfj;
+    private float qfk;
+    private float qfl;
+    private boolean qdm = false;
+    private long qdF = 0;
 
     /* loaded from: classes4.dex */
     public interface a {
-        boolean abJ(String str);
+        boolean abK(String str);
 
-        void abK(String str);
+        void abL(String str);
     }
 
     public bx(Info info, a aVar) {
-        this.qdB = aVar;
-        this.qbW = info;
+        this.qfj = aVar;
+        this.qdE = info;
     }
 
     @Override // android.view.View.OnTouchListener
     public final boolean onTouch(View view, MotionEvent motionEvent) {
         switch (motionEvent.getAction()) {
             case 0:
-                this.qbE = true;
-                this.qbX = System.currentTimeMillis();
-                this.qdC = motionEvent.getX();
-                this.qdD = motionEvent.getY();
+                this.qdm = true;
+                this.qdF = System.currentTimeMillis();
+                this.qfk = motionEvent.getX();
+                this.qfl = motionEvent.getY();
                 this.java = (int) motionEvent.getRawX();
-                this.f33case = (int) motionEvent.getRawY();
-                this.qcD = System.currentTimeMillis();
+                this.f34case = (int) motionEvent.getRawY();
+                this.qel = System.currentTimeMillis();
                 return false;
             case 1:
-                this.f14030a = (int) motionEvent.getRawX();
-                this.f14031b = (int) motionEvent.getRawY();
-                this.f32a = System.currentTimeMillis();
-                boolean z = Math.abs(motionEvent.getX() - this.qdC) < 51.0f;
-                boolean z2 = Math.abs(motionEvent.getY() - this.qdD) < 51.0f;
-                boolean z3 = System.currentTimeMillis() - this.qbX < 2000;
-                if (z && z2 && z3 && this.qbE) {
+                this.f14031a = (int) motionEvent.getRawX();
+                this.f14032b = (int) motionEvent.getRawY();
+                this.f33a = System.currentTimeMillis();
+                boolean z = Math.abs(motionEvent.getX() - this.qfk) < 51.0f;
+                boolean z2 = Math.abs(motionEvent.getY() - this.qfl) < 51.0f;
+                boolean z3 = System.currentTimeMillis() - this.qdF < 2000;
+                if (z && z2 && z3 && this.qdm) {
                     String str = null;
                     try {
-                        str = eJY().toString();
-                        this.qdB.abK(str);
+                        str = eKC().toString();
+                        this.qfj.abL(str);
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
-                    return this.qdB.abJ(str);
-                } else if (this.qdB != null) {
+                    return this.qfj.abK(str);
+                } else if (this.qfj != null) {
                     try {
-                        this.qdB.abK(eJY().toString());
+                        this.qfj.abL(eKC().toString());
                         return false;
                     } catch (Exception e2) {
                         e2.printStackTrace();
@@ -83,14 +83,14 @@ public final class bx implements View.OnTouchListener {
         }
     }
 
-    private HashMap<String, Object> eJY() {
+    private HashMap<String, Object> eKC() {
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("dx", Integer.valueOf(this.java));
-        hashMap.put("dy", Integer.valueOf(this.f33case));
-        hashMap.put("dts", Long.valueOf(this.qcD));
-        hashMap.put("ux", Integer.valueOf(this.f14030a));
-        hashMap.put("uy", Integer.valueOf(this.f14031b));
-        hashMap.put("uts", Long.valueOf(this.f32a));
+        hashMap.put("dy", Integer.valueOf(this.f34case));
+        hashMap.put("dts", Long.valueOf(this.qel));
+        hashMap.put("ux", Integer.valueOf(this.f14031a));
+        hashMap.put("uy", Integer.valueOf(this.f14032b));
+        hashMap.put("uts", Long.valueOf(this.f33a));
         return hashMap;
     }
 }

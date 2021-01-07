@@ -67,15 +67,15 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
             ConcernTabFragment.this.lU(false);
             ConcernTabFragment.this.hideLoadingView(ConcernTabFragment.this.mRootView);
             if (x.getCount(list) == 0) {
-                ConcernTabFragment.this.bUH();
+                ConcernTabFragment.this.bUI();
             } else {
                 ConcernTabFragment.this.Yc.setData(list);
                 if (!ConcernTabFragment.this.mHasMore) {
-                    ConcernTabFragment.this.Zh();
+                    ConcernTabFragment.this.Zi();
                 } else {
-                    ConcernTabFragment.this.Zg();
+                    ConcernTabFragment.this.Zh();
                 }
-                ConcernTabFragment.this.Zi();
+                ConcernTabFragment.this.Zj();
             }
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(AlaCmdConfigCustom.CMD_ALA_SPECIAL_CONCERN_TAB_TAB_ICON, Boolean.valueOf(i > 0)));
         }
@@ -83,17 +83,17 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         @Override // com.baidu.tieba.ala.alasquare.special_forum.model.SpecialConcernTabModel.a
         public void v(int i, String str) {
             ConcernTabFragment.this.hideLoadingView(ConcernTabFragment.this.mRootView);
-            ConcernTabFragment.this.bVF();
-            ConcernTabFragment.this.bUH();
+            ConcernTabFragment.this.bVG();
+            ConcernTabFragment.this.bUI();
         }
     };
     private BdListView.e WN = new BdListView.e() { // from class: com.baidu.tieba.ala.alasquare.special_forum.subtab.ConcernTabFragment.3
         @Override // com.baidu.adp.widget.ListView.BdListView.e
         public void onScrollToBottom() {
             if (!l.isNetOk()) {
-                ConcernTabFragment.this.bVF();
+                ConcernTabFragment.this.bVG();
             } else if (ConcernTabFragment.this.mHasMore) {
-                ConcernTabFragment.this.gJe.bUR();
+                ConcernTabFragment.this.gJe.bUS();
             }
         }
     };
@@ -101,7 +101,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
         @Override // com.baidu.tbadk.core.view.f.c
         public void onListPullRefresh(boolean z) {
             if (j.isNetWorkAvailable()) {
-                ConcernTabFragment.this.gJe.WE();
+                ConcernTabFragment.this.gJe.WF();
             } else {
                 ConcernTabFragment.this.lU(false);
             }
@@ -158,8 +158,8 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     }
 
     @Override // com.baidu.tieba.ala.alasquare.special_forum.subtab.SpecialForumTabBaseFragment
-    public void bVE() {
-        super.bVE();
+    public void bVF() {
+        super.bVF();
         if (this.Yc != null) {
             this.Yc.scrollToPosition(0);
         }
@@ -176,7 +176,7 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUH() {
+    public void bUI() {
         if (this.mRefreshView == null) {
             this.mRefreshView = new h(getPageContext().getContext(), getNetRefreshListener());
             this.mRefreshView.setTitle(null);
@@ -202,12 +202,12 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
         this.mIsInit = false;
-        this.gJe.WE();
+        this.gJe.WF();
         showLoadingView(this.mRootView, false, getResources().getDimensionPixelSize(R.dimen.ds230));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zi() {
+    public void Zj() {
         if (this.Yc != null && this.mRefreshView != null) {
             this.Yc.removeHeaderView(this.mRefreshView.getAttachedView());
         }
@@ -215,20 +215,20 @@ public class ConcernTabFragment extends SpecialForumTabBaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zg() {
+    public void Zh() {
         this.Yc.setNextPage(this.gCf);
         this.gCf.startLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zh() {
+    public void Zi() {
         this.Yc.setNextPage(this.gCf);
         this.gCf.setText(getResources().getString(R.string.list_no_more));
         this.gCf.endLoadData();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bVF() {
+    public void bVG() {
         this.Yc.setNextPage(null);
     }
 

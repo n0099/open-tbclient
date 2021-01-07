@@ -9,7 +9,7 @@ public class c extends n<com.ksad.lottie.model.content.c, com.ksad.lottie.model.
 
     @Override // com.ksad.lottie.model.a.m
     public com.ksad.lottie.a.b.a<com.ksad.lottie.model.content.c, com.ksad.lottie.model.content.c> a() {
-        return new com.ksad.lottie.a.b.d(this.f8347a);
+        return new com.ksad.lottie.a.b.d(this.f8348a);
     }
 
     @Override // com.ksad.lottie.model.a.n

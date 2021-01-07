@@ -10,7 +10,7 @@ import androidx.annotation.AttrRes;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.menu.f;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public abstract class BaseMenuView extends FrameLayout {
     private TextView euo;
     private View eup;
@@ -19,7 +19,7 @@ public abstract class BaseMenuView extends FrameLayout {
     protected Context mContext;
     private View mMaskView;
 
-    public abstract boolean aFO();
+    public abstract boolean aFP();
 
     public BaseMenuView(@NonNull Context context) {
         this(context, null);

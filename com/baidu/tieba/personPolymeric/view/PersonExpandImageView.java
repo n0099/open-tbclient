@@ -12,8 +12,8 @@ import android.util.DisplayMetrics;
 import android.widget.ImageView;
 /* loaded from: classes8.dex */
 public class PersonExpandImageView extends ImageView {
-    private final DisplayMetrics mAQ;
-    private int mAR;
+    private final DisplayMetrics mAP;
+    private int mAQ;
     private final Rect mDstRect;
     private final Paint mPaint;
     private final Rect mSrcRect;
@@ -22,14 +22,14 @@ public class PersonExpandImageView extends ImageView {
         super(context, attributeSet);
         this.mSrcRect = new Rect();
         this.mDstRect = new Rect();
-        this.mAR = 0;
+        this.mAQ = 0;
         setScaleType(ImageView.ScaleType.MATRIX);
         this.mPaint = new Paint();
-        this.mAQ = getResources().getDisplayMetrics();
+        this.mAP = getResources().getDisplayMetrics();
     }
 
     public void setInitHeight(int i) {
-        this.mAR = i;
+        this.mAQ = i;
     }
 
     @Override // android.widget.ImageView, android.view.View
@@ -40,12 +40,12 @@ public class PersonExpandImageView extends ImageView {
         float f2;
         float f3;
         float f4 = 0.0f;
-        if (this.mAR != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
-            int scaledWidth = bitmap.getScaledWidth(this.mAQ);
-            int scaledHeight = bitmap.getScaledHeight(this.mAQ);
+        if (this.mAQ != 0 && (drawable = getDrawable()) != null && (drawable instanceof BitmapDrawable) && (bitmap = ((BitmapDrawable) drawable).getBitmap()) != null && !bitmap.isRecycled()) {
+            int scaledWidth = bitmap.getScaledWidth(this.mAP);
+            int scaledHeight = bitmap.getScaledHeight(this.mAP);
             if (scaledWidth != 0 && scaledHeight != 0) {
-                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.mAR) {
-                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.mAR) - getWidth()) * 0.2f) + getWidth();
+                if ((scaledWidth * 1.0f) / scaledHeight < (getWidth() * 1.0f) / this.mAQ) {
+                    float width = (((((getWidth() * getHeight()) * 1.0f) / this.mAQ) - getWidth()) * 0.2f) + getWidth();
                     float f5 = ((scaledHeight * 1.0f) / scaledWidth) * width;
                     if (width != 0.0f && f5 != 0.0f) {
                         float width2 = (getWidth() * scaledWidth) / width;

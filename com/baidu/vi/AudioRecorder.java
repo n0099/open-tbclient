@@ -2,15 +2,15 @@ package com.baidu.vi;
 
 import android.media.AudioRecord;
 import android.os.Handler;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class AudioRecorder {
     private static Handler j = new com.baidu.vi.a();
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile AudioRecord f5908a;
+    private volatile AudioRecord f5909a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f5909b;
+    private int f5910b;
     private int c;
     private int d;
     private boolean e;
@@ -21,19 +21,19 @@ public class AudioRecorder {
     private Thread k = new b(this, AudioRecorder.class.getSimpleName() + "-Record");
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        AudioRecorder f5910a;
+        AudioRecorder f5911a;
 
         /* renamed from: b  reason: collision with root package name */
-        byte[] f5911b;
+        byte[] f5912b;
         int c;
 
         public a(AudioRecorder audioRecorder, byte[] bArr, int i) {
-            this.f5910a = audioRecorder;
-            this.f5911b = bArr;
+            this.f5911a = audioRecorder;
+            this.f5912b = bArr;
             this.c = i;
         }
     }
@@ -51,7 +51,7 @@ public class AudioRecorder {
             this.c = 2;
         }
         this.e = i7 == 1;
-        this.f5909b = i2;
+        this.f5910b = i2;
         this.g = i5;
         this.f = i6;
     }

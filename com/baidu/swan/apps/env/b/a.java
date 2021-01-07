@@ -20,11 +20,11 @@ public final class a implements com.baidu.swan.pms.e.b {
         }
     }
 
-    public String axh() {
+    public String axi() {
         return this.libName;
     }
 
-    public boolean axi() {
+    public boolean axj() {
         return this.dcx;
     }
 
@@ -38,7 +38,7 @@ public final class a implements com.baidu.swan.pms.e.b {
     public static class C0440a {
         private a dcz;
 
-        private a axj() {
+        private a axk() {
             if (this.dcz == null) {
                 this.dcz = new a();
             }
@@ -46,22 +46,22 @@ public final class a implements com.baidu.swan.pms.e.b {
         }
 
         public C0440a or(String str) {
-            axj().libName = str;
+            axk().libName = str;
             return this;
         }
 
         public C0440a fD(boolean z) {
-            axj().dcx = z;
+            axk().dcx = z;
             return this;
         }
 
         public C0440a a(com.baidu.swan.pms.e.b bVar) {
-            axj().dcy = bVar;
+            axk().dcy = bVar;
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public a axk() {
+        public a axl() {
             a aVar = this.dcz;
             this.dcz = null;
             return aVar;

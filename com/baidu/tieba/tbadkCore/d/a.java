@@ -20,27 +20,27 @@ public class a {
         public String mPid;
     }
 
-    public static C0853a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
-        C0853a c0853a = new C0853a(str, str2, str3, str4, str5);
-        c0853a.m(str6, str7, str8, str9, str10);
-        return c0853a;
+    public static C0886a b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, String str10) {
+        C0886a c0886a = new C0886a(str, str2, str3, str4, str5);
+        c0886a.m(str6, str7, str8, str9, str10);
+        return c0886a;
     }
 
-    public static C0853a i(String str, String str2, String str3, String str4, String str5, String str6) {
-        C0853a c0853a = new C0853a("ad_tpoint", "PT", str, str2, "tpoint");
-        c0853a.m(null, null, str3, str4, str5);
+    public static C0886a i(String str, String str2, String str3, String str4, String str5, String str6) {
+        C0886a c0886a = new C0886a("ad_tpoint", "PT", str, str2, "tpoint");
+        c0886a.m(null, null, str3, str4, str5);
         if (!at.isEmpty(str6)) {
-            c0853a.gt("obj_ref", str6);
+            c0886a.gt("obj_ref", str6);
         }
-        return c0853a;
+        return c0886a;
     }
 
     @Deprecated
     public static void c(String str, String str2, String str3, String str4, String str5, String str6, String str7) {
-        C0853a c0853a = new C0853a("ad_tpoint", "PT", str, "c0122", "ad_plat");
-        c0853a.m(str2, str7, str3, str4, str5);
-        c0853a.gt(TiebaInitialize.Params.OBJ_URL, str6);
-        c0853a.save();
+        C0886a c0886a = new C0886a("ad_tpoint", "PT", str, "c0122", "ad_plat");
+        c0886a.m(str2, str7, str3, str4, str5);
+        c0886a.gt(TiebaInitialize.Params.OBJ_URL, str6);
+        c0886a.save();
     }
 
     @Deprecated
@@ -56,38 +56,38 @@ public class a {
 
     /* renamed from: com.baidu.tieba.tbadkCore.d.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0853a {
+    public static class C0886a {
         private final boolean eQz;
         private final aq kWv;
         private final String key;
+        private final String nsS;
         private final String nsT;
         private final String nsU;
-        private final String nsV;
         private final String page;
 
-        private C0853a(String str, String str2, String str3, String str4, String str5) {
+        private C0886a(String str, String str2, String str3, String str4, String str5) {
             this.key = str;
-            this.nsT = str2;
+            this.nsS = str2;
             this.page = str3;
-            this.nsU = str4;
-            this.nsV = str5;
+            this.nsT = str4;
+            this.nsU = str5;
             this.eQz = StringUtils.isNull(str) || StringUtils.isNull(str2) || StringUtils.isNull(str3) || StringUtils.isNull(str4) || StringUtils.isNull(str5) ? false : true;
-            this.kWv = dPu();
+            this.kWv = dPv();
         }
 
-        private aq dPu() {
+        private aq dPv() {
             aq aqVar = new aq(this.key);
-            if (!StringUtils.isNull(this.nsT)) {
-                aqVar = aqVar.dX("line", this.nsT);
+            if (!StringUtils.isNull(this.nsS)) {
+                aqVar = aqVar.dX("line", this.nsS);
             }
             if (!StringUtils.isNull(this.page)) {
                 aqVar = aqVar.dX("page", this.page);
             }
-            if (!StringUtils.isNull(this.nsU)) {
-                aqVar = aqVar.dX("locate", this.nsU);
+            if (!StringUtils.isNull(this.nsT)) {
+                aqVar = aqVar.dX("locate", this.nsT);
             }
-            if (!StringUtils.isNull(this.nsV)) {
-                return aqVar.dX("task", this.nsV);
+            if (!StringUtils.isNull(this.nsU)) {
+                return aqVar.dX("task", this.nsU);
             }
             return aqVar;
         }
@@ -113,7 +113,7 @@ public class a {
             return this.kWv;
         }
 
-        public C0853a gt(String str, String str2) {
+        public C0886a gt(String str, String str2) {
             if (!StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
                 this.kWv.dX(str, str2);
             }

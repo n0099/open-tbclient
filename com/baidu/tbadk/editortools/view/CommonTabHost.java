@@ -55,10 +55,10 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
                 int i = 0;
                 boolean z2 = false;
                 while (i < size) {
-                    a.b bFW = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.eYq.get(i)).bFW();
-                    if (bFW != null) {
+                    a.b bFX = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.eYq.get(i)).bFX();
+                    if (bFX != null) {
                         z = true;
-                        CommonTabHost.this.c(bFW);
+                        CommonTabHost.this.c(bFX);
                     } else {
                         z = z2;
                     }
@@ -107,10 +107,10 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
                 int i = 0;
                 boolean z2 = false;
                 while (i < size) {
-                    a.b bFW = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.eYq.get(i)).bFW();
-                    if (bFW != null) {
+                    a.b bFX = ((com.baidu.tbadk.editortools.view.a) CommonTabHost.this.eYq.get(i)).bFX();
+                    if (bFX != null) {
                         z = true;
-                        CommonTabHost.this.c(bFW);
+                        CommonTabHost.this.c(bFX);
                     } else {
                         z = z2;
                     }
@@ -217,8 +217,9 @@ public class CommonTabHost extends ICommonTabHost implements CommonTabWidgetView
         this.fHu.onChangeSkinType(i);
     }
 
+    /* JADX INFO: Access modifiers changed from: protected */
     @Override // android.view.ViewGroup, android.view.View
-    protected void onDetachedFromWindow() {
+    public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
         Iterator<com.baidu.tbadk.editortools.view.a> it = this.eYq.iterator();
         while (it.hasNext()) {

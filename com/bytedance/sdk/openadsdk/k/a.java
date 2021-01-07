@@ -12,10 +12,10 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f7610a;
+    private static volatile a f7611a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile ThreadPoolExecutor f7611b;
+    private static volatile ThreadPoolExecutor f7612b;
     private static volatile ThreadPoolExecutor c;
     private static volatile ThreadPoolExecutor d;
     private static volatile ThreadPoolExecutor e;
@@ -28,7 +28,7 @@ public class a {
 
     public static void a(boolean z) {
         if (!k.get()) {
-            f7611b = e.a();
+            f7612b = e.a();
             c = e.b();
             f = e.c();
             e = e.e();
@@ -41,14 +41,14 @@ public class a {
     }
 
     public static a a() {
-        if (f7610a == null) {
+        if (f7611a == null) {
             synchronized (a.class) {
-                if (f7610a == null) {
-                    f7610a = new a();
+                if (f7611a == null) {
+                    f7611a = new a();
                 }
             }
         }
-        return f7610a;
+        return f7611a;
     }
 
     private a() {
@@ -93,8 +93,8 @@ public class a {
             if (u.c()) {
                 u.f("", "executeApiTask->TTRunnable param is not be null");
             }
-        } else if (f7611b != null) {
-            f7611b.execute(cVar);
+        } else if (f7612b != null) {
+            f7612b.execute(cVar);
         }
     }
 
@@ -103,8 +103,8 @@ public class a {
             if (u.c()) {
                 u.f("", "executeApiTask->runnable param is not be null");
             }
-        } else if (f7611b != null) {
-            f7611b.execute(new c(i2) { // from class: com.bytedance.sdk.openadsdk.k.a.2
+        } else if (f7612b != null) {
+            f7612b.execute(new c(i2) { // from class: com.bytedance.sdk.openadsdk.k.a.2
                 @Override // java.lang.Runnable
                 public void run() {
                     runnable.run();

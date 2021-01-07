@@ -1,5 +1,5 @@
 package com.qq.e.comm.plugin.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     public static boolean a(int i) {
         return (2147418112 & i) > 0;

@@ -30,10 +30,10 @@ public class AlaThroneAndNobleControllerAdapter extends PagerAdapter {
         this.aPa = str3;
         this.mTabId = i;
         this.mIsHost = z;
-        bZA();
+        bZB();
     }
 
-    private void bZA() {
+    private void bZB() {
         com.baidu.tieba.ala.guardthrone.b.b bVar = new com.baidu.tieba.ala.guardthrone.b.b();
         com.baidu.tieba.ala.guardthrone.a.a aVar = new com.baidu.tieba.ala.guardthrone.a.a();
         aVar.a(this.mTbPageContext, this.mLiveId, this.bvS, this.aPa, this.mTabId, this.mIsHost);

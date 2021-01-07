@@ -35,7 +35,7 @@ public class AlaSquareActiveAdapter extends a<b, SquareActiveViewHolder> {
             return null;
         }
         cVar.a(bVar);
-        com.baidu.tieba.ala.alasquare.b.a.bVl().e(bVar.aA("c12249", false));
+        com.baidu.tieba.ala.alasquare.b.a.bVm().e(bVar.aA("c12249", false));
         if (i == this.gAa) {
             cVar.getView().setAnimation(AnimationUtils.loadAnimation(this.mContext, R.anim.list_anim));
         }

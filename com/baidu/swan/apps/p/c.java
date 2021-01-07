@@ -13,7 +13,7 @@ public class c {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void asv();
+        void asw();
     }
 
     private c() {
@@ -26,19 +26,19 @@ public class c {
         private static final c dfz = new c();
     }
 
-    public static c azj() {
+    public static c azk() {
         return b.dfz;
     }
 
     public void a(@NonNull Activity activity, String str, String str2, a aVar) {
-        com.baidu.swan.apps.t.a.aBv().a(activity, str, str2, aVar);
+        com.baidu.swan.apps.t.a.aBw().a(activity, str, str2, aVar);
     }
 
-    public boolean azk() {
-        e aMk = e.aMk();
-        if (aMk == null) {
+    public boolean azl() {
+        e aMl = e.aMl();
+        if (aMl == null) {
             return false;
         }
-        return aMk.aMC().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
+        return aMl.aMD().b("boolean_var_key_fav_guide_show", (Boolean) false).booleanValue();
     }
 }

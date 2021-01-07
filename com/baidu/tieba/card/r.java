@@ -63,10 +63,10 @@ public class r extends b<com.baidu.tieba.card.data.o> {
     public void onClick(View view) {
         if ((view == this.ixy || view == this.ixz || view == this.ixC) && !StringUtils.isNull(this.ixD.iAC)) {
             TiebaStatic.log(new aq(this.ixF).dX("obj_id", String.valueOf(this.ixD.iAA)));
-            be.bwu().b(getTbPageContext(), new String[]{this.ixD.iAC});
+            be.bwv().b(getTbPageContext(), new String[]{this.ixD.iAC});
         } else if ((view == this.mRootView || view == this.ixA || view == this.ixB) && !StringUtils.isNull(this.ixD.iAF)) {
             TiebaStatic.log(new aq(this.ixG).dX("obj_id", String.valueOf(this.ixD.iAA)));
-            be.bwu().b(getTbPageContext(), new String[]{this.ixD.iAF});
+            be.bwv().b(getTbPageContext(), new String[]{this.ixD.iAF});
         }
     }
 
@@ -110,7 +110,7 @@ public class r extends b<com.baidu.tieba.card.data.o> {
             this.ixC.setText(oVar.iAH);
         }
         this.ixA.setText(oVar.iAD);
-        if (com.baidu.tbadk.core.k.bou().isShowImages()) {
+        if (com.baidu.tbadk.core.k.bov().isShowImages()) {
             this.ixB.setVisibility(0);
             this.ixB.startLoad(oVar.iAE, 10, false);
             return;

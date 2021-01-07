@@ -40,7 +40,7 @@ public class d {
     private Runnable hOf = new Runnable() { // from class: com.baidu.tieba.ala.liveroom.share.d.1
         @Override // java.lang.Runnable
         public void run() {
-            d.this.cnl();
+            d.this.cnm();
         }
     };
     private View.OnClickListener hOg = new View.OnClickListener() { // from class: com.baidu.tieba.ala.liveroom.share.d.2
@@ -64,7 +64,7 @@ public class d {
                     return;
                 }
                 d.this.hOe = -1;
-                d.this.cnl();
+                d.this.cnm();
             } else if (view.getId() == a.f.ala_prepare_share_img_weixin) {
                 z = d.this.hNZ.isSelected() ? false : true;
                 d.this.hNZ.setSelect(z);
@@ -80,7 +80,7 @@ public class d {
                     return;
                 }
                 d.this.hOe = -1;
-                d.this.cnl();
+                d.this.cnm();
             } else if (view.getId() == a.f.ala_prepare_share_img_weixin_circle) {
                 boolean z3 = !d.this.hOa.isSelected();
                 d.this.hOa.setSelect(z3);
@@ -96,7 +96,7 @@ public class d {
                     return;
                 }
                 d.this.hOe = -1;
-                d.this.cnl();
+                d.this.cnm();
             } else if (view.getId() == a.f.ala_prepare_share_img_qq) {
                 z = d.this.hOb.isSelected() ? false : true;
                 d.this.hOb.setSelect(z);
@@ -112,7 +112,7 @@ public class d {
                     return;
                 }
                 d.this.hOe = -1;
-                d.this.cnl();
+                d.this.cnm();
             }
         }
     };
@@ -128,7 +128,7 @@ public class d {
             com.baidu.live.d.Ba().putBoolean(str, false);
             return;
         }
-        cnl();
+        cnm();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -138,7 +138,7 @@ public class d {
 
     public d(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
-        cnj();
+        cnk();
         this.mShareChannel = ShareSingleManager.getInstance().buildShareChannel();
     }
 
@@ -187,7 +187,7 @@ public class d {
         this.hIK = iShareCallback;
     }
 
-    public boolean chs() {
+    public boolean cht() {
         return this.mShareChannel != null && this.hOe >= 1 && this.hOe <= 4;
     }
 
@@ -203,36 +203,36 @@ public class d {
             this.mPageContext.showToast(a.h.share_no_channel);
             return;
         }
-        ShareEntity II = II(str);
-        if (II != null) {
+        ShareEntity IH = IH(str);
+        if (IH != null) {
             switch (this.hOe) {
                 case 1:
                     if (!TextUtils.isEmpty(str3) && str3.contains("直播标题")) {
                         if (!TextUtils.isEmpty(str2)) {
-                            II.content = str3.replace("直播标题", str2);
+                            IH.content = str3.replace("直播标题", str2);
                         } else {
-                            II.content = str3;
+                            IH.content = str3;
                         }
                     }
                     if (TbadkCoreApplication.getInst().isTieba()) {
-                        II.title = "腻害了";
+                        IH.title = "腻害了";
                     }
-                    a(II);
+                    a(IH);
                     return;
                 case 2:
-                    II.content = str2;
-                    II.title = str4;
-                    b(II);
+                    IH.content = str2;
+                    IH.title = str4;
+                    b(IH);
                     return;
                 case 3:
-                    II.content = str2;
-                    II.title = str4;
-                    c(II);
+                    IH.content = str2;
+                    IH.title = str4;
+                    c(IH);
                     return;
                 case 4:
-                    II.content = str2;
-                    II.title = str4;
-                    d(II);
+                    IH.content = str2;
+                    IH.title = str4;
+                    d(IH);
                     return;
                 default:
                     return;
@@ -240,7 +240,7 @@ public class d {
         }
     }
 
-    private ShareEntity II(String str) {
+    private ShareEntity IH(String str) {
         String str2;
         ShareEntity shareEntity = new ShareEntity();
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
@@ -290,12 +290,12 @@ public class d {
         this.mShareChannel.shareToQQ(shareEntity, this.hIK);
     }
 
-    private void cnj() {
+    private void cnk() {
         this.hOe = SharedPrefHelper.getInstance().getInt("prepare_share_type", -1);
     }
 
     private void b(final int[] iArr, final int i, final int i2) {
-        cnk();
+        cnl();
         if (this.hOc.getParent() != null) {
             ((ViewGroup) this.hOc.getParent()).removeView(this.hOc);
         }
@@ -324,7 +324,7 @@ public class d {
         this.mHandler.postDelayed(this.hOf, 5000L);
     }
 
-    private void cnk() {
+    private void cnl() {
         String str = null;
         switch (this.hOe) {
             case 1:
@@ -343,13 +343,13 @@ public class d {
         this.hOd.setText(str);
     }
 
-    public void cnl() {
+    public void cnm() {
         if (this.hOc.getParent() != null) {
             ((ViewGroup) this.hOc.getParent()).removeView(this.hOc);
         }
     }
 
-    public void cnm() {
+    public void cnn() {
         SharedPrefHelper.getInstance().putInt("prepare_share_type", this.hOe);
     }
 

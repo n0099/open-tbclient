@@ -15,21 +15,21 @@ public final class b {
 
         public static a bC(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return aMW();
+                return aMX();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("networkTimeout");
             if (optJSONObject == null) {
-                return aMW();
+                return aMX();
             }
             a aVar = new a();
-            aVar.dHt = optJSONObject.optInt("request", com.baidu.swan.apps.t.a.aAu().ajZ());
+            aVar.dHt = optJSONObject.optInt("request", com.baidu.swan.apps.t.a.aAv().aka());
             aVar.dHu = optJSONObject.optInt("connectSocket", 60000);
             aVar.dHv = optJSONObject.optInt("uploadFile");
             aVar.dHw = optJSONObject.optInt("downloadFile");
             return aVar;
         }
 
-        private static a aMW() {
+        private static a aMX() {
             if (b.DEBUG) {
                 Log.e("SwanAppCommonConfigData", "NetworkConfig createNullObject() " + Log.getStackTraceString(new Exception()));
             }

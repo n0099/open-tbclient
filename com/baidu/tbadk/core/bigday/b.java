@@ -58,7 +58,7 @@ public class b {
         this.eMJ = new SparseArray<>();
     }
 
-    public static b boC() {
+    public static b boD() {
         if (eMN == null) {
             eMN = new b();
         }
@@ -69,14 +69,14 @@ public class b {
         this.mTag = bdUniqueId;
     }
 
-    public void boD() {
+    public void boE() {
         this.eML = false;
         GetBigdayInfoReqMessage getBigdayInfoReqMessage = new GetBigdayInfoReqMessage();
         getBigdayInfoReqMessage.setTag(this.mTag);
         MessageManager.getInstance().sendMessage(getBigdayInfoReqMessage);
     }
 
-    public void boE() {
+    public void boF() {
         new BdAsyncTask<Void, Void, ArrayList<com.baidu.tbadk.core.bigday.a>>() { // from class: com.baidu.tbadk.core.bigday.b.2
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -85,8 +85,8 @@ public class b {
             public ArrayList<com.baidu.tbadk.core.bigday.a> doInBackground(Void... voidArr) {
                 byte[] bArr;
                 ArrayList<com.baidu.tbadk.core.bigday.a> arrayList = new ArrayList<>();
-                l<byte[]> Bm = com.baidu.tbadk.core.c.a.btS().Bm("tb.bigday_datas");
-                if (Bm != null && (bArr = Bm.get("tb.bigday_datas")) != null) {
+                l<byte[]> Bl = com.baidu.tbadk.core.c.a.btT().Bl("tb.bigday_datas");
+                if (Bl != null && (bArr = Bl.get("tb.bigday_datas")) != null) {
                     try {
                         GetBigdayResIdl getBigdayResIdl = (GetBigdayResIdl) new Wire(new Class[0]).parseFrom(bArr, GetBigdayResIdl.class);
                         if (getBigdayResIdl.data != null) {
@@ -94,7 +94,7 @@ public class b {
                                 if (bigdayInfo != null) {
                                     com.baidu.tbadk.core.bigday.a aVar = new com.baidu.tbadk.core.bigday.a();
                                     aVar.a(bigdayInfo);
-                                    if (aVar.boB()) {
+                                    if (aVar.boC()) {
                                         arrayList.add(aVar);
                                     }
                                 }
@@ -126,8 +126,8 @@ public class b {
             this.eMH = c(arrayList, 1);
             this.eMI = c(arrayList, 3);
             this.eMK = arrayList;
-            boF();
-            if (this.eMH != null && c.Cp(this.eMH.imgUrl) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.bvq().getLong("key_bigday_next_showtime_home", 0L)) {
+            boG();
+            if (this.eMH != null && c.Co(this.eMH.imgUrl) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.bvr().getLong("key_bigday_next_showtime_home", 0L)) {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GET_LIVE_IS_BC_CHAT, this.eMH));
             }
         }
@@ -139,24 +139,24 @@ public class b {
         com.baidu.tbadk.core.bigday.a c2 = c(arrayList, 3);
         A(arrayList);
         this.eMK = arrayList;
-        if (c != null && c.boB()) {
+        if (c != null && c.boC()) {
             this.eMH = c;
         }
-        if (c2 != null && c2.boB()) {
+        if (c2 != null && c2.boC()) {
             this.eMI = c2;
         }
-        boF();
-        if (this.eMH != null && c.Cp(this.eMH.imgUrl) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.bvq().getLong("key_bigday_next_showtime_home", 0L)) {
+        boG();
+        if (this.eMH != null && c.Co(this.eMH.imgUrl) && SwitchManager.getInstance().findType(BigdaySwitch.BIGDAY_KEY) == 1 && System.currentTimeMillis() > com.baidu.tbadk.core.sharedPref.b.bvr().getLong("key_bigday_next_showtime_home", 0L)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_GET_LIVE_IS_BC_CHAT, this.eMH));
         }
     }
 
-    private void boF() {
+    private void boG() {
         if (!x.isEmpty(this.eMK)) {
             Iterator<com.baidu.tbadk.core.bigday.a> it = this.eMK.iterator();
             while (it.hasNext()) {
                 com.baidu.tbadk.core.bigday.a next = it.next();
-                if (!c.Cp(next.imgUrl)) {
+                if (!c.Co(next.imgUrl)) {
                     d.mx().a(next.imgUrl, 41, null, this.mTag);
                 }
             }
@@ -183,7 +183,7 @@ public class b {
                     break;
                 }
                 com.baidu.tbadk.core.bigday.a next = it.next();
-                if (next.boB() && next.eMG == i) {
+                if (next.boC() && next.eMG == i) {
                     long currentTimeMillis = System.currentTimeMillis() / 1000;
                     if (next.startTime > currentTimeMillis) {
                         this.eMJ.put(i, Long.valueOf(next.startTime));
@@ -206,7 +206,7 @@ public class b {
             if (this.eMH != null && (currentTimeMillis < this.eMH.startTime || currentTimeMillis > this.eMH.endTime)) {
                 this.eMH = c(this.eMK, 1);
             }
-            if (this.eMH != null && c.Cp(this.eMH.imgUrl)) {
+            if (this.eMH != null && c.Co(this.eMH.imgUrl)) {
                 return this.eMH;
             }
         } else if (i == 3) {
@@ -216,7 +216,7 @@ public class b {
             if (this.eMI != null && (currentTimeMillis < this.eMI.startTime || currentTimeMillis > this.eMI.endTime)) {
                 this.eMI = c(this.eMK, 3);
             }
-            if (this.eMI != null && c.Cp(this.eMI.imgUrl)) {
+            if (this.eMI != null && c.Co(this.eMI.imgUrl)) {
                 return this.eMI;
             }
         }

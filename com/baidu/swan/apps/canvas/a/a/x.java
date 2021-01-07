@@ -16,7 +16,7 @@ public class x extends a {
     @Override // com.baidu.swan.apps.canvas.a.a.a
     public void a(b bVar, Canvas canvas) {
         if (this.cMC != null && this.cMC.isValid()) {
-            if (this.cMC.aok()) {
+            if (this.cMC.aol()) {
                 bVar.mFillPaint.setShader(this.cMC.getShader());
                 return;
             }

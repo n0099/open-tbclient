@@ -14,15 +14,15 @@ import java.util.concurrent.TimeUnit;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected z f7790a = new z.a().d(10, TimeUnit.SECONDS).e(10, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(10, TimeUnit.SECONDS).erT();
+    protected z f7791a = new z.a().d(10, TimeUnit.SECONDS).e(10, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(10, TimeUnit.SECONDS).erU();
 
     /* renamed from: b  reason: collision with root package name */
-    protected z f7791b = new z.a().d(10, TimeUnit.SECONDS).e(30, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(30, TimeUnit.SECONDS).erT();
+    protected z f7792b = new z.a().d(10, TimeUnit.SECONDS).e(30, TimeUnit.SECONDS).c(d.a()).a(d.b()).f(30, TimeUnit.SECONDS).erU();
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
     public c a(String str, String str2) throws Exception {
-        com.bytedance.sdk.a.b.b erk = this.f7790a.g(new ab.a().YV(str).a(ac.a(y.YU(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2)).esc()).erk();
-        return new c(a(erk.erf()), erk.c() == 200 ? erk.erg().e() : null, erk.c(), erk.d());
+        com.bytedance.sdk.a.b.b erl = this.f7791a.g(new ab.a().YU(str).a(ac.a(y.YT(AbstractBceClient.DEFAULT_CONTENT_TYPE), str2)).esd()).erl();
+        return new c(a(erl.erg()), erl.c() == 200 ? erl.erh().e() : null, erl.c(), erl.d());
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.geckox.i.b
@@ -30,9 +30,9 @@ public class a implements b {
         BufferedInputStream bufferedInputStream;
         int i = 0;
         try {
-            com.bytedance.sdk.a.b.b erk = this.f7791b.g(new ab.a().erZ().YV(str).esc()).erk();
-            i = erk.c();
-            bufferedInputStream = new BufferedInputStream(erk.erg().c());
+            com.bytedance.sdk.a.b.b erl = this.f7792b.g(new ab.a().esa().YU(str).esd()).erl();
+            i = erl.c();
+            bufferedInputStream = new BufferedInputStream(erl.erh().c());
             try {
                 try {
                     byte[] bArr = new byte[2048];

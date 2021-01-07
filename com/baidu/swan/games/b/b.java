@@ -9,7 +9,7 @@ import org.json.JSONObject;
 public class b extends EventTargetImpl {
     public b(com.baidu.swan.games.f.b bVar) {
         super(bVar);
-        d.aXm().a(this);
+        d.aXn().a(this);
     }
 
     public void at(int i, String str) throws JSONException {

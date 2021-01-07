@@ -15,9 +15,9 @@ public class a extends com.baidu.swan.gamecenter.c.a {
 
     @Override // com.baidu.swan.gamecenter.c.a
     public com.baidu.swan.apps.api.c.b b(JSONObject jSONObject, com.baidu.swan.apps.o.b bVar) {
-        e aMl = e.aMl();
-        if (aMl != null && aMl.aMe() != null) {
-            y.dz(aMl.aMe());
+        e aMm = e.aMm();
+        if (aMm != null && aMm.aMf() != null) {
+            y.dz(aMm.aMf());
             bVar.aI(null);
         } else if (DEBUG) {
             Log.d("StartPermissionsPage", "swan or activity is null");

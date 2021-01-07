@@ -12,7 +12,7 @@ import org.json.JSONObject;
 public class b extends com.kwad.sdk.contentalliance.detail.b {
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f9148b;
+    private TextView f9149b;
     private TextView c;
     private ViewGroup d;
     private Handler e;
@@ -47,8 +47,8 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageScrolled(int i, float f, int i2) {
-            CharSequence pageTitle = b.this.f8692a.l.getAdapter().getPageTitle(b.this.f8692a.l.getCurrentItem());
-            if (!b.this.f || b.this.f8692a.j.mCurrentTrendTitle == null || b.this.f8692a.j.mCurrentTrendTitle.equals(pageTitle.toString()) || b.this.d.getVisibility() == 0) {
+            CharSequence pageTitle = b.this.f8693a.l.getAdapter().getPageTitle(b.this.f8693a.l.getCurrentItem());
+            if (!b.this.f || b.this.f8693a.j.mCurrentTrendTitle == null || b.this.f8693a.j.mCurrentTrendTitle.equals(pageTitle.toString()) || b.this.d.getVisibility() == 0) {
                 return;
             }
             b.this.d.setVisibility(0);
@@ -64,19 +64,19 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     public void a() {
         super.a();
         this.d.setVisibility(8);
-        if (c.B(this.f8692a.j)) {
-            if (this.f8692a.j.mTrendSlideType != null) {
-                this.f8692a.f8702b.add(this.h);
+        if (c.B(this.f8693a.j)) {
+            if (this.f8693a.j.mTrendSlideType != null) {
+                this.f8693a.f8703b.add(this.h);
                 TrendInfo trendInfo = new TrendInfo();
                 try {
-                    trendInfo.parseJson(new JSONObject(this.f8692a.j.mCurrentTrendTitle));
+                    trendInfo.parseJson(new JSONObject(this.f8693a.j.mCurrentTrendTitle));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 this.c.setText(trendInfo.name);
-                this.f9148b.setText(this.f8692a.j.mTrendSlideType);
+                this.f9149b.setText(this.f8693a.j.mTrendSlideType);
                 this.f = true;
-                this.f8692a.l.a(this.i);
+                this.f8693a.l.a(this.i);
             }
             this.g.setVisibility(0);
         }
@@ -86,9 +86,9 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        if (this.f8692a.j.mTrendSlideType != null) {
-            this.f8692a.f8702b.remove(this.h);
-            this.f8692a.l.b(this.i);
+        if (this.f8693a.j.mTrendSlideType != null) {
+            this.f8693a.f8703b.remove(this.h);
+            this.f8693a.l.b(this.i);
         }
         this.e.removeCallbacksAndMessages(null);
         this.d.setVisibility(8);
@@ -101,7 +101,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b {
         this.e = new Handler();
         this.d = (ViewGroup) b(R.id.ksad_photo_trend_container);
         this.c = (TextView) b(R.id.ksad_content_alliance_trend_title);
-        this.f9148b = (TextView) b(R.id.ksad_content_alliance_trend_type);
+        this.f9149b = (TextView) b(R.id.ksad_content_alliance_trend_type);
         this.g = (ViewGroup) b(R.id.ksad_trend_feed_margin);
     }
 }

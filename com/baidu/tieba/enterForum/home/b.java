@@ -29,7 +29,7 @@ public class b {
         public void fx(int i) {
             b.this.mSortType = i;
             TiebaStatic.log(new aq("c13369").an("obj_type", i == 1 ? 2 : 1));
-            b.this.cyP();
+            b.this.cyQ();
             if (b.this.iIb != null) {
                 b.this.iIb.yU(b.this.mSortType);
             }
@@ -38,7 +38,7 @@ public class b {
     private View.OnClickListener fko = new View.OnClickListener() { // from class: com.baidu.tieba.enterForum.home.b.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (!b.this.iFK.cAr()) {
+            if (!b.this.iFK.cAs()) {
                 if (view == b.this.mTitle) {
                     if (b.this.iIa == null) {
                         b.this.iIa = new com.baidu.tieba.enterForum.view.a(b.this.mContext);
@@ -81,14 +81,14 @@ public class b {
         this.mTitle = textView;
     }
 
-    public void Xf() {
+    public void Xg() {
         if (this.iIa != null) {
-            this.iIa.Xf();
+            this.iIa.Xg();
         }
     }
 
-    public void cyP() {
-        if (cyQ() && this.mTitle != null) {
+    public void cyQ() {
+        if (cyR() && this.mTitle != null) {
             switch (this.mSortType) {
                 case 1:
                     this.mTitle.setText(R.string.level_sort);
@@ -102,14 +102,14 @@ public class b {
         }
     }
 
-    public boolean cyQ() {
+    public boolean cyR() {
         return this.mSortType == 1 || this.mSortType == 2;
     }
 
     public void setSortType(int i) {
-        if (cyQ()) {
+        if (cyR()) {
             this.mSortType = i;
-            cyP();
+            cyQ();
         }
     }
 
@@ -118,7 +118,7 @@ public class b {
     }
 
     public void onChangeSkinType(int i) {
-        if (cyQ()) {
+        if (cyR()) {
             ao.setViewTextColor(this.mTitle, R.color.CAM_X0105, i);
             if (this.mTitle != null) {
                 pL(this.iIc);
@@ -132,18 +132,18 @@ public class b {
     /* JADX INFO: Access modifiers changed from: private */
     public void pL(boolean z) {
         int i = z ? R.drawable.icon_pure_fold12_svg : R.drawable.icon_pure_unfold12_svg;
-        com.baidu.tieba.enterForum.data.c cAx = this.iFK != null ? this.iFK.cAx() : null;
-        if (cAx != null && cAx.iGq) {
+        com.baidu.tieba.enterForum.data.c cAy = this.iFK != null ? this.iFK.cAy() : null;
+        if (cAy != null && cAy.iGq) {
             if (this.iFK != null && this.iFK.isShow()) {
                 ao.setViewTextColor(this.mTitle, R.color.CAM_X0107);
-                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bwq().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+                this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bwr().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
                 return;
             }
             ao.setViewTextColor(this.mTitle, R.color.CAM_X0107);
-            this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bwq().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+            this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bwr().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
             return;
         }
         ao.setViewTextColor(this.mTitle, R.color.CAM_X0107);
-        this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bwq().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
+        this.mTitle.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, SvgManager.bwr().a(i, R.color.CAM_X0108, (SvgManager.SvgResourceStateType) null), (Drawable) null);
     }
 }

@@ -7,14 +7,14 @@ import com.kwad.sdk.utils.ao;
 public class a implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final float f9132a;
+    private final float f9133a;
 
     public a(@NonNull Context context) {
-        this.f9132a = ao.b(context);
+        this.f9133a = ao.b(context);
     }
 
     @Override // com.kwad.sdk.contentalliance.refreshview.b
     public float a(float f, float f2) {
-        return this.f9132a - (((this.f9132a * this.f9132a) * 2.0f) / ((this.f9132a * 2.0f) + f));
+        return this.f9133a - (((this.f9133a * this.f9133a) * 2.0f) / ((this.f9133a * 2.0f) + f));
     }
 }

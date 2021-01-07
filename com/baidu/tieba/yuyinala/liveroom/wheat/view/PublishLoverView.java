@@ -18,9 +18,9 @@ import com.baidu.live.sdk.a;
 /* loaded from: classes11.dex */
 public class PublishLoverView extends FrameLayout {
     private AnimatorSet bUl;
-    private a oFQ;
-    private TextView ooM;
-    private TextView ooZ;
+    private a oFP;
+    private TextView ooL;
+    private TextView ooY;
 
     /* loaded from: classes11.dex */
     public interface a {
@@ -40,57 +40,57 @@ public class PublishLoverView extends FrameLayout {
     private void init(Context context) {
         LayoutInflater.from(context).inflate(a.g.yuyinala_liveroom_publish_lover, this);
         setLayoutParams(new RelativeLayout.LayoutParams(-2, -2));
-        this.ooM = (TextView) findViewById(a.f.tv_sex);
-        this.ooZ = (TextView) findViewById(a.f.tv_publish);
+        this.ooL = (TextView) findViewById(a.f.tv_sex);
+        this.ooY = (TextView) findViewById(a.f.tv_publish);
         setOnPublishClickListener();
     }
 
     public void Aa(boolean z) {
-        this.ooM.setVisibility(0);
-        this.ooZ.setVisibility(8);
-        this.ooM.setText("已选");
+        this.ooL.setVisibility(0);
+        this.ooY.setVisibility(8);
+        this.ooL.setText("已选");
         if (z) {
-            this.ooM.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_man);
+            this.ooL.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_man);
         } else {
-            this.ooM.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_woman);
+            this.ooL.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choosed_woman);
         }
     }
 
     public void c(boolean z, String str, boolean z2) {
         try {
-            this.ooM.setVisibility(0);
+            this.ooL.setVisibility(0);
             if (z2) {
-                this.ooZ.setVisibility(0);
+                this.ooY.setVisibility(0);
             } else {
-                this.ooZ.setVisibility(8);
+                this.ooY.setVisibility(8);
             }
             SpannableString spannableString = new SpannableString(str);
             spannableString.setSpan(new AbsoluteSizeSpan(8, true), 0, 1, 17);
             spannableString.setSpan(new AbsoluteSizeSpan(11, true), 1, 2, 17);
-            this.ooM.setText(spannableString);
+            this.ooL.setText(spannableString);
             if (z) {
-                this.ooM.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_man);
+                this.ooL.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_man);
             } else {
-                this.ooM.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_woman);
+                this.ooL.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_choose_woman);
             }
         } catch (Exception e) {
         }
     }
 
-    public void egB() {
-        this.ooM.setVisibility(0);
-        this.ooZ.setVisibility(8);
-        this.ooM.setText("放弃");
-        this.ooM.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
+    public void egC() {
+        this.ooL.setVisibility(0);
+        this.ooY.setVisibility(8);
+        this.ooL.setText("放弃");
+        this.ooL.setBackgroundResource(a.e.yuyinala_liveroom_publish_lover_giveup);
     }
 
     public void setOnPublishClickListener() {
-        if (this.ooZ != null) {
+        if (this.ooY != null) {
             setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.view.PublishLoverView.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
-                    if (PublishLoverView.this.ooZ != null && PublishLoverView.this.ooZ.getVisibility() == 0 && PublishLoverView.this.oFQ != null) {
-                        PublishLoverView.this.oFQ.onClick();
+                    if (PublishLoverView.this.ooY != null && PublishLoverView.this.ooY.getVisibility() == 0 && PublishLoverView.this.oFP != null) {
+                        PublishLoverView.this.oFP.onClick();
                     }
                 }
             });
@@ -98,12 +98,12 @@ public class PublishLoverView extends FrameLayout {
     }
 
     public void setOnPublishClickListener(a aVar) {
-        this.oFQ = aVar;
+        this.oFP = aVar;
     }
 
-    public void egC() {
-        if (this.ooZ != null) {
-            this.ooZ.setVisibility(8);
+    public void egD() {
+        if (this.ooY != null) {
+            this.ooY.setVisibility(8);
         }
     }
 

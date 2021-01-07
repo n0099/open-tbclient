@@ -65,8 +65,8 @@ public class b {
         if (this.hCB % 15 == 0) {
             this.mLastTime = currentTimeMillis;
             try {
-                jSONObject.put("memory", a.chA().chB());
-                jSONObject.put("cpu", a.chA().aey());
+                jSONObject.put("memory", a.chB().chC());
+                jSONObject.put("cpu", a.chB().aez());
             } catch (JSONException e2) {
                 e2.printStackTrace();
             }

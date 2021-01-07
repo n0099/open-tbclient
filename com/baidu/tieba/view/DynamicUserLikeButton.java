@@ -12,8 +12,8 @@ import com.baidu.tieba.R;
 /* loaded from: classes.dex */
 public class DynamicUserLikeButton extends TBSpecificationBtn implements com.baidu.tbadk.core.view.userLike.b {
     private boolean alD;
-    private a nRI;
-    private boolean nRJ;
+    private a nRH;
+    private boolean nRI;
 
     /* loaded from: classes.dex */
     public interface a {
@@ -37,10 +37,10 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void aM(boolean z) {
-        if (this.nRJ) {
+        if (this.nRI) {
             if (z) {
                 com.baidu.tbadk.core.view.commonBtn.b bVar = new com.baidu.tbadk.core.view.commonBtn.b();
-                bVar.byw();
+                bVar.byx();
                 setConfig(bVar);
                 setClickable(true);
                 setText(TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed));
@@ -93,8 +93,8 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
 
     @Override // com.baidu.tbadk.core.view.userLike.b
     public void bK(View view) {
-        if (this.nRI != null) {
-            this.nRI.cQ(view);
+        if (this.nRH != null) {
+            this.nRH.cQ(view);
         }
     }
 
@@ -104,11 +104,11 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void onChangeSkinType(int i) {
-        bxO();
+        bxP();
     }
 
     public void setOnClickEvent(a aVar) {
-        this.nRI = aVar;
+        this.nRH = aVar;
     }
 
     public void setUseNewStyle(boolean z) {
@@ -116,6 +116,6 @@ public class DynamicUserLikeButton extends TBSpecificationBtn implements com.bai
     }
 
     public void setGodRecommendStyle(boolean z) {
-        this.nRJ = z;
+        this.nRI = z;
     }
 }

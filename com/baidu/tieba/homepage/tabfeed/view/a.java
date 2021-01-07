@@ -46,7 +46,7 @@ public class a {
             if (a.this.Yc != null) {
                 a.this.Yc.stopScroll();
             }
-            a.this.Zg();
+            a.this.Zh();
         }
     };
     private RecyclerView.OnScrollListener ioM = new RecyclerView.OnScrollListener() { // from class: com.baidu.tieba.homepage.tabfeed.view.a.2
@@ -58,8 +58,8 @@ public class a {
                 if (a.this.iOh != null) {
                     a.this.iOh.b(a.this.Yc.getFirstVisiblePosition(), a.this.Yc.getLastVisiblePosition(), this.flr, true);
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.czR() ? false : true)));
-                s.cva().bRS();
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001630, Boolean.valueOf(a.this.czS() ? false : true)));
+                s.cvb().bRT();
             }
         }
 
@@ -84,13 +84,13 @@ public class a {
                 a.this.gCf.setOnClickListener(null);
                 if (a.this.hasMore) {
                     a.this.gCf.showLoading();
-                    a.this.kkl.czD();
+                    a.this.kkl.czE();
                 }
             }
         }
     };
 
-    public void Zg() {
+    public void Zh() {
         if (this.gCf != null && this.kkl != null) {
             if (j.isNetWorkAvailable()) {
                 this.Yc.setNextPage(this.gCf);
@@ -98,7 +98,7 @@ public class a {
                 this.gCf.setOnClickListener(null);
                 if (this.hasMore) {
                     this.gCf.showLoading();
-                    this.kkl.czD();
+                    this.kkl.czE();
                     return;
                 }
                 this.gCf.setText(this.kjb.getResources().getString(R.string.list_has_no_more));
@@ -148,7 +148,7 @@ public class a {
         this.gCf.setTextSize(R.dimen.tbfontsize33);
         this.gCf.setTextColor(ao.getColor(R.color.CAM_X0107));
         this.gCf.setNoMoreTextColorId(R.color.CAM_X0110);
-        this.gCf.bxC();
+        this.gCf.bxD();
         this.gCf.setOnClickListener(this.iOj);
         if (this.gEz == null) {
             this.gEz = (BdSwipeRefreshLayout) viewGroup.findViewById(R.id.tab_feed_pull_refresh_layout);
@@ -234,12 +234,12 @@ public class a {
 
     public void pause() {
         if (this.iOh != null) {
-            this.iOh.dev();
+            this.iOh.dew();
             this.iOh.tE(false);
         }
     }
 
-    public void czQ() {
+    public void czR() {
         if (this.Yc != null) {
             this.Yc.scrollToPosition(0);
         }
@@ -257,7 +257,7 @@ public class a {
         }
     }
 
-    public boolean czR() {
+    public boolean czS() {
         return this.Yc == null || this.Yc.getChildCount() == 0 || this.Yc.getChildAt(0).getTop() == 0;
     }
 }

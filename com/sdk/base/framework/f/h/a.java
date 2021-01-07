@@ -11,10 +11,10 @@ import java.util.ArrayList;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13143a = a.class.getName();
+    private static final String f13144a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Boolean f13144b = Boolean.valueOf(com.sdk.base.framework.c.f.f13118b);
+    private static final Boolean f13145b = Boolean.valueOf(com.sdk.base.framework.c.f.f13119b);
 
     public static c a(Context context, ArrayList<String> arrayList, boolean z) {
         c cVar;
@@ -29,19 +29,19 @@ public class a {
                 NetworkInfo.State state = connectivityManager.getNetworkInfo(2).getState();
                 NetworkInfo.State state2 = connectivityManager.getNetworkInfo(0).getState();
                 if (state.compareTo(NetworkInfo.State.CONNECTED) == 0 || state2.compareTo(NetworkInfo.State.CONNECTED) == 0) {
-                    return c.f13146b;
+                    return c.f13147b;
                 }
             }
             activeNetworkInfo = connectivityManager.getActiveNetworkInfo();
         } catch (Throwable th) {
-            com.sdk.base.framework.a.a.c.b(f13143a, th.getMessage(), f13144b);
+            com.sdk.base.framework.a.a.c.b(f13144a, th.getMessage(), f13145b);
         }
         if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
             String typeName = activeNetworkInfo.getTypeName();
             if ("MOBILE".equalsIgnoreCase(typeName)) {
-                cVar = c.f13146b;
+                cVar = c.f13147b;
             } else if ("WIFI".equalsIgnoreCase(typeName)) {
-                cVar = c.f13145a;
+                cVar = c.f13146a;
             }
             return cVar;
         }
@@ -65,7 +65,7 @@ public class a {
                     } catch (Throwable th2) {
                         th = th2;
                         arrayList2 = arrayList3;
-                        com.sdk.base.framework.a.a.c.b(f13143a, th.getMessage(), f13144b);
+                        com.sdk.base.framework.a.a.c.b(f13144a, th.getMessage(), f13145b);
                         return arrayList2;
                     }
                 }
@@ -108,7 +108,7 @@ public class a {
             z = false;
         }
         if (connectivityManager == null) {
-            com.sdk.base.framework.a.a.c.a(f13143a, "ConnectivityManager 为null", f13144b);
+            com.sdk.base.framework.a.a.c.a(f13144a, "ConnectivityManager 为null", f13145b);
             return false;
         }
         NetworkInfo.State state = connectivityManager.getNetworkInfo(0).getState();
@@ -130,7 +130,7 @@ public class a {
                 } catch (Throwable th3) {
                     th = th3;
                     z = z2;
-                    com.sdk.base.framework.a.a.c.b(f13143a, th.getMessage(), f13144b);
+                    com.sdk.base.framework.a.a.c.b(f13144a, th.getMessage(), f13145b);
                     boolean z3 = com.sdk.base.framework.c.f.f;
                     if (!z) {
                     }

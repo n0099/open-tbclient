@@ -14,10 +14,10 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final l f8280a = new l();
+    private final l f8281a = new l();
 
     /* renamed from: b  reason: collision with root package name */
-    private final HashSet<String> f8281b = new HashSet<>();
+    private final HashSet<String> f8282b = new HashSet<>();
     private Map<String, List<Layer>> c;
     private Map<String, g> d;
     private Map<String, com.ksad.lottie.model.c> e;
@@ -30,7 +30,7 @@ public class d {
     private float l;
 
     public l a() {
-        return this.f8280a;
+        return this.f8281a;
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY})
@@ -54,11 +54,11 @@ public class d {
     @RestrictTo({RestrictTo.Scope.LIBRARY})
     public void a(String str) {
         Log.w("LOTTIE", str);
-        this.f8281b.add(str);
+        this.f8282b.add(str);
     }
 
     public void a(boolean z) {
-        this.f8280a.a(z);
+        this.f8281a.a(z);
     }
 
     public Rect b() {

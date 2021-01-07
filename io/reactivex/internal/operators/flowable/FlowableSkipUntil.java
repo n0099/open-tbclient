@@ -8,19 +8,19 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableSkipUntil<T, U> extends a<T, T> {
-    final org.a.b<U> qhe;
+    final org.a.b<U> qiN;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
         SkipUntilMainSubscriber skipUntilMainSubscriber = new SkipUntilMainSubscriber(cVar);
         cVar.onSubscribe(skipUntilMainSubscriber);
-        this.qhe.subscribe(skipUntilMainSubscriber.other);
-        this.qgK.a((j) skipUntilMainSubscriber);
+        this.qiN.subscribe(skipUntilMainSubscriber.other);
+        this.qit.a((j) skipUntilMainSubscriber);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class SkipUntilMainSubscriber<T> extends AtomicInteger implements io.reactivex.internal.a.a<T>, d {
         private static final long serialVersionUID = -6270983465606289181L;
         final org.a.c<? super T> actual;
@@ -78,7 +78,7 @@ public final class FlowableSkipUntil<T, U> extends a<T, T> {
             SubscriptionHelper.cancel(this.other);
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes5.dex */
         final class OtherSubscriber extends AtomicReference<d> implements j<Object> {
             private static final long serialVersionUID = -5592042965931999169L;
 

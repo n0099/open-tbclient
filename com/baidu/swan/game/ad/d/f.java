@@ -3,39 +3,39 @@ package com.baidu.swan.game.ad.d;
 import android.text.TextUtils;
 /* loaded from: classes3.dex */
 public class f {
-    public static boolean aVV() {
-        return (TextUtils.isEmpty(aVY()) || TextUtils.isEmpty(aVZ()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.bcl().bcz().longValue() >= 604800000) ? false : true;
-    }
-
     public static boolean aVW() {
-        return (TextUtils.isEmpty(aWa()) || TextUtils.isEmpty(aWb()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.bcl().bcz().longValue() >= 604800000) ? false : true;
+        return (TextUtils.isEmpty(aVZ()) || TextUtils.isEmpty(aWa()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.bcm().bcA().longValue() >= 604800000) ? false : true;
     }
 
     public static boolean aVX() {
-        return com.baidu.swan.games.utils.c.bcl().bcC() && aVW();
+        return (TextUtils.isEmpty(aWb()) || TextUtils.isEmpty(aWc()) || System.currentTimeMillis() - com.baidu.swan.games.utils.c.bcm().bcA().longValue() >= 604800000) ? false : true;
     }
 
-    public static String aVY() {
-        return com.baidu.swan.games.utils.c.bcl().aVY();
+    public static boolean aVY() {
+        return com.baidu.swan.games.utils.c.bcm().bcD() && aVX();
     }
 
     public static String aVZ() {
-        return com.baidu.swan.games.utils.c.bcl().bcx();
+        return com.baidu.swan.games.utils.c.bcm().aVZ();
     }
 
     public static String aWa() {
-        return com.baidu.swan.games.utils.c.bcl().aWa();
+        return com.baidu.swan.games.utils.c.bcm().bcy();
     }
 
     public static String aWb() {
-        return com.baidu.swan.games.utils.c.bcl().bcy();
+        return com.baidu.swan.games.utils.c.bcm().aWb();
     }
 
-    public static boolean aWc() {
-        return com.baidu.swan.games.utils.c.bcl().bcA();
+    public static String aWc() {
+        return com.baidu.swan.games.utils.c.bcm().bcz();
     }
 
     public static boolean aWd() {
-        return aVW() && com.baidu.swan.games.utils.c.bcl().bcB();
+        return com.baidu.swan.games.utils.c.bcm().bcB();
+    }
+
+    public static boolean aWe() {
+        return aVX() && com.baidu.swan.games.utils.c.bcm().bcC();
     }
 }

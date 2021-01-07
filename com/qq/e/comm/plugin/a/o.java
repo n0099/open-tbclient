@@ -14,14 +14,14 @@ import com.qq.e.comm.util.GDTLogger;
 import java.io.File;
 import java.util.concurrent.Future;
 import java.util.concurrent.locks.Lock;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class o implements d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f11932a;
+    private final Context f11933a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final a f11933b = new i();
+    private final a f11934b = new i();
     private final com.qq.e.comm.plugin.a.c.b c = new com.qq.e.comm.plugin.a.c.a();
     private d.a d;
     private final c e;
@@ -32,7 +32,7 @@ class o implements d {
     private com.qq.e.comm.plugin.a.d.a j;
 
     public o(Context context, c cVar, Intent intent, Lock lock) {
-        this.f11932a = context;
+        this.f11933a = context;
         this.e = cVar;
         this.f = intent;
         this.i = new com.qq.e.comm.plugin.a.b.a(context, this.e);
@@ -52,10 +52,10 @@ class o implements d {
     }
 
     private int a(File file, c cVar) {
-        int a2 = com.qq.e.comm.plugin.a.d.b.a().a(this.f11932a, cVar.h());
+        int a2 = com.qq.e.comm.plugin.a.d.b.a().a(this.f11933a, cVar.h());
         GDTLogger.d("check apk status:" + a2);
         if (file.exists()) {
-            if (com.qq.e.comm.plugin.a.e.a.a(file, cVar.h(), this.f11932a)) {
+            if (com.qq.e.comm.plugin.a.e.a.a(file, cVar.h(), this.f11933a)) {
                 GDTLogger.d("apk exist and valid");
                 com.qq.e.comm.plugin.a.d.b.a().a(cVar.h(), 8);
             } else {
@@ -65,7 +65,7 @@ class o implements d {
         } else if (com.qq.e.comm.plugin.a.d.d.c(a2)) {
             d(cVar);
         }
-        int a3 = com.qq.e.comm.plugin.a.d.b.a().a(this.f11932a, cVar.h());
+        int a3 = com.qq.e.comm.plugin.a.d.b.a().a(this.f11933a, cVar.h());
         GDTLogger.d("after check status is:" + a3);
         if (com.qq.e.comm.plugin.a.d.d.a(a3)) {
             return 7;
@@ -85,13 +85,13 @@ class o implements d {
         GDTLogger.d("set download task to downloading");
         com.qq.e.comm.plugin.a.d.b.a().a(cVar.h(), 4);
         cVar.a(4);
-        t.a(this.f11932a).b(cVar);
+        t.a(this.f11933a).b(cVar);
         return 0;
     }
 
     private com.qq.e.comm.plugin.j.e a(final c cVar, File file) {
         final String h = cVar.h();
-        final com.qq.e.comm.plugin.j.b.f fVar = new com.qq.e.comm.plugin.j.b.f(cVar.g(), file, this.f11933b.a(), new b.a().a(com.qq.e.comm.plugin.util.s.f12888a).a());
+        final com.qq.e.comm.plugin.j.b.f fVar = new com.qq.e.comm.plugin.j.b.f(cVar.g(), file, this.f11934b.a(), new b.a().a(com.qq.e.comm.plugin.util.s.f12889a).a());
         this.j = new com.qq.e.comm.plugin.a.d.a() { // from class: com.qq.e.comm.plugin.a.o.1
             @Override // com.qq.e.comm.plugin.a.d.a
             public void a(String str, int i, int i2, long j) {
@@ -164,7 +164,7 @@ class o implements d {
         int i2 = i == 0 ? 8 : ((com.qq.e.comm.plugin.j.d.e(i) && GDTADManager.getInstance().getSM().getInteger("download_pause", 0) == 1) || com.qq.e.comm.plugin.j.d.c(i)) ? 32 : com.qq.e.comm.plugin.j.d.d(i) ? 64 : 16;
         com.qq.e.comm.plugin.a.d.b.a().a(cVar.h(), i2);
         cVar.a(i2);
-        t.a(this.f11932a).b(cVar);
+        t.a(this.f11933a).b(cVar);
     }
 
     private Pair<Integer, File> b() {
@@ -217,7 +217,7 @@ class o implements d {
         GDTLogger.d("download code:" + a5 + ",download message:" + a4.b());
         if (a5 == 0) {
             b(6);
-            if (com.qq.e.comm.plugin.a.e.a.a(a2, cVar.h(), this.f11932a)) {
+            if (com.qq.e.comm.plugin.a.e.a.a(a2, cVar.h(), this.f11933a)) {
                 a();
                 i = 0;
             } else {
@@ -255,7 +255,7 @@ class o implements d {
 
     private com.qq.e.comm.plugin.a.b.a c() {
         if (this.h == null) {
-            this.h = com.qq.e.comm.plugin.util.s.f12888a.submit(new h(this.e.i()));
+            this.h = com.qq.e.comm.plugin.util.s.f12889a.submit(new h(this.e.i()));
             this.i.a(this.h);
         }
         return this.i;
@@ -295,7 +295,7 @@ class o implements d {
 
     private void e(c cVar) {
         try {
-            t.a(this.f11932a).d(cVar);
+            t.a(this.f11933a).d(cVar);
         } catch (SQLException e) {
         }
     }
@@ -305,7 +305,7 @@ class o implements d {
             return;
         }
         try {
-            t a2 = t.a(this.f11932a);
+            t a2 = t.a(this.f11933a);
             c a3 = a2.a(cVar.h());
             if (a3 != null) {
                 cVar.b(a3.m());

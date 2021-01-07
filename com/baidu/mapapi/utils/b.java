@@ -29,7 +29,7 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static com.baidu.mapframework.open.aidl.a d;
     private static IComOpenClient e;
@@ -39,7 +39,7 @@ public class b {
     private static final String c = b.class.getName();
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f3064a = -1;
+    public static int f3065a = -1;
     private static String g = null;
     private static String h = null;
     private static String i = null;
@@ -56,7 +56,7 @@ public class b {
     private static boolean u = false;
 
     /* renamed from: b  reason: collision with root package name */
-    static ServiceConnection f3065b = new d();
+    static ServiceConnection f3066b = new d();
 
     public static String a() {
         return AppTools.getBaiduMapToken();
@@ -95,7 +95,7 @@ public class b {
 
     public static void a(Context context) {
         if (u) {
-            context.unbindService(f3065b);
+            context.unbindService(f3066b);
             u = false;
         }
     }
@@ -147,34 +147,34 @@ public class b {
         t = false;
         switch (i2) {
             case 0:
-                f3064a = 0;
+                f3065a = 0;
                 break;
             case 1:
-                f3064a = 1;
+                f3065a = 1;
                 break;
             case 2:
-                f3064a = 2;
+                f3065a = 2;
                 break;
             case 3:
-                f3064a = 3;
+                f3065a = 3;
                 break;
             case 4:
-                f3064a = 4;
+                f3065a = 4;
                 break;
             case 5:
-                f3064a = 5;
+                f3065a = 5;
                 break;
             case 6:
-                f3064a = 6;
+                f3065a = 6;
                 break;
             case 7:
-                f3064a = 7;
+                f3065a = 7;
                 break;
             case 8:
-                f3064a = 8;
+                f3065a = 8;
                 break;
             case 9:
-                f3064a = 9;
+                f3065a = 9;
                 break;
         }
         if (i2 == 9) {
@@ -236,7 +236,7 @@ public class b {
         intent.setAction("com.baidu.map.action.OPEN_SERVICE");
         intent.setPackage("com.baidu.BaiduMap");
         if (i2 != 9) {
-            u = context.bindService(intent, f3065b, 1);
+            u = context.bindService(intent, f3066b, 1);
         }
         if (!u) {
             Log.e("baidumapsdk", "bind service failed，call openapi");

@@ -24,7 +24,7 @@ public class s {
         messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public void blT() {
+    public void blU() {
         HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
         httpMessage.addParam(Constants.PHONE_BRAND, Build.BRAND);
         httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());

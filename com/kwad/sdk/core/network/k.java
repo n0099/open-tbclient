@@ -6,10 +6,10 @@ import com.xiaomi.mipush.sdk.Constants;
 public final class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f9623a = b() + "ksad-android-3.3.9";
+    private static final String f9624a = b() + "ksad-android-3.3.9";
 
     public static String a() {
-        return f9623a;
+        return f9624a;
     }
 
     private static String b() {

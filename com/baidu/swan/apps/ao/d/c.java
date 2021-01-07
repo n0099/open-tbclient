@@ -14,33 +14,33 @@ public class c implements b {
                 this.dST.offer(aVar.a(this));
             }
         }
-        aSk();
+        aSl();
     }
 
     @Override // com.baidu.swan.apps.ao.d.b
     public void a(a aVar) {
         synchronized (this.dST) {
             if (aVar == this.dSU) {
-                aSl();
-            }
-        }
-    }
-
-    private void aSk() {
-        synchronized (this.dST) {
-            if (this.dSU == null) {
-                aSl();
+                aSm();
             }
         }
     }
 
     private void aSl() {
         synchronized (this.dST) {
+            if (this.dSU == null) {
+                aSm();
+            }
+        }
+    }
+
+    private void aSm() {
+        synchronized (this.dST) {
             this.dSU = null;
             if (!this.dST.isEmpty()) {
                 this.dSU = this.dST.poll();
                 if (this.dSU == null) {
-                    aSl();
+                    aSm();
                 } else {
                     ak.l(this.dSU);
                 }

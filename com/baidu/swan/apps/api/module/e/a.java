@@ -23,7 +23,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
         if (DEBUG) {
             Log.d("Api-LoadingView", "start show loading");
         }
-        if (ank()) {
+        if (anl()) {
             com.baidu.swan.apps.console.c.e("Api-LoadingView", "Api-LoadingView does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-LoadingView does not supported when app is invisible.");
         }
@@ -53,28 +53,28 @@ public class a extends com.baidu.swan.apps.api.a.d {
             }
             return new com.baidu.swan.apps.api.c.b(1001, "context not support");
         }
-        com.baidu.swan.apps.core.d.f ajs = ((SwanAppActivity) context).ajs();
-        if (ajs == null) {
+        com.baidu.swan.apps.core.d.f ajt = ((SwanAppActivity) context).ajt();
+        if (ajt == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "none fragment");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "none fragment");
         }
-        com.baidu.swan.apps.core.d.c asT = ajs.asT();
-        if (!(asT instanceof a.InterfaceC0473a)) {
+        com.baidu.swan.apps.core.d.c asU = ajt.asU();
+        if (!(asU instanceof a.InterfaceC0473a)) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "fragment not support");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "fragment not support");
         }
-        com.baidu.swan.apps.res.widget.floatlayer.a ajn = ((a.InterfaceC0473a) asT).ajn();
-        if (ajn == null) {
+        com.baidu.swan.apps.res.widget.floatlayer.a ajo = ((a.InterfaceC0473a) asU).ajo();
+        if (ajo == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "can't get floatLayer");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "can't get floatLayer");
         }
-        a(ajn, context, optString, optBoolean);
+        a(ajo, context, optString, optBoolean);
         com.baidu.swan.apps.console.c.i("Api-LoadingView", "show loading success");
         return new com.baidu.swan.apps.api.c.b(0);
     }
@@ -104,7 +104,7 @@ public class a extends com.baidu.swan.apps.api.a.d {
         });
     }
 
-    public com.baidu.swan.apps.api.c.b ans() {
+    public com.baidu.swan.apps.api.c.b ant() {
         Context context = getContext();
         if (!(context instanceof SwanAppActivity)) {
             if (DEBUG) {
@@ -112,20 +112,20 @@ public class a extends com.baidu.swan.apps.api.a.d {
             }
             return new com.baidu.swan.apps.api.c.b(1001, "context not support");
         }
-        com.baidu.swan.apps.core.d.f ajs = ((SwanAppActivity) context).ajs();
-        if (ajs == null) {
+        com.baidu.swan.apps.core.d.f ajt = ((SwanAppActivity) context).ajt();
+        if (ajt == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "none fragmentManger");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "none fragmentManger");
         }
-        final com.baidu.swan.apps.core.d.c asT = ajs.asT();
-        if (!(asT instanceof a.InterfaceC0473a)) {
+        final com.baidu.swan.apps.core.d.c asU = ajt.asU();
+        if (!(asU instanceof a.InterfaceC0473a)) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "fragment not support");
             }
             return new com.baidu.swan.apps.api.c.b(1001, "fragment not support");
-        } else if (asT.getContext() == null) {
+        } else if (asU.getContext() == null) {
             if (DEBUG) {
                 com.baidu.swan.apps.console.c.e("Api-LoadingView", "fragment has detached");
             }
@@ -134,9 +134,9 @@ public class a extends com.baidu.swan.apps.api.a.d {
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.apps.api.module.e.a.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    com.baidu.swan.apps.res.widget.floatlayer.a ajn = ((a.InterfaceC0473a) asT).ajn();
-                    if (ajn != null && (ajn.getView() instanceof FrameLayout) && (((FrameLayout) ajn.getView()).getChildAt(0) instanceof LoadingView)) {
-                        ajn.reset();
+                    com.baidu.swan.apps.res.widget.floatlayer.a ajo = ((a.InterfaceC0473a) asU).ajo();
+                    if (ajo != null && (ajo.getView() instanceof FrameLayout) && (((FrameLayout) ajo.getView()).getChildAt(0) instanceof LoadingView)) {
+                        ajo.reset();
                     }
                 }
             });

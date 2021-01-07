@@ -38,7 +38,7 @@ public class a {
         public void onClick(View view) {
             if (view == a.this.fnh) {
                 if (!at.isEmpty(a.this.jFQ) && a.this.jeH != null && a.this.jeH.getForum() != null) {
-                    be.bwu().a(a.this.eXu, new String[]{a.this.jFQ}, true);
+                    be.bwv().a(a.this.eXu, new String[]{a.this.jFQ}, true);
                     TiebaStatic.log(new aq("c13415").dX("fid", a.this.jeH.getForum().getId()).an("obj_type", a.this.joH ? 2 : 1));
                 }
             } else if ((view == a.this.jFP || view == a.this.akv) && a.this.jeH != null && a.this.jeH.getForum() != null) {
@@ -76,7 +76,7 @@ public class a {
             }
             this.akv.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.frs_sports_recommend_bar_name), name));
             this.jFP.startLoad(this.jeH.getForum().getImage_url(), 10, false);
-            cMF();
+            cMG();
             this.jFP.setOnClickListener(this.jhV);
             this.akv.setOnClickListener(this.jhV);
         }
@@ -86,7 +86,7 @@ public class a {
         this.jFP.refresh();
         if (at.isEmpty(str)) {
             this.joO = false;
-            cMF();
+            cMG();
             return;
         }
         this.joO = true;
@@ -96,7 +96,7 @@ public class a {
         this.fnh.setOnClickListener(this.jhV);
     }
 
-    private void cMF() {
+    private void cMG() {
         ForumData forum;
         ThemeColorInfo themeColorInfo;
         ThemeElement themeElement;
@@ -122,7 +122,7 @@ public class a {
     }
 
     public void onChangeSkinType() {
-        cMF();
+        cMG();
         ao.setViewTextColor(this.akv, R.color.CAM_X0101);
         if (this.jFP != null) {
             this.jFP.setBorderWidth(l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds1));

@@ -10,7 +10,7 @@ public class a {
     private static a etU;
     private RoutePlanSearch etT;
 
-    public static a bfa() {
+    public static a bfb() {
         if (etU == null) {
             synchronized (a.class) {
                 if (etU == null) {
@@ -30,7 +30,7 @@ public class a {
         }
     }
 
-    public void bfb() {
+    public void bfc() {
         if (this.etT != null) {
             this.etT.destroy();
         }

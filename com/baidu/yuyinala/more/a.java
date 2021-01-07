@@ -20,7 +20,7 @@ public class a {
     private a() {
     }
 
-    public static a ekP() {
+    public static a ekQ() {
         if (oQY == null) {
             synchronized (a.class) {
                 if (oQY == null) {
@@ -56,11 +56,11 @@ public class a {
                 this.oRa.a((b) this.oQZ);
             }
             this.oRa.show();
-            ekQ();
+            ekR();
         }
     }
 
-    private void ekQ() {
+    private void ekR() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");

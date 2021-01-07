@@ -102,7 +102,7 @@ public class HotTopicListView extends RelativeLayout {
             }
 
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.d
-            public void bxM() {
+            public void bxN() {
                 final int i = HotTopicListView.this.jhz - HotTopicListView.this.jhy;
                 if (i > 0) {
                     HotTopicListView.this.flz = ValueAnimator.ofFloat(0.0f, 1.0f);
@@ -125,14 +125,14 @@ public class HotTopicListView extends RelativeLayout {
             @Override // java.lang.Runnable
             public void run() {
                 if (HotTopicListView.this.jKd) {
-                    HotTopicListView.this.cOe();
+                    HotTopicListView.this.cOf();
                 }
             }
         };
         this.jKm = new PullRefreshFrameLayout.c() { // from class: com.baidu.tieba.newlist.HotTopicListView.4
             @Override // com.baidu.tbadk.core.view.PullRefreshFrameLayout.c
-            public void bxL() {
-                HotTopicListView.this.cOd();
+            public void bxM() {
+                HotTopicListView.this.cOe();
             }
         };
         this.mPageContext = tbPageContext;
@@ -156,7 +156,7 @@ public class HotTopicListView extends RelativeLayout {
         this.luz.setOnTouchCallback(this.jKl);
         this.luz.setOnPullRefreshListener(this.jKm);
         this.luz.setFromFrs();
-        this.luz.bxI();
+        this.luz.bxJ();
         this.ZS = (AppBarLayout) findViewById(R.id.appBarLayout);
         this.ZS.addOnOffsetChangedListener(this.jiA);
         this.jMh = (BdTypeRecyclerView) findViewById(R.id.recyclerView);
@@ -198,22 +198,22 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    public void cOe() {
+    public void cOf() {
         this.jKd = false;
         if (this.luz != null) {
-            this.luz.bxH();
+            this.luz.bxI();
         }
     }
 
-    public void bUO() {
+    public void bUP() {
         if (this.jKd) {
-            cOe();
+            cOf();
             e.mB().removeCallbacks(this.jKn);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cOd() {
+    public void cOe() {
         e.mB().postDelayed(this.jKn, 5000L);
         this.jKd = true;
         this.lBY.loadData();
@@ -231,13 +231,13 @@ public class HotTopicListView extends RelativeLayout {
                 }
             }
         });
-        bIk();
+        bIl();
     }
 
-    private void bIk() {
+    private void bIl() {
         if (!this.lux) {
             this.lux = true;
-            SvgManager.bwq().a((ImageView) this.mNavigationBar.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+            SvgManager.bwr().a((ImageView) this.mNavigationBar.findViewById(R.id.widget_navi_back_button), R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
             ao.setViewTextColor(this.mNavigationBar.getCenterText(), R.color.CAM_X0101);
             if (this.lBY instanceof Activity) {
                 UtilHelper.changeStatusBarIconAndTextColor(true, (Activity) this.lBY);
@@ -293,7 +293,7 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.mRefreshView != null) {
             this.jhx.setVisibility(0);
             this.mRefreshView.dettachView(this.luy);
@@ -301,7 +301,7 @@ public class HotTopicListView extends RelativeLayout {
         }
     }
 
-    public void Zh() {
+    public void Zi() {
         this.jMh.setNextPage(this.gCf);
         this.gCf.endLoadData();
         this.gCf.showEmptyView(0);
@@ -316,9 +316,9 @@ public class HotTopicListView extends RelativeLayout {
 
     public void destroy() {
         hideLoadingView();
-        Zi();
+        Zj();
         if (this.jKd) {
-            cOe();
+            cOf();
         }
         if (this.flz != null) {
             this.flz.cancel();

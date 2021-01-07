@@ -8,21 +8,21 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 import java.util.concurrent.locks.ReentrantLock;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ObservableRefCount<T> extends io.reactivex.internal.operators.observable.a<T, T> {
     final ReentrantLock lock;
-    volatile io.reactivex.disposables.a qhm;
-    final AtomicInteger qhn;
-    final io.reactivex.c.a<? extends T> qiq;
+    volatile io.reactivex.disposables.a qiV;
+    final AtomicInteger qiW;
+    final io.reactivex.c.a<? extends T> qjY;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         boolean z;
         this.lock.lock();
-        if (this.qhn.incrementAndGet() == 1) {
+        if (this.qiW.incrementAndGet() == 1) {
             AtomicBoolean atomicBoolean = new AtomicBoolean(true);
             try {
-                this.qiq.a(a(uVar, atomicBoolean));
+                this.qjY.a(a(uVar, atomicBoolean));
                 if (z) {
                     return;
                 }
@@ -33,7 +33,7 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
             }
         }
         try {
-            a(uVar, this.qhm);
+            a(uVar, this.qiV);
         } finally {
             this.lock.unlock();
         }
@@ -46,7 +46,7 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
     void a(u<? super T> uVar, io.reactivex.disposables.a aVar) {
         ConnectionObserver connectionObserver = new ConnectionObserver(uVar, aVar, a(aVar));
         uVar.onSubscribe(connectionObserver);
-        this.qiq.subscribe(connectionObserver);
+        this.qjY.subscribe(connectionObserver);
     }
 
     private io.reactivex.disposables.b a(io.reactivex.disposables.a aVar) {
@@ -54,7 +54,7 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public final class ConnectionObserver extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 3813126992133394324L;
         final io.reactivex.disposables.a currentBase;
@@ -103,13 +103,13 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
         void cleanup() {
             ObservableRefCount.this.lock.lock();
             try {
-                if (ObservableRefCount.this.qhm == this.currentBase) {
-                    if (ObservableRefCount.this.qiq instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) ObservableRefCount.this.qiq).dispose();
+                if (ObservableRefCount.this.qiV == this.currentBase) {
+                    if (ObservableRefCount.this.qjY instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) ObservableRefCount.this.qjY).dispose();
                     }
-                    ObservableRefCount.this.qhm.dispose();
-                    ObservableRefCount.this.qhm = new io.reactivex.disposables.a();
-                    ObservableRefCount.this.qhn.set(0);
+                    ObservableRefCount.this.qiV.dispose();
+                    ObservableRefCount.this.qiV = new io.reactivex.disposables.a();
+                    ObservableRefCount.this.qiW.set(0);
                 }
             } finally {
                 ObservableRefCount.this.lock.unlock();
@@ -118,14 +118,14 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public final class a implements g<io.reactivex.disposables.b> {
         private final u<? super T> observer;
-        private final AtomicBoolean qho;
+        private final AtomicBoolean qiX;
 
         a(u<? super T> uVar, AtomicBoolean atomicBoolean) {
             this.observer = uVar;
-            this.qho = atomicBoolean;
+            this.qiX = atomicBoolean;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -133,34 +133,34 @@ public final class ObservableRefCount<T> extends io.reactivex.internal.operators
         /* renamed from: f */
         public void accept(io.reactivex.disposables.b bVar) {
             try {
-                ObservableRefCount.this.qhm.a(bVar);
-                ObservableRefCount.this.a(this.observer, ObservableRefCount.this.qhm);
+                ObservableRefCount.this.qiV.a(bVar);
+                ObservableRefCount.this.a(this.observer, ObservableRefCount.this.qiV);
             } finally {
                 ObservableRefCount.this.lock.unlock();
-                this.qho.set(false);
+                this.qiX.set(false);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public final class b implements Runnable {
-        private final io.reactivex.disposables.a qhp;
+        private final io.reactivex.disposables.a qiY;
 
         b(io.reactivex.disposables.a aVar) {
-            this.qhp = aVar;
+            this.qiY = aVar;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             ObservableRefCount.this.lock.lock();
             try {
-                if (ObservableRefCount.this.qhm == this.qhp && ObservableRefCount.this.qhn.decrementAndGet() == 0) {
-                    if (ObservableRefCount.this.qiq instanceof io.reactivex.disposables.b) {
-                        ((io.reactivex.disposables.b) ObservableRefCount.this.qiq).dispose();
+                if (ObservableRefCount.this.qiV == this.qiY && ObservableRefCount.this.qiW.decrementAndGet() == 0) {
+                    if (ObservableRefCount.this.qjY instanceof io.reactivex.disposables.b) {
+                        ((io.reactivex.disposables.b) ObservableRefCount.this.qjY).dispose();
                     }
-                    ObservableRefCount.this.qhm.dispose();
-                    ObservableRefCount.this.qhm = new io.reactivex.disposables.a();
+                    ObservableRefCount.this.qiV.dispose();
+                    ObservableRefCount.this.qiV = new io.reactivex.disposables.a();
                 }
             } finally {
                 ObservableRefCount.this.lock.unlock();

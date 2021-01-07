@@ -9,42 +9,42 @@ import com.kwad.sdk.core.response.model.SdkConfigData;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class q {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final double[] f2650a = {1999.0d, 8.0d, 22.0d, 0.0d, 0.0d, 0.0d};
+    private static final double[] f2651a = {1999.0d, 8.0d, 22.0d, 0.0d, 0.0d, 0.0d};
 
     /* renamed from: b  reason: collision with root package name */
-    private HashMap<String, c> f2651b = new HashMap<>();
+    private HashMap<String, c> f2652b = new HashMap<>();
     private HashMap<String, String> c = new HashMap<>();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static q f2652a = new q();
+        private static q f2653a = new q();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class b {
 
         /* renamed from: a  reason: collision with root package name */
-        int f2653a = 0;
+        int f2654a = 0;
 
         /* renamed from: b  reason: collision with root package name */
-        double f2654b = 0.0d;
+        double f2655b = 0.0d;
 
         public b() {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     private class c {
 
         /* renamed from: b  reason: collision with root package name */
-        private boolean f2656b;
+        private boolean f2657b;
         private boolean c;
         private long d;
         private int e;
@@ -68,10 +68,10 @@ public class q {
         }
 
         private b a(int i, double d) {
-            b a2 = a(q.f2650a);
+            b a2 = a(q.f2651a);
             d = (d < -1.0E9d || 1.0E9d < d) ? 0.0d : 0.0d;
-            a2.f2653a += (604800 * i) + ((int) d);
-            a2.f2654b = d - ((int) d);
+            a2.f2654a += (604800 * i) + ((int) d);
+            a2.f2655b = d - ((int) d);
             return a2;
         }
 
@@ -90,8 +90,8 @@ public class q {
                 i = 0;
             }
             int floor = (int) Math.floor(dArr[5]);
-            bVar.f2653a = ((i + i5) * 86400) + (((int) dArr[3]) * SdkConfigData.DEFAULT_REQUEST_INTERVAL) + (((int) dArr[4]) * 60) + floor;
-            bVar.f2654b = dArr[5] - floor;
+            bVar.f2654a = ((i + i5) * 86400) + (((int) dArr[3]) * SdkConfigData.DEFAULT_REQUEST_INTERVAL) + (((int) dArr[4]) * 60) + floor;
+            bVar.f2655b = dArr[5] - floor;
             return bVar;
         }
 
@@ -158,7 +158,7 @@ public class q {
             }
             this.e = i;
             this.f = i2;
-            this.f2656b = false;
+            this.f2657b = false;
             this.c = false;
             this.d = 0L;
         }
@@ -170,7 +170,7 @@ public class q {
             int svid = gnssNavigationMessage.getSvid();
             int submessageId = gnssNavigationMessage.getSubmessageId();
             byte[] data = gnssNavigationMessage.getData();
-            if (j - this.d > 1200 || this.f2656b || this.g.size() == 0 || type != this.f || svid != this.e) {
+            if (j - this.d > 1200 || this.f2657b || this.g.size() == 0 || type != this.f || svid != this.e) {
                 a(svid, type);
             }
             if (this.g.size() == 0) {
@@ -225,7 +225,7 @@ public class q {
                 if (this.f == 1537) {
                     c();
                 }
-                sb.append(this.m.f2653a);
+                sb.append(this.m.f2654a);
                 sb.append('|');
                 boolean z = true;
                 for (int i = 0; i < this.g.size(); i++) {
@@ -236,7 +236,7 @@ public class q {
                     }
                     sb.append(this.g.get(i));
                 }
-                this.f2656b = true;
+                this.f2657b = true;
                 return sb.toString();
             }
             return sb.toString();
@@ -250,7 +250,7 @@ public class q {
         private void c() {
             b a2;
             b a3 = a(this.h, this.i);
-            double d = ((a2.f2653a - a3.f2653a) + a(this.h, this.j).f2654b) - a3.f2654b;
+            double d = ((a2.f2654a - a3.f2654a) + a(this.h, this.j).f2655b) - a3.f2655b;
             if (d > 302400.0d) {
                 this.h--;
             } else if (d < -302400.0d) {
@@ -270,7 +270,7 @@ public class q {
     }
 
     public static q a() {
-        return a.f2652a;
+        return a.f2653a;
     }
 
     @TargetApi(24)
@@ -299,18 +299,18 @@ public class q {
                 break;
         }
         String str2 = str + svid;
-        if (str2.contains("none") || this.f2651b == null) {
+        if (str2.contains("none") || this.f2652b == null) {
             return;
         }
-        if (!this.f2651b.containsKey(str2)) {
-            this.f2651b.put(str2, new c(svid, type));
+        if (!this.f2652b.containsKey(str2)) {
+            this.f2652b.put(str2, new c(svid, type));
         }
-        this.f2651b.get(str2).a(gnssNavigationMessage, j);
+        this.f2652b.get(str2).a(gnssNavigationMessage, j);
     }
 
     public ArrayList<String> b() {
         ArrayList<String> arrayList = new ArrayList<>();
-        for (Map.Entry<String, c> entry : this.f2651b.entrySet()) {
+        for (Map.Entry<String, c> entry : this.f2652b.entrySet()) {
             String key = entry.getKey();
             c value = entry.getValue();
             String b2 = value.b();

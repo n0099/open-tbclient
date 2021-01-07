@@ -39,7 +39,7 @@ public class aa {
     public aa(Context context) {
         this.mContext = context;
         if (fPJ == null) {
-            fPJ = bJh();
+            fPJ = bJi();
             if (fPJ != null) {
                 BdLog.d("ScreenShotListenManager: Screen Real Size: " + fPJ.x + " * " + fPJ.y);
             } else {
@@ -49,7 +49,7 @@ public class aa {
     }
 
     public void startListen() {
-        if (bJi()) {
+        if (bJj()) {
             this.fPM = System.currentTimeMillis();
             this.fPN = new a(MediaStore.Images.Media.INTERNAL_CONTENT_URI, this.mUiHandler);
             this.fPO = new a(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, this.mUiHandler);
@@ -64,7 +64,7 @@ public class aa {
     }
 
     public void stopListen() {
-        if (bJi()) {
+        if (bJj()) {
             if (this.fPN != null) {
                 try {
                     this.mContext.getContentResolver().unregisterContentObserver(this.fPN);
@@ -86,7 +86,7 @@ public class aa {
         }
     }
 
-    private boolean EL(String str) {
+    private boolean EK(String str) {
         if (fPK.contains(str)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: imgPath has done; imagePath = " + str);
             return true;
@@ -100,11 +100,11 @@ public class aa {
         return false;
     }
 
-    private Point bJh() {
+    private Point bJi() {
         Exception e;
         Point point;
         Point point2 = null;
-        if (!bJi() || this.mContext == null) {
+        if (!bJj() || this.mContext == null) {
             return null;
         }
         try {
@@ -173,9 +173,9 @@ public class aa {
                     String string = query.getString(columnIndex);
                     long j = query.getLong(columnIndex2);
                     if (i2 < 0 || i < 0) {
-                        Point EM = EM(string);
-                        i3 = EM.x;
-                        i4 = EM.y;
+                        Point EL = EL(string);
+                        i3 = EL.x;
+                        i4 = EL.y;
                     } else {
                         i3 = query.getInt(i2);
                         i4 = query.getInt(i);
@@ -216,7 +216,7 @@ public class aa {
         }
     }
 
-    private Point EM(String str) {
+    private Point EL(String str) {
         BitmapFactory.Options options = new BitmapFactory.Options();
         options.inJustDecodeBounds = true;
         BitmapFactory.decodeFile(str, options);
@@ -226,7 +226,7 @@ public class aa {
     private void a(String str, long j, int i, int i2) {
         if (b(str, j, i, i2)) {
             BdLog.d("ScreenShotListenManager: ScreenShot: path = " + str + "; size = " + i + " * " + i2 + "; date = " + j);
-            if (this.fPL != null && !EL(str)) {
+            if (this.fPL != null && !EK(str)) {
                 this.fPL.onShot(str);
                 return;
             }
@@ -251,7 +251,7 @@ public class aa {
         return false;
     }
 
-    private static boolean bJi() {
+    private static boolean bJj() {
         return Looper.myLooper() == Looper.getMainLooper();
     }
 

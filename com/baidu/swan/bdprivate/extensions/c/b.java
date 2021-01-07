@@ -38,7 +38,7 @@ public class b extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
             return false;
         }
-        eVar.aMw().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.c.b.1
+        eVar.aMx().b(context, "mapp_i_get_common_sys_info", new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.bdprivate.extensions.c.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -62,21 +62,21 @@ public class b extends aa {
 
     private void a(Context context, String str, CallbackHandler callbackHandler) {
         Context appContext = AppRuntime.getAppContext();
-        String cd = com.baidu.swan.apps.t.a.aAw().cd(appContext);
-        String aRO = ak.aRO();
+        String cd = com.baidu.swan.apps.t.a.aAx().cd(appContext);
+        String aRP = ak.aRP();
         String cU = com.baidu.swan.bdprivate.a.a.cU(context);
-        String cc = com.baidu.swan.apps.t.a.aAw().cc(appContext);
-        String cookie = com.baidu.swan.apps.t.a.aAQ().alT().getCookie(".baidu.com");
+        String cc = com.baidu.swan.apps.t.a.aAx().cc(appContext);
+        String cookie = com.baidu.swan.apps.t.a.aAR().alU().getCookie(".baidu.com");
         String cookieValue = ai.getCookieValue(cookie, "BAIDUID");
         String cookieValue2 = ai.getCookieValue(cookie, "H_WISE_SIDS");
         String uuid = com.baidu.swan.uuid.b.eM(AppRuntime.getAppContext()).getUUID();
         if (DEBUG) {
-            Log.d("GetSysInfoAction", "cuid = " + cd + ", imei = " + aRO + ", zid = " + cU + ", uid = " + cc + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
+            Log.d("GetSysInfoAction", "cuid = " + cd + ", imei = " + aRP + ", zid = " + cU + ", uid = " + cc + ", baiDuId = " + cookieValue + ", sid = " + cookieValue2);
         }
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("cuid", cd);
-            jSONObject.put("imei", aRO);
+            jSONObject.put("imei", aRP);
             jSONObject.put("zid", cU);
             jSONObject.put("uid", cc);
             jSONObject.put("baidu_id", cookieValue);

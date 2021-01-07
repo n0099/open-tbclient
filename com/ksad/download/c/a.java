@@ -15,33 +15,33 @@ import java.util.concurrent.ConcurrentHashMap;
 public class a extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private d f8210a;
+    private d f8211a;
     private Service c;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, Integer> f8211b = new ConcurrentHashMap();
-    private final HandlerC1035a d = new HandlerC1035a(this);
+    private final Map<String, Integer> f8212b = new ConcurrentHashMap();
+    private final HandlerC1076a d = new HandlerC1076a(this);
 
     /* renamed from: com.ksad.download.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes5.dex */
-    static class HandlerC1035a extends Handler {
+    static class HandlerC1076a extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        final WeakReference<a> f8212a;
+        final WeakReference<a> f8213a;
 
-        public HandlerC1035a(a aVar) {
-            this.f8212a = new WeakReference<>(aVar);
+        public HandlerC1076a(a aVar) {
+            this.f8213a = new WeakReference<>(aVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
-            a aVar = this.f8212a.get();
+            a aVar = this.f8213a.get();
             if (aVar == null) {
                 return;
             }
             switch (message.what) {
                 case 1:
-                    if (aVar.f8210a == null || !aVar.f8210a.d()) {
+                    if (aVar.f8211a == null || !aVar.f8211a.d()) {
                         sendEmptyMessageDelayed(1, 30000L);
                         return;
                     } else {
@@ -62,19 +62,19 @@ public class a extends b {
             int intExtra = intent.getIntExtra("download_service_type_tag", 0);
             String stringExtra = intent.getStringExtra("download_service_id_tag");
             DownloadTask.DownloadRequest downloadRequest = (DownloadTask.DownloadRequest) intent.getSerializableExtra("download_service_args_tag");
-            Integer num = this.f8211b.get(stringExtra);
+            Integer num = this.f8212b.get(stringExtra);
             switch (intExtra) {
                 case 1:
-                    this.f8211b.put(stringExtra, Integer.valueOf(this.f8210a.a(downloadRequest, (c) null)));
+                    this.f8212b.put(stringExtra, Integer.valueOf(this.f8211a.a(downloadRequest, (c) null)));
                     break;
                 case 2:
-                    this.f8210a.d(num.intValue());
+                    this.f8211a.d(num.intValue());
                     break;
                 case 3:
-                    this.f8210a.e(num.intValue());
+                    this.f8211a.e(num.intValue());
                     break;
                 case 4:
-                    this.f8210a.c(num.intValue());
+                    this.f8211a.c(num.intValue());
                     break;
             }
         } catch (Exception e) {
@@ -87,7 +87,7 @@ public class a extends b {
             return;
         }
         this.c = service;
-        this.f8210a = d.a();
+        this.f8211a = d.a();
         this.d.sendEmptyMessageDelayed(1, 30000L);
     }
 

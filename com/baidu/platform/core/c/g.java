@@ -18,11 +18,11 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class g extends com.baidu.platform.base.d {
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f4770b = g.class.getSimpleName();
+    private static final String f4771b = g.class.getSimpleName();
     private int c;
     private int d;
 
@@ -63,7 +63,7 @@ public class g extends com.baidu.platform.base.d {
                     return false;
             }
         } catch (JSONException e) {
-            Log.e(f4770b, "Parse poi search failed", e);
+            Log.e(f4771b, "Parse poi search failed", e);
             poiResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return false;
         }
@@ -147,7 +147,7 @@ public class g extends com.baidu.platform.base.d {
             }
             return poiDetailInfo;
         } catch (JSONException e) {
-            Log.e(f4770b, "Parse poi search detail info failed", e);
+            Log.e(f4771b, "Parse poi search detail info failed", e);
             return null;
         }
     }
@@ -232,7 +232,7 @@ public class g extends com.baidu.platform.base.d {
             poiResult.error = a(str, poiResult) ? SearchResult.ERRORNO.NO_ERROR : SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return poiResult;
         } catch (JSONException e) {
-            Log.e(f4770b, "Parse poi search error", e);
+            Log.e(f4771b, "Parse poi search error", e);
             poiResult.error = SearchResult.ERRORNO.RESULT_NOT_FOUND;
             return poiResult;
         }

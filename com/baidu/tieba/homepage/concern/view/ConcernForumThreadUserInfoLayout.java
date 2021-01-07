@@ -45,8 +45,8 @@ public class ConcernForumThreadUserInfoLayout extends LinearLayout {
         this.fnm = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.concern.view.ConcernForumThreadUserInfoLayout.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (ConcernForumThreadUserInfoLayout.this.aim != null && !StringUtils.isNull(ConcernForumThreadUserInfoLayout.this.aim.bru())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ConcernForumThreadUserInfoLayout.this.getContext()).createNormalCfg(ConcernForumThreadUserInfoLayout.this.aim.bru(), m.brc())));
+                if (ConcernForumThreadUserInfoLayout.this.aim != null && !StringUtils.isNull(ConcernForumThreadUserInfoLayout.this.aim.brv())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ConcernForumThreadUserInfoLayout.this.getContext()).createNormalCfg(ConcernForumThreadUserInfoLayout.this.aim.brv(), m.brd())));
                     if (ConcernForumThreadUserInfoLayout.this.fmS != null) {
                         ConcernForumThreadUserInfoLayout.this.fmS.onClick(view);
                     }

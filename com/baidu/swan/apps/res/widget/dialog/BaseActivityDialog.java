@@ -138,7 +138,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         }
     }
 
-    public TextView aLm() {
+    public TextView aLn() {
         TextView textView;
         int i = 0;
         if (this.dDW == null || this.dDW.getVisibility() != 0) {
@@ -178,9 +178,9 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
         this.dDW.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
         this.dDX.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
         this.dDY.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_selector));
-        TextView aLm = aLm();
-        if (aLm != null) {
-            aLm.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
+        TextView aLn = aLn();
+        if (aLn != null) {
+            aLn.setBackground(resources.getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
         }
     }
 
@@ -461,7 +461,7 @@ public class BaseActivityDialog extends Activity implements DialogInterface {
 
     @Override // android.view.ContextThemeWrapper, android.content.ContextWrapper, android.content.Context
     public Resources getResources() {
-        Resources alE = com.baidu.swan.apps.t.a.aAN().alE();
-        return alE != null ? alE : super.getResources();
+        Resources alF = com.baidu.swan.apps.t.a.aAO().alF();
+        return alF != null ? alF : super.getResources();
     }
 }

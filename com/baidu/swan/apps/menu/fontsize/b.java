@@ -13,23 +13,23 @@ public class b {
     public static void jL(int i) {
         Bundle bundle = new Bundle();
         bundle.putInt(QuickPersistConfigConst.KEY_TEXT_SIZE, i);
-        com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
+        com.baidu.swan.apps.process.messaging.a.aIY().a(new com.baidu.swan.apps.process.messaging.c(22, bundle));
     }
 
-    public static int aFK() {
-        return aFM() + 1;
+    public static int aFL() {
+        return aFN() + 1;
     }
 
-    public static boolean aFL() {
-        SwanAppConfigData aDl = f.aDG().aDl();
-        if (aDl == null) {
+    public static boolean aFM() {
+        SwanAppConfigData aDm = f.aDH().aDm();
+        if (aDm == null) {
             return false;
         }
-        return TextUtils.equals("none", aDl.dHA.dIv);
+        return TextUtils.equals("none", aDm.dHA.dIv);
     }
 
-    public static int aFM() {
-        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aAr(), d.class, null);
+    public static int aFN() {
+        DelegateResult callOnMainWithContentProvider = DelegateUtils.callOnMainWithContentProvider(com.baidu.swan.apps.t.a.aAs(), d.class, null);
         if (callOnMainWithContentProvider.isOk()) {
             return callOnMainWithContentProvider.mResult.getInt("font_size_level", 1);
         }
@@ -50,7 +50,7 @@ public class b {
         }
     }
 
-    public static boolean aFN() {
+    public static boolean aFO() {
         return ag.uT("3.200.101");
     }
 }

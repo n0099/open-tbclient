@@ -7,15 +7,15 @@ public interface h {
 
     void a(y yVar);
 
-    boolean abJ(String str);
+    boolean abK(String str);
 
-    void abK(String str);
+    void abL(String str);
 
     void b();
 
-    void eJL();
+    void eKp();
 
-    void eJM();
+    void eKq();
 
     boolean java();
 }

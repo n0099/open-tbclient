@@ -115,7 +115,7 @@ public class DragImageView extends ImageView {
 
     /* loaded from: classes.dex */
     public interface d {
-        void bJx();
+        void bJy();
 
         void onDragEnd();
 
@@ -397,11 +397,11 @@ public class DragImageView extends ImageView {
         return this.fQh.isViewTop();
     }
 
-    public boolean bJv() {
+    public boolean bJw() {
         if (this.fQh == null) {
             return false;
         }
-        return this.fQh.bJv();
+        return this.fQh.bJw();
     }
 
     public boolean isAtViewTop() {
@@ -1508,7 +1508,7 @@ public class DragImageView extends ImageView {
         this.mHandler.sendEmptyMessageDelayed(2, j > 0 ? j : 0L);
     }
 
-    public c bJw() {
+    public c bJx() {
         c poll = this.fQl.poll();
         if (poll == null) {
             poll = new c();
@@ -1556,27 +1556,27 @@ public class DragImageView extends ImageView {
                         DragImageView.this.decodeIndex = 0;
                     }
                     DragImageView.this.fQf.af(DragImageView.this.decodeIndex);
-                    c bJw = DragImageView.this.bJw();
-                    if (bJw.bm == null || (bJw.bm.getWidth() != DragImageView.this.width && bJw.bm.getHeight() != DragImageView.this.height)) {
+                    c bJx = DragImageView.this.bJx();
+                    if (bJx.bm == null || (bJx.bm.getWidth() != DragImageView.this.width && bJx.bm.getHeight() != DragImageView.this.height)) {
                         try {
-                            bJw.bm = Bitmap.createBitmap(DragImageView.this.width, DragImageView.this.height, Bitmap.Config.ARGB_8888);
+                            bJx.bm = Bitmap.createBitmap(DragImageView.this.width, DragImageView.this.height, Bitmap.Config.ARGB_8888);
                         } catch (OutOfMemoryError e) {
                             TbadkCoreApplication.getInst().onAppMemoryLow();
                             try {
-                                bJw.bm = Bitmap.createBitmap(DragImageView.this.width, DragImageView.this.height, Bitmap.Config.ARGB_4444);
+                                bJx.bm = Bitmap.createBitmap(DragImageView.this.width, DragImageView.this.height, Bitmap.Config.ARGB_4444);
                             } catch (OutOfMemoryError e2) {
                                 TbadkCoreApplication.getInst().onAppMemoryLow();
                             }
                         }
                     }
-                    DragImageView.this.fQf.a(bJw.bm, null);
-                    bJw.delay = DragImageView.this.fQf.ag(DragImageView.this.decodeIndex);
+                    DragImageView.this.fQf.a(bJx.bm, null);
+                    bJx.delay = DragImageView.this.fQf.ag(DragImageView.this.decodeIndex);
                     DragImageView.C(DragImageView.this);
-                    if (bJw.bm == null) {
+                    if (bJx.bm == null) {
                         DragImageView.C(DragImageView.this);
                     }
                     DragImageView.this.decodeIndex %= DragImageView.this.frameNum;
-                    DragImageView.this.fQk.put(bJw);
+                    DragImageView.this.fQk.put(bJx);
                     if (DragImageView.this.mListIsEmpty) {
                         DragImageView.this.mHandler.sendEmptyMessage(1);
                     }

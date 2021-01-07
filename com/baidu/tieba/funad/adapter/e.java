@@ -18,7 +18,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.h.a;
 import com.baidu.tieba.recapp.k;
 import com.baidu.tieba.recapp.o;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class e extends com.baidu.adp.widget.ListView.a<bz, FunAdNativeHolder> implements k, o {
     private BaseFragmentActivity iJr;
 
@@ -44,7 +44,7 @@ public class e extends com.baidu.adp.widget.ListView.a<bz, FunAdNativeHolder> im
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, final bz bzVar, final FunAdNativeHolder funAdNativeHolder) {
-        if (bzVar != null && bzVar.eWF != null && bzVar.eWF.dON() != null) {
+        if (bzVar != null && bzVar.eWF != null && bzVar.eWF.dOO() != null) {
             a(funAdNativeHolder);
             funAdNativeHolder.jQJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.funad.adapter.e.1
                 @Override // android.view.View.OnClickListener
@@ -56,7 +56,7 @@ public class e extends com.baidu.adp.widget.ListView.a<bz, FunAdNativeHolder> im
             if (funAdNativeHolder.jQX == null || funAdNativeHolder.jQX.eWF == null) {
                 funAdNativeHolder.b(bzVar.eWF);
             }
-            com.baidu.tieba.h.a.cPm().a(funAdNativeHolder.jQX, new a.e() { // from class: com.baidu.tieba.funad.adapter.e.2
+            com.baidu.tieba.h.a.cPn().a(funAdNativeHolder.jQX, new a.e() { // from class: com.baidu.tieba.funad.adapter.e.2
                 @Override // com.baidu.tieba.h.a.e
                 public void onAdClicked(String str) {
                     TiebaStatic.log(new aq("c14053").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.PB).an("obj_locate", 0));
@@ -65,7 +65,7 @@ public class e extends com.baidu.adp.widget.ListView.a<bz, FunAdNativeHolder> im
                 @Override // com.baidu.tieba.h.a.e
                 public void onAdShow(String str) {
                     bzVar.eWF.yc(true);
-                    com.baidu.tieba.h.a.cPm().A("6051001308-627527144", bzVar.eWF.dON());
+                    com.baidu.tieba.h.a.cPn().A("6051001308-627527144", bzVar.eWF.dOO());
                     TiebaStatic.log(new aq("c14006").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.PB).an("obj_locate", 0));
                 }
 
@@ -105,8 +105,8 @@ public class e extends com.baidu.adp.widget.ListView.a<bz, FunAdNativeHolder> im
 
     @Override // com.baidu.tieba.recapp.k
     public void onDestroy() {
-        if (this.Wu != 0 && ((FunAdNativeHolder) this.Wu).jQX != null && ((FunAdNativeHolder) this.Wu).jQX.eWF != null && ((FunAdNativeHolder) this.Wu).jQX.eWF.dOQ()) {
-            com.baidu.tieba.h.a.cPm().a(((FunAdNativeHolder) this.Wu).jQX);
+        if (this.Wu != 0 && ((FunAdNativeHolder) this.Wu).jQX != null && ((FunAdNativeHolder) this.Wu).jQX.eWF != null && ((FunAdNativeHolder) this.Wu).jQX.eWF.dOR()) {
+            com.baidu.tieba.h.a.cPn().a(((FunAdNativeHolder) this.Wu).jQX);
         }
     }
 }

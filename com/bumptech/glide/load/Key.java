@@ -3,7 +3,7 @@ package com.bumptech.glide.load;
 import androidx.annotation.NonNull;
 import java.nio.charset.Charset;
 import java.security.MessageDigest;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface Key {
     public static final Charset CHARSET = Charset.forName("UTF-8");
     public static final String STRING_CHARSET_NAME = "UTF-8";

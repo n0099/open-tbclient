@@ -5,12 +5,12 @@ import com.baidu.poly.util.HttpSigner;
 import kotlin.jvm.internal.p;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     private static int cno = 1;
 
     /* renamed from: com.baidu.poly.a.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class C0309a extends com.baidu.poly.a.a.a<String> {
         final /* synthetic */ com.baidu.poly.b.a cnA;
         final /* synthetic */ JSONObject cnB;
@@ -40,7 +40,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class b extends com.baidu.poly.a.a.a<String> {
         final /* synthetic */ com.baidu.poly.b.a cnA;
 

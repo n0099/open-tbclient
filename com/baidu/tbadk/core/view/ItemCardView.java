@@ -85,7 +85,7 @@ public class ItemCardView extends RelativeLayout {
         onChangeSkinType();
     }
 
-    private void bxs() {
+    private void bxt() {
         if (this.fiY == 1) {
             this.mTitleView.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds42));
             this.fiU.setTextSize(0, com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds31));
@@ -244,10 +244,10 @@ public class ItemCardView extends RelativeLayout {
         ao.setViewTextColor(this.mTitleView, R.color.CAM_X0105, 1);
         ao.setViewTextColor(this.fiT, R.color.CAM_X0109, 1);
         ao.setViewTextColor(this.fiV, R.color.CAM_X0109, 1);
-        SvgManager.bwq().a(this.fiW, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.fiW, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0111, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.fiR.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
         this.fiR.setBorderColor(ao.getColor(R.color.CAM_X0401));
-        this.fiS.byy();
+        this.fiS.byz();
     }
 
     public void setBackGroundColor(int i) {
@@ -271,7 +271,7 @@ public class ItemCardView extends RelativeLayout {
         return this.fiV;
     }
 
-    public void bxt() {
+    public void bxu() {
         this.fiW.setVisibility(0);
     }
 
@@ -285,6 +285,6 @@ public class ItemCardView extends RelativeLayout {
 
     public void setSizeStyle(int i) {
         this.fiY = i;
-        bxs();
+        bxt();
     }
 }

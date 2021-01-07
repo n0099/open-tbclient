@@ -46,9 +46,9 @@ public class b extends com.baidu.live.view.web.a {
                 optString = ExtraParamsManager.getDecryptUserId(jSONObject.optString("uk"));
             }
             if (optBoolean) {
-                com.baidu.live.data.x aas = com.baidu.live.aq.a.aam().aas();
-                if (aas != null && aas.aKQ != null && aas.mLiveInfo != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.context, optString, null, null, 0, 0, null, null, 0L, 0L, 0L, 0, Long.toString(aas.mLiveInfo.group_id), Long.toString(aas.mLiveInfo.live_id), false, null, null, null, "")));
+                com.baidu.live.data.x aat = com.baidu.live.aq.a.aan().aat();
+                if (aat != null && aat.aKQ != null && aat.mLiveInfo != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new YuyinAlaPersonCardActivityConfig(this.context, optString, null, null, 0, 0, null, null, 0L, 0L, 0L, 0, Long.toString(aat.mLiveInfo.group_id), Long.toString(aat.mLiveInfo.live_id), false, null, null, null, "")));
                 }
             } else if (!this.isHost) {
                 if (TbadkCoreApplication.getInst().isMobileBaidu()) {

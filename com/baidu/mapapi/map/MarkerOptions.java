@@ -4,11 +4,11 @@ import android.graphics.Point;
 import android.os.Bundle;
 import com.baidu.mapapi.model.LatLng;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class MarkerOptions extends OverlayOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    int f2854a;
+    int f2855a;
     Bundle c;
     private LatLng d;
     private BitmapDescriptor e;
@@ -32,9 +32,9 @@ public final class MarkerOptions extends OverlayOptions {
     private boolean v = true;
 
     /* renamed from: b  reason: collision with root package name */
-    boolean f2855b = true;
+    boolean f2856b = true;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public enum MarkerAnimateType {
         none,
         drop,
@@ -46,17 +46,17 @@ public final class MarkerOptions extends OverlayOptions {
     @Override // com.baidu.mapapi.map.OverlayOptions
     public Overlay a() {
         Marker marker = new Marker();
-        marker.B = this.f2855b;
-        marker.A = this.f2854a;
+        marker.B = this.f2856b;
+        marker.A = this.f2855a;
         marker.C = this.c;
         if (this.d == null) {
             throw new IllegalStateException("BDMapSDKException: when you add marker, you must set the position");
         }
-        marker.f2852a = this.d;
+        marker.f2853a = this.d;
         if (this.e == null && this.n == null) {
             throw new IllegalStateException("BDMapSDKException: when you add marker, you must set the icon or icons");
         }
-        marker.f2853b = this.e;
+        marker.f2854b = this.e;
         marker.c = this.f;
         marker.d = this.g;
         marker.e = this.h;
@@ -186,7 +186,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public int getZIndex() {
-        return this.f2854a;
+        return this.f2855a;
     }
 
     public MarkerOptions icon(BitmapDescriptor bitmapDescriptor) {
@@ -208,7 +208,7 @@ public final class MarkerOptions extends OverlayOptions {
                 if (i2 >= arrayList.size()) {
                     this.n = arrayList;
                     break;
-                } else if (arrayList.get(i2) == null || arrayList.get(i2).f2797a == null) {
+                } else if (arrayList.get(i2) == null || arrayList.get(i2).f2798a == null) {
                     break;
                 } else {
                     i = i2 + 1;
@@ -236,7 +236,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public boolean isVisible() {
-        return this.f2855b;
+        return this.f2856b;
     }
 
     public MarkerOptions period(int i) {
@@ -289,7 +289,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public MarkerOptions visible(boolean z) {
-        this.f2855b = z;
+        this.f2856b = z;
         return this;
     }
 
@@ -299,7 +299,7 @@ public final class MarkerOptions extends OverlayOptions {
     }
 
     public MarkerOptions zIndex(int i) {
-        this.f2854a = i;
+        this.f2855a = i;
         return this;
     }
 }

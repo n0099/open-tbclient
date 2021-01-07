@@ -21,10 +21,10 @@ public class AssistActivity extends Activity {
     private boolean c = false;
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f13621a = false;
+    protected boolean f13622a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    protected Handler f13622b = new Handler() { // from class: com.tencent.connect.common.AssistActivity.1
+    protected Handler f13623b = new Handler() { // from class: com.tencent.connect.common.AssistActivity.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             switch (message.what) {
@@ -61,7 +61,7 @@ public class AssistActivity extends Activity {
         Bundle bundleExtra = getIntent().getBundleExtra("h5_share_data");
         if (bundle != null) {
             this.c = bundle.getBoolean("RESTART_FLAG");
-            this.f13621a = bundle.getBoolean("RESUME_FLAG", false);
+            this.f13622a = bundle.getBoolean("RESUME_FLAG", false);
         }
         if (!this.c) {
             if (bundleExtra == null) {
@@ -96,18 +96,18 @@ public class AssistActivity extends Activity {
             if (!intent.getBooleanExtra("is_qq_mobile_share", false) && this.c && !isFinishing()) {
                 finish();
             }
-            if (this.f13621a) {
-                this.f13622b.sendMessage(this.f13622b.obtainMessage(0));
+            if (this.f13622a) {
+                this.f13623b.sendMessage(this.f13623b.obtainMessage(0));
                 return;
             }
-            this.f13621a = true;
+            this.f13622a = true;
         }
     }
 
     @Override // android.app.Activity
     protected void onPause() {
         f.b("openSDK_LOG.AssistActivity", "-->onPause");
-        this.f13622b.removeMessages(0);
+        this.f13623b.removeMessages(0);
         super.onPause();
     }
 
@@ -139,7 +139,7 @@ public class AssistActivity extends Activity {
     protected void onSaveInstanceState(Bundle bundle) {
         f.b("openSDK_LOG.AssistActivity", "--onSaveInstanceState--");
         bundle.putBoolean("RESTART_FLAG", true);
-        bundle.putBoolean("RESUME_FLAG", this.f13621a);
+        bundle.putBoolean("RESUME_FLAG", this.f13622a);
         super.onSaveInstanceState(bundle);
     }
 

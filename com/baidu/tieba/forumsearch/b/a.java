@@ -31,7 +31,7 @@ public class a extends BaseCardInfo {
         this.Ws = jdn;
     }
 
-    public ArrayList<String> cDJ() {
+    public ArrayList<String> cDK() {
         return this.jdq;
     }
 }

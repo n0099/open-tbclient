@@ -10,11 +10,11 @@ import com.baidu.android.util.devices.RomUtils;
 final class az implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackHotActivity f5731a;
+    final /* synthetic */ FeedbackHotActivity f5732a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public az(FeedbackHotActivity feedbackHotActivity) {
-        this.f5731a = feedbackHotActivity;
+        this.f5732a = feedbackHotActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -29,24 +29,24 @@ final class az implements View.OnClickListener {
         if (com.baidu.ufosdk.f.h.a()) {
             return;
         }
-        view2 = this.f5731a.l;
+        view2 = this.f5732a.l;
         view2.setVisibility(0);
-        linearLayout = this.f5731a.h;
+        linearLayout = this.f5732a.h;
         linearLayout.setVisibility(8);
-        if (!com.baidu.ufosdk.b.d.b(this.f5731a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.f5731a.getApplicationContext()).contains("NONE")) {
-            this.f5731a.a();
-            linearLayout3 = this.f5731a.h;
+        if (!com.baidu.ufosdk.b.d.b(this.f5732a.getApplicationContext()).contains(RomUtils.UNKNOWN) && !com.baidu.ufosdk.b.d.b(this.f5732a.getApplicationContext()).contains("NONE")) {
+            this.f5732a.a();
+            linearLayout3 = this.f5732a.h;
             linearLayout3.setVisibility(8);
-            webView = this.f5731a.j;
+            webView = this.f5732a.j;
             webView.setVisibility(0);
             return;
         }
-        view3 = this.f5731a.l;
+        view3 = this.f5732a.l;
         view3.setVisibility(8);
-        Context applicationContext = this.f5731a.getApplicationContext();
-        textView = this.f5731a.m;
+        Context applicationContext = this.f5732a.getApplicationContext();
+        textView = this.f5732a.m;
         com.baidu.ufosdk.f.i.a(applicationContext, textView);
-        linearLayout2 = this.f5731a.h;
+        linearLayout2 = this.f5732a.h;
         linearLayout2.setVisibility(0);
     }
 }

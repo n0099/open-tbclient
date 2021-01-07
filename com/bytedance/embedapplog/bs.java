@@ -18,7 +18,7 @@ public class bs implements Application.ActivityLifecycleCallbacks {
     private final j phr;
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f6110a = 0;
+    private static int f6111a = 0;
     private static int h = -1;
     private static final HashSet<Integer> phs = new HashSet<>(8);
 
@@ -67,7 +67,7 @@ public class bs implements Application.ActivityLifecycleCallbacks {
         } else {
             ajVar.j = str;
         }
-        ajVar.f6073a = j2;
+        ajVar.f6074a = j2;
         ajVar.h = -1L;
         if (str3 == null) {
             str3 = "";
@@ -79,8 +79,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     public static aj a(aj ajVar, long j2) {
         aj ajVar2 = (aj) ajVar.clone();
-        ajVar2.f6073a = j2;
-        long j3 = j2 - ajVar.f6073a;
+        ajVar2.f6074a = j2;
+        long j3 = j2 - ajVar.f6074a;
         if (j3 >= 0) {
             ajVar2.h = j3;
         } else {
@@ -92,8 +92,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        f6110a++;
-        if (f6110a == 1 && this.phr != null) {
+        f6111a++;
+        if (f6111a == 1 && this.phr != null) {
             this.phr.show(true);
         }
     }
@@ -101,8 +101,8 @@ public class bs implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
         if (e != null) {
-            f6110a--;
-            if (f6110a <= 0) {
+            f6111a--;
+            if (f6111a <= 0) {
                 e = null;
                 g = null;
                 f = 0L;

@@ -354,7 +354,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int DH(String str) {
+    public int DG(String str) {
         Integer num = fEI.get(str);
         if ("video_icon".equals(str)) {
             return Integer.valueOf(R.drawable.ico_link_video).intValue();
@@ -366,7 +366,7 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int DI(String str) {
+    public int DH(String str) {
         Integer num = fEK.get(str);
         if (num != null) {
             return num.intValue();
@@ -375,12 +375,12 @@ public class b implements com.baidu.tbadk.imageManager.a {
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public String DJ(String str) {
+    public String DI(String str) {
         return fEL.get(str);
     }
 
     @Override // com.baidu.tbadk.imageManager.a
-    public int bFa() {
+    public int bFb() {
         return fEJ.size();
     }
 

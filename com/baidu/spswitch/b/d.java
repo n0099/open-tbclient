@@ -1,7 +1,7 @@
 package com.baidu.spswitch.b;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
     private static boolean cEc = false;
     private static int cEd = 0;

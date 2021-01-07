@@ -10,18 +10,18 @@ import com.kwad.sdk.glide.load.engine.s;
 public abstract class b<T extends Drawable> implements o, s<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final T f10559a;
+    protected final T f10560a;
 
     public b(T t) {
-        this.f10559a = (T) j.a(t);
+        this.f10560a = (T) j.a(t);
     }
 
     @Override // com.kwad.sdk.glide.load.engine.o
     public void b() {
-        if (this.f10559a instanceof BitmapDrawable) {
-            ((BitmapDrawable) this.f10559a).getBitmap().prepareToDraw();
-        } else if (this.f10559a instanceof com.kwad.sdk.glide.load.resource.d.c) {
-            ((com.kwad.sdk.glide.load.resource.d.c) this.f10559a).b().prepareToDraw();
+        if (this.f10560a instanceof BitmapDrawable) {
+            ((BitmapDrawable) this.f10560a).getBitmap().prepareToDraw();
+        } else if (this.f10560a instanceof com.kwad.sdk.glide.load.resource.d.c) {
+            ((com.kwad.sdk.glide.load.resource.d.c) this.f10560a).b().prepareToDraw();
         }
     }
 
@@ -30,7 +30,7 @@ public abstract class b<T extends Drawable> implements o, s<T> {
     @NonNull
     /* renamed from: f */
     public final T e() {
-        Drawable.ConstantState constantState = this.f10559a.getConstantState();
-        return constantState == null ? this.f10559a : (T) constantState.newDrawable();
+        Drawable.ConstantState constantState = this.f10560a.getConstantState();
+        return constantState == null ? this.f10560a : (T) constantState.newDrawable();
     }
 }

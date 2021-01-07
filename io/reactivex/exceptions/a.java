@@ -1,5 +1,5 @@
 package io.reactivex.exceptions;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class a {
     public static void O(Throwable th) {
         if (th instanceof VirtualMachineError) {

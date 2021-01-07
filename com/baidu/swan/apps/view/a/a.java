@@ -25,7 +25,7 @@ public class a {
         private boolean dTD = false;
         private boolean dTE = true;
 
-        public static C0497a aSp() {
+        public static C0497a aSq() {
             return new C0497a();
         }
 
@@ -64,7 +64,7 @@ public class a {
             return this;
         }
 
-        public a aSq() {
+        public a aSr() {
             a aVar = new a();
             aVar.dTz = this.dTF;
             aVar.dTA = this.dTA;

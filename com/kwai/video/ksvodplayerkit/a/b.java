@@ -5,19 +5,19 @@ import android.util.Log;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static a f11337a;
+    private static a f11338a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f11338b = true;
+    private static boolean f11339b = true;
 
     public static void a(String str, String str2) {
         a(str, str2, null);
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (f11338b && f11337a != null) {
+        if (f11339b && f11338a != null) {
             try {
-                f11337a.a(str, str2, th);
+                f11338a.a(str, str2, th);
             } catch (Exception e) {
                 Log.e("ksvodplayer", Log.getStackTraceString(e));
             }
@@ -29,9 +29,9 @@ public class b {
     }
 
     public static void b(String str, String str2, Throwable th) {
-        if (f11338b && f11337a != null) {
+        if (f11339b && f11338a != null) {
             try {
-                f11337a.c(str, str2, th);
+                f11338a.c(str, str2, th);
             } catch (Exception e) {
                 Log.e("ksvodplayer", Log.getStackTraceString(e));
             }
@@ -43,9 +43,9 @@ public class b {
     }
 
     public static void c(String str, String str2, Throwable th) {
-        if (f11338b && f11337a != null) {
+        if (f11339b && f11338a != null) {
             try {
-                f11337a.b(str, str2, th);
+                f11338a.b(str, str2, th);
             } catch (Exception e) {
                 Log.e("ksvodplayer", Log.getStackTraceString(e));
             }
@@ -57,9 +57,9 @@ public class b {
     }
 
     public static void d(String str, String str2, Throwable th) {
-        if (f11338b && f11337a != null) {
+        if (f11339b && f11338a != null) {
             try {
-                f11337a.d(str, str2, th);
+                f11338a.d(str, str2, th);
             } catch (Exception e) {
                 Log.e("ksvodplayer", Log.getStackTraceString(e));
             }
@@ -71,9 +71,9 @@ public class b {
     }
 
     public static void e(String str, String str2, Throwable th) {
-        if (f11338b && f11337a != null) {
+        if (f11339b && f11338a != null) {
             try {
-                f11337a.e(str, str2, th);
+                f11338a.e(str, str2, th);
             } catch (Exception e) {
                 Log.e("ksvodplayer", Log.getStackTraceString(e));
             }

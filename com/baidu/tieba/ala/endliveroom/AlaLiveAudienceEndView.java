@@ -153,7 +153,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                 if (AlaLiveAudienceEndView.this.aGe == null || AlaLiveAudienceEndView.this.aGe.mLiveInfo == null || AlaLiveAudienceEndView.this.aGe.mLiveInfo.mLiveCloseData == null) {
                     if (AlaLiveAudienceEndView.this.gVl != null) {
                         if (AlaLiveAudienceEndView.this.gVJ) {
-                            AlaLiveAudienceEndView.this.bXU();
+                            AlaLiveAudienceEndView.this.bXV();
                             return;
                         }
                         LogManager.getLiveCloseLogger().doFollowClickLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aYx, AlaLiveAudienceEndView.this.otherParams);
@@ -184,7 +184,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                 AlaLiveAudienceEndView.this.gVq.playAnimation();
             }
         });
-        bXR();
+        bXS();
         MessageManager.getInstance().registerListener(this.gVO);
     }
 
@@ -291,7 +291,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
         }
     }
 
-    private void bXR() {
+    private void bXS() {
         this.gVs = (LinearLayout) this.mView.findViewById(a.f.llFeedVideoLabel);
         this.gVt = (LinearLayout) this.mView.findViewById(a.f.video_audience_ll);
         this.gVI = this.mView.findViewById(a.f.change_layout);
@@ -312,7 +312,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
         this.gVt.setVisibility(i);
     }
 
-    public void bXS() {
+    public void bXT() {
         d dVar = new d();
         dVar.setParams();
         MessageManager.getInstance().sendMessage(dVar);
@@ -348,7 +348,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                 this.animator.addListener(new AnimatorListenerAdapter() { // from class: com.baidu.tieba.ala.endliveroom.AlaLiveAudienceEndView.7
                     @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
                     public void onAnimationRepeat(Animator animator) {
-                        AlaLiveAudienceEndView.this.bXT();
+                        AlaLiveAudienceEndView.this.bXU();
                     }
                 });
             }
@@ -360,7 +360,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
                     public void onClick(View view) {
                         LogManager.getLiveCloseLogger().doClickChangeSomeLiveCloseGuestLog(AlaLiveAudienceEndView.this.liveId, AlaLiveAudienceEndView.this.roomId, AlaLiveAudienceEndView.this.aYx, AlaLiveAudienceEndView.this.otherParams);
                         AlaLiveAudienceEndView.this.animator.cancel();
-                        AlaLiveAudienceEndView.this.bXT();
+                        AlaLiveAudienceEndView.this.bXU();
                         AlaLiveAudienceEndView.this.animator.start();
                     }
                 });
@@ -369,7 +369,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXT() {
+    public void bXU() {
         int i = this.gVL + 1;
         this.gVL = i;
         if (i >= this.gVM.size()) {
@@ -437,7 +437,7 @@ public class AlaLiveAudienceEndView extends RelativeLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXU() {
+    public void bXV() {
         if (this.mContext != null) {
             BdAlertDialog bdAlertDialog = new BdAlertDialog(this.mContext);
             bdAlertDialog.setMessage(this.mContext.getResources().getString(a.h.ala_live_end_dialog_nomore_attention_msg));

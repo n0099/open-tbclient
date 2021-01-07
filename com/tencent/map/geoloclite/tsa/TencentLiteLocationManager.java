@@ -5,7 +5,7 @@ import android.os.Looper;
 import b.a.a.a.a.p;
 import b.a.a.a.a.w;
 import b.a.a.a.a.x;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class TencentLiteLocationManager {
     public static final int COORDINATE_TYPE_WGS84 = 0;
     public static final int ERROR_BAD_JSON = 2;
@@ -15,15 +15,15 @@ public final class TencentLiteLocationManager {
     private static TencentLiteLocationManager d;
 
     /* renamed from: a  reason: collision with root package name */
-    private final byte[] f13649a = new byte[0];
+    private final byte[] f13650a = new byte[0];
 
     /* renamed from: b  reason: collision with root package name */
-    private final w f13650b;
+    private final w f13651b;
     private final p c;
 
     private TencentLiteLocationManager(Context context) {
-        this.f13650b = w.G(context);
-        this.c = new p(this.f13650b);
+        this.f13651b = w.G(context);
+        this.c = new p(this.f13651b);
     }
 
     public static TencentLiteLocationManager getInstance(Context context) throws NullPointerException, IllegalArgumentException {
@@ -48,10 +48,10 @@ public final class TencentLiteLocationManager {
     }
 
     public final void removeUpdates(TencentLiteLocationListener tencentLiteLocationListener) {
-        synchronized (this.f13649a) {
+        synchronized (this.f13650a) {
             p pVar = this.c;
             pVar.a();
-            synchronized (pVar.f1070b) {
+            synchronized (pVar.f1071b) {
                 pVar.Aw = null;
             }
             pVar.b();
@@ -70,7 +70,7 @@ public final class TencentLiteLocationManager {
         if (j < 0) {
             j = 0;
         }
-        synchronized (this.f13649a) {
+        synchronized (this.f13650a) {
             a2 = this.c.a(j, tencentLiteLocationListener, looper);
         }
         return a2;

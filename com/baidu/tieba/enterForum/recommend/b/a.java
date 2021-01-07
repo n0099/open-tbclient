@@ -70,7 +70,7 @@ public class a {
         }
     }
 
-    private List<b> JO(String str) {
+    private List<b> JN(String str) {
         ArrayList arrayList = new ArrayList();
         if (this.iKR != null && this.iKR.size() > 0) {
             arrayList.addAll(this.iKR.get(str));
@@ -78,7 +78,7 @@ public class a {
         return arrayList;
     }
 
-    private List<b> JP(String str) {
+    private List<b> JO(String str) {
         ArrayList arrayList = new ArrayList();
         if (this.iKT != null && this.iKT.size() > 0) {
             arrayList.addAll(this.iKT.get(str));
@@ -96,9 +96,9 @@ public class a {
                     dVar.setTitle(str);
                     dVar.needTopMargin = !z;
                     dVar.zg(intValue);
-                    dVar.cX(JO(str));
+                    dVar.cX(JN(str));
                     arrayList.add(dVar);
-                    arrayList.addAll(dVar.czs());
+                    arrayList.addAll(dVar.czt());
                 }
             }
         }
@@ -126,9 +126,9 @@ public class a {
                         dVar.setTitle(str);
                         dVar.needTopMargin = !z;
                         dVar.zg(intValue);
-                        dVar.cX(JP(next));
+                        dVar.cX(JO(next));
                         arrayList.add(dVar);
-                        arrayList.addAll(dVar.czs());
+                        arrayList.addAll(dVar.czt());
                     }
                 }
             }
@@ -165,7 +165,7 @@ public class a {
         return arrayList;
     }
 
-    public List<f> czp() {
+    public List<f> czq() {
         return this.iKP;
     }
 

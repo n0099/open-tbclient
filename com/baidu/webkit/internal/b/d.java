@@ -1,15 +1,15 @@
 package com.baidu.webkit.internal.b;
 
 import android.content.DialogInterface;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 final class d implements DialogInterface.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f5943a;
+    final /* synthetic */ b f5944a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.f5943a = bVar;
+        this.f5944a = bVar;
     }
 
     @Override // android.content.DialogInterface.OnClickListener

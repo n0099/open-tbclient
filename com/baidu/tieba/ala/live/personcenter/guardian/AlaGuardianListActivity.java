@@ -49,8 +49,8 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     private boolean hkM = true;
     public e.a hme = new e.a() { // from class: com.baidu.tieba.ala.live.personcenter.guardian.AlaGuardianListActivity.2
         @Override // com.baidu.tieba.ala.live.personcenter.guardian.e.a
-        public void HR(String str) {
-            AlaGuardianListActivity.this.cbp();
+        public void HQ(String str) {
+            AlaGuardianListActivity.this.cbq();
             if (!TextUtils.isEmpty(str)) {
                 AlaGuardianListActivity.this.showToast(str);
             }
@@ -94,7 +94,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
                     fVar.setPageId(AlaGuardianListActivity.this.getUniqueId());
                     fVar.setIsAttention(z ? false : true);
                     fVar.setFrom("source_guardian_list");
-                    com.baidu.live.view.a.Zx().a(aVar.hlV, fVar);
+                    com.baidu.live.view.a.Zy().a(aVar.hlV, fVar);
                 }
             }
         }
@@ -133,7 +133,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
             setContentView(this.mRootView);
             setUseStyleImmersiveSticky(true);
             initData();
-            cbo();
+            cbp();
             initUI();
             registerListener(this.gPg);
         }
@@ -143,7 +143,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         this.gPk = getIntent().getStringExtra("charm_value");
         this.mUserId = getIntent().getStringExtra("user_id");
         this.hmc = new e(this, this.hme);
-        this.hmc.HT(this.mUserId);
+        this.hmc.HS(this.mUserId);
         this.hkN = (int) getResources().getDimension(a.d.sdk_ds246);
         this.hkO = (int) getResources().getDimension(a.d.sdk_ds98);
     }
@@ -156,8 +156,8 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
         this.hkk = (NoNetworkView) this.mRootView.findViewById(a.f.ala_guardian_list_no_network_view);
         this.hma = (BdListView) this.mRootView.findViewById(a.f.list);
         this.hmd = new d(getPageContext().getPageActivity());
-        this.hmd.HS(this.gPk);
-        this.hma.addHeaderView(this.hmd.cbf());
+        this.hmd.HR(this.gPk);
+        this.hma.addHeaderView(this.hmd.cbg());
         this.hmb = new b(this);
         this.hmb.o(this.gQA);
         this.hma.setAdapter((ListAdapter) this.hmb);
@@ -168,13 +168,13 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
 
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
-                AlaGuardianListActivity.this.cbd();
                 AlaGuardianListActivity.this.cbe();
+                AlaGuardianListActivity.this.cbf();
             }
         });
     }
 
-    private void cbo() {
+    private void cbp() {
         this.hmc.loadData();
     }
 
@@ -193,7 +193,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     /* JADX INFO: Access modifiers changed from: private */
     public void a(c cVar) {
         if (this.hmb != null) {
-            if (cVar != null && cVar.cbq().size() <= 0) {
+            if (cVar != null && cVar.cbr().size() <= 0) {
                 showNoDataView();
             } else {
                 hideNoDataView();
@@ -204,9 +204,9 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbd() {
+    public void cbe() {
         if (Build.VERSION.SDK_INT >= 11 && this.hmd != null) {
-            int i = this.hkN - (-this.hmd.cbf().getTop());
+            int i = this.hkN - (-this.hmd.cbg().getTop());
             if (i < this.hkO) {
                 if (this.mNavigationBar.getBarBgView().getAlpha() != 1.0f) {
                     this.mNavigationBar.getBarBgView().setAlpha(1.0f);
@@ -228,7 +228,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbe() {
+    public void cbf() {
         float alpha = this.mNavigationBar.getBarBgView().getAlpha();
         if (alpha < 0.5f) {
             alpha = 1.0f - alpha;
@@ -284,7 +284,7 @@ public class AlaGuardianListActivity extends BaseActivity<AlaGuardianListActivit
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cbp() {
+    public void cbq() {
         if (this.bNm == null) {
             this.bNm = new CommonEmptyView(getPageContext().getPageActivity());
             this.bNm.addToParent(this.mRootView);

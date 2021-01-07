@@ -8,7 +8,7 @@ import java.io.InputStream;
 import java.io.UnsupportedEncodingException;
 import java.nio.charset.Charset;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b implements Closeable {
     private byte[] buf;
     private final Charset charset;
@@ -16,7 +16,7 @@ public class b implements Closeable {
     private final InputStream in;
     private int pos;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     class a extends ByteArrayOutputStream {
         a(int i) {
             super(i);
@@ -37,7 +37,7 @@ public class b implements Closeable {
         this(inputStream, 8192, charset);
     }
 
-    private void afA() {
+    private void afB() {
         InputStream inputStream = this.in;
         byte[] bArr = this.buf;
         int read = inputStream.read(bArr, 0, bArr.length);
@@ -70,7 +70,7 @@ public class b implements Closeable {
         synchronized (this.in) {
             if (this.buf != null) {
                 if (this.pos >= this.end) {
-                    afA();
+                    afB();
                 }
                 int i3 = this.pos;
                 while (true) {
@@ -95,7 +95,7 @@ public class b implements Closeable {
                         loop1: while (true) {
                             aVar2.write(this.buf, this.pos, this.end - this.pos);
                             this.end = -1;
-                            afA();
+                            afB();
                             i = this.pos;
                             while (i != this.end) {
                                 if (this.buf[i] == 10) {

@@ -78,7 +78,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
     public void c(AlaLiveInfoData alaLiveInfoData) {
         ArrayList<AlaLiveInfoData> arrayList = new ArrayList<>();
         arrayList.add(alaLiveInfoData);
-        cqZ();
+        cra();
         al(arrayList);
     }
 
@@ -86,9 +86,9 @@ public class SdkLivePlayer extends LinearLayout implements f {
         int i;
         bq bqVar;
         this.ifi = arrayList;
-        LinearLayout.LayoutParams crd = crd();
+        LinearLayout.LayoutParams cre = cre();
         if (ListUtils.getCount(arrayList) == 2) {
-            crd = crc();
+            cre = crd();
         }
         if (arrayList == null || arrayList.size() != 1 || (bqVar = com.baidu.live.af.a.SE().bCb) == null || bqVar.aRI == null || ((i = bqVar.aRI.aSx) != 1 && i != 2)) {
             i = 1;
@@ -99,7 +99,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
                 if (arrayList.get(i3).screen_direction == 2) {
                     i2 = 2;
                 }
-                a(arrayList.get(i3), i3, crd, i, i2);
+                a(arrayList.get(i3), i3, cre, i, i2);
             }
         }
         this.aGS = true;
@@ -172,7 +172,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         dVar.b(1, hashMap);
     }
 
-    private void Zr() {
+    private void Zs() {
         if (!ListUtils.isEmpty(this.ifh)) {
             Iterator<d> it = this.ifh.iterator();
             while (it.hasNext()) {
@@ -185,7 +185,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         removeAllViews();
     }
 
-    public void cqZ() {
+    public void cra() {
         cH(true);
     }
 
@@ -195,7 +195,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
             BdLog.e("AlaLivePlayer stopLivePlayer()");
         }
         if (z) {
-            Zr();
+            Zs();
         }
         this.bSM = "";
         if (!ListUtils.isEmpty(this.ifh)) {
@@ -238,15 +238,15 @@ public class SdkLivePlayer extends LinearLayout implements f {
         ArrayList<AlaLiveInfoData> arrayList = new ArrayList<>();
         arrayList.add(alaLiveInfoData);
         this.ifi = arrayList;
-        crb();
+        crc();
     }
 
     public void setPlayLiveInfo(ArrayList<AlaLiveInfoData> arrayList) {
         this.ifi = arrayList;
-        crb();
+        crc();
     }
 
-    private void crb() {
+    private void crc() {
         if (this.ifi != null && this.ifh != null && this.ifi.size() > 0 && this.ifh.size() > 0) {
             int i = 0;
             for (int i2 = 0; i2 < this.ifi.size(); i2++) {
@@ -260,7 +260,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         }
     }
 
-    private LinearLayout.LayoutParams crc() {
+    private LinearLayout.LayoutParams crd() {
         int bn = com.baidu.live.utils.h.bn(this.mContext);
         int equipmentWidth = BdUtilHelper.getEquipmentWidth(this.mContext) / 2;
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(equipmentWidth, (equipmentWidth * 4) / 3);
@@ -268,7 +268,7 @@ public class SdkLivePlayer extends LinearLayout implements f {
         return layoutParams;
     }
 
-    private LinearLayout.LayoutParams crd() {
+    private LinearLayout.LayoutParams cre() {
         return new LinearLayout.LayoutParams(-1, -1);
     }
 

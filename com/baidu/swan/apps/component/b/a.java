@@ -46,7 +46,7 @@ public abstract class a<V extends View, M extends b> {
 
     @NonNull
     @UiThread
-    public final c aow() {
+    public final c aox() {
         String name = getName();
         c b2 = b((a<V, M>) this.cNF);
         if (!b2.isSuccess()) {
@@ -81,7 +81,7 @@ public abstract class a<V extends View, M extends b> {
 
     @Nullable
     @UiThread
-    public final j aox() {
+    public final j aoy() {
         final String name = getName();
         c b2 = b((a<V, M>) this.cNF);
         if (!b2.isSuccess()) {
@@ -143,7 +143,7 @@ public abstract class a<V extends View, M extends b> {
                     if (a.DEBUG && th != null && TextUtils.equals(th.getMessage(), "save subscriber and return subscriber: nolinear !")) {
                         throw new RuntimeException("save subscriber and return subscriber: nolinear !");
                     }
-                    a.this.aoy();
+                    a.this.aoz();
                 }
 
                 @Override // rx.e
@@ -193,7 +193,7 @@ public abstract class a<V extends View, M extends b> {
             com.baidu.swan.apps.component.d.b a2 = a(this.cNF, m);
             this.cNF = c((a<V, M>) m);
             a(this.mView, this.cNF, a2);
-            boolean a3 = this.cNE.aoQ().a(this, a2);
+            boolean a3 = this.cNE.aoR().a(this, a2);
             this.cNG = null;
             if (!a3) {
                 String str5 = name + " update component fail";
@@ -209,7 +209,7 @@ public abstract class a<V extends View, M extends b> {
 
     @NonNull
     @UiThread
-    public final c aoy() {
+    public final c aoz() {
         String name = getName();
         if (DEBUG) {
             Log.i("Component-Base", "=====================" + name + " start remove=====================");
@@ -220,7 +220,7 @@ public abstract class a<V extends View, M extends b> {
         } else if (this.cNH == null) {
             com.baidu.swan.apps.console.c.e("Component-Base", name + " remove must after insert");
             return new c(202, "component remove must after insert");
-        } else if (!this.cNE.aoQ().f(this)) {
+        } else if (!this.cNE.aoR().f(this)) {
             String str = name + " remove fail";
             com.baidu.swan.apps.console.c.e("Component-Base", str);
             return new c(1001, str);
@@ -238,7 +238,7 @@ public abstract class a<V extends View, M extends b> {
         if (DEBUG) {
             Log.d("Component-Base", getName() + " onDestroy");
         }
-        aoE();
+        aoF();
     }
 
     @Nullable
@@ -247,17 +247,17 @@ public abstract class a<V extends View, M extends b> {
     }
 
     @NonNull
-    public final M aoz() {
+    public final M aoA() {
         return this.cNF;
     }
 
     @NonNull
-    public final M aoA() {
+    public final M aoB() {
         return c((a<V, M>) this.cNF);
     }
 
     @Nullable
-    public final SwanAppComponentContainerView aoB() {
+    public final SwanAppComponentContainerView aoC() {
         return this.cNH;
     }
 
@@ -327,22 +327,22 @@ public abstract class a<V extends View, M extends b> {
     /* JADX INFO: Access modifiers changed from: protected */
     @CallSuper
     public void onRemove() {
-        aoE();
+        aoF();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Nullable
-    public final M aoC() {
+    public final M aoD() {
         return this.cNG;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final boolean aoD() {
+    public final boolean aoE() {
         return this.cNG != null;
     }
 
     private boolean a(@NonNull com.baidu.swan.apps.component.c.a aVar) {
-        boolean e = aVar.aoQ().e(this);
+        boolean e = aVar.aoR().e(this);
         eW(e);
         return e;
     }
@@ -396,7 +396,7 @@ public abstract class a<V extends View, M extends b> {
         return (M) bVar;
     }
 
-    private void aoE() {
+    private void aoF() {
         if (this.cNI != null && !this.cNI.isUnsubscribed()) {
             this.cNI.unsubscribe();
         }

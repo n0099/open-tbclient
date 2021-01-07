@@ -18,15 +18,15 @@ import java.util.List;
 /* loaded from: classes.dex */
 public class FloatingAnimationView extends FrameLayout {
     private TbImageView gFe;
-    private FrameAnimationView nRS;
-    private ImageView nRT;
-    private a nRU;
+    private FrameAnimationView nRR;
+    private ImageView nRS;
+    private a nRT;
 
     /* loaded from: classes.dex */
     public interface a {
-        void dXx();
-
         void dXy();
+
+        void dXz();
     }
 
     public FloatingAnimationView(@NonNull Context context) {
@@ -40,36 +40,36 @@ public class FloatingAnimationView extends FrameLayout {
 
     private void init() {
         Context context = getContext();
-        this.nRS = new FrameAnimationView(context);
-        this.nRS.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.nRR = new FrameAnimationView(context);
+        this.nRR.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds200), l.getDimens(context, R.dimen.tbds200));
         layoutParams.gravity = 17;
-        addView(this.nRS, layoutParams);
+        addView(this.nRR, layoutParams);
         this.gFe = new TbImageView(context);
         this.gFe.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(l.getDimens(context, R.dimen.tbds62), l.getDimens(context, R.dimen.tbds62));
         layoutParams2.gravity = 53;
         this.gFe.setAutoChangeStyle(false);
         addView(this.gFe, layoutParams2);
-        this.nRT = new ImageView(context);
-        this.nRT.setScaleType(ImageView.ScaleType.CENTER_CROP);
+        this.nRS = new ImageView(context);
+        this.nRS.setScaleType(ImageView.ScaleType.CENTER_CROP);
         FrameLayout.LayoutParams layoutParams3 = new FrameLayout.LayoutParams(-2, -2);
         layoutParams3.gravity = 51;
         layoutParams3.topMargin = l.getDimens(context, R.dimen.tbds14);
-        addView(this.nRT, layoutParams3);
-        this.nRS.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
+        addView(this.nRS, layoutParams3);
+        this.nRR.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.nRU != null) {
-                    FloatingAnimationView.this.nRU.dXx();
+                if (FloatingAnimationView.this.nRT != null) {
+                    FloatingAnimationView.this.nRT.dXy();
                 }
             }
         });
-        this.nRS.setOnDrawListener(new TbImageView.c() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
+        this.nRR.setOnDrawListener(new TbImageView.c() { // from class: com.baidu.tieba.view.FloatingAnimationView.2
             @Override // com.baidu.tbadk.widget.TbImageView.c
             public void a(TbImageView tbImageView, Canvas canvas) {
-                if (FloatingAnimationView.this.nRS.getBdImage() == null && !at.isEmpty(FloatingAnimationView.this.nRS.getUrl())) {
-                    FloatingAnimationView.this.nRS.startLoad(FloatingAnimationView.this.nRS.getUrl(), 10, false);
+                if (FloatingAnimationView.this.nRR.getBdImage() == null && !at.isEmpty(FloatingAnimationView.this.nRR.getUrl())) {
+                    FloatingAnimationView.this.nRR.startLoad(FloatingAnimationView.this.nRR.getUrl(), 10, false);
                 }
             }
 
@@ -80,8 +80,8 @@ public class FloatingAnimationView extends FrameLayout {
         this.gFe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.view.FloatingAnimationView.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (FloatingAnimationView.this.nRU != null) {
-                    FloatingAnimationView.this.nRU.dXy();
+                if (FloatingAnimationView.this.nRT != null) {
+                    FloatingAnimationView.this.nRT.dXz();
                 }
             }
         });
@@ -90,24 +90,24 @@ public class FloatingAnimationView extends FrameLayout {
 
     public void setData(String str) {
         if (!at.isEmpty(str)) {
-            this.nRS.setData(str);
+            this.nRR.setData(str);
         }
     }
 
     public void setData(List<String> list, int i) {
-        if (this.nRS != null) {
-            this.nRS.setData(list, i);
+        if (this.nRR != null) {
+            this.nRR.setData(list, i);
         }
     }
 
     public void setPageId(BdUniqueId bdUniqueId) {
-        if (this.nRS != null) {
-            this.nRS.setPageId(bdUniqueId);
+        if (this.nRR != null) {
+            this.nRR.setPageId(bdUniqueId);
         }
     }
 
     public void setCallback(a aVar) {
-        this.nRU = aVar;
+        this.nRT = aVar;
     }
 
     public void onChangeSkinType() {

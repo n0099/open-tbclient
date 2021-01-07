@@ -10,11 +10,11 @@ import java.util.concurrent.Executors;
 public final class bq {
 
     /* renamed from: a  reason: collision with root package name */
-    public static ExecutorService f8073a = Executors.newSingleThreadExecutor();
+    public static ExecutorService f8074a = Executors.newSingleThreadExecutor();
 
     /* renamed from: b  reason: collision with root package name */
-    public static ExecutorService f8074b = Executors.newSingleThreadExecutor();
-    public static a pIG;
+    public static ExecutorService f8075b = Executors.newSingleThreadExecutor();
+    public static a pKo;
 
     /* loaded from: classes15.dex */
     public interface a {
@@ -49,13 +49,13 @@ public final class bq {
     }
 
     public static void a(Context context, bf bfVar) {
-        f8073a.execute(new bi(context, bfVar));
-        f8074b.execute(new bn(context));
+        f8074a.execute(new bi(context, bfVar));
+        f8075b.execute(new bn(context));
     }
 
     public static void a(Context context, String str, String str2, String str3) {
         bf bfVar = new bf();
-        bfVar.f8066b = "ac";
+        bfVar.f8067b = "ac";
         bfVar.c = str;
         bfVar.d = str2;
         bfVar.e = str3;
@@ -64,7 +64,7 @@ public final class bq {
 
     public static void j(Context context, String str, String str2, String str3) {
         bf bfVar = new bf();
-        bfVar.f8066b = "as";
+        bfVar.f8067b = "as";
         bfVar.c = str;
         bfVar.d = str2;
         bfVar.e = str3;
@@ -73,7 +73,7 @@ public final class bq {
 
     public static void k(Context context, String str, String str2, String str3) {
         bf bfVar = new bf();
-        bfVar.f8066b = "ao";
+        bfVar.f8067b = "ao";
         bfVar.c = str;
         bfVar.d = str2;
         bfVar.e = str3;

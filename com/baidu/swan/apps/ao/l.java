@@ -8,16 +8,16 @@ import com.xiaomi.mipush.sdk.Constants;
 public class l {
     private static String mDeviceInfo;
 
-    public static String aRn() {
+    public static String aRo() {
         if (TextUtils.isEmpty(mDeviceInfo)) {
             synchronized (l.class) {
-                mDeviceInfo = aRo();
+                mDeviceInfo = aRp();
             }
         }
         return mDeviceInfo;
     }
 
-    private static String aRo() {
+    private static String aRp() {
         String replace;
         String replace2;
         String replace3;

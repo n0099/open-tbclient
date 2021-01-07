@@ -16,10 +16,10 @@ public final class f {
     private static f d = null;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f5666b = "ufo";
+    private final String f5667b = "ufo";
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f5665a = 1209600000;
+    public final int f5666a = 1209600000;
 
     public static Bitmap a(String str) {
         Bitmap decodeFile;

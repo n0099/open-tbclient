@@ -25,7 +25,7 @@ public class j extends a {
     public void parseJson(JSONArray jSONArray) {
     }
 
-    public int aol() {
+    public int aom() {
         try {
             JSONObject jSONObject = new JSONObject(this.cMk);
             int O = com.baidu.swan.apps.ao.ah.O((float) jSONObject.optDouble("x"));

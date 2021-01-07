@@ -39,12 +39,12 @@ public class i implements b {
     }
 
     @Override // com.baidu.swan.c.b
-    public boolean aPF() {
+    public boolean aPG() {
         return false;
     }
 
     @Override // com.baidu.swan.c.b
-    public Set<String> aPG() {
+    public Set<String> aPH() {
         return this.mSp.getAll().keySet();
     }
 

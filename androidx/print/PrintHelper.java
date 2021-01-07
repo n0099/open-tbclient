@@ -31,7 +31,7 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class PrintHelper {
     @SuppressLint({"InlinedApi"})
     public static final int COLOR_MODE_COLOR = 2;
@@ -52,7 +52,7 @@ public final class PrintHelper {
     int mColorMode = 2;
     int mOrientation = 1;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface OnPrintFinishCallback {
         void onFinish();
     }
@@ -116,7 +116,7 @@ public final class PrintHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(19)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class PrintBitmapAdapter extends PrintDocumentAdapter {
         private PrintAttributes mAttributes;
         private final Bitmap mBitmap;
@@ -171,7 +171,7 @@ public final class PrintHelper {
 
     /* JADX INFO: Access modifiers changed from: private */
     @RequiresApi(19)
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public class PrintUriAdapter extends PrintDocumentAdapter {
         PrintAttributes mAttributes;
         Bitmap mBitmap = null;

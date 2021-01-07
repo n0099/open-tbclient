@@ -15,17 +15,17 @@ public class c extends a {
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public BdUniqueId bnb() {
+    public BdUniqueId bnc() {
         return eIP;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public ArrayList<String> bnc() {
+    public ArrayList<String> bnd() {
         return this.eIQ;
     }
 
     @Override // com.baidu.tbadk.a.a.a
-    public com.baidu.tbadk.a.e bnd() {
+    public com.baidu.tbadk.a.e bne() {
         return this.eIR;
     }
 

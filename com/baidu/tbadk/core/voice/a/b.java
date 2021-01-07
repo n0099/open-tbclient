@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.util.n;
 import java.io.File;
 /* loaded from: classes.dex */
 public class b {
-    public static a CI(String str) {
+    public static a CH(String str) {
         a aVar = new a();
         if (str == null) {
             aVar.error_code = 6;
@@ -36,7 +36,7 @@ public class b {
         return n.renameTo(str, n.getFilePath(str2, 1, true));
     }
 
-    public static synchronized void bze() {
+    public static synchronized void bzf() {
         synchronized (b.class) {
             File file = new File(n.getCacheDir() + "voice");
             if (file.exists() && file.isDirectory()) {

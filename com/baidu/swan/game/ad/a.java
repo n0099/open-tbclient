@@ -48,7 +48,7 @@ public class a {
     /* renamed from: com.baidu.swan.game.ad.a$a  reason: collision with other inner class name */
     /* loaded from: classes3.dex */
     public interface InterfaceC0518a {
-        void aUz();
+        void aUA();
     }
 
     public a(Context context, AdElementInfo adElementInfo, String str, boolean z) {
@@ -77,7 +77,7 @@ public class a {
         this.mContext = context;
         this.dZe = adElementInfo;
         this.dZp = str;
-        this.dZo = com.baidu.swan.games.utils.c.bcl().bcm();
+        this.dZo = com.baidu.swan.games.utils.c.bcm().bcn();
         this.dZt = z;
         initView();
     }
@@ -120,7 +120,7 @@ public class a {
         this.dZj = (RelativeLayout) this.mConvertView.findViewById(c.e.banner_ad_left);
         this.dZg = (AdImageVIew) this.mConvertView.findViewById(c.e.banner_w_pic);
         if (this.dZe != null) {
-            this.dZg.setImageUrl(this.dZe.aVq());
+            this.dZg.setImageUrl(this.dZe.aVr());
         }
         this.dZh = (AdImageVIew) this.mConvertView.findViewById(c.e.ad_text);
         this.dZh.setImageUrl("https://cpro.baidustatic.com/cpro/ui/noexpire/css/2.1.4/img/mob-adIcon_2x.png");
@@ -166,9 +166,9 @@ public class a {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     ak.k(a.this.mHideRunnable);
-                    com.baidu.swan.games.utils.c.bcl().dr(a.this.dZp, "" + System.currentTimeMillis());
+                    com.baidu.swan.games.utils.c.bcm().dr(a.this.dZp, "" + System.currentTimeMillis());
                     if (a.this.dZs != null) {
-                        a.this.dZs.aUz();
+                        a.this.dZs.aUA();
                     }
                     com.baidu.swan.games.view.a.b.ds(a.this.dZt ? "gdtbanner" : "banner", "close");
                 }
@@ -234,7 +234,7 @@ public class a {
         if (this.mConvertView != null && this.mConvertView.getVisibility() == 4) {
             this.mConvertView.setAnimation(AnimationUtils.loadAnimation(this.mContext, c.a.ng_game_ad_open));
             this.mConvertView.setVisibility(0);
-            ak.c(this.mHideRunnable, com.baidu.swan.games.utils.c.bcl().bcq());
+            ak.c(this.mHideRunnable, com.baidu.swan.games.utils.c.bcm().bcr());
         }
     }
 

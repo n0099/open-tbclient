@@ -10,66 +10,66 @@ import java.io.InputStream;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class e implements Closeable {
     private int bfz;
     private int mHeight;
     private int mWidth;
     @Nullable
-    private final com.facebook.common.references.a<PooledByteBuffer> pCP;
+    private com.facebook.imagepipeline.common.a pEA;
     @Nullable
-    private final j<FileInputStream> pCQ;
-    private com.facebook.c.c pCR;
-    private int pCS;
+    private final com.facebook.common.references.a<PooledByteBuffer> pEw;
     @Nullable
-    private com.facebook.imagepipeline.common.a pCT;
-    private int pwW;
-    private int pwX;
+    private final j<FileInputStream> pEx;
+    private com.facebook.c.c pEy;
+    private int pEz;
+    private int pxd;
+    private int pxe;
 
     public e(com.facebook.common.references.a<PooledByteBuffer> aVar) {
-        this.pCR = com.facebook.c.c.pzf;
-        this.pwW = -1;
-        this.pwX = 0;
+        this.pEy = com.facebook.c.c.pAq;
+        this.pxd = -1;
+        this.pxe = 0;
         this.mWidth = -1;
         this.mHeight = -1;
         this.bfz = 1;
-        this.pCS = -1;
+        this.pEz = -1;
         com.facebook.common.internal.g.checkArgument(com.facebook.common.references.a.a(aVar));
-        this.pCP = aVar.clone();
-        this.pCQ = null;
+        this.pEw = aVar.clone();
+        this.pEx = null;
     }
 
     public e(j<FileInputStream> jVar) {
-        this.pCR = com.facebook.c.c.pzf;
-        this.pwW = -1;
-        this.pwX = 0;
+        this.pEy = com.facebook.c.c.pAq;
+        this.pxd = -1;
+        this.pxe = 0;
         this.mWidth = -1;
         this.mHeight = -1;
         this.bfz = 1;
-        this.pCS = -1;
+        this.pEz = -1;
         com.facebook.common.internal.g.checkNotNull(jVar);
-        this.pCP = null;
-        this.pCQ = jVar;
+        this.pEw = null;
+        this.pEx = jVar;
     }
 
     public e(j<FileInputStream> jVar, int i) {
         this(jVar);
-        this.pCS = i;
+        this.pEz = i;
     }
 
     public static e b(e eVar) {
         if (eVar != null) {
-            return eVar.ezh();
+            return eVar.ezL();
         }
         return null;
     }
 
-    public e ezh() {
+    public e ezL() {
         e eVar;
-        if (this.pCQ != null) {
-            eVar = new e(this.pCQ, this.pCS);
+        if (this.pEx != null) {
+            eVar = new e(this.pEx, this.pEz);
         } else {
-            com.facebook.common.references.a b2 = com.facebook.common.references.a.b(this.pCP);
+            com.facebook.common.references.a b2 = com.facebook.common.references.a.b(this.pEw);
             if (b2 == null) {
                 eVar = null;
             } else {
@@ -88,26 +88,26 @@ public class e implements Closeable {
 
     @Override // java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.facebook.common.references.a.c(this.pCP);
+        com.facebook.common.references.a.c(this.pEw);
     }
 
     public synchronized boolean isValid() {
         boolean z;
-        if (!com.facebook.common.references.a.a(this.pCP)) {
-            z = this.pCQ != null;
+        if (!com.facebook.common.references.a.a(this.pEw)) {
+            z = this.pEx != null;
         }
         return z;
     }
 
-    public com.facebook.common.references.a<PooledByteBuffer> ezi() {
-        return com.facebook.common.references.a.b(this.pCP);
+    public com.facebook.common.references.a<PooledByteBuffer> ezM() {
+        return com.facebook.common.references.a.b(this.pEw);
     }
 
     public InputStream getInputStream() {
-        if (this.pCQ != null) {
-            return this.pCQ.get();
+        if (this.pEx != null) {
+            return this.pEx.get();
         }
-        com.facebook.common.references.a b2 = com.facebook.common.references.a.b(this.pCP);
+        com.facebook.common.references.a b2 = com.facebook.common.references.a.b(this.pEw);
         if (b2 != null) {
             try {
                 return new com.facebook.common.memory.h((PooledByteBuffer) b2.get());
@@ -119,7 +119,7 @@ public class e implements Closeable {
     }
 
     public void c(com.facebook.c.c cVar) {
-        this.pCR = cVar;
+        this.pEy = cVar;
     }
 
     public void setHeight(int i) {
@@ -130,12 +130,12 @@ public class e implements Closeable {
         this.mWidth = i;
     }
 
-    public void QG(int i) {
-        this.pwW = i;
+    public void QX(int i) {
+        this.pxd = i;
     }
 
-    public void QH(int i) {
-        this.pwX = i;
+    public void QY(int i) {
+        this.pxe = i;
     }
 
     public void setSampleSize(int i) {
@@ -143,19 +143,19 @@ public class e implements Closeable {
     }
 
     public void b(@Nullable com.facebook.imagepipeline.common.a aVar) {
-        this.pCT = aVar;
+        this.pEA = aVar;
     }
 
-    public com.facebook.c.c ezj() {
-        return this.pCR;
+    public com.facebook.c.c ezN() {
+        return this.pEy;
     }
 
-    public int ezf() {
-        return this.pwW;
+    public int ezJ() {
+        return this.pxd;
     }
 
-    public int ezg() {
-        return this.pwX;
+    public int ezK() {
+        return this.pxe;
     }
 
     public int getWidth() {
@@ -171,37 +171,37 @@ public class e implements Closeable {
     }
 
     @Nullable
-    public com.facebook.imagepipeline.common.a ezk() {
-        return this.pCT;
+    public com.facebook.imagepipeline.common.a ezO() {
+        return this.pEA;
     }
 
-    public boolean QI(int i) {
-        if (this.pCR == com.facebook.c.b.pyV && this.pCQ == null) {
-            com.facebook.common.internal.g.checkNotNull(this.pCP);
-            PooledByteBuffer pooledByteBuffer = this.pCP.get();
-            return pooledByteBuffer.Qb(i + (-2)) == -1 && pooledByteBuffer.Qb(i + (-1)) == -39;
+    public boolean QZ(int i) {
+        if (this.pEy == com.facebook.c.b.pAg && this.pEx == null) {
+            com.facebook.common.internal.g.checkNotNull(this.pEw);
+            PooledByteBuffer pooledByteBuffer = this.pEw.get();
+            return pooledByteBuffer.Qg(i + (-2)) == -1 && pooledByteBuffer.Qg(i + (-1)) == -39;
         }
         return true;
     }
 
     public int getSize() {
-        return (this.pCP == null || this.pCP.get() == null) ? this.pCS : this.pCP.get().size();
+        return (this.pEw == null || this.pEw.get() == null) ? this.pEz : this.pEw.get().size();
     }
 
-    public String QJ(int i) {
-        com.facebook.common.references.a<PooledByteBuffer> ezi = ezi();
-        if (ezi == null) {
+    public String Ra(int i) {
+        com.facebook.common.references.a<PooledByteBuffer> ezM = ezM();
+        if (ezM == null) {
             return "";
         }
         int min = Math.min(getSize(), i);
         byte[] bArr = new byte[min];
         try {
-            PooledByteBuffer pooledByteBuffer = ezi.get();
+            PooledByteBuffer pooledByteBuffer = ezM.get();
             if (pooledByteBuffer == null) {
                 return "";
             }
             pooledByteBuffer.c(0, bArr, 0, min);
-            ezi.close();
+            ezM.close();
             StringBuilder sb = new StringBuilder(bArr.length * 2);
             int length = bArr.length;
             for (int i2 = 0; i2 < length; i2++) {
@@ -209,31 +209,31 @@ public class e implements Closeable {
             }
             return sb.toString();
         } finally {
-            ezi.close();
+            ezM.close();
         }
     }
 
-    public void ezl() {
-        Pair<Integer, Integer> ezn;
+    public void ezP() {
+        Pair<Integer, Integer> ezR;
         com.facebook.c.c y = com.facebook.c.d.y(getInputStream());
-        this.pCR = y;
+        this.pEy = y;
         if (com.facebook.c.b.a(y)) {
-            ezn = ezm();
+            ezR = ezQ();
         } else {
-            ezn = ezn();
+            ezR = ezR();
         }
-        if (y == com.facebook.c.b.pyV && this.pwW == -1) {
-            if (ezn != null) {
-                this.pwX = com.facebook.d.b.C(getInputStream());
-                this.pwW = com.facebook.d.b.Rm(this.pwX);
+        if (y == com.facebook.c.b.pAg && this.pxd == -1) {
+            if (ezR != null) {
+                this.pxe = com.facebook.d.b.C(getInputStream());
+                this.pxd = com.facebook.d.b.RC(this.pxe);
                 return;
             }
             return;
         }
-        this.pwW = 0;
+        this.pxd = 0;
     }
 
-    private Pair<Integer, Integer> ezm() {
+    private Pair<Integer, Integer> ezQ() {
         Pair<Integer, Integer> E = com.facebook.d.e.E(getInputStream());
         if (E != null) {
             this.mWidth = ((Integer) E.first).intValue();
@@ -242,7 +242,7 @@ public class e implements Closeable {
         return E;
     }
 
-    private Pair<Integer, Integer> ezn() {
+    private Pair<Integer, Integer> ezR() {
         InputStream inputStream = null;
         try {
             inputStream = getInputStream();
@@ -263,18 +263,18 @@ public class e implements Closeable {
     }
 
     public void c(e eVar) {
-        this.pCR = eVar.ezj();
+        this.pEy = eVar.ezN();
         this.mWidth = eVar.getWidth();
         this.mHeight = eVar.getHeight();
-        this.pwW = eVar.ezf();
-        this.pwX = eVar.ezg();
+        this.pxd = eVar.ezJ();
+        this.pxe = eVar.ezK();
         this.bfz = eVar.getSampleSize();
-        this.pCS = eVar.getSize();
-        this.pCT = eVar.ezk();
+        this.pEz = eVar.getSize();
+        this.pEA = eVar.ezO();
     }
 
     public static boolean d(e eVar) {
-        return eVar.pwW >= 0 && eVar.mWidth >= 0 && eVar.mHeight >= 0;
+        return eVar.pxd >= 0 && eVar.mWidth >= 0 && eVar.mHeight >= 0;
     }
 
     public static void e(@Nullable e eVar) {

@@ -24,10 +24,10 @@ import org.json.JSONObject;
 public class bn implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    public Context f8071a;
+    public Context f8072a;
 
     public bn(Context context) {
-        this.f8071a = context.getApplicationContext();
+        this.f8072a = context.getApplicationContext();
     }
 
     public static String a(Context context, Uri.Builder builder) {
@@ -64,7 +64,7 @@ public class bn implements Runnable {
     @Override // java.lang.Runnable
     public void run() {
         try {
-            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a(this.f8071a, Uri.parse("https://pp.xdplt.com/report").buildUpon())).openConnection();
+            HttpURLConnection httpURLConnection = (HttpURLConnection) new URL(a(this.f8072a, Uri.parse("https://pp.xdplt.com/report").buildUpon())).openConnection();
             httpURLConnection.setDoOutput(true);
             httpURLConnection.setDoInput(true);
             httpURLConnection.setUseCaches(false);
@@ -80,14 +80,14 @@ public class bn implements Runnable {
             OutputStream outputStream = httpURLConnection.getOutputStream();
             OutputStreamWriter outputStreamWriter = new OutputStreamWriter(outputStream, "UTF-8");
             JSONArray jSONArray = new JSONArray();
-            bk in = bk.in(this.f8071a);
+            bk in = bk.in(this.f8072a);
             ArrayList arrayList = (ArrayList) in.a();
             if (!arrayList.isEmpty()) {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     bf bfVar = (bf) it.next();
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("e", bfVar.f8066b);
+                    jSONObject.put("e", bfVar.f8067b);
                     jSONObject.put("pid", bfVar.c);
                     jSONObject.put(IXAdRequestInfo.CELL_ID, bfVar.e);
                     jSONObject.put("type", bfVar.d);
@@ -100,7 +100,7 @@ public class bn implements Runnable {
                 if (httpURLConnection.getResponseCode() == 200) {
                     Iterator it2 = arrayList.iterator();
                     while (it2.hasNext()) {
-                        in.getWritableDatabase().delete("ad_todo_list", "_id=?", new String[]{String.valueOf(((bf) it2.next()).f8065a)});
+                        in.getWritableDatabase().delete("ad_todo_list", "_id=?", new String[]{String.valueOf(((bf) it2.next()).f8066a)});
                     }
                 }
             }

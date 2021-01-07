@@ -17,7 +17,7 @@ public class b {
         this.gjH = new HashMap();
     }
 
-    public static b bON() {
+    public static b bOO() {
         return a.gjI;
     }
 
@@ -31,7 +31,7 @@ public class b {
         return this.gjH.get(downloadCacheKey);
     }
 
-    public Map<DownloadCacheKey, AdDownloadData> Fu(String str) {
+    public Map<DownloadCacheKey, AdDownloadData> Ft(String str) {
         HashMap hashMap = new HashMap(this.gjH.size());
         if (TextUtils.isEmpty(str)) {
             return hashMap;

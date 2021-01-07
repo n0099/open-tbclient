@@ -16,14 +16,14 @@ import com.baidu.media.duplayer.LibsInfoDef;
 import com.qq.e.comm.plugin.util.aa;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13575a;
+    private static String f13576a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13576b;
+    private static String f13577b;
     private static String c;
     private static HashMap<String, String> d = new HashMap<>();
 
@@ -98,15 +98,15 @@ public class b {
     }
 
     public static String c(Context context) {
-        if (f13575a != null) {
-            return f13575a;
+        if (f13576a != null) {
+            return f13576a;
         }
         PackageManager packageManager = context.getPackageManager();
         try {
-            f13575a = packageManager.getApplicationInfo(context.getPackageName(), 128).loadLabel(packageManager).toString();
+            f13576a = packageManager.getApplicationInfo(context.getPackageName(), 128).loadLabel(packageManager).toString();
         } catch (PackageManager.NameNotFoundException e) {
         }
-        return f13575a;
+        return f13576a;
     }
 
     private static String c(Context context, String str, int i) {
@@ -137,10 +137,10 @@ public class b {
     }
 
     public static String d(Context context) {
-        if (f13576b == null && context != null) {
-            f13576b = context.getPackageName();
+        if (f13577b == null && context != null) {
+            f13577b = context.getPackageName();
         }
-        return f13576b;
+        return f13577b;
     }
 
     private static String d(Context context, String str, int i) {

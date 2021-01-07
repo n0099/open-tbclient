@@ -6,8 +6,8 @@ import com.yxcorp.kuaishou.addfp.android.b.b;
 public class Orange {
 
     /* renamed from: a  reason: collision with root package name */
-    private static boolean f14679a = true;
-    private static volatile Orange qeL;
+    private static boolean f14680a = true;
+    private static volatile Orange qgt;
 
     private Orange() {
         e();
@@ -16,28 +16,28 @@ public class Orange {
     private void e() {
         try {
             System.loadLibrary("sgcore");
-            f14679a = false;
+            f14680a = false;
             b.b("so loaded");
         } catch (Throwable th) {
             b.b("so load failed");
-            f14679a = true;
+            f14680a = true;
             b.a(th);
         }
     }
 
-    public static Orange eKw() {
-        if (qeL == null) {
+    public static Orange eLa() {
+        if (qgt == null) {
             synchronized (Orange.class) {
-                if (qeL == null) {
-                    qeL = new Orange();
+                if (qgt == null) {
+                    qgt = new Orange();
                 }
             }
         }
-        return qeL;
+        return qgt;
     }
 
     private boolean f() {
-        return f14679a;
+        return f14680a;
     }
 
     private static native String getClock(Context context, byte[] bArr, int i);

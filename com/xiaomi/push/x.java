@@ -6,14 +6,14 @@ import java.util.HashMap;
 public class x {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final HashMap<String, String> f14630a = new HashMap<>();
+    private static final HashMap<String, String> f14631a = new HashMap<>();
 
     static {
-        f14630a.put("FFD8FF", "jpg");
-        f14630a.put("89504E47", "png");
-        f14630a.put("47494638", "gif");
-        f14630a.put("474946", "gif");
-        f14630a.put("424D", "bmp");
+        f14631a.put("FFD8FF", "jpg");
+        f14631a.put("89504E47", "png");
+        f14631a.put("47494638", "gif");
+        f14631a.put("474946", "gif");
+        f14631a.put("424D", "bmp");
     }
 
     public static long a(File file) {

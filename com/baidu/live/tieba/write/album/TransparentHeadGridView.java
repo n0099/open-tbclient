@@ -37,14 +37,14 @@ public class TransparentHeadGridView extends GridView {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void Xe();
+        void Xf();
 
         void gy(int i);
     }
 
     /* loaded from: classes11.dex */
     public interface c {
-        void Xd();
+        void Xe();
     }
 
     public TransparentHeadGridView(Context context) {
@@ -73,12 +73,12 @@ public class TransparentHeadGridView extends GridView {
         };
         this.bNG = new c() { // from class: com.baidu.live.tieba.write.album.TransparentHeadGridView.2
             @Override // com.baidu.live.tieba.write.album.TransparentHeadGridView.c
-            public void Xd() {
+            public void Xe() {
                 if (TransparentHeadGridView.this.bNE) {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
                 if (TransparentHeadGridView.this.bNB != null) {
-                    TransparentHeadGridView.this.bNB.Xe();
+                    TransparentHeadGridView.this.bNB.Xf();
                 }
             }
         };
@@ -147,12 +147,12 @@ public class TransparentHeadGridView extends GridView {
         };
         this.bNG = new c() { // from class: com.baidu.live.tieba.write.album.TransparentHeadGridView.2
             @Override // com.baidu.live.tieba.write.album.TransparentHeadGridView.c
-            public void Xd() {
+            public void Xe() {
                 if (TransparentHeadGridView.this.bNE) {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
                 if (TransparentHeadGridView.this.bNB != null) {
-                    TransparentHeadGridView.this.bNB.Xe();
+                    TransparentHeadGridView.this.bNB.Xf();
                 }
             }
         };
@@ -221,12 +221,12 @@ public class TransparentHeadGridView extends GridView {
         };
         this.bNG = new c() { // from class: com.baidu.live.tieba.write.album.TransparentHeadGridView.2
             @Override // com.baidu.live.tieba.write.album.TransparentHeadGridView.c
-            public void Xd() {
+            public void Xe() {
                 if (TransparentHeadGridView.this.bNE) {
                     TransparentHeadGridView.this.setVisibility(8);
                 }
                 if (TransparentHeadGridView.this.bNB != null) {
-                    TransparentHeadGridView.this.bNB.Xe();
+                    TransparentHeadGridView.this.bNB.Xf();
                 }
             }
         };
@@ -310,7 +310,7 @@ public class TransparentHeadGridView extends GridView {
         return super.onTouchEvent(motionEvent);
     }
 
-    public void Xc() {
+    public void Xd() {
         setPadding(0, (int) ((10.0f - this.bNt) / 2.0f), 0, 0);
         this.mState = 0;
         this.bNt = 0.0f;
@@ -380,7 +380,7 @@ public class TransparentHeadGridView extends GridView {
             if (this.bNL && this.bNI != this.bNM) {
                 TransparentHeadGridView.this.postDelayed(this, 16L);
             } else if (this.bNK != null) {
-                this.bNK.Xd();
+                this.bNK.Xe();
             }
         }
 

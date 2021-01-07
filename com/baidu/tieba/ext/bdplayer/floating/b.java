@@ -28,12 +28,12 @@ public class b implements com.baidu.live.liveroom.e.b {
             Log.d(TAG, "showFloatingPlayer " + dVar);
         }
         if (dVar != null && (dVar instanceof com.baidu.tieba.ext.bdplayer.a.d)) {
-            this.iQP = ((com.baidu.tieba.ext.bdplayer.a.d) dVar).cAK();
+            this.iQP = ((com.baidu.tieba.ext.bdplayer.a.d) dVar).cAL();
             this.iQQ = str;
             this.iQO = aVar;
             if (this.iQP != null) {
                 if (this.iQR != null) {
-                    this.iQR.cAI();
+                    this.iQR.cAJ();
                 }
                 if (this.iQN == null) {
                     this.iQN = new d(this.mContext);
@@ -41,10 +41,10 @@ public class b implements com.baidu.live.liveroom.e.b {
                 this.iQN.setContentView(view);
                 this.iQN.setPlayer(this.iQP);
                 this.iQN.setContext(this.mContext);
-                this.iQN.cAF();
+                this.iQN.cAG();
                 this.iQN.a(new d.b() { // from class: com.baidu.tieba.ext.bdplayer.floating.b.1
                     @Override // com.baidu.tieba.ext.bdplayer.floating.d.b
-                    public boolean cAC() {
+                    public boolean cAD() {
                         if (b.this.iQO != null) {
                             return b.this.iQO.Pk();
                         }
@@ -71,9 +71,9 @@ public class b implements com.baidu.live.liveroom.e.b {
     @Override // com.baidu.live.liveroom.e.b
     public void Pl() {
         if (this.iQN != null) {
-            this.iQN.Yz();
+            this.iQN.YA();
         }
-        this.iQR.JR(this.iQQ);
+        this.iQR.JQ(this.iQQ);
     }
 
     @Override // com.baidu.live.liveroom.e.b
@@ -83,7 +83,7 @@ public class b implements com.baidu.live.liveroom.e.b {
 
     @Override // com.baidu.live.liveroom.e.b
     public boolean Pn() {
-        return (this.iQN != null && this.iQN.cAH()) || (this.iQP != null && this.iQP.isFloatingMode());
+        return (this.iQN != null && this.iQN.cAI()) || (this.iQP != null && this.iQP.isFloatingMode());
     }
 
     private boolean isDebug() {

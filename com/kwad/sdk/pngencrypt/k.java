@@ -3,10 +3,10 @@ package com.kwad.sdk.pngencrypt;
 public class k {
 
     /* renamed from: a  reason: collision with root package name */
-    public final int f10810a;
+    public final int f10811a;
 
     /* renamed from: b  reason: collision with root package name */
-    public final int f10811b;
+    public final int f10812b;
     public final int c;
     public final int d;
     public final boolean e;
@@ -22,8 +22,8 @@ public class k {
     private long o = -1;
 
     public k(int i, int i2, int i3, boolean z, boolean z2, boolean z3) {
-        this.f10810a = i;
-        this.f10811b = i2;
+        this.f10811a = i;
+        this.f10812b = i2;
         this.e = z;
         this.g = z3;
         this.f = z2;
@@ -36,7 +36,7 @@ public class k {
         this.i = this.d * this.c;
         this.j = (this.i + 7) / 8;
         this.k = ((this.i * i) + 7) / 8;
-        this.l = this.d * this.f10810a;
+        this.l = this.d * this.f10811a;
         this.m = this.h ? this.k : this.l;
         switch (this.c) {
             case 1:
@@ -73,16 +73,16 @@ public class k {
         }
         if (obj != null && getClass() == obj.getClass()) {
             k kVar = (k) obj;
-            return this.e == kVar.e && this.c == kVar.c && this.f10810a == kVar.f10810a && this.f == kVar.f && this.g == kVar.g && this.f10811b == kVar.f10811b;
+            return this.e == kVar.e && this.c == kVar.c && this.f10811a == kVar.f10811a && this.f == kVar.f && this.g == kVar.g && this.f10812b == kVar.f10812b;
         }
         return false;
     }
 
     public int hashCode() {
-        return (((((this.f ? 1231 : 1237) + (((((((this.e ? 1231 : 1237) + 31) * 31) + this.c) * 31) + this.f10810a) * 31)) * 31) + (this.g ? 1231 : 1237)) * 31) + this.f10811b;
+        return (((((this.f ? 1231 : 1237) + (((((((this.e ? 1231 : 1237) + 31) * 31) + this.c) * 31) + this.f10811a) * 31)) * 31) + (this.g ? 1231 : 1237)) * 31) + this.f10812b;
     }
 
     public String toString() {
-        return "ImageInfo [cols=" + this.f10810a + ", rows=" + this.f10811b + ", bitDepth=" + this.c + ", channels=" + this.d + ", alpha=" + this.e + ", greyscale=" + this.f + ", indexed=" + this.g + "]";
+        return "ImageInfo [cols=" + this.f10811a + ", rows=" + this.f10812b + ", bitDepth=" + this.c + ", channels=" + this.d + ", alpha=" + this.e + ", greyscale=" + this.f + ", indexed=" + this.g + "]";
     }
 }

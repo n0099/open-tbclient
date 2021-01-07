@@ -12,27 +12,27 @@ public class a {
     private static boolean cPi;
 
     public static void p(Context context, boolean z) {
-        final e aMk = e.aMk();
-        if (aMk != null) {
+        final e aMl = e.aMl();
+        if (aMl != null) {
             b.eZ(z);
             new g.a(context).f(context.getString(a.h.aiapps_debug_switch_title)).sp(context.getString(z ? a.h.aiapps_open_debug : a.h.aiapps_close_debug)).a(new com.baidu.swan.apps.view.c.a()).gV(false).c(a.h.aiapps_confirm, new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.console.a.1
                 @Override // android.content.DialogInterface.OnClickListener
                 public void onClick(DialogInterface dialogInterface, int i) {
-                    SwanAppActivity aMe = e.this.aMe();
-                    if (aMe != null && Build.VERSION.SDK_INT >= 21) {
-                        aMe.finishAndRemoveTask();
+                    SwanAppActivity aMf = e.this.aMf();
+                    if (aMf != null && Build.VERSION.SDK_INT >= 21) {
+                        aMf.finishAndRemoveTask();
                     }
                     System.exit(0);
                 }
-            }).aLx();
+            }).aLy();
         }
     }
 
     public static void cG(Context context) {
-        p(context, !apg());
+        p(context, !aph());
     }
 
-    public static boolean apg() {
+    public static boolean aph() {
         return cPi;
     }
 

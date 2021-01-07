@@ -3,29 +3,29 @@ package com.facebook.imagepipeline.memory;
 import java.io.IOException;
 import javax.annotation.concurrent.NotThreadSafe;
 @NotThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class NativePooledByteBufferOutputStream extends com.facebook.common.memory.i {
     private int mCount;
-    private com.facebook.common.references.a<NativeMemoryChunk> pDu;
-    private final k pDv;
+    private com.facebook.common.references.a<NativeMemoryChunk> pFb;
+    private final k pFc;
 
     public NativePooledByteBufferOutputStream(k kVar) {
-        this(kVar, kVar.ezE());
+        this(kVar, kVar.eAi());
     }
 
     public NativePooledByteBufferOutputStream(k kVar, int i) {
         com.facebook.common.internal.g.checkArgument(i > 0);
-        this.pDv = (k) com.facebook.common.internal.g.checkNotNull(kVar);
+        this.pFc = (k) com.facebook.common.internal.g.checkNotNull(kVar);
         this.mCount = 0;
-        this.pDu = com.facebook.common.references.a.a(this.pDv.get(i), this.pDv);
+        this.pFb = com.facebook.common.references.a.a(this.pFc.get(i), this.pFc);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.facebook.common.memory.i
-    /* renamed from: ezG */
-    public l euc() {
-        euj();
-        return new l(this.pDu, this.mCount);
+    /* renamed from: eAk */
+    public l euj() {
+        euq();
+        return new l(this.pFb, this.mCount);
     }
 
     @Override // com.facebook.common.memory.i
@@ -43,37 +43,37 @@ public class NativePooledByteBufferOutputStream extends com.facebook.common.memo
         if (i < 0 || i2 < 0 || i + i2 > bArr.length) {
             throw new ArrayIndexOutOfBoundsException("length=" + bArr.length + "; regionStart=" + i + "; regionLength=" + i2);
         }
-        euj();
-        QY(this.mCount + i2);
-        this.pDu.get().d(this.mCount, bArr, i, i2);
+        euq();
+        Ro(this.mCount + i2);
+        this.pFb.get().d(this.mCount, bArr, i, i2);
         this.mCount += i2;
     }
 
     @Override // com.facebook.common.memory.i, java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() {
-        com.facebook.common.references.a.c(this.pDu);
-        this.pDu = null;
+        com.facebook.common.references.a.c(this.pFb);
+        this.pFb = null;
         this.mCount = -1;
         super.close();
     }
 
-    void QY(int i) {
-        euj();
-        if (i > this.pDu.get().getSize()) {
-            NativeMemoryChunk nativeMemoryChunk = this.pDv.get(i);
-            this.pDu.get().a(0, nativeMemoryChunk, 0, this.mCount);
-            this.pDu.close();
-            this.pDu = com.facebook.common.references.a.a(nativeMemoryChunk, this.pDv);
+    void Ro(int i) {
+        euq();
+        if (i > this.pFb.get().getSize()) {
+            NativeMemoryChunk nativeMemoryChunk = this.pFc.get(i);
+            this.pFb.get().a(0, nativeMemoryChunk, 0, this.mCount);
+            this.pFb.close();
+            this.pFb = com.facebook.common.references.a.a(nativeMemoryChunk, this.pFc);
         }
     }
 
-    private void euj() {
-        if (!com.facebook.common.references.a.a(this.pDu)) {
+    private void euq() {
+        if (!com.facebook.common.references.a.a(this.pFb)) {
             throw new InvalidStreamException();
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class InvalidStreamException extends RuntimeException {
         public InvalidStreamException() {
             super("OutputStream no longer valid");

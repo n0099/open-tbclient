@@ -4,33 +4,33 @@ import android.graphics.Bitmap;
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.Immutable;
 @Immutable
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class b {
-    private static final b pAu = exb().exj();
+    private static final b pCb = exD().exL();
     public final Bitmap.Config bitmapConfig;
+    public final int pCc;
+    public final boolean pCd;
+    public final boolean pCe;
+    public final boolean pCf;
+    public final boolean pCg;
     @Nullable
-    public final com.facebook.imagepipeline.decoder.b pAA;
-    public final int pAv;
-    public final boolean pAw;
-    public final boolean pAx;
-    public final boolean pAy;
-    public final boolean pAz;
+    public final com.facebook.imagepipeline.decoder.b pCh;
 
     public b(c cVar) {
-        this.pAv = cVar.exc();
-        this.pAw = cVar.exd();
-        this.pAx = cVar.exe();
-        this.pAy = cVar.exf();
-        this.pAz = cVar.exh();
-        this.bitmapConfig = cVar.exi();
-        this.pAA = cVar.exg();
+        this.pCc = cVar.exE();
+        this.pCd = cVar.exF();
+        this.pCe = cVar.exG();
+        this.pCf = cVar.exH();
+        this.pCg = cVar.exJ();
+        this.bitmapConfig = cVar.exK();
+        this.pCh = cVar.exI();
     }
 
-    public static b exa() {
-        return pAu;
+    public static b exC() {
+        return pCb;
     }
 
-    public static c exb() {
+    public static c exD() {
         return new c();
     }
 
@@ -42,14 +42,14 @@ public class b {
             return false;
         }
         b bVar = (b) obj;
-        return this.pAw == bVar.pAw && this.pAx == bVar.pAx && this.pAy == bVar.pAy && this.pAz == bVar.pAz && this.bitmapConfig == bVar.bitmapConfig && this.pAA == bVar.pAA;
+        return this.pCd == bVar.pCd && this.pCe == bVar.pCe && this.pCf == bVar.pCf && this.pCg == bVar.pCg && this.bitmapConfig == bVar.bitmapConfig && this.pCh == bVar.pCh;
     }
 
     public int hashCode() {
-        return (((((((this.pAy ? 1 : 0) + (((this.pAx ? 1 : 0) + (((this.pAw ? 1 : 0) + (this.pAv * 31)) * 31)) * 31)) * 31) + (this.pAz ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31) + (this.pAA != null ? this.pAA.hashCode() : 0);
+        return (((((((this.pCf ? 1 : 0) + (((this.pCe ? 1 : 0) + (((this.pCd ? 1 : 0) + (this.pCc * 31)) * 31)) * 31)) * 31) + (this.pCg ? 1 : 0)) * 31) + this.bitmapConfig.ordinal()) * 31) + (this.pCh != null ? this.pCh.hashCode() : 0);
     }
 
     public String toString() {
-        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.pAv), Boolean.valueOf(this.pAw), Boolean.valueOf(this.pAx), Boolean.valueOf(this.pAy), Boolean.valueOf(this.pAz), this.bitmapConfig.name(), this.pAA);
+        return String.format(null, "%d-%b-%b-%b-%b-%s-%s", Integer.valueOf(this.pCc), Boolean.valueOf(this.pCd), Boolean.valueOf(this.pCe), Boolean.valueOf(this.pCf), Boolean.valueOf(this.pCg), this.bitmapConfig.name(), this.pCh);
     }
 }

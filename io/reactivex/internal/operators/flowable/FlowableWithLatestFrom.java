@@ -5,21 +5,21 @@ import io.reactivex.j;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal.operators.flowable.a<T, R> {
     final io.reactivex.b.c<? super T, ? super U, ? extends R> combiner;
-    final org.a.b<? extends U> qhe;
+    final org.a.b<? extends U> qiN;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super R> cVar) {
         io.reactivex.subscribers.b bVar = new io.reactivex.subscribers.b(cVar);
         WithLatestFromSubscriber withLatestFromSubscriber = new WithLatestFromSubscriber(bVar, this.combiner);
         bVar.onSubscribe(withLatestFromSubscriber);
-        this.qhe.subscribe(new a(withLatestFromSubscriber));
-        this.qgK.a((j) withLatestFromSubscriber);
+        this.qiN.subscribe(new a(withLatestFromSubscriber));
+        this.qit.a((j) withLatestFromSubscriber);
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class WithLatestFromSubscriber<T, U, R> extends AtomicReference<U> implements io.reactivex.internal.a.a<T>, d {
         private static final long serialVersionUID = -312246233408980075L;
         final org.a.c<? super R> actual;
@@ -95,29 +95,29 @@ public final class FlowableWithLatestFrom<T, U, R> extends io.reactivex.internal
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     final class a implements j<U> {
-        private final WithLatestFromSubscriber<T, U, R> qhF;
+        private final WithLatestFromSubscriber<T, U, R> qjo;
 
         a(WithLatestFromSubscriber<T, U, R> withLatestFromSubscriber) {
-            this.qhF = withLatestFromSubscriber;
+            this.qjo = withLatestFromSubscriber;
         }
 
         @Override // io.reactivex.j, org.a.c
         public void onSubscribe(d dVar) {
-            if (this.qhF.setOther(dVar)) {
+            if (this.qjo.setOther(dVar)) {
                 dVar.request(Long.MAX_VALUE);
             }
         }
 
         @Override // org.a.c
         public void onNext(U u) {
-            this.qhF.lazySet(u);
+            this.qjo.lazySet(u);
         }
 
         @Override // org.a.c
         public void onError(Throwable th) {
-            this.qhF.otherError(th);
+            this.qjo.otherError(th);
         }
 
         @Override // org.a.c

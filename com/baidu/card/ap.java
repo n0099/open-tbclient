@@ -29,12 +29,12 @@ public class ap extends a<com.baidu.tbadk.core.data.a> {
         this.ajY = new OriginalThreadCardView.a() { // from class: com.baidu.card.ap.1
             @Override // com.baidu.tieba.card.OriginalThreadCardView.a
             public void a(OriginalThreadInfo originalThreadInfo) {
-                if (ap.this.ahi != null && ap.this.ahi.boO() != null) {
+                if (ap.this.ahi != null && ap.this.ahi.boP() != null) {
                     if (ap.this.tc() != null) {
                         ap.this.tc().a(ap.this.ajX, ap.this.ahi);
                     }
-                    String id = ap.this.ahi.boO().getId();
-                    com.baidu.tieba.card.m.Jo(id);
+                    String id = ap.this.ahi.boP().getId();
+                    com.baidu.tieba.card.m.Jn(id);
                     ap.this.di(id);
                     ap.this.ahd.b(new a.C0090a(1));
                 }
@@ -57,11 +57,11 @@ public class ap extends a<com.baidu.tbadk.core.data.a> {
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.boO() != null) {
+        if (aVar != null && aVar.boP() != null) {
             this.ahi = aVar;
-            ay.a(this.mTitle, aVar.boO(), this.ahF);
-            ay.a(this.aia, this.mTitle, aVar.boO(), ahY, this.ahF);
-            this.ajX.b(aVar.boO().eVB);
+            ay.a(this.mTitle, aVar.boP(), this.ahF);
+            ay.a(this.aia, this.mTitle, aVar.boP(), ahY, this.ahF);
+            this.ajX.b(aVar.boP().eVB);
         }
     }
 
@@ -73,7 +73,7 @@ public class ap extends a<com.baidu.tbadk.core.data.a> {
     public void di(String str) {
         com.baidu.tieba.card.m.a(this.mTitle, str, R.color.CAM_X0105, R.color.CAM_X0109);
         com.baidu.tieba.card.m.a(this.aia, str, R.color.CAM_X0105, R.color.CAM_X0109);
-        this.ajX.setReadState(com.baidu.tieba.card.m.Jp(str));
+        this.ajX.setReadState(com.baidu.tieba.card.m.Jo(str));
     }
 
     @Override // com.baidu.card.q

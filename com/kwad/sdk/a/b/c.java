@@ -8,13 +8,13 @@ import org.json.JSONObject;
 public class c extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f8445b;
+    private AdTemplate f8446b;
     private AdInfo c;
     private List<Integer> d;
     private com.kwad.sdk.contentalliance.detail.video.e e = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.c.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void a() {
-            com.kwad.sdk.core.report.b.i(c.this.f8445b);
+            com.kwad.sdk.core.report.b.i(c.this.f8446b);
         }
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
@@ -24,11 +24,11 @@ public class c extends com.kwad.sdk.a.a.a {
 
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
-            if (!c.this.f8445b.mPvReported) {
-                c.this.f8435a.f8436a.onAdShow(null);
+            if (!c.this.f8446b.mPvReported) {
+                c.this.f8436a.f8437a.onAdShow(null);
             }
-            com.kwad.sdk.core.report.b.a(c.this.f8445b, (JSONObject) null);
-            com.kwad.sdk.core.report.b.h(c.this.f8445b);
+            com.kwad.sdk.core.report.b.a(c.this.f8446b, (JSONObject) null);
+            com.kwad.sdk.core.report.b.h(c.this.f8446b);
         }
     };
 
@@ -40,7 +40,7 @@ public class c extends com.kwad.sdk.a.a.a {
         }
         for (Integer num : this.d) {
             if (ceil >= num.intValue()) {
-                com.kwad.sdk.core.report.b.b(this.f8445b, ceil, null);
+                com.kwad.sdk.core.report.b.b(this.f8446b, ceil, null);
                 this.d.remove(num);
                 return;
             }
@@ -51,16 +51,16 @@ public class c extends com.kwad.sdk.a.a.a {
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f8445b = this.f8435a.d;
-        this.c = com.kwad.sdk.core.response.b.c.j(this.f8445b);
+        this.f8446b = this.f8436a.d;
+        this.c = com.kwad.sdk.core.response.b.c.j(this.f8446b);
         this.d = com.kwad.sdk.core.response.b.a.M(this.c);
-        this.f8435a.f.a(this.e);
+        this.f8436a.f.a(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8435a.f.b(this.e);
+        this.f8436a.f.b(this.e);
     }
 }

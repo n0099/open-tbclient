@@ -25,7 +25,7 @@ public class a {
         return this.mHasMore;
     }
 
-    public ArrayList<d> dGV() {
+    public ArrayList<d> dGW() {
         return this.items;
     }
 }

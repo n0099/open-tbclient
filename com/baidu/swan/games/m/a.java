@@ -8,27 +8,27 @@ import com.baidu.swan.games.m.b.d;
 import com.baidu.swan.games.m.b.e;
 /* loaded from: classes7.dex */
 public class a {
-    public static e baV() {
+    public static e baW() {
         return new com.baidu.swan.games.m.a.e();
     }
 
-    public static d baW() {
+    public static d baX() {
         return new com.baidu.swan.games.m.a.d();
     }
 
-    public static com.baidu.swan.games.m.b.a baX() {
+    public static com.baidu.swan.games.m.b.a baY() {
         return new com.baidu.swan.games.m.a.a();
     }
 
-    public static ax baY() {
+    public static ax baZ() {
         return new aa();
     }
 
-    public static b baZ() {
+    public static b bba() {
         return new com.baidu.swan.games.m.a.b();
     }
 
-    public static c bba() {
+    public static c bbb() {
         return new com.baidu.swan.games.m.a.c();
     }
 }

@@ -11,7 +11,7 @@ public abstract class d {
     public ImageView oSn;
     public ImageView oSp;
     public TextView jnJ = null;
-    public TextView mtx = null;
+    public TextView mtw = null;
     public TextView oSo = null;
 
     public abstract View getContentView();

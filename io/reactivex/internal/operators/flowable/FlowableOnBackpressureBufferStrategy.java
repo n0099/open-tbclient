@@ -9,7 +9,7 @@ import java.util.Deque;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
     final long bufferSize;
     final io.reactivex.b.a onOverflow;
@@ -17,10 +17,10 @@ public final class FlowableOnBackpressureBufferStrategy<T> extends a<T, T> {
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qgK.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
+        this.qit.a((j) new OnBackpressureBufferStrategySubscriber(cVar, this.onOverflow, this.strategy, this.bufferSize));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class OnBackpressureBufferStrategySubscriber<T> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = 3240706908776709697L;
         final org.a.c<? super T> actual;

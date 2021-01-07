@@ -23,15 +23,15 @@ public class e extends b {
         byte[] h = kVar.h();
         String c = kVar.c();
         String str = new String(bArr);
-        com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.f1448a, b2);
-        if (TextUtils.isEmpty(c) || !m.b(this.f1448a, c)) {
-            c = a2.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a2.f1172a.b() : null;
+        com.baidu.android.pushservice.a.d a2 = com.baidu.android.pushservice.a.d.a(this.f1449a, b2);
+        if (TextUtils.isEmpty(c) || !m.b(this.f1449a, c)) {
+            c = a2.a() == com.baidu.android.pushservice.a.c.PUSH_CLIENT ? a2.f1173a.b() : null;
         }
         switch (a2.a()) {
             case PUSH_CLIENT:
                 String a3 = a(c);
                 try {
-                    this.f1448a.getPackageManager().getPackageInfo(a3, 128);
+                    this.f1449a.getPackageManager().getPackageInfo(a3, 128);
                     Intent intent = new Intent();
                     intent.putExtra("app_id", b2);
                     intent.putExtra("msg_id", e);
@@ -41,17 +41,17 @@ public class e extends b {
                     intent.putExtra("baidu_message_type", f);
                     intent.putExtra("baidu_message_body", bArr);
                     intent.putExtra("baidu_message_secur_info", h);
-                    i = m.a(this.f1448a, intent, "com.baidu.android.pushservice.action.MESSAGE", a3);
-                    m.a(">>> Deliver message to client: " + a2.f1172a.b() + " result: " + i, this.f1448a);
+                    i = m.a(this.f1449a, intent, "com.baidu.android.pushservice.action.MESSAGE", a3);
+                    m.a(">>> Deliver message to client: " + a2.f1173a.b() + " result: " + i, this.f1449a);
                     break;
                 } catch (PackageManager.NameNotFoundException e2) {
-                    m.a(">>> NOT deliver to app: " + a2.f1172a.b() + ", package has been uninstalled.", this.f1448a);
-                    new b.c(this.f1448a).a(Log.getStackTraceString(e2)).a();
+                    m.a(">>> NOT deliver to app: " + a2.f1173a.b() + ", package has been uninstalled.", this.f1449a);
+                    new b.c(this.f1449a).a(Log.getStackTraceString(e2)).a();
                     i = 7;
                     break;
                 }
             default:
-                m.a(">>> Don't found app  in OldPrivateMessage " + str, this.f1448a);
+                m.a(">>> Don't found app  in OldPrivateMessage " + str, this.f1449a);
                 i = 7;
                 break;
         }

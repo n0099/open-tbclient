@@ -15,10 +15,10 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 public final class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile Queue<com.kwai.filedownloader.a> f10046a = new ConcurrentLinkedQueue();
+    private volatile Queue<com.kwai.filedownloader.a> f10047a = new ConcurrentLinkedQueue();
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile Queue<com.kwai.filedownloader.a> f10047b = new ConcurrentLinkedQueue();
+    private volatile Queue<com.kwai.filedownloader.a> f10048b = new ConcurrentLinkedQueue();
 
     /* loaded from: classes5.dex */
     public interface a {
@@ -47,15 +47,15 @@ public final class d {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         synchronized (d.class) {
-            if (this.f10046a.isEmpty() && this.f10047b.isEmpty()) {
+            if (this.f10047a.isEmpty() && this.f10048b.isEmpty()) {
                 return;
             }
-            int size = 10 - this.f10047b.size();
-            int size2 = this.f10046a.size();
+            int size = 10 - this.f10048b.size();
+            int size2 = this.f10047a.size();
             for (int i = 0; i < size && i < size2; i++) {
-                com.kwai.filedownloader.a poll = this.f10046a.poll();
+                com.kwai.filedownloader.a poll = this.f10047a.poll();
                 if (poll != null && !poll.c()) {
-                    this.f10047b.offer(poll);
+                    this.f10048b.offer(poll);
                     poll.e();
                 }
             }
@@ -70,17 +70,17 @@ public final class d {
         }
         final b a2 = b.a();
         final String a3 = a(str, strArr[i]);
-        this.f10046a.offer(q.a().a(strArr[i]).a((z ? a2.c() : a2.b()) + File.separator + a3).b(false).a((i) new c() { // from class: com.kwad.sdk.emotion.b.d.1
+        this.f10047a.offer(q.a().a(strArr[i]).a((z ? a2.c() : a2.b()) + File.separator + a3).b(false).a((i) new c() { // from class: com.kwad.sdk.emotion.b.d.1
             @Override // com.kwad.sdk.emotion.b.c, com.kwai.filedownloader.i
             public void a(com.kwai.filedownloader.a aVar2, Throwable th) {
-                d.this.f10047b.remove(aVar2);
+                d.this.f10048b.remove(aVar2);
                 d.this.a(i + 1, strArr, str, z, aVar);
                 d.this.a();
             }
 
             @Override // com.kwai.filedownloader.i
             public void c(com.kwai.filedownloader.a aVar2) {
-                d.this.f10047b.remove(aVar2);
+                d.this.f10048b.remove(aVar2);
                 if (aVar != null) {
                     aVar.a(aVar2.o());
                 }

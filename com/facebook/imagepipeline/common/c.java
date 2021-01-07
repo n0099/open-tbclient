@@ -2,48 +2,48 @@ package com.facebook.imagepipeline.common;
 
 import android.graphics.Bitmap;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class c {
-    private boolean pAC;
-    private boolean pAD;
-    private boolean pAE;
-    private boolean pAF;
+    private boolean pCj;
+    private boolean pCk;
+    private boolean pCl;
+    private boolean pCm;
     @Nullable
-    private com.facebook.imagepipeline.decoder.b pAG;
-    private int pAB = 100;
+    private com.facebook.imagepipeline.decoder.b pCn;
+    private int pCi = 100;
     private Bitmap.Config mBitmapConfig = Bitmap.Config.ARGB_8888;
 
-    public int exc() {
-        return this.pAB;
+    public int exE() {
+        return this.pCi;
     }
 
-    public boolean exd() {
-        return this.pAC;
+    public boolean exF() {
+        return this.pCj;
     }
 
-    public boolean exe() {
-        return this.pAD;
+    public boolean exG() {
+        return this.pCk;
     }
 
-    public boolean exf() {
-        return this.pAE;
+    public boolean exH() {
+        return this.pCl;
     }
 
     public c Bd(boolean z) {
-        this.pAF = z;
+        this.pCm = z;
         return this;
     }
 
     @Nullable
-    public com.facebook.imagepipeline.decoder.b exg() {
-        return this.pAG;
+    public com.facebook.imagepipeline.decoder.b exI() {
+        return this.pCn;
     }
 
-    public boolean exh() {
-        return this.pAF;
+    public boolean exJ() {
+        return this.pCm;
     }
 
-    public Bitmap.Config exi() {
+    public Bitmap.Config exK() {
         return this.mBitmapConfig;
     }
 
@@ -52,7 +52,7 @@ public class c {
         return this;
     }
 
-    public b exj() {
+    public b exL() {
         return new b(this);
     }
 }

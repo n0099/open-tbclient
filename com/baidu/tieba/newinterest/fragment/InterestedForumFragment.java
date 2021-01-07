@@ -36,7 +36,7 @@ public class InterestedForumFragment extends BaseFragment {
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         this.mRootView = LayoutInflater.from(getContext()).inflate(R.layout.fragment_interested_forum_layout, viewGroup, false);
         initUI();
-        cJp();
+        cJq();
         initData();
         return this.mRootView;
     }
@@ -61,7 +61,7 @@ public class InterestedForumFragment extends BaseFragment {
         this.lBG = new a(this, this.ioP, this.lBI, this.lBq, getPageContext(), new com.baidu.tieba.newinterest.b.b(getUniqueId()));
     }
 
-    private void cJp() {
+    private void cJq() {
         this.lBq.setOnClickListener(this);
     }
 
@@ -73,7 +73,7 @@ public class InterestedForumFragment extends BaseFragment {
     @Override // com.baidu.tbadk.core.BaseFragment, android.view.View.OnClickListener
     public void onClick(View view) {
         if (view == this.lBq) {
-            this.lBG.dle();
+            this.lBG.dlf();
         }
     }
 
@@ -95,7 +95,7 @@ public class InterestedForumFragment extends BaseFragment {
         showNetRefreshView(this.mRootView, str, false);
     }
 
-    public void dlh() {
+    public void dli() {
         hideLoadingView(this.mRootView);
     }
 

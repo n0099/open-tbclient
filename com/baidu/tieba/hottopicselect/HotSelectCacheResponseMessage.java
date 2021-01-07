@@ -27,7 +27,7 @@ public class HotSelectCacheResponseMessage extends CustomResponsedMessage<Object
         if (currentAccount == null) {
             currentAccount = "";
         }
-        byte[] bArr2 = com.baidu.tbadk.core.c.a.btS().dL("topic_select_space", currentAccount).get("topic_select_user");
+        byte[] bArr2 = com.baidu.tbadk.core.c.a.btT().dL("topic_select_space", currentAccount).get("topic_select_user");
         if (bArr2 == null) {
             this.resultStatus = 1;
         }

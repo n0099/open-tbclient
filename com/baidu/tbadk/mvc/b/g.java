@@ -3,7 +3,7 @@ package com.baidu.tbadk.mvc.b;
 import java.util.HashMap;
 /* loaded from: classes.dex */
 public interface g extends i {
-    HashMap<String, Object> bGK();
+    HashMap<String, Object> bGL();
 
-    HashMap<String, String> bGL();
+    HashMap<String, String> bGM();
 }

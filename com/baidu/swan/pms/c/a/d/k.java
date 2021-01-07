@@ -16,12 +16,12 @@ public class k extends com.baidu.swan.pms.c.a.b {
                 this.exv.exj.exi.currentSize = 0L;
                 this.exv.ny(0);
             }
-            d.bgC().j(this.exv);
+            d.bgD().j(this.exv);
         }
     }
 
     @Override // com.baidu.swan.pms.c.a.b
-    public f bgw() {
+    public f bgx() {
         return this.exv;
     }
 

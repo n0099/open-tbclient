@@ -6,7 +6,7 @@ import com.qq.e.comm.constants.Constants;
 import com.qq.e.comm.managers.GDTADManager;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public static int a(String str) {

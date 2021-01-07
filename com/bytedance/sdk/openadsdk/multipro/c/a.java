@@ -26,7 +26,7 @@ import org.json.JSONObject;
 public class a implements com.bytedance.sdk.openadsdk.multipro.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f7701a;
+    private Context f7702a;
 
     private static ContentResolver e() {
         try {
@@ -140,12 +140,12 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     }
 
     private static String f() {
-        return e.f7712b + "/t_event_ad_event/";
+        return e.f7713b + "/t_event_ad_event/";
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
     public void a(Context context) {
-        this.f7701a = context;
+        this.f7702a = context;
     }
 
     @Override // com.bytedance.sdk.openadsdk.multipro.a
@@ -213,7 +213,7 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         } else if ("logStatusUpload".equals(str)) {
             String b3 = com.bytedance.sdk.openadsdk.multipro.c.b(uri.getQueryParameter("event"));
             if (!TextUtils.isEmpty(b3)) {
-                c.a().a(C1002a.b(b3));
+                c.a().a(C1040a.b(b3));
             }
         }
         return null;
@@ -243,21 +243,21 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> f7703a;
+        private static volatile com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> f7704a;
 
         /* renamed from: b  reason: collision with root package name */
-        private static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f7704b;
+        private static volatile com.bytedance.sdk.openadsdk.c.b<c.a> f7705b;
         private static volatile com.bytedance.sdk.openadsdk.c.b<c.a> c;
 
         static com.bytedance.sdk.openadsdk.c.b<com.bytedance.sdk.openadsdk.c.a> a() {
-            if (f7703a == null) {
+            if (f7704a == null) {
                 synchronized (p.class) {
-                    if (f7703a == null) {
-                        f7703a = new com.bytedance.sdk.openadsdk.c.b<>(new f(p.a()), p.f(), g.b.a(), d());
+                    if (f7704a == null) {
+                        f7704a = new com.bytedance.sdk.openadsdk.c.b<>(new f(p.a()), p.f(), g.b.a(), d());
                     }
                 }
             }
-            return f7703a;
+            return f7704a;
         }
 
         public static com.bytedance.sdk.openadsdk.c.b<c.a> b() {
@@ -272,14 +272,14 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
         }
 
         public static com.bytedance.sdk.openadsdk.c.b<c.a> c() {
-            if (f7704b == null) {
+            if (f7705b == null) {
                 synchronized (p.class) {
-                    if (f7704b == null) {
-                        f7704b = a("ttad_bk_stats", "AdStatsEventThread", true);
+                    if (f7705b == null) {
+                        f7705b = a("ttad_bk_stats", "AdStatsEventThread", true);
                     }
                 }
             }
-            return f7704b;
+            return f7705b;
         }
 
         public static com.bytedance.sdk.openadsdk.c.b<c.a> a(String str, String str2, boolean z) {
@@ -310,17 +310,17 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     private static class d {
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile com.bytedance.sdk.openadsdk.l.a f7706a;
+        private static volatile com.bytedance.sdk.openadsdk.l.a f7707a;
 
         public static com.bytedance.sdk.openadsdk.l.a a() {
-            if (f7706a == null) {
+            if (f7707a == null) {
                 synchronized (com.bytedance.sdk.openadsdk.l.a.class) {
-                    if (f7706a == null) {
-                        f7706a = new com.bytedance.sdk.openadsdk.l.b(p.a(), new com.bytedance.sdk.openadsdk.l.g(p.a()));
+                    if (f7707a == null) {
+                        f7707a = new com.bytedance.sdk.openadsdk.l.b(p.a(), new com.bytedance.sdk.openadsdk.l.g(p.a()));
                     }
                 }
             }
-            return f7706a;
+            return f7707a;
         }
     }
 
@@ -328,42 +328,42 @@ public class a implements com.bytedance.sdk.openadsdk.multipro.a {
     private static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private static volatile com.bytedance.sdk.openadsdk.h.b.c f7705a;
+        private static volatile com.bytedance.sdk.openadsdk.h.b.c f7706a;
 
         public static com.bytedance.sdk.openadsdk.h.b.c a() {
-            if (f7705a == null) {
+            if (f7706a == null) {
                 synchronized (com.bytedance.sdk.openadsdk.h.b.c.class) {
-                    if (f7705a == null) {
-                        f7705a = new com.bytedance.sdk.openadsdk.h.b.c();
+                    if (f7706a == null) {
+                        f7706a = new com.bytedance.sdk.openadsdk.h.b.c();
                     }
                 }
             }
-            return f7705a;
+            return f7706a;
         }
     }
 
     /* renamed from: com.bytedance.sdk.openadsdk.multipro.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C1002a implements com.bytedance.sdk.openadsdk.h.a.b {
+    private static class C1040a implements com.bytedance.sdk.openadsdk.h.a.b {
 
         /* renamed from: a  reason: collision with root package name */
-        JSONObject f7702a;
+        JSONObject f7703a;
 
         /* JADX INFO: Access modifiers changed from: private */
-        public static C1002a b(String str) {
-            return new C1002a(str);
+        public static C1040a b(String str) {
+            return new C1040a(str);
         }
 
-        private C1002a(String str) {
+        private C1040a(String str) {
             try {
-                this.f7702a = new JSONObject(str);
+                this.f7703a = new JSONObject(str);
             } catch (Throwable th) {
             }
         }
 
         @Override // com.bytedance.sdk.openadsdk.h.a.b
         public JSONObject a() {
-            return this.f7702a;
+            return this.f7703a;
         }
     }
 }

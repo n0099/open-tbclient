@@ -21,7 +21,7 @@ public class c {
     private static Map<String, MediaCodecInfo> f = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public int f3239b = 0;
+    public int f3240b = 0;
     public String c;
     public MediaCodecInfo ciY;
 
@@ -104,7 +104,7 @@ public class c {
         }
         c cVar = new c();
         cVar.ciY = mediaCodecInfo;
-        cVar.f3239b = i;
+        cVar.f3240b = i;
         cVar.c = str;
         return cVar;
     }
@@ -155,7 +155,7 @@ public class c {
                     } else {
                         d.put("OMX.google.hevc.decoder", 200);
                     }
-                    jE(f.f2362b);
+                    jE(f.f2363b);
                     jE("video/hevc");
                 }
             } catch (Exception e) {
@@ -193,11 +193,11 @@ public class c {
                 break;
             }
             cVar2 = (c) it.next();
-            if (cVar2.f3239b <= cVar.f3239b) {
+            if (cVar2.f3240b <= cVar.f3240b) {
                 cVar2 = cVar;
             }
         }
-        if (cVar.f3239b < 600) {
+        if (cVar.f3240b < 600) {
             return null;
         }
         f.put(str, cVar.ciY);

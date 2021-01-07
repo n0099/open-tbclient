@@ -7,8 +7,8 @@ import com.baidu.tieba.card.l;
 public class HomePageCardVideoViewHolder<T extends com.baidu.tieba.card.l> extends CardViewHolder<T> implements com.baidu.tieba.play.e {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.holder.CardViewHolder
-    /* renamed from: cTl */
-    public T cvG() {
+    /* renamed from: cTm */
+    public T cvH() {
         return (T) this.iAP;
     }
 

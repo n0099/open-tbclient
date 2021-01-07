@@ -98,9 +98,9 @@ public class a extends Dialog {
             @Override // com.baidu.tieba.ala.personcenter.privilege.b.a
             public void oT(boolean z) {
                 if (z && a.this.iaK.price <= TbadkCoreApplication.getInst().currentAccountTdouNum) {
-                    a.this.cpL();
                     a.this.cpM();
-                    a.this.cpK();
+                    a.this.cpN();
+                    a.this.cpL();
                 }
             }
         });
@@ -114,9 +114,9 @@ public class a extends Dialog {
                             a.this.iaN.a(true, a.this.iaK);
                         }
                         a.this.iaK.xP(2);
-                        a.this.cpL();
                         a.this.cpM();
-                        a.this.cpK();
+                        a.this.cpN();
+                        a.this.cpL();
                     }
                 } else if (!StringUtils.isNull(str)) {
                     a.this.mPageContext.showToast(str);
@@ -170,13 +170,13 @@ public class a extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpK() {
+    public void cpL() {
         this.iaG.setVisibility(4);
         this.iaH.setVisibility(4);
         this.iaO.setVisibility(4);
         this.iaI.setVisibility(4);
         this.iaR.setVisibility(8);
-        if (this.iaK.cpZ()) {
+        if (this.iaK.cqa()) {
             this.iaO.setVisibility(0);
             this.iaR.setVisibility(0);
             this.iaP.setText(AlaStringHelper.formatLowercasekDou(this.iaK.price));
@@ -186,10 +186,10 @@ public class a extends Dialog {
             this.iaS.setCompoundDrawablePadding(getContext().getResources().getDimensionPixelSize(R.dimen.ds4));
             this.iaS.setCompoundDrawables(drawable, null, null, null);
             this.iaS.setText(AlaStringHelper.formatLowercasekDou(TbadkCoreApplication.getInst().currentAccountTdouNum));
-            if (this.iaK.cpV() == 1) {
+            if (this.iaK.cpW() == 1) {
                 this.iaR.setVisibility(8);
             }
-        } else if (this.iaK.cqa()) {
+        } else if (this.iaK.cqb()) {
             this.iaG.setVisibility(0);
             this.iaG.setText(this.iaK.getDescription());
         } else {
@@ -197,7 +197,7 @@ public class a extends Dialog {
             this.iaG.setVisibility(0);
             this.iaH.setVisibility(0);
             this.iaG.setText(this.iaK.getDescription());
-            this.iaH.setText(this.iaK.cpW());
+            this.iaH.setText(this.iaK.cpX());
             this.iaI.c(this.iaK);
         }
     }
@@ -213,10 +213,10 @@ public class a extends Dialog {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpL() {
-        switch (this.iaK.cpV()) {
+    public void cpM() {
+        switch (this.iaK.cpW()) {
             case 0:
-                if (this.iaK.cpZ()) {
+                if (this.iaK.cqa()) {
                     this.iaJ.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
                     this.iaJ.setTextSize(0, iaB);
                     this.iaJ.setText(R.string.ala_enter_effect_tdou_buy);
@@ -225,7 +225,7 @@ public class a extends Dialog {
                         this.iaJ.setText(R.string.ala_achievement_get_tdou_label);
                         break;
                     }
-                } else if (this.iaK.cqa()) {
+                } else if (this.iaK.cqb()) {
                     this.iaJ.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
                     this.iaJ.setTextSize(0, iaB);
                     this.iaJ.setText(R.string.ala_nobility_open);
@@ -240,13 +240,13 @@ public class a extends Dialog {
                 }
                 break;
             case 1:
-                if (this.iaK.cpZ()) {
+                if (this.iaK.cqa()) {
                     this.iaJ.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
                     this.iaJ.setTextSize(0, iaB);
                     this.iaJ.setText(R.string.ala_achievement_unwear_mark);
                     this.iaJ.setTextColor(getContext().getResources().getColorStateList(R.color.mark_ops_btn_txt_unwear_color));
                     break;
-                } else if (this.iaK.cqa()) {
+                } else if (this.iaK.cqb()) {
                     this.iaJ.setBackgroundResource(R.drawable.mark_ops_btn_bg_unwear_selector);
                     this.iaJ.setTextSize(0, iaB);
                     this.iaJ.setText(R.string.ala_achievement_unwear_mark);
@@ -260,13 +260,13 @@ public class a extends Dialog {
                     break;
                 }
             case 2:
-                if (this.iaK.cpZ()) {
+                if (this.iaK.cqa()) {
                     this.iaJ.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
                     this.iaJ.setTextSize(0, iaB);
                     this.iaJ.setText(R.string.ala_achievement_wear_mark);
                     this.iaJ.setTextColor(getContext().getResources().getColorStateList(R.color.CAM_X0201));
                     break;
-                } else if (this.iaK.cqa()) {
+                } else if (this.iaK.cqb()) {
                     this.iaJ.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
                     this.iaJ.setTextSize(0, iaB);
                     this.iaJ.setText(R.string.ala_achievement_wear_mark);
@@ -280,7 +280,7 @@ public class a extends Dialog {
                     break;
                 }
             case 3:
-                if (this.iaK.cpZ()) {
+                if (this.iaK.cqa()) {
                     this.iaJ.setBackgroundResource(R.drawable.ala_enter_effect_tdou_bg);
                     this.iaJ.setTextSize(0, iaB);
                     this.iaJ.setText(R.string.ala_enter_effect_tdou_buy);
@@ -289,7 +289,7 @@ public class a extends Dialog {
                         this.iaJ.setText(R.string.ala_achievement_get_tdou_label);
                         break;
                     }
-                } else if (this.iaK.cqa()) {
+                } else if (this.iaK.cqb()) {
                     this.iaJ.setBackgroundResource(R.drawable.ala_nobility_bottom_btn_bg);
                     this.iaJ.setTextSize(0, iaB);
                     this.iaJ.setText(R.string.ala_nobility_open);
@@ -307,39 +307,39 @@ public class a extends Dialog {
         this.iaJ.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.6
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (a.this.iaK.cpV() == 0 || 3 == a.this.iaK.cpV()) {
-                    if (a.this.iaK.cpZ()) {
+                if (a.this.iaK.cpW() == 0 || 3 == a.this.iaK.cpW()) {
+                    if (a.this.iaK.cqa()) {
                         if (a.this.iaK.price > TbadkCoreApplication.getInst().currentAccountTdouNum) {
                             if (a.this.iaT != null) {
                                 a.this.iaT.fN(a.this.iaK.price);
                             }
                         } else if (a.this.iaU != null) {
-                            a.this.iaU.k(a.this.iaK.cpS(), a.this.iaK.propId, false);
+                            a.this.iaU.k(a.this.iaK.cpT(), a.this.iaK.propId, false);
                         }
-                    } else if (!a.this.iaK.cqa()) {
+                    } else if (!a.this.iaK.cqb()) {
                         a.this.dismiss();
                     }
-                } else if (!a.this.iaK.cpR() || 2 != a.this.iaK.cpV()) {
-                    a.this.cpO();
+                } else if (!a.this.iaK.cpS() || 2 != a.this.iaK.cpW()) {
+                    a.this.cpP();
                 } else {
-                    a.this.cpN();
+                    a.this.cpO();
                 }
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpM() {
-        if (this.iaK.cpV() == 1 || this.iaK.cpV() == 2) {
+    public void cpN() {
+        if (this.iaK.cpW() == 1 || this.iaK.cpW() == 2) {
             this.iaQ.setVisibility(0);
-            this.iaQ.setText(this.iaK.cpY());
+            this.iaQ.setText(this.iaK.cpZ());
             return;
         }
         this.iaQ.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpN() {
+    public void cpO() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
         aVar.setMessageShowCenter(true);
         aVar.jI(false);
@@ -350,7 +350,7 @@ public class a extends Dialog {
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
                 a.this.iaJ.setEnabled(false);
-                a.this.cpO();
+                a.this.cpP();
             }
         });
         aVar.b(R.string.dialog_cancel, new a.b() { // from class: com.baidu.tieba.ala.personcenter.privilege.achievementmark.a.8
@@ -359,15 +359,15 @@ public class a extends Dialog {
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.mPageContext).btX();
+        aVar.b(this.mPageContext).btY();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpO() {
-        if (1 == this.iaK.cpV()) {
-            this.iaM.y(false, this.iaK.cpS());
-        } else if (2 == this.iaK.cpV()) {
-            this.iaM.y(true, this.iaK.cpS());
+    public void cpP() {
+        if (1 == this.iaK.cpW()) {
+            this.iaM.y(false, this.iaK.cpT());
+        } else if (2 == this.iaK.cpW()) {
+            this.iaM.y(true, this.iaK.cpT());
         }
     }
 

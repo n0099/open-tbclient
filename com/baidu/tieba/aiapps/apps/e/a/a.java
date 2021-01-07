@@ -140,7 +140,7 @@ public class a implements z {
                 }
             }
             ImageViewerConfig.a aVar = new ImageViewerConfig.a();
-            aVar.x(arrayList).ot(i).ji(true).jj(true).jk(true).AH(arrayList.size() > 0 ? arrayList.get(0) : "").jl(false).jm(false).jq(true);
+            aVar.x(arrayList).ot(i).ji(true).jj(true).jk(true).AG(arrayList.size() > 0 ? arrayList.get(0) : "").jl(false).jm(false).jq(true);
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.IMAGE_VIEWER_CUSTOM_CMD, aVar.eS(context)));
         }
     }

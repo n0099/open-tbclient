@@ -6,7 +6,7 @@ import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicInteger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static volatile Executor cpq;
     private static final int cpr = Runtime.getRuntime().availableProcessors();
@@ -14,7 +14,7 @@ public class a {
     private static final ThreadFactory cpt = new ThreadFactoryC0321a();
 
     /* renamed from: com.baidu.poly.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static class ThreadFactoryC0321a implements ThreadFactory {
         private final AtomicInteger cpv = new AtomicInteger(1);
 

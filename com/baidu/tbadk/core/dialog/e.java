@@ -48,13 +48,13 @@ public class e {
         this.eXt = new l(this.eXu);
     }
 
-    public e Br(String str) {
+    public e Bq(String str) {
         this.mTitle = str;
         return this;
     }
 
     public e pi(int i) {
-        return Br(this.eXu.getResources().getString(i));
+        return Bq(this.eXu.getResources().getString(i));
     }
 
     public e a(ArrayList<m> arrayList, AdapterView.OnItemClickListener onItemClickListener) {
@@ -68,7 +68,7 @@ public class e {
         return this;
     }
 
-    public e bua() {
+    public e bub() {
         if (!this.mDialogCreated) {
             this.mDialogCreated = true;
             if (!TextUtils.isEmpty(this.mTitle)) {
@@ -97,7 +97,7 @@ public class e {
         this.eXt.setData(this.mItems);
     }
 
-    public e bub() {
+    public e buc() {
         if (!this.mDialogCreated) {
             throw new RuntimeException("Dialog must be created by function create()!");
         }

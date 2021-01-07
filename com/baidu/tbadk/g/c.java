@@ -3,7 +3,7 @@ package com.baidu.tbadk.g;
 public interface c {
     void Ao(String str);
 
-    void bnP();
+    void bnQ();
 
     void onAdClick();
 

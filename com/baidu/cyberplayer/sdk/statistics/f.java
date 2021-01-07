@@ -9,18 +9,18 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final int f1891a;
+    private final int f1892a;
     private c c = new c(DpStatConstants.SESSION_TYPE_PLAY_COMMON);
 
     /* renamed from: b  reason: collision with root package name */
-    private List<c> f1892b = new ArrayList();
+    private List<c> f1893b = new ArrayList();
 
     public f(int i) {
-        this.f1891a = i;
+        this.f1892a = i;
     }
 
     public int a() {
-        return this.f1891a;
+        return this.f1892a;
     }
 
     public JSONObject a(JSONObject jSONObject) throws JSONException {
@@ -29,11 +29,11 @@ public class f {
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 >= this.f1892b.size()) {
+            if (i2 >= this.f1893b.size()) {
                 break;
             }
             JSONObject jSONObject2 = new JSONObject();
-            if (this.f1892b.get(i2).a(jSONObject2) != null) {
+            if (this.f1893b.get(i2).a(jSONObject2) != null) {
                 jSONArray.put(jSONObject2);
             }
             i = i2 + 1;

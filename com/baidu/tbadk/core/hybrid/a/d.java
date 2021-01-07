@@ -22,11 +22,11 @@ public class d extends n {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.core.hybrid.n
-    public String bnV() {
+    public String bnW() {
         return "TBHY_COMMON_SHOW_SHARE_DIALOG";
     }
 
-    @o(bvb = false, value = "showShareDialog")
+    @o(bvc = false, value = "showShareDialog")
     protected void showShareDialog(JSONObject jSONObject) throws JSONException {
         if (jSONObject != null) {
             String optString = jSONObject.optString("title");

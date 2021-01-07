@@ -68,7 +68,7 @@ public class HotTopicPkView extends View {
         this.paint.setDither(true);
         this.paint.setFilterBitmap(true);
         this.ds30 = TbadkCoreApplication.getInst().getContext().getResources().getDimensionPixelSize(R.dimen.ds30);
-        cVz();
+        cVA();
         this.ktP = ao.getDrawable(R.drawable.icon_pic_vs);
         this.ktQ = this.ktN.getIntrinsicWidth();
         this.ktR = this.ktN.getIntrinsicHeight();
@@ -100,7 +100,7 @@ public class HotTopicPkView extends View {
                     this.ktW.krm++;
                     this.ktW.kqs = 2;
                 }
-                cVz();
+                cVA();
                 if (this.ktW.kqs != 0) {
                     if (this.ktW.krj + this.ktW.krm > 50) {
                         this.gcz = true;
@@ -121,7 +121,7 @@ public class HotTopicPkView extends View {
                     } else {
                         invalidate();
                     }
-                    this.ktX.cUI();
+                    this.ktX.cUJ();
                     return true;
                 }
                 return true;
@@ -172,7 +172,7 @@ public class HotTopicPkView extends View {
     }
 
     private void ag(Canvas canvas) {
-        cVz();
+        cVA();
         this.ktN.setBounds(0, 0, this.ktQ, this.ktR);
         this.ktN.draw(canvas);
         this.ktO.setBounds(this.width - this.ktQ, 0, this.width, this.ktR);
@@ -213,7 +213,7 @@ public class HotTopicPkView extends View {
         canvas.drawText(at.numberUniformFormat(this.ktW.krm), (this.width - this.ktQ) - ((int) this.paint.measureText(at.numberUniformFormat(this.ktW.krm))), dimensionPixelSize + this.ktJ, this.paint);
     }
 
-    private void cVz() {
+    private void cVA() {
         if (this.ktW == null) {
             this.ktN = ao.getDrawable(R.drawable.icon_pk_red_n);
             this.ktO = ao.getDrawable(R.drawable.icon_pk_blule_n);

@@ -7,37 +7,37 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.be;
 /* loaded from: classes8.dex */
 public class BrowseSettingActivity extends BaseActivity {
-    private c naP = null;
+    private c naO = null;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.naP = new c(this);
+        this.naO = new c(this);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        this.naP.onChangeSkinType(i);
+        this.naO.onChangeSkinType(i);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.naP.dIm()) {
-            this.naP.dIq();
+        if (view == this.naO.dIn()) {
+            this.naO.dIr();
             TiebaStatic.log("c10649");
         }
-        if (view == this.naP.dIn()) {
-            this.naP.dIr();
+        if (view == this.naO.dIo()) {
+            this.naO.dIs();
             TiebaStatic.log("c10653");
-        } else if (view == this.naP.dIo()) {
-            this.naP.dIs();
-        } else if (view == this.naP.dIp()) {
-            this.naP.dIt();
-        } else if (view == this.naP.dIu()) {
-            be.bwu().b(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
+        } else if (view == this.naO.dIp()) {
+            this.naO.dIt();
+        } else if (view == this.naO.dIq()) {
+            this.naO.dIu();
+        } else if (view == this.naO.dIv()) {
+            be.bwv().b(getPageContext(), new String[]{"http://bjhw-bac-orp-tieba-core-137287.bjhw.baidu.com:8899/#/app-tool"});
         }
     }
 }

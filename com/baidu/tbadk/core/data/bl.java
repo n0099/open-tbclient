@@ -36,7 +36,7 @@ public class bl extends v implements com.baidu.tbadk.mvc.b.a {
         this.eRK = z;
     }
 
-    public int bqu() {
+    public int bqv() {
         return this.member_count;
     }
 
@@ -44,7 +44,7 @@ public class bl extends v implements com.baidu.tbadk.mvc.b.a {
         this.member_count = i;
     }
 
-    public int bqv() {
+    public int bqw() {
         return this.thread_count;
     }
 
@@ -72,20 +72,20 @@ public class bl extends v implements com.baidu.tbadk.mvc.b.a {
         this.mForumId = j;
     }
 
-    public void AV(String str) {
+    public void AU(String str) {
         this.eRJ = str;
     }
 
-    public void AW(String str) {
+    public void AV(String str) {
         this.mForumName = str;
     }
 
     @Override // com.baidu.tbadk.core.data.a
-    public String boP() {
+    public String boQ() {
         return this.recom_reason;
     }
 
-    public void AX(String str) {
+    public void AW(String str) {
         this.recom_reason = str;
     }
 }

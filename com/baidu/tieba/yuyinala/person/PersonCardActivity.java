@@ -91,7 +91,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
                 UpdateAttentionMessage updateAttentionMessage = (UpdateAttentionMessage) customResponsedMessage;
                 if (updateAttentionMessage.getData() != null && updateAttentionMessage.getData().toUid != null && TextUtils.equals(updateAttentionMessage.getData().toUid, ExtraParamsManager.getEncryptionUserId(PersonCardActivity.this.userId))) {
                     if (updateAttentionMessage.getData().isSucc) {
-                        PersonCardActivity.this.ecQ();
+                        PersonCardActivity.this.ecR();
                         Message<?> message = updateAttentionMessage.getmOrginalMessage();
                         if (message != null && message.getTag() != null && message.getTag().equals(PersonCardActivity.this.getUniqueId())) {
                             if (updateAttentionMessage.getData().isAttention) {
@@ -115,7 +115,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
                         PersonCardActivity.this.oGR.xK(1);
                     }
                     Message<?> message2 = updateAttentionMessage.getmOrginalMessage();
-                    if (message2 != null && message2.getTag() != null && message2.getTag().equals(PersonCardActivity.this.getUniqueId()) && !g.ZT().a(updateAttentionMessage.getData(), (BdPageContext<?>) PersonCardActivity.this.getPageContext(), false) && updateAttentionMessage.getData().errorString != null) {
+                    if (message2 != null && message2.getTag() != null && message2.getTag().equals(PersonCardActivity.this.getUniqueId()) && !g.ZU().a(updateAttentionMessage.getData(), (BdPageContext<?>) PersonCardActivity.this.getPageContext(), false) && updateAttentionMessage.getData().errorString != null) {
                         PersonCardActivity.this.showToast(updateAttentionMessage.getData().errorString);
                     }
                 }
@@ -146,7 +146,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void cro();
+        void crp();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -159,13 +159,13 @@ public class PersonCardActivity extends BaseFragmentActivity {
             if (str != null && str.contains("Flyme")) {
                 getWindow().setBackgroundDrawable(new ColorDrawable(getResources().getColor(a.c.sdk_transparent)));
             }
-            cpd();
+            cpe();
             initView();
             this.oGR.a(this.hUM, true);
             setContentView(this.oGR.getRootView());
             initListener();
             initModel();
-            if (!cpe()) {
+            if (!cpf()) {
                 j(this.userId, this.liveId, this.groupId, "", this.hUI);
             }
             i.af(this.oGR.getRootView());
@@ -183,7 +183,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
         }
     }
 
-    private void cpd() {
+    private void cpe() {
         this.userId = getIntent().getStringExtra("PERSON_USER_ID");
         this.oGT = getIntent().getStringExtra(YuyinAlaPersonCardActivityConfig.PERSON_USER_KEY);
         this.portrait = getIntent().getStringExtra("PERSON_PORTRAIT_URL");
@@ -239,8 +239,8 @@ public class PersonCardActivity extends BaseFragmentActivity {
         this.oGR.getRootView().setVisibility(0);
         this.oGR.a(new PersonCardViewNew.a() { // from class: com.baidu.tieba.yuyinala.person.PersonCardActivity.1
             @Override // com.baidu.tieba.yuyinala.person.view.PersonCardViewNew.a
-            public void cpk() {
-                PersonCardActivity.this.cpj();
+            public void cpl() {
+                PersonCardActivity.this.cpk();
             }
         });
     }
@@ -294,15 +294,15 @@ public class PersonCardActivity extends BaseFragmentActivity {
         this.caR.c(str, this.oGT, str2, str3, str4, str5);
     }
 
-    public boolean cpe() {
+    public boolean cpf() {
         return (TextUtils.isEmpty(this.appId) || this.userId == null || this.userId.equals(this.beG)) ? false : true;
     }
 
-    public boolean IQ(String str) {
+    public boolean IP(String str) {
         return (TextUtils.isEmpty(this.beG) || TextUtils.isEmpty(str) || !str.equals(this.beG)) ? false : true;
     }
 
-    public String cpf() {
+    public String cpg() {
         return this.beG;
     }
 
@@ -334,19 +334,19 @@ public class PersonCardActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ecQ() {
+    public void ecR() {
         MessageManager.getInstance().dispatchResponsedMessage(new FollowPersonSuccMessage(new FollowPersonSucc()));
     }
 
-    public void cpg() {
-        g.ZT().a(ExtraParamsManager.getEncryptionUserId(this.userId), new cy(ExtraParamsManager.getEncryptionUserId(this.userId), this.liveId, true, getUniqueId()));
-    }
-
     public void cph() {
-        g.ZT().a(ExtraParamsManager.getEncryptionUserId(this.userId), new cy(ExtraParamsManager.getEncryptionUserId(this.userId), this.liveId, false, getUniqueId()));
+        g.ZU().a(ExtraParamsManager.getEncryptionUserId(this.userId), new cy(ExtraParamsManager.getEncryptionUserId(this.userId), this.liveId, true, getUniqueId()));
     }
 
     public void cpi() {
+        g.ZU().a(ExtraParamsManager.getEncryptionUserId(this.userId), new cy(ExtraParamsManager.getEncryptionUserId(this.userId), this.liveId, false, getUniqueId()));
+    }
+
+    public void cpj() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(getPageContext().getPageActivity());
             return;
@@ -359,7 +359,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cpj() {
+    public void cpk() {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new x(this, this.userId, this.groupId, this.liveId, this.aLL, this.beG, this.otherParams)));
     }
 
@@ -397,7 +397,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
             this.hUS = true;
             Animation animation = null;
             if (this.oGR != null) {
-                animation = this.oGR.bZN();
+                animation = this.oGR.bZO();
             }
             if (animation == null) {
                 super.finish();
@@ -411,7 +411,7 @@ public class PersonCardActivity extends BaseFragmentActivity {
                     public void onAnimationEnd(Animation animation2) {
                         PersonCardActivity.super.finish();
                         if (PersonCardActivity.this.oGW != null) {
-                            PersonCardActivity.this.oGW.cro();
+                            PersonCardActivity.this.oGW.crp();
                         }
                     }
 

@@ -23,7 +23,7 @@ public final class a {
     final j piq;
 
     public a(String str, int i, r rVar, SocketFactory socketFactory, SSLSocketFactory sSLSocketFactory, HostnameVerifier hostnameVerifier, j jVar, e eVar, Proxy proxy, List<w> list, List<n> list2, ProxySelector proxySelector) {
-        this.pih = new s.a().YQ(sSLSocketFactory != null ? "https" : HttpHost.DEFAULT_SCHEME_NAME).YO(str).PS(i).erB();
+        this.pih = new s.a().YP(sSLSocketFactory != null ? "https" : HttpHost.DEFAULT_SCHEME_NAME).YN(str).PS(i).erC();
         if (rVar == null) {
             throw new NullPointerException("dns == null");
         }
@@ -54,19 +54,19 @@ public final class a {
         this.piq = jVar;
     }
 
-    public s eqk() {
+    public s eql() {
         return this.pih;
     }
 
-    public r eql() {
+    public r eqm() {
         return this.pii;
     }
 
-    public SocketFactory eqm() {
+    public SocketFactory eqn() {
         return this.pij;
     }
 
-    public e eqn() {
+    public e eqo() {
         return this.pik;
     }
 
@@ -78,23 +78,23 @@ public final class a {
         return this.f;
     }
 
-    public ProxySelector eqo() {
+    public ProxySelector eqp() {
         return this.pil;
     }
 
-    public Proxy eqp() {
+    public Proxy eqq() {
         return this.pim;
     }
 
-    public SSLSocketFactory eqq() {
+    public SSLSocketFactory eqr() {
         return this.pio;
     }
 
-    public HostnameVerifier eqr() {
+    public HostnameVerifier eqs() {
         return this.pip;
     }
 
-    public j eqs() {
+    public j eqt() {
         return this.piq;
     }
 
@@ -108,7 +108,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(a aVar) {
-        return this.pii.equals(aVar.pii) && this.pik.equals(aVar.pik) && this.e.equals(aVar.e) && this.f.equals(aVar.f) && this.pil.equals(aVar.pil) && com.bytedance.sdk.a.b.a.c.a(this.pim, aVar.pim) && com.bytedance.sdk.a.b.a.c.a(this.pio, aVar.pio) && com.bytedance.sdk.a.b.a.c.a(this.pip, aVar.pip) && com.bytedance.sdk.a.b.a.c.a(this.piq, aVar.piq) && eqk().g() == aVar.eqk().g();
+        return this.pii.equals(aVar.pii) && this.pik.equals(aVar.pik) && this.e.equals(aVar.e) && this.f.equals(aVar.f) && this.pil.equals(aVar.pil) && com.bytedance.sdk.a.b.a.c.a(this.pim, aVar.pim) && com.bytedance.sdk.a.b.a.c.a(this.pio, aVar.pio) && com.bytedance.sdk.a.b.a.c.a(this.pip, aVar.pip) && com.bytedance.sdk.a.b.a.c.a(this.piq, aVar.piq) && eql().g() == aVar.eql().g();
     }
 
     public String toString() {

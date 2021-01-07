@@ -11,7 +11,7 @@ import com.kwad.sdk.core.response.model.AdTemplate;
 public class h extends com.kwad.sdk.a.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f8457b;
+    private ViewGroup f8458b;
     private TextView c;
     private AdTemplate d;
     private AdInfo e;
@@ -25,45 +25,45 @@ public class h extends com.kwad.sdk.a.a.a implements View.OnClickListener {
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
         this.c.setText(com.kwad.sdk.core.response.b.a.w(this.e));
-        this.f8457b.setOnClickListener(this);
-        this.f8457b.setVisibility(0);
+        this.f8458b.setOnClickListener(this);
+        this.f8458b.setVisibility(0);
     }
 
     private void f() {
-        com.kwad.sdk.core.download.b.a.a(this.f8457b.getContext(), this.d, new a.InterfaceC1064a() { // from class: com.kwad.sdk.a.b.h.2
-            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+        com.kwad.sdk.core.download.b.a.a(this.f8458b.getContext(), this.d, new a.InterfaceC1105a() { // from class: com.kwad.sdk.a.b.h.2
+            @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
             public void a() {
-                com.kwad.sdk.core.report.b.a(h.this.d, 2, h.this.f8435a.c.getTouchCoords());
+                com.kwad.sdk.core.report.b.a(h.this.d, 2, h.this.f8436a.c.getTouchCoords());
             }
         }, null);
     }
 
     private void g() {
-        this.f8435a.f8436a.onAdClicked(this.f8457b, null);
+        this.f8436a.f8437a.onAdClicked(this.f8458b, null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.d = this.f8435a.d;
+        this.d = this.f8436a.d;
         this.e = com.kwad.sdk.core.response.b.c.j(this.d);
-        this.f8435a.f.a(this.f);
-        this.f8457b.setVisibility(8);
+        this.f8436a.f.a(this.f);
+        this.f8458b.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8435a.f.b(this.f);
+        this.f8436a.f.b(this.f);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8457b = (ViewGroup) b(R.id.ksad_video_complete_h5_container);
+        this.f8458b = (ViewGroup) b(R.id.ksad_video_complete_h5_container);
         this.c = (TextView) b(R.id.ksad_h5_open);
     }
 

@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class a {
     private C0141a axO;
     private Context mContext;
@@ -125,7 +125,7 @@ public class a {
     }
 
     /* renamed from: com.baidu.helios.common.c.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes4.dex */
     public final class C0141a {
         private File axP;
         private String axQ;

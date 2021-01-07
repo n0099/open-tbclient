@@ -55,7 +55,7 @@ public class d extends i {
     private void createView() {
         if (this.iPQ != null && this.iyn != null && this.iyk != null) {
             this.iyn.clear();
-            this.iyn.add(new g(1, getString(this.iPQ.cxN() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.iyk));
+            this.iyn.add(new g(1, getString(this.iPQ.cxO() == 1 ? R.string.cancel_top : R.string.top, new Object[0]), this.iyk));
             this.iyn.add(new g(2, getString(R.string.delete, new Object[0]), this.iyk));
             this.iyk.bB(this.iyn);
         }

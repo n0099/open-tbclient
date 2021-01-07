@@ -94,7 +94,7 @@ public class Loki {
     }
 
     public static void retryUpload(Context context) {
-        if (a.ahC() && LogSystemUploaderStrategy.checkFlag()) {
+        if (a.ahD() && LogSystemUploaderStrategy.checkFlag()) {
             LogSystemServiceUtil.startLogHandlerService(context);
         }
     }

@@ -24,8 +24,8 @@ public class a extends d {
     /* renamed from: d */
     public HttpMessage process(HttpMessage httpMessage, HttpMessageTask httpMessageTask) {
         String json;
-        String JD = JD(httpMessageTask.getUrl());
-        if (JD != null && this.iEr != null) {
+        String JC = JC(httpMessageTask.getUrl());
+        if (JC != null && this.iEr != null) {
             if (httpMessage.getExtra() instanceof NetMessage) {
                 NetMessage netMessage = (NetMessage) httpMessage.getExtra();
                 if (netMessage.getSocketMessage() == null) {
@@ -36,12 +36,12 @@ public class a extends d {
             } else {
                 json = this.eLm.toJson(httpMessage.getParams());
             }
-            this.iEr.aE(httpMessageTask.getUrl(), this.eLm.toJson(JD), this.eLm.toJson(json));
+            this.iEr.aE(httpMessageTask.getUrl(), this.eLm.toJson(JC), this.eLm.toJson(json));
         }
         return httpMessage;
     }
 
-    public String JD(String str) {
+    public String JC(String str) {
         if (str.contains("?")) {
             str = str.split("[?]")[0];
         }

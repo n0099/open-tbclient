@@ -16,7 +16,7 @@ public class a {
     private static volatile int cvH = 0;
     private static volatile String sProcessName;
 
-    public static int ahB() {
+    public static int ahC() {
         int i = cvH;
         if (i == 0) {
             String processName = getProcessName();
@@ -31,12 +31,12 @@ public class a {
         return i;
     }
 
-    public static boolean ahC() {
-        return (ahB() & 1) != 0;
+    public static boolean ahD() {
+        return (ahC() & 1) != 0;
     }
 
-    public static boolean ahD() {
-        return (ahB() & 2) != 0;
+    public static boolean ahE() {
+        return (ahC() & 2) != 0;
     }
 
     public static String getProcessName() {
@@ -46,7 +46,7 @@ public class a {
                 str = sProcessName;
                 if (str == null) {
                     Context appContext = e.getAppContext();
-                    str = ahF();
+                    str = ahG();
                     if (str == null && (str = getProcessNameFromAm(appContext)) == null) {
                         str = appContext.getPackageName();
                     }
@@ -57,7 +57,7 @@ public class a {
         return str;
     }
 
-    public static int ahE() {
+    public static int ahF() {
         Context appContext = e.getAppContext();
         int myPid = Process.myPid();
         List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) appContext.getSystemService(PushConstants.INTENT_ACTIVITY_NAME)).getRunningAppProcesses();
@@ -91,7 +91,7 @@ public class a {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static String ahF() {
+    private static String ahG() {
         String str;
         BufferedReader bufferedReader;
         BufferedReader bufferedReader2 = null;

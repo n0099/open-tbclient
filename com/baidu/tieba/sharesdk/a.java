@@ -31,20 +31,20 @@ public class a {
     }
 
     public void a(int i, ShareItem shareItem, boolean z) {
-        Location cwk;
+        Location cwl;
         if (shareItem != null) {
             if (!j.isNetWorkAvailable()) {
                 l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                 return;
             }
-            if (z && (cwk = cwk()) != null) {
-                shareItem.location = cwk;
+            if (z && (cwl = cwl()) != null) {
+                shareItem.location = cwl;
             }
             g gVar = new g(this.mContext, null);
             if (i == 3) {
                 IWXAPI createWXAPI = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
                 if (createWXAPI != null && !createWXAPI.isWXAppInstalled()) {
-                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).bud();
+                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).bue();
                     return;
                 }
                 a(shareItem, 4);
@@ -52,7 +52,7 @@ public class a {
             } else if (i == 2) {
                 IWXAPI createWXAPI2 = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst(), TbConfig.WEIXIN_SHARE_APP_ID);
                 if (createWXAPI2 != null && !createWXAPI2.isWXAppInstalled()) {
-                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).bud();
+                    BdToast.b(this.mContext, TbadkCoreApplication.getInst().getText(R.string.share_weixin_not_installed_yet)).bue();
                     return;
                 }
                 a(shareItem, 3);
@@ -66,7 +66,7 @@ public class a {
                     gVar.h(shareItem);
                     return;
                 }
-                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bud();
+                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bue();
             } else if (i == 5) {
                 if (!shareItem.fwW) {
                     shareItem.content = m(shareItem);
@@ -89,7 +89,7 @@ public class a {
                     gVar.g(shareItem);
                     return;
                 }
-                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bud();
+                BdToast.b(this.mContext, this.mContext.getText(R.string.share_qq_not_install)).bue();
             }
         }
     }
@@ -129,7 +129,7 @@ public class a {
         TiebaStatic.eventStat(this.mContext, "pb_new_share", null, 1, "loc", Integer.valueOf(i), PbChosenActivityConfig.KEY_TID, str);
     }
 
-    private Location cwk() {
+    private Location cwl() {
         if (ad.checkLocationForGoogle(this.mContext)) {
             LocationManager locationManager = (LocationManager) this.mContext.getSystemService("location");
             Criteria criteria = new Criteria();

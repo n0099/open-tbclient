@@ -50,21 +50,21 @@ public class RichTextLayout extends LinearLayout implements View.OnClickListener
     @Override // com.baidu.card.p
     /* renamed from: b */
     public void D(com.baidu.tbadk.core.data.a aVar) {
-        if (aVar != null && aVar.boO() != null) {
-            bz boO = aVar.boO();
-            OriginalThreadInfo originalThreadInfo = boO.eVB;
+        if (aVar != null && aVar.boP() != null) {
+            bz boP = aVar.boP();
+            OriginalThreadInfo originalThreadInfo = boP.eVB;
             if (originalThreadInfo != null && this.amI) {
                 this.mTitle.setVisibility(8);
                 c.bv(this.aia).pE(R.string.F_X01).pD(R.dimen.T_X07);
                 if (originalThreadInfo.ePW) {
-                    ay.a(this.aia, this.mTitle, new SpannableString(originalThreadInfo.title), boO, this.amG, this.amI, this.ahF);
+                    ay.a(this.aia, this.mTitle, new SpannableString(originalThreadInfo.title), boP, this.amG, this.amI, this.ahF);
                     ao.setViewTextColor(this.aia, R.color.CAM_X0108);
                 } else {
-                    ay.a(this.aia, this.mTitle, originalThreadInfo.eQX, boO, this.amG, this.amI, this.ahF);
+                    ay.a(this.aia, this.mTitle, originalThreadInfo.eQX, boP, this.amG, this.amI, this.ahF);
                 }
             } else {
-                ay.a(this.mTitle, boO, this.ahF);
-                ay.a(this.aia, this.mTitle, boO.bqR(), boO, this.amG, this.amI, this.ahF);
+                ay.a(this.mTitle, boP, this.ahF);
+                ay.a(this.aia, this.mTitle, boP.bqS(), boP, this.amG, this.amI, this.ahF);
             }
             if (!this.amI) {
                 this.aia.setClickable(false);

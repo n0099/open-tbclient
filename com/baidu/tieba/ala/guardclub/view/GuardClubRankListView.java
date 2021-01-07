@@ -16,9 +16,9 @@ public class GuardClubRankListView extends BdListView {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void bZj();
-
         void bZk();
+
+        void bZl();
     }
 
     public GuardClubRankListView(Context context, AttributeSet attributeSet) {
@@ -33,7 +33,7 @@ public class GuardClubRankListView extends BdListView {
     public void setLoadMoreEnabled(boolean z, boolean z2) {
         this.heg = z;
         if (z) {
-            bYQ();
+            bYR();
         } else {
             no(z2);
         }
@@ -41,10 +41,10 @@ public class GuardClubRankListView extends BdListView {
 
     public void release() {
         this.hef = null;
-        bZv();
+        bZw();
     }
 
-    public void bZv() {
+    public void bZw() {
         int i = 0;
         while (true) {
             int i2 = i;
@@ -65,9 +65,9 @@ public class GuardClubRankListView extends BdListView {
 
     private void init() {
         initUI();
-        bZw();
         bZx();
         bZy();
+        bZz();
     }
 
     private void initUI() {
@@ -79,7 +79,7 @@ public class GuardClubRankListView extends BdListView {
         setVerticalScrollBarEnabled(false);
     }
 
-    private void bZw() {
+    private void bZx() {
         setOnScrollListener(new AbsListView.OnScrollListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.1
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScrollStateChanged(AbsListView absListView, int i) {
@@ -88,17 +88,17 @@ public class GuardClubRankListView extends BdListView {
             @Override // android.widget.AbsListView.OnScrollListener
             public void onScroll(AbsListView absListView, int i, int i2, int i3) {
                 if (GuardClubRankListView.this.hef != null) {
-                    GuardClubRankListView.this.hef.bZj();
+                    GuardClubRankListView.this.hef.bZk();
                 }
                 if (GuardClubRankListView.this.hef != null && GuardClubRankListView.this.heg && !GuardClubRankListView.this.heh.isLoading() && i + i2 > i3 - 2) {
-                    GuardClubRankListView.this.bZz();
-                    GuardClubRankListView.this.hef.bZk();
+                    GuardClubRankListView.this.bZA();
+                    GuardClubRankListView.this.hef.bZl();
                 }
             }
         });
     }
 
-    private void bZx() {
+    private void bZy() {
         setRecyclerListener(new AbsListView.RecyclerListener() { // from class: com.baidu.tieba.ala.guardclub.view.GuardClubRankListView.2
             @Override // android.widget.AbsListView.RecyclerListener
             public void onMovedToScrapHeap(View view) {
@@ -110,14 +110,14 @@ public class GuardClubRankListView extends BdListView {
         });
     }
 
-    private void bZy() {
+    private void bZz() {
         this.heh = new LoadMoreFooter(getContext());
         this.heh.setBackgroundColor(getResources().getColor(a.c.live_gcb_primary));
         this.heh.createView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bZz() {
+    public void bZA() {
         if (this.heh != null) {
             if (this.heh.getView().getParent() == null) {
                 setNextPage(this.heh);
@@ -126,7 +126,7 @@ public class GuardClubRankListView extends BdListView {
         }
     }
 
-    private void bYQ() {
+    private void bYR() {
         if (this.heh != null) {
             this.heh.endLoadData();
             setNextPage(null);

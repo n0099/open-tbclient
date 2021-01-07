@@ -59,13 +59,13 @@ public class UserHeadCoverView extends FrameLayout {
                     this.hih.setVisibility(0);
                     this.iKn.setVisibility(0);
                     if (bVar.rankNum.equals("1")) {
-                        SvgManager.bwq().a(this.hih, R.drawable.svg_icon_mask_first30, (SvgManager.SvgResourceStateType) null);
+                        SvgManager.bwr().a(this.hih, R.drawable.svg_icon_mask_first30, (SvgManager.SvgResourceStateType) null);
                         this.iKn.setBackground(ao.getDrawable(R.drawable.shape_hot_user_yellow_circle));
                     } else if (bVar.rankNum.equals("2")) {
-                        SvgManager.bwq().a(this.hih, R.drawable.svg_icon_mask_second30, (SvgManager.SvgResourceStateType) null);
+                        SvgManager.bwr().a(this.hih, R.drawable.svg_icon_mask_second30, (SvgManager.SvgResourceStateType) null);
                         this.iKn.setBackground(ao.getDrawable(R.drawable.shape_hot_user_gray_circle));
                     } else if (bVar.rankNum.equals("3")) {
-                        SvgManager.bwq().a(this.hih, R.drawable.svg_icon_mask_third30, (SvgManager.SvgResourceStateType) null);
+                        SvgManager.bwr().a(this.hih, R.drawable.svg_icon_mask_third30, (SvgManager.SvgResourceStateType) null);
                         this.iKn.setBackground(ao.getDrawable(R.drawable.shape_hot_user_brown_circle));
                     }
                 } else {
@@ -82,14 +82,14 @@ public class UserHeadCoverView extends FrameLayout {
                 layoutParams.gravity = 85;
                 this.iKo.setLayoutParams(layoutParams);
                 this.iKo.setVisibility(0);
-                SvgManager.bwq().a(this.iKo, R.drawable.ic_icon_mask_v14_n_svg, (SvgManager.SvgResourceStateType) null);
+                SvgManager.bwr().a(this.iKo, R.drawable.ic_icon_mask_v14_n_svg, (SvgManager.SvgResourceStateType) null);
             } else if (bVar.iJV) {
                 int dimens2 = l.getDimens(TbadkApplication.getInst(), R.dimen.tbds40);
                 FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(dimens2, dimens2);
                 layoutParams2.gravity = 85;
                 this.iKo.setLayoutParams(layoutParams2);
                 this.iKo.setVisibility(0);
-                SvgManager.bwq().a(this.iKo, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.bwr().a(this.iKo, R.drawable.icon_mask_shen_liang20_svg, SvgManager.SvgResourceStateType.NORMAL);
             } else {
                 this.iKo.setVisibility(8);
             }

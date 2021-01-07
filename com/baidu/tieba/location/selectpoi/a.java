@@ -23,20 +23,20 @@ public class a extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public int getCount() {
-        if (this.leN == null || this.leN.dfx() == null || this.leN.dfx().isEmpty()) {
+        if (this.leN == null || this.leN.dfy() == null || this.leN.dfy().isEmpty()) {
             this.iUF = false;
             return 1;
         }
         this.iUF = true;
-        return this.leN.dfx().size();
+        return this.leN.dfy().size();
     }
 
     @Override // android.widget.Adapter
     public Object getItem(int i) {
-        if (this.leN == null || this.leN.dfx() == null || this.leN.dfx().isEmpty()) {
+        if (this.leN == null || this.leN.dfy() == null || this.leN.dfy().isEmpty()) {
             return null;
         }
-        return this.leN.dfx().get(i);
+        return this.leN.dfy().get(i);
     }
 
     @Override // android.widget.Adapter
@@ -49,19 +49,19 @@ public class a extends BaseAdapter {
         if (!this.iUF) {
             return cm(viewGroup);
         }
-        C0788a c0788a = null;
-        if (view != null && (view.getTag() instanceof C0788a)) {
-            c0788a = (C0788a) view.getTag();
+        C0801a c0801a = null;
+        if (view != null && (view.getTag() instanceof C0801a)) {
+            c0801a = (C0801a) view.getTag();
         }
-        if (c0788a == null) {
+        if (c0801a == null) {
             view = LayoutInflater.from(this.leO.getPageContext().getPageActivity()).inflate(R.layout.location_search_item_layout, viewGroup, false);
-            c0788a = dw(view);
-            view.setTag(c0788a);
+            c0801a = dw(view);
+            view.setTag(c0801a);
         }
-        C0788a c0788a2 = c0788a;
-        c0788a2.leQ.setText(this.leN.dfx().get(i).getName());
-        ao.setBackgroundColor(c0788a2.ibo, R.color.CAM_X0204);
-        ao.setViewTextColor(c0788a2.leQ, R.color.CAM_X0105, 1);
+        C0801a c0801a2 = c0801a;
+        c0801a2.leQ.setText(this.leN.dfy().get(i).getName());
+        ao.setBackgroundColor(c0801a2.ibo, R.color.CAM_X0204);
+        ao.setViewTextColor(c0801a2.leQ, R.color.CAM_X0105, 1);
         ao.setBackgroundResource(view, R.drawable.home_recommend_item_bg);
         return view;
     }
@@ -70,26 +70,26 @@ public class a extends BaseAdapter {
         this.leN = aVar;
     }
 
-    public boolean dfB() {
+    public boolean dfC() {
         return this.iUF;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.tieba.location.selectpoi.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public class C0788a {
+    public class C0801a {
         View ibo;
         TextView leQ;
 
-        private C0788a() {
+        private C0801a() {
         }
     }
 
-    public C0788a dw(View view) {
-        C0788a c0788a = new C0788a();
-        c0788a.leQ = (TextView) view.findViewById(R.id.location_search_address_name);
-        c0788a.ibo = view.findViewById(R.id.location_search_line);
-        return c0788a;
+    public C0801a dw(View view) {
+        C0801a c0801a = new C0801a();
+        c0801a.leQ = (TextView) view.findViewById(R.id.location_search_address_name);
+        c0801a.ibo = view.findViewById(R.id.location_search_line);
+        return c0801a;
     }
 
     public View cm(ViewGroup viewGroup) {

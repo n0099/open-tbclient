@@ -45,9 +45,9 @@ public class a implements b {
         com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "请求地址: " + cVar.a());
         try {
             URL url = new URL(cVar.a());
-            if (cVar.esQ() != null) {
+            if (cVar.esR() != null) {
                 com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "开始wifi下取号");
-                httpURLConnection = (HttpURLConnection) cVar.esQ().openConnection(url);
+                httpURLConnection = (HttpURLConnection) cVar.esR().openConnection(url);
             } else {
                 com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "使用当前网络环境发送请求");
                 httpURLConnection = (HttpURLConnection) url.openConnection();
@@ -288,7 +288,7 @@ public class a implements b {
             }
             com.cmic.sso.sdk.e.c.b("ConnectionInterceptor", "cer: " + a2);
             if (!TextUtils.isEmpty(a2)) {
-                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a2).esS().getSocketFactory());
+                ((HttpsURLConnection) httpURLConnection).setSSLSocketFactory(new com.cmic.sso.sdk.c.e.a(a2).esT().getSocketFactory());
             }
         }
     }

@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.Map;
 import java.util.Queue;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI {
     private ADListener d;
     private int e;
@@ -27,32 +27,32 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
     private Map<BaseNativeExpressAd, a> l;
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a implements ADListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private a.InterfaceC1177a f12324a;
+        private a.InterfaceC1218a f12325a;
 
         /* renamed from: b  reason: collision with root package name */
-        private Queue<ADEvent> f12325b = new LinkedList();
+        private Queue<ADEvent> f12326b = new LinkedList();
         private boolean c;
         private boolean d;
 
-        public a(a.InterfaceC1177a interfaceC1177a, boolean z) {
-            this.f12324a = interfaceC1177a;
+        public a(a.InterfaceC1218a interfaceC1218a, boolean z) {
+            this.f12325a = interfaceC1218a;
             this.c = z;
         }
 
         private void a(ADEvent aDEvent) {
             if (this.d) {
-                this.f12324a.b(aDEvent);
+                this.f12325a.b(aDEvent);
             } else {
-                this.f12325b.offer(aDEvent);
+                this.f12326b.offer(aDEvent);
             }
         }
 
         public Queue<ADEvent> a() {
-            return this.f12325b;
+            return this.f12326b;
         }
 
         public void b() {
@@ -61,20 +61,20 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
 
         @Override // com.qq.e.comm.adevent.ADListener
         public void onADEvent(ADEvent aDEvent) {
-            if (this.f12324a != null) {
+            if (this.f12325a != null) {
                 switch (aDEvent.getType()) {
                     case 1:
-                        this.f12324a.a();
+                        this.f12325a.a();
                         return;
                     case 2:
                         if (!this.c) {
-                            this.f12325b.offer(aDEvent);
-                            this.f12324a.a(aDEvent);
+                            this.f12326b.offer(aDEvent);
+                            this.f12325a.a(aDEvent);
                             return;
                         }
-                        this.d = this.f12324a.a(aDEvent);
+                        this.d = this.f12325a.a(aDEvent);
                         if (this.d) {
-                            this.f12324a.b(aDEvent);
+                            this.f12325a.b(aDEvent);
                             return;
                         }
                         return;
@@ -84,11 +84,11 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
                         a(aDEvent);
                         return;
                     case 5:
-                        this.f12324a.c();
+                        this.f12325a.c();
                         a(aDEvent);
                         return;
                     case 6:
-                        this.f12324a.b();
+                        this.f12325a.b();
                         a(aDEvent);
                         return;
                 }
@@ -124,8 +124,8 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
         if (this.g != null) {
             baseNativeExpressAd.setVideoOption(this.g);
         }
-        a aVar = new a(new a.InterfaceC1177a() { // from class: com.qq.e.comm.plugin.gdtnativead.g.1
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+        a aVar = new a(new a.InterfaceC1218a() { // from class: com.qq.e.comm.plugin.gdtnativead.g.1
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public void a() {
                 if (g.this.j()) {
                     return;
@@ -136,7 +136,7 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
                 }
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public boolean a(ADEvent aDEvent) {
                 int i;
                 boolean z;
@@ -161,12 +161,12 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
                 return false;
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public void b() {
                 g.this.a((g) baseNativeExpressAd, 70542);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public void b(ADEvent aDEvent) {
                 if (g.this.d == null || !g.this.d((g) baseNativeExpressAd)) {
                     return;
@@ -174,7 +174,7 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
                 g.this.d.onADEvent(aDEvent);
             }
 
-            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1177a
+            @Override // com.qq.e.comm.plugin.r.a.a.InterfaceC1218a
             public void c() {
                 g.this.b((g) baseNativeExpressAd, 70532);
             }
@@ -196,7 +196,7 @@ class g extends com.qq.e.comm.plugin.r.a.a<BaseNativeExpressAd> implements NEADI
     public BaseNativeExpressAd b(com.qq.e.comm.plugin.r.b.c cVar) {
         if (cVar != null) {
             try {
-                return com.qq.e.comm.plugin.gdtnativead.a.a(cVar.e(), this.k, this.f12659b, cVar.b(), cVar.g());
+                return com.qq.e.comm.plugin.gdtnativead.a.a(cVar.e(), this.k, this.f12660b, cVar.b(), cVar.g());
             } catch (Exception e) {
                 a(70552, cVar);
                 e.printStackTrace();

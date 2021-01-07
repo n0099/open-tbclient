@@ -5,16 +5,16 @@ import io.reactivex.j;
 import io.reactivex.v;
 import java.util.concurrent.atomic.AtomicBoolean;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableUnsubscribeOn<T> extends a<T, T> {
     final v scheduler;
 
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qgK.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
+        this.qit.a((j) new UnsubscribeSubscriber(cVar, this.scheduler));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class UnsubscribeSubscriber<T> extends AtomicBoolean implements j<T>, d {
         private static final long serialVersionUID = 1015244841293359600L;
         final org.a.c<? super T> actual;
@@ -69,7 +69,7 @@ public final class FlowableUnsubscribeOn<T> extends a<T, T> {
             }
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes5.dex */
         final class a implements Runnable {
             a() {
             }

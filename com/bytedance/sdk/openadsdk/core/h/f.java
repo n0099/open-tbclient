@@ -16,17 +16,17 @@ public class f implements Runnable {
     @SuppressLint({"StaticFieldLeak"})
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile f f6881a;
+    private static volatile f f6882a;
 
     public static f a() {
-        if (f6881a == null) {
+        if (f6882a == null) {
             synchronized (i.class) {
-                if (f6881a == null) {
-                    f6881a = new f();
+                if (f6882a == null) {
+                    f6882a = new f();
                 }
             }
         }
-        return f6881a;
+        return f6882a;
     }
 
     private f() {
@@ -50,10 +50,10 @@ public class f implements Runnable {
                     if (gVar != null) {
                         try {
                             long currentTimeMillis = System.currentTimeMillis();
-                            if (gVar.f6883b != null && gVar.c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", gVar.c, 0L) > gVar.d * 1000) {
+                            if (gVar.f6884b != null && gVar.c != null && currentTimeMillis - com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", gVar.c, 0L) > gVar.d * 1000) {
                                 com.bytedance.sdk.openadsdk.multipro.d.a.a("sp_push_time", gVar.c, Long.valueOf(currentTimeMillis));
                                 Intent intent = new Intent();
-                                intent.setAction(gVar.f6882a);
+                                intent.setAction(gVar.f6883a);
                                 intent.setPackage(gVar.c);
                                 p.a().startService(intent);
                                 a(gVar, 1);
@@ -91,8 +91,8 @@ public class f implements Runnable {
             jSONObject.put("vendor", Build.MANUFACTURER);
             jSONObject.put("model", Build.MODEL);
             jSONObject.put("ad_package_name", gVar.c);
-            jSONObject.put("action", gVar.f6882a);
-            jSONObject.put("service", gVar.f6883b);
+            jSONObject.put("action", gVar.f6883a);
+            jSONObject.put("service", gVar.f6884b);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -104,8 +104,8 @@ public class f implements Runnable {
         if (a2 != null) {
             try {
                 JSONObject jSONObject = new JSONObject();
-                jSONObject.put("latitude", a2.f7863a);
-                jSONObject.put("longitude", a2.f7864b);
+                jSONObject.put("latitude", a2.f7864a);
+                jSONObject.put("longitude", a2.f7865b);
                 return jSONObject;
             } catch (Exception e) {
             }

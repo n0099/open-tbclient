@@ -28,8 +28,8 @@ public class b {
     @TargetApi(19)
     /* renamed from: com.bytedance.tea.crash.g.b$b  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private static class C1008b extends a {
-        private C1008b() {
+    private static class C1046b extends a {
+        private C1046b() {
             super();
         }
 
@@ -51,7 +51,7 @@ public class b {
 
     static {
         if (Build.VERSION.SDK_INT >= 19) {
-            pqn = new C1008b();
+            pqn = new C1046b();
         } else {
             pqn = new a();
         }

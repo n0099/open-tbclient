@@ -10,11 +10,11 @@ import com.baidu.pass.biometrics.face.liveness.result.PassFaceRecogResult;
 public class a implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ LivenessRecogActivity f4042a;
+    final /* synthetic */ LivenessRecogActivity f4043a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(LivenessRecogActivity livenessRecogActivity) {
-        this.f4042a = livenessRecogActivity;
+        this.f4043a = livenessRecogActivity;
     }
 
     @Override // android.view.View.OnClickListener
@@ -22,22 +22,22 @@ public class a implements View.OnClickListener {
         com.baidu.pass.biometrics.face.liveness.view.a aVar;
         PassFaceRecogCallback passFaceRecogCallback;
         PassFaceRecogCallback passFaceRecogCallback2;
-        aVar = this.f4042a.D;
+        aVar = this.f4043a.D;
         aVar.dismiss();
-        this.f4042a.P.y = false;
-        passFaceRecogCallback = this.f4042a.t;
+        this.f4043a.P.y = false;
+        passFaceRecogCallback = this.f4043a.t;
         if (passFaceRecogCallback != null) {
             PassFaceRecogResult passFaceRecogResult = new PassFaceRecogResult();
             passFaceRecogResult.setResultCode(-307);
-            passFaceRecogCallback2 = this.f4042a.t;
+            passFaceRecogCallback2 = this.f4043a.t;
             passFaceRecogCallback2.onFailure(passFaceRecogResult);
         }
-        this.f4042a.a(-307);
+        this.f4043a.a(-307);
         Intent intent = new Intent("android.settings.APPLICATION_DETAILS_SETTINGS");
         intent.addFlags(268435456);
-        intent.setData(Uri.fromParts("package", this.f4042a.getPackageName(), null));
-        if (intent.resolveActivity(this.f4042a.getPackageManager()) != null) {
-            this.f4042a.startActivity(intent);
+        intent.setData(Uri.fromParts("package", this.f4043a.getPackageName(), null));
+        if (intent.resolveActivity(this.f4043a.getPackageManager()) != null) {
+            this.f4043a.startActivity(intent);
         }
     }
 }

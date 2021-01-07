@@ -24,7 +24,7 @@ public class e extends BaseAdapter {
 
     /* loaded from: classes11.dex */
     public interface b {
-        void bWu();
+        void bWv();
     }
 
     public e(TbPageContext tbPageContext) {
@@ -63,7 +63,7 @@ public class e extends BaseAdapter {
                 public void onClick(View view2) {
                     e.this.a((com.baidu.tieba.ala.category.b.d) e.this.gOJ.get(i), aVar);
                     if (e.this.gOI != null) {
-                        e.this.gOI.bWu();
+                        e.this.gOI.bWv();
                     }
                 }
             });
@@ -74,30 +74,30 @@ public class e extends BaseAdapter {
         com.baidu.tieba.ala.category.b.d dVar = this.gOJ.get(i);
         aVar.gOO.setText(a(dVar));
         aVar.gOO.setSelected(dVar.isChecked());
-        aVar.gOO.setBackgroundResource(dVar.bWE());
+        aVar.gOO.setBackgroundResource(dVar.bWF());
         return view;
     }
 
     public void setTagList(List<com.baidu.tieba.ala.category.b.d> list) {
         if (!ListUtils.isEmpty(list)) {
             this.gOJ = list;
-            bWx();
+            bWy();
             notifyDataSetChanged();
         }
     }
 
-    public List<String> bWv() {
+    public List<String> bWw() {
         ArrayList arrayList = new ArrayList();
         int size = this.gOK.size();
         for (int i = 0; i < size; i++) {
             if (this.gOK.valueAt(i) != null) {
-                arrayList.add(this.gOK.valueAt(i).bWD());
+                arrayList.add(this.gOK.valueAt(i).bWE());
             }
         }
         return arrayList;
     }
 
-    public Set<String> bWw() {
+    public Set<String> bWx() {
         return this.gOL;
     }
 
@@ -105,15 +105,15 @@ public class e extends BaseAdapter {
         this.gOI = bVar;
     }
 
-    private void bWx() {
+    private void bWy() {
         int i;
         int i2 = 0;
         for (com.baidu.tieba.ala.category.b.d dVar : this.gOJ) {
             if (dVar != null) {
                 if (dVar.isChecked() && i2 < 3) {
                     dVar.vE(this.gOK.keyAt(i2));
-                    this.gOK.put(dVar.bWE(), dVar);
-                    this.gOL.add(dVar.bWD());
+                    this.gOK.put(dVar.bWF(), dVar);
+                    this.gOL.add(dVar.bWE());
                     i = i2 + 1;
                 } else {
                     dVar.vE(a.e.bg_tag_unchecked);
@@ -127,24 +127,24 @@ public class e extends BaseAdapter {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.ala.category.b.d dVar, a aVar) {
         if (!dVar.isChecked()) {
-            int bWy = bWy();
-            if (bWy == 0) {
+            int bWz = bWz();
+            if (bWz == 0) {
                 this.mPageContext.showToast(a.h.ala_live_tag_warning, true);
                 return;
             }
             dVar.setChecked(true);
-            dVar.vE(bWy);
-            this.gOK.put(bWy, dVar);
+            dVar.vE(bWz);
+            this.gOK.put(bWz, dVar);
         } else {
             dVar.setChecked(false);
-            this.gOK.put(dVar.bWE(), null);
+            this.gOK.put(dVar.bWF(), null);
             dVar.vE(a.e.bg_tag_unchecked);
         }
         aVar.gOO.setSelected(dVar.isChecked());
-        aVar.gOO.setBackgroundResource(dVar.bWE());
+        aVar.gOO.setBackgroundResource(dVar.bWF());
     }
 
-    private int bWy() {
+    private int bWz() {
         if (this.gOK.valueAt(0) == null) {
             return this.gOK.keyAt(0);
         }
@@ -162,9 +162,9 @@ public class e extends BaseAdapter {
             return "";
         }
         if (dVar.getScore() <= 0) {
-            return dVar.bWD();
+            return dVar.bWE();
         }
-        return dVar.bWD() + " " + (dVar.getScore() > 999 ? "999+" : String.valueOf(dVar.getScore()));
+        return dVar.bWE() + " " + (dVar.getScore() > 999 ? "999+" : String.valueOf(dVar.getScore()));
     }
 
     /* JADX INFO: Access modifiers changed from: private */

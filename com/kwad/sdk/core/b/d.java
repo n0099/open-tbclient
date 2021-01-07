@@ -8,33 +8,33 @@ import org.json.JSONObject;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static i f9340a;
+    private static i f9341a;
 
     private static i a() {
-        if (f9340a != null) {
-            return f9340a;
+        if (f9341a != null) {
+            return f9341a;
         }
         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_CLOSE_AES");
         if (a2 != null && ((Boolean) a2.getValue()).booleanValue()) {
-            f9340a = new g();
-            return f9340a;
+            f9341a = new g();
+            return f9341a;
         }
-        if (com.kwad.sdk.d.f9968a == 1) {
+        if (com.kwad.sdk.d.f9969a == 1) {
             com.kwad.sdk.plugin.a aVar = (com.kwad.sdk.plugin.a) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.a.class);
             if (aVar == null || aVar.a() == null) {
-                f9340a = new g();
+                f9341a = new g();
             } else {
-                f9340a = aVar.a();
+                f9341a = aVar.a();
             }
         } else {
             com.kwad.sdk.plugin.b bVar = (com.kwad.sdk.plugin.b) com.kwad.sdk.plugin.g.a(com.kwad.sdk.plugin.b.class);
             if (bVar == null || bVar.a() == null) {
-                f9340a = new g();
+                f9341a = new g();
             } else {
-                f9340a = bVar.a();
+                f9341a = bVar.a();
             }
         }
-        return f9340a;
+        return f9341a;
     }
 
     public static String a(String str) {

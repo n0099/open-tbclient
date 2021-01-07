@@ -27,9 +27,9 @@ public class SearchEditView extends RelativeLayout {
 
     /* loaded from: classes.dex */
     public interface a {
-        void JU(String str);
+        void JT(String str);
 
-        void JV(String str);
+        void JU(String str);
     }
 
     public SearchEditView(Context context) {
@@ -68,7 +68,7 @@ public class SearchEditView extends RelativeLayout {
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
                 if (SearchEditView.this.iRQ != null) {
-                    SearchEditView.this.iRQ.JV(editable.toString().trim());
+                    SearchEditView.this.iRQ.JU(editable.toString().trim());
                 }
                 if (editable.toString().trim().length() == 0) {
                     SearchEditView.this.iRP.setVisibility(4);
@@ -83,7 +83,7 @@ public class SearchEditView extends RelativeLayout {
                 if (i == 3) {
                     String trim = SearchEditView.this.iRM.getText().toString().trim();
                     if (!TextUtils.isEmpty(trim) && SearchEditView.this.iRQ != null) {
-                        SearchEditView.this.iRQ.JU(trim);
+                        SearchEditView.this.iRQ.JT(trim);
                     }
                     return true;
                 }
@@ -124,7 +124,7 @@ public class SearchEditView extends RelativeLayout {
         }
     }
 
-    public boolean cAT() {
+    public boolean cAU() {
         return this.iRM.requestFocus();
     }
 }

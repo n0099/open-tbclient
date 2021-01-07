@@ -19,7 +19,7 @@ import org.json.JSONObject;
 public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements View.OnClickListener {
     private LinearLayout ixX;
     private TextView kMS;
-    private List<AppData> mMV;
+    private List<AppData> mMU;
     private TextView mTitle;
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
@@ -30,9 +30,9 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             return;
         }
         int indexOfChild = this.ixX.indexOfChild(view);
-        if (indexOfChild >= 0 && indexOfChild < this.mMV.size()) {
+        if (indexOfChild >= 0 && indexOfChild < this.mMU.size()) {
             this.mTitle.setText("AD" + indexOfChild);
-            a(this.mMV.get(indexOfChild));
+            a(this.mMU.get(indexOfChild));
         }
     }
 
@@ -47,35 +47,35 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         ((TextView) findViewById(R.id.ad_debug_copy)).setOnClickListener(this);
         this.kMS.setMovementMethod(new ScrollingMovementMethod());
         this.kMS.setText("没刷到广告~ 换个姿势试试！");
-        this.mMV = r.dEV().dET();
-        bxh();
+        this.mMU = r.dEW().dEU();
+        bxi();
     }
 
-    private void bxh() {
-        if (this.mMV.size() == 0) {
-            TextView dEY = dEY();
-            dEY.setOnClickListener(null);
-            dEY.setText("No AD");
-            this.ixX.addView(dEY, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+    private void bxi() {
+        if (this.mMU.size() == 0) {
+            TextView dEZ = dEZ();
+            dEZ.setOnClickListener(null);
+            dEZ.setText("No AD");
+            this.ixX.addView(dEZ, new LinearLayout.LayoutParams(-1, -1, 1.0f));
             return;
         }
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 != this.mMV.size()) {
-                TextView dEY2 = dEY();
-                dEY2.setText("AD" + i2);
-                AppData appData = this.mMV.get(i2);
+            if (i2 != this.mMU.size()) {
+                TextView dEZ2 = dEZ();
+                dEZ2.setText("AD" + i2);
+                AppData appData = this.mMU.get(i2);
                 if (appData.mDiscardReason > 0) {
-                    ao.setBackgroundResource(dEY2, R.drawable.btn_all_red);
+                    ao.setBackgroundResource(dEZ2, R.drawable.btn_all_red);
                 } else {
-                    ao.setBackgroundResource(dEY2, R.drawable.btn_all_green);
+                    ao.setBackgroundResource(dEZ2, R.drawable.btn_all_green);
                 }
                 if (i2 == 0) {
                     a(appData);
                     this.mTitle.setText("AD0");
                 }
-                this.ixX.addView(dEY2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
+                this.ixX.addView(dEZ2, new LinearLayout.LayoutParams(-1, -1, 1.0f));
                 i = i2 + 1;
             } else {
                 return;
@@ -83,7 +83,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
         }
     }
 
-    private TextView dEY() {
+    private TextView dEZ() {
         TextView textView = new TextView(this);
         textView.setGravity(17);
         ao.setViewTextColor(textView, R.color.CAM_X0312);
@@ -102,7 +102,7 @@ public class AdDebugActivity extends BaseActivity<AdDebugActivity> implements Vi
             try {
                 String str2 = new String();
                 if (appData.mDiscardReason > 0) {
-                    String str3 = g.mSK.get(Integer.valueOf(appData.mDiscardReason));
+                    String str3 = g.mSJ.get(Integer.valueOf(appData.mDiscardReason));
                     if (TextUtils.isEmpty(str3)) {
                         str3 = "未知原因";
                     }

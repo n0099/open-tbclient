@@ -21,7 +21,7 @@ import io.flutter.plugin.common.MethodCall;
 import io.flutter.plugin.common.MethodChannel;
 import io.flutter.view.TextureRegistry;
 import java.lang.ref.WeakReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes15.dex */
 public class VideoPlayer implements CyberPlayerManager.OnCompletionListener, CyberPlayerManager.OnErrorListener, CyberPlayerManager.OnInfoListener, CyberPlayerManager.OnPreparedListener, TbCyberVideoView.a, MethodChannel.MethodCallHandler {
     private Context context;
     private CyberPlayer cyberPlayer;
@@ -97,9 +97,9 @@ public class VideoPlayer implements CyberPlayerManager.OnCompletionListener, Cyb
     @Override // io.flutter.plugin.common.MethodChannel.MethodCallHandler
     public void onMethodCall(MethodCall methodCall, MethodChannel.Result result) {
         if (methodCall.method.equals(AlaStaticKeys.ALA_STATIC_VALUE_PLAY) || methodCall.method.equals("startAutoPlay")) {
-            int QU = n.dBP().QU(this.dataSource);
-            if (QU > 0) {
-                this.cyberVideoView.seekTo(QU);
+            int QT = n.dBQ().QT(this.dataSource);
+            if (QT > 0) {
+                this.cyberVideoView.seekTo(QT);
             }
             startPlay();
         } else if (methodCall.method.equals("pause")) {
@@ -185,7 +185,7 @@ public class VideoPlayer implements CyberPlayerManager.OnCompletionListener, Cyb
         }
         if (this.cyberVideoView != null) {
             this.cyberVideoView.stop();
-            this.cyberVideoView.dCa();
+            this.cyberVideoView.dCb();
         }
         if (this.textureEntry != null) {
             this.textureEntry.release();

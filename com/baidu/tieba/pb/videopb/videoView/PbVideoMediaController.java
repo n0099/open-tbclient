@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView;
 /* loaded from: classes2.dex */
 public class PbVideoMediaController extends OperableVideoMediaControllerView {
-    private ProgressBar miI;
+    private ProgressBar miH;
 
     public PbVideoMediaController(Context context) {
         super(context);
@@ -29,7 +29,7 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     }
 
     private void init() {
-        this.miI = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
+        this.miH = (ProgressBar) findViewById(R.id.pb_bottom_progress_bar);
     }
 
     @Override // com.baidu.tieba.play.operableVideoView.OperableVideoMediaControllerView, com.baidu.tieba.play.VideoControllerView
@@ -40,13 +40,13 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
     @Override // com.baidu.tieba.play.VideoControllerView
     public void bz(int i, int i2) {
         super.bz(i, i2);
-        this.miI.setProgress(this.gjY.getProgress());
+        this.miH.setProgress(this.gjY.getProgress());
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
-    public void aUR() {
-        super.aUR();
-        this.miI.setProgress(0);
+    public void aUS() {
+        super.aUS();
+        this.miH.setProgress(0);
     }
 
     @Override // com.baidu.tieba.play.VideoControllerView
@@ -58,19 +58,19 @@ public class PbVideoMediaController extends OperableVideoMediaControllerView {
                 this.gjW.setText(at.stringForVideoTime(i));
             }
         }
-        this.miI.setProgress(this.gjY.getProgress());
+        this.miH.setProgress(this.gjY.getProgress());
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.play.VideoControllerView
-    public int bPa() {
-        int bPa = super.bPa();
-        this.miI.setProgress(this.gjY.getProgress());
-        return bPa;
+    public int bPb() {
+        int bPb = super.bPb();
+        this.miH.setProgress(this.gjY.getProgress());
+        return bPb;
     }
 
     public void setBottomBarShow(boolean z) {
-        this.miI.setVisibility(z ? 0 : 8);
+        this.miH.setVisibility(z ? 0 : 8);
         this.gjY.setVisibility(z ? 8 : 0);
         this.gjW.setVisibility(z ? 8 : 0);
         this.gjX.setVisibility(z ? 8 : 0);

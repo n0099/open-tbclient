@@ -31,7 +31,7 @@ public class SMView extends LinearLayout implements View.OnClickListener {
         this.pfI = sMListView;
         this.pfK = cVar;
         int i = 0;
-        for (e eVar : cVar.eoG()) {
+        for (e eVar : cVar.eoH()) {
             a(eVar, i);
             i++;
         }

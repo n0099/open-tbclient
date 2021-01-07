@@ -6,5 +6,5 @@ import com.baidu.live.tbadk.data.ShareEntity;
 public interface e {
     void a(Activity activity, ShareEntity shareEntity);
 
-    boolean dfr();
+    boolean dfs();
 }

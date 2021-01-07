@@ -50,7 +50,7 @@ public class ForumEnterLayout extends RelativeLayout {
                     ForumEnterLayout.this.alA.onClick(view);
                 }
                 if (ForumEnterLayout.this.ahi != null) {
-                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.ahi.boO());
+                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.ahi.boP());
                 }
             }
         };
@@ -71,7 +71,7 @@ public class ForumEnterLayout extends RelativeLayout {
                     ForumEnterLayout.this.alA.onClick(view);
                 }
                 if (ForumEnterLayout.this.ahi != null) {
-                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.ahi.boO());
+                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.ahi.boP());
                 }
             }
         };
@@ -92,7 +92,7 @@ public class ForumEnterLayout extends RelativeLayout {
                     ForumEnterLayout.this.alA.onClick(view);
                 }
                 if (ForumEnterLayout.this.ahi != null) {
-                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.ahi.boO());
+                    ForumEnterLayout.this.a(view, ForumEnterLayout.this.ahi.boP());
                 }
             }
         };
@@ -154,23 +154,23 @@ public class ForumEnterLayout extends RelativeLayout {
         boolean z2 = true;
         this.ahi = aVar;
         tQ();
-        bz boO = aVar.boO();
-        if ((aVar.boS() || !boO.eWd) && !StringUtils.isNull(boO.bru()) && !c(boO)) {
+        bz boP = aVar.boP();
+        if ((aVar.boT() || !boP.eWd) && !StringUtils.isNull(boP.brv()) && !c(boP)) {
             this.alE.setVisibility(0);
-            this.alE.a(boO, this.alJ);
+            this.alE.a(boP, this.alJ);
             z = true;
         } else {
             this.alE.setVisibility(8);
             z = false;
         }
-        if (!c(aVar) && !d(aVar) && aVar.boT() && aVar.boO().btC()) {
+        if (!c(aVar) && !d(aVar) && aVar.boU() && aVar.boP().btD()) {
             this.alF.setVisibility(0);
-            this.alF.r(boO);
+            this.alF.r(boP);
             z = true;
         } else {
             this.alF.setVisibility(8);
         }
-        if (ay.x(boO) && boO.isPrivacy) {
+        if (ay.x(boP) && boP.isPrivacy) {
             this.alG.setVisibility(0);
             this.alG.setTextSize(0, l.getDimens(getContext(), R.dimen.tbds32));
             this.alG.setCompoundDrawablesWithIntrinsicBounds((Drawable) null, (Drawable) null, (Drawable) null, (Drawable) null);
@@ -206,14 +206,14 @@ public class ForumEnterLayout extends RelativeLayout {
     }
 
     private boolean c(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boO() == null || aVar.boO().btz() == null || aVar.boO().btz().getOptions() == null || aVar.boO().btz().getOptions().size() <= 0) ? false : true;
+        return (aVar == null || aVar.boP() == null || aVar.boP().btA() == null || aVar.boP().btA().getOptions() == null || aVar.boP().btA().getOptions().size() <= 0) ? false : true;
     }
 
     private boolean c(bz bzVar) {
-        return (bzVar == null || bzVar.brq() == null || !bzVar.eWe || !d.bmN() || bzVar.brq().hadConcerned() || ay.x(bzVar)) ? false : true;
+        return (bzVar == null || bzVar.brr() == null || !bzVar.eWe || !d.bmO() || bzVar.brr().hadConcerned() || ay.x(bzVar)) ? false : true;
     }
 
     private boolean d(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boO() == null || !aVar.boO().bpV() || aVar.boO().brH() == null) ? false : true;
+        return (aVar == null || aVar.boP() == null || !aVar.boP().bpW() || aVar.boP().brI() == null) ? false : true;
     }
 }

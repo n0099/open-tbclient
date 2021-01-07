@@ -11,17 +11,17 @@ import org.json.JSONObject;
 public class JsCallJava {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14029a;
+    private String f14030a;
 
     /* renamed from: case  reason: not valid java name */
-    private String f29case;
+    private String f30case;
     private String java;
-    private JSONObject qcR;
+    private JSONObject qez;
 
     private JsCallJava() {
     }
 
-    public static JsCallJava eKc() {
+    public static JsCallJava eKG() {
         return new JsCallJava();
     }
 
@@ -32,26 +32,26 @@ public class JsCallJava {
                 this.java = parse.getHost();
                 String path = parse.getPath();
                 if (!TextUtils.isEmpty(path)) {
-                    this.f29case = path.replace("/", "");
+                    this.f30case = path.replace("/", "");
                 } else {
-                    this.f29case = "";
+                    this.f30case = "";
                 }
-                this.f14029a = String.valueOf(parse.getPort());
+                this.f14030a = String.valueOf(parse.getPort());
                 try {
-                    this.qcR = new JSONObject(parse.getQuery());
+                    this.qez = new JSONObject(parse.getQuery());
                 } catch (JSONException e) {
                     e.printStackTrace();
-                    this.qcR = new JSONObject();
+                    this.qez = new JSONObject();
                 }
             }
-            Method hw = NativeMethodInjectHelper.eKd().hw(this.java, this.f29case);
-            JsCallback g = JsCallback.g(webView, this.f14029a);
-            if (hw == null) {
-                JsCallback.a(g, false, null, "Method (" + this.f29case + ") in this class (" + this.java + ") not found!");
+            Method hx = NativeMethodInjectHelper.eKH().hx(this.java, this.f30case);
+            JsCallback g = JsCallback.g(webView, this.f14030a);
+            if (hx == null) {
+                JsCallback.a(g, false, null, "Method (" + this.f30case + ") in this class (" + this.java + ") not found!");
                 return;
             }
             try {
-                hw.invoke(null, webView, this.qcR, g);
+                hx.invoke(null, webView, this.qez, g);
             } catch (IllegalAccessException e2) {
                 e2.printStackTrace();
             } catch (InvocationTargetException e3) {

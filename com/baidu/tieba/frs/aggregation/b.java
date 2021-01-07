@@ -164,7 +164,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
             if (gVar.jmS.videoSize == 0) {
                 format = this.mPageContext.getString(R.string.video_mobile_play_tips);
             } else {
-                format = String.format(this.mPageContext.getString(R.string.video_mobile_network_tips), KN(String.format("%.1f", Float.valueOf(((float) gVar.jmS.videoSize) / 1048576.0f))));
+                format = String.format(this.mPageContext.getString(R.string.video_mobile_network_tips), KM(String.format("%.1f", Float.valueOf(((float) gVar.jmS.videoSize) / 1048576.0f))));
             }
             this.jmg.setText(format);
             this.jmf.setVisibility(8);
@@ -179,15 +179,15 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
             this.jmr.stopPlay();
             this.jmr.wY(true);
             this.jmr.wU(false);
-            this.jmr.a(new c.InterfaceC0829c() { // from class: com.baidu.tieba.frs.aggregation.b.1
-                @Override // com.baidu.tieba.play.c.InterfaceC0829c
+            this.jmr.a(new c.InterfaceC0862c() { // from class: com.baidu.tieba.frs.aggregation.b.1
+                @Override // com.baidu.tieba.play.c.InterfaceC0862c
                 public void rl() {
                     if (b.this.jmr.rn()) {
                         b.this.jme.setVisibility(8);
                     }
                 }
 
-                @Override // com.baidu.tieba.play.c.InterfaceC0829c
+                @Override // com.baidu.tieba.play.c.InterfaceC0862c
                 public void rm() {
                     if (b.this.jmr.rn()) {
                         b.this.jme.setVisibility(8);
@@ -199,15 +199,15 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
             });
             this.jmr.a(new c.l() { // from class: com.baidu.tieba.frs.aggregation.b.2
                 @Override // com.baidu.tieba.play.c.l
-                public void cHT() {
+                public void cHU() {
                     b.this.jmx = false;
                     b.this.jme.setVisibility(8);
-                    b.this.KM(b.this.eZA ? "1" : "2");
+                    b.this.KL(b.this.eZA ? "1" : "2");
                     b.this.onClick(b.this.jmc);
                 }
 
                 @Override // com.baidu.tieba.play.c.l
-                public void cHU() {
+                public void cHV() {
                     b.this.jme.setVisibility(8);
                     b.this.onClick(b.this.jmb);
                 }
@@ -219,7 +219,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                         b.this.mPageContext.showToast(b.this.jmg.getText().toString());
                         b.this.jmr.fY(b.this.jms.jmS.videoUrl, b.this.jms.threadId);
                         b.this.jme.setVisibility(8);
-                        b.this.KM("2");
+                        b.this.KL("2");
                     } else {
                         b.this.jmf.setVisibility(0);
                     }
@@ -245,24 +245,24 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                 aqVar.an("obj_locate", i);
                 aqVar.an(TiebaInitialize.Params.OBJ_PARAM2, 1);
                 TiebaStatic.log(aqVar);
-                this.jmu.mDH = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
+                this.jmu.mDG = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
                 this.jmu.mLocate = Constants.VIA_REPORT_TYPE_JOININ_GROUP;
-                this.jmu.mDJ = "1";
-                this.jmv.mDH = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
+                this.jmu.mDI = "1";
+                this.jmv.mDG = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
                 this.jmv.mLocate = ConstantData.VideoLocationType.VIDEO_MIDDEL_PAGE;
-                this.jmv.mDJ = "1";
+                this.jmv.mDI = "1";
             } else {
-                this.jmu.mDJ = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
+                this.jmu.mDI = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
                 this.jmu.mLocate = Constants.VIA_REPORT_TYPE_SET_AVATAR;
-                this.jmv.mDJ = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
+                this.jmv.mDI = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
                 this.jmv.mLocate = ConstantData.VideoLocationType.VIDEO_AGGREGATION;
             }
             if (gVar.jmS != null) {
-                this.jmu.mDM = gVar.jmS.videoMd5;
-                this.jmv.mDM = gVar.jmS.videoMd5;
+                this.jmu.mDL = gVar.jmS.videoMd5;
+                this.jmv.mDL = gVar.jmS.videoMd5;
             }
             this.jmr.getVideoView().setVideoStatData(this.jmu);
-            this.jmr.deh();
+            this.jmr.dei();
             this.jmr.b(new c.d() { // from class: com.baidu.tieba.frs.aggregation.b.4
                 @Override // com.baidu.tieba.play.c.d
                 public void qS(boolean z) {
@@ -280,7 +280,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                 }
 
                 @Override // com.baidu.tieba.play.c.d
-                public void cHV() {
+                public void cHW() {
                     if (!b.this.jmr.rn()) {
                         b.this.jmd.setVisibility(0);
                     } else if (b.this.jmd.getVisibility() == 0) {
@@ -298,7 +298,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                     }
                     if (aVar != null && !b.this.isFullScreen) {
                         aVar.AA(i);
-                        b.this.jmr.cUv();
+                        b.this.jmr.cUw();
                     }
                 }
             });
@@ -316,14 +316,14 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
             });
             this.jmr.setThumbnail(gVar.jmS.thumbnailUrl);
             this.jmr.setVideoUrl(gVar.jmS.videoUrl, gVar.threadId);
-            this.jmr.QT(gVar.title);
+            this.jmr.QS(gVar.title);
             this.jmr.a(new c.i() { // from class: com.baidu.tieba.frs.aggregation.b.7
                 @Override // com.baidu.tieba.play.c.i
-                public void cHW() {
+                public void cHX() {
                     b.this.jme.setVisibility(8);
                 }
             });
-            this.jmr.cUv();
+            this.jmr.cUw();
             this.jmr.show();
             if (gVar.autoPlay) {
                 onClick(this.jmc);
@@ -335,7 +335,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void KM(String str) {
+    public void KL(String str) {
         if (this.jms != null && this.jms.jmS != null) {
             if ("1".equals(str) || "2".equals(str)) {
                 com.baidu.tieba.play.h.a(this.jms.jmS.videoMd5, "", str, this.jmv, this.jmr.getVideoView().getPcdnState());
@@ -349,7 +349,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
 
     public void pauseVideo() {
         if (isPlaying()) {
-            this.jmr.aUC();
+            this.jmr.aUD();
         }
     }
 
@@ -368,7 +368,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
         }
     }
 
-    public void cHR() {
+    public void cHS() {
         if (this.jmr != null) {
             this.jmr.destroy();
         }
@@ -376,13 +376,13 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
 
     @Override // com.baidu.tieba.card.b
     public void onDestroy() {
-        cHR();
+        cHS();
         if (this.jmt != null) {
-            this.jmt.cIb();
+            this.jmt.cIc();
         }
     }
 
-    public String KN(String str) {
+    public String KM(String str) {
         if (str.indexOf(".") > 0) {
             return str.replaceAll("0+?$", "").replaceAll("[.]$", "");
         }
@@ -447,7 +447,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
         if (this.jmr != null && this.jmc != null && this.mPageContext != null && this.mPageContext.getPageActivity() != null && this.mPageContext.getPageActivity().getWindow() != null && (this.mPageContext.getPageActivity().getWindow().getDecorView() instanceof FrameLayout)) {
             FrameLayout frameLayout = (FrameLayout) this.mPageContext.getPageActivity().getWindow().getDecorView();
             if (this.jmw) {
-                this.jmr.dBm();
+                this.jmr.dBn();
             }
             if (configuration.orientation == 2) {
                 this.isFullScreen = true;
@@ -479,7 +479,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
                 if (this.jmc.getParent() == null) {
                     this.jmb.addView(this.jmc, 0);
                     this.jmc.setLayoutParams(new FrameLayout.LayoutParams(this.mWidth, (int) (0.5625f * this.mWidth)));
-                    this.jmr.deh();
+                    this.jmr.dei();
                     this.jmw = true;
                 } else {
                     return;
@@ -492,9 +492,9 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (cuC() != null) {
+        if (cuD() != null) {
             view.setTag(this);
-            cuC().a(view, this.jms);
+            cuD().a(view, this.jms);
         }
         if (view == this.jmi || view == this.ala) {
             boolean z = false;
@@ -518,9 +518,9 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
         } else if (view == this.jmh) {
             if (this.jms != null && this.jms.jmS != null) {
                 this.jmf.setVisibility(8);
-                this.jmr.dBp();
+                this.jmr.dBq();
                 this.jmr.fY(this.jms.jmS.videoUrl, this.jms.threadId);
-                KM("2");
+                KL("2");
             }
         } else if (view == this.jmj) {
             if (!this.jms.jmR.hasFocus) {
@@ -549,7 +549,7 @@ public class b extends com.baidu.tieba.card.b<g> implements c {
     }
 
     @Override // com.baidu.tieba.frs.aggregation.c
-    public void cHS() {
+    public void cHT() {
         if (this.jms != null) {
             this.jms.hasAgree = !this.jms.hasAgree;
             if (this.jms.hasAgree) {

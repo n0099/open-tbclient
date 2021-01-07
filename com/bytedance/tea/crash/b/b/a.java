@@ -9,10 +9,10 @@ import java.util.HashMap;
 public abstract class a<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected final String f7921a = IMConstants.MSG_ROW_ID;
+    protected final String f7922a = IMConstants.MSG_ROW_ID;
 
     /* renamed from: b  reason: collision with root package name */
-    protected final String f7922b;
+    protected final String f7923b;
 
     protected abstract HashMap<String, String> a();
 
@@ -20,13 +20,13 @@ public abstract class a<T> {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public a(String str) {
-        this.f7922b = str;
+        this.f7923b = str;
     }
 
     public void a(SQLiteDatabase sQLiteDatabase) {
         try {
             StringBuilder sb = new StringBuilder();
-            sb.append("CREATE TABLE ").append(this.f7922b).append(" (_id INTEGER PRIMARY KEY AUTOINCREMENT, ");
+            sb.append("CREATE TABLE ").append(this.f7923b).append(" (_id INTEGER PRIMARY KEY AUTOINCREMENT, ");
             HashMap<String, String> a2 = a();
             if (a2 != null) {
                 for (String str : a2.keySet()) {
@@ -44,7 +44,7 @@ public abstract class a<T> {
     public void a(SQLiteDatabase sQLiteDatabase, T t) {
         if (sQLiteDatabase != null && t != null) {
             try {
-                sQLiteDatabase.insert(this.f7922b, null, aY(t));
+                sQLiteDatabase.insert(this.f7923b, null, aY(t));
             } catch (Exception e) {
                 j.b(e);
             }

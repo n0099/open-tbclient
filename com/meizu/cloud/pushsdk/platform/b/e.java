@@ -10,10 +10,10 @@ import java.util.concurrent.ScheduledExecutorService;
 public class e extends c<SubTagsStatus> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f11662a;
+    private String f11663a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f11663b;
+    private int f11664b;
     private String c;
 
     public e(Context context, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
@@ -27,16 +27,16 @@ public class e extends c<SubTagsStatus> {
 
     public e(Context context, String str, String str2, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         super(context, str, str2, aVar, scheduledExecutorService);
-        this.f11663b = 3;
+        this.f11664b = 3;
     }
 
     public e(Context context, String str, String str2, String str3, com.meizu.cloud.pushsdk.platform.a.a aVar, ScheduledExecutorService scheduledExecutorService) {
         this(context, str, str2, aVar, scheduledExecutorService);
-        this.f11662a = str3;
+        this.f11663a = str3;
     }
 
     public void a(int i) {
-        this.f11663b = i;
+        this.f11664b = i;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -52,7 +52,7 @@ public class e extends c<SubTagsStatus> {
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
     protected boolean a() {
-        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.f11662a)) ? false : true;
+        return (TextUtils.isEmpty(this.f) || TextUtils.isEmpty(this.g) || TextUtils.isEmpty(this.f11663a)) ? false : true;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -61,15 +61,15 @@ public class e extends c<SubTagsStatus> {
         intent.putExtra("app_id", this.f);
         intent.putExtra("app_key", this.g);
         intent.putExtra("strategy_package_name", this.e.getPackageName());
-        intent.putExtra("push_id", this.f11662a);
+        intent.putExtra("push_id", this.f11663a);
         intent.putExtra("strategy_type", g());
-        intent.putExtra("strategy_child_type", this.f11663b);
+        intent.putExtra("strategy_child_type", this.f11664b);
         intent.putExtra("strategy_params", this.c);
         return intent;
     }
 
     public void e(String str) {
-        this.f11662a = str;
+        this.f11663a = str;
     }
 
     @Override // com.meizu.cloud.pushsdk.platform.b.c
@@ -88,7 +88,7 @@ public class e extends c<SubTagsStatus> {
             subTagsStatus.setMessage("appId not empty");
         } else if (TextUtils.isEmpty(this.g)) {
             subTagsStatus.setMessage("appKey not empty");
-        } else if (TextUtils.isEmpty(this.f11662a)) {
+        } else if (TextUtils.isEmpty(this.f11663a)) {
             subTagsStatus.setMessage("pushId not empty");
         }
         return subTagsStatus;
@@ -101,18 +101,18 @@ public class e extends c<SubTagsStatus> {
     public SubTagsStatus e() {
         SubTagsStatus subTagsStatus = new SubTagsStatus();
         com.meizu.cloud.pushsdk.b.a.c cVar = null;
-        switch (this.f11663b) {
+        switch (this.f11664b) {
             case 0:
-                cVar = this.j.a(this.f, this.g, this.f11662a, this.c);
+                cVar = this.j.a(this.f, this.g, this.f11663a, this.c);
                 break;
             case 1:
-                cVar = this.j.b(this.f, this.g, this.f11662a, this.c);
+                cVar = this.j.b(this.f, this.g, this.f11663a, this.c);
                 break;
             case 2:
-                cVar = this.j.d(this.f, this.g, this.f11662a);
+                cVar = this.j.d(this.f, this.g, this.f11663a);
                 break;
             case 3:
-                cVar = this.j.e(this.f, this.g, this.f11662a);
+                cVar = this.j.e(this.f, this.g, this.f11663a);
                 break;
         }
         if (cVar.b()) {

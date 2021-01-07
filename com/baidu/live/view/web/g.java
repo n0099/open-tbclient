@@ -32,7 +32,7 @@ public class g {
     private long userId;
     private String userName;
 
-    public a[] aae() {
+    public a[] aaf() {
         r0[0].a(this.bWS);
         com.baidu.live.view.web.a.i iVar = new com.baidu.live.view.web.a.i();
         iVar.setHost(this.isHost);

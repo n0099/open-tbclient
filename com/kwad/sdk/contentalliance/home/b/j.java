@@ -7,7 +7,7 @@ import com.kwad.sdk.contentalliance.refreshview.KsAdHotRefreshView;
 public class j extends com.kwad.sdk.contentalliance.home.e {
 
     /* renamed from: b  reason: collision with root package name */
-    private KsAdHotRefreshView f8999b;
+    private KsAdHotRefreshView f9000b;
     private SlidePlayViewPager c;
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -15,8 +15,8 @@ public class j extends com.kwad.sdk.contentalliance.home.e {
     public void a() {
         super.a();
         com.kwad.sdk.core.d.a.b("HomeViewPagerPresenter", "onBind");
-        this.c = this.f9033a.c;
-        this.c.a(this.f9033a, this.f8999b);
+        this.c = this.f9034a.c;
+        this.c.a(this.f9034a, this.f9000b);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -31,7 +31,7 @@ public class j extends com.kwad.sdk.contentalliance.home.e {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8999b = (KsAdHotRefreshView) b(R.id.ksad_refresh_layout);
-        this.f8999b.setRefreshInitialOffset(0.0f);
+        this.f9000b = (KsAdHotRefreshView) b(R.id.ksad_refresh_layout);
+        this.f9000b.setRefreshInitialOffset(0.0f);
     }
 }

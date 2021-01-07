@@ -28,18 +28,18 @@ public abstract class a extends aa {
 
     @Override // com.baidu.swan.apps.scheme.actions.aa
     public boolean a(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, e eVar) {
-        f ajs = com.baidu.swan.apps.v.f.aDG().ajs();
-        if (ajs == null) {
+        f ajt = com.baidu.swan.apps.v.f.aDH().ajt();
+        if (ajt == null) {
             com.baidu.swan.apps.console.c.e(this.eno, "fragment manager is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        com.baidu.swan.games.u.a.b.b bVar = (com.baidu.swan.games.u.a.b.b) ajs.j(com.baidu.swan.apps.core.d.j.class);
+        com.baidu.swan.games.u.a.b.b bVar = (com.baidu.swan.games.u.a.b.b) ajt.j(com.baidu.swan.apps.core.d.j.class);
         if (bVar == null) {
             com.baidu.swan.apps.console.c.e(this.eno, "fragment is null");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return a(bVar.atq(), unitedSchemeEntity, callbackHandler);
+        return a(bVar.atr(), unitedSchemeEntity, callbackHandler);
     }
 }

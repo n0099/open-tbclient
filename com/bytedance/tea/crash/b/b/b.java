@@ -25,7 +25,7 @@ public class b extends a<com.bytedance.tea.crash.b.a.a> {
             return false;
         }
         try {
-            query = sQLiteDatabase.query(this.f7922b, null, "path=?", new String[]{str}, null, null, null);
+            query = sQLiteDatabase.query(this.f7923b, null, "path=?", new String[]{str}, null, null, null);
             i = query.getCount();
         } catch (Exception e) {
             e = e;
@@ -45,10 +45,10 @@ public class b extends a<com.bytedance.tea.crash.b.a.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.bytedance.tea.crash.b.b.a
     public void a(SQLiteDatabase sQLiteDatabase, com.bytedance.tea.crash.b.a.a aVar) {
-        if (aVar != null && !c(sQLiteDatabase, aVar.f7919a)) {
+        if (aVar != null && !c(sQLiteDatabase, aVar.f7920a)) {
             super.a(sQLiteDatabase, (SQLiteDatabase) aVar);
             try {
-                sQLiteDatabase.execSQL("delete from " + this.f7922b + " where " + IMConstants.MSG_ROW_ID + " in (select " + IMConstants.MSG_ROW_ID + " from " + this.f7922b + " order by insert_time desc limit 1000 offset 500)");
+                sQLiteDatabase.execSQL("delete from " + this.f7923b + " where " + IMConstants.MSG_ROW_ID + " in (select " + IMConstants.MSG_ROW_ID + " from " + this.f7923b + " order by insert_time desc limit 1000 offset 500)");
             } catch (Exception e) {
                 j.b(e);
             }
@@ -71,8 +71,8 @@ public class b extends a<com.bytedance.tea.crash.b.a.a> {
     /* renamed from: b */
     public ContentValues aY(com.bytedance.tea.crash.b.a.a aVar) {
         ContentValues contentValues = new ContentValues();
-        contentValues.put("path", aVar.f7919a);
-        contentValues.put("insert_time", Long.valueOf(aVar.f7920b));
+        contentValues.put("path", aVar.f7920a);
+        contentValues.put("insert_time", Long.valueOf(aVar.f7921b));
         return contentValues;
     }
 }

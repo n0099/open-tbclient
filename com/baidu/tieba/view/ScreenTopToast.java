@@ -24,7 +24,7 @@ public class ScreenTopToast extends LinearLayout {
     private boolean isShow;
     private Runnable mHideRunnable;
     private TextView mTitleView;
-    private ShadowLinearLayout nUJ;
+    private ShadowLinearLayout nUI;
 
     public ScreenTopToast(Context context) {
         this(context, null);
@@ -45,7 +45,7 @@ public class ScreenTopToast extends LinearLayout {
             setPadding(0, UtilHelper.getStatusBarHeight(), 0, 0);
         }
         LayoutInflater.from(getContext()).inflate(R.layout.screen_top_toast_layout, this);
-        this.nUJ = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
+        this.nUI = (ShadowLinearLayout) findViewById(R.id.screen_top_toast_group);
         this.mTitleView = (TextView) findViewById(R.id.screen_top_toast_title);
         this.cWc = (TextView) findViewById(R.id.screen_top_toast_content);
         this.iLr = (TBSpecificationBtn) findViewById(R.id.screen_top_toast_btn);
@@ -83,17 +83,17 @@ public class ScreenTopToast extends LinearLayout {
         };
     }
 
-    public ScreenTopToast Vc(String str) {
+    public ScreenTopToast Vb(String str) {
         this.mTitleView.setText(str);
         return this;
     }
 
-    public ScreenTopToast Vd(String str) {
+    public ScreenTopToast Vc(String str) {
         this.cWc.setText(str);
         return this;
     }
 
-    public ScreenTopToast Ve(String str) {
+    public ScreenTopToast Vd(String str) {
         this.iLr.setText(str);
         return this;
     }
@@ -134,8 +134,8 @@ public class ScreenTopToast extends LinearLayout {
     public void onChangeSkinType() {
         ao.setViewTextColor(this.mTitleView, R.color.CAM_X0302);
         ao.setViewTextColor(this.cWc, R.color.CAM_X0302);
-        this.iLr.bxO();
-        this.nUJ.onChangeSkinType();
+        this.iLr.bxP();
+        this.nUI.onChangeSkinType();
     }
 
     public boolean isShow() {

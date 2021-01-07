@@ -35,42 +35,42 @@ public class FrsPrivateCommonDialogView extends LinearLayout {
     }
 
     public boolean b(PrivateForumPopInfoData privateForumPopInfoData) {
-        if (privateForumPopInfoData == null || privateForumPopInfoData.bqo() == null) {
+        if (privateForumPopInfoData == null || privateForumPopInfoData.bqp() == null) {
             return false;
         }
-        String str = privateForumPopInfoData.bqo() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + privateForumPopInfoData.bqr();
-        if (com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(str, false)) {
+        String str = privateForumPopInfoData.bqp() + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + privateForumPopInfoData.bqs();
+        if (com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(str, false)) {
             return false;
         }
-        com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(str, true);
-        if (privateForumPopInfoData.bqo().equals("task_complete")) {
+        com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(str, true);
+        if (privateForumPopInfoData.bqp().equals("task_complete")) {
             this.jiP.setVisibility(0);
             this.jiO.setVisibility(8);
         } else {
             this.jiP.setVisibility(8);
             this.jiO.setVisibility(0);
         }
-        if (privateForumPopInfoData.bqo().equals("create_success")) {
+        if (privateForumPopInfoData.bqp().equals("create_success")) {
             this.bNi.setVisibility(0);
             this.bNi.setText(R.string.frs_private_create_title);
             this.jiO.setText(R.string.frs_private_create_button);
             com.baidu.tbadk.core.util.ao.setImageResource(this.fhd, R.drawable.pic_frs_private_create_success);
-        } else if (privateForumPopInfoData.bqo().equals("left_time")) {
+        } else if (privateForumPopInfoData.bqp().equals("left_time")) {
             this.bNi.setVisibility(8);
             this.jiO.setText(R.string.frs_private_create_button);
             com.baidu.tbadk.core.util.ao.setImageResource(this.fhd, R.drawable.pic_frs_private_target_remind);
-        } else if (privateForumPopInfoData.bqo().equals("clear_forum")) {
+        } else if (privateForumPopInfoData.bqp().equals("clear_forum")) {
             this.bNi.setVisibility(8);
             this.jiO.setText(R.string.frs_private_fail_button);
             com.baidu.tbadk.core.util.ao.setImageResource(this.fhd, R.drawable.pic_frs_private_target_fail);
-        } else if (!privateForumPopInfoData.bqo().equals("task_complete")) {
+        } else if (!privateForumPopInfoData.bqp().equals("task_complete")) {
             return false;
         } else {
             this.bNi.setVisibility(0);
             this.bNi.setText(R.string.frs_private_success_title);
             com.baidu.tbadk.core.util.ao.setImageResource(this.fhd, R.drawable.pic_frs_private_target_success);
         }
-        this.iFV.setText(privateForumPopInfoData.bqp());
+        this.iFV.setText(privateForumPopInfoData.bqq());
         return true;
     }
 

@@ -25,14 +25,14 @@ public abstract class a {
     protected int isShow;
     protected long liveId;
     protected long msgId;
-    protected c.a oqA;
-    protected com.baidu.live.data.a oqz;
+    protected com.baidu.live.data.a oqy;
+    protected c.a oqz;
 
-    protected abstract void ecY();
+    protected abstract void ecZ();
 
     public void a(com.baidu.tieba.yuyinala.liveroom.data.a aVar, com.baidu.live.im.data.b bVar, JSONObject jSONObject, c.a aVar2) {
-        this.oqA = aVar2;
-        this.oqz = bVar.Nw();
+        this.oqz = aVar2;
+        this.oqy = bVar.Nw();
         this.msgId = bVar.getMsgId();
         this.boI = bVar.boI;
         this.giftId = jSONObject.optString(LogConfig.LOG_GIFT_ID);
@@ -52,12 +52,12 @@ public abstract class a {
         this.liveId = 0L;
         this.groupId = 0L;
         this.hAS = 0L;
-        if (aVar.ooR != null && aVar.ooR.HR() != null && aVar.ooR.HR().mLiveInfo != null) {
-            this.liveId = aVar.ooR.HR().mLiveInfo.live_id;
-            this.groupId = aVar.ooR.HR().mLiveInfo.group_id;
-            this.hAS = aVar.ooR.HR().aKu.userId;
-            this.appId = aVar.ooR.HR().mLiveInfo.appId;
+        if (aVar.ooQ != null && aVar.ooQ.HR() != null && aVar.ooQ.HR().mLiveInfo != null) {
+            this.liveId = aVar.ooQ.HR().mLiveInfo.live_id;
+            this.groupId = aVar.ooQ.HR().mLiveInfo.group_id;
+            this.hAS = aVar.ooQ.HR().aKu.userId;
+            this.appId = aVar.ooQ.HR().mLiveInfo.appId;
         }
-        ecY();
+        ecZ();
     }
 }

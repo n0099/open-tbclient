@@ -8,14 +8,14 @@ import android.widget.ImageView;
 import com.qq.e.comm.plugin.aa.b.c;
 import com.qq.e.comm.plugin.aa.b.f;
 import com.qq.e.comm.util.GDTLogger;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d extends FrameLayout implements b, c.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f11969a;
+    private Context f11970a;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f11970b;
+    private boolean f11971b;
     private boolean c;
     private e d;
     private ImageView e;
@@ -23,7 +23,7 @@ public class d extends FrameLayout implements b, c.a {
     private final Handler g;
     private f.a h;
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a(int i, Exception exc);
 
@@ -47,16 +47,16 @@ public class d extends FrameLayout implements b, c.a {
             return;
         }
         if (this.d.c()) {
-            this.e.setImageBitmap(g.b(this.f11969a));
+            this.e.setImageBitmap(g.b(this.f11970a));
         } else {
-            this.e.setImageBitmap(g.a(this.f11969a));
+            this.e.setImageBitmap(g.a(this.f11970a));
         }
     }
 
     public void a(int i) {
         if (this.c) {
-            if (!this.f11970b) {
-                this.f11970b = true;
+            if (!this.f11971b) {
+                this.f11971b = true;
                 setVisibility(0);
             }
             a();
@@ -87,14 +87,14 @@ public class d extends FrameLayout implements b, c.a {
 
     @Override // com.qq.e.comm.plugin.aa.b.b
     public void d() {
-        if (this.f11970b) {
+        if (this.f11971b) {
             try {
                 this.g.removeMessages(2);
                 setVisibility(4);
             } catch (IllegalArgumentException e) {
                 GDTLogger.d("MediaController already removed");
             }
-            this.f11970b = false;
+            this.f11971b = false;
         }
     }
 
@@ -104,21 +104,21 @@ public class d extends FrameLayout implements b, c.a {
             return;
         }
         if (this.d.d()) {
-            this.f.setImageBitmap(g.d(this.f11969a));
+            this.f.setImageBitmap(g.d(this.f11970a));
         } else {
-            this.f.setImageBitmap(g.c(this.f11969a));
+            this.f.setImageBitmap(g.c(this.f11970a));
         }
     }
 
     @Override // com.qq.e.comm.plugin.aa.b.c.a
     public void h() {
-        if (this.f11970b) {
+        if (this.f11971b) {
             c();
         }
     }
 
     @Override // android.view.View, com.qq.e.comm.plugin.aa.b.b
     public boolean isShown() {
-        return this.f11970b;
+        return this.f11971b;
     }
 }

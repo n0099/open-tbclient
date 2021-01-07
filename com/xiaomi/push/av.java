@@ -13,7 +13,7 @@ class av implements ar {
 
     @Override // com.xiaomi.push.ar
     /* renamed from: b */
-    public String mo154b() {
+    public String mo165b() {
         return null;
     }
 

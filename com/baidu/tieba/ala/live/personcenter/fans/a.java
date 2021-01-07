@@ -49,7 +49,7 @@ public class a {
         return TextUtils.isEmpty(this.name_show) ? this.userName : this.name_show;
     }
 
-    public boolean cbh() {
+    public boolean cbi() {
         return this.aQP != 0;
     }
 }

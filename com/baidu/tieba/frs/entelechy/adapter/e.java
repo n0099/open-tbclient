@@ -41,10 +41,10 @@ public class e extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.x, a> imp
     public View a(int i, View view, ViewGroup viewGroup, com.baidu.tieba.tbadkCore.x xVar, a aVar) {
         boolean z = true;
         super.a(i, view, viewGroup, (ViewGroup) xVar, (com.baidu.tieba.tbadkCore.x) aVar);
-        if (xVar.dOw()) {
-            String dOx = xVar.dOx();
-            if (dOx != null) {
-                aVar.jpx.setText(dOx);
+        if (xVar.dOx()) {
+            String dOy = xVar.dOy();
+            if (dOy != null) {
+                aVar.jpx.setText(dOy);
             } else if (this.jeH != null && this.jeH.getForum() != null && this.jeH.getForum().getName() != null) {
                 TextView textView = aVar.jpx;
                 Context context = this.mContext;
@@ -60,9 +60,9 @@ public class e extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.x, a> imp
             aVar.jpw.setVisibility(8);
             aVar.jpD.setVisibility(8);
         }
-        com.baidu.tieba.tbadkCore.r dOy = xVar.dOy();
-        if (dOy != null && dOy.dOp() && !TextUtils.isEmpty(dOy.dOq())) {
-            aVar.jpz.setText(dOy.dOq());
+        com.baidu.tieba.tbadkCore.r dOz = xVar.dOz();
+        if (dOz != null && dOz.dOq() && !TextUtils.isEmpty(dOz.dOr())) {
+            aVar.jpz.setText(dOz.dOr());
             aVar.jpy.setTag(Integer.valueOf(i));
             aVar.jpy.setOnClickListener(this);
             aVar.jpy.setVisibility(0);
@@ -90,7 +90,7 @@ public class e extends com.baidu.tieba.frs.k<com.baidu.tieba.tbadkCore.x, a> imp
             aVar.jpB.setVisibility(8);
             aVar.jpF.setVisibility(8);
         }
-        if (!this.jpu && !xVar.dOw()) {
+        if (!this.jpu && !xVar.dOx()) {
             if (z) {
                 aVar.jpw.setVisibility(8);
                 aVar.jpy.setVisibility(8);

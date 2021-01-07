@@ -21,7 +21,7 @@ public class AlaLivePriseGuideView extends LinearLayout {
         initUI();
     }
 
-    public boolean ciF() {
+    public boolean ciG() {
         if (this.hEG != null) {
             this.hEG.cancelAnimation();
             this.hEG = null;

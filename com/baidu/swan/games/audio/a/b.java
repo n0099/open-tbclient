@@ -39,7 +39,7 @@ public class b implements a {
             Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
         }
         if (this.efp == null) {
-            this.efp = com.baidu.swan.games.network.b.bbh();
+            this.efp = com.baidu.swan.games.network.b.bbi();
         }
         c cVar = new c(this.efp, this.efo, str, this);
         this.efn.put(str, cVar);

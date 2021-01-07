@@ -8,7 +8,7 @@ import androidx.core.content.PermissionChecker;
 import com.baidu.webkit.internal.ETAG;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class al {
     private static w AW;
     private static volatile al Bv;
@@ -22,7 +22,7 @@ public class al {
     private SimpleDateFormat By = new SimpleDateFormat("yyyyMMdd-HHmmss");
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f1058b = false;
+    public boolean f1059b = false;
 
     private al() {
     }
@@ -136,7 +136,7 @@ public class al {
                 i = -1;
             } else {
                 this.c = true;
-                if (this.f1058b) {
+                if (this.f1059b) {
                     this.Bw = new am(this, looper);
                     o.b(this.Bw, 1);
                 }

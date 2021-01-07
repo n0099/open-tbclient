@@ -11,10 +11,10 @@ import java.util.concurrent.atomic.AtomicReference;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final q<?, ?, ?> f10266a = new q<>(Object.class, Object.class, Object.class, Collections.singletonList(new g(Object.class, Object.class, Object.class, Collections.emptyList(), new com.kwad.sdk.glide.load.resource.e.g(), null)), null);
+    private static final q<?, ?, ?> f10267a = new q<>(Object.class, Object.class, Object.class, Collections.singletonList(new g(Object.class, Object.class, Object.class, Collections.emptyList(), new com.kwad.sdk.glide.load.resource.e.g(), null)), null);
 
     /* renamed from: b  reason: collision with root package name */
-    private final ArrayMap<i, q<?, ?, ?>> f10267b = new ArrayMap<>();
+    private final ArrayMap<i, q<?, ?, ?>> f10268b = new ArrayMap<>();
     private final AtomicReference<i> c = new AtomicReference<>();
 
     private i b(Class<?> cls, Class<?> cls2, Class<?> cls3) {
@@ -30,25 +30,25 @@ public class c {
     public <Data, TResource, Transcode> q<Data, TResource, Transcode> a(Class<Data> cls, Class<TResource> cls2, Class<Transcode> cls3) {
         q<Data, TResource, Transcode> qVar;
         i b2 = b(cls, cls2, cls3);
-        synchronized (this.f10267b) {
-            qVar = (q<Data, TResource, Transcode>) this.f10267b.get(b2);
+        synchronized (this.f10268b) {
+            qVar = (q<Data, TResource, Transcode>) this.f10268b.get(b2);
         }
         this.c.set(b2);
         return qVar;
     }
 
     public void a(Class<?> cls, Class<?> cls2, Class<?> cls3, @Nullable q<?, ?, ?> qVar) {
-        synchronized (this.f10267b) {
-            ArrayMap<i, q<?, ?, ?>> arrayMap = this.f10267b;
+        synchronized (this.f10268b) {
+            ArrayMap<i, q<?, ?, ?>> arrayMap = this.f10268b;
             i iVar = new i(cls, cls2, cls3);
             if (qVar == null) {
-                qVar = f10266a;
+                qVar = f10267a;
             }
             arrayMap.put(iVar, qVar);
         }
     }
 
     public boolean a(@Nullable q<?, ?, ?> qVar) {
-        return f10266a.equals(qVar);
+        return f10267a.equals(qVar);
     }
 }

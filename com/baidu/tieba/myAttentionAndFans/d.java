@@ -58,20 +58,20 @@ public class d extends b {
     @Override // com.baidu.tieba.myAttentionAndFans.b
     public void a(be beVar) {
         ArrayList arrayList = new ArrayList();
-        if (this.eYq.isEmpty() && !x.isEmpty(beVar.bqj())) {
-            Iterator<UserData> it = beVar.bqj().iterator();
+        if (this.eYq.isEmpty() && !x.isEmpty(beVar.bqk())) {
+            Iterator<UserData> it = beVar.bqk().iterator();
             while (it.hasNext()) {
                 UserData next = it.next();
                 if (next != null && !StringUtils.isNull(next.getUserId())) {
                     this.lsH.add(Long.valueOf(com.baidu.adp.lib.f.b.toLong(next.getUserId(), 0L)));
                 }
             }
-            arrayList.addAll(beVar.bqj());
+            arrayList.addAll(beVar.bqk());
             UserData userData = new UserData();
             userData.mAttentionType = 0;
             arrayList.add(userData);
         }
-        arrayList.addAll(aW(beVar.bqi()));
+        arrayList.addAll(aW(beVar.bqj()));
         this.eYq.addAll(arrayList);
     }
 
@@ -170,7 +170,7 @@ public class d extends b {
                             }
                         }
                     });
-                    aVar2.lsf = com.baidu.tbadk.ala.b.bno().A(this.lsa.getPageContext().getPageActivity(), 5);
+                    aVar2.lsf = com.baidu.tbadk.ala.b.bnp().A(this.lsa.getPageContext().getPageActivity(), 5);
                     if (aVar2.lsf != null) {
                         aVar2.lsf.setVisibility(8);
                         aVar2.mContainer.addView(aVar2.lsf, 1);

@@ -8,28 +8,28 @@ import android.widget.MediaController;
 public class f {
     private MediaController.MediaPlayerControl gjV;
     private a ivR;
-    private c mCH;
-    private b mCI;
-    private int mCF = 1000;
-    private int mCG = 0;
+    private c mCG;
+    private b mCH;
+    private int mCE = 1000;
+    private int mCF = 0;
     private Handler mHandler = new Handler(Looper.getMainLooper()) { // from class: com.baidu.tieba.play.f.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message != null && message.what == 1 && f.this.gjV != null && f.this.gjV.isPlaying()) {
                 int currentPosition = f.this.gjV.getCurrentPosition();
                 int duration = f.this.gjV.getDuration();
-                if (currentPosition < f.this.mCG) {
+                if (currentPosition < f.this.mCF) {
                     if (f.this.ivR != null) {
                         f.this.ivR.rF();
                     }
-                } else if (currentPosition == f.this.mCG && f.this.mCH != null) {
-                    f.this.mCH.bUB();
+                } else if (currentPosition == f.this.mCF && f.this.mCG != null) {
+                    f.this.mCG.bUC();
                 }
-                if (f.this.mCI != null) {
-                    f.this.mCI.ch(duration, currentPosition);
+                if (f.this.mCH != null) {
+                    f.this.mCH.ch(duration, currentPosition);
                 }
-                f.this.mCG = currentPosition;
-                f.this.dBB();
+                f.this.mCF = currentPosition;
+                f.this.dBC();
             }
         }
     };
@@ -46,7 +46,7 @@ public class f {
 
     /* loaded from: classes.dex */
     public interface c {
-        void bUB();
+        void bUC();
     }
 
     public void setPlayer(MediaController.MediaPlayerControl mediaPlayerControl) {
@@ -54,8 +54,8 @@ public class f {
     }
 
     public void start() {
-        this.mCG = 0;
-        dBB();
+        this.mCF = 0;
+        dBC();
     }
 
     public void stop() {
@@ -63,9 +63,9 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dBB() {
+    public void dBC() {
         this.mHandler.removeMessages(1);
-        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.mCF);
+        this.mHandler.sendMessageDelayed(this.mHandler.obtainMessage(1), this.mCE);
     }
 
     public void a(a aVar) {
@@ -73,10 +73,10 @@ public class f {
     }
 
     public void a(c cVar) {
-        this.mCH = cVar;
+        this.mCG = cVar;
     }
 
     public void a(b bVar) {
-        this.mCI = bVar;
+        this.mCH = bVar;
     }
 }

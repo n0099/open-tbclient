@@ -26,9 +26,9 @@ public class b extends PopupWindow {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void aoK();
+        void aoL();
 
-        void azu();
+        void azv();
 
         void hW(int i);
 
@@ -80,7 +80,7 @@ public class b extends PopupWindow {
                 if (i >= 0 && i <= b.this.dgn.length) {
                     if (i == 11) {
                         if (b.this.dgh != null) {
-                            b.this.dgh.azu();
+                            b.this.dgh.azv();
                         }
                     } else if (b.this.dgh != null) {
                         b.this.dgh.oX(b.this.dgn[i]);
@@ -131,7 +131,7 @@ public class b extends PopupWindow {
             ((SwanAppActivity) this.mActivity).b(this.dgq);
         }
         if (this.dgh != null) {
-            this.dgh.aoK();
+            this.dgh.aoL();
         }
     }
 

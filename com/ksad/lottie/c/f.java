@@ -7,7 +7,7 @@ import android.util.JsonToken;
 public class f implements aj<Integer> {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final f f8270a = new f();
+    public static final f f8271a = new f();
 
     private f() {
     }

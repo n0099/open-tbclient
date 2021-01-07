@@ -17,19 +17,19 @@ public class d {
         }
     }
 
-    public String cpT() {
+    public String cpU() {
         return this.mark_name;
     }
 
-    public int cqb() {
+    public int cqc() {
         return this.ibF;
     }
 
-    public int cpX() {
+    public int cpY() {
         return this.ibz;
     }
 
-    public String cpU() {
+    public String cpV() {
         return this.mark_pic;
     }
 }

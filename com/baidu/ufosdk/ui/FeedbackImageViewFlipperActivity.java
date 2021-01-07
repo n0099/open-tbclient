@@ -13,10 +13,10 @@ import androidx.core.view.ViewCompat;
 public class FeedbackImageViewFlipperActivity extends Activity implements GestureDetector.OnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private GestureDetector f5694a;
+    private GestureDetector f5695a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewFlipper f5695b;
+    private ViewFlipper f5696b;
 
     @Override // android.app.Activity
     protected void onCreate(Bundle bundle) {
@@ -32,27 +32,27 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
         linearLayout.setOrientation(1);
         linearLayout.setGravity(17);
         linearLayout.setBackgroundColor(ViewCompat.MEASURED_STATE_MASK);
-        this.f5695b = new ViewFlipper(this);
-        linearLayout.addView(this.f5695b, layoutParams);
+        this.f5696b = new ViewFlipper(this);
+        linearLayout.addView(this.f5696b, layoutParams);
         setContentView(linearLayout);
-        this.f5694a = new GestureDetector(this);
+        this.f5695a = new GestureDetector(this);
         ImageView imageView = new ImageView(this);
         imageView.setAdjustViewBounds(true);
         imageView.setScaleType(ImageView.ScaleType.FIT_CENTER);
-        imageView.setImageBitmap(FeedbackInputActivity.f5696a);
-        this.f5695b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
-        this.f5695b.setAutoStart(false);
-        this.f5695b.setFlipInterval(3000);
-        if (!this.f5695b.isAutoStart() || this.f5695b.isFlipping()) {
+        imageView.setImageBitmap(FeedbackInputActivity.f5697a);
+        this.f5696b.addView(imageView, new ViewGroup.LayoutParams(-1, -1));
+        this.f5696b.setAutoStart(false);
+        this.f5696b.setFlipInterval(3000);
+        if (!this.f5696b.isAutoStart() || this.f5696b.isFlipping()) {
             return;
         }
-        this.f5695b.startFlipping();
+        this.f5696b.startFlipping();
     }
 
     @Override // android.app.Activity
     public void onDestroy() {
         super.onDestroy();
-        FeedbackInputActivity.f5696a = null;
+        FeedbackInputActivity.f5697a = null;
     }
 
     @Override // android.view.GestureDetector.OnGestureListener
@@ -100,8 +100,8 @@ public class FeedbackImageViewFlipperActivity extends Activity implements Gestur
 
     @Override // android.app.Activity
     public boolean onTouchEvent(MotionEvent motionEvent) {
-        this.f5695b.stopFlipping();
-        this.f5695b.setAutoStart(false);
-        return this.f5694a.onTouchEvent(motionEvent);
+        this.f5696b.stopFlipping();
+        this.f5696b.setAutoStart(false);
+        return this.f5695a.onTouchEvent(motionEvent);
     }
 }

@@ -91,7 +91,7 @@ public class CubicRoundRectRelativeLayout extends RelativeLayout {
         }
     }
 
-    private Path ZE() {
+    private Path ZF() {
         this.mPath.reset();
         float f = this.bUn;
         float f2 = (0.0f + f) / 2.0f;
@@ -108,7 +108,7 @@ public class CubicRoundRectRelativeLayout extends RelativeLayout {
 
     private void i(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(ZE());
+        canvas.clipPath(ZF());
         super.dispatchDraw(canvas);
         canvas.restore();
     }
@@ -116,13 +116,13 @@ public class CubicRoundRectRelativeLayout extends RelativeLayout {
     private void j(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.dispatchDraw(canvas);
-        canvas.drawPath(ZE(), this.mPaint);
+        canvas.drawPath(ZF(), this.mPaint);
         canvas.restore();
     }
 
     private void k(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(ZE());
+        canvas.clipPath(ZF());
         super.draw(canvas);
         canvas.restore();
     }
@@ -130,7 +130,7 @@ public class CubicRoundRectRelativeLayout extends RelativeLayout {
     private void l(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.draw(canvas);
-        canvas.drawPath(ZE(), this.mPaint);
+        canvas.drawPath(ZF(), this.mPaint);
         canvas.restore();
     }
 }

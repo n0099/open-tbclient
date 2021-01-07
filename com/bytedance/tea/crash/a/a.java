@@ -8,13 +8,13 @@ import com.baidu.mobstat.Config;
 public class a extends FileObserver {
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f7909b;
+    private final int f7910b;
     private volatile boolean c;
     private final c ppK;
 
     public a(c cVar, String str, int i) {
         super(str, i);
-        this.f7909b = 5000;
+        this.f7910b = 5000;
         this.c = true;
         if (cVar == null || TextUtils.isEmpty(str)) {
             throw new IllegalArgumentException("params is not right path is null or ANRManager is null");
@@ -28,24 +28,24 @@ public class a extends FileObserver {
             this.c = false;
             this.ppK.a(200, "/data/anr/" + str, 80);
             getClass();
-            new C1007a(5000).start();
+            new C1045a(5000).start();
         }
     }
 
     /* renamed from: com.bytedance.tea.crash.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    private final class C1007a extends Thread {
+    private final class C1045a extends Thread {
 
         /* renamed from: b  reason: collision with root package name */
-        private int f7910b;
+        private int f7911b;
 
-        C1007a(int i) {
-            this.f7910b = i;
+        C1045a(int i) {
+            this.f7911b = i;
         }
 
         @Override // java.lang.Thread, java.lang.Runnable
         public void run() {
-            SystemClock.sleep(this.f7910b);
+            SystemClock.sleep(this.f7911b);
             a.this.c = true;
         }
     }

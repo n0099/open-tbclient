@@ -8,11 +8,11 @@ import java.net.UnknownHostException;
 public final class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f5476a = -1;
+    public static int f5477a = -1;
     private static int c = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    static ThreadLocal<StringBuilder> f5477b = new ThreadLocal<>();
+    static ThreadLocal<StringBuilder> f5478b = new ThreadLocal<>();
 
     public static void a() {
     }

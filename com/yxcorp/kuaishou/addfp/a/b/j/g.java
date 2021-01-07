@@ -7,26 +7,26 @@ import android.os.IInterface;
 public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuaishou.addfp.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14677a;
+    private Context f14678a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.yxcorp.kuaishou.addfp.a.a.a f14678b;
+    private com.yxcorp.kuaishou.addfp.a.a.a f14679b;
 
     public g(Context context, com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        this.f14677a = context;
-        this.f14678b = aVar;
+        this.f14678a = context;
+        this.f14679b = aVar;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void a(IInterface iInterface) {
-        if (this.f14678b != null) {
-            this.f14678b.a(d.eKu().c(), this);
+        if (this.f14679b != null) {
+            this.f14679b.a(d.eKY().c(), this);
         }
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void a(com.yxcorp.kuaishou.addfp.a.a.a aVar) {
-        d.eKu().a(this.f14677a, this);
+        d.eKY().a(this.f14678a, this);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -42,24 +42,24 @@ public final class g implements com.yxcorp.kuaishou.addfp.a.b.a, com.yxcorp.kuai
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final String b() {
         String a2;
-        return (d.eKu().c() && (a2 = d.eKu().a()) != null) ? a2 : "";
+        return (d.eKY().c() && (a2 = d.eKY().a()) != null) ? a2 : "";
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
-        return d.eKu().c();
+        return d.eKY().c();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final void d() {
-        d.eKu().a(this.f14677a);
+        d.eKY().a(this.f14678a);
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.b
     public final void e() {
-        if (this.f14678b != null) {
+        if (this.f14679b != null) {
             com.yxcorp.kuaishou.addfp.android.b.b.b("failed here");
-            this.f14678b.a(false, this);
+            this.f14679b.a(false, this);
         }
     }
 }

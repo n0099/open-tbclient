@@ -51,20 +51,20 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void ag(@StringRes int i, int i2) {
-        SwanAppActivity aDq = com.baidu.swan.apps.v.f.aDG().aDq();
-        if (aDq != null && !aDq.isFinishing()) {
+        SwanAppActivity aDr = com.baidu.swan.apps.v.f.aDH().aDr();
+        if (aDr != null && !aDr.isFinishing()) {
             switch (i2) {
                 case 1:
-                    com.baidu.swan.apps.res.widget.b.d.u(aDq, i).aLU();
+                    com.baidu.swan.apps.res.widget.b.d.u(aDr, i).aLV();
                     return;
                 default:
-                    com.baidu.swan.apps.res.widget.b.d.u(aDq, i).aLS();
+                    com.baidu.swan.apps.res.widget.b.d.u(aDr, i).aLT();
                     return;
             }
         }
     }
 
-    public static boolean aqF() {
+    public static boolean aqG() {
         return cRS < 2;
     }
 

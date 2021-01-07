@@ -6,16 +6,16 @@ import org.json.JSONObject;
 public class cu {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f14220a;
+    private int f14221a;
 
     /* renamed from: a  reason: collision with other field name */
-    private long f258a;
+    private long f259a;
 
     /* renamed from: a  reason: collision with other field name */
-    private String f259a;
+    private String f260a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f14221b;
+    private long f14222b;
     private long c;
 
     public cu() {
@@ -23,36 +23,36 @@ public class cu {
     }
 
     public cu(int i, long j, long j2, Exception exc) {
-        this.f14220a = i;
-        this.f258a = j;
+        this.f14221a = i;
+        this.f259a = j;
         this.c = j2;
-        this.f14221b = System.currentTimeMillis();
+        this.f14222b = System.currentTimeMillis();
         if (exc != null) {
-            this.f259a = exc.getClass().getSimpleName();
+            this.f260a = exc.getClass().getSimpleName();
         }
     }
 
     public int a() {
-        return this.f14220a;
+        return this.f14221a;
     }
 
     public cu a(JSONObject jSONObject) {
-        this.f258a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
+        this.f259a = jSONObject.getLong(BdStatsConstant.StatsKey.COST);
         this.c = jSONObject.getLong("size");
-        this.f14221b = jSONObject.getLong("ts");
-        this.f14220a = jSONObject.getInt("wt");
-        this.f259a = jSONObject.optString("expt");
+        this.f14222b = jSONObject.getLong("ts");
+        this.f14221a = jSONObject.getInt("wt");
+        this.f260a = jSONObject.optString("expt");
         return this;
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public JSONObject m224a() {
+    public JSONObject m235a() {
         JSONObject jSONObject = new JSONObject();
-        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f258a);
+        jSONObject.put(BdStatsConstant.StatsKey.COST, this.f259a);
         jSONObject.put("size", this.c);
-        jSONObject.put("ts", this.f14221b);
-        jSONObject.put("wt", this.f14220a);
-        jSONObject.put("expt", this.f259a);
+        jSONObject.put("ts", this.f14222b);
+        jSONObject.put("wt", this.f14221a);
+        jSONObject.put("expt", this.f260a);
         return jSONObject;
     }
 }

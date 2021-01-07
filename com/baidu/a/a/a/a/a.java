@@ -6,15 +6,15 @@ import com.baidu.b.f;
 import com.baidu.b.g;
 import com.baidu.b.h;
 import com.baidu.live.adp.lib.cache.BdKVCache;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static boolean f1131a = true;
+    public static boolean f1132a = true;
     private static volatile a e;
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f1132b;
+    private final Context f1133b;
     private h c;
     private g d;
     private c f = new c();
@@ -23,9 +23,9 @@ public final class a {
     private long i;
 
     private a(Context context) {
-        this.f1132b = context.getApplicationContext();
-        this.c = new h(this.f1132b, new com.baidu.b.e.a(this.f1132b), this.f);
-        this.d = new g(this.f1132b, this.f);
+        this.f1133b = context.getApplicationContext();
+        this.c = new h(this.f1133b, new com.baidu.b.e.a(this.f1133b), this.f);
+        this.d = new g(this.f1133b, this.f);
     }
 
     private h.a a() {

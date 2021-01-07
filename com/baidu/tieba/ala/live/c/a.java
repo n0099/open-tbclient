@@ -51,7 +51,7 @@ public abstract class a {
             super.handleMessage(message);
             switch (message.what) {
                 case 1:
-                    a.this.caQ();
+                    a.this.caR();
                     return;
                 default:
                     return;
@@ -73,7 +73,7 @@ public abstract class a {
     /* renamed from: com.baidu.tieba.ala.live.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0663a {
-        void HM(String str);
+        void HL(String str);
 
         void a(boolean z, Intent intent);
     }
@@ -95,7 +95,7 @@ public abstract class a {
         }
     }
 
-    private void bZG() {
+    private void bZH() {
         this.hjV = new IPayCallback() { // from class: com.baidu.tieba.ala.live.c.a.3
             @Override // com.baidu.live.tbadk.pay.channel.interfaces.IPayCallback
             public void onPayResult(int i, String str) {
@@ -104,7 +104,7 @@ public abstract class a {
                 switch (i) {
                     case 0:
                         a.this.a(i, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK_SUCC, null);
-                        a.this.caQ();
+                        a.this.caR();
                         break;
                     case 1:
                         a.this.a(i, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK, null);
@@ -144,8 +144,8 @@ public abstract class a {
                     jSONObject2.put("stimestamp", currentTimeMillis);
                     jSONObject2.put(DownloadDataConstants.Columns.COLUMN_RETRY_COUNT, this.hasResendGetMsg ? 1 : 0);
                 }
-                if (this.hjT != null && !StringUtils.isNull(this.hjT.caR())) {
-                    jSONObject2.put("order_id", this.hjT.caR());
+                if (this.hjT != null && !StringUtils.isNull(this.hjT.caS())) {
+                    jSONObject2.put("order_id", this.hjT.caS());
                 }
                 jSONObject.put("pay", jSONObject2);
             } catch (JSONException e) {
@@ -154,14 +154,14 @@ public abstract class a {
         }
     }
 
-    public void HP(String str) {
+    public void HO(String str) {
         if (this.hjT != null) {
-            this.hjT.HO(str);
+            this.hjT.HN(str);
         }
-        caS();
+        caT();
     }
 
-    public void HQ(String str) {
+    public void HP(String str) {
         this.hjY = 2;
         this.hjZ = str;
         Log.d(IChannelPayController.TAG, "setPayWay mPayWay:" + this.hjZ);
@@ -198,13 +198,13 @@ public abstract class a {
             Log.d(IChannelPayController.TAG, "responseOrder mPayMode:" + this.hjY + " mPayway:" + this.hjZ + ", payChannel:" + str2);
             Log.d(IChannelPayController.TAG, "responseOrder this:" + this);
             if (this.hjY == 2 && !TextUtils.isEmpty(this.hjZ)) {
-                HP(this.hjZ);
+                HO(this.hjZ);
                 return;
             } else if (!TextUtils.isEmpty(str2) && !z && this.hjX != null) {
-                this.hjX.HM(str2);
+                this.hjX.HL(str2);
                 return;
             } else {
-                caS();
+                caT();
                 return;
             }
         }
@@ -250,46 +250,46 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void caQ() {
+    public void caR() {
         if (this.hjT != null) {
             this.bWu.showLoadingDialog(this.bWu.getString(a.h.sdk_pay_loading));
-            this.hjT.caQ();
+            this.hjT.caR();
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_RECHARGE_REQ, UbcStatConstant.ContentType.UBC_TYPE_PAY_STATUS, "liveroom", ""));
         }
     }
 
-    private void caS() {
-        if (this.hjU != null && this.hjT != null && this.hjT.caO() != null && !this.hjT.caO().isEmpty()) {
+    private void caT() {
+        if (this.hjU != null && this.hjT != null && this.hjT.caP() != null && !this.hjT.caP().isEmpty()) {
             if (this.hjV == null) {
-                bZG();
+                bZH();
             }
-            this.hjU.pay(this.hjT.caO(), this.hjV);
+            this.hjU.pay(this.hjT.caP(), this.hjV);
             UbcStatisticManager.getInstance().logSendRequest(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_RECHARGE_REQ, UbcStatConstant.ContentType.UBC_TYPE_PAY_SDK, "liveroom", ""));
         }
     }
 
-    public Intent caT() {
+    public Intent caU() {
         Intent intent = new Intent();
         if (this.hjT != null && this.mCurPayConfig != null) {
             intent.putExtra("result_code", this.mPayStatus);
             intent.putExtra("result_payinfo_status", this.hjW);
             intent.putExtra("result_tbean_num", this.mCurPayConfig.getTBeanNum());
-            intent.putExtra("result_order_id", this.hjT.caR());
+            intent.putExtra("result_order_id", this.hjT.caS());
             intent.putExtra("pay_channel_type_name", this.mPayChannelType.name());
         }
         return intent;
     }
 
-    public int caU() {
+    public int caV() {
         return this.mPayStatus;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void nx(boolean z) {
-        Intent caT = caT();
-        this.bWu.setResult(-1, caT);
+        Intent caU = caU();
+        this.bWu.setResult(-1, caU);
         if (this.hjX != null) {
-            this.hjX.a(z, caT);
+            this.hjX.a(z, caU);
         }
     }
 

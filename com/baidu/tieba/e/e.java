@@ -12,7 +12,7 @@ public class e extends BaseCardInfo {
         this.iCY = featureCardHot;
     }
 
-    public FeatureCardHot cwx() {
+    public FeatureCardHot cwy() {
         return this.iCY;
     }
 

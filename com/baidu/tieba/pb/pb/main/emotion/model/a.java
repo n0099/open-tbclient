@@ -35,33 +35,33 @@ public class a {
     private final NewWriteModel.d fGo = new NewWriteModel.d() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.a.2
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ah ahVar, WriteData writeData, AntiData antiData) {
-            WriteData dco = writeData == null ? a.this.fGa.dco() : writeData;
+            WriteData dcp = writeData == null ? a.this.fGa.dcp() : writeData;
             if (z) {
                 a.this.resetData();
-            } else if (dco != null && ahVar != null && !TextUtils.isEmpty(ahVar.bAf())) {
-                dco.setVcodeMD5(ahVar.getVcode_md5());
-                dco.setVcodeUrl(ahVar.getVcode_pic_url());
-                dco.setVcodeExtra(ahVar.bAg());
-                if (com.baidu.tbadk.t.a.EQ(ahVar.bAf())) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.iJr.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE_FROM_EMOTION, dco, false, ahVar.bAf())));
+            } else if (dcp != null && ahVar != null && !TextUtils.isEmpty(ahVar.bAg())) {
+                dcp.setVcodeMD5(ahVar.getVcode_md5());
+                dcp.setVcodeUrl(ahVar.getVcode_pic_url());
+                dcp.setVcodeExtra(ahVar.bAh());
+                if (com.baidu.tbadk.t.a.EP(ahVar.bAg())) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new NewVcodeActivityConfig(a.this.iJr.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE_FROM_EMOTION, dcp, false, ahVar.bAg())));
                 } else {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.iJr.getPageContext().getPageActivity(), dco, RequestResponseCode.REQUEST_VCODE_FROM_EMOTION)));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VcodeActivityConfig(a.this.iJr.getPageContext().getPageActivity(), dcp, RequestResponseCode.REQUEST_VCODE_FROM_EMOTION)));
                 }
             } else if (postWriteCallBackData != null && postWriteCallBackData.getErrorCode() == 227001) {
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.iJr.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE_FROM_EMOTION, dco, postWriteCallBackData.getAccessState())));
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AccountAccessActivityConfig(a.this.iJr.getPageContext().getPageActivity(), RequestResponseCode.REQUEST_VCODE_FROM_EMOTION, dcp, postWriteCallBackData.getAccessState())));
             }
-            if (a.this.lMC != null) {
-                a.this.lMC.callback(z, postWriteCallBackData, ahVar, dco, antiData);
+            if (a.this.lMB != null) {
+                a.this.lMB.callback(z, postWriteCallBackData, ahVar, dcp, antiData);
             }
         }
     };
     private BaseFragmentActivity iJr;
-    private NewWriteModel.d lMC;
-    private c lYP;
-    private EmotionImageData lYQ;
-    private PbModel lYR;
-    private f lYS;
-    private GetEmotionPidModel lYr;
+    private NewWriteModel.d lMB;
+    private c lYO;
+    private EmotionImageData lYP;
+    private PbModel lYQ;
+    private f lYR;
+    private GetEmotionPidModel lYq;
 
     public a(BaseFragmentActivity baseFragmentActivity) {
         this.iJr = baseFragmentActivity;
@@ -71,21 +71,21 @@ public class a {
 
     public void a(final EmotionImageData emotionImageData, final PbModel pbModel, final f fVar) {
         if (emotionImageData != null && fVar != null) {
-            this.lYQ = emotionImageData;
-            this.lYR = pbModel;
-            this.lYS = fVar;
+            this.lYP = emotionImageData;
+            this.lYQ = pbModel;
+            this.lYR = fVar;
             if (!j.isNetWorkAvailable()) {
                 this.iJr.showToast(R.string.neterror);
             } else if (a(this.iJr.getPageContext(), RequestResponseCode.REQUEST_LOGIN_SEND_EMOTION)) {
                 if (TextUtils.isEmpty(emotionImageData.getPicId())) {
                     if (!TextUtils.isEmpty(emotionImageData.getPicUrl())) {
-                        if (this.lYr == null) {
-                            this.lYr = new GetEmotionPidModel();
+                        if (this.lYq == null) {
+                            this.lYq = new GetEmotionPidModel();
                         }
-                        if (this.lYP != null) {
-                            this.lYP.bFn();
+                        if (this.lYO != null) {
+                            this.lYO.bFo();
                         }
-                        this.lYr.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.a.1
+                        this.lYq.a(emotionImageData.getPicUrl(), new GetEmotionPidModel.a() { // from class: com.baidu.tieba.pb.pb.main.emotion.model.a.1
                             @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
                             public void a(com.baidu.tbadk.img.c cVar) {
                                 if (cVar != null && !TextUtils.isEmpty(cVar.picId)) {
@@ -96,8 +96,8 @@ public class a {
 
                             @Override // com.baidu.tbadk.img.GetEmotionPidModel.a
                             public void onFail(int i, String str) {
-                                if (a.this.lMC != null) {
-                                    a.this.lMC.callback(false, null, null, null, null);
+                                if (a.this.lMB != null) {
+                                    a.this.lMB.callback(false, null, null, null, null);
                                 }
                             }
                         });
@@ -105,8 +105,8 @@ public class a {
                     }
                     return;
                 }
-                if (this.lYP != null) {
-                    this.lYP.bFn();
+                if (this.lYO != null) {
+                    this.lYO.bFo();
                 }
                 b(emotionImageData, pbModel, fVar);
             }
@@ -117,59 +117,59 @@ public class a {
     public void b(EmotionImageData emotionImageData, PbModel pbModel, f fVar) {
         boolean z = true;
         if (emotionImageData != null && fVar != null) {
-            if (this.fGa.dco() == null && pbModel != null) {
-                this.fGa.f(pbModel.DO(null));
+            if (this.fGa.dcp() == null && pbModel != null) {
+                this.fGa.f(pbModel.DN(null));
             }
-            if (this.fGa.dco() != null) {
-                if (fVar.dmE().bsQ()) {
-                    this.fGa.dco().setCanNoForum(true);
+            if (this.fGa.dcp() != null) {
+                if (fVar.dmF().bsR()) {
+                    this.fGa.dcp().setCanNoForum(true);
                     if (fVar.getForum() != null) {
-                        this.fGa.dco().setVForumId(fVar.getForum().getId());
-                        this.fGa.dco().setVForumName(fVar.getForum().getName());
+                        this.fGa.dcp().setVForumId(fVar.getForum().getId());
+                        this.fGa.dcp().setVForumName(fVar.getForum().getName());
                     }
                 } else {
-                    this.fGa.dco().setCanNoForum(false);
-                    this.fGa.dco().setVForumId("");
-                    this.fGa.dco().setVForumName("");
+                    this.fGa.dcp().setCanNoForum(false);
+                    this.fGa.dcp().setVForumId("");
+                    this.fGa.dcp().setVForumName("");
                 }
-                WriteData dco = this.fGa.dco();
-                if (this.fFZ == null || !this.fFZ.cot()) {
+                WriteData dcp = this.fGa.dcp();
+                if (this.fFZ == null || !this.fFZ.cou()) {
                     z = false;
                 }
-                dco.setHasLocationData(z);
+                dcp.setHasLocationData(z);
                 StringBuilder sb = new StringBuilder("meme,");
                 sb.append(emotionImageData.getPicId()).append(",");
                 sb.append(emotionImageData.getWidth()).append(",");
                 sb.append(emotionImageData.getHeight()).append(",");
                 String str = "#(" + sb.toString() + s.toMd5(sb.toString() + "7S6wbXjEKL9N").toLowerCase() + ")";
                 if (StringUtils.isNull(emotionImageData.getAuthorNameShow())) {
-                    this.fGa.dco().setContent(str);
+                    this.fGa.dcp().setContent(str);
                 } else {
-                    this.fGa.dco().setContent(Qi(emotionImageData.getAuthorNameShow()) + str);
+                    this.fGa.dcp().setContent(Qh(emotionImageData.getAuthorNameShow()) + str);
                 }
                 if (!TextUtils.isEmpty(emotionImageData.getMemeContSign())) {
-                    this.fGa.dco().setMemeContSign(emotionImageData.getMemeContSign());
+                    this.fGa.dcp().setMemeContSign(emotionImageData.getMemeContSign());
                 }
                 if (!TextUtils.isEmpty(emotionImageData.getMemeText())) {
-                    this.fGa.dco().setMemeText(emotionImageData.getMemeText());
+                    this.fGa.dcp().setMemeText(emotionImageData.getMemeText());
                 }
                 this.fGa.b(this.fGo);
-                if (!this.fGa.dQB()) {
+                if (!this.fGa.dQC()) {
                 }
             }
         }
     }
 
-    private String Qi(String str) {
+    private String Qh(String str) {
         return "@" + str + " ";
     }
 
     public void b(c cVar) {
-        this.lYP = cVar;
+        this.lYO = cVar;
     }
 
     public void c(NewWriteModel.d dVar) {
-        this.lMC = dVar;
+        this.lMB = dVar;
     }
 
     private boolean a(TbPageContext<?> tbPageContext, int i) {
@@ -185,21 +185,21 @@ public class a {
         if (i2 == -1) {
             if (i == 25017) {
                 if (intent != null) {
-                    WriteData dco = this.fGa != null ? this.fGa.dco() : null;
+                    WriteData dcp = this.fGa != null ? this.fGa.dcp() : null;
                     resetData();
-                    if (this.lMC != null) {
-                        this.lMC.callback(true, null, null, dco, null);
+                    if (this.lMB != null) {
+                        this.lMB.callback(true, null, null, dcp, null);
                     }
                 }
             } else if (i == 11042) {
-                a(this.lYQ, this.lYR, this.lYS);
+                a(this.lYP, this.lYQ, this.lYR);
             }
         }
     }
 
     public boolean cancelLoadData() {
-        if (this.lYr != null) {
-            this.lYr.cancelLoadData();
+        if (this.lYq != null) {
+            this.lYq.cancelLoadData();
             return true;
         }
         return true;
@@ -207,9 +207,9 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void resetData() {
-        this.lYQ = null;
-        this.lYS = null;
+        this.lYP = null;
         this.lYR = null;
+        this.lYQ = null;
         if (this.fGa != null) {
             this.fGa.f((WriteData) null);
         }

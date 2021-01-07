@@ -4,13 +4,13 @@ import android.annotation.SuppressLint;
 import android.graphics.ColorFilter;
 import android.graphics.drawable.Drawable;
 import com.baidubce.http.Headers;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class d {
     private int mAlpha = -1;
-    private boolean pwI = false;
+    private boolean pwP = false;
     private ColorFilter mColorFilter = null;
-    private int pwJ = -1;
-    private int pwK = -1;
+    private int pwQ = -1;
+    private int pwR = -1;
 
     public void setAlpha(int i) {
         this.mAlpha = i;
@@ -18,15 +18,15 @@ public class d {
 
     public void setColorFilter(ColorFilter colorFilter) {
         this.mColorFilter = colorFilter;
-        this.pwI = true;
+        this.pwP = true;
     }
 
     public void setDither(boolean z) {
-        this.pwJ = z ? 1 : 0;
+        this.pwQ = z ? 1 : 0;
     }
 
     public void setFilterBitmap(boolean z) {
-        this.pwK = z ? 1 : 0;
+        this.pwR = z ? 1 : 0;
     }
 
     @SuppressLint({Headers.RANGE})
@@ -35,14 +35,14 @@ public class d {
             if (this.mAlpha != -1) {
                 drawable.setAlpha(this.mAlpha);
             }
-            if (this.pwI) {
+            if (this.pwP) {
                 drawable.setColorFilter(this.mColorFilter);
             }
-            if (this.pwJ != -1) {
-                drawable.setDither(this.pwJ != 0);
+            if (this.pwQ != -1) {
+                drawable.setDither(this.pwQ != 0);
             }
-            if (this.pwK != -1) {
-                drawable.setFilterBitmap(this.pwK != 0);
+            if (this.pwR != -1) {
+                drawable.setFilterBitmap(this.pwR != 0);
             }
         }
     }

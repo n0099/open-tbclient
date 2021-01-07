@@ -7,18 +7,18 @@ import com.bun.miitmdid.a.a.c;
 import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.JSONTokener;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements b {
-    public C0957a pfR = new C0957a();
+    public C0995a pfR = new C0995a();
 
     /* renamed from: com.bun.miitmdid.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes6.dex */
-    public class C0957a {
+    /* loaded from: classes5.dex */
+    public class C0995a {
         public com.bun.miitmdid.a.a.a pfS;
         public com.bun.miitmdid.a.a.b pfT;
         public c pfU;
 
-        public C0957a() {
+        public C0995a() {
         }
     }
 
@@ -52,7 +52,7 @@ public class a implements b {
         JSONObject optJSONObject = jSONObject.optJSONObject(RomUtils.MANUFACTURER_VIVO);
         com.bun.miitmdid.a.a.b bVar = new com.bun.miitmdid.a.a.b();
         if (optJSONObject != null) {
-            bVar.f6031a = optJSONObject.optString("appid");
+            bVar.f6032a = optJSONObject.optString("appid");
             aVar.pfR.pfT = bVar;
         }
         return aVar.pfR.pfT != null;
@@ -82,6 +82,6 @@ public class a implements b {
 
     @Override // com.bun.miitmdid.a.b
     public String a() {
-        return (this.pfR == null || this.pfR.pfT == null || this.pfR.pfT.f6031a == null) ? "" : this.pfR.pfT.f6031a;
+        return (this.pfR == null || this.pfR.pfT == null || this.pfR.pfT.f6032a == null) ? "" : this.pfR.pfT.f6032a;
     }
 }

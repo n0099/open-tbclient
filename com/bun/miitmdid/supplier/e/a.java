@@ -8,28 +8,28 @@ import android.os.IBinder;
 import android.os.RemoteException;
 import android.util.Log;
 import com.zui.deviceidservice.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a {
     private static String c = "OpenDeviceId library";
     private static boolean d = false;
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f6045a;
+    private Context f6046a;
     private com.zui.deviceidservice.a pge;
     private ServiceConnection pgf;
     private com.bun.miitmdid.supplier.c.a pgg;
 
     public a(Context context, com.bun.miitmdid.supplier.c.a aVar) {
-        this.f6045a = null;
+        this.f6046a = null;
         if (context == null) {
             throw new NullPointerException("Context can not be null.");
         }
-        this.f6045a = context;
+        this.f6046a = context;
         this.pgg = aVar;
         this.pgf = new ServiceConnection() { // from class: com.bun.miitmdid.supplier.e.a.1
             @Override // android.content.ServiceConnection
             public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-                a.this.pge = a.AbstractBinderC1256a.a(iBinder);
+                a.this.pge = a.AbstractBinderC1297a.a(iBinder);
                 if (a.this.pgg != null) {
                     a.this.pgg.a(true);
                 }
@@ -44,7 +44,7 @@ public class a {
         };
         Intent intent = new Intent();
         intent.setClassName("com.zui.deviceidservice", "com.zui.deviceidservice.DeviceidService");
-        if (this.f6045a.bindService(intent, this.pgf, 1)) {
+        if (this.f6046a.bindService(intent, this.pgf, 1)) {
             a("bindService Successful!");
             return;
         }
@@ -68,7 +68,7 @@ public class a {
     }
 
     public String a() {
-        if (this.f6045a == null) {
+        if (this.f6046a == null) {
             b("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
@@ -84,7 +84,7 @@ public class a {
     }
 
     public String b() {
-        if (this.f6045a == null) {
+        if (this.f6046a == null) {
             b("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
@@ -113,11 +113,11 @@ public class a {
     }
 
     public String d() {
-        if (this.f6045a == null) {
+        if (this.f6046a == null) {
             a("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
-        String packageName = this.f6045a.getPackageName();
+        String packageName = this.f6046a.getPackageName();
         a("liufeng, getVAID package：" + packageName);
         if (packageName == null || packageName.equals("")) {
             a("input package is null!");
@@ -135,11 +135,11 @@ public class a {
     }
 
     public String e() {
-        if (this.f6045a == null) {
+        if (this.f6046a == null) {
             a("Context is null.");
             throw new IllegalArgumentException("Context is null, must be new OpenDeviceId first");
         }
-        String packageName = this.f6045a.getPackageName();
+        String packageName = this.f6046a.getPackageName();
         a("liufeng, getAAID package：" + packageName);
         if (packageName == null || packageName.equals("")) {
             a("input package is null!");
@@ -157,7 +157,7 @@ public class a {
 
     public void f() {
         try {
-            this.f6045a.unbindService(this.pgf);
+            this.f6046a.unbindService(this.pgf);
             a("unBind Service successful");
         } catch (IllegalArgumentException e) {
             b("unBind Service exception");

@@ -9,19 +9,19 @@ import android.os.Bundle;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f14654a;
-    private static volatile a qey = null;
+    private Context f14655a;
+    private static volatile a qgg = null;
     private static Uri c = Uri.parse("content://cn.nubia.identity/identity");
 
     private a(Context context) {
-        this.f14654a = context;
+        this.f14655a = context;
     }
 
     private String a(String str, String str2) {
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = this.f14654a.getContentResolver().acquireUnstableContentProviderClient(c);
+                ContentProviderClient acquireUnstableContentProviderClient = this.f14655a.getContentResolver().acquireUnstableContentProviderClient(c);
                 call = acquireUnstableContentProviderClient.call(str2, null, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -31,7 +31,7 @@ public class a {
                     }
                 }
             } else {
-                call = this.f14654a.getContentResolver().call(c, str2, (String) null, (Bundle) null);
+                call = this.f14655a.getContentResolver().call(c, str2, (String) null, (Bundle) null);
             }
             if (call != null && call.getInt("code", -1) == 0) {
                 return call.getString("id");
@@ -43,21 +43,21 @@ public class a {
     }
 
     public static a jc(Context context) {
-        if (qey == null) {
+        if (qgg == null) {
             synchronized (a.class) {
-                if (qey == null) {
-                    qey = new a(context);
+                if (qgg == null) {
+                    qgg = new a(context);
                 }
             }
         }
-        return qey;
+        return qgg;
     }
 
     public final boolean a() {
         Bundle call;
         try {
             if (Build.VERSION.SDK_INT >= 17) {
-                ContentProviderClient acquireUnstableContentProviderClient = this.f14654a.getContentResolver().acquireUnstableContentProviderClient(c);
+                ContentProviderClient acquireUnstableContentProviderClient = this.f14655a.getContentResolver().acquireUnstableContentProviderClient(c);
                 call = acquireUnstableContentProviderClient.call("isSupport", null, null);
                 if (acquireUnstableContentProviderClient != null) {
                     if (Build.VERSION.SDK_INT >= 24) {
@@ -67,7 +67,7 @@ public class a {
                     }
                 }
             } else {
-                call = this.f14654a.getContentResolver().call(c, "isSupport", (String) null, (Bundle) null);
+                call = this.f14655a.getContentResolver().call(c, "isSupport", (String) null, (Bundle) null);
             }
             if (call.getInt("code", -1) == 0) {
                 return call.getBoolean("issupport", true);

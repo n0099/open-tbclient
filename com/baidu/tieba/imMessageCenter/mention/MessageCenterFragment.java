@@ -49,7 +49,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && ((Integer) customResponsedMessage.getData()).intValue() == 3 && MessageCenterFragment.this.isPrimary() && MessageCenterFragment.this.kOf != null) {
-                MessageCenterFragment.this.kOf.cRy();
+                MessageCenterFragment.this.kOf.cRz();
             }
         }
     };
@@ -88,7 +88,7 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void onNewIntent(Intent intent) {
-        com.baidu.tieba.im.db.e.cXn().cXo();
+        com.baidu.tieba.im.db.e.cXo().cXp();
         if (this.jfh == null) {
             this.jfh = getVoiceManager();
             this.jfh.onCreate(getPageContext());
@@ -108,9 +108,9 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
 
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(Bundle bundle) {
-        TbTabLayout.e dbd;
-        if (this.kOf != null && (dbd = this.kOf.dbd()) != null) {
-            bundle.putInt("Selected_Tab", dbd.getId());
+        TbTabLayout.e dbe;
+        if (this.kOf != null && (dbe = this.kOf.dbe()) != null) {
+            bundle.putInt("Selected_Tab", dbe.getId());
         }
     }
 
@@ -129,11 +129,11 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
         }
     }
 
-    public void dbb() {
+    public void dbc() {
         getActivity().finish();
     }
 
-    public void dbc() {
+    public void dbd() {
         AtListActivityConfig atListActivityConfig = new AtListActivityConfig(getContext(), 0, false);
         atListActivityConfig.setIsForChat(true);
         sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, atListActivityConfig));
@@ -156,10 +156,10 @@ public class MessageCenterFragment extends BaseFragment implements VoiceManager.
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.im.db.e.cXn().cXo();
+        com.baidu.tieba.im.db.e.cXo().cXp();
         MessageManager.getInstance().unRegisterListener(this.kOi);
         if (this.kOf != null) {
-            this.kOf.ano();
+            this.kOf.anp();
             this.kOf.b(this.kOg);
         }
         if (this.jfh != null) {

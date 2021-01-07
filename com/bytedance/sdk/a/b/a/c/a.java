@@ -23,49 +23,49 @@ public final class a implements x {
     @Override // com.bytedance.sdk.a.b.x
     public com.bytedance.sdk.a.b.b a(x.a aVar) throws IOException {
         boolean z = false;
-        ab eqN = aVar.eqN();
-        ab.a erX = eqN.erX();
-        ac erW = eqN.erW();
-        if (erW != null) {
-            y eqO = erW.eqO();
-            if (eqO != null) {
-                erX.hg("Content-Type", eqO.toString());
+        ab eqO = aVar.eqO();
+        ab.a erY = eqO.erY();
+        ac erX = eqO.erX();
+        if (erX != null) {
+            y eqP = erX.eqP();
+            if (eqP != null) {
+                erY.hg("Content-Type", eqP.toString());
             }
-            long b2 = erW.b();
+            long b2 = erX.b();
             if (b2 != -1) {
-                erX.hg("Content-Length", Long.toString(b2));
-                erX.YW("Transfer-Encoding");
+                erY.hg("Content-Length", Long.toString(b2));
+                erY.YV("Transfer-Encoding");
             } else {
-                erX.hg("Transfer-Encoding", HTTP.CHUNK_CODING);
-                erX.YW("Content-Length");
+                erY.hg("Transfer-Encoding", HTTP.CHUNK_CODING);
+                erY.YV("Content-Length");
             }
         }
-        if (eqN.a("Host") == null) {
-            erX.hg("Host", com.bytedance.sdk.a.b.a.c.a(eqN.eqk(), false));
+        if (eqO.a("Host") == null) {
+            erY.hg("Host", com.bytedance.sdk.a.b.a.c.a(eqO.eql(), false));
         }
-        if (eqN.a(HTTP.CONN_DIRECTIVE) == null) {
-            erX.hg(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
+        if (eqO.a(HTTP.CONN_DIRECTIVE) == null) {
+            erY.hg(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
         }
-        if (eqN.a(Headers.ACCEPT_ENCODING) == null && eqN.a(Headers.RANGE) == null) {
+        if (eqO.a(Headers.ACCEPT_ENCODING) == null && eqO.a(Headers.RANGE) == null) {
             z = true;
-            erX.hg(Headers.ACCEPT_ENCODING, "gzip");
+            erY.hg(Headers.ACCEPT_ENCODING, "gzip");
         }
-        List<o> e = this.pju.e(eqN.eqk());
+        List<o> e = this.pju.e(eqO.eql());
         if (!e.isEmpty()) {
-            erX.hg(SM.COOKIE, a(e));
+            erY.hg(SM.COOKIE, a(e));
         }
-        if (eqN.a("User-Agent") == null) {
-            erX.hg("User-Agent", com.bytedance.sdk.a.b.a.d.a());
+        if (eqO.a("User-Agent") == null) {
+            erY.hg("User-Agent", com.bytedance.sdk.a.b.a.d.a());
         }
-        com.bytedance.sdk.a.b.b b3 = aVar.b(erX.esc());
-        e.a(this.pju, eqN.eqk(), b3.erf());
-        b.a f = b3.erh().f(eqN);
+        com.bytedance.sdk.a.b.b b3 = aVar.b(erY.esd());
+        e.a(this.pju, eqO.eql(), b3.erg());
+        b.a f = b3.eri().f(eqO);
         if (z && "gzip".equalsIgnoreCase(b3.a("Content-Encoding")) && e.e(b3)) {
-            com.bytedance.sdk.a.a.j jVar = new com.bytedance.sdk.a.a.j(b3.erg().eqP());
-            f.c(b3.erf().erw().YM("Content-Encoding").YM("Content-Length").erx());
+            com.bytedance.sdk.a.a.j jVar = new com.bytedance.sdk.a.a.j(b3.erh().eqQ());
+            f.c(b3.erg().erx().YL("Content-Encoding").YL("Content-Length").ery());
             f.a(new h(b3.a("Content-Type"), -1L, com.bytedance.sdk.a.a.l.c(jVar)));
         }
-        return f.erk();
+        return f.erl();
     }
 
     private String a(List<o> list) {

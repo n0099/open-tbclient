@@ -17,7 +17,7 @@ public class g {
         private static final g fap = new g();
     }
 
-    public static g buS() {
+    public static g buT() {
         return c.fap;
     }
 
@@ -25,7 +25,7 @@ public class g {
         if (Build.VERSION.SDK_INT >= 16) {
             try {
                 this.fad = new a(i, jVar);
-                this.fad.buT();
+                this.fad.buU();
             } catch (Throwable th) {
                 BdLog.e(th);
             }
@@ -64,7 +64,7 @@ public class g {
 
         private void doFrame(long j) {
             this.fan.add(Long.valueOf(j));
-            this.fad.buT();
+            this.fad.buU();
         }
 
         /* JADX INFO: Access modifiers changed from: private */
@@ -107,12 +107,12 @@ public class g {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public void buT() {
+        public void buU() {
             if (this.index >= this.MAX_FRAME_COUNT) {
                 com.baidu.adp.lib.f.e.mB().post(new Runnable() { // from class: com.baidu.tbadk.core.hybrid.g.a.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        a.this.fal.bD(a.this.buV());
+                        a.this.fal.bD(a.this.buW());
                         a.this.fak.destroy();
                         a.this.destroy();
                     }
@@ -127,7 +127,7 @@ public class g {
             }
         }
 
-        private List<Long> buU() {
+        private List<Long> buV() {
             return this.fak.fan;
         }
 
@@ -137,15 +137,15 @@ public class g {
         }
 
         /* JADX INFO: Access modifiers changed from: private */
-        public List<Long> buV() {
+        public List<Long> buW() {
             ArrayList arrayList = new ArrayList(24);
-            List<Long> buU = buU();
-            int size = buU.size();
+            List<Long> buV = buV();
+            int size = buV.size();
             int i = 0;
             while (true) {
                 int i2 = i;
                 if (i2 < size - 1) {
-                    arrayList.add(Long.valueOf(buU.get(i2 + 1).longValue() - buU.get(i2).longValue()));
+                    arrayList.add(Long.valueOf(buV.get(i2 + 1).longValue() - buV.get(i2).longValue()));
                     i = i2 + 1;
                 } else {
                     return arrayList;

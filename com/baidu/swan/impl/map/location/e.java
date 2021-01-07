@@ -37,7 +37,7 @@ public class e {
         this.ery = baiduMap;
     }
 
-    private void bdT() {
+    private void bdU() {
         if (this.eqW == null) {
             this.eqW = new LocationClient(this.mContext.getApplicationContext());
             this.eqW.registerLocationListener(new a());
@@ -58,9 +58,9 @@ public class e {
         }
     }
 
-    private void bdU() {
+    private void bdV() {
         if (!this.eqZ) {
-            bdT();
+            bdU();
             if (this.eqW != null && !this.eqW.isStarted()) {
                 this.eqW.start();
                 this.eqZ = true;
@@ -69,14 +69,14 @@ public class e {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public BDLocation bdY() {
+    public BDLocation bdZ() {
         return this.eqY;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void ir(boolean z) {
         if (z) {
-            bdU();
+            bdV();
         } else {
             stopLocation();
         }

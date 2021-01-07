@@ -101,7 +101,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SwanAppBdActionBar.this.bRf();
+                SwanAppBdActionBar.this.bRg();
             }
         };
         this.gpP = -1;
@@ -115,7 +115,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SwanAppBdActionBar.this.bRf();
+                SwanAppBdActionBar.this.bRg();
             }
         };
         this.gpP = -1;
@@ -130,7 +130,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
         this.mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.aiapps.apps.widget.SwanAppBdActionBar.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                SwanAppBdActionBar.this.bRf();
+                SwanAppBdActionBar.this.bRg();
             }
         };
         this.gpP = -1;
@@ -180,7 +180,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
         }
     }
 
-    public boolean bRf() {
+    public boolean bRg() {
         if (this.gpE != null) {
             int[] iArr = new int[2];
             this.dUr.getLocationInWindow(iArr);
@@ -309,7 +309,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
         if (1 == this.gpd) {
             this.gpb.setText(str);
             if (this.gpH) {
-                Gd(str);
+                Gc(str);
             } else {
                 this.gpa.setText((CharSequence) null);
             }
@@ -559,7 +559,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
     public void setLeftSecondViewVisibility(int i) {
         if (this.gpF.getVisibility() != i) {
             this.gpF.setVisibility(i);
-            Gd(this.goU);
+            Gc(this.goU);
         }
     }
 
@@ -615,7 +615,7 @@ public class SwanAppBdActionBar extends RelativeLayout {
         this.gpa.setText(str);
     }
 
-    private void Gd(String str) {
+    private void Gc(String str) {
     }
 
     public void setRightMenuImageSrc(int i) {

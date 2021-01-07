@@ -13,19 +13,19 @@ public class h extends com.baidu.swan.apps.core.c.d {
     }
 
     @Override // com.baidu.swan.apps.core.c.d
-    protected void arr() {
-        amr().setVisibility(8);
-        amr().setBackgroundColor(0);
-        i.aZw();
-        aZv();
-        String aZr = d.aZh().aZr();
+    protected void ars() {
+        ams().setVisibility(8);
+        ams().setBackgroundColor(0);
+        i.aZx();
+        aZw();
+        String aZs = d.aZi().aZs();
         if (DEBUG) {
-            Log.d("SwanGameConsoleManager", "url:" + aZr);
+            Log.d("SwanGameConsoleManager", "url:" + aZs);
         }
-        loadUrl(aZr);
+        loadUrl(aZs);
     }
 
-    private void aZv() {
+    private void aZw() {
         a(new com.baidu.swan.apps.core.g() { // from class: com.baidu.swan.games.c.h.1
             @Override // com.baidu.swan.apps.core.g
             public void ig(String str) {
@@ -33,7 +33,7 @@ public class h extends com.baidu.swan.apps.core.c.d {
                 if (h.DEBUG) {
                     Log.e("SwanGameConsoleManager", "onPageFinished");
                 }
-                i.aZx();
+                i.aZy();
             }
         });
     }
@@ -49,20 +49,20 @@ public class h extends com.baidu.swan.apps.core.c.d {
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
-    public void amh() {
+    public void ami() {
         i.fa(false);
         this.ehB = null;
-        super.amh();
+        super.ami();
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.adaptation.b.a
     public void eO(boolean z) {
-        if (amr().getVisibility() != (z ? 0 : 8)) {
+        if (ams().getVisibility() != (z ? 0 : 8)) {
             if (DEBUG) {
                 Log.i("SwanGameConsoleManager", "setConsoleVisible:" + z);
             }
             if (z) {
-                com.baidu.swan.apps.v.f.aDG().a("console", c.id(true));
+                com.baidu.swan.apps.v.f.aDH().a("console", c.id(true));
             }
             if (this.ehB != null) {
                 this.ehB.setVisibility(z ? 4 : 0);
@@ -72,7 +72,7 @@ public class h extends com.baidu.swan.apps.core.c.d {
     }
 
     @Override // com.baidu.swan.apps.core.c.d, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String amt() {
+    public String amu() {
         return "console";
     }
 }

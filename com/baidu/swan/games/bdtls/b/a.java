@@ -40,7 +40,7 @@ public class a<T> extends b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aZc() {
+    public void aZd() {
         b(this.egB, this.egC, this.egD);
     }
 
@@ -55,7 +55,7 @@ public class a<T> extends b {
         if (com.baidu.swan.games.bdtls.a.DEBUG) {
             Log.d("BDTLS", "BdtlsPostRequest url=" + str);
         }
-        com.baidu.swan.a.c.a.bfE().postByteRequest().mediaType(HttpHelper.CONTENT_JSON).url(str).cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<String>() { // from class: com.baidu.swan.games.bdtls.b.a.1
+        com.baidu.swan.a.c.a.bfF().postByteRequest().mediaType(HttpHelper.CONTENT_JSON).url(str).cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<String>() { // from class: com.baidu.swan.games.bdtls.b.a.1
             T egE;
 
             /* JADX DEBUG: Method merged with bridge method */
@@ -63,7 +63,7 @@ public class a<T> extends b {
             public String parseResponse(Response response, int i) throws Exception {
                 Headers headers = response.headers();
                 if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
-                    e.aXS().aXT().mD(0);
+                    e.aXT().aXU().mD(0);
                     return "recovery";
                 } else if (!a.this.egG) {
                     if (a.this.egD != null) {
@@ -99,16 +99,16 @@ public class a<T> extends b {
                     Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str2);
                 }
                 if (TextUtils.equals(str2, "recovery")) {
-                    if (!e.aXS().aXT().aYU()) {
+                    if (!e.aXT().aXU().aYV()) {
                         a.this.egD.onFail(new Exception("Exceeded the limit of continuous downgrade"));
                         return;
                     }
-                    e.aXS().aXT().aYS();
+                    e.aXT().aXU().aYT();
                     a.this.ic(true);
-                    a.this.aZc();
+                    a.this.aZd();
                     return;
                 }
-                e.aXS().aXT().aYV();
+                e.aXT().aXU().aYW();
                 if (!a.this.egG) {
                     if (a.this.egD != null) {
                         a.this.egD.onSuccess(this.egE, i);

@@ -6,10 +6,10 @@ import java.util.NoSuchElementException;
 final class m implements Iterator<E> {
 
     /* renamed from: a  reason: collision with root package name */
-    private a<E> f13091a;
+    private a<E> f13092a;
 
     /* renamed from: b  reason: collision with root package name */
-    private a<E> f13092b;
+    private a<E> f13093b;
     private E c;
     private /* synthetic */ l d;
 
@@ -20,9 +20,9 @@ final class m implements Iterator<E> {
         this.d = lVar;
         lVar.a();
         try {
-            this.f13091a = lVar.f13089a.f13073a;
-            if (this.f13091a != null) {
-                this.c = this.f13091a.b();
+            this.f13092a = lVar.f13090a.f13074a;
+            if (this.f13092a != null) {
+                this.c = this.f13092a.b();
             }
         } finally {
             lVar.b();
@@ -39,9 +39,9 @@ final class m implements Iterator<E> {
     private a<E> a(a<E> aVar) {
         a aVar2;
         while (true) {
-            a aVar3 = aVar2.f13073a;
+            a aVar3 = aVar2.f13074a;
             if (aVar3 == aVar2) {
-                return this.d.f13089a.f13073a;
+                return this.d.f13090a.f13074a;
             }
             if (aVar3 == null || aVar3.b() != null) {
                 return aVar3;
@@ -52,7 +52,7 @@ final class m implements Iterator<E> {
 
     @Override // java.util.Iterator
     public final boolean hasNext() {
-        return this.f13091a != null;
+        return this.f13092a != null;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v11, resolved type: E */
@@ -63,13 +63,13 @@ final class m implements Iterator<E> {
     public final E next() {
         this.d.a();
         try {
-            if (this.f13091a == null) {
+            if (this.f13092a == null) {
                 throw new NoSuchElementException();
             }
             E e = this.c;
-            this.f13092b = this.f13091a;
-            this.f13091a = a(this.f13091a);
-            this.c = this.f13091a == null ? 0 : this.f13091a.b();
+            this.f13093b = this.f13092a;
+            this.f13092a = a(this.f13092a);
+            this.c = this.f13092a == null ? 0 : this.f13092a.b();
             return e;
         } finally {
             this.d.b();
@@ -84,15 +84,15 @@ final class m implements Iterator<E> {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void remove() {
-        if (this.f13092b == null) {
+        if (this.f13093b == null) {
             throw new IllegalStateException();
         }
         this.d.a();
         try {
-            a aVar = this.f13092b;
-            this.f13092b = null;
-            a aVar2 = this.d.f13089a;
-            a aVar3 = aVar2.f13073a;
+            a aVar = this.f13093b;
+            this.f13093b = null;
+            a aVar2 = this.d.f13090a;
+            a aVar3 = aVar2.f13074a;
             a aVar4 = aVar2;
             while (true) {
                 if (aVar3 == null) {
@@ -101,7 +101,7 @@ final class m implements Iterator<E> {
                     break;
                 } else {
                     aVar4 = aVar3;
-                    aVar3 = aVar3.f13073a;
+                    aVar3 = aVar3.f13074a;
                 }
             }
         } finally {

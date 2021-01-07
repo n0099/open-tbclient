@@ -45,7 +45,7 @@ public class c extends ReplacementSpan {
     @Override // android.text.style.ReplacementSpan
     public void draw(@NonNull Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, @NonNull Paint paint) {
         int dimenPixelSize;
-        byy();
+        byz();
         this.fqh = (int) paint.getTextSize();
         int i6 = this.fqi + ((int) f);
         Paint.FontMetricsInt fontMetricsInt = paint.getFontMetricsInt();
@@ -70,8 +70,8 @@ public class c extends ReplacementSpan {
         }
     }
 
-    private void byy() {
-        this.fqc = SvgManager.bwq().a(this.fpY, this.fpZ, (SvgManager.SvgResourceStateType) null);
-        this.fqd = SvgManager.bwq().a(this.fqa, this.fqb, (SvgManager.SvgResourceStateType) null);
+    private void byz() {
+        this.fqc = SvgManager.bwr().a(this.fpY, this.fpZ, (SvgManager.SvgResourceStateType) null);
+        this.fqd = SvgManager.bwr().a(this.fqa, this.fqb, (SvgManager.SvgResourceStateType) null);
     }
 }

@@ -51,19 +51,19 @@ public class PullRefreshFrameLayout extends FrameLayout {
 
     /* loaded from: classes.dex */
     public interface b {
-        void bxK();
+        void bxL();
     }
 
     /* loaded from: classes.dex */
     public interface c {
-        void bxL();
+        void bxM();
     }
 
     /* loaded from: classes.dex */
     public interface d {
         void b(int i, double d);
 
-        void bxM();
+        void bxN();
 
         void w(double d);
     }
@@ -269,7 +269,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 if (this.drm < this.flq && this.flx != null) {
                     this.flx.onCancel();
                 }
-                bxG();
+                bxH();
                 reset();
                 break;
             case 2:
@@ -283,7 +283,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 this.dVw = x;
                 break;
             case 3:
-                bxG();
+                bxH();
                 reset();
                 break;
         }
@@ -311,7 +311,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
         }
     }
 
-    private void bxG() {
+    private void bxH() {
         if (this.drm >= this.flq) {
             this.isLoading = true;
             this.flz = ValueAnimator.ofFloat(this.flu.topMargin, this.flp);
@@ -327,14 +327,14 @@ public class PullRefreshFrameLayout extends FrameLayout {
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationStart(Animator animator) {
                     if (PullRefreshFrameLayout.this.fly != null) {
-                        PullRefreshFrameLayout.this.fly.bxK();
+                        PullRefreshFrameLayout.this.fly.bxL();
                     }
                 }
 
                 @Override // android.animation.Animator.AnimatorListener
                 public void onAnimationEnd(Animator animator) {
                     if (PullRefreshFrameLayout.this.flw != null) {
-                        PullRefreshFrameLayout.this.flw.bxL();
+                        PullRefreshFrameLayout.this.flw.bxM();
                     }
                     PullRefreshFrameLayout.this.flt.playAnimation();
                 }
@@ -351,13 +351,13 @@ public class PullRefreshFrameLayout extends FrameLayout {
             this.flv.b(this.flu.topMargin - this.flp, (this.flp * 1.0d) / this.flu.topMargin);
             return;
         }
-        bxH();
+        bxI();
     }
 
-    public void bxH() {
+    public void bxI() {
         hideLoading();
         if (this.flv != null) {
-            this.flv.bxM();
+            this.flv.bxN();
         }
     }
 
@@ -452,7 +452,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
         this.flx = null;
     }
 
-    public void bxI() {
+    public void bxJ() {
         this.flt.bringToFront();
     }
 
@@ -484,7 +484,7 @@ public class PullRefreshFrameLayout extends FrameLayout {
         return this.isLoading;
     }
 
-    public void bxJ() {
+    public void bxK() {
         if (this.flr && this.flt != null) {
             this.flt.setAlpha((float) this.drm);
             this.flt.setFrame((int) (this.drm * 10.0d));

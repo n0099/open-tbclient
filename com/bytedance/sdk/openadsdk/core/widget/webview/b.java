@@ -15,14 +15,14 @@ import com.bytedance.sdk.openadsdk.utils.r;
 public class b extends WebChromeClient {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f7138a = WebChromeClient.class.getSimpleName();
+    private static final String f7139a = WebChromeClient.class.getSimpleName();
 
     /* renamed from: b  reason: collision with root package name */
-    private final x f7139b;
+    private final x f7140b;
     private j c;
 
     public b(x xVar, j jVar) {
-        this.f7139b = xVar;
+        this.f7140b = xVar;
         this.c = jVar;
     }
 
@@ -44,10 +44,10 @@ public class b extends WebChromeClient {
 
     private boolean a(@NonNull String str) {
         try {
-            Log.w(f7138a, "message:" + str);
+            Log.w(f7139a, "message:" + str);
             Uri parse = Uri.parse(str);
             if ("bytedance".equals(parse.getScheme().toLowerCase())) {
-                r.a(parse, this.f7139b);
+                r.a(parse, this.f7140b);
                 return true;
             }
         } catch (Exception e) {

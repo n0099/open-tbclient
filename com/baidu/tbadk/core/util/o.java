@@ -34,11 +34,11 @@ public class o {
         this.fbY.put("threadLink", "http://tieba.baidu.com/p/" + str4 + "?share=9105&fr=share");
     }
 
-    public void BP(String str) {
+    public void BO(String str) {
         com.baidu.adp.lib.util.a.copyToClipboard("http://tieba.baidu.com/p/" + str + "?share=9105&fr=share");
     }
 
-    public void bvG() {
+    public void bvH() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921472, UtilHelper.getClipBoardContent()));
     }
 

@@ -6,24 +6,24 @@ import android.view.View;
 public final class h implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f5878a;
+    final /* synthetic */ e f5879a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ f f5879b;
+    final /* synthetic */ f f5880b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public h(f fVar, e eVar) {
-        this.f5879b = fVar;
-        this.f5878a = eVar;
+        this.f5880b = fVar;
+        this.f5879a = eVar;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         ey eyVar;
         ey eyVar2;
-        String b2 = this.f5878a.b();
-        for (int i = 0; i < this.f5879b.c.getChildCount(); i++) {
-            View childAt = this.f5879b.c.getChildAt(i);
+        String b2 = this.f5879a.b();
+        for (int i = 0; i < this.f5880b.c.getChildCount(); i++) {
+            View childAt = this.f5880b.c.getChildAt(i);
             if (childAt instanceof e) {
                 if (((e) childAt).b().equals(b2)) {
                     ((e) childAt).a(true);
@@ -32,15 +32,15 @@ public final class h implements View.OnClickListener {
                 }
             }
         }
-        for (int i2 = 0; i2 < this.f5879b.f5868b.getChildCount(); i2++) {
-            View childAt2 = this.f5879b.f5868b.getChildAt(i2);
+        for (int i2 = 0; i2 < this.f5880b.f5869b.getChildCount(); i2++) {
+            View childAt2 = this.f5880b.f5869b.getChildAt(i2);
             if (childAt2 instanceof e) {
                 ((e) childAt2).a(false);
             }
         }
-        eyVar = this.f5879b.g;
+        eyVar = this.f5880b.g;
         if (eyVar != null) {
-            eyVar2 = this.f5879b.g;
+            eyVar2 = this.f5880b.g;
             eyVar2.a(b2);
         }
     }

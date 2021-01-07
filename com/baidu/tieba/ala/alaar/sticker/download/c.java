@@ -41,7 +41,7 @@ public class c {
         private CharSequence mName;
         private String mUri;
 
-        public a Gm(String str) {
+        public a Gl(String str) {
             this.mUri = str;
             return this;
         }
@@ -56,7 +56,7 @@ public class c {
             return this;
         }
 
-        public c bSX() {
+        public c bSY() {
             return new c(this.mUri, this.mFolder, this.mName, this.mDescription);
         }
     }

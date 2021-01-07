@@ -88,23 +88,23 @@ public class a extends b {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.c.b
-    public void cMP() {
+    public void cMQ() {
         if (this.mState == 0) {
             this.mState = 1;
             if (this.jHB != null) {
                 this.jHB.onStateChanged(this.mState);
             }
             this.jHq.start();
+            cMU();
             cMT();
             cMS();
-            cMR();
-            cMU();
+            cMV();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.frs.c.b
-    public void cMQ() {
+    public void cMR() {
         if (this.mState == 2) {
             this.mState = 3;
             if (this.jHB != null) {
@@ -114,7 +114,7 @@ public class a extends b {
         }
     }
 
-    private void cMR() {
+    private void cMS() {
         if (this.mIntent != null) {
             ArrayList<Integer> integerArrayListExtra = this.mIntent.getIntegerArrayListExtra("info_forum_head_background_color");
             if (integerArrayListExtra != null && integerArrayListExtra.size() == 6) {
@@ -168,7 +168,7 @@ public class a extends b {
         }
     }
 
-    private void cMS() {
+    private void cMT() {
         final Rect rect;
         if (this.mIntent != null && (rect = (Rect) this.mIntent.getParcelableExtra("info_forum_name_rect")) != null) {
             String stringExtra = this.mIntent.getStringExtra("info_forum_name_text");
@@ -216,7 +216,7 @@ public class a extends b {
         }
     }
 
-    private void cMT() {
+    private void cMU() {
         final Rect rect;
         if (this.mIntent != null && (rect = (Rect) this.mIntent.getParcelableExtra("info_forum_image_rect")) != null) {
             String stringExtra = this.mIntent.getStringExtra("info_forum_image_url");
@@ -264,7 +264,7 @@ public class a extends b {
         }
     }
 
-    private void cMU() {
+    private void cMV() {
         if (this.mIntent != null && this.jHA.jHQ != null) {
             this.jHA.jHQ.post(new Runnable() { // from class: com.baidu.tieba.frs.c.a.8
                 @Override // java.lang.Runnable

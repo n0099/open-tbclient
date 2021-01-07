@@ -23,7 +23,7 @@ public class b {
     private b() {
     }
 
-    public static b bdt() {
+    public static b bdu() {
         if (epC == null) {
             synchronized (b.class) {
                 if (epC == null) {
@@ -35,13 +35,13 @@ public class b {
     }
 
     public boolean f(a aVar) {
-        d aDJ = f.aDG().aDJ();
-        boolean z = (aDJ == null || aZ(aVar.getContentView()) || !aDJ.a(aVar.getContentView(), bdu())) ? false : true;
+        d aDK = f.aDH().aDK();
+        boolean z = (aDK == null || aZ(aVar.getContentView()) || !aDK.a(aVar.getContentView(), bdv())) ? false : true;
         if (z) {
-            if (!aVar.bdr() || aDJ == null) {
+            if (!aVar.bds() || aDK == null) {
                 return false;
             }
-            a(aDJ.bcS(), aVar);
+            a(aDK.bcT(), aVar);
         }
         return z;
     }
@@ -90,8 +90,8 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean a(a aVar, int i, int i2) {
-        d aDJ = f.aDG().aDJ();
-        boolean z = aDJ != null && aDJ.b(aVar.getContentView(), mS(i2));
+        d aDK = f.aDH().aDK();
+        boolean z = aDK != null && aDK.b(aVar.getContentView(), mS(i2));
         if (z) {
             aVar.mR(i);
         }
@@ -99,13 +99,13 @@ public class b {
     }
 
     public boolean g(a aVar) {
-        d aDJ = f.aDG().aDJ();
-        if (aDJ == null) {
+        d aDK = f.aDH().aDK();
+        if (aDK == null) {
             return false;
         }
-        FrameLayout bcS = aDJ.bcS();
-        if (bcS != null && this.epD != null) {
-            bcS.getViewTreeObserver().removeOnGlobalLayoutListener(this.epD);
+        FrameLayout bcT = aDK.bcT();
+        if (bcT != null && this.epD != null) {
+            bcT.getViewTreeObserver().removeOnGlobalLayoutListener(this.epD);
         }
         aVar.hideKeyboard();
         this.epD = null;
@@ -114,15 +114,15 @@ public class b {
         this.epz = -1;
         this.epA = false;
         this.epB = -1;
-        return aDJ.removeView(aVar.getContentView());
+        return aDK.removeView(aVar.getContentView());
     }
 
     private boolean aZ(View view) {
-        d aDJ = f.aDG().aDJ();
-        return aDJ != null && aDJ.aX(view);
+        d aDK = f.aDH().aDK();
+        return aDK != null && aDK.aX(view);
     }
 
-    private com.baidu.swan.apps.model.a.a.a bdu() {
+    private com.baidu.swan.apps.model.a.a.a bdv() {
         com.baidu.swan.apps.model.a.a.a aVar = new com.baidu.swan.apps.model.a.a.a();
         aVar.gm(true);
         aVar.setWidth(-1);

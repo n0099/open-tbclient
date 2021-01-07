@@ -5,15 +5,15 @@ import android.view.View;
 import android.view.animation.Animation;
 import com.baidu.tieba.R;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class i implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ h f4525a;
+    final /* synthetic */ h f4526a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(h hVar) {
-        this.f4525a = hVar;
+        this.f4526a = hVar;
     }
 
     @Override // java.lang.Runnable
@@ -21,11 +21,11 @@ public class i implements Runnable {
         Context context;
         Context context2;
         View view;
-        context = this.f4525a.f4524a.l;
+        context = this.f4526a.f4525a.l;
         if (context != null) {
-            context2 = this.f4525a.f4524a.l;
+            context2 = this.f4526a.f4525a.l;
             Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(context2, R.attr.actionBarDivider);
-            view = this.f4525a.f4524a.ah;
+            view = this.f4526a.f4525a.ah;
             view.startAnimation(c);
             c.setAnimationListener(new j(this));
         }

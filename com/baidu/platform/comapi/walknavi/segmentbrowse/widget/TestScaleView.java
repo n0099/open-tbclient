@@ -7,14 +7,14 @@ import android.graphics.Paint;
 import android.graphics.Rect;
 import android.util.AttributeSet;
 import android.view.View;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class TestScaleView extends View {
 
     /* renamed from: a  reason: collision with root package name */
-    private double f4588a;
+    private double f4589a;
 
     /* renamed from: b  reason: collision with root package name */
-    private double f4589b;
+    private double f4590b;
 
     public TestScaleView(Context context) {
         super(context);
@@ -25,8 +25,8 @@ public class TestScaleView extends View {
     }
 
     public void setPassLengthAndTotalLength(int i, int i2) {
-        this.f4588a = i;
-        this.f4589b = i2;
+        this.f4589a = i;
+        this.f4590b = i2;
         invalidate();
     }
 
@@ -42,14 +42,14 @@ public class TestScaleView extends View {
         rect.left = 0;
         rect.top = 0;
         rect.bottom = 25;
-        rect.right = (int) ((this.f4588a / this.f4589b) * com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4586a);
+        rect.right = (int) ((this.f4589a / this.f4590b) * com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4587a);
         paint.setColor(Color.rgb(61, 139, 255));
         canvas.drawRect(rect, paint);
         Rect rect2 = new Rect();
-        rect2.left = (int) ((this.f4588a / this.f4589b) * com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4586a);
+        rect2.left = (int) ((this.f4589a / this.f4590b) * com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4587a);
         rect2.top = 0;
         rect2.bottom = 25;
-        rect2.right = com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4586a;
+        rect2.right = com.baidu.platform.comapi.walknavi.segmentbrowse.c.f4587a;
         paint.setColor(Color.rgb(234, 234, 234));
         canvas.drawRect(rect2, paint);
     }

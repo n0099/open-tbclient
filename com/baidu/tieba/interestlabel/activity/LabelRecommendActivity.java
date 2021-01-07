@@ -21,7 +21,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     private b kUh;
     private a kUi = new a() { // from class: com.baidu.tieba.interestlabel.activity.LabelRecommendActivity.1
         @Override // com.baidu.tieba.interestlabel.model.a
-        public void dcv() {
+        public void dcw() {
         }
 
         @Override // com.baidu.tieba.interestlabel.model.a
@@ -33,7 +33,7 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
             switch (AnonymousClass2.kUk[labelRequestEnum.ordinal()]) {
                 case 1:
                     LabelRecommendActivity.this.hideLoadingView(LabelRecommendActivity.this.kUh.getRootView());
-                    if (bVar == null || x.isEmpty(bVar.dcy()) || x.isEmpty(bVar.dcz())) {
+                    if (bVar == null || x.isEmpty(bVar.dcz()) || x.isEmpty(bVar.dcA())) {
                         LabelRecommendActivity.this.showNetRefreshView(LabelRecommendActivity.this.kUh.getRootView(), TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                         return;
                     }
@@ -42,8 +42,8 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
                     return;
                 case 2:
                     if (i == 0) {
-                        com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
-                        LabelRecommendActivity.this.dcu();
+                        com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
+                        LabelRecommendActivity.this.dcv();
                         LabelRecommendActivity.this.finish();
                         return;
                     }
@@ -85,22 +85,22 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
         }
         TiebaStatic.log(new aq("c12243").an("obj_type", this.mFrom));
         loadData();
-        com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.SHOW_RECOMMEND_LABEL, true);
+        com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.SHOW_RECOMMEND_LABEL, true);
     }
 
     private void loadData() {
-        this.kUg.dcB();
+        this.kUg.dcC();
         showLoadingView(this.kUh.getRootView(), true);
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view) {
         super.onClick(view);
-        if (view == this.kUh.dcH()) {
+        if (view == this.kUh.dcI()) {
             TiebaStatic.log(new aq("c12245").an("obj_type", this.mFrom));
             finish();
-        } else if (view == this.kUh.dcI()) {
-            this.kUg.eG(this.kUh.dcK());
+        } else if (view == this.kUh.dcJ()) {
+            this.kUg.eG(this.kUh.dcL());
         }
     }
 
@@ -112,14 +112,14 @@ public class LabelRecommendActivity extends BaseActivity<LabelRecommendActivity>
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dcu() {
-        List<Integer> dcK = this.kUh.dcK();
-        if (!x.isEmpty(dcK)) {
+    public void dcv() {
+        List<Integer> dcL = this.kUh.dcL();
+        if (!x.isEmpty(dcL)) {
             StringBuilder sb = new StringBuilder();
-            int size = dcK.size();
+            int size = dcL.size();
             for (int i = 0; i < size; i++) {
-                if (dcK.get(i) != null) {
-                    sb.append(dcK.get(i));
+                if (dcL.get(i) != null) {
+                    sb.append(dcL.get(i));
                     if (i < size - 1) {
                         sb.append(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
                     }

@@ -8,19 +8,19 @@ import com.baidu.minivideo.plugin.capture.utils.EncryptUtils;
 import java.nio.ByteBuffer;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class BitmapDescriptor {
 
     /* renamed from: a  reason: collision with root package name */
-    Bitmap f2797a;
+    Bitmap f2798a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Bundle f2798b;
+    private Bundle f2799b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public BitmapDescriptor(Bitmap bitmap) {
         if (bitmap != null) {
-            this.f2797a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
+            this.f2798a = a(bitmap, bitmap.getWidth(), bitmap.getHeight());
         }
     }
 
@@ -35,21 +35,21 @@ public final class BitmapDescriptor {
     }
 
     byte[] a() {
-        ByteBuffer allocate = ByteBuffer.allocate(this.f2797a.getWidth() * this.f2797a.getHeight() * 4);
-        this.f2797a.copyPixelsToBuffer(allocate);
+        ByteBuffer allocate = ByteBuffer.allocate(this.f2798a.getWidth() * this.f2798a.getHeight() * 4);
+        this.f2798a.copyPixelsToBuffer(allocate);
         return allocate.array();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Bundle b() {
         MessageDigest messageDigest;
-        if (this.f2797a == null) {
+        if (this.f2798a == null) {
             throw new IllegalStateException("BDMapSDKException: the bitmap has been recycled! you can not use it again");
         }
-        if (this.f2798b == null) {
+        if (this.f2799b == null) {
             Bundle bundle = new Bundle();
-            bundle.putInt("image_width", this.f2797a.getWidth());
-            bundle.putInt("image_height", this.f2797a.getHeight());
+            bundle.putInt("image_width", this.f2798a.getWidth());
+            bundle.putInt("image_height", this.f2798a.getHeight());
             byte[] a2 = a();
             bundle.putByteArray("image_data", a2);
             try {
@@ -67,27 +67,27 @@ public final class BitmapDescriptor {
                 }
                 bundle.putString("image_hashcode", sb.toString());
             }
-            this.f2798b = bundle;
+            this.f2799b = bundle;
         }
-        return this.f2798b;
+        return this.f2799b;
     }
 
     public void clearCache() {
-        if (this.f2798b != null) {
-            this.f2798b.clear();
-            this.f2798b = null;
+        if (this.f2799b != null) {
+            this.f2799b.clear();
+            this.f2799b = null;
         }
     }
 
     public Bitmap getBitmap() {
-        return this.f2797a;
+        return this.f2798a;
     }
 
     public void recycle() {
-        if (this.f2797a == null || this.f2797a.isRecycled()) {
+        if (this.f2798a == null || this.f2798a.isRecycled()) {
             return;
         }
-        this.f2797a.recycle();
-        this.f2797a = null;
+        this.f2798a.recycle();
+        this.f2798a = null;
     }
 }

@@ -19,7 +19,7 @@ public class c {
     private c() {
     }
 
-    public static synchronized c bHv() {
+    public static synchronized c bHw() {
         c cVar;
         synchronized (c.class) {
             if (fLq == null) {
@@ -44,7 +44,7 @@ public class c {
         }
     }
 
-    public boolean bHw() {
+    public boolean bHx() {
         try {
             Class.forName("com.baidu.wallet.home.WalletNewHomeActivity");
             return true;
@@ -56,7 +56,7 @@ public class c {
 
     public void a(String str, TbPageContext<?> tbPageContext) {
         if (tbPageContext != null) {
-            be.bwu().b(tbPageContext, new String[]{str});
+            be.bwv().b(tbPageContext, new String[]{str});
         }
     }
 

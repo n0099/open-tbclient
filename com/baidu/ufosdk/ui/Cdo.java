@@ -7,11 +7,11 @@ import android.widget.AbsListView;
 final class Cdo implements AbsListView.RecyclerListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackListActivity f5816a;
+    final /* synthetic */ FeedbackListActivity f5817a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public Cdo(FeedbackListActivity feedbackListActivity) {
-        this.f5816a = feedbackListActivity;
+        this.f5817a = feedbackListActivity;
     }
 
     @Override // android.widget.AbsListView.RecyclerListener

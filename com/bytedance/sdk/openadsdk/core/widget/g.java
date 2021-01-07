@@ -9,7 +9,7 @@ import com.bytedance.sdk.openadsdk.utils.ak;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private final a f7111a;
+    private final a f7112a;
     private float d;
     private float e;
     private int f;
@@ -17,7 +17,7 @@ public class g {
     private boolean k;
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f7112b = false;
+    private boolean f7113b = false;
     private boolean c = false;
     private boolean h = true;
     private boolean i = false;
@@ -25,8 +25,8 @@ public class g {
         @Override // android.view.View.OnTouchListener
         @SuppressLint({"ClickableViewAccessibility"})
         public boolean onTouch(View view, MotionEvent motionEvent) {
-            if (g.this.f7111a.m()) {
-                return g.this.f7112b || !g.this.c;
+            if (g.this.f7112a.m()) {
+                return g.this.f7113b || !g.this.c;
             }
             float x = motionEvent.getX();
             float y = motionEvent.getY();
@@ -38,8 +38,8 @@ public class g {
                     g.this.f = (int) x;
                     g.this.g = (int) y;
                     g.this.h = true;
-                    if (g.this.f7111a != null && g.this.c && !g.this.f7112b) {
-                        g.this.f7111a.a(view, true);
+                    if (g.this.f7112a != null && g.this.c && !g.this.f7113b) {
+                        g.this.f7112a.a(view, true);
                         break;
                     }
                     break;
@@ -47,20 +47,20 @@ public class g {
                     if (Math.abs(x - g.this.f) > 20.0f || Math.abs(y - g.this.g) > 20.0f) {
                         g.this.h = false;
                     }
-                    if (!g.this.f7112b) {
+                    if (!g.this.f7113b) {
                         g.this.h = true;
                     }
                     g.this.i = false;
                     g.this.d = 0.0f;
                     g.this.e = 0.0f;
                     g.this.f = 0;
-                    if (g.this.f7111a != null) {
-                        g.this.f7111a.a(view, g.this.h);
+                    if (g.this.f7112a != null) {
+                        g.this.f7112a.a(view, g.this.h);
                     }
                     g.this.k = false;
                     break;
                 case 2:
-                    if (g.this.f7112b && !g.this.k) {
+                    if (g.this.f7113b && !g.this.k) {
                         float abs = Math.abs(x - g.this.d);
                         float abs2 = Math.abs(y - g.this.e);
                         if (!g.this.i) {
@@ -69,8 +69,8 @@ public class g {
                             }
                             g.this.i = true;
                         }
-                        if (g.this.f7111a != null) {
-                            g.this.f7111a.l();
+                        if (g.this.f7112a != null) {
+                            g.this.f7112a.l();
                         }
                         g.this.d = x;
                         g.this.e = y;
@@ -81,7 +81,7 @@ public class g {
                     g.this.k = false;
                     break;
             }
-            return g.this.f7112b || !g.this.c;
+            return g.this.f7113b || !g.this.c;
         }
     };
 
@@ -95,7 +95,7 @@ public class g {
     }
 
     public g(a aVar) {
-        this.f7111a = aVar;
+        this.f7112a = aVar;
     }
 
     public void a(View view) {

@@ -52,9 +52,9 @@ public final class bd implements bi {
                 String string = Settings.Global.getString(context.getContentResolver(), "pps_oaid");
                 String string2 = Settings.Global.getString(context.getContentResolver(), "pps_track_limit");
                 if (!TextUtils.isEmpty(string)) {
-                    aVar.f6100b = string;
+                    aVar.f6101b = string;
                     aVar.c = Boolean.parseBoolean(string2);
-                    aVar.f6097a = 202003021704L;
+                    aVar.f6098a = 202003021704L;
                     return aVar;
                 }
             } catch (Throwable th) {
@@ -63,9 +63,9 @@ public final class bd implements bi {
         }
         Pair<String, Boolean> hT = hT(context);
         if (hT != null) {
-            aVar.f6100b = (String) hT.first;
+            aVar.f6101b = (String) hT.first;
             aVar.c = ((Boolean) hT.second).booleanValue();
-            aVar.f6097a = e(context);
+            aVar.f6098a = e(context);
         }
         return aVar;
     }
@@ -109,7 +109,7 @@ public final class bd implements bi {
     public static class a extends bi.a {
 
         /* renamed from: a  reason: collision with root package name */
-        long f6097a = 0;
+        long f6098a = 0;
 
         a() {
         }

@@ -72,9 +72,9 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
                         tbImageView2.startLoad(this.dataList.get(i).getPicUrl(), 10, false);
                     }
                     tbImageView2.setOnClickListener(this.eZn);
-                    if ((this.dataList.get(i) instanceof z) && !((z) this.dataList.get(i)).bpz()) {
+                    if ((this.dataList.get(i) instanceof z) && !((z) this.dataList.get(i)).bpA()) {
                         z zVar = (z) this.dataList.get(i);
-                        s.b(zVar.bpw(), tbImageView, zVar.bpx(), l.getDimens(this.context, R.dimen.ds24));
+                        s.b(zVar.bpx(), tbImageView, zVar.bpy(), l.getDimens(this.context, R.dimen.ds24));
                     }
                 }
             }
@@ -120,7 +120,7 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
         if (tbImageView == null) {
             return super.instantiateItem(viewGroup, i);
         }
-        if ((x.getItem(this.dataList, i) instanceof z) && !((z) x.getItem(this.dataList, i)).bpz()) {
+        if ((x.getItem(this.dataList, i) instanceof z) && !((z) x.getItem(this.dataList, i)).bpA()) {
             RelativeLayout relativeLayout = (RelativeLayout) x.getItem(this.eZp, i);
             TbImageView tbImageView2 = (TbImageView) x.getItem(this.eZo, i);
             relativeLayout.removeView(tbImageView2);
@@ -129,7 +129,7 @@ public class CoverFlowAdapter<T extends com.baidu.tbadk.core.flow.a.a> extends P
             }
             relativeLayout.addView(tbImageView, new RelativeLayout.LayoutParams(-1, -1));
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
-            if (this.eZq.buH() == null) {
+            if (this.eZq.buI() == null) {
                 layoutParams.addRule(12);
                 layoutParams.addRule(9);
             } else {

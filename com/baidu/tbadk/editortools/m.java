@@ -59,7 +59,7 @@ public class m {
         this.fEF = z;
     }
 
-    public boolean bEY() {
+    public boolean bEZ() {
         return this.fEF;
     }
 }

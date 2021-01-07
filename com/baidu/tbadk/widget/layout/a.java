@@ -17,7 +17,7 @@ public class a extends f {
             @Override // com.baidu.tbadk.widget.layout.ConstrainImageLayout.a
             public void a(TbImageView tbImageView, int i2, int i3) {
                 tbImageView.setRadiusById(R.string.J_X05);
-                tbImageView.bJL();
+                tbImageView.bJM();
                 tbImageView.setDrawCorner(true);
                 tbImageView.setConrers(0);
                 if (i3 == 1) {

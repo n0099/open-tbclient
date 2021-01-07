@@ -14,57 +14,57 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f2105a;
+    private Context f2106a;
 
     /* renamed from: b  reason: collision with root package name */
-    private C0111a f2106b;
+    private C0111a f2107b;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [66=4] */
     /* JADX INFO: Access modifiers changed from: package-private */
     public boolean a(Context context, int i, Bundle bundle) {
-        this.f2105a = context;
-        this.f2106b = new C0111a();
+        this.f2106a = context;
+        this.f2107b = new C0111a();
         b.a a2 = b.a(i);
-        c a3 = b.a(context).a(context.getApplicationContext(), a2.f2111a);
-        this.f2106b.j = a2.f2111a;
+        c a3 = b.a(context).a(context.getApplicationContext(), a2.f2112a);
+        this.f2107b.j = a2.f2112a;
         try {
             if (!a3.q || !a3.r) {
-                this.f2106b.i = a2.f2112b;
-                this.f2106b.k = true;
+                this.f2107b.i = a2.f2113b;
+                this.f2107b.k = true;
                 a(a2.d, a2);
                 return true;
             }
             if (!a3.p) {
                 a(a2, a3, a2.d);
-            } else if (a2.f2112b.compareTo(a3.n) > 0) {
-                this.f2106b.i = a2.f2112b;
+            } else if (a2.f2113b.compareTo(a3.n) > 0) {
+                this.f2107b.i = a2.f2113b;
                 a(a2.d, a2);
             } else {
                 a(a2, a3, a2.d);
             }
-            this.f2106b.k = true;
+            this.f2107b.k = true;
             return true;
         } catch (Throwable th) {
             try {
-                this.f2106b.n = Log.getStackTraceString(th);
-                this.f2106b.o = this.f2106b.i;
-                this.f2106b.k = false;
+                this.f2107b.n = Log.getStackTraceString(th);
+                this.f2107b.o = this.f2107b.i;
+                this.f2107b.k = false;
                 return false;
             } finally {
-                this.f2106b.b();
+                this.f2107b.b();
             }
         }
     }
 
     private void a(String[] strArr, b.a aVar) {
         for (String str : strArr) {
-            String str2 = b.b(this.f2105a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
+            String str2 = b.b(this.f2106a, aVar) + "/lib" + str + PluginInstallerService.APK_LIB_SUFFIX;
             if (g.a(str2)) {
                 g.b(str2);
             }
             System.loadLibrary(str);
         }
-        this.f2106b.l = true;
+        this.f2107b.l = true;
     }
 
     private void a(b.a aVar, c cVar, String[] strArr) {
@@ -72,14 +72,14 @@ public class a {
         try {
             int length = strArr.length;
             for (int i = 0; i < length; i++) {
-                System.load(b.b(this.f2105a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
+                System.load(b.b(this.f2106a, aVar) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
             }
-            this.f2106b.i = cVar.n;
+            this.f2107b.i = cVar.n;
         } catch (Throwable th) {
-            this.f2106b.m = false;
-            this.f2106b.i = aVar.f2112b;
-            this.f2106b.n = Log.getStackTraceString(th);
-            this.f2106b.o = cVar.n;
+            this.f2107b.m = false;
+            this.f2107b.i = aVar.f2113b;
+            this.f2107b.n = Log.getStackTraceString(th);
+            this.f2107b.o = cVar.n;
             z = false;
         }
         if (!z) {
@@ -93,7 +93,7 @@ public class a {
     public class C0111a {
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f2107b = "load_so_zip_version";
+        private static final String f2108b = "load_so_zip_version";
         private static final String c = "load_so_modle_name";
         private static final String d = "load_default_so";
         private static final String e = "load_so_success";
@@ -115,7 +115,7 @@ public class a {
 
         private Map<String, String> a() {
             HashMap hashMap = new HashMap();
-            hashMap.put(f2107b, this.i);
+            hashMap.put(f2108b, this.i);
             hashMap.put(c, this.j);
             hashMap.put(d, this.l ? "1" : "-1");
             hashMap.put(e, this.k ? "1" : "-1");

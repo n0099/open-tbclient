@@ -19,8 +19,8 @@ public abstract class i<SelfT extends i<SelfT>> extends com.baidu.swan.apps.u.c.
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.swan.apps.ao.e.d
-        /* renamed from: aMI */
-        public a aCr() {
+        /* renamed from: aMJ */
+        public a aCs() {
             return this;
         }
     }

@@ -53,21 +53,21 @@ public class b extends com.baidu.adp.base.c<OfficialBarFeedActivity> {
         ao.setViewTextColor(this.kyl, R.color.CAM_X0109);
         ao.setViewTextColor(this.jMX, R.color.CAM_X0105);
         if (this.kyn != null) {
-            this.kyn.cWY();
+            this.kyn.cWZ();
         }
         if (this.kyo != null) {
-            this.kyo.cWY();
+            this.kyo.cWZ();
         }
         if (this.kyq) {
-            com.baidu.tbadk.core.util.f.a.bwT().qI(R.color.CAM_X0205).qD(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).qG(0).qH(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bz(this.fAp);
+            com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0205).qD(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).qG(0).qH(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bz(this.fAp);
         } else {
-            com.baidu.tbadk.core.util.f.a.bwT().qI(R.color.CAM_X0205).qD(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).qG(0).qH(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bz(this.kyj);
+            com.baidu.tbadk.core.util.f.a.bwU().qI(R.color.CAM_X0205).qD(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31)).qE(R.color.CAM_X0804).qC(4369).qF(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10)).qG(0).qH(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5)).bz(this.kyj);
         }
     }
 
-    public void a(Context context, final a.C0766a c0766a, com.baidu.tieba.im.db.pojo.a aVar, com.baidu.tieba.im.forum.broadcast.data.b bVar, int i, boolean z, final int i2) {
+    public void a(Context context, final a.C0775a c0775a, com.baidu.tieba.im.db.pojo.a aVar, com.baidu.tieba.im.forum.broadcast.data.b bVar, int i, boolean z, final int i2) {
         String dS;
-        if (c0766a != null) {
+        if (c0775a != null) {
             if (this.kyq) {
                 this.kyk.setVisibility(8);
                 this.jMX.setVisibility(8);
@@ -80,7 +80,7 @@ public class b extends com.baidu.adp.base.c<OfficialBarFeedActivity> {
                 int dimens2 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds5);
                 int dimens3 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds52);
                 this.kym.setPadding(0, l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds31), 0, 0);
-                this.fAp.setPadding(dimens, dimens2, dimens, StringUtils.isNull(c0766a.text) ? 0 : dimens3 + dimens);
+                this.fAp.setPadding(dimens, dimens2, dimens, StringUtils.isNull(c0775a.text) ? 0 : dimens3 + dimens);
                 RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.fAp.getLayoutParams();
                 layoutParams2.topMargin = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds27);
                 this.fAp.setLayoutParams(layoutParams2);
@@ -92,15 +92,15 @@ public class b extends com.baidu.adp.base.c<OfficialBarFeedActivity> {
                 this.kyk.setPlaceHolder(1);
             }
             if (!this.kyq && aVar != null) {
-                this.kyk.startLoad(aVar.cXK(), 10, false);
+                this.kyk.startLoad(aVar.cXL(), 10, false);
                 this.jMX.setText(String.format("%s%s", aVar.getForumName(), context.getString(R.string.forum)));
             }
-            long j = c0766a.createTime * 1000;
+            long j = c0775a.createTime * 1000;
             if (this.kyq) {
                 dS = k.getTimeStringNoYear(new Date(j));
             } else {
                 dS = at.dS(j);
-                if (at.Ca(dS)) {
+                if (at.BZ(dS)) {
                     dS = at.getFormatTimeShort(j);
                 }
             }
@@ -110,25 +110,25 @@ public class b extends com.baidu.adp.base.c<OfficialBarFeedActivity> {
                 int dimens4 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29);
                 this.kyo.setPadding(dimens4, 0, dimens4, 0);
             }
-            this.kyo.setData(c0766a, z);
+            this.kyo.setData(c0775a, z);
             this.fAp.removeAllViews();
             this.kym.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.im.chat.officialBar.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (b.this.kyp != null) {
-                        b.this.kyp.a(b.this.kym, c0766a, i2, 0L);
+                        b.this.kyp.a(b.this.kym, c0775a, i2, 0L);
                     }
                 }
             });
             if (z) {
                 this.kyn = new OfficialFeedItemImage(context, this.kyq);
                 if (this.kyq) {
-                    this.kyn.cWZ();
+                    this.kyn.cXa();
                     this.kyo.Eb(l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds29));
                 }
                 this.fAp.addView(this.kyn);
                 this.fAp.addView(this.kyo);
-                this.kyn.setData(c0766a, i, bVar);
+                this.kyn.setData(c0775a, i, bVar);
             } else {
                 if (this.kyq) {
                     int dimens5 = l.getDimens(this.mContext.getPageActivity(), R.dimen.tbds10);

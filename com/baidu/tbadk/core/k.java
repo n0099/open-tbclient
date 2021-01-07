@@ -12,7 +12,7 @@ public class k {
     private boolean mIsShowImages = true;
     private int mViewImageQuality = 0;
 
-    public static k bou() {
+    public static k bov() {
         k kVar;
         if (eMf == null) {
             synchronized (k.class) {
@@ -30,32 +30,32 @@ public class k {
     }
 
     public void initSetting() {
-        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
-        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.PREFS_ABSTRACT_STATE, 0);
-        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, 0);
-        this.mIsShowImages = com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(SharedPrefConfig.PREFS_SHOW_IMAGES, true);
+        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
+        this.mIsAbstractOn = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.PREFS_ABSTRACT_STATE, 0);
+        this.mViewImageQuality = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, 0);
+        this.mIsShowImages = com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(SharedPrefConfig.PREFS_SHOW_IMAGES, true);
         if (!this.mIsShowImages) {
             this.mIsShowImages = true;
-            com.baidu.tbadk.core.sharedPref.b.bvq().remove(SharedPrefConfig.PREFS_SHOW_IMAGES);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, 0);
+            com.baidu.tbadk.core.sharedPref.b.bvr().remove(SharedPrefConfig.PREFS_SHOW_IMAGES);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, 0);
             this.mViewImageQuality = 0;
         }
     }
 
     public int getUploadImageQuality() {
-        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
+        this.mUploadImageQuality = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.PREFS_IMAGE_QUALITY, 0);
         return this.mUploadImageQuality;
     }
 
     public void setImageWaterType(int i) {
         if (this.mAddImageWater != i) {
             this.mAddImageWater = i;
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, i);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, i);
         }
     }
 
     public int getImageWaterType() {
-        this.mAddImageWater = com.baidu.tbadk.core.sharedPref.b.bvq().getInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, 2);
+        this.mAddImageWater = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(TbadkCoreApplication.getCurrentAccount() + SharedPrefConfig.PREFS_ADD_IMAGE_WATER, 2);
         return this.mAddImageWater;
     }
 
@@ -77,9 +77,9 @@ public class k {
     public void or(int i) {
         if (this.mViewImageQuality != i) {
             this.mViewImageQuality = i;
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, i);
-            au.bwr().updateFrsShowBigImage();
-            au.bwr().updateUrlQuality();
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.PREFS_VIEW_IMAGE_QUALITY, i);
+            au.bws().updateFrsShowBigImage();
+            au.bws().updateUrlQuality();
         }
     }
 

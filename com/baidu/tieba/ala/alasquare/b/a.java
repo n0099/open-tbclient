@@ -13,7 +13,7 @@ public class a {
     private static a gHh;
     private List<aq> gik;
 
-    public static a bVl() {
+    public static a bVm() {
         if (gHh == null) {
             synchronized (a.class) {
                 if (gHh == null) {
@@ -35,7 +35,7 @@ public class a {
         }
     }
 
-    public void GL(String str) {
+    public void GK(String str) {
         if (str != null) {
             if (this.gik == null) {
                 this.gik = new ArrayList();
@@ -46,7 +46,7 @@ public class a {
         }
     }
 
-    public void bRS() {
+    public void bRT() {
         if (x.getCount(this.gik) != 0) {
             for (aq aqVar : this.gik) {
                 if (aqVar != null) {
@@ -80,8 +80,8 @@ public class a {
             return null;
         }
         String str3 = "";
-        if (bzVar.brJ() != null && !StringUtils.isNull(bzVar.brJ().appId)) {
-            str3 = bzVar.brJ().appId;
+        if (bzVar.brK() != null && !StringUtils.isNull(bzVar.brK().appId)) {
+            str3 = bzVar.brK().appId;
         }
         aq aqVar = new aq(str);
         aqVar.an("obj_type", 1);
@@ -95,10 +95,10 @@ public class a {
     }
 
     private long S(bz bzVar) {
-        if (bzVar == null || bzVar.brJ() == null) {
+        if (bzVar == null || bzVar.brK() == null) {
             return -1L;
         }
-        return bzVar.brJ().live_id;
+        return bzVar.brK().live_id;
     }
 
     public void c(String str, int i, int i2, String str2) {

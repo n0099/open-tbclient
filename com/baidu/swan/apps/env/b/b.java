@@ -15,22 +15,22 @@ public class b {
     private static boolean dcE = false;
 
     public static a os(String str) {
-        axl();
+        axm();
         return dcD.get(str);
     }
 
-    private static void axl() {
+    private static void axm() {
         if (!dcE) {
             for (String str : dcC) {
                 if ("zeus".equals(str)) {
-                    dcD.put(str, axm());
+                    dcD.put(str, axn());
                 }
             }
         }
         dcE = true;
     }
 
-    private static a axm() {
-        return new a.C0440a().or("zeus").a(com.baidu.swan.apps.t.a.aBe().amf()).fD(com.baidu.swan.apps.t.a.aBe().amd()).axk();
+    private static a axn() {
+        return new a.C0440a().or("zeus").a(com.baidu.swan.apps.t.a.aBf().amg()).fD(com.baidu.swan.apps.t.a.aBf().ame()).axl();
     }
 }

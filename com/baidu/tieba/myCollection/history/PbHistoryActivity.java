@@ -70,7 +70,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                     }
                 }
                 if (PbHistoryActivity.this.lue) {
-                    PbHistoryActivity.this.djF();
+                    PbHistoryActivity.this.djG();
                     PbHistoryActivity.this.eX(PbHistoryActivity.this.cbD);
                     return;
                 }
@@ -98,7 +98,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                 if (httpResponsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
                     PbHistoryActivity.this.closeLives = ((AlaMGetLiveStatusHttpResponseMessage) httpResponsedMessage).getCloseLives();
                 }
-                PbHistoryActivity.this.djF();
+                PbHistoryActivity.this.djG();
                 PbHistoryActivity.this.eX(PbHistoryActivity.this.cbD);
             }
         }
@@ -152,7 +152,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                         aVar2.dismiss();
                     }
                 });
-                aVar.b(PbHistoryActivity.this.getPageContext()).btX();
+                aVar.b(PbHistoryActivity.this.getPageContext()).btY();
             }
         });
         this.lud.setVisibility(8);
@@ -188,7 +188,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
                         }
                         l.showToast(PbHistoryActivity.this.getPageContext().getPageActivity(), R.string.manga_plugin_not_install_tip);
                     } else {
-                        PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.getThreadId(), aVar.bFk(), aVar.djD(), aVar.djE(), null);
+                        PbActivityConfig createHistoryCfg = new PbActivityConfig(PbHistoryActivity.this.getPageContext().getPageActivity()).createHistoryCfg(aVar.getThreadId(), aVar.bFl(), aVar.djE(), aVar.djF(), null);
                         createHistoryCfg.setStartFrom(11);
                         createHistoryCfg.setIsShareThread(aVar.isShareThread());
                         PbHistoryActivity.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_PB_ACTIVITY, createHistoryCfg));
@@ -207,7 +207,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void djF() {
+    public void djG() {
         if (!x.isEmpty(this.closeLives) && !x.isEmpty(this.cbD)) {
             for (com.baidu.tieba.myCollection.baseHistory.a aVar : this.cbD) {
                 if (!StringUtils.isNull(aVar.getLiveId()) && Long.valueOf(aVar.getLiveId()).longValue() != 0) {
@@ -231,7 +231,7 @@ public class PbHistoryActivity extends BaseActivity<PbHistoryActivity> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void refreshData() {
-        this.model.bGS();
+        this.model.bGT();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

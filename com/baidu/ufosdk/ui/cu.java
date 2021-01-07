@@ -5,11 +5,11 @@ import android.view.View;
 final class cu implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ cg f5789a;
+    final /* synthetic */ cg f5790a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public cu(cg cgVar) {
-        this.f5789a = cgVar;
+        this.f5790a = cgVar;
     }
 
     @Override // android.view.View.OnClickListener

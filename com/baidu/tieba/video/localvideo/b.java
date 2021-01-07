@@ -5,7 +5,7 @@ public class b {
     private boolean hasLoaded = false;
     private long lastModified;
     private String mimeType;
-    private String nJT;
+    private String nJS;
     private String videoId;
     private String videoPath;
 
@@ -37,8 +37,8 @@ public class b {
         this.mimeType = str;
     }
 
-    public void UC(String str) {
-        this.nJT = str;
+    public void UB(String str) {
+        this.nJS = str;
     }
 
     public long getLastModified() {

@@ -79,7 +79,7 @@ public class MsgleftView extends e {
         String str = null;
         super.b(view, chatMessage);
         ArrayList<IconData> tShowInfoNew = chatMessage != null ? chatMessage.getUserInfo().getTShowInfoNew() : null;
-        cWz();
+        cWA();
         if (this.ald != null && this.kxh) {
             this.ald.setVisibility(0);
             this.ald.setAutoChangedStyle(false);
@@ -157,7 +157,7 @@ public class MsgleftView extends e {
     }
 
     private void c(ChatMessage chatMessage) {
-        String string = com.baidu.tbadk.core.sharedPref.b.bvq().getString(SharedPrefConfig.LIVE_ROOM_CHAT_PAGE_AUTHOR_ID, "");
+        String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString(SharedPrefConfig.LIVE_ROOM_CHAT_PAGE_AUTHOR_ID, "");
         if (chatMessage.getUserInfo() != null && chatMessage.getUserInfo().getUserId() != null && chatMessage.getUserInfo().getUserId().equals(string)) {
             this.kxl.setVisibility(0);
         } else {
@@ -192,7 +192,7 @@ public class MsgleftView extends e {
         }
     }
 
-    public void cWz() {
+    public void cWA() {
         if (this.kxh) {
             this.mName.setVisibility(0);
             this.ald.setVisibility(0);

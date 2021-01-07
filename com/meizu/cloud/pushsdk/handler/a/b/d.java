@@ -6,10 +6,10 @@ import com.baidu.live.adp.lib.stats.BdStatsConstant;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    String f11612a;
+    String f11613a;
 
     /* renamed from: b  reason: collision with root package name */
-    String f11613b;
+    String f11614b;
     String c;
     String d;
 
@@ -17,15 +17,15 @@ public class d {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f11614a;
+        private String f11615a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f11615b;
+        private String f11616b;
         private String c;
         private String d;
 
         public a a(String str) {
-            this.f11614a = str;
+            this.f11615a = str;
             return this;
         }
 
@@ -34,7 +34,7 @@ public class d {
         }
 
         public a b(String str) {
-            this.f11615b = str;
+            this.f11616b = str;
             return this;
         }
 
@@ -53,8 +53,8 @@ public class d {
     }
 
     public d(a aVar) {
-        this.f11612a = !TextUtils.isEmpty(aVar.f11614a) ? aVar.f11614a : "";
-        this.f11613b = !TextUtils.isEmpty(aVar.f11615b) ? aVar.f11615b : "";
+        this.f11613a = !TextUtils.isEmpty(aVar.f11615a) ? aVar.f11615a : "";
+        this.f11614b = !TextUtils.isEmpty(aVar.f11616b) ? aVar.f11616b : "";
         this.c = !TextUtils.isEmpty(aVar.c) ? aVar.c : "";
         this.d = !TextUtils.isEmpty(aVar.d) ? aVar.d : "";
     }
@@ -65,19 +65,19 @@ public class d {
 
     public String b() {
         com.meizu.cloud.pushsdk.c.a.c cVar = new com.meizu.cloud.pushsdk.c.a.c();
-        cVar.a("task_id", this.f11612a);
-        cVar.a(BdStatsConstant.StatsKey.SEQUENCEID, this.f11613b);
+        cVar.a("task_id", this.f11613a);
+        cVar.a(BdStatsConstant.StatsKey.SEQUENCEID, this.f11614b);
         cVar.a("push_timestamp", this.c);
         cVar.a("device_id", this.d);
         return cVar.toString();
     }
 
     public String c() {
-        return this.f11612a;
+        return this.f11613a;
     }
 
     public String d() {
-        return this.f11613b;
+        return this.f11614b;
     }
 
     public String e() {

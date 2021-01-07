@@ -81,7 +81,7 @@ public class a extends com.baidu.tieba.card.b<g> implements y {
         this.hnT.setSwipeControlInterface(new SwipeBackLayout.c() { // from class: com.baidu.tieba.ala.livecard.a.a.1
             @Override // com.baidu.adp.widget.SwipeBackLayout.c
             public void disableSwipeBack() {
-                if (a.this.hnX != null && !x.isEmpty(a.this.hnX.npg) && a.this.hnX.npg.size() > 1) {
+                if (a.this.hnX != null && !x.isEmpty(a.this.hnX.npf) && a.this.hnX.npf.size() > 1) {
                     if (a.this.mTbPageContext.getOrignalPage() instanceof BaseActivity) {
                         ((BaseActivity) a.this.mTbPageContext.getOrignalPage()).setSwipeBackEnabled(false);
                     } else if (a.this.mTbPageContext.getOrignalPage() instanceof BaseFragmentActivity) {
@@ -122,16 +122,16 @@ public class a extends com.baidu.tieba.card.b<g> implements y {
     public void a(g gVar) {
         if (gVar != null) {
             this.hnX = gVar;
-            cbI();
-            this.hnV.setData(gVar.npg);
+            cbJ();
+            this.hnV.setData(gVar.npf);
             onChangeSkinType(getTbPageContext(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 
-    private void cbI() {
-        if (!x.isEmpty(this.hnX.npg)) {
+    private void cbJ() {
+        if (!x.isEmpty(this.hnX.npf)) {
             CustomMessage customMessage = new CustomMessage(CmdConfigCustom.CMD_FRS_LIVE_CARD_SHOW);
-            customMessage.setData(this.hnX.npg.get(0));
+            customMessage.setData(this.hnX.npf.get(0));
             MessageManager.getInstance().sendMessage(customMessage);
         }
     }
@@ -166,23 +166,23 @@ public class a extends com.baidu.tieba.card.b<g> implements y {
     }
 
     public void a(TbPageContext<?> tbPageContext, bz bzVar) {
-        if (tbPageContext != null && bzVar != null && bzVar.brq() != null && bzVar.brJ() != null) {
+        if (tbPageContext != null && bzVar != null && bzVar.brr() != null && bzVar.brK() != null) {
             boolean z = false;
             String str = "";
             if (TbadkCoreApplication.getCurrentAccount() != null) {
-                String userId = bzVar.brq().getUserId();
+                String userId = bzVar.brr().getUserId();
                 str = TbadkCoreApplication.getCurrentAccount();
                 z = TextUtils.equals(userId, str);
             }
             AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-            alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
-            if (bzVar.brJ() != null && bzVar.brJ().user_info != null) {
-                alaLiveInfoCoreData.userName = bzVar.brJ().user_info.user_name;
+            alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
+            if (bzVar.brK() != null && bzVar.brK().user_info != null) {
+                alaLiveInfoCoreData.userName = bzVar.brK().user_info.user_name;
             }
             AlaLiveInfoListCoreData alaLiveInfoListCoreData = new AlaLiveInfoListCoreData();
             alaLiveInfoListCoreData.mLiveInfoList = new ArrayList();
-            if (this.hnX != null && !x.isEmpty(this.hnX.npg)) {
-                for (bz bzVar2 : this.hnX.npg) {
+            if (this.hnX != null && !x.isEmpty(this.hnX.npf)) {
+                for (bz bzVar2 : this.hnX.npf) {
                     alaLiveInfoListCoreData.mLiveInfoList.add(V(bzVar2));
                 }
             }
@@ -192,8 +192,8 @@ public class a extends com.baidu.tieba.card.b<g> implements y {
 
     private AlaLiveInfoCoreData V(bz bzVar) {
         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-        alaLiveInfoCoreData.fillWithInfoData(bzVar.brJ());
-        alaLiveInfoCoreData.userName = bzVar.brq().getUserName();
+        alaLiveInfoCoreData.fillWithInfoData(bzVar.brK());
+        alaLiveInfoCoreData.userName = bzVar.brr().getUserName();
         return alaLiveInfoCoreData;
     }
 }

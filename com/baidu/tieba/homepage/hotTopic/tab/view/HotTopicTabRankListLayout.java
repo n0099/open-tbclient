@@ -60,8 +60,8 @@ public class HotTopicTabRankListLayout extends RecyclerView {
     }
 
     public void a(d dVar) {
-        if (dVar != null && dVar.cSD() != null) {
-            this.kdL.ec(dVar.cSD());
+        if (dVar != null && dVar.cSE() != null) {
+            this.kdL.ec(dVar.cSE());
         }
     }
 

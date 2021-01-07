@@ -27,7 +27,7 @@ public class d {
         return !TextUtils.isEmpty(this.cWC);
     }
 
-    public String atO() {
+    public String atP() {
         return this.cWC;
     }
 
@@ -43,11 +43,11 @@ public class d {
         return this.cWB;
     }
 
-    public com.baidu.swan.apps.core.g.a atP() {
+    public com.baidu.swan.apps.core.g.a atQ() {
         return this.cWA;
     }
 
-    public long atQ() {
+    public long atR() {
         return this.cWE - this.cWD;
     }
 
@@ -66,7 +66,7 @@ public class d {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void atR() {
+    public synchronized void atS() {
         if (DEBUG) {
             Log.d("PreloadMasterManager", "notifyAllReady, callback size " + this.mCallbacks.size());
         }
@@ -109,8 +109,8 @@ public class d {
             a(new c() { // from class: com.baidu.swan.apps.core.g.a.d.1
                 @Override // com.baidu.swan.apps.core.g.a.c
                 public void onReady() {
-                    if (d.this.cWA != null && d.this.cWA.anh() != null && !d.this.cWA.anh().isDestroyed()) {
-                        com.baidu.swan.apps.event.a.a(d.this.cWA.anh(), bVar);
+                    if (d.this.cWA != null && d.this.cWA.ani() != null && !d.this.cWA.ani().isDestroyed()) {
+                        com.baidu.swan.apps.event.a.a(d.this.cWA.ani(), bVar);
                     }
                 }
             });
@@ -132,7 +132,7 @@ public class d {
         d dVar = new d(z, z2);
         dVar.cWD = System.currentTimeMillis();
         long currentTimeMillis = DEBUG ? System.currentTimeMillis() : 0L;
-        dVar.cWA = com.baidu.swan.apps.core.turbo.d.avA().a(z2, new g() { // from class: com.baidu.swan.apps.core.g.a.d.2
+        dVar.cWA = com.baidu.swan.apps.core.turbo.d.avB().a(z2, new g() { // from class: com.baidu.swan.apps.core.g.a.d.2
             @Override // com.baidu.swan.apps.core.g
             public void ig(String str) {
                 super.ig(str);
@@ -141,9 +141,9 @@ public class d {
                 }
                 d.this.mIsReady = true;
                 d.this.cWE = System.currentTimeMillis();
-                d.this.atR();
+                d.this.atS();
                 if (d.DEBUG) {
-                    Log.d("PreloadMasterManager", "createBlankOne cost - " + d.this.atQ() + "ms");
+                    Log.d("PreloadMasterManager", "createBlankOne cost - " + d.this.atR() + "ms");
                 }
             }
         });

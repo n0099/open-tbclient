@@ -40,29 +40,29 @@ public class p {
             int i;
             int i2 = 1;
             if (p.this.iwE != null) {
-                p.this.cuV();
+                p.this.cuW();
                 if (p.this.iwE.from == 1) {
                     i = 2;
                 } else {
                     i = p.this.iwE.from == 3 ? 1 : 1;
                 }
                 if (p.this.iwE == null || !p.this.iwE.isPrivacy) {
-                    if (p.this.iwE.boO() != null) {
-                        p.this.iwL.setThreadId(p.this.iwE.boO().getTid());
+                    if (p.this.iwE.boP() != null) {
+                        p.this.iwL.setThreadId(p.this.iwE.boP().getTid());
                     }
-                    if (TbSingleton.getInstance().mCallFansTid != null && p.this.iwE.boO() != null && TbSingleton.getInstance().mCallFansTid.equals(p.this.iwE.boO().getTid())) {
+                    if (TbSingleton.getInstance().mCallFansTid != null && p.this.iwE.boP() != null && TbSingleton.getInstance().mCallFansTid.equals(p.this.iwE.boP().getTid())) {
                         i2 = 2;
                     }
-                    p.this.iwL.cuw();
-                    if (p.this.iwE.boO() != null) {
-                        p.this.iwL.l(i, i2, p.this.iwE.boO().getTid());
+                    p.this.iwL.cux();
+                    if (p.this.iwE.boP() != null) {
+                        p.this.iwL.l(i, i2, p.this.iwE.boP().getTid());
                         return;
                     }
                     return;
                 }
                 p.this.mPageContext.showToast(R.string.privacy_thread_can_not_use_call_fans);
-                if (p.this.iwE.boO() != null) {
-                    p.this.iwL.l(i, 3, p.this.iwE.boO().getTid());
+                if (p.this.iwE.boP() != null) {
+                    p.this.iwL.l(i, 3, p.this.iwE.boP().getTid());
                 }
             }
         }
@@ -122,7 +122,7 @@ public class p {
                 p.this.iwJ.a(p.this.iwN);
                 p.this.iwJ.LoadData();
             }
-            p.this.cuV();
+            p.this.cuW();
         }
     };
     private k.b iwP = new k.b() { // from class: com.baidu.tieba.card.p.7
@@ -133,10 +133,10 @@ public class p {
                 return;
             }
             if (p.this.iwE != null && p.this.ggJ != null) {
-                p.this.cuW();
-                p.this.iwC.btX();
+                p.this.cuX();
+                p.this.iwC.btY();
             }
-            p.this.cuV();
+            p.this.cuW();
         }
     };
     private com.baidu.adp.base.e iwQ = new com.baidu.adp.base.e() { // from class: com.baidu.tieba.card.p.8
@@ -156,8 +156,8 @@ public class p {
                         }
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921436, p.this.iwE.iAy));
                     }
-                } else if (!at.isEmpty(bVar.nuu)) {
-                    com.baidu.adp.lib.util.l.showToast(p.this.mContext, bVar.nuu);
+                } else if (!at.isEmpty(bVar.nut)) {
+                    com.baidu.adp.lib.util.l.showToast(p.this.mContext, bVar.nut);
                 } else {
                     com.baidu.adp.lib.util.l.showToast(p.this.mContext, R.string.delete_fail);
                 }
@@ -209,7 +209,7 @@ public class p {
             this.iwB.a(new k.a() { // from class: com.baidu.tieba.card.p.1
                 @Override // com.baidu.tbadk.core.dialog.k.a
                 public void onClick() {
-                    p.this.cuV();
+                    p.this.cuW();
                 }
             });
             this.iwB.bB(this.iwF);
@@ -234,7 +234,7 @@ public class p {
                     this.iwH.setText(this.mContext.getString(R.string.call_fans));
                     return;
                 }
-                if (TbSingleton.getInstance().mCallFansTid != null && this.iwE.boO() != null && TbSingleton.getInstance().mCallFansTid.equals(this.iwE.boO().getTid())) {
+                if (TbSingleton.getInstance().mCallFansTid != null && this.iwE.boP() != null && TbSingleton.getInstance().mCallFansTid.equals(this.iwE.boP().getTid())) {
                     this.iwH.setText(this.mContext.getString(R.string.have_called_fans));
                 } else {
                     this.iwH.setText(this.mContext.getString(R.string.call_fans));
@@ -250,14 +250,14 @@ public class p {
         }
     }
 
-    public void cuV() {
+    public void cuW() {
         if (this.iwA != null && this.iwA.isShowing()) {
             this.iwA.dismiss();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuW() {
+    public void cuX() {
         if (this.iwC == null) {
             this.iwC = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
             if (this.iwK) {

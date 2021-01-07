@@ -8,10 +8,10 @@ public class a {
     public String h;
 
     /* renamed from: a  reason: collision with root package name */
-    public String f1032a = "";
+    public String f1033a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public String f1033b = "";
+    public String f1034b = "";
     public String c = "";
     public String d = "";
     public String f = "";
@@ -20,8 +20,8 @@ public class a {
     public JSONObject a() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("name", this.f1032a);
-            jSONObject.put("id", this.f1033b);
+            jSONObject.put("name", this.f1033a);
+            jSONObject.put("id", this.f1034b);
             jSONObject.put("image", this.c);
             jSONObject.put("url", this.d);
             jSONObject.put("progress", this.e);

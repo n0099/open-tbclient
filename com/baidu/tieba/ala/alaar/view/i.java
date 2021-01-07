@@ -38,7 +38,7 @@ public class i extends l {
             }
         });
         this.gyR.vc(dVar.getPosition());
-        this.gyR.setData(dVar.bSv());
+        this.gyR.setData(dVar.bSw());
         this.gzf.setAdapter((ListAdapter) this.gyR);
         this.gzf.postDelayed(new Runnable() { // from class: com.baidu.tieba.ala.alaar.view.i.2
             @Override // java.lang.Runnable
@@ -50,9 +50,9 @@ public class i extends l {
                 i.this.gzf.setSelectionFromLeft(dVar.getPosition(), AlaLiveMultiBeautyArView.bC(measuredWidth, dVar.getPosition()));
             }
         }, 0L);
-        com.baidu.tieba.ala.alaar.makeup.c bSw = dVar.bSw();
-        if (this.gzg != null && bSw != null) {
-            this.gzg.a(dVar.getPosition(), bSw, false);
+        com.baidu.tieba.ala.alaar.makeup.c bSx = dVar.bSx();
+        if (this.gzg != null && bSx != null) {
+            this.gzg.a(dVar.getPosition(), bSx, false);
         }
     }
 

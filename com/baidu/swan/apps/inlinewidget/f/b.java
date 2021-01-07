@@ -41,8 +41,8 @@ final class b extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
                 if (b.this.dfU != null) {
                     b.this.dfU.onCallback(b.this, "onPlayed", null);
                 }
-                j.anN().P(str, true);
-                j.anN().ml(str);
+                j.anO().P(str, true);
+                j.anO().ml(str);
             }
 
             @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
@@ -51,7 +51,7 @@ final class b extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
                     b.this.dfU.onCallback(b.this, "onPaused", null);
                 }
                 if (!TextUtils.isEmpty(str)) {
-                    j.anN().P(str, false);
+                    j.anO().P(str, false);
                 }
             }
 
@@ -77,7 +77,7 @@ final class b extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
             }
 
             @Override // com.baidu.swan.apps.inlinewidget.f.c.a.InterfaceC0449a
-            public void azO() {
+            public void azP() {
                 if (b.this.dfU != null) {
                     b.this.dfU.onCallback(b.this, "onVideoSizeChanged", null);
                 }
@@ -102,11 +102,11 @@ final class b extends com.baidu.swan.apps.inlinewidget.b<com.baidu.swan.apps.inl
                 if (b.DEBUG) {
                     Log.i("InlineVideoController", "onRelease: " + str);
                 }
-                j.anN().mj(str);
+                j.anO().mj(str);
             }
         };
         aVar.a(this.dgQ);
-        j.anN().a(aVar);
+        j.anO().a(aVar);
         this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.a());
         this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.b());
         this.dfT.a(new com.baidu.swan.apps.inlinewidget.f.a.c());

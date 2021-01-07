@@ -6,10 +6,10 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f7816a;
+    public String f7817a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f7817b;
+    public String f7818b;
     public String c;
     public String d;
     public String e;

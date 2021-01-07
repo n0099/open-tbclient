@@ -9,13 +9,13 @@ import com.xiaomi.push.az;
 public class as extends ContentObserver {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ aq f14112a;
+    final /* synthetic */ aq f14113a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public as(aq aqVar, Handler handler) {
         super(handler);
-        this.f14112a = aqVar;
+        this.f14113a = aqVar;
     }
 
     @Override // android.database.ContentObserver
@@ -24,16 +24,16 @@ public class as extends ContentObserver {
         Integer num;
         Context context2;
         Context context3;
-        aq aqVar = this.f14112a;
-        context = this.f14112a.f129a;
-        aqVar.f133a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
-        num = this.f14112a.f133a;
+        aq aqVar = this.f14113a;
+        context = this.f14113a.f130a;
+        aqVar.f134a = Integer.valueOf(com.xiaomi.push.service.aw.a(context).a());
+        num = this.f14113a.f134a;
         if (num.intValue() != 0) {
-            context2 = this.f14112a.f129a;
+            context2 = this.f14113a.f130a;
             context2.getContentResolver().unregisterContentObserver(this);
-            context3 = this.f14112a.f129a;
+            context3 = this.f14113a.f130a;
             if (az.b(context3)) {
-                this.f14112a.m110c();
+                this.f14113a.m121c();
             }
         }
     }

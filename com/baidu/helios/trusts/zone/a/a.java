@@ -23,7 +23,7 @@ import java.util.HashSet;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 public class a {
     private static final String[] ayY = {"f0fb772cce0da4ed791213b800defea286494ab98d00e1101cbf78a35e70ec4b"};
     private a.C0141a ayV;
@@ -33,11 +33,11 @@ public class a {
     private Context l;
 
     /* renamed from: com.baidu.helios.trusts.zone.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes4.dex */
     static class C0151a {
 
         /* renamed from: a  reason: collision with root package name */
-        public long f2518a;
+        public long f2519a;
 
         C0151a() {
         }
@@ -48,7 +48,7 @@ public class a {
                 if (!TextUtils.isEmpty(a2)) {
                     JSONObject jSONObject = new JSONObject(a2);
                     C0151a c0151a = new C0151a();
-                    c0151a.f2518a = jSONObject.getLong("version");
+                    c0151a.f2519a = jSONObject.getLong("version");
                     return c0151a;
                 }
             } catch (Exception e) {
@@ -334,7 +334,7 @@ public class a {
     public long g() {
         C0151a a2 = C0151a.a(this);
         if (a2 != null) {
-            return a2.f2518a;
+            return a2.f2519a;
         }
         return 0L;
     }

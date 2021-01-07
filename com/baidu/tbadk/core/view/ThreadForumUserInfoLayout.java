@@ -51,7 +51,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (ThreadForumUserInfoLayout.this.aim != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadForumUserInfoLayout.this.getContext()).createNormalCfg(ThreadForumUserInfoLayout.this.aim.bth() != null ? ThreadForumUserInfoLayout.this.aim.bth().getForumName() : ThreadForumUserInfoLayout.this.aim.bru(), m.brc())));
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(ThreadForumUserInfoLayout.this.getContext()).createNormalCfg(ThreadForumUserInfoLayout.this.aim.bti() != null ? ThreadForumUserInfoLayout.this.aim.bti().getForumName() : ThreadForumUserInfoLayout.this.aim.brv(), m.brd())));
                     if (ThreadForumUserInfoLayout.this.fmS != null) {
                         ThreadForumUserInfoLayout.this.fmS.onClick(view);
                     }
@@ -85,10 +85,10 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     public void setData(bz bzVar) {
         if (bzVar != null) {
             this.aim = bzVar;
-            a(bzVar.bth());
-            b(bzVar.bth());
+            a(bzVar.bti());
+            b(bzVar.bti());
             H(bzVar);
-            c(bzVar.bth());
+            c(bzVar.bti());
         }
     }
 
@@ -112,8 +112,8 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
     }
 
     public void H(bz bzVar) {
-        if (bzVar != null && !StringUtils.isNull(this.aim.brq().getName_show())) {
-            this.fnj.setText(getContext().getString(R.string.user_name_and_publish, CA(this.aim.brq().getName_show())));
+        if (bzVar != null && !StringUtils.isNull(this.aim.brr().getName_show())) {
+            this.fnj.setText(getContext().getString(R.string.user_name_and_publish, Cz(this.aim.brr().getName_show())));
             this.fnj.setVisibility(0);
         }
     }
@@ -125,7 +125,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
             return;
         }
         this.fnl.a(bvVar);
-        this.fnk.setVisibility((!bvVar.getIsLike() || bvVar.bqF()) ? 0 : 0);
+        this.fnk.setVisibility((!bvVar.getIsLike() || bvVar.bqG()) ? 0 : 0);
     }
 
     public void setForumAfterClickListener(View.OnClickListener onClickListener) {
@@ -147,7 +147,7 @@ public class ThreadForumUserInfoLayout extends RelativeLayout {
         }
     }
 
-    protected String CA(String str) {
+    protected String Cz(String str) {
         return at.cutChineseAndEnglishWithSuffix(str, 14, StringHelper.STRING_MORE);
     }
 

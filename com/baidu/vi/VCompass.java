@@ -3,23 +3,23 @@ package com.baidu.vi;
 import android.hardware.SensorEventListener;
 import android.hardware.SensorManager;
 import android.os.Handler;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class VCompass {
     private static final Handler e = new c();
 
     /* renamed from: b  reason: collision with root package name */
-    private float f5913b;
+    private float f5914b;
 
     /* renamed from: a  reason: collision with root package name */
-    private SensorManager f5912a = null;
+    private SensorManager f5913a = null;
     private float c = 2.0f;
     private int d = 0;
     private SensorEventListener f = new d(this);
 
     /* JADX INFO: Access modifiers changed from: private */
     public float a(float f) {
-        this.f5913b = a(this.f5913b, f, this.c);
-        return this.f5913b;
+        this.f5914b = a(this.f5914b, f, this.c);
+        return this.f5914b;
     }
 
     private float a(float f, float f2, float f3) {

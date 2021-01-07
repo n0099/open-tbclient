@@ -33,7 +33,7 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
         PREPARED
     }
 
-    public static DefaultSwanAppBgMusicPlayer akI() {
+    public static DefaultSwanAppBgMusicPlayer akJ() {
         if (cFm == null) {
             synchronized (DefaultSwanAppBgMusicPlayer.class) {
                 if (cFm == null) {
@@ -51,9 +51,9 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
             try {
                 com.baidu.swan.apps.media.audio.a a2 = com.baidu.swan.apps.media.audio.a.a(new JSONObject(str), new com.baidu.swan.apps.media.audio.a());
                 if (this.cFo != PlayerStatus.NONE) {
-                    akJ().reset();
+                    akK().reset();
                 }
-                akJ().setDataSource(a2.mUrl);
+                akK().setDataSource(a2.mUrl);
                 this.cFo = PlayerStatus.IDLE;
                 this.cFp.onGetCurrentSong(a2.mUrl);
                 play();
@@ -67,7 +67,7 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
     @Override // com.baidu.swan.apps.adaptation.a.k
     public void onRelease() {
         abandonAudioFocus();
-        akJ().release();
+        akK().release();
         this.cFn = null;
         this.cFo = PlayerStatus.NONE;
         if (this.cFr != null) {
@@ -80,7 +80,7 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
     public void play() {
         if (this.cFo == PlayerStatus.PREPARED) {
             requestAudioFocus();
-            akJ().start();
+            akK().start();
             this.cFp.onStateChanged(BgMusicPlayState.PLAY);
             if (this.cFr != null) {
                 this.cFr.sendEmptyMessage(0);
@@ -92,7 +92,7 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
 
     private void prepare() {
         try {
-            akJ().prepareAsync();
+            akK().prepareAsync();
             this.cFo = PlayerStatus.PREPARING;
         } catch (IllegalStateException e) {
             e.printStackTrace();
@@ -103,8 +103,8 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
 
     @Override // com.baidu.swan.apps.adaptation.a.k
     public void pause() {
-        if (akJ().isPlaying()) {
-            akJ().pause();
+        if (akK().isPlaying()) {
+            akK().pause();
             this.cFp.onStateChanged(BgMusicPlayState.PAUSE);
             if (this.cFr != null) {
                 this.cFr.removeMessages(0);
@@ -118,7 +118,7 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
             if (DEBUG) {
                 Log.d("AudioPlayerListener", "===stop");
             }
-            akJ().stop();
+            akK().stop();
             this.cFo = PlayerStatus.IDLE;
             this.cFp.onStateChanged(BgMusicPlayState.STOP);
             if (this.cFr != null) {
@@ -129,21 +129,21 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
 
     @Override // com.baidu.swan.apps.adaptation.a.k
     public void seek(int i) {
-        akJ().seekTo(i);
+        akK().seekTo(i);
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.k
     public int getDuration() {
-        return akJ().getDuration();
+        return akK().getDuration();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.k
     public boolean isPlaying() {
-        return akJ().isPlaying();
+        return akK().isPlaying();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public MediaPlayer akJ() {
+    public MediaPlayer akK() {
         if (this.cFn == null) {
             this.cFn = new MediaPlayer();
             b bVar = new b();
@@ -200,7 +200,7 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
                 Log.d("AudioPlayerListener", "--onBufferUpdate -> " + i + "%");
             }
             DefaultSwanAppBgMusicPlayer.this.cFp.onGetDownloadProgress(i);
-            if (DefaultSwanAppBgMusicPlayer.this.cFo == PlayerStatus.PREPARED && (DefaultSwanAppBgMusicPlayer.this.akJ().getDuration() * i) / 100 <= DefaultSwanAppBgMusicPlayer.this.akJ().getCurrentPosition()) {
+            if (DefaultSwanAppBgMusicPlayer.this.cFo == PlayerStatus.PREPARED && (DefaultSwanAppBgMusicPlayer.this.akK().getDuration() * i) / 100 <= DefaultSwanAppBgMusicPlayer.this.akK().getCurrentPosition()) {
                 DefaultSwanAppBgMusicPlayer.this.cFp.onStateChanged(BgMusicPlayState.LOADING);
             }
         }
@@ -215,8 +215,8 @@ public class DefaultSwanAppBgMusicPlayer implements com.baidu.swan.apps.adaptati
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (message.what == 0) {
-                int duration = DefaultSwanAppBgMusicPlayer.this.akJ().getDuration();
-                int currentPosition = DefaultSwanAppBgMusicPlayer.this.akJ().getCurrentPosition();
+                int duration = DefaultSwanAppBgMusicPlayer.this.akK().getDuration();
+                int currentPosition = DefaultSwanAppBgMusicPlayer.this.akK().getCurrentPosition();
                 DefaultSwanAppBgMusicPlayer.this.cFp.onGetDuration(duration);
                 DefaultSwanAppBgMusicPlayer.this.cFp.onGetPosition(currentPosition, ac(duration, currentPosition));
                 sendEmptyMessageDelayed(0, 200L);

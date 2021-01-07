@@ -5,7 +5,7 @@ import com.baidu.mapapi.map.MapStatus;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import com.baidu.platform.comapi.walknavi.b;
 import com.baidu.platform.comapi.wnplatform.p.f;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class RGStateSegEntry extends RGStateCar3D {
     @Override // com.baidu.platform.comapi.walknavi.fsm.RGStateCar3D, com.baidu.platform.comapi.walknavi.fsm.RGState
     protected void onActionUI() {

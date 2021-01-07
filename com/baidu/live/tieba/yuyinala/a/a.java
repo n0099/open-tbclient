@@ -51,7 +51,7 @@ public class a extends BaseAdapter {
         }
         com.baidu.live.tieba.yuyinala.c.a item = getItem(i);
         if (item != null) {
-            c0226a.bOf.setText(item.Xm());
+            c0226a.bOf.setText(item.Xn());
         }
         if (i == this.bgc) {
             c0226a.bOf.setSelected(true);
@@ -73,7 +73,7 @@ public class a extends BaseAdapter {
         notifyDataSetChanged();
     }
 
-    public int Xl() {
+    public int Xm() {
         return this.bgc;
     }
 

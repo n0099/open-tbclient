@@ -5,17 +5,17 @@ import org.json.JSONObject;
 public class ap {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3719a;
+    private String f3720a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f3720b;
+    private long f3721b;
     private long c;
     private boolean d;
     private long e;
 
     public ap(String str, long j, long j2, long j3, boolean z) {
-        this.f3719a = str;
-        this.f3720b = j;
+        this.f3720a = str;
+        this.f3721b = j;
         this.c = j2;
         this.e = j3;
         this.d = z;
@@ -26,11 +26,11 @@ public class ap {
     }
 
     public String a() {
-        return this.f3719a;
+        return this.f3720a;
     }
 
     public long b() {
-        return this.f3720b;
+        return this.f3721b;
     }
 
     public long c() {
@@ -53,7 +53,7 @@ public class ap {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("name", str);
-            jSONObject.put("s", this.f3720b);
+            jSONObject.put("s", this.f3721b);
             jSONObject.put("e", this.c);
             jSONObject.put("user", this.d ? 1 : 0);
             return jSONObject;

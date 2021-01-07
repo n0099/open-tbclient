@@ -122,7 +122,7 @@ public class YuyinGiftItemView extends RelativeLayout {
         this.cdd = new com.baidu.live.yuyingift.yuyinhousegift.a.c(this);
         ((com.baidu.live.yuyingift.yuyinhousegift.a.c) this.cdd).a(new c.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.1
             @Override // com.baidu.live.yuyingift.yuyinhousegift.a.c.a
-            public void abz() {
+            public void abA() {
                 YuyinGiftItemView.this.setX(f - (YuyinGiftItemView.this.getWidth() / 2));
                 YuyinGiftItemView.this.setY(f2);
                 YuyinGiftItemView.this.setVisibility(0);
@@ -141,7 +141,7 @@ public class YuyinGiftItemView extends RelativeLayout {
         return this.cdd;
     }
 
-    public com.baidu.live.yuyingift.yuyinhousegift.a.a abG() {
+    public com.baidu.live.yuyingift.yuyinhousegift.a.a abH() {
         if (this.cdg == null || this.cdg.locationCenterX == 0.0f) {
             return null;
         }
@@ -159,7 +159,7 @@ public class YuyinGiftItemView extends RelativeLayout {
         return this.cdd;
     }
 
-    public com.baidu.live.yuyingift.yuyinhousegift.a.a abH() {
+    public com.baidu.live.yuyingift.yuyinhousegift.a.a abI() {
         this.cdd = new d(this);
         this.cdd.ccF.addListener(new b() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.6
             @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
@@ -233,7 +233,7 @@ public class YuyinGiftItemView extends RelativeLayout {
                 this.cdd = new i(this.ccY);
                 ((i) this.cdd).a(new i.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.8
                     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.i.a
-                    public void abz() {
+                    public void abA() {
                         YuyinGiftItemView.this.cda.playAnimation();
                         YuyinGiftItemView.this.cdb.setText(YuyinGiftItemView.this.I(cVar));
                     }
@@ -269,7 +269,7 @@ public class YuyinGiftItemView extends RelativeLayout {
             this.cdd = new g(this);
             ((g) this.cdd).a(new g.a() { // from class: com.baidu.live.yuyingift.yuyinhousegift.view.YuyinGiftItemView.10
                 @Override // com.baidu.live.yuyingift.yuyinhousegift.a.g.a
-                public void abz() {
+                public void abA() {
                     YuyinGiftItemView.this.setX(f - (YuyinGiftItemView.this.getWidth() / 2));
                     if (YuyinGiftItemView.this.cdg != null && YuyinGiftItemView.this.cdg.locationCenterY != 0.0f) {
                         YuyinGiftItemView.this.setY(f2 - YuyinGiftItemView.this.cdh);

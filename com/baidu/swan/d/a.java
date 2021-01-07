@@ -11,15 +11,15 @@ public class a {
     public static final String cZa = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + "swan_so_lite" + File.separator + "libs";
 
     @SuppressLint({"ApplySharedPref"})
-    public static void bkd() {
+    public static void bke() {
         PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).edit().putBoolean("swan_t7_success", false).commit();
     }
 
-    public static boolean bke() {
-        return new File(new StringBuilder().append(eEn).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && avc();
+    public static boolean bkf() {
+        return new File(new StringBuilder().append(eEn).append(File.separator).append(GlobalConstants.LIB_ZEUS_CHROMIUM).toString()).exists() && avd();
     }
 
-    public static boolean avc() {
+    public static boolean avd() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("swan_full_install", true);
     }
 

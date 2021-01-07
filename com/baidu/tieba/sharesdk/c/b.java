@@ -36,26 +36,26 @@ public class b {
             TiebaStatic.log(aqVar);
             return;
         }
-        Bundle bCD = shareEntity.bCD();
-        if (bCD != null) {
-            int i3 = bCD.getInt("obj_param1");
+        Bundle bCE = shareEntity.bCE();
+        if (bCE != null) {
+            int i3 = bCE.getInt("obj_param1");
             if (i3 != 0) {
                 aqVar.an("obj_param1", i3);
                 if (i3 == 2) {
-                    aqVar.dX("fid", bCD.getString("fid"));
+                    aqVar.dX("fid", bCE.getString("fid"));
                 } else if (i3 == 3) {
-                    int i4 = bCD.getInt("obj_type");
+                    int i4 = bCE.getInt("obj_type");
                     if (i4 != 0) {
                         aqVar.an("obj_type", i4);
                     }
-                    aqVar.dX("tid", bCD.getString("tid")).dX("fid", bCD.getString("fid"));
+                    aqVar.dX("tid", bCE.getString("tid")).dX("fid", bCE.getString("fid"));
                 }
             }
-            String string = bCD.getString(TiebaInitialize.Params.OBJ_URL);
+            String string = bCE.getString(TiebaInitialize.Params.OBJ_URL);
             if (!at.isEmpty(string)) {
                 aqVar.dX(TiebaInitialize.Params.OBJ_URL, string);
             }
-            aqVar.an("obj_locate", bCD.getInt("obj_locate"));
+            aqVar.an("obj_locate", bCE.getInt("obj_locate"));
         }
         TiebaStatic.log(aqVar);
     }
@@ -87,11 +87,11 @@ public class b {
             TiebaStatic.log(aqVar);
             return;
         }
-        Bundle bCD = shareEntity.bCD();
-        if (bCD != null) {
-            aqVar.dX("tid", bCD.getString("tid"));
-            aqVar.dX("uid", bCD.getString("uid"));
-            aqVar.dX("fid", bCD.getString("fid"));
+        Bundle bCE = shareEntity.bCE();
+        if (bCE != null) {
+            aqVar.dX("tid", bCE.getString("tid"));
+            aqVar.dX("uid", bCE.getString("uid"));
+            aqVar.dX("fid", bCE.getString("fid"));
         }
         TiebaStatic.log(aqVar);
     }

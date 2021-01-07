@@ -22,14 +22,14 @@ import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l implements NEIADI {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f12522a;
+    protected Context f12523a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f12523b;
+    protected String f12524b;
     protected String c;
     private ADListener e;
     private String f;
@@ -42,8 +42,8 @@ public class l implements NEIADI {
     private com.qq.e.comm.plugin.y.d l = new com.qq.e.comm.plugin.y.d();
 
     public l(Context context, String str, String str2, ADListener aDListener) {
-        this.f12522a = context;
-        this.f12523b = str;
+        this.f12523a = context;
+        this.f12524b = str;
         this.c = str2;
         this.e = aDListener;
         this.f = com.qq.e.comm.plugin.util.a.a(str, str2, o.b());
@@ -96,7 +96,7 @@ public class l implements NEIADI {
         ArrayList arrayList = new ArrayList();
         ArrayList arrayList2 = new ArrayList();
         for (JSONObject jSONObject : list) {
-            b bVar = new b(this.f12522a, this.f12523b, this.c, jSONObject, this.k, this.g, this.h, this.i);
+            b bVar = new b(this.f12523a, this.f12524b, this.c, jSONObject, this.k, this.g, this.h, this.i);
             arrayList2.add(bVar.n().b());
             arrayList.add(new NativeExpressADDataAdapter(bVar));
         }

@@ -12,8 +12,8 @@ import java.util.List;
 /* loaded from: classes2.dex */
 public class b extends BaseAdapter {
     private List<EmotionImageData> iRv;
-    private a lYk;
-    private EmotionView.a lYl;
+    private a lYj;
+    private EmotionView.a lYk;
 
     /* loaded from: classes2.dex */
     public interface a {
@@ -44,46 +44,46 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0818b c0818b;
+        C0851b c0851b;
         if (view == null) {
-            C0818b c0818b2 = new C0818b();
+            C0851b c0851b2 = new C0851b();
             view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.list_sug_emotion, (ViewGroup) null);
-            c0818b2.lyO = (EmotionView) view.findViewById(R.id.emotion_view);
-            c0818b2.lyO.cAN();
-            c0818b2.lyO.setController(this.lYl);
-            c0818b2.lyO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
+            c0851b2.lyO = (EmotionView) view.findViewById(R.id.emotion_view);
+            c0851b2.lyO.cAO();
+            c0851b2.lyO.setController(this.lYk);
+            c0851b2.lyO.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.pb.main.emotion.b.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (b.this.lYk != null && (view2 instanceof EmotionView)) {
-                        b.this.lYk.d(((EmotionView) view2).getData());
+                    if (b.this.lYj != null && (view2 instanceof EmotionView)) {
+                        b.this.lYj.d(((EmotionView) view2).getData());
                     }
                 }
             });
-            view.setTag(c0818b2);
-            c0818b = c0818b2;
+            view.setTag(c0851b2);
+            c0851b = c0851b2;
         } else {
-            c0818b = (C0818b) view.getTag();
+            c0851b = (C0851b) view.getTag();
         }
         if (this.iRv != null && i >= 0 && i < this.iRv.size()) {
-            c0818b.lyO.a(this.iRv.get(i));
+            c0851b.lyO.a(this.iRv.get(i));
         }
         return view;
     }
 
     public void a(a aVar) {
-        this.lYk = aVar;
+        this.lYj = aVar;
     }
 
     public void a(EmotionView.a aVar) {
-        this.lYl = aVar;
+        this.lYk = aVar;
     }
 
     /* renamed from: com.baidu.tieba.pb.pb.main.emotion.b$b  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    static class C0818b {
+    static class C0851b {
         EmotionView lyO;
 
-        C0818b() {
+        C0851b() {
         }
     }
 }

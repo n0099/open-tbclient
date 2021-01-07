@@ -20,11 +20,11 @@ import java.util.Map;
 public class a {
     private static a jQn;
     private final Map<String, List<bz>> jQm = new HashMap();
-    private b jQo = cPl();
+    private b jQo = cPm();
 
     /* renamed from: com.baidu.tieba.h.a$a  reason: collision with other inner class name */
     /* loaded from: classes.dex */
-    public static class C0749a {
+    public static class C0758a {
         public n eWF;
         public ViewGroup jQp;
         public List<View> jQq;
@@ -43,9 +43,9 @@ public class a {
 
         void a(Activity activity, String str, d dVar);
 
-        void a(C0749a c0749a);
+        void a(C0758a c0758a);
 
-        void a(C0749a c0749a, e eVar);
+        void a(C0758a c0758a, e eVar);
 
         void b(Activity activity, String str, d dVar);
 
@@ -102,7 +102,7 @@ public class a {
         }
     }
 
-    private b cPl() {
+    private b cPm() {
         CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921525, b.class);
         if (runTask != null) {
             return (b) runTask.getData();
@@ -113,7 +113,7 @@ public class a {
     private a() {
     }
 
-    public static a cPm() {
+    public static a cPn() {
         if (jQn == null) {
             synchronized (a.class) {
                 if (jQn == null) {
@@ -160,28 +160,28 @@ public class a {
         }
     }
 
-    public void a(C0749a c0749a, e eVar) {
+    public void a(C0758a c0758a, e eVar) {
         if (this.jQo != null) {
-            this.jQo.a(c0749a, eVar);
+            this.jQo.a(c0758a, eVar);
         }
     }
 
-    public void a(C0749a c0749a) {
+    public void a(C0758a c0758a) {
         if (this.jQo != null) {
-            this.jQo.a(c0749a);
+            this.jQo.a(c0758a);
         }
-    }
-
-    public int cPn() {
-        return com.baidu.tbadk.coreExtra.data.e.bzF();
     }
 
     public int cPo() {
         return com.baidu.tbadk.coreExtra.data.e.bzG();
     }
 
+    public int cPp() {
+        return com.baidu.tbadk.coreExtra.data.e.bzH();
+    }
+
     @Nullable
-    public List<bz> LN(String str) {
+    public List<bz> LM(String str) {
         return this.jQm.get(str);
     }
 
@@ -189,7 +189,7 @@ public class a {
         List<bz> list = this.jQm.get(str);
         if (list != null && list.size() > 0) {
             for (bz bzVar : list) {
-                if (bzVar != null && bzVar.eWF != null && bzVar.eWF.dON() == obj) {
+                if (bzVar != null && bzVar.eWF != null && bzVar.eWF.dOO() == obj) {
                     list.remove(bzVar);
                     return;
                 }

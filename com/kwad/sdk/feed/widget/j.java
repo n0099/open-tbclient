@@ -14,7 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private View f10172b;
+    private View f10173b;
     private final ap c;
     private final AtomicBoolean d;
     private boolean e;
@@ -25,7 +25,7 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
         this.c = new ap(this);
         this.d = new AtomicBoolean(true);
         this.f = true;
-        this.f10172b = this;
+        this.f10173b = this;
     }
 
     private void n() {
@@ -38,7 +38,7 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
     @Override // com.kwad.sdk.utils.ap.a
     public void a(Message message) {
         if (message.what == 1) {
-            if (!ao.a(this.f10172b, 30)) {
+            if (!ao.a(this.f10173b, 30)) {
                 e();
             } else if (!this.e) {
                 d();
@@ -56,12 +56,12 @@ public class j extends com.kwad.sdk.core.video.videoview.a implements ap.a {
         if (this.f) {
             f();
         } else {
-            this.f9768a.c();
+            this.f9769a.c();
         }
     }
 
     public void k() {
-        this.f9768a.c();
+        this.f9769a.c();
         this.e = true;
     }
 

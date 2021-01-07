@@ -56,8 +56,8 @@ public class a extends k<b, GameRankListViewHolder> implements d {
                         if (a.this.jpq != null) {
                             TiebaStatic.log(new aq("c12105").dX("fid", a.this.jpq.jGo).an("obj_locate", i2 + 1));
                         }
-                        if (!StringUtils.isNull(aVar.cPA())) {
-                            com.baidu.tbadk.browser.a.startWebActivity(a.this.mPageContext.getPageActivity(), aVar.cPA());
+                        if (!StringUtils.isNull(aVar.cPB())) {
+                            com.baidu.tbadk.browser.a.startWebActivity(a.this.mPageContext.getPageActivity(), aVar.cPB());
                         }
                     }
                 }
@@ -67,8 +67,8 @@ public class a extends k<b, GameRankListViewHolder> implements d {
             gameRankListViewHolder.jxU.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.frs.gamepaltform.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putString(SharedPrefConfig.GAME_RANK_LIST_INFO, System.currentTimeMillis() + ",7");
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putString(SharedPrefConfig.GAME_RANK_LIST_INFO, System.currentTimeMillis() + ",7");
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.GAME_RANK_LIST_SHOW_TIMES, 0);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_CLOSE_GAME_RANK_CARD));
                 }
             });

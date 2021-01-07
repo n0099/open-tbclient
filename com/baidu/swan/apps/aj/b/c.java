@@ -20,7 +20,7 @@ public class c implements a<JSONObject> {
         }
     }
 
-    public JSONObject aOP() {
+    public JSONObject aOQ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("stageError", this.dNr);

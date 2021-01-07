@@ -127,12 +127,12 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
         }
     }
 
-    public void Xf() {
+    public void Xg() {
         setVisibility(8);
         sV(false);
     }
 
-    public void cZU() {
+    public void cZV() {
         setVisibility(8);
     }
 
@@ -196,7 +196,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
             int itemViewType = getItemViewType(i);
             View view2 = view;
             if (view == null) {
-                C0769a c0769a = new C0769a();
+                C0778a c0778a = new C0778a();
                 if (itemViewType == 0) {
                     TextView textView = new TextView(this.mContext);
                     textView.setLayoutParams(new AbsListView.LayoutParams(-1, c.N(this.mContext, R.dimen.ds96)));
@@ -206,7 +206,7 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                     textView.setBackgroundResource(R.drawable.official_bar_menu_text_bg);
                     textView.setSingleLine();
                     textView.setEllipsize(TextUtils.TruncateAt.END);
-                    c0769a.kJs = textView;
+                    c0778a.kJs = textView;
                     linearLayout = textView;
                 } else {
                     linearLayout = view;
@@ -222,22 +222,22 @@ public class OfficialSecondMenuPopupWindow extends RelativeLayout {
                         linearLayout = linearLayout2;
                     }
                 }
-                linearLayout.setTag(c0769a);
+                linearLayout.setTag(c0778a);
                 view2 = linearLayout;
             }
-            C0769a c0769a2 = (C0769a) view2.getTag();
+            C0778a c0778a2 = (C0778a) view2.getTag();
             if (itemViewType == 0) {
-                c0769a2.kJs.setText(((com.baidu.tieba.im.data.b) getItem(i)).getName());
+                c0778a2.kJs.setText(((com.baidu.tieba.im.data.b) getItem(i)).getName());
             }
             return view2;
         }
 
         /* renamed from: com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow$a$a  reason: collision with other inner class name */
         /* loaded from: classes8.dex */
-        class C0769a {
+        class C0778a {
             TextView kJs;
 
-            C0769a() {
+            C0778a() {
             }
         }
     }

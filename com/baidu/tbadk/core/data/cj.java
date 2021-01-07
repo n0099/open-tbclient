@@ -16,11 +16,11 @@ public class cj {
         return this.activity_url;
     }
 
-    public String btM() {
+    public String btN() {
         return this.activity_all_icon;
     }
 
-    public String btN() {
+    public String btO() {
         return this.activity_half_icon;
     }
 

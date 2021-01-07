@@ -8,11 +8,11 @@ public class ck {
     private int eWW = 0;
     private cj eWX = new cj();
 
-    public boolean btO() {
+    public boolean btP() {
         return this.eWW != 0;
     }
 
-    public cj btP() {
+    public cj btQ() {
         return this.eWX;
     }
 

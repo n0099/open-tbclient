@@ -13,7 +13,7 @@ public class AlaFilterAndBeautyResponseMessage extends JsonHttpResponsedMessage 
         super(1021163);
     }
 
-    public AlaFilterAndBeautyData bSM() {
+    public AlaFilterAndBeautyData bSN() {
         return this.gur;
     }
 

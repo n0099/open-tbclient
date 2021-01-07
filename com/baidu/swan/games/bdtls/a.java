@@ -5,8 +5,8 @@ import android.text.TextUtils;
 public class a {
     public static final boolean DEBUG = com.baidu.swan.apps.b.DEBUG;
 
-    public boolean aXP() {
-        boolean z = com.baidu.swan.apps.t.a.aAu().getSwitch("game_bdtls_switcher", false);
+    public boolean aXQ() {
+        boolean z = com.baidu.swan.apps.t.a.aAv().getSwitch("game_bdtls_switcher", false);
         if (DEBUG) {
             com.baidu.swan.apps.console.c.i("BDTLS", "isBdtlsSwitch=" + z);
         }

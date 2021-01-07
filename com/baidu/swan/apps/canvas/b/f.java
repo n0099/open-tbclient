@@ -59,7 +59,7 @@ public class f extends a {
             this.cMZ = this.cMZ <= 0 ? this.mHeight : this.cMZ;
             Bitmap createBitmap = Bitmap.createBitmap(this.cMY, this.cMZ, g.getConfig());
             new Canvas(createBitmap).drawBitmap(g, new Rect(this.cMr, this.cMs, this.cMr + this.mWidth, this.cMs + this.mHeight), new Rect(0, 0, this.cMY, this.cMZ), new Paint());
-            Bitmap.CompressFormat compressFormat = aoo() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
+            Bitmap.CompressFormat compressFormat = aop() ? Bitmap.CompressFormat.JPEG : Bitmap.CompressFormat.PNG;
             File file = new File(str);
             if (file.exists()) {
                 file.delete();
@@ -89,7 +89,7 @@ public class f extends a {
         }
     }
 
-    public boolean aoo() {
+    public boolean aop() {
         return TextUtils.equals(this.mFileType, "jpg");
     }
 

@@ -1,7 +1,7 @@
 package com.baidu.mario.a.c;
 
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
 

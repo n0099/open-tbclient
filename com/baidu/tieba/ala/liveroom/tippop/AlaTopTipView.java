@@ -135,12 +135,12 @@ public class AlaTopTipView extends FrameLayout {
     }
 
     private void init() {
+        cnw();
         cnv();
-        cnu();
         initAnimation();
     }
 
-    private void cnu() {
+    private void cnv() {
         this.hOK = new b(getContext());
         this.hOK.a(this.bHY);
         setOnTouchListener(new View.OnTouchListener() { // from class: com.baidu.tieba.ala.liveroom.tippop.AlaTopTipView.3
@@ -197,7 +197,7 @@ public class AlaTopTipView extends FrameLayout {
         });
     }
 
-    private void cnv() {
+    private void cnw() {
         if (getContext() != null) {
             this.hOH = new TextView(getContext());
             this.hOH.setTextSize(0, TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(a.d.sdk_ds28));
@@ -213,7 +213,7 @@ public class AlaTopTipView extends FrameLayout {
         }
     }
 
-    public void cnw() {
+    public void cnx() {
         if (getContext() != null) {
             int dimensionPixelOffset = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds20);
             int dimensionPixelOffset2 = getContext().getResources().getDimensionPixelOffset(a.d.sdk_ds30);
@@ -340,7 +340,7 @@ public class AlaTopTipView extends FrameLayout {
         }
     }
 
-    public void cnx() {
+    public void cny() {
         ViewGroup.LayoutParams layoutParams = getLayoutParams();
         layoutParams.width = getRealWidth();
         setLayoutParams(layoutParams);

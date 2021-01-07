@@ -15,14 +15,14 @@ import android.widget.TextView;
 import com.baidu.mapapi.walknavi.model.WalkNaviDisplayOption;
 import com.baidu.mapapi.walknavi.model.a;
 import com.baidu.tieba.R;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private Activity f4604a;
+    private Activity f4605a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.baidu.platform.comapi.walknavi.g.a f4605b;
+    private com.baidu.platform.comapi.walknavi.g.a f4606b;
     private ImageView c;
     private TextView d;
     private TextView e;
@@ -36,8 +36,8 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
     private a.c m;
 
     public d(Context context, com.baidu.platform.comapi.walknavi.g.a aVar, View view) {
-        this.f4604a = (Activity) context;
-        this.f4605b = aVar;
+        this.f4605a = (Activity) context;
+        this.f4606b = aVar;
         a(view);
     }
 
@@ -74,11 +74,11 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
             Log.e("CustomWNaviView", "TopGuide layout add failed.");
             return false;
         } else {
-            View inflate = LayoutInflater.from(this.f4604a).inflate(topGuideLayout, (ViewGroup) this.i, false);
+            View inflate = LayoutInflater.from(this.f4605a).inflate(topGuideLayout, (ViewGroup) this.i, false);
             if (inflate == null) {
                 Log.e("CustomWNaviView", "Load topGuide layout failed,please checking layout.");
                 return false;
-            } else if (!com.baidu.platform.comapi.walknavi.g.d.d.a().a(this.f4604a, 1, topGuideLayout, this)) {
+            } else if (!com.baidu.platform.comapi.walknavi.g.d.d.a().a(this.f4605a, 1, topGuideLayout, this)) {
                 Log.e("CustomWNaviView", "Parser topGuide layout failed,please checking layout.");
                 return false;
             } else if (this.m == null) {
@@ -135,7 +135,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
             this.d.setVisibility(8);
             this.e.setVisibility(4);
             this.h.setVisibility(0);
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.f4604a, R.attr.absListViewStyle);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.f4605a, R.attr.absListViewStyle);
             this.h.setAnimation(c);
             c.setAnimationListener(new e(this));
             c.start();
@@ -144,7 +144,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
 
     public void d() {
         if (this.h.getVisibility() == 0) {
-            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.f4604a, R.attr.actionBarDivider);
+            Animation c = com.baidu.platform.comapi.wnplatform.p.a.a.c(this.f4605a, R.attr.actionBarDivider);
             c.setAnimationListener(new f(this));
             this.h.startAnimation(c);
         }
@@ -157,8 +157,8 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
         } else {
             this.d.setVisibility(0);
         }
-        if (com.baidu.platform.comapi.bikenavi.a.a.f4194a) {
-            this.c.setImageDrawable(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.f4604a, i));
+        if (com.baidu.platform.comapi.bikenavi.a.a.f4195a) {
+            this.c.setImageDrawable(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.f4605a, i));
         } else {
             this.c.setImageResource(i);
         }
@@ -198,7 +198,7 @@ public class d extends com.baidu.platform.comapi.walknavi.g.c.b {
         if (this.k && this.j != null && this.l != 0) {
             this.j.setBackgroundResource(this.l);
         } else {
-            this.i.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.f4604a, i));
+            this.i.setBackground(com.baidu.platform.comapi.wnplatform.p.a.a.a(this.f4605a, i));
         }
     }
 

@@ -32,7 +32,7 @@ public class InitUserNameDialogActivity extends BaseActivity {
                 InitUserNameDialogActivity.this.finish();
             }
         });
-        this.fso.bDb();
+        this.fso.bDc();
         AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
         if (currentAccountInfo == null && getIntent() != null && (getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA) instanceof AccountData)) {
             currentAccountInfo = (AccountData) getIntent().getSerializableExtra(InitUserNameDialogActivityConfig.ACCOUNT_DATA);

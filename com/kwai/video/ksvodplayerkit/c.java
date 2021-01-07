@@ -3,10 +3,10 @@ package com.kwai.video.ksvodplayerkit;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f11356a;
+    public long f11357a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11357b;
+    public long f11358b;
     public long c;
     public long d;
     public String e;
@@ -26,6 +26,6 @@ public class c {
     private long s = i.a().s();
 
     public boolean a() {
-        return this.f11357b > 0 && this.c > 0 && (this.f11357b >= this.c || this.f11357b >= this.s);
+        return this.f11358b > 0 && this.c > 0 && (this.f11358b >= this.c || this.f11358b >= this.s);
     }
 }

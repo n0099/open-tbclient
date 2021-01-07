@@ -8,7 +8,7 @@ import org.json.JSONObject;
 public class bt extends bv {
 
     /* renamed from: b  reason: collision with root package name */
-    private long f6111b;
+    private long f6112b;
     private final cn pgH;
     private final m pht;
 
@@ -27,11 +27,11 @@ public class bt extends bv {
     @Override // com.bytedance.embedapplog.bv
     long b() {
         long s = this.pgH.s();
-        return (s >= 600000 ? s : 600000L) + this.f6111b;
+        return (s >= 600000 ? s : 600000L) + this.f6112b;
     }
 
     @Override // com.bytedance.embedapplog.bv
-    long[] epw() {
+    long[] epx() {
         return cc.c;
     }
 
@@ -44,14 +44,14 @@ public class bt extends bv {
             jSONObject.put(WebSocketRequest.PARAM_KEY_HEADER, this.pht.a());
             jSONObject.put("magic_tag", "ss_app_log");
             jSONObject.put("_gen_time", currentTimeMillis);
-            JSONObject z = aa.z(aa.a(ab.a(this.f6113a, this.pht.a(), aa.eps().epE(), true, b.eoO()), aa.c), jSONObject);
+            JSONObject z = aa.z(aa.a(ab.a(this.f6114a, this.pht.a(), aa.ept().epF(), true, b.eoP()), aa.c), jSONObject);
             if (z != null) {
-                b.eoV().onRemoteAbConfigGet(av.a(b.eoQ(), z) ? false : true, z);
-                if (au.f6085b) {
+                b.eoW().onRemoteAbConfigGet(av.a(b.eoR(), z) ? false : true, z);
+                if (au.f6086b) {
                     au.a("getAbConfig " + z, null);
                 }
                 this.pht.a(z);
-                this.f6111b = currentTimeMillis;
+                this.f6112b = currentTimeMillis;
                 return true;
             }
         }

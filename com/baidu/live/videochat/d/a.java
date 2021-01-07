@@ -11,17 +11,17 @@ public interface a {
 
     int Vh();
 
-    void XK();
-
     void XL();
 
-    void YG();
+    void XM();
 
-    com.baidu.live.alablmsdk.module.c YH();
+    void YH();
 
-    JSONObject YI();
+    com.baidu.live.alablmsdk.module.c YI();
 
-    String YJ();
+    JSONObject YJ();
+
+    String YK();
 
     void a(AlaLiveRecorder alaLiveRecorder);
 

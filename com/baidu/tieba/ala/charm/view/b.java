@@ -89,7 +89,7 @@ public class b {
                     fVar.setPageId(b.this.gPH.getUniqueId());
                     fVar.setIsAttention(z ? false : true);
                     fVar.setFrom("source_charm_detail");
-                    com.baidu.live.view.a.Zx().a(item.pay_userid, fVar);
+                    com.baidu.live.view.a.Zy().a(item.pay_userid, fVar);
                     if (TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                         AlaStaticItem alaStaticItem = new AlaStaticItem(z ? QMStaticKeys.QM_STATIC_FOLLOW_CANCEL_CLICK : QMStaticKeys.QM_STATIC_FOLLOW_CLICK);
                         alaStaticItem.addParams("live_id", QMStaticManager.LIVE_ID);
@@ -143,7 +143,7 @@ public class b {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (b.this.gPH != null) {
-                b.this.gPH.bWK();
+                b.this.gPH.bWL();
             }
             if (view.getTag() == null) {
                 if (!b.this.boZ) {
@@ -232,7 +232,7 @@ public class b {
         this.gQV = (LinearLayout) this.mRootView.findViewById(a.f.bottomImproveCard_layout);
     }
 
-    public void bXb() {
+    public void bXc() {
         if (!this.boZ && this.gQT != null && this.gQT.getVisibility() == 0) {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                 String vI = com.baidu.tieba.ala.charm.g.vI(this.gPr);
@@ -378,12 +378,12 @@ public class b {
         }
     }
 
-    public void Zg() {
+    public void Zh() {
         this.mListView.setNextPage(this.gPy);
         this.gPy.startLoadData();
     }
 
-    public void Hm(String str) {
+    public void Hl(String str) {
         this.mListView.setNextPage(this.gPy);
         this.gPy.endLoadDataWithNoMore(str);
     }
@@ -413,7 +413,7 @@ public class b {
         this.bxT.setVisibility(0);
     }
 
-    public void Zi() {
+    public void Zj() {
         this.bxT.setVisibility(8);
     }
 

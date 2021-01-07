@@ -7,17 +7,17 @@ import com.baidu.live.adp.framework.listener.CustomMessageListener;
 import com.baidu.live.adp.framework.message.CustomResponsedMessage;
 /* loaded from: classes11.dex */
 public class d {
-    public static d oBg;
-    private a oBh;
-    private CustomMessageListener oBi = new CustomMessageListener(2501046) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.d.1
+    public static d oBf;
+    private a oBg;
+    private CustomMessageListener oBh = new CustomMessageListener(2501046) { // from class: com.baidu.tieba.yuyinala.liveroom.wheat.c.d.1
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2501046) {
-                if (d.this.oBh != null) {
-                    d.this.oBh.zM(true);
+                if (d.this.oBg != null) {
+                    d.this.oBg.zM(true);
                 }
-                MessageManager.getInstance().unRegisterListener(d.this.oBi);
+                MessageManager.getInstance().unRegisterListener(d.this.oBh);
             }
         }
     };
@@ -27,11 +27,11 @@ public class d {
         void zM(boolean z);
     }
 
-    public static d eeN() {
-        if (oBg == null) {
-            oBg = new d();
+    public static d eeO() {
+        if (oBf == null) {
+            oBf = new d();
         }
-        return oBg;
+        return oBf;
     }
 
     public void a(Context context, Activity activity, a aVar) {
@@ -42,7 +42,7 @@ public class d {
             }
             return;
         }
-        this.oBh = aVar;
-        MessageManager.getInstance().registerListener(this.oBi);
+        this.oBg = aVar;
+        MessageManager.getInstance().registerListener(this.oBh);
     }
 }

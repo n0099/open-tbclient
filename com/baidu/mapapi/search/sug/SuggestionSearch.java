@@ -2,14 +2,14 @@ package com.baidu.mapapi.search.sug;
 
 import com.baidu.mapapi.BMapManager;
 import com.baidu.mapapi.search.core.l;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class SuggestionSearch extends l {
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3060b = false;
+    private boolean f3061b = false;
 
     /* renamed from: a  reason: collision with root package name */
-    com.baidu.platform.core.f.a f3059a = new com.baidu.platform.core.f.b();
+    com.baidu.platform.core.f.a f3060a = new com.baidu.platform.core.f.b();
 
     private SuggestionSearch() {
     }
@@ -20,31 +20,31 @@ public class SuggestionSearch extends l {
     }
 
     public void destroy() {
-        if (this.f3060b) {
+        if (this.f3061b) {
             return;
         }
-        this.f3060b = true;
-        this.f3059a.a();
+        this.f3061b = true;
+        this.f3060a.a();
         BMapManager.destroy();
     }
 
     public boolean requestSuggestion(SuggestionSearchOption suggestionSearchOption) {
-        if (this.f3059a == null) {
+        if (this.f3060a == null) {
             throw new IllegalStateException("BDMapSDKException: suggestionsearch is null, please call newInstance() first.");
         }
         if (suggestionSearchOption == null || suggestionSearchOption.mKeyword == null || suggestionSearchOption.mCity == null) {
             throw new IllegalArgumentException("BDMapSDKException: option or keyword or city can not be null");
         }
-        return this.f3059a.a(suggestionSearchOption);
+        return this.f3060a.a(suggestionSearchOption);
     }
 
     public void setOnGetSuggestionResultListener(OnGetSuggestionResultListener onGetSuggestionResultListener) {
-        if (this.f3059a == null) {
+        if (this.f3060a == null) {
             throw new IllegalStateException("BDMapSDKException: suggestionsearch is null, please call newInstance() first.");
         }
         if (onGetSuggestionResultListener == null) {
             throw new IllegalArgumentException("BDMapSDKException: listener can not be null");
         }
-        this.f3059a.a(onGetSuggestionResultListener);
+        this.f3060a.a(onGetSuggestionResultListener);
     }
 }

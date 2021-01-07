@@ -4,10 +4,10 @@ import com.baidu.live.tbadk.message.http.JsonHttpResponsedMessage;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
 public class DatingStageHttpResponseMessage extends JsonHttpResponsedMessage {
-    private b opp;
+    private b opo;
 
-    public b ecE() {
-        return this.opp;
+    public b ecF() {
+        return this.opo;
     }
 
     public DatingStageHttpResponseMessage() {
@@ -18,13 +18,13 @@ public class DatingStageHttpResponseMessage extends JsonHttpResponsedMessage {
     public void decodeLogicInBackGround(int i, JSONObject jSONObject) throws Exception {
         super.decodeLogicInBackGround(i, jSONObject);
         if (jSONObject != null && i == 1031081) {
-            if (this.opp == null) {
-                this.opp = new b();
+            if (this.opo == null) {
+                this.opo = new b();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject != null) {
-                this.opp.opo = optJSONObject.optString("activity_stage");
-                this.opp.opn = optJSONObject.optString("num_fields");
+                this.opo.opn = optJSONObject.optString("activity_stage");
+                this.opo.opm = optJSONObject.optString("num_fields");
             }
         }
     }

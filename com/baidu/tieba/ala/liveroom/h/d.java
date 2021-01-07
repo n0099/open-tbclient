@@ -28,8 +28,8 @@ public class d {
         }
     }
 
-    private void chl() {
-        this.hBG.chl();
+    private void chm() {
+        this.hBG.chm();
     }
 
     public View getView() {
@@ -38,39 +38,39 @@ public class d {
 
     public void a(AlaLiveRecorder alaLiveRecorder, int i) {
         this.hBG.c(alaLiveRecorder);
-        chl();
-    }
-
-    public boolean chm() {
-        return this.hBG.chm();
+        chm();
     }
 
     public boolean chn() {
         return this.hBG.chn();
     }
 
-    public String getLiveTitle() {
-        return this.hBG.getLiveTitle();
-    }
-
     public boolean cho() {
         return this.hBG.cho();
+    }
+
+    public String getLiveTitle() {
+        return this.hBG.getLiveTitle();
     }
 
     public boolean chp() {
         return this.hBG.chp();
     }
 
+    public boolean chq() {
+        return this.hBG.chq();
+    }
+
     public void oa(boolean z) {
         this.hBG.oa(z);
     }
 
-    public void chq() {
+    public void chr() {
         this.hBG.hPx = false;
     }
 
-    public String chr() {
-        return this.hBG.chr();
+    public String chs() {
+        return this.hBG.chs();
     }
 
     public void setVisibility(int i) {
@@ -97,8 +97,8 @@ public class d {
         this.hBG.a(aVar);
     }
 
-    public void Ip(String str) {
-        this.hBG.Ip(str);
+    public void Io(String str) {
+        this.hBG.Io(str);
     }
 
     public void onResume() {
@@ -109,12 +109,12 @@ public class d {
         this.hBG.onRefresh();
     }
 
-    public boolean chs() {
-        return this.hBG.chs();
+    public boolean cht() {
+        return this.hBG.cht();
     }
 
-    public void cht() {
-        this.hBG.cht();
+    public void chu() {
+        this.hBG.chu();
     }
 
     public void release() {
@@ -129,9 +129,9 @@ public class d {
         this.hBG.ob(z);
     }
 
-    public void chu() {
+    public void chv() {
         if (this.hBG != null) {
-            this.hBG.chu();
+            this.hBG.chv();
         }
     }
 

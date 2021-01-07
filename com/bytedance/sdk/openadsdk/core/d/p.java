@@ -10,27 +10,27 @@ import org.json.JSONObject;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6818a;
+    private String f6819a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6819b;
+    private String f6820b;
     private String c;
     private List<a> d;
 
     public String a() {
-        return this.f6818a;
+        return this.f6819a;
     }
 
     public void a(String str) {
-        this.f6818a = str;
+        this.f6819a = str;
     }
 
     public String b() {
-        return this.f6819b;
+        return this.f6820b;
     }
 
     public void b(String str) {
-        this.f6819b = str;
+        this.f6820b = str;
     }
 
     public String c() {
@@ -88,33 +88,33 @@ public class p {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f6820a;
+        private String f6821a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f6821b;
+        private String f6822b;
         private int c;
 
         public boolean equals(Object obj) {
             if (obj instanceof a) {
-                return this.f6820a != null && this.f6820a.equals(((a) obj).a());
+                return this.f6821a != null && this.f6821a.equals(((a) obj).a());
             }
             return super.equals(obj);
         }
 
         public String a() {
-            return this.f6820a;
+            return this.f6821a;
         }
 
         public void a(String str) {
-            this.f6820a = str;
+            this.f6821a = str;
         }
 
         public String b() {
-            return this.f6821b;
+            return this.f6822b;
         }
 
         public void b(String str) {
-            this.f6821b = str;
+            this.f6822b = str;
         }
 
         public int c() {

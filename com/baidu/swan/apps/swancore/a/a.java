@@ -10,7 +10,7 @@ public class a {
     private static final boolean DEBUG = b.DEBUG;
     private static JSONObject dOX;
 
-    public static synchronized JSONObject aPM() {
+    public static synchronized JSONObject aPN() {
         JSONObject jSONObject;
         synchronized (a.class) {
             if (dOX != null) {
@@ -19,7 +19,7 @@ public class a {
                 }
                 jSONObject = dOX;
             } else {
-                JSONObject rawSwitch = com.baidu.swan.apps.t.a.aAu().getRawSwitch();
+                JSONObject rawSwitch = com.baidu.swan.apps.t.a.aAv().getRawSwitch();
                 if (rawSwitch == null) {
                     dOX = new JSONObject();
                     if (DEBUG) {
@@ -44,7 +44,7 @@ public class a {
         return jSONObject;
     }
 
-    public static synchronized void aPN() {
+    public static synchronized void aPO() {
         synchronized (a.class) {
             if (DEBUG) {
                 Log.d("SwanCoreConfigHelper", "release cache ab obj ");
@@ -53,10 +53,10 @@ public class a {
         }
     }
 
-    public static JSONObject aPO() {
+    public static JSONObject aPP() {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("abTestSwitch", aPM());
+            jSONObject.put("abTestSwitch", aPN());
         } catch (JSONException e) {
             e.printStackTrace();
         }

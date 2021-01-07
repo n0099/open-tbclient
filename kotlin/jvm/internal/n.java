@@ -8,7 +8,7 @@ import java.util.Iterator;
 public class n {
     private static final Object[] EMPTY_OBJECT_ARRAY = new Object[0];
 
-    public static Object[] q(Collection<?> collection) {
+    public static Object[] r(Collection<?> collection) {
         int size = collection.size();
         if (size == 0) {
             return EMPTY_OBJECT_ARRAY;

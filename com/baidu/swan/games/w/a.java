@@ -43,7 +43,7 @@ public class a extends c {
     }
 
     public void clearStorage(JsObject jsObject) {
-        a(jsObject, "clearStorage", "", bcc());
+        a(jsObject, "clearStorage", "", bcd());
     }
 
     public void getStorageInfo(JsObject jsObject) {

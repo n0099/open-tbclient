@@ -11,7 +11,7 @@ public class i extends d {
         }
         ChatSession chatSession = (ChatSession) obj;
         j jVar = new j();
-        jVar.Yy("usermessage");
+        jVar.Yx("usermessage");
         jVar.isGroup = false;
         jVar.pdI = chatSession.getCategory();
         jVar.iconUrl = chatSession.getIconUrl();

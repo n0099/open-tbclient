@@ -50,7 +50,7 @@ public class e {
             this.mTitleView.setText(title);
         }
         ao.setViewTextColor(this.mTitleView, R.color.CAM_X0105);
-        SvgManager.bwq().a(this.iQr, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.iQr, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
     }
 
     public void setHasLikeForum(boolean z) {

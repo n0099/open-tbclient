@@ -37,17 +37,17 @@ public class b {
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021220 && (httpResponsedMessage instanceof WatchTaskInfoHttpResponseMessage) && !httpResponsedMessage.hasError()) {
-                b.this.hMN = ((WatchTaskInfoHttpResponseMessage) httpResponsedMessage).cmO();
+                b.this.hMN = ((WatchTaskInfoHttpResponseMessage) httpResponsedMessage).cmP();
                 b.this.a(b.this.hMN);
             }
         }
     };
 
     static {
-        ccf();
+        ccg();
     }
 
-    public boolean cmP() {
+    public boolean cmQ() {
         return this.hMO;
     }
 
@@ -64,11 +64,11 @@ public class b {
         this.mUserId = j2;
         this.mLiveInfo = alaLiveInfoData;
         this.mType = str;
-        cmR();
+        cmS();
         fE(j2);
     }
 
-    public static b cmQ() {
+    public static b cmR() {
         if (hMM == null) {
             synchronized (b.class) {
                 if (hMM == null) {
@@ -79,7 +79,7 @@ public class b {
         return hMM;
     }
 
-    private void cmR() {
+    private void cmS() {
         MessageManager.getInstance().registerListener(this.hMJ);
     }
 
@@ -122,8 +122,8 @@ public class b {
                     public void onClick(View view) {
                         aVar.hide();
                         if (b.this.hMN != null && b.this.mType == null) {
-                            b.this.cmS();
-                            b.this.IH(b.this.hMN.hMV);
+                            b.this.cmT();
+                            b.this.IG(b.this.hMN.hMV);
                         }
                     }
                 });
@@ -134,12 +134,12 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cmS() {
+    public void cmT() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913253, "ala/guess/cancelResult"));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void IH(String str) {
+    public void IG(String str) {
         if (!TextUtils.isEmpty(str)) {
             com.baidu.live.ap.c cVar = new com.baidu.live.ap.c();
             cVar.url = str;
@@ -157,7 +157,7 @@ public class b {
         MessageManager.getInstance().sendMessage(httpMessage);
     }
 
-    private static void ccf() {
+    private static void ccg() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021220, TbConfig.SERVER_QUANMIN_ADDRESS + "pubshow/task/Isjumplivequizticket");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);

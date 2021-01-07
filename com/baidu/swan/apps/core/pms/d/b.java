@@ -19,15 +19,15 @@ public class b extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.j
-    protected int auc() {
+    protected int aud() {
         return 7;
     }
 
     @Override // com.baidu.swan.pms.a.g
-    public void arc() {
-        super.arc();
+    public void ard() {
+        super.ard();
         if (this.cXi != null) {
-            aup();
+            auq();
             a.nK(this.mAppId);
         }
     }
@@ -40,7 +40,7 @@ public class b extends f {
         }
         if (this.cYg != null) {
             if (aVar.errorNo == 1010) {
-                this.cYg.arh();
+                this.cYg.ari();
             } else {
                 this.cYg.ig(0);
             }
@@ -53,15 +53,15 @@ public class b extends f {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.pms.f
-    public void aug() {
-        super.aug();
+    public void auh() {
+        super.auh();
         this.cXj.add(new UbcFlowEvent("na_start_update_db"));
-        com.baidu.swan.apps.al.a auo = auo();
+        com.baidu.swan.apps.al.a aup = aup();
         this.cXj.add(new UbcFlowEvent("na_end_update_db"));
-        if (auo == null) {
+        if (aup == null) {
             a.nK(this.mAppId);
             if (this.cYg != null) {
-                this.cYg.arh();
+                this.cYg.ari();
             }
         } else if (this.cYg != null) {
             this.cYg.ig(5);
@@ -69,7 +69,7 @@ public class b extends f {
         bD("main_pre_download", this.cXk);
         HashSet hashSet = new HashSet();
         hashSet.add(this.mAppId);
-        e.axa().axb().a(hashSet, c.axF().iK(7).axG());
+        e.axb().axc().a(hashSet, c.axG().iK(7).axH());
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
@@ -80,7 +80,7 @@ public class b extends f {
     }
 
     @Override // com.baidu.swan.apps.core.pms.f
-    protected PMSDownloadType auh() {
+    protected PMSDownloadType aui() {
         return PMSDownloadType.PRE;
     }
 }

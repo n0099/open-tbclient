@@ -3,15 +3,15 @@ package com.tencent.turingfd.sdk.ams.au;
 import com.alibaba.fastjson.asm.Opcodes;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.result.OneKeyLoginResult;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class y {
     public static byte[] aA;
 
     /* renamed from: a  reason: collision with root package name */
-    public static final int[] f13853a = {75, -17, 34, 86, -10, -77, 76, -127, 42, 77, Constants.METHOD_IM_FRIEND_GROUP_QUERY, 122};
+    public static final int[] f13854a = {75, -17, 34, 86, -10, -77, 76, -127, 42, 77, Constants.METHOD_IM_FRIEND_GROUP_QUERY, 122};
 
     /* renamed from: b  reason: collision with root package name */
-    public static final int[] f13854b = {73, -69, 33, -16, -1, 76, -60, 30, -101, 34, -24, 77, -1, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, -36, 96};
+    public static final int[] f13855b = {73, -69, 33, -16, -1, 76, -60, 30, -101, 34, -24, 77, -1, OneKeyLoginResult.ONE_KEY_LOGIN_CODE_GET_JS_CODE_FAIL, -36, 96};
     public static final int[] c = {-30, 35, 37, 42, -96, -26, 99, 115, 92, -126, 36, -21, 108, -51, -101, -68};
     public static final int[] d = {120, -25, -3, 69, -90, 113, 105, 105, -100, -90, -37, -51};
     public static final int[] e = {-114, -100, -58, -48, 17, -78, 5, -77, -103, 61, 68, 48};

@@ -38,7 +38,7 @@ public class c {
         arrayList.add(this.hlO);
         this.boO.addAdapters(arrayList);
         this.hlP = new com.baidu.tieba.ala.live.personcenter.forbidden.d.a(tbPageContext);
-        this.boO.addHeaderView(this.hlP.bcS());
+        this.boO.addHeaderView(this.hlP.bcT());
         this.gQx = new LoadingView(tbPageContext.getPageActivity());
         this.gQs = new TbListViewPullView(this.mPageContext);
         this.gQs.setTag(this.mPageContext.getUniqueId());
@@ -70,7 +70,7 @@ public class c {
         }
     }
 
-    public void bYv() {
+    public void bYw() {
         if (this.gPy != null) {
             if (this.gPy.getView().getParent() == null) {
                 this.boO.setNextPage(this.gPy);
@@ -80,7 +80,7 @@ public class c {
         }
     }
 
-    public void bUD() {
+    public void bUE() {
         if (this.gPy != null) {
             if (this.gPy.getView().getParent() == null) {
                 this.boO.setNextPage(this.gPy);
@@ -90,7 +90,7 @@ public class c {
         }
     }
 
-    public void bUE() {
+    public void bUF() {
         if (this.gPy != null) {
             if (this.gPy.getView().getParent() == null) {
                 this.boO.setNextPage(this.gPy);
@@ -100,7 +100,7 @@ public class c {
         }
     }
 
-    public void bYQ() {
+    public void bYR() {
         this.boO.setNextPage(null);
     }
 
@@ -134,19 +134,19 @@ public class c {
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.bNm != null) {
             this.bNm.setVisibility(8);
         }
     }
 
-    public void caY() {
+    public void caZ() {
         if (this.boO != null) {
             this.boO.setVisibility(0);
         }
     }
 
-    public void caZ() {
+    public void cba() {
         if (this.boO != null) {
             this.boO.setVisibility(4);
         }

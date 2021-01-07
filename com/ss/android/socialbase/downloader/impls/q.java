@@ -6,25 +6,25 @@ import com.ss.android.socialbase.downloader.downloader.s;
 public class q implements s {
 
     /* renamed from: a  reason: collision with root package name */
-    private final long[] f13494a;
+    private final long[] f13495a;
 
     public q(String str) {
-        this.f13494a = a(str);
+        this.f13495a = a(str);
     }
 
     @Override // com.ss.android.socialbase.downloader.downloader.s
     public long a(int i, int i2) {
-        if (this.f13494a == null || this.f13494a.length <= 0) {
+        if (this.f13495a == null || this.f13495a.length <= 0) {
             return 0L;
         }
         int i3 = i - 1;
         if (i3 < 0) {
             i3 = 0;
         }
-        if (i3 > this.f13494a.length - 1) {
-            i3 = this.f13494a.length - 1;
+        if (i3 > this.f13495a.length - 1) {
+            i3 = this.f13495a.length - 1;
         }
-        return this.f13494a[i3];
+        return this.f13495a[i3];
     }
 
     private long[] a(String str) {

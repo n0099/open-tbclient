@@ -72,10 +72,10 @@ public class TTWebPageActivity extends Activity implements d {
     private com.bytedance.sdk.openadsdk.downloadnew.core.a L;
 
     /* renamed from: a  reason: collision with root package name */
-    LandingDislikeDialog f6490a;
+    LandingDislikeDialog f6491a;
 
     /* renamed from: b  reason: collision with root package name */
-    LandingCommentDialog f6491b;
+    LandingCommentDialog f6492b;
     LandingDislikeToast c;
     j f;
     private SSWebView h;
@@ -642,17 +642,17 @@ public class TTWebPageActivity extends Activity implements d {
                 k();
                 return;
             }
-            if (this.f6490a == null) {
+            if (this.f6491a == null) {
                 b();
             }
-            this.f6490a.a();
+            this.f6491a.a();
         }
     }
 
     void b() {
-        if (this.f6491b == null) {
-            this.f6491b = new LandingCommentDialog(this, this.D);
-            this.f6491b.setCallback(new LandingCommentDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.5
+        if (this.f6492b == null) {
+            this.f6492b = new LandingCommentDialog(this, this.D);
+            this.f6492b.setCallback(new LandingCommentDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.5
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingCommentDialog.a
                 public void a(View view) {
                     TTWebPageActivity.this.d.set(true);
@@ -662,9 +662,9 @@ public class TTWebPageActivity extends Activity implements d {
                 public void b(View view) {
                     TTWebPageActivity.this.d.set(false);
                     if (!TTWebPageActivity.this.e.get()) {
-                        TTWebPageActivity.this.f6490a.a();
+                        TTWebPageActivity.this.f6491a.a();
                     } else {
-                        TTWebPageActivity.this.f6490a.a(true);
+                        TTWebPageActivity.this.f6491a.a(true);
                     }
                 }
 
@@ -679,12 +679,12 @@ public class TTWebPageActivity extends Activity implements d {
                     }
                 }
             });
-            ((FrameLayout) findViewById(16908290)).addView(this.f6491b);
-            this.f6491b.setVisibility(8);
+            ((FrameLayout) findViewById(16908290)).addView(this.f6492b);
+            this.f6492b.setVisibility(8);
         }
-        if (this.f6490a == null) {
-            this.f6490a = new LandingDislikeDialog(this, this.D);
-            this.f6490a.setCallback(new LandingDislikeDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.6
+        if (this.f6491a == null) {
+            this.f6491a = new LandingDislikeDialog(this, this.D);
+            this.f6491a.setCallback(new LandingDislikeDialog.a() { // from class: com.bytedance.sdk.openadsdk.activity.base.TTWebPageActivity.6
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a(View view) {
                     TTWebPageActivity.this.d.set(true);
@@ -700,18 +700,18 @@ public class TTWebPageActivity extends Activity implements d {
                     if (!TTWebPageActivity.this.e.get() && filterWord != null && !filterWord.hasSecondOptions()) {
                         TTWebPageActivity.this.e.set(true);
                         TTWebPageActivity.this.l();
-                        if (TTWebPageActivity.this.f6491b != null) {
-                            TTWebPageActivity.this.f6491b.a();
+                        if (TTWebPageActivity.this.f6492b != null) {
+                            TTWebPageActivity.this.f6492b.a();
                         }
                     }
                 }
 
                 @Override // com.bytedance.sdk.openadsdk.dislike.LandingDislikeDialog.a
                 public void a() {
-                    TTWebPageActivity.this.f6491b.b();
+                    TTWebPageActivity.this.f6492b.b();
                 }
             });
-            ((FrameLayout) findViewById(16908290)).addView(this.f6490a);
+            ((FrameLayout) findViewById(16908290)).addView(this.f6491a);
         }
         if (this.c == null) {
             this.c = new LandingDislikeToast(this);

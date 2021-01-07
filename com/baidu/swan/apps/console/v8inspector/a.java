@@ -26,7 +26,7 @@ public class a {
     }
 
     static {
-        mStatus = h.aPH().getBoolean("Inspector", false) ? 2 : 0;
+        mStatus = h.aPI().getBoolean("Inspector", false) ? 2 : 0;
     }
 
     public a(Context context) {
@@ -37,10 +37,10 @@ public class a {
         ExecutorUtilsExt.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.console.v8inspector.a.1
             @Override // java.lang.Runnable
             public void run() {
-                if (com.baidu.swan.apps.console.debugger.b.apr() || a.getStatus() != 0) {
+                if (com.baidu.swan.apps.console.debugger.b.aps() || a.getStatus() != 0) {
                     a.this.cQC = new c(String.format("v8in%s_devtools_remote", a.this.mContext.getPackageName()), a.this.cQB);
-                } else if (com.baidu.swan.apps.console.debugger.b.aps()) {
-                    a.this.cQC = new com.baidu.swan.apps.console.v8inspector.a.b(d.apP(), a.this.cQB);
+                } else if (com.baidu.swan.apps.console.debugger.b.apt()) {
+                    a.this.cQC = new com.baidu.swan.apps.console.v8inspector.a.b(d.apQ(), a.this.cQB);
                 } else {
                     com.baidu.swan.apps.console.c.e("V8Inspector", "Unknown inspect mode");
                     return;
@@ -66,7 +66,7 @@ public class a {
     }
 
     public static void setStatus(int i) {
-        h.aPH().putBoolean("Inspector", i == 2);
+        h.aPI().putBoolean("Inspector", i == 2);
         mStatus = i;
     }
 }

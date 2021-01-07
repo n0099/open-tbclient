@@ -53,9 +53,9 @@ public class a {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == a.this.hFr.getView()) {
-                a.this.cjg();
+                a.this.cjh();
             } else {
-                a.this.cjf();
+                a.this.cjg();
             }
         }
     };
@@ -90,9 +90,9 @@ public class a {
                         if (a.this.isFollowed) {
                             a.this.op(false);
                         } else {
-                            a.this.cjd();
+                            a.this.cje();
                         }
-                        if (!com.baidu.live.view.a.Zx().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mTbPageContext, false) && updateAttentionMessage.getData().errorString != null && orginalMessage != null && orginalMessage.getTag() == a.this.mTbPageContext.getUniqueId()) {
+                        if (!com.baidu.live.view.a.Zy().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mTbPageContext, false) && updateAttentionMessage.getData().errorString != null && orginalMessage != null && orginalMessage.getTag() == a.this.mTbPageContext.getUniqueId()) {
                             a.this.mTbPageContext.showToast(updateAttentionMessage.getData().errorString);
                         }
                     } else if (updateAttentionMessage.getData().isAttention) {
@@ -121,7 +121,7 @@ public class a {
                             LogManager.getMigrateFromTiebaLogger().doDisplayAttentionLog();
                             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2913168, "isAttentionOrGift"));
                             if (!z) {
-                                a.this.cji();
+                                a.this.cjj();
                                 return;
                             }
                             return;
@@ -138,7 +138,7 @@ public class a {
                         if (orginalMessage != null && orginalMessage.getTag() == a.this.mTbPageContext.getUniqueId()) {
                             a.this.mTbPageContext.showToast(a.this.mTbPageContext.getPageActivity().getResources().getString(a.h.sdk_unfollow_success_toast));
                         }
-                        a.this.cjd();
+                        a.this.cje();
                     }
                 }
             }
@@ -198,7 +198,7 @@ public class a {
             this.hFr.getView().setOnClickListener(this.onClickListener);
             this.hFr.a(this.hrl);
             this.hFr.getView().setVisibility(0);
-            cjj();
+            cjk();
             aK(viewGroup);
             this.hFs = true;
             this.hFr.oq(false);
@@ -210,10 +210,10 @@ public class a {
                         op(false);
                         return;
                     } else if (TbadkCoreApplication.sAlaLiveSwitchData != null && TbadkCoreApplication.sAlaLiveSwitchData.isGuardFansUnabled() && TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) {
-                        cje();
+                        cjf();
                         return;
                     } else {
-                        cjd();
+                        cje();
                         return;
                     }
                 }
@@ -258,7 +258,7 @@ public class a {
         }
     }
 
-    public void cjc() {
+    public void cjd() {
         if (this.hFr != null && this.hFr.getView() != null) {
             this.hFr.getView().setVisibility(4);
         }
@@ -271,15 +271,15 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjd() {
+    public void cje() {
         if (this.hFr != null) {
-            this.hFr.cjd();
+            this.hFr.cje();
         }
     }
 
-    private void cje() {
+    private void cjf() {
         if (this.hFr != null) {
-            this.hFr.cje();
+            this.hFr.cjf();
         }
     }
 
@@ -299,7 +299,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjf() {
+    public void cjg() {
         if (!TbadkCoreApplication.isLogin()) {
             ViewHelper.skipToLoginActivity(this.mTbPageContext.getPageActivity());
         } else if (!BdUtilHelper.isNetOk()) {
@@ -314,7 +314,7 @@ public class a {
             fVar.setIsAttention(true);
             fVar.setInLive("1");
             fVar.setFrom("source_host_header");
-            com.baidu.live.view.a.Zx().a(valueOf, fVar);
+            com.baidu.live.view.a.Zy().a(valueOf, fVar);
             op(this.hFt);
             this.hFt = false;
             if (TbadkCoreApplication.getInst().isHaokan()) {
@@ -341,7 +341,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cjg() {
+    public void cjh() {
         if (!this.isHost && (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo())) {
             AlaStaticItem alaStaticItem = new AlaStaticItem(SdkStaticKeys.CLICK_AUTHORHEAD);
             if (this.aGe.mLiveInfo != null) {
@@ -374,10 +374,10 @@ public class a {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, alaPersonCardActivityConfig));
     }
 
-    public void cjh() {
+    public void cji() {
         this.hFt = true;
         if (this.hFr != null) {
-            this.hFr.cjh();
+            this.hFr.cji();
         }
     }
 
@@ -391,7 +391,7 @@ public class a {
         MessageManager.getInstance().unRegisterListener(this.hBw);
     }
 
-    public boolean cdA() {
+    public boolean cdB() {
         return this.isFollowed;
     }
 
@@ -403,18 +403,18 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cji() {
+    public void cjj() {
         if (this.aGe != null && this.aGe.mLiveInfo != null) {
             com.baidu.live.q.a.c(this.aGe.mLiveInfo.live_id, 5);
         }
     }
 
-    public void cjj() {
-        if (this.hFr != null && this.hFr.cjw() != null) {
+    public void cjk() {
+        if (this.hFr != null && this.hFr.cjx() != null) {
             Animation loadAnimation = AnimationUtils.loadAnimation(this.mTbPageContext.getPageActivity(), this.hsH);
             loadAnimation.setFillEnabled(true);
             loadAnimation.setFillAfter(true);
-            this.hFr.cjw().setAnimation(loadAnimation);
+            this.hFr.cjx().setAnimation(loadAnimation);
         }
     }
 }

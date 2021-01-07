@@ -18,8 +18,8 @@ import java.util.regex.Pattern;
 /* loaded from: classes8.dex */
 public class c {
     private String ewK;
-    private ArrayList<String> nWV;
-    private final String odG = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
+    private ArrayList<String> nWU;
+    private final String odF = "@[\\u4e00-\\u9fa5\\w\\ud83c\\udc00-\\ud83c\\udfff\\ud83d\\udc00-\\ud83d\\udfff\\u2600-\\u27ff]+";
 
     public void a(EditText editText, boolean z) {
         Editable text;
@@ -39,10 +39,10 @@ public class c {
     }
 
     private void b(Spannable spannable) {
-        if (spannable != null && !x.isEmpty(this.nWV)) {
+        if (spannable != null && !x.isEmpty(this.nWU)) {
             String obj = spannable.toString();
             if (!TextUtils.isEmpty(obj)) {
-                Iterator<String> it = this.nWV.iterator();
+                Iterator<String> it = this.nWU.iterator();
                 while (it.hasNext()) {
                     a(spannable, obj, it.next());
                 }
@@ -91,7 +91,7 @@ public class c {
     }
 
     public boolean a(EditText editText, EditText editText2) {
-        if (x.isEmpty(dXQ())) {
+        if (x.isEmpty(dXR())) {
             return false;
         }
         return j(editText) || j(editText2);
@@ -114,18 +114,18 @@ public class c {
     }
 
     public void bm(ArrayList<String> arrayList) {
-        this.nWV = arrayList;
+        this.nWU = arrayList;
     }
 
-    public ArrayList<String> dXQ() {
-        return this.nWV;
+    public ArrayList<String> dXR() {
+        return this.nWU;
     }
 
-    public void Vf(String str) {
+    public void Ve(String str) {
         this.ewK = str;
     }
 
-    public String dXU() {
+    public String dXV() {
         return this.ewK;
     }
 

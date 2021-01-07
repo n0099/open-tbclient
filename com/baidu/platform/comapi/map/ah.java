@@ -5,20 +5,20 @@ import android.view.MotionEvent;
 import com.baidu.platform.comapi.map.MapController;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ah extends GestureDetector.SimpleOnGestureListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private MapController f4298a;
+    private MapController f4299a;
 
     /* renamed from: b  reason: collision with root package name */
-    private OnLongPressListener f4299b;
+    private OnLongPressListener f4300b;
     private volatile Set<GestureDetector.SimpleOnGestureListener> c = new CopyOnWriteArraySet();
     private Object d = new Object();
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public OnLongPressListener a() {
-        return this.f4299b;
+        return this.f4300b;
     }
 
     public void a(GestureDetector.SimpleOnGestureListener simpleOnGestureListener) {
@@ -28,12 +28,12 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
     }
 
     public void a(MapController mapController) {
-        this.f4298a = mapController;
+        this.f4299a = mapController;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public void a(OnLongPressListener onLongPressListener) {
-        this.f4299b = onLongPressListener;
+        this.f4300b = onLongPressListener;
     }
 
     public void b(GestureDetector.SimpleOnGestureListener simpleOnGestureListener) {
@@ -52,8 +52,8 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        if (this.f4298a != null) {
-            this.f4298a.handleDoubleDownClick(motionEvent);
+        if (this.f4299a != null) {
+            this.f4299a.handleDoubleDownClick(motionEvent);
             return true;
         }
         return true;
@@ -69,8 +69,8 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        if (motionEvent.getAction() == 1 && this.f4298a != null) {
-            this.f4298a.handleDoubleTouch(motionEvent);
+        if (motionEvent.getAction() == 1 && this.f4299a != null) {
+            this.f4299a.handleDoubleTouch(motionEvent);
         }
         return super.onDoubleTapEvent(motionEvent);
     }
@@ -98,13 +98,13 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        if (this.f4298a == null) {
+        if (this.f4299a == null) {
             return false;
         }
-        if (this.f4298a.getMapControlMode() == MapController.MapControlMode.STREET) {
-            this.f4298a.handleTouchUp(motionEvent2);
+        if (this.f4299a.getMapControlMode() == MapController.MapControlMode.STREET) {
+            this.f4299a.handleTouchUp(motionEvent2);
         }
-        return this.f4298a.handleFling(motionEvent, motionEvent2, f, f2);
+        return this.f4299a.handleFling(motionEvent, motionEvent2, f, f2);
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -119,10 +119,10 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        if (this.f4298a == null || this.f4298a.isEnableDMoveZoom() || this.f4298a.isNaviMode() || this.f4299b == null) {
+        if (this.f4299a == null || this.f4299a.isEnableDMoveZoom() || this.f4299a.isNaviMode() || this.f4300b == null) {
             return;
         }
-        this.f4299b.onLongPress(motionEvent);
+        this.f4300b.onLongPress(motionEvent);
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
@@ -165,7 +165,7 @@ public class ah extends GestureDetector.SimpleOnGestureListener {
                 }
             }
         }
-        return this.f4298a != null && this.f4298a.handleTouchSingleClick(motionEvent);
+        return this.f4299a != null && this.f4299a.handleTouchSingleClick(motionEvent);
     }
 
     @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener

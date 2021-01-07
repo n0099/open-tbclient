@@ -2,7 +2,7 @@ package com.baidu.smallgame.sdk.c;
 
 import android.text.TextUtils;
 import java.io.File;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public final class a {
     public static boolean kB(String str) {
         if (TextUtils.isEmpty(str)) {

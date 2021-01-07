@@ -19,11 +19,11 @@ public class be {
     public int pageNum;
     public int type;
 
-    public ArrayList<UserData> bqi() {
+    public ArrayList<UserData> bqj() {
         return this.bHm;
     }
 
-    public ArrayList<UserData> bqj() {
+    public ArrayList<UserData> bqk() {
         return this.eRp;
     }
 
@@ -50,9 +50,9 @@ public class be {
                     }
                     this.eRq.parserJson(jSONObject.optJSONObject("page"));
                     if (this.eRq != null) {
-                        this.pageNum = this.eRq.bqd();
-                        this.eRt = this.eRq.bqb();
-                        this.hasMore = this.eRq.bqf() == 1;
+                        this.pageNum = this.eRq.bqe();
+                        this.eRt = this.eRq.bqc();
+                        this.hasMore = this.eRq.bqg() == 1;
                     }
                     this.eRr = jSONObject.optInt("tafriendnum", 0);
                     this.eRs = jSONObject.optInt("commonfriendnum", 0);

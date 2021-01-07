@@ -17,25 +17,25 @@ import java.lang.ref.WeakReference;
 public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<Context> f7393a;
+    private WeakReference<Context> f7394a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f7394b;
+    private String f7395b;
     private com.ss.android.a.a.b.c c;
     private final l d;
     private String e;
 
     public c(Context context, String str, l lVar, String str2) {
-        this.f7393a = new WeakReference<>(context);
+        this.f7394a = new WeakReference<>(context);
         this.d = lVar;
         this.e = str2;
-        this.f7394b = str;
-        this.c = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(str, str2, lVar, null).eFc();
+        this.f7395b = str;
+        this.c = com.bytedance.sdk.openadsdk.downloadnew.a.b.b.a(str, str2, lVar, null).eFG();
         a();
     }
 
     private Context k() {
-        return (this.f7393a == null || this.f7393a.get() == null) ? p.a() : this.f7393a.get();
+        return (this.f7394a == null || this.f7394a.get() == null) ? p.a() : this.f7394a.get();
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
@@ -44,12 +44,12 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
     }
 
     private synchronized void l() {
-        e.d().a(this.f7394b, hashCode());
+        e.d().a(this.f7395b, hashCode());
     }
 
     private synchronized void m() {
         if (n()) {
-            e.d().eGb().a(k(), this.c.d(), this.c.u(), null, hashCode());
+            e.d().eGF().a(k(), this.c.d(), this.c.u(), null, hashCode());
         } else {
             e.d().a(k(), hashCode(), null, this.c);
         }
@@ -75,9 +75,9 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
     public void d() {
         l();
-        if (this.f7393a != null) {
-            this.f7393a.clear();
-            this.f7393a = null;
+        if (this.f7394a != null) {
+            this.f7394a.clear();
+            this.f7394a = null;
         }
     }
 
@@ -136,7 +136,7 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
         TTCustomController d = i.c().d();
         if (d != null && !d.isCanUseWriteExternal()) {
             try {
-                String str = e.f7396a;
+                String str = e.f7397a;
                 String absolutePath = Environment.getDataDirectory().getAbsolutePath();
                 if (str != null) {
                     if (!str.startsWith(absolutePath)) {
@@ -147,9 +147,9 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
             }
         }
         if (n()) {
-            e.d().eGb().a(k(), null, true, this.c, null, null, null, hashCode());
+            e.d().eGF().a(k(), null, true, this.c, null, null, null, hashCode());
         } else {
-            e.d().c(this.f7394b, this.c.d(), 2);
+            e.d().c(this.f7395b, this.c.d(), 2);
         }
     }
 
@@ -159,7 +159,7 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
     }
 
     public void a(long j) {
-        e.d().a(this.f7394b, true);
+        e.d().a(this.f7395b, true);
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
@@ -200,6 +200,6 @@ public class c implements com.bytedance.sdk.openadsdk.downloadnew.core.a {
     }
 
     @Override // com.bytedance.sdk.openadsdk.downloadnew.core.a
-    public void a(int i, a.InterfaceC0992a interfaceC0992a) {
+    public void a(int i, a.InterfaceC1030a interfaceC1030a) {
     }
 }

@@ -12,7 +12,7 @@ import java.lang.ref.WeakReference;
 import java.nio.ByteBuffer;
 import java.util.Timer;
 import java.util.TimerTask;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class b {
     private static final String TAG = b.class.getSimpleName();
     private long cgS;
@@ -40,7 +40,7 @@ public class b {
     private boolean chj = false;
     private boolean chk = false;
     private long chl = 0;
-    private d cgW = d.acM();
+    private d cgW = d.acN();
     private com.baidu.mario.a.a chc = null;
     private e cgX = new e() { // from class: com.baidu.mario.a.b.1
         @Override // com.baidu.mario.a.e
@@ -98,10 +98,10 @@ public class b {
             } else {
                 this.cgy.a(eGLContext);
             }
-            this.cgy.acw().setWidth(i);
-            this.cgy.acw().setHeight(i2);
+            this.cgy.acx().setWidth(i);
+            this.cgy.acx().setHeight(i2);
             if (z) {
-                this.cgy.acy().a(MirrorType.VERTICALLY);
+                this.cgy.acz().a(MirrorType.VERTICALLY);
             }
             this.adt = i;
             this.adu = i2;
@@ -129,7 +129,7 @@ public class b {
         if (this.cgZ && this.cgY != null) {
             switch (this.cha) {
                 case 0:
-                    acK();
+                    acL();
                     if (this.cgW != null) {
                         this.cgW.a(this.mAppContext, this.cgY, this.cgX);
                     }
@@ -138,7 +138,7 @@ public class b {
                 case 1:
                     break;
                 case 2:
-                    this.cgy.acv().setId(i);
+                    this.cgy.acw().setId(i);
                     if (this.cgW != null) {
                         this.cgW.c(this.cgy);
                     }
@@ -153,11 +153,11 @@ public class b {
         }
     }
 
-    public long acF() {
+    public long acG() {
         return this.cgU;
     }
 
-    public void acG() {
+    public void acH() {
         if (!this.cgR) {
             this.cgV = true;
             pauseRecord();
@@ -166,7 +166,7 @@ public class b {
         this.cgV = false;
     }
 
-    public void acH() {
+    public void acI() {
         if (this.cgR && this.cgV) {
             resumeRecord();
         }
@@ -195,7 +195,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public synchronized void acI() {
+    public synchronized void acJ() {
         if (this.chh != null) {
             this.chh.cancel();
             this.chh = null;
@@ -212,7 +212,7 @@ public class b {
         }
         this.chj = false;
         this.cgZ = true;
-        acI();
+        acJ();
         this.chh = new Timer();
         this.chi = new TimerTask() { // from class: com.baidu.mario.a.b.2
             @Override // java.util.TimerTask, java.lang.Runnable
@@ -223,7 +223,7 @@ public class b {
                     return;
                 }
                 Log.i(b.TAG, "cancel audio time");
-                b.this.acI();
+                b.this.acJ();
                 b.this.chk = false;
             }
         };
@@ -232,7 +232,7 @@ public class b {
 
     private void a(AudioParams audioParams) {
         if (this.che == null) {
-            acL();
+            acM();
         }
         if (audioParams == null) {
             Log.i(TAG, "audioParams is null,start to create AudioPams");
@@ -255,8 +255,8 @@ public class b {
             this.cgT = System.nanoTime();
             this.cgS = 0L;
             if (this.cgW != null) {
-                this.cgW.acP();
-                this.cgS = (this.cgT - (this.cgU * TimeUtils.NANOS_PER_MS)) - this.cgW.acN();
+                this.cgW.acQ();
+                this.cgS = (this.cgT - (this.cgU * TimeUtils.NANOS_PER_MS)) - this.cgW.acO();
                 if (this.cgS < 0) {
                     this.cgS = 0L;
                 }
@@ -264,7 +264,7 @@ public class b {
             if (this.chb != null) {
                 this.chb.onPause();
             }
-            acI();
+            acJ();
         }
     }
 
@@ -279,7 +279,7 @@ public class b {
         }
     }
 
-    private void acJ() {
+    private void acK() {
         if (this.cgR) {
             this.cgS += System.nanoTime() - this.cgT;
             this.cgR = false;
@@ -288,7 +288,7 @@ public class b {
 
     public void stopRecord() {
         Log.i(TAG, "stopRecored");
-        acJ();
+        acK();
         this.cgZ = false;
         this.chj = false;
         this.chk = false;
@@ -308,7 +308,7 @@ public class b {
         }
     }
 
-    private void acK() {
+    private void acL() {
         if (this.cgY != null && this.cgy != null) {
             int videoHeight = this.cgY.getVideoHeight();
             int videoWidth = this.cgY.getVideoWidth();
@@ -337,7 +337,7 @@ public class b {
         this.cgX = eVar;
     }
 
-    private void acL() {
+    private void acM() {
         if (this.che == null) {
             this.che = new a(this);
         }
@@ -361,7 +361,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a implements com.baidu.mario.audio.a.a {
         private WeakReference<b> chn;
 
@@ -390,7 +390,7 @@ public class b {
         public void onAudioStop(boolean z) {
             Log.i(b.TAG, "onAudioStop");
             if (this.chn.get() != null) {
-                this.chn.get().acI();
+                this.chn.get().acJ();
             }
         }
     }

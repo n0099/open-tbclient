@@ -5,15 +5,15 @@ import com.baidu.mapapi.model.CoordUtil;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.platform.comapi.basestruct.GeoPoint;
 import java.util.ArrayList;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class Arc extends Overlay {
     private static final String f = Arc.class.getSimpleName();
 
     /* renamed from: a  reason: collision with root package name */
-    int f2789a;
+    int f2790a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f2790b;
+    int f2791b;
     LatLng c;
     LatLng d;
     LatLng e;
@@ -35,14 +35,14 @@ public final class Arc extends Overlay {
         GeoPoint ll2mc = CoordUtil.ll2mc((LatLng) arrayList.get(0));
         bundle.putDouble("location_x", ll2mc.getLongitudeE6());
         bundle.putDouble("location_y", ll2mc.getLatitudeE6());
-        bundle.putInt("width", this.f2790b);
+        bundle.putInt("width", this.f2791b);
         Overlay.a(arrayList, bundle);
-        Overlay.a(this.f2789a, bundle);
+        Overlay.a(this.f2790a, bundle);
         return bundle;
     }
 
     public int getColor() {
-        return this.f2789a;
+        return this.f2790a;
     }
 
     public LatLng getEndPoint() {
@@ -58,11 +58,11 @@ public final class Arc extends Overlay {
     }
 
     public int getWidth() {
-        return this.f2790b;
+        return this.f2791b;
     }
 
     public void setColor(int i) {
-        this.f2789a = i;
+        this.f2790a = i;
         this.listener.b(this);
     }
 
@@ -81,7 +81,7 @@ public final class Arc extends Overlay {
 
     public void setWidth(int i) {
         if (i > 0) {
-            this.f2790b = i;
+            this.f2791b = i;
             this.listener.b(this);
         }
     }

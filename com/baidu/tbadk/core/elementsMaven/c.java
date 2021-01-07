@@ -34,7 +34,7 @@ public class c {
 
     public c pE(int i) {
         if (this.eYO instanceof TextView) {
-            ((TextView) this.eYO).setTypeface(a.Bu(a.getString(i)));
+            ((TextView) this.eYO).setTypeface(a.Bt(a.getString(i)));
         }
         return this;
     }

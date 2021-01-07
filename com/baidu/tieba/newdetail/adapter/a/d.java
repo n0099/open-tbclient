@@ -33,7 +33,7 @@ public class d extends a<by, ThreadCardViewHolder<bz>> {
             @Override // com.baidu.tieba.card.aa
             /* renamed from: b */
             public void a(View view, bz bzVar) {
-                com.baidu.tieba.card.s.cva().mG(true);
+                com.baidu.tieba.card.s.cvb().mG(true);
                 d.this.g(view, bzVar);
             }
         };

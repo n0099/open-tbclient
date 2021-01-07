@@ -78,27 +78,27 @@ public class ExtraLayout extends RelativeLayout {
         boolean z;
         boolean z2 = true;
         this.ahi = aVar;
-        bz boO = aVar.boO();
-        if (!TextUtils.isEmpty(boO.eWB)) {
+        bz boP = aVar.boP();
+        if (!TextUtils.isEmpty(boP.eWB)) {
             this.aly.setVisibility(0);
-            this.aly.setText(boO.eWB);
+            this.aly.setText(boP.eWB);
             this.aly.setOnClickListener(null);
             z = true;
         } else {
             this.aly.setVisibility(8);
             z = false;
         }
-        if (!TextUtils.isEmpty(boO.eWC)) {
+        if (!TextUtils.isEmpty(boP.eWC)) {
             this.alz.setVisibility(0);
-            this.alz.setText(boO.eWC);
+            this.alz.setText(boP.eWC);
             this.alz.setOnClickListener(null);
             z = true;
         } else {
             this.alz.setVisibility(8);
         }
-        if (!TextUtils.isEmpty(boO.buttonText)) {
+        if (!TextUtils.isEmpty(boP.buttonText)) {
             this.alx.setVisibility(0);
-            this.alx.setText(boO.buttonText);
+            this.alx.setText(boP.buttonText);
         } else {
             this.alx.setVisibility(4);
             z2 = z;

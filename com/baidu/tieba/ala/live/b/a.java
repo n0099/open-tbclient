@@ -22,11 +22,11 @@ public abstract class a extends BdBaseModel {
         void a(PayChannelType payChannelType, int i, String str, HashMap<String, String> hashMap, String str2, boolean z);
     }
 
-    public abstract void HO(String str);
+    public abstract void HN(String str);
 
     public abstract void a(PayConfig payConfig);
 
-    public abstract void caQ();
+    public abstract void caR();
 
     public a(TbPageContext tbPageContext, PayChannelType payChannelType, InterfaceC0661a interfaceC0661a) {
         super(tbPageContext);
@@ -68,11 +68,11 @@ public abstract class a extends BdBaseModel {
         }
     }
 
-    public HashMap<String, String> caO() {
+    public HashMap<String, String> caP() {
         return this.hjP;
     }
 
-    public String caR() {
+    public String caS() {
         return this.hjQ;
     }
 }

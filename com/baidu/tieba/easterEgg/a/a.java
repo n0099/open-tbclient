@@ -38,11 +38,11 @@ public class a {
         return this.isOpen;
     }
 
-    public HashMap<String, String> cxb() {
+    public HashMap<String, String> cxc() {
         return this.iEq;
     }
 
-    public String cxc() {
+    public String cxd() {
         return this.iEp;
     }
 }

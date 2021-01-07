@@ -20,7 +20,7 @@ public class h extends c implements View.OnClickListener {
         View inflate = layoutInflater.inflate(a.g.swan_app_settings_layout, viewGroup, false);
         av(inflate);
         ap(inflate);
-        if (ase()) {
+        if (asf()) {
             inflate = az(inflate);
         }
         return a(inflate, this);
@@ -45,52 +45,52 @@ public class h extends c implements View.OnClickListener {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void arB() {
+    protected void arC() {
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected boolean amM() {
+    protected boolean amN() {
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean arC() {
+    public boolean arD() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    public boolean aml() {
+    public boolean amm() {
         return false;
     }
 
     @Override // com.baidu.swan.apps.core.d.c
-    protected void amS() {
+    protected void amT() {
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view.getId() == a.f.message_item) {
-            com.baidu.swan.apps.t.a.aBu().alt();
+            com.baidu.swan.apps.t.a.aBv().alu();
         } else if (view.getId() == a.f.authority_item) {
-            atf();
+            atg();
         }
     }
 
-    private void atf() {
+    private void atg() {
         if (DEBUG) {
             Log.d("SwanAppBaseFragment", "startSettingFragment");
         }
-        f ajs = ajs();
-        if (ajs == null) {
-            com.baidu.swan.apps.res.widget.b.d.u(getContext(), a.h.aiapps_open_fragment_failed_toast).aLS();
+        f ajt = ajt();
+        if (ajt == null) {
+            com.baidu.swan.apps.res.widget.b.d.u(getContext(), a.h.aiapps_open_fragment_failed_toast).aLT();
             return;
         }
-        ajs.nv("navigateTo").ai(f.cUY, f.cVa).a("authority", null).commit();
+        ajt.nv("navigateTo").ai(f.cUY, f.cVa).a("authority", null).commit();
         com.baidu.swan.apps.menu.a.qI("permission");
     }
 
-    public static h atg() {
+    public static h ath() {
         return new h();
     }
 }

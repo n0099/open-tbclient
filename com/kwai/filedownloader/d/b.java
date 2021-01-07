@@ -24,24 +24,24 @@ public class b implements Parcelable {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private HashMap<String, List<String>> f11186a;
+    private HashMap<String, List<String>> f11187a;
 
     public b() {
     }
 
     protected b(Parcel parcel) {
-        this.f11186a = parcel.readHashMap(String.class.getClassLoader());
+        this.f11187a = parcel.readHashMap(String.class.getClassLoader());
     }
 
     public HashMap<String, List<String>> a() {
-        return this.f11186a;
+        return this.f11187a;
     }
 
     public void a(String str) {
-        if (this.f11186a == null) {
+        if (this.f11187a == null) {
             return;
         }
-        this.f11186a.remove(str);
+        this.f11187a.remove(str);
     }
 
     public void a(String str, String str2) {
@@ -54,13 +54,13 @@ public class b implements Parcelable {
         if (str2 == null) {
             throw new NullPointerException("value == null");
         }
-        if (this.f11186a == null) {
-            this.f11186a = new HashMap<>();
+        if (this.f11187a == null) {
+            this.f11187a = new HashMap<>();
         }
-        List<String> list = this.f11186a.get(str);
+        List<String> list = this.f11187a.get(str);
         if (list == null) {
             list = new ArrayList<>();
-            this.f11186a.put(str, list);
+            this.f11187a.put(str, list);
         }
         if (list.contains(str2)) {
             return;
@@ -74,11 +74,11 @@ public class b implements Parcelable {
     }
 
     public String toString() {
-        return this.f11186a.toString();
+        return this.f11187a.toString();
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeMap(this.f11186a);
+        parcel.writeMap(this.f11187a);
     }
 }

@@ -36,7 +36,7 @@ public class g {
     private g() {
     }
 
-    public static g ZT() {
+    public static g ZU() {
         if (bVz == null) {
             synchronized (g.class) {
                 if (bVz == null) {

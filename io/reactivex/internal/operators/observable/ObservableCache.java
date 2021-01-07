@@ -8,7 +8,7 @@ import io.reactivex.u;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ObservableCache<T> extends io.reactivex.internal.operators.observable.a<T, T> {
     final AtomicBoolean once;
     final a<T> state;
@@ -25,22 +25,22 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class a<T> extends f implements u<T> {
-        static final ReplayDisposable[] qif = new ReplayDisposable[0];
-        static final ReplayDisposable[] qig = new ReplayDisposable[0];
+        static final ReplayDisposable[] qjN = new ReplayDisposable[0];
+        static final ReplayDisposable[] qjO = new ReplayDisposable[0];
         volatile boolean isConnected;
         final AtomicReference<ReplayDisposable<T>[]> observers;
-        boolean qgR;
-        final q<? extends T> qic;
-        final SequentialDisposable qie;
+        boolean qiA;
+        final q<? extends T> qjL;
+        final SequentialDisposable qjM;
 
         public boolean a(ReplayDisposable<T> replayDisposable) {
             ReplayDisposable<T>[] replayDisposableArr;
             ReplayDisposable<T>[] replayDisposableArr2;
             do {
                 replayDisposableArr = this.observers.get();
-                if (replayDisposableArr == qig) {
+                if (replayDisposableArr == qjO) {
                     return false;
                 }
                 int length = replayDisposableArr.length;
@@ -72,7 +72,7 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
                     }
                     if (i >= 0) {
                         if (length == 1) {
-                            replayDisposableArr2 = qif;
+                            replayDisposableArr2 = qjN;
                         } else {
                             replayDisposableArr2 = new ReplayDisposable[length - 1];
                             System.arraycopy(replayDisposableArr, 0, replayDisposableArr2, 0, i);
@@ -89,17 +89,17 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
 
         @Override // io.reactivex.u
         public void onSubscribe(io.reactivex.disposables.b bVar) {
-            this.qie.update(bVar);
+            this.qjM.update(bVar);
         }
 
         public void connect() {
-            this.qic.subscribe(this);
+            this.qjL.subscribe(this);
             this.isConnected = true;
         }
 
         @Override // io.reactivex.u
         public void onNext(T t) {
-            if (!this.qgR) {
+            if (!this.qiA) {
                 add(NotificationLite.next(t));
                 for (ReplayDisposable<T> replayDisposable : this.observers.get()) {
                     replayDisposable.replay();
@@ -109,11 +109,11 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
 
         @Override // io.reactivex.u
         public void onError(Throwable th) {
-            if (!this.qgR) {
-                this.qgR = true;
+            if (!this.qiA) {
+                this.qiA = true;
                 add(NotificationLite.error(th));
-                this.qie.dispose();
-                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(qig)) {
+                this.qjM.dispose();
+                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(qjO)) {
                     replayDisposable.replay();
                 }
             }
@@ -121,11 +121,11 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
 
         @Override // io.reactivex.u
         public void onComplete() {
-            if (!this.qgR) {
-                this.qgR = true;
+            if (!this.qiA) {
+                this.qiA = true;
                 add(NotificationLite.complete());
-                this.qie.dispose();
-                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(qig)) {
+                this.qjM.dispose();
+                for (ReplayDisposable<T> replayDisposable : this.observers.getAndSet(qjO)) {
                     replayDisposable.replay();
                 }
             }
@@ -133,7 +133,7 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class ReplayDisposable<T> extends AtomicInteger implements io.reactivex.disposables.b {
         private static final long serialVersionUID = 7058506693698832024L;
         volatile boolean cancelled;
@@ -172,7 +172,7 @@ public final class ObservableCache<T> extends io.reactivex.internal.operators.ob
                         if (size != 0) {
                             Object[] objArr = this.currentBuffer;
                             if (objArr == null) {
-                                objArr = this.state.eLA();
+                                objArr = this.state.eMe();
                                 this.currentBuffer = objArr;
                             }
                             int length = objArr.length - 1;

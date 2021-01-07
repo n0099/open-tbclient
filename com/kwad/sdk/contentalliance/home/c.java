@@ -8,21 +8,21 @@ import java.util.List;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f9012a;
+    private static long f9013a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static List<AdTemplate> f9013b = new ArrayList();
+    private static List<AdTemplate> f9014b = new ArrayList();
 
     @MainThread
     public static void a(List<AdTemplate> list) {
         c();
-        f9012a = System.currentTimeMillis();
-        f9013b.addAll(list);
+        f9013a = System.currentTimeMillis();
+        f9014b.addAll(list);
     }
 
     public static boolean a() {
-        if (System.currentTimeMillis() - f9012a <= 120000) {
-            return !f9013b.isEmpty();
+        if (System.currentTimeMillis() - f9013a <= 120000) {
+            return !f9014b.isEmpty();
         }
         c();
         return false;
@@ -30,11 +30,11 @@ public class c {
 
     @MainThread
     public static List<AdTemplate> b() {
-        return f9013b;
+        return f9014b;
     }
 
     @MainThread
     public static void c() {
-        f9013b.clear();
+        f9014b.clear();
     }
 }

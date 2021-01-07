@@ -17,7 +17,7 @@ public class b {
             return com.baidu.n.a.a.checkPermissionGranted(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE);
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.n.a.afl();
+            return !com.baidu.n.a.afm();
         }
     }
 
@@ -38,7 +38,7 @@ public class b {
             return checkPermissionGranted;
         } catch (Throwable th) {
             BdLog.e(TAG, th);
-            return !com.baidu.n.a.afl();
+            return !com.baidu.n.a.afm();
         }
     }
 

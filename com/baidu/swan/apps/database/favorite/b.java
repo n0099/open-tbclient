@@ -47,9 +47,9 @@ public class b {
                 d.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return d;
             case 4:
-                Cursor awH = a.awH();
-                awH.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
-                return awH;
+                Cursor awI = a.awI();
+                awI.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
+                return awI;
             case 5:
                 int i = -1;
                 try {
@@ -67,9 +67,9 @@ public class b {
                 T.setNotificationUri(AppRuntime.getAppContext().getContentResolver(), uri);
                 return T;
             case 6:
-                SQLiteDatabase awv = SwanAppDbControl.cR(AppRuntime.getAppContext()).awv();
-                if (awv != null) {
-                    return awv.query(iG(match), strArr, str, strArr2, null, null, str2);
+                SQLiteDatabase aww = SwanAppDbControl.cR(AppRuntime.getAppContext()).aww();
+                if (aww != null) {
+                    return aww.query(iG(match), strArr, str, strArr2, null, null, str2);
                 }
                 return null;
             default:
@@ -92,12 +92,12 @@ public class b {
                 if (c < 0) {
                     return null;
                 }
-                awL();
+                awM();
                 return ContentUris.withAppendedId(CONTENT_URI.buildUpon().build(), c);
             case 6:
-                SQLiteDatabase awv = SwanAppDbControl.cR(AppRuntime.getAppContext()).awv();
-                if (awv != null) {
-                    awv.insertWithOnConflict(iG(match), null, contentValues, 5);
+                SQLiteDatabase aww = SwanAppDbControl.cR(AppRuntime.getAppContext()).aww();
+                if (aww != null) {
+                    aww.insertWithOnConflict(iG(match), null, contentValues, 5);
                     return uri;
                 }
                 return null;
@@ -114,14 +114,14 @@ public class b {
             case 2:
                 int d = SwanAppDbControl.cR(AppRuntime.getAppContext()).d(str, strArr);
                 if (d > 0) {
-                    awL();
+                    awM();
                     return d;
                 }
                 return d;
             case 6:
-                SQLiteDatabase awv = SwanAppDbControl.cR(AppRuntime.getAppContext()).awv();
-                if (awv != null) {
-                    return awv.delete(iG(match), str, strArr);
+                SQLiteDatabase aww = SwanAppDbControl.cR(AppRuntime.getAppContext()).aww();
+                if (aww != null) {
+                    return aww.delete(iG(match), str, strArr);
                 }
                 return 0;
             default:
@@ -137,14 +137,14 @@ public class b {
             case 2:
                 int b2 = SwanAppDbControl.cR(AppRuntime.getAppContext()).b(contentValues, str, strArr);
                 if (b2 > 0) {
-                    awL();
+                    awM();
                     return b2;
                 }
                 return b2;
             case 6:
-                SQLiteDatabase awv = SwanAppDbControl.cR(AppRuntime.getAppContext()).awv();
-                if (awv != null) {
-                    return awv.update(iG(match), contentValues, str, strArr);
+                SQLiteDatabase aww = SwanAppDbControl.cR(AppRuntime.getAppContext()).aww();
+                if (aww != null) {
+                    return aww.update(iG(match), contentValues, str, strArr);
                 }
                 return 0;
             default:
@@ -167,8 +167,8 @@ public class b {
         }
     }
 
-    private static void awL() {
-        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.awN(), (ContentObserver) null, false);
+    private static void awM() {
         AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.awO(), (ContentObserver) null, false);
+        AppRuntime.getAppContext().getContentResolver().notifyChange(com.baidu.swan.apps.database.a.a.awP(), (ContentObserver) null, false);
     }
 }

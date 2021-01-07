@@ -21,7 +21,7 @@ public class ContextUtils {
         }
     }
 
-    public static void ehq() {
+    public static void ehr() {
         if (sApplicationContext == null) {
             throw new RuntimeException("Cannot have native global application context be null.");
         }

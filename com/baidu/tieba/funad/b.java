@@ -21,11 +21,11 @@ import com.fun.ad.sdk.FunNativeAd;
 import com.fun.ad.sdk.FunNativeAdInteractionListener;
 import com.fun.ad.sdk.FunNativeAdLoadListener;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes15.dex */
 public class b implements a.b {
     private static volatile boolean jQB = false;
 
-    private void cPr() {
+    private void cPs() {
         initSdk(TbadkCoreApplication.getInst());
     }
 
@@ -70,14 +70,14 @@ public class b implements a.b {
 
     @Override // com.baidu.tieba.h.a.b
     public boolean isAdReady(String str) {
-        cPr();
+        cPs();
         return FunAdSdk.getAdFactory().isAdReady(str);
     }
 
     @Override // com.baidu.tieba.h.a.b
     public void a(Activity activity, String str, final a.d dVar) {
         System.currentTimeMillis();
-        cPr();
+        cPs();
         FunAdSdk.getAdFactory().loadAd(activity, new FunAdSlot.Builder().setSid(str).setExpressWidth(l.getEquipmentWidth(activity)).build(), new FunAdLoadListener() { // from class: com.baidu.tieba.funad.b.2
             @Override // com.fun.ad.sdk.FunAdLoadListener
             public void onAdLoaded(String str2) {
@@ -99,7 +99,7 @@ public class b implements a.b {
     @Override // com.baidu.tieba.h.a.b
     public View a(Activity activity, String str, View view, final a.c cVar) {
         System.currentTimeMillis();
-        cPr();
+        cPs();
         FunAdView funAdView = (view == null || !(view instanceof FunAdView)) ? new FunAdView(activity) : view;
         FunAdSdk.getAdFactory().showAd(activity, funAdView, str, new FunAdInteractionListener() { // from class: com.baidu.tieba.funad.b.3
             @Override // com.fun.ad.sdk.FunAdInteractionListener
@@ -142,26 +142,26 @@ public class b implements a.b {
 
     @Override // com.baidu.tieba.h.a.b
     public View g(Activity activity, String str) {
-        cPr();
+        cPs();
         return new FunAdView(activity);
     }
 
     @Override // com.baidu.tieba.h.a.b
     public void destroyAd(String str) {
-        cPr();
+        cPs();
         FunAdSdk.getAdFactory().destroyAd(str);
     }
 
     @Override // com.baidu.tieba.h.a.b
     public void b(Activity activity, String str, final a.d dVar) {
-        cPr();
+        cPs();
         FunAdSdk.getAdFactory().loadNativeAd(activity, new FunAdSlot.Builder().setSid(str).build(), new FunNativeAdLoadListener() { // from class: com.baidu.tieba.funad.b.4
             @Override // com.fun.ad.sdk.FunNativeAdLoadListener
             public void onNativeAdLoaded(String str2, List<FunNativeAd> list) {
                 c.onNativeAdLoaded(str2, list);
-                List<bz> LN = com.baidu.tieba.h.a.cPm().LN("6051001308-627527144");
+                List<bz> LM = com.baidu.tieba.h.a.cPn().LM("6051001308-627527144");
                 if (dVar != null) {
-                    dVar.a(str2, x.isEmpty(LN) ? null : LN.get(0).eWF);
+                    dVar.a(str2, x.isEmpty(LM) ? null : LM.get(0).eWF);
                 }
             }
 
@@ -172,11 +172,11 @@ public class b implements a.b {
     }
 
     @Override // com.baidu.tieba.h.a.b
-    public void a(a.C0749a c0749a, final a.e eVar) {
-        cPr();
-        if (c0749a != null && c0749a.eWF != null && (c0749a.eWF.dON() instanceof FunNativeAd)) {
-            FunNativeAd funNativeAd = (FunNativeAd) c0749a.eWF.dON();
-            funNativeAd.show(c0749a.jQp, c0749a.jQq, c0749a.jQr, c0749a.jQs, c0749a.jQt, c0749a.jQu, c0749a.jQv, c0749a.jQw, c0749a.jQx, new FunNativeAdInteractionListener() { // from class: com.baidu.tieba.funad.b.5
+    public void a(a.C0758a c0758a, final a.e eVar) {
+        cPs();
+        if (c0758a != null && c0758a.eWF != null && (c0758a.eWF.dOO() instanceof FunNativeAd)) {
+            FunNativeAd funNativeAd = (FunNativeAd) c0758a.eWF.dOO();
+            funNativeAd.show(c0758a.jQp, c0758a.jQq, c0758a.jQr, c0758a.jQs, c0758a.jQt, c0758a.jQu, c0758a.jQv, c0758a.jQw, c0758a.jQx, new FunNativeAdInteractionListener() { // from class: com.baidu.tieba.funad.b.5
                 @Override // com.fun.ad.sdk.FunNativeAdInteractionListener
                 public void onAdClick(String str) {
                     if (eVar != null) {
@@ -198,17 +198,17 @@ public class b implements a.b {
                     }
                 }
             }, true);
-            if (a(funNativeAd) && c0749a.jQp != null && c0749a.jQp.getChildCount() > 1) {
-                c0749a.jQp.removeViewAt(c0749a.jQp.getChildCount() - 1);
+            if (a(funNativeAd) && c0758a.jQp != null && c0758a.jQp.getChildCount() > 1) {
+                c0758a.jQp.removeViewAt(c0758a.jQp.getChildCount() - 1);
             }
         }
     }
 
     @Override // com.baidu.tieba.h.a.b
-    public void a(a.C0749a c0749a) {
-        cPr();
-        if (c0749a != null && c0749a.eWF != null && c0749a.eWF.dON() != null && (c0749a.eWF.dON() instanceof FunNativeAd)) {
-            ((FunNativeAd) c0749a.eWF.dON()).destroy();
+    public void a(a.C0758a c0758a) {
+        cPs();
+        if (c0758a != null && c0758a.eWF != null && c0758a.eWF.dOO() != null && (c0758a.eWF.dOO() instanceof FunNativeAd)) {
+            ((FunNativeAd) c0758a.eWF.dOO()).destroy();
         }
     }
 

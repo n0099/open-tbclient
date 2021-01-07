@@ -17,11 +17,11 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
     private View bYQ;
     public CustomMessageListener bih;
     private TextView eLt;
-    private HeadImageView oCE;
+    private HeadImageView oCD;
+    private TextView oCE;
     private TextView oCF;
     private TextView oCG;
     private TextView oCH;
-    private TextView oCI;
 
     public e(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -39,14 +39,14 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
 
     protected void initView() {
         this.bYQ = findViewById(a.f.view);
-        this.oCE = (HeadImageView) findViewById(a.f.user_avatar);
+        this.oCD = (HeadImageView) findViewById(a.f.user_avatar);
         this.eLt = (TextView) findViewById(a.f.user_name);
-        this.oCF = (TextView) findViewById(a.f.tv_connection_wheat_time);
-        this.oCG = (TextView) findViewById(a.f.tv_new_fans_num);
-        this.oCH = (TextView) findViewById(a.f.tv_charm_earnings);
-        this.oCI = (TextView) findViewById(a.f.tv_ok);
+        this.oCE = (TextView) findViewById(a.f.tv_connection_wheat_time);
+        this.oCF = (TextView) findViewById(a.f.tv_new_fans_num);
+        this.oCG = (TextView) findViewById(a.f.tv_charm_earnings);
+        this.oCH = (TextView) findViewById(a.f.tv_ok);
         this.bYQ.setOnClickListener(this);
-        this.oCI.setOnClickListener(this);
+        this.oCH.setOnClickListener(this);
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.wheat.dialog.a
@@ -97,18 +97,18 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
     public void onClick(View view) {
         if (view == this.bYQ) {
             dismiss();
-        } else if (view == this.oCI) {
+        } else if (view == this.oCH) {
             dismiss();
         }
     }
 
     public void d(String str, String str2, String str3, int i, int i2) {
-        this.oCE.setIsRound(true);
-        this.oCE.setAutoChangeStyle(false);
-        this.oCE.setDefaultResource(a.e.yuyin_sdk_default_avatar);
-        if (this.oCE != null && !TextUtils.isEmpty(str)) {
-            this.oCE.setUrl(str);
-            this.oCE.startLoad(str, 12, false);
+        this.oCD.setIsRound(true);
+        this.oCD.setAutoChangeStyle(false);
+        this.oCD.setDefaultResource(a.e.yuyin_sdk_default_avatar);
+        if (this.oCD != null && !TextUtils.isEmpty(str)) {
+            this.oCD.setUrl(str);
+            this.oCD.startLoad(str, 12, false);
         }
         if (this.eLt != null) {
             if (!TextUtils.isEmpty(str2)) {
@@ -117,25 +117,25 @@ public class e extends a implements DialogInterface.OnDismissListener, View.OnCl
                 this.eLt.setText("");
             }
         }
-        if (this.oCF != null) {
+        if (this.oCE != null) {
             if (!TextUtils.isEmpty(str3)) {
-                this.oCF.setText(str3);
+                this.oCE.setText(str3);
+            } else {
+                this.oCE.setText("");
+            }
+        }
+        if (this.oCF != null) {
+            if (!TextUtils.isEmpty(Integer.toString(i))) {
+                this.oCF.setText(Integer.toString(i));
             } else {
                 this.oCF.setText("");
             }
         }
         if (this.oCG != null) {
-            if (!TextUtils.isEmpty(Integer.toString(i))) {
-                this.oCG.setText(Integer.toString(i));
+            if (!TextUtils.isEmpty(Integer.toString(i2))) {
+                this.oCG.setText(Integer.toString(i2));
             } else {
                 this.oCG.setText("");
-            }
-        }
-        if (this.oCH != null) {
-            if (!TextUtils.isEmpty(Integer.toString(i2))) {
-                this.oCH.setText(Integer.toString(i2));
-            } else {
-                this.oCH.setText("");
             }
         }
     }

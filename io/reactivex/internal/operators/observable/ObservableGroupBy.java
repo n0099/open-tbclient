@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.operators.observable.a<T, io.reactivex.c.b<K, V>> {
     final int bufferSize;
     final boolean delayError;
@@ -23,7 +23,7 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
         this.source.subscribe(new GroupByObserver(uVar, this.keySelector, this.valueSelector, this.bufferSize, this.delayError));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class GroupByObserver<T, K, V> extends AtomicInteger implements io.reactivex.disposables.b, u<T> {
         static final Object NULL_KEY = new Object();
         private static final long serialVersionUID = -3688291656102519502L;
@@ -129,9 +129,9 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class a<K, T> extends io.reactivex.c.b<K, T> {
-        final State<T, K> qij;
+        final State<T, K> qjR;
 
         public static <T, K> a<K, T> a(K k, int i, GroupByObserver<?, K, T> groupByObserver, boolean z) {
             return new a<>(k, new State(i, groupByObserver, k, z));
@@ -139,29 +139,29 @@ public final class ObservableGroupBy<T, K, V> extends io.reactivex.internal.oper
 
         protected a(K k, State<T, K> state) {
             super(k);
-            this.qij = state;
+            this.qjR = state;
         }
 
         @Override // io.reactivex.q
         protected void a(u<? super T> uVar) {
-            this.qij.subscribe(uVar);
+            this.qjR.subscribe(uVar);
         }
 
         public void onNext(T t) {
-            this.qij.onNext(t);
+            this.qjR.onNext(t);
         }
 
         public void onError(Throwable th) {
-            this.qij.onError(th);
+            this.qjR.onError(th);
         }
 
         public void onComplete() {
-            this.qij.onComplete();
+            this.qjR.onComplete();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     public static final class State<T, K> extends AtomicInteger implements io.reactivex.disposables.b, t<T> {
         private static final long serialVersionUID = -3852313036005250360L;
         final boolean delayError;

@@ -1,13 +1,13 @@
 package io.reactivex;
 
 import io.reactivex.internal.subscribers.StrictSubscriber;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class g<T> implements org.a.b<T> {
     static final int BUFFER_SIZE = Math.max(1, Integer.getInteger("rx2.buffer-size", 128).intValue());
 
     protected abstract void a(org.a.c<? super T> cVar);
 
-    public static int eLa() {
+    public static int eLE() {
         return BUFFER_SIZE;
     }
 

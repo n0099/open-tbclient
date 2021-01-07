@@ -12,7 +12,7 @@ public class d extends b {
     }
 
     public d() {
-        setStType(m.brc());
+        setStType(m.brd());
         setYuelaouLocate("percard#");
     }
 }

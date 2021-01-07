@@ -12,22 +12,22 @@ import java.lang.reflect.Method;
 public class u {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Method f11132a;
+    private static Method f11133a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Method f11133b;
+    private static Method f11134b;
     private static Field c;
     private static int d;
 
     static {
         d = 0;
         try {
-            f11132a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
+            f11133a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
         } catch (NoSuchMethodException e) {
             e.printStackTrace();
         }
         try {
-            f11133b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
+            f11134b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
         } catch (NoSuchMethodException e2) {
             e2.printStackTrace();
         }
@@ -50,7 +50,7 @@ public class u {
     }
 
     private static void a(Activity activity, boolean z, boolean z2) {
-        if (f11133b == null) {
+        if (f11134b == null) {
             if (z2) {
                 a(activity.getWindow(), z);
                 return;
@@ -58,7 +58,7 @@ public class u {
             return;
         }
         try {
-            f11133b.invoke(activity, Boolean.valueOf(z));
+            f11134b.invoke(activity, Boolean.valueOf(z));
         } catch (IllegalAccessException e) {
             e.printStackTrace();
         } catch (InvocationTargetException e2) {

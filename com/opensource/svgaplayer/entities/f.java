@@ -20,7 +20,7 @@ public final class f {
         return this.imageKey;
     }
 
-    public final List<g> eEn() {
+    public final List<g> eER() {
         return this.frames;
     }
 
@@ -35,8 +35,8 @@ public final class f {
                 JSONObject optJSONObject = optJSONArray.optJSONObject(i);
                 if (optJSONObject != null) {
                     g gVar = new g(optJSONObject);
-                    if ((!gVar.iY().isEmpty()) && ((SVGAVideoShapeEntity) n.hj(gVar.iY())).eEd() && arrayList.size() > 0) {
-                        gVar.gR(((g) n.hk(arrayList)).iY());
+                    if ((!gVar.iY().isEmpty()) && ((SVGAVideoShapeEntity) n.hk(gVar.iY())).eEH() && arrayList.size() > 0) {
+                        gVar.gS(((g) n.hl(arrayList)).iY());
                     }
                     arrayList.add(gVar);
                 }
@@ -46,7 +46,7 @@ public final class f {
     }
 
     public f(SpriteEntity spriteEntity) {
-        ArrayList eLS;
+        ArrayList eMw;
         p.o(spriteEntity, MapBundleKey.MapObjKey.OBJ_SL_OBJ);
         this.imageKey = spriteEntity.imageKey;
         g gVar = null;
@@ -58,16 +58,16 @@ public final class f {
             for (FrameEntity frameEntity : list2) {
                 p.n(frameEntity, AdvanceSetting.NETWORK_TYPE);
                 g gVar3 = new g(frameEntity);
-                if ((!gVar3.iY().isEmpty()) && ((SVGAVideoShapeEntity) n.hj(gVar3.iY())).eEd() && gVar2 != null) {
-                    gVar3.gR(gVar2.iY());
+                if ((!gVar3.iY().isEmpty()) && ((SVGAVideoShapeEntity) n.hk(gVar3.iY())).eEH() && gVar2 != null) {
+                    gVar3.gS(gVar2.iY());
                 }
                 arrayList.add(gVar3);
                 gVar2 = gVar3;
             }
-            eLS = arrayList;
+            eMw = arrayList;
         } else {
-            eLS = n.eLS();
+            eMw = n.eMw();
         }
-        this.frames = eLS;
+        this.frames = eMw;
     }
 }

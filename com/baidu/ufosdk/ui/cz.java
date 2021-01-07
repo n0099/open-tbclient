@@ -7,10 +7,10 @@ import android.widget.TextView;
 final class cz {
 
     /* renamed from: a  reason: collision with root package name */
-    public TextView f5795a;
+    public TextView f5796a;
 
     /* renamed from: b  reason: collision with root package name */
-    public ImageView f5796b;
+    public ImageView f5797b;
     public ImageView c;
     public RelativeLayout d;
 }

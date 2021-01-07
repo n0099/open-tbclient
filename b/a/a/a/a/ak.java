@@ -25,7 +25,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.zip.GZIPOutputStream;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 final class ak extends Handler {
     private FileOutputStream Br;
     private BufferedOutputStream Bs;
@@ -33,17 +33,17 @@ final class ak extends Handler {
     private /* synthetic */ ai Bu;
 
     /* renamed from: a  reason: collision with root package name */
-    private byte[] f1056a;
+    private byte[] f1057a;
 
     /* renamed from: b  reason: collision with root package name */
-    private File f1057b;
+    private File f1058b;
     private SimpleDateFormat f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ak(ai aiVar, Looper looper) {
         super(looper);
         this.Bu = aiVar;
-        this.f1056a = new byte[0];
+        this.f1057a = new byte[0];
         this.f = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.CHINA);
     }
 
@@ -66,7 +66,7 @@ final class ak extends Handler {
                     break;
                 }
                 z zVar = (z) list2.get(i2);
-                sb2.append(i2 == 0 ? "" : ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR).append(zVar.f1085b).append(",").append(zVar.c).append(",").append(zVar.d).append(",").append(zVar.e).append(",").append(zVar.f);
+                sb2.append(i2 == 0 ? "" : ContentProviderProxy.PROVIDER_AUTHOR_SEPARATOR).append(zVar.f1086b).append(",").append(zVar.c).append(",").append(zVar.d).append(",").append(zVar.e).append(",").append(zVar.f);
                 i = i2 + 1;
             }
         }
@@ -83,7 +83,7 @@ final class ak extends Handler {
             }
         }
         StringBuilder sb4 = new StringBuilder();
-        String a2 = j.a(wVar.f1081a);
+        String a2 = j.a(wVar.f1082a);
         if (a2 != null && a2.length() > 5) {
             try {
                 JSONObject jSONObject = new JSONObject(a2);
@@ -97,7 +97,7 @@ final class ak extends Handler {
         }
         String str = Build.MANUFACTURER.replaceAll("[| _]", "") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + Build.MODEL.replaceAll("[| _]", "");
         StringBuilder sb5 = new StringBuilder();
-        sb5.append("[").append(this.f.format(new Date())).append("]:").append(x.b()).append("|209|").append(xVar.i()).append("|||||||||").append((CharSequence) sb).append("||").append((CharSequence) sb2).append("|").append((CharSequence) sb3).append("||||||||||||||||sdk_lite").append("||||").append((CharSequence) sb4).append("|||").append(xVar.c.replaceAll("[| _]", "") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + xVar.f1082a).append("|||").append(str);
+        sb5.append("[").append(this.f.format(new Date())).append("]:").append(x.b()).append("|209|").append(xVar.i()).append("|||||||||").append((CharSequence) sb).append("||").append((CharSequence) sb2).append("|").append((CharSequence) sb3).append("||||||||||||||||sdk_lite").append("||||").append((CharSequence) sb4).append("|||").append(xVar.c.replaceAll("[| _]", "") + PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS + xVar.f1083a).append("|||").append(str);
         return sb5.toString();
     }
 
@@ -111,7 +111,7 @@ final class ak extends Handler {
             try {
                 this.Bs.write(a2);
             } catch (Throwable th) {
-                this.f1057b = null;
+                this.f1058b = null;
                 ai.b(this.Bs);
                 ai.b(this.Br);
             }
@@ -132,15 +132,15 @@ final class ak extends Handler {
             afVar = this.Bu.Bo;
             list = this.Bu.j;
         }
-        synchronized (this.f1056a) {
+        synchronized (this.f1057a) {
             b();
             if (i == 2) {
                 wVar2 = this.Bu.Bm;
-                str = a(wVar2, aaVar.f1049b, null, list);
+                str = a(wVar2, aaVar.f1050b, null, list);
             } else if (i == 1) {
-                List unmodifiableList = afVar != null ? Collections.unmodifiableList(afVar.f1053b) : null;
+                List unmodifiableList = afVar != null ? Collections.unmodifiableList(afVar.f1054b) : null;
                 wVar = this.Bu.Bm;
-                str = a(wVar, aaVar.f1049b, unmodifiableList, list);
+                str = a(wVar, aaVar.f1050b, unmodifiableList, list);
             } else {
                 str = "";
             }
@@ -151,9 +151,9 @@ final class ak extends Handler {
                 this.Bt = new StringBuffer((int) LokiService.Constant.MAX_LENGTH_OF_STRING_TO_DIRECT_TRANS_WITH_BINDER);
             }
             this.Bt.append(str).append("\n");
-            if (this.Bt.length() > 25600 || (this.f1057b != null && this.f1057b.length() == 0)) {
+            if (this.Bt.length() > 25600 || (this.f1058b != null && this.f1058b.length() == 0)) {
                 a();
-                if (this.f1057b.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
+                if (this.f1058b.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT) {
                     this.Bu.a(5);
                 }
             }
@@ -206,11 +206,11 @@ final class ak extends Handler {
     }
 
     private void b() {
-        if (this.f1057b == null || !this.f1057b.exists() || this.Bs == null || !"fclite".equals(this.f1057b.getName())) {
-            this.f1057b = d();
+        if (this.f1058b == null || !this.f1058b.exists() || this.Bs == null || !"fclite".equals(this.f1058b.getName())) {
+            this.f1058b = d();
             try {
-                boolean exists = this.f1057b.exists();
-                this.Br = new FileOutputStream(this.f1057b, true);
+                boolean exists = this.f1058b.exists();
+                this.Br = new FileOutputStream(this.f1058b, true);
                 this.Bs = new BufferedOutputStream(this.Br, 1024);
                 if (exists) {
                     return;
@@ -278,7 +278,7 @@ final class ak extends Handler {
                     }
                     return;
                 } catch (Throwable th2) {
-                    this.f1057b = null;
+                    this.f1058b = null;
                     ai.b(this.Bs);
                     ai.b(this.Br);
                     return;
@@ -289,12 +289,12 @@ final class ak extends Handler {
                     if (this.Bt != null) {
                         this.Bt.setLength(0);
                     }
-                    this.f1057b = null;
+                    this.f1058b = null;
                     ai.b(this.Bs);
                     ai.b(this.Br);
                     return;
                 } catch (Throwable th3) {
-                    this.f1057b = null;
+                    this.f1058b = null;
                     ai.b(this.Bs);
                     ai.b(this.Br);
                     return;
@@ -302,23 +302,23 @@ final class ak extends Handler {
             case 5:
                 b();
                 file = this.Bu.c;
-                if (file == null || this.f1057b == null || !this.f1057b.exists()) {
+                if (file == null || this.f1058b == null || !this.f1058b.exists()) {
                     return;
                 }
                 a();
-                if (this.f1057b.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT || System.currentTimeMillis() - e() > Config.THREAD_IMAGE_SAVE_MAX_TIME) {
+                if (this.f1058b.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT || System.currentTimeMillis() - e() > Config.THREAD_IMAGE_SAVE_MAX_TIME) {
                     try {
-                        if (this.f1057b == null || this.f1057b.length() < 1024) {
+                        if (this.f1058b == null || this.f1058b.length() < 1024) {
                             return;
                         }
                         long currentTimeMillis = System.currentTimeMillis();
                         file2 = this.Bu.c;
                         File file3 = new File(file2, "fclite_".concat(String.valueOf(currentTimeMillis)));
-                        this.f1057b.renameTo(file3);
-                        new StringBuilder("rename:").append(this.f1057b.getName()).append(" to ").append(file3.getName());
+                        this.f1058b.renameTo(file3);
+                        new StringBuilder("rename:").append(this.f1058b.getName()).append(" to ").append(file3.getName());
                         ai.b(this.Bs);
                         ai.b(this.Br);
-                        this.f1057b = null;
+                        this.f1058b = null;
                         this.Bs = null;
                         c();
                         a(0L);

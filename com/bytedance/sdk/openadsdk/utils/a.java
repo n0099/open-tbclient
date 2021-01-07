@@ -11,10 +11,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class a implements Application.ActivityLifecycleCallbacks {
 
     /* renamed from: a  reason: collision with root package name */
-    private AtomicInteger f7832a = new AtomicInteger(0);
+    private AtomicInteger f7833a = new AtomicInteger(0);
 
     /* renamed from: b  reason: collision with root package name */
-    private AtomicBoolean f7833b = new AtomicBoolean(false);
+    private AtomicBoolean f7834b = new AtomicBoolean(false);
     private HashSet<Integer> c = new HashSet<>();
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
@@ -23,8 +23,8 @@ public class a implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(Activity activity) {
-        if (this.f7832a.incrementAndGet() > 0) {
-            this.f7833b.set(false);
+        if (this.f7833a.incrementAndGet() > 0) {
+            this.f7834b.set(false);
         }
         b();
     }
@@ -42,8 +42,8 @@ public class a implements Application.ActivityLifecycleCallbacks {
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStopped(Activity activity) {
-        if (this.f7832a.decrementAndGet() == 0) {
-            this.f7833b.set(true);
+        if (this.f7833a.decrementAndGet() == 0) {
+            this.f7834b.set(true);
         }
     }
 
@@ -59,7 +59,7 @@ public class a implements Application.ActivityLifecycleCallbacks {
     }
 
     public boolean a() {
-        return this.f7833b.get();
+        return this.f7834b.get();
     }
 
     public boolean a(Activity activity) {

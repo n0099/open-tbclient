@@ -431,7 +431,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         if (this.mShakeController == null) {
             this.mShakeController = new v(this.mContext, new v.a() { // from class: com.baidu.tbadk.browser.CommonTbJsBridge.1
                 @Override // com.baidu.tbadk.BdToken.v.a
-                public void bma() {
+                public void bmb() {
                     if (!TextUtils.isEmpty(CommonTbJsBridge.this.shakeCallbackjsMethod)) {
                         try {
                             JSONObject jSONObject = new JSONObject();
@@ -465,7 +465,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         aVar.message_color = str8;
         aVar.btn_text_color = str9;
         if (aVar.showType == com.baidu.tbadk.BdToken.completeTask.a.eHZ) {
-            h.b(TbadkCoreApplication.getInst().getCurrentActivity(), aVar).bum();
+            h.b(TbadkCoreApplication.getInst().getCurrentActivity(), aVar).bun();
         } else if (aVar.showType == com.baidu.tbadk.BdToken.completeTask.a.eIa) {
             Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
             com.baidu.tbadk.core.business.c cVar2 = new com.baidu.tbadk.core.business.c(currentActivity);
@@ -507,7 +507,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private String generalSharePreferences() {
-        com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_bawu_task_toast", -1);
+        com.baidu.tbadk.core.sharedPref.b.bvr().putInt("key_bawu_task_toast", -1);
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("resultCode", 1);
@@ -519,8 +519,8 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     }
 
     private String handleGamePushStatus() {
-        String string = com.baidu.tbadk.core.sharedPref.b.bvq().getString("key_match_id_list_football", "");
-        String string2 = com.baidu.tbadk.core.sharedPref.b.bvq().getString("key_match_id_list_basketball", "");
+        String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_match_id_list_football", "");
+        String string2 = com.baidu.tbadk.core.sharedPref.b.bvr().getString("key_match_id_list_basketball", "");
         try {
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("football", "[" + string + "]");
@@ -574,12 +574,12 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         }
         this.mPermissionJudgement.clearRequestPermissionList();
         if (!(this.mContext instanceof Activity)) {
-            cVar.dPH();
+            cVar.dPI();
             return cVar;
         }
         this.mPermissionJudgement.appendRequestPermission((Activity) this.mContext, "android.permission.WRITE_EXTERNAL_STORAGE");
         if (this.mPermissionJudgement.startRequestPermission((Activity) this.mContext)) {
-            cVar.Tt("权限申请");
+            cVar.Ts("权限申请");
             return cVar;
         }
         new o((Activity) this.mContext, str, new o.a() { // from class: com.baidu.tbadk.browser.CommonTbJsBridge.2
@@ -615,7 +615,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     public com.baidu.tieba.tbadkCore.e.a.c saveImageSuccess(HashMap<String, Integer> hashMap) {
         com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
         if (hashMap != null && hashMap.get("result").intValue() == -1) {
-            cVar.Tt("图片保存错误");
+            cVar.Ts("图片保存错误");
         }
         return cVar;
     }
@@ -623,7 +623,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     private void dealJump(String str) {
         TbPageContext<?> currentActivityPageContext;
         if (!at.isEmpty(str) && (currentActivityPageContext = getCurrentActivityPageContext(TbadkCoreApplication.getInst().getCurrentActivity())) != null) {
-            be.bwu().b(currentActivityPageContext, new String[]{str});
+            be.bwv().b(currentActivityPageContext, new String[]{str});
         }
     }
 
@@ -681,7 +681,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
     public com.baidu.tieba.tbadkCore.e.a.c playVibrate() {
         com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
         int i = 0;
-        if (getShakeController().blZ()) {
+        if (getShakeController().bma()) {
             i = 1;
         }
         try {
@@ -903,7 +903,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                 shareItem.fxi = true;
                 ShareDialogConfig shareDialogConfig = new ShareDialogConfig(this.mContext, shareItem, true, (SparseArray<String>) null);
                 shareDialogConfig.mShowMoreForumShare = true;
-                f.cwe().b(shareDialogConfig);
+                f.cwf().b(shareDialogConfig);
                 cVar.setData("");
                 return cVar;
             }
@@ -1172,8 +1172,8 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         boolean z;
         Intent launchIntentForPackage;
         com.baidu.tieba.tbadkCore.e.a.c cVar = new com.baidu.tieba.tbadkCore.e.a.c();
-        List<String> bzH = com.baidu.tbadk.coreExtra.data.g.bzH();
-        if (isLegalSchema(bzH, str2)) {
+        List<String> bzI = com.baidu.tbadk.coreExtra.data.g.bzI();
+        if (isLegalSchema(bzI, str2)) {
             Intent intent = new Intent();
             intent.setData(Uri.parse(str2));
             try {
@@ -1185,7 +1185,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         } else {
             z = false;
         }
-        if (!z && isLegalSchema(bzH, str) && (launchIntentForPackage = this.mContext.getPackageManager().getLaunchIntentForPackage(str)) != null) {
+        if (!z && isLegalSchema(bzI, str) && (launchIntentForPackage = this.mContext.getPackageManager().getLaunchIntentForPackage(str)) != null) {
             this.mContext.startActivity(launchIntentForPackage);
             z = true;
         }
@@ -1255,15 +1255,15 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
                     jSONObject.put("resultCode", 0);
                     cVar.setData(jSONObject.toString());
                 } else {
+                    String BL = n.BL(str);
                     String BM = n.BM(str);
-                    String BN = n.BN(str);
-                    if (!n.BL(BN)) {
+                    if (!n.BK(BM)) {
                         jSONObject.put("resultCode", 0);
                         cVar.setData(jSONObject.toString());
                     } else {
-                        DownloadData downloadData = new DownloadData(BM, BM, str, null);
-                        downloadData.setPath(BN);
-                        com.baidu.tbadk.download.d.bEE().f(downloadData);
+                        DownloadData downloadData = new DownloadData(BL, BL, str, null);
+                        downloadData.setPath(BM);
+                        com.baidu.tbadk.download.d.bEF().f(downloadData);
                         jSONObject.put("resultCode", 1);
                     }
                 }
@@ -1386,9 +1386,9 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         String str4 = "" + j.curOperatorType();
         stringBuffer.append("carrier=");
         stringBuffer.append(str4);
-        String apb = com.baidu.tbadk.core.util.g.apb();
+        String apc = com.baidu.tbadk.core.util.g.apc();
         stringBuffer.append("manufacturer=");
-        stringBuffer.append(apb);
+        stringBuffer.append(apc);
         String str5 = Build.HARDWARE;
         stringBuffer.append("hardware=");
         stringBuffer.append(str5);
@@ -1411,7 +1411,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             jSONObject.put(PushClientConstants.TAG_PKG_NAME, packageName);
             jSONObject.put("network", str3);
             jSONObject.put("carrier", str4);
-            jSONObject.put(HttpConstants.HTTP_MANUFACTURER, apb);
+            jSONObject.put(HttpConstants.HTTP_MANUFACTURER, apc);
             jSONObject.put(HttpConstants.HTTP_HARDWARE, str5);
             jSONObject.put(HttpConstants.HTTP_BOARD, str6);
             jSONObject.put(ARPScriptEnvironment.KEY_DATA_PIP_IMU, str7);
@@ -1461,10 +1461,10 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             Activity activity = (Activity) this.mContext;
             if (!TextUtils.isEmpty(str3)) {
                 String str4 = "showToast_" + str3;
-                int i4 = com.baidu.tbadk.core.sharedPref.b.bvq().getInt(str4, 0);
+                int i4 = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(str4, 0);
                 if (i4 < i) {
                     int i5 = i4 + 1;
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putInt(str4, i4);
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putInt(str4, i4);
                     g.publishEvent(new TipEvent(activity.getIntent(), str, str2, i2 == 1));
                 }
             } else {
@@ -1487,16 +1487,16 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
 
     private String getGetModalData() {
         JSONObject jSONObject;
-        String bCd;
+        String bCe;
         int i = 0;
         try {
-            bCd = com.baidu.tbadk.coreExtra.messageCenter.f.bCb().bCd();
+            bCe = com.baidu.tbadk.coreExtra.messageCenter.f.bCc().bCe();
         } catch (Exception e) {
             BdLog.e(e);
         }
         try {
-            if (!TextUtils.isEmpty(bCd)) {
-                jSONObject = new JSONObject(bCd);
+            if (!TextUtils.isEmpty(bCe)) {
+                jSONObject = new JSONObject(bCe);
                 i = 1;
                 JSONObject jSONObject2 = new JSONObject();
                 jSONObject2.put("resultCode", i);
@@ -1572,7 +1572,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
         com.baidu.tbadk.core.business.a aVar2 = new com.baidu.tbadk.core.business.a(TbadkCoreApplication.getInst().getCurrentActivity());
         aVar2.a(new a.InterfaceC0576a() { // from class: com.baidu.tbadk.browser.CommonTbJsBridge.4
             @Override // com.baidu.tbadk.core.business.a.InterfaceC0576a
-            public void bnU() {
+            public void bnV() {
                 try {
                     JSONObject jSONObject = new JSONObject();
                     jSONObject.put("resultCode", 1);
@@ -1598,7 +1598,7 @@ public class CommonTbJsBridge implements com.baidu.tieba.tbadkCore.e.b {
             }
         });
         aVar2.a(aVar);
-        aVar2.boG().boH();
+        aVar2.boH().boI();
         return cVar;
     }
 }

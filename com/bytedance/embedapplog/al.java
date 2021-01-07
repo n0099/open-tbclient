@@ -8,25 +8,25 @@ import java.lang.reflect.Method;
 public final class al implements bi {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f6077a;
+    private static Object f6078a;
 
     /* renamed from: b  reason: collision with root package name */
-    private static Class<?> f6078b;
+    private static Class<?> f6079b;
     private static Method c;
 
     static {
         try {
-            f6078b = Class.forName("com.android.id.impl.IdProviderImpl");
-            f6077a = f6078b.newInstance();
-            c = f6078b.getMethod("getOAID", Context.class);
+            f6079b = Class.forName("com.android.id.impl.IdProviderImpl");
+            f6078a = f6079b.newInstance();
+            c = f6079b.getMethod("getOAID", Context.class);
         } catch (Exception e) {
-            bb.c(bh.f6098a, "Api#static reflect exception! " + e.getMessage());
+            bb.c(bh.f6099a, "Api#static reflect exception! " + e.getMessage());
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static boolean a() {
-        return (f6078b == null || f6077a == null || c == null) ? false : true;
+        return (f6079b == null || f6078a == null || c == null) ? false : true;
     }
 
     @Override // com.bytedance.embedapplog.bi
@@ -38,7 +38,7 @@ public final class al implements bi {
     public bi.a hR(Context context) {
         try {
             bi.a aVar = new bi.a();
-            aVar.f6100b = a(context, c);
+            aVar.f6101b = a(context, c);
             return aVar;
         } catch (Exception e) {
             e.printStackTrace();
@@ -47,9 +47,9 @@ public final class al implements bi {
     }
 
     private static String a(Context context, Method method) {
-        if (f6077a != null && method != null) {
+        if (f6078a != null && method != null) {
             try {
-                Object invoke = method.invoke(f6077a, context);
+                Object invoke = method.invoke(f6078a, context);
                 if (invoke != null) {
                     return (String) invoke;
                 }

@@ -54,7 +54,7 @@ public class c extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                     b bVar = (b) message.obj;
                     c.fND.setErrorCode(message.arg1);
                     c.fND.setAfterHttpDnsUrl(bVar.getUrl());
-                    c.fND.setStatusMsg(bVar.bHW());
+                    c.fND.setStatusMsg(bVar.bHX());
                     return;
                 }
                 return;
@@ -66,7 +66,7 @@ public class c extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
     private c() {
     }
 
-    public static c bHX() {
+    public static c bHY() {
         return fNC;
     }
 
@@ -266,7 +266,7 @@ public class c extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                     return 6;
                 }
                 return 8;
-            } else if (this.cmJ.bvQ().bwA().mNetErrorCode == 416) {
+            } else if (this.cmJ.bvR().bwB().mNetErrorCode == 416) {
                 if (c(file2, bdFileDownloadData.getCheck(), (byte[]) null)) {
                     if (c(file2, file, bArr)) {
                         if (c(file, bdFileDownloadData.getCheck(), bArr)) {
@@ -280,7 +280,7 @@ public class c extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
             } else {
                 this.fNN = file2.length();
                 this.downloadSize = file2.length() - length;
-                return bHZ();
+                return bIa();
             }
         }
 
@@ -403,7 +403,7 @@ public class c extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
             return false;
         }
 
-        private int bHZ() {
+        private int bIa() {
             if (j.isNetWorkAvailable()) {
                 if (c.fND == null) {
                     return 2;
@@ -497,7 +497,7 @@ public class c extends com.baidu.adp.plugin.packageManager.pluginFileDownload.b 
                 statusMsg = statusMsg + "_err-" + this.fNL;
             }
             if (num.intValue() == 6 || num.intValue() == 7) {
-                statusMsg = "_downloadfilesize-" + this.fNG + " downloadfileMd5-" + this.fNH + " wishMd5-" + (this.fNI == null ? "" : this.fNI.getCheck()) + "-url_" + c.fND.getUrl() + "-realurl_" + c.fND.getAfterHttpDnsUrl() + "-uploadResult_" + this.fNJ + "-Proxy_" + com.baidu.tbadk.o.a.fx(TbadkCoreApplication.getInst()) + "-UsbDebug_" + (com.baidu.tbadk.o.a.bHV() ? "true" : "false") + "-errorMsg_" + statusMsg;
+                statusMsg = "_downloadfilesize-" + this.fNG + " downloadfileMd5-" + this.fNH + " wishMd5-" + (this.fNI == null ? "" : this.fNI.getCheck()) + "-url_" + c.fND.getUrl() + "-realurl_" + c.fND.getAfterHttpDnsUrl() + "-uploadResult_" + this.fNJ + "-Proxy_" + com.baidu.tbadk.o.a.fx(TbadkCoreApplication.getInst()) + "-UsbDebug_" + (com.baidu.tbadk.o.a.bHW() ? "true" : "false") + "-errorMsg_" + statusMsg;
             }
             if (statusMsg != null) {
                 StringBuilder sb = new StringBuilder();

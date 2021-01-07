@@ -100,7 +100,7 @@ public class VideoMiddleModel extends BdBaseModel {
         this.mId = str;
     }
 
-    public void KO(String str) {
+    public void KN(String str) {
         this.st_type = str;
     }
 
@@ -162,7 +162,7 @@ public class VideoMiddleModel extends BdBaseModel {
         int i = this.mPn + 1;
         this.mPn = i;
         httpMessage.addParam(com.baidu.mobstat.Config.PACKAGE_NAME, i);
-        httpMessage.addParam("user_view_data", cOO());
+        httpMessage.addParam("user_view_data", cOP());
         if ("frs".equals(this.mFrom)) {
             this.jLR = "client_frs";
         } else if ("index".equals(this.mFrom)) {
@@ -182,7 +182,7 @@ public class VideoMiddleModel extends BdBaseModel {
         return true;
     }
 
-    private String cOO() {
+    private String cOP() {
         JSONArray jSONArray = new JSONArray();
         LinkedList<com.baidu.tbadk.d.a> videoRecordList = TbSingleton.getInstance().getVideoRecordList();
         if (videoRecordList != null) {

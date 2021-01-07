@@ -6,20 +6,20 @@ import android.view.MotionEvent;
 class b {
     private Camera mCamera;
     private int mode = 0;
-    private float nKD;
-    private int nKE;
-    private i nKF;
+    private float nKC;
+    private int nKD;
+    private i nKE;
 
     public b(Camera camera) {
         this.mCamera = camera;
     }
 
     public void setRecordController(i iVar) {
-        this.nKF = iVar;
+        this.nKE = iVar;
     }
 
     public boolean handleTouchEvent(MotionEvent motionEvent) {
-        if (this.nKF == null || !this.nKF.bzi()) {
+        if (this.nKE == null || !this.nKE.bzj()) {
             switch (motionEvent.getAction() & 255) {
                 case 0:
                     this.mode = 0;
@@ -27,21 +27,21 @@ class b {
                 case 2:
                     if (this.mode == 1 && motionEvent.getPointerCount() >= 2) {
                         float spacing = spacing(motionEvent);
-                        int i = (int) ((spacing - this.nKD) / 10.0f);
+                        int i = (int) ((spacing - this.nKC) / 10.0f);
                         if (i >= 1 || i <= -1) {
-                            int i2 = i + this.nKE;
+                            int i2 = i + this.nKD;
                             if (i2 > getMaxZoom()) {
                                 i2 = getMaxZoom();
                             }
                             setZoom(i2 >= 0 ? i2 : 0);
-                            this.nKD = spacing;
+                            this.nKC = spacing;
                             break;
                         }
                     }
                     break;
                 case 5:
                     this.mode = 1;
-                    this.nKD = spacing(motionEvent);
+                    this.nKC = spacing(motionEvent);
                     break;
             }
         }
@@ -77,7 +77,7 @@ class b {
             if (parameters.isZoomSupported()) {
                 parameters.setZoom(i);
                 this.mCamera.setParameters(parameters);
-                this.nKE = i;
+                this.nKD = i;
             }
         }
     }

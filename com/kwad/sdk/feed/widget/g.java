@@ -27,11 +27,11 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     @Override // com.kwad.sdk.feed.widget.base.a
     public void a(@NonNull AdTemplate adTemplate) {
         super.a(adTemplate);
-        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f10160b));
-        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f10160b);
+        this.f.setText(com.kwad.sdk.core.response.b.a.n(this.f10161b));
+        List<String> I = com.kwad.sdk.core.response.b.a.I(this.f10161b);
         this.i.a(adTemplate);
         if (I.size() >= 1) {
-            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f10159a);
+            KSImageLoader.loadFeeImage(this.g, I.get(0), this.f10160a);
         } else {
             com.kwad.sdk.core.d.a.d("FeedTextImmerseImageView", "getImageUrlList size less than one");
         }
@@ -57,14 +57,14 @@ public class g extends com.kwad.sdk.feed.widget.base.a implements View.OnClickLi
     public void onClick(View view) {
         if (view == this.h) {
             l();
-        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), this.f10159a, 1) == 1) {
+        } else if (com.kwad.sdk.core.download.b.d.a(getContext(), this.f10160a, 1) == 1) {
             k();
-        } else if (com.kwad.sdk.core.response.b.a.y(this.f10160b)) {
+        } else if (com.kwad.sdk.core.response.b.a.y(this.f10161b)) {
             k();
-            FeedDownloadActivityProxy.launch(this.d, this.f10159a, this.c);
+            FeedDownloadActivityProxy.launch(this.d, this.f10160a, this.c);
         } else {
             k();
-            AdWebViewActivityProxy.launch(getContext(), this.f10159a);
+            AdWebViewActivityProxy.launch(getContext(), this.f10160a);
         }
     }
 }

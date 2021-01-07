@@ -49,7 +49,7 @@ public class Static {
                     aVar.setThreadId(historyMessage.threadId);
                     aVar.setForumName(historyMessage.forumName);
                     aVar.setThreadName(historyMessage.threadName);
-                    aVar.Pg(historyMessage.postID);
+                    aVar.Pf(historyMessage.postID);
                     aVar.uc(historyMessage.isHostOnly);
                     aVar.ud(historyMessage.isSquence);
                     aVar.setThreadType(historyMessage.threadType);
@@ -98,11 +98,11 @@ public class Static {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage instanceof BackgroundSwitchMessage) {
                     if (((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                        com.baidu.tieba.myCollection.a.a.djG().destroy();
+                        com.baidu.tieba.myCollection.a.a.djH().destroy();
                     } else if (TbadkCoreApplication.isLogin()) {
-                        com.baidu.tieba.myCollection.a.a.djG().start();
+                        com.baidu.tieba.myCollection.a.a.djH().start();
                     } else {
-                        com.baidu.tieba.myCollection.a.a.djG().destroy();
+                        com.baidu.tieba.myCollection.a.a.djH().destroy();
                     }
                 }
             }
@@ -112,9 +112,9 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (TbadkCoreApplication.isLogin()) {
-                    com.baidu.tieba.myCollection.a.a.djG().restart();
+                    com.baidu.tieba.myCollection.a.a.djH().restart();
                 } else {
-                    com.baidu.tieba.myCollection.a.a.djG().destroy();
+                    com.baidu.tieba.myCollection.a.a.djH().destroy();
                 }
             }
         });
@@ -123,8 +123,8 @@ public class Static {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001120 && (customResponsedMessage instanceof NewsNotifyMessage) && ((NewsNotifyMessage) customResponsedMessage).getMsgBookmark() > 0) {
-                    b.djg().djj();
-                    b.djg().tW(true);
+                    b.djh().djk();
+                    b.djh().tW(true);
                 }
             }
         });

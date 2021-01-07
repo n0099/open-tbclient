@@ -6,7 +6,7 @@ import io.reactivex.v;
 import io.reactivex.w;
 import io.reactivex.y;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class SingleObserveOn<T> extends w<T> {
     final v scheduler;
     final aa<T> source;
@@ -16,7 +16,7 @@ public final class SingleObserveOn<T> extends w<T> {
         this.source.a(new ObserveOnSingleObserver(yVar, this.scheduler));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class ObserveOnSingleObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, y<T>, Runnable {
         private static final long serialVersionUID = 3528003840217436037L;
         final y<? super T> actual;

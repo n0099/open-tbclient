@@ -6,16 +6,16 @@ import com.baidu.ufosdk.UfoSDK;
 final class di implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ dh f5810a;
+    final /* synthetic */ dh f5811a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public di(dh dhVar) {
-        this.f5810a = dhVar;
+        this.f5811a = dhVar;
     }
 
     @Override // java.lang.Runnable
     public final void run() {
-        Context applicationContext = this.f5810a.f5809a.getApplicationContext();
+        Context applicationContext = this.f5811a.f5810a.getApplicationContext();
         String str = UfoSDK.clientid;
         com.baidu.ufosdk.e.a.b(applicationContext);
     }

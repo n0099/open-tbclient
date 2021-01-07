@@ -49,7 +49,7 @@ public class j extends c implements p<bz>, q {
     @Override // com.baidu.card.p
     /* renamed from: a */
     public void D(bz bzVar) {
-        if (bzVar == null || bzVar.brq() == null) {
+        if (bzVar == null || bzVar.brr() == null) {
             this.ahJ.setVisibility(8);
             return;
         }

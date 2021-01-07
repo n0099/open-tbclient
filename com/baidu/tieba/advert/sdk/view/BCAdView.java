@@ -49,7 +49,7 @@ public class BCAdView extends RelativeLayout {
         this.gmV.adHeight = this.mHeight;
         this.gmV.adWidth = this.mWidth;
         this.gmV.typeId = this.gmW;
-        b.bPP().a(this.mPageContext, new a(this), this.gmV);
+        b.bPQ().a(this.mPageContext, new a(this), this.gmV);
     }
 
     public void setBCAdCallBack(com.baidu.tieba.advert.sdk.a.a aVar) {
@@ -58,15 +58,15 @@ public class BCAdView extends RelativeLayout {
         }
     }
 
-    private void bPU() {
+    private void bPV() {
         if (this.gmR != null) {
-            this.gmR.bPJ();
+            this.gmR.bPK();
         }
     }
 
-    public void aUE() {
+    public void aUF() {
         if (this.gmR != null) {
-            this.gmR.bPK();
+            this.gmR.bPL();
         }
         onAdClose();
     }
@@ -85,7 +85,7 @@ public class BCAdView extends RelativeLayout {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        bPU();
+        bPV();
     }
 
     /* loaded from: classes8.dex */
@@ -103,7 +103,7 @@ public class BCAdView extends RelativeLayout {
         }
 
         @Override // com.baidu.tieba.advert.sdk.b.b.a
-        public void FZ(String str) {
+        public void FY(String str) {
             com.baidu.tieba.advert.sdk.a.a aVar;
             if (!at.isEmpty(str)) {
                 this.gmV = AdInfo.jsonToObject(str);
@@ -129,16 +129,16 @@ public class BCAdView extends RelativeLayout {
                         }
                     }, 0, 0, null, new Object[0]);
                 }
-                this.gmX.FY(str);
+                this.gmX.FX(str);
                 BCAdView bCAdView = this.gmZ.get();
                 if (bCAdView != null && (aVar = bCAdView.gmR) != null) {
-                    aVar.bPI();
+                    aVar.bPJ();
                 }
             }
         }
 
         @Override // com.baidu.tieba.advert.sdk.b.b.a
-        public void Ga(String str) {
+        public void FZ(String str) {
             BCAdView bCAdView = this.gmZ.get();
             if (bCAdView != null) {
                 try {
@@ -149,9 +149,9 @@ public class BCAdView extends RelativeLayout {
                         }
                     }
                     if (bCAdView.gmW == AdType.SPLASH) {
-                        bCAdView.gmX.FY("");
+                        bCAdView.gmX.FX("");
                     } else {
-                        bCAdView.aUE();
+                        bCAdView.aUF();
                     }
                 } catch (JSONException e) {
                     BdLog.e(e.getMessage());

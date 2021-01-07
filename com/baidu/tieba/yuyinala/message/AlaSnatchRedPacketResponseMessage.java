@@ -21,7 +21,7 @@ public class AlaSnatchRedPacketResponseMessage extends JsonHttpResponsedMessage 
         }
     }
 
-    public f egZ() {
+    public f eha() {
         return this.oGK;
     }
 }

@@ -22,10 +22,10 @@ public class t {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6150a;
+    private boolean f6151a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f6151b;
+    private long f6152b;
     private long d;
 
     public t c(long j, TimeUnit timeUnit) {
@@ -39,34 +39,34 @@ public class t {
         return this;
     }
 
-    public long eqd() {
+    public long eqe() {
         return this.d;
     }
 
     public boolean c() {
-        return this.f6150a;
+        return this.f6151a;
     }
 
-    public long eqe() {
-        if (this.f6150a) {
-            return this.f6151b;
+    public long eqf() {
+        if (this.f6151a) {
+            return this.f6152b;
         }
         throw new IllegalStateException("No deadline");
     }
 
     public t im(long j) {
-        this.f6150a = true;
-        this.f6151b = j;
-        return this;
-    }
-
-    public t eqf() {
-        this.d = 0L;
+        this.f6151a = true;
+        this.f6152b = j;
         return this;
     }
 
     public t eqg() {
-        this.f6150a = false;
+        this.d = 0L;
+        return this;
+    }
+
+    public t eqh() {
+        this.f6151a = false;
         return this;
     }
 
@@ -74,7 +74,7 @@ public class t {
         if (Thread.interrupted()) {
             Thread.currentThread().interrupt();
             throw new InterruptedIOException("interrupted");
-        } else if (this.f6150a && this.f6151b - System.nanoTime() <= 0) {
+        } else if (this.f6151a && this.f6152b - System.nanoTime() <= 0) {
             throw new InterruptedIOException("deadline reached");
         }
     }

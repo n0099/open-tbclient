@@ -99,7 +99,7 @@ public class a {
     public static Camera.Size a(Camera camera, int i, int i2) {
         Camera.Size size;
         List<Camera.Size> supportedPreviewSizes = camera.getParameters().getSupportedPreviewSizes();
-        Collections.sort(supportedPreviewSizes, new C0866a());
+        Collections.sort(supportedPreviewSizes, new C0904a());
         if (supportedPreviewSizes == null || supportedPreviewSizes.size() <= 0) {
             return null;
         }
@@ -132,8 +132,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.video.record.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private static class C0866a implements Comparator<Camera.Size> {
-        private C0866a() {
+    private static class C0904a implements Comparator<Camera.Size> {
+        private C0904a() {
         }
 
         /* JADX DEBUG: Method merged with bridge method */

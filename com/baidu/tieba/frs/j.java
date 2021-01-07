@@ -9,7 +9,7 @@ import tbclient.ForumToolPerm;
 public class j {
     private static UserData mUserData;
 
-    public static UserData cEI() {
+    public static UserData cEJ() {
         return mUserData;
     }
 
@@ -30,7 +30,7 @@ public class j {
 
     public static void a(com.baidu.card.a aVar, FrsViewData frsViewData) {
         if (aVar != null) {
-            if (frsViewData != null && (a(a(frsViewData)) || cEL())) {
+            if (frsViewData != null && (a(a(frsViewData)) || cEM())) {
                 aVar.bs(4);
             } else {
                 aVar.bt(4);
@@ -53,12 +53,12 @@ public class j {
         }
     }
 
-    public static boolean cEJ() {
-        UserData cEI = cEI();
-        if (cEI == null) {
+    public static boolean cEK() {
+        UserData cEJ = cEJ();
+        if (cEJ == null) {
             return false;
         }
-        switch (cEI.getIs_manager()) {
+        switch (cEJ.getIs_manager()) {
             case 1:
                 return true;
             default:
@@ -66,15 +66,15 @@ public class j {
         }
     }
 
-    public static boolean cEK() {
-        UserData cEI = cEI();
-        return cEI != null && cEI.getIs_manager() == 3;
+    public static boolean cEL() {
+        UserData cEJ = cEJ();
+        return cEJ != null && cEJ.getIs_manager() == 3;
     }
 
-    public static boolean cEL() {
+    public static boolean cEM() {
         List<ForumToolPerm> forumToolAuth;
-        UserData cEI = cEI();
-        if (cEI == null || (forumToolAuth = cEI.getForumToolAuth()) == null) {
+        UserData cEJ = cEJ();
+        if (cEJ == null || (forumToolAuth = cEJ.getForumToolAuth()) == null) {
             return false;
         }
         for (int i = 0; i < forumToolAuth.size(); i++) {

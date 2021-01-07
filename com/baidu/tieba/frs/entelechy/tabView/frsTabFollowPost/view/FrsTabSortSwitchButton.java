@@ -95,7 +95,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
                 int i2 = FrsTabSortSwitchButton.this.jrt;
                 FrsTabSortSwitchButton.this.jru = motionEvent.getX();
-                FrsTabSortSwitchButton.this.jrt = FrsTabSortSwitchButton.this.cJk();
+                FrsTabSortSwitchButton.this.jrt = FrsTabSortSwitchButton.this.cJl();
                 FrsTabSortSwitchButton.this.jrw = true;
                 if (FrsTabSortSwitchButton.this.jrt != i2) {
                     FrsTabSortSwitchButton.this.AM(i2);
@@ -231,11 +231,11 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
             this.jrh = this.mHeight;
         }
         this.jrx = false;
-        cJj();
+        cJk();
         setMeasuredDimension((int) this.bUn, (int) this.mHeight);
     }
 
-    private void cJj() {
+    private void cJk() {
         this.jrq.set(0.0f, 0.0f, this.bUn, this.mHeight);
         this.eYH.reset();
         this.eYH.addRoundRect(this.jrq, this.mHeight / 2.0f, this.mHeight / 2.0f, Path.Direction.CW);
@@ -306,19 +306,19 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
         }
         if (this.jrv && (motionEvent.getAction() == 1 || motionEvent.getAction() == 3)) {
             int i = this.jrt;
-            int cJk = cJk();
-            if (Math.abs(cJk - i) >= 2 || cJk > i) {
-                this.jrt = cJk;
-            } else if (cJk < i) {
-                float floatValue = this.jry.get(cJk).floatValue();
-                float floatValue2 = cJk + 1 < this.jry.size() ? this.jry.get(cJk + 1).floatValue() : floatValue;
+            int cJl = cJl();
+            if (Math.abs(cJl - i) >= 2 || cJl > i) {
+                this.jrt = cJl;
+            } else if (cJl < i) {
+                float floatValue = this.jry.get(cJl).floatValue();
+                float floatValue2 = cJl + 1 < this.jry.size() ? this.jry.get(cJl + 1).floatValue() : floatValue;
                 if (this.jru >= floatValue && this.jru <= ((floatValue2 - floatValue) / 2.0f) + floatValue) {
-                    this.jrt = cJk;
+                    this.jrt = cJl;
                 }
             } else {
-                float floatValue3 = this.jry.get(cJk).floatValue();
-                if (this.jru >= (((cJk + 1 < this.jry.size() ? this.jry.get(cJk + 1).floatValue() : floatValue3) - floatValue3) / 2.0f) + floatValue3 && cJk + 1 < this.jry.size()) {
-                    this.jrt = cJk + 1;
+                float floatValue3 = this.jry.get(cJl).floatValue();
+                if (this.jru >= (((cJl + 1 < this.jry.size() ? this.jry.get(cJl + 1).floatValue() : floatValue3) - floatValue3) / 2.0f) + floatValue3 && cJl + 1 < this.jry.size()) {
+                    this.jrt = cJl + 1;
                 }
             }
             this.jrw = true;
@@ -345,7 +345,7 @@ public class FrsTabSortSwitchButton extends View implements View.OnTouchListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int cJk() {
+    public int cJl() {
         float floatValue;
         int i = this.jrt;
         int i2 = 0;

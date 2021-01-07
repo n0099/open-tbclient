@@ -319,7 +319,7 @@ public class EditorBar extends RawLayout {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void sq(int i) {
-        if (i == 2 && bEJ() && this.fDC != null) {
+        if (i == 2 && bEK() && this.fDC != null) {
             this.fDC.b(new com.baidu.tbadk.editortools.a(1, 3, null));
             return;
         }
@@ -379,7 +379,7 @@ public class EditorBar extends RawLayout {
         return null;
     }
 
-    private boolean bEJ() {
+    private boolean bEK() {
         for (a aVar : this.fDy) {
             if (aVar.position == 5 && aVar.fDH != null && (aVar.fDH instanceof View) && ((View) aVar.fDH).getVisibility() == 0) {
                 return true;

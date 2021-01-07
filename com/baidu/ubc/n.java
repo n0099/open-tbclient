@@ -84,11 +84,11 @@ class n {
         return this.mId;
     }
 
-    public String biy() {
+    public String biz() {
         return this.eBk;
     }
 
-    public int biz() {
+    public int biA() {
         return this.eBl;
     }
 
@@ -104,7 +104,7 @@ class n {
         return this.mOption;
     }
 
-    public String biA() {
+    public String biB() {
         return this.eBn;
     }
 
@@ -116,7 +116,7 @@ class n {
         return this.mCategory;
     }
 
-    public JSONObject biB() {
+    public JSONObject biC() {
         return this.eBm;
     }
 
@@ -132,21 +132,21 @@ class n {
         this.eBo = z;
     }
 
-    public boolean biw() {
+    public boolean bix() {
         return this.eBo;
     }
 
-    public void biD() {
-        if (this.mId != null && this.mId.equals(this.eBk) && g.eiW().zp(this.mId)) {
-            this.eBn = UBC.getUBCContext().aGU();
+    public void biE() {
+        if (this.mId != null && this.mId.equals(this.eBk) && g.eiX().zp(this.mId)) {
+            this.eBn = UBC.getUBCContext().aGV();
         }
     }
 
-    public void Xv(String str) {
+    public void Xu(String str) {
         this.oNz = str;
     }
 
-    public String ejc() {
+    public String ejd() {
         return this.oNz;
     }
 }

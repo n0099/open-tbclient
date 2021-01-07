@@ -20,7 +20,7 @@ public class b {
         }
     }
 
-    public TbPageTag bHp() {
+    public TbPageTag bHq() {
         return this.fLg;
     }
 

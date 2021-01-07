@@ -7,7 +7,7 @@ public interface c {
 
     void dZA();
 
-    void dZy();
+    void dZB();
 
     void dZz();
 }

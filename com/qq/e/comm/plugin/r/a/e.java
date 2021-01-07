@@ -9,19 +9,19 @@ import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12672a;
+    private String f12673a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12673b;
+    private String f12674b;
     private String c;
 
     public e(String str, String str2, String str3) {
-        this.f12672a = str;
-        this.f12673b = str2;
+        this.f12673a = str;
+        this.f12674b = str2;
         this.c = str3;
     }
 
@@ -30,7 +30,7 @@ class e {
             return;
         }
         GDTLogger.d("report mediation: " + str);
-        com.qq.e.comm.plugin.t.b.c cVar = new com.qq.e.comm.plugin.t.b.c(this.f12672a, e.a.POST, str.getBytes(com.qq.e.comm.plugin.f.a.f12289a));
+        com.qq.e.comm.plugin.t.b.c cVar = new com.qq.e.comm.plugin.t.b.c(this.f12673a, e.a.POST, str.getBytes(com.qq.e.comm.plugin.f.a.f12290a));
         ai.a("gdt_tag_net", ai.a(cVar));
         com.qq.e.comm.plugin.t.d.a().a(cVar, c.a.High);
     }
@@ -38,7 +38,7 @@ class e {
     public void a(com.qq.e.comm.plugin.r.b.c cVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("app_view_id", this.f12673b);
+            jSONObject.put("app_view_id", this.f12674b);
             jSONObject.put("pos_view_id", this.c);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("view_id", cVar.f());
@@ -52,7 +52,7 @@ class e {
     public void a(List<com.qq.e.comm.plugin.r.b.c> list, String str) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("app_view_id", this.f12673b);
+            jSONObject.put("app_view_id", this.f12674b);
             jSONObject.put("pos_view_id", this.c);
             JSONArray jSONArray = new JSONArray();
             for (com.qq.e.comm.plugin.r.b.c cVar : list) {
@@ -77,7 +77,7 @@ class e {
     public void b(com.qq.e.comm.plugin.r.b.c cVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("app_view_id", this.f12673b);
+            jSONObject.put("app_view_id", this.f12674b);
             jSONObject.put("pos_view_id", this.c);
             JSONObject jSONObject2 = new JSONObject();
             jSONObject2.put("view_id", cVar.f());

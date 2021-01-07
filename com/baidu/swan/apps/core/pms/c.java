@@ -66,7 +66,7 @@ public class c {
         }
     }
 
-    public static c aua() {
+    public static c aub() {
         return a.cWQ;
     }
 

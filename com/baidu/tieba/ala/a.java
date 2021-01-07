@@ -100,11 +100,11 @@ public class a implements com.baidu.live.h.a {
     public void a(ViewGroup viewGroup, x xVar) {
         registerListener();
         this.aMh = xVar;
-        bRm();
+        bRn();
         this.gqr = xVar.aLf.aPO;
         this.aPM = xVar.aLf.aPM;
         if (xVar.aLf.aPP == 1) {
-            bRn();
+            bRo();
             this.gqt = true;
         } else {
             this.NT = this.gqr;
@@ -116,8 +116,8 @@ public class a implements com.baidu.live.h.a {
         }
         if (viewGroup != null && xVar.aLf.aPK && xVar.aLf.aPN != 3 && (viewGroup instanceof PendantParentView)) {
             this.gqh = (PendantParentView) viewGroup;
-            bRi();
             bRj();
+            bRk();
         }
     }
 
@@ -135,7 +135,7 @@ public class a implements com.baidu.live.h.a {
         }
     }
 
-    private void bRi() {
+    private void bRj() {
         if (this.gqi == null) {
             this.gqi = new PendantChildView(this.mContext) { // from class: com.baidu.tieba.ala.a.1
                 @Override // com.baidu.live.pendantview.PendantChildView
@@ -175,7 +175,7 @@ public class a implements com.baidu.live.h.a {
         }
     }
 
-    private void bRj() {
+    private void bRk() {
         com.baidu.live.view.web.a[] aVarArr;
         if (this.gqj == null) {
             this.gqj = new AlaDailyTaskView(this.gqi);
@@ -186,7 +186,7 @@ public class a implements com.baidu.live.h.a {
                     public void fr(int i) {
                     }
                 }).a(this.gqj.getWebView().getSchemeCallback()).b(this.bWS);
-                this.gqp = gVar.aae();
+                this.gqp = gVar.aaf();
             }
             for (com.baidu.live.view.web.a aVar : this.gqp) {
                 this.gqj.getWebView().addJavascriptInterface(aVar, aVar.getName());
@@ -210,7 +210,7 @@ public class a implements com.baidu.live.h.a {
                     if (customResponsedMessage != null && customResponsedMessage.getData() != null && (jSONObject = (JSONObject) customResponsedMessage.getData()) != null) {
                         String optString = jSONObject.optString("command");
                         if (optString.equals("hiddenRedPacketPendant")) {
-                            a.this.bRl();
+                            a.this.bRm();
                         } else if (optString.equals("openTaskListPage")) {
                             com.baidu.live.ap.c cVar = new com.baidu.live.ap.c();
                             cVar.url = a.this.aMh.aLf.aPJ;
@@ -349,7 +349,7 @@ public class a implements com.baidu.live.h.a {
     @Override // com.baidu.live.h.a
     public void Bf() {
         H(true, false);
-        bRk();
+        bRl();
     }
 
     @Override // com.baidu.live.h.a
@@ -363,8 +363,8 @@ public class a implements com.baidu.live.h.a {
 
     @Override // com.baidu.live.h.a
     public void onResume() {
-        bRm();
         bRn();
+        bRo();
         if (this.gqj != null) {
             this.gqj.getWebView().onResume();
         }
@@ -372,7 +372,7 @@ public class a implements com.baidu.live.h.a {
 
     @Override // com.baidu.live.h.a
     public void onDestroy() {
-        bRk();
+        bRl();
         if (this.mHandler != null) {
             this.mHandler = null;
         }
@@ -381,7 +381,7 @@ public class a implements com.baidu.live.h.a {
         }
     }
 
-    private void bRk() {
+    private void bRl() {
         if (this.gqk != null) {
             MessageManager.getInstance().unRegisterListener(this.gqk);
             this.gqk = null;
@@ -407,11 +407,11 @@ public class a implements com.baidu.live.h.a {
             this.gqj = null;
             this.gqp = null;
         }
-        bRl();
+        bRm();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRl() {
+    public void bRm() {
         if (this.gqj != null && (this.gqj.getParent() instanceof ViewGroup)) {
             ((ViewGroup) this.gqj.getParent()).removeView(this.gqj);
         }
@@ -421,7 +421,7 @@ public class a implements com.baidu.live.h.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRm() {
+    public void bRn() {
         if (this.mHandler != null) {
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.a.13
                 @Override // java.lang.Runnable
@@ -436,7 +436,7 @@ public class a implements com.baidu.live.h.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bRn() {
+    public void bRo() {
         if (this.mHandler != null) {
             this.mHandler.post(new Runnable() { // from class: com.baidu.tieba.ala.a.14
                 @Override // java.lang.Runnable
@@ -461,7 +461,7 @@ public class a implements com.baidu.live.h.a {
                             a.this.watchTime = 0L;
                         }
                         if (z2) {
-                            a.this.bRm();
+                            a.this.bRn();
                         }
                     }
                 }
@@ -480,7 +480,7 @@ public class a implements com.baidu.live.h.a {
                             a.this.NT = 0L;
                         }
                         if (z2) {
-                            a.this.bRn();
+                            a.this.bRo();
                         }
                     }
                 }

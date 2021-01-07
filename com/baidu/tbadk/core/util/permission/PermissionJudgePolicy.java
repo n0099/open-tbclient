@@ -127,7 +127,7 @@ public class PermissionJudgePolicy {
         this.mRequestCode = i;
         this.feX = extra_dialog_refuse_policy;
         this.feY = aVar;
-        if (!com.baidu.n.a.afl()) {
+        if (!com.baidu.n.a.afm()) {
             onPermissionsGranted();
             return false;
         } else if (x.isEmpty(this.requestPermissionList)) {
@@ -139,7 +139,7 @@ public class PermissionJudgePolicy {
             } else if (activity instanceof BaseActivity) {
                 ((BaseActivity) activity).setCurrentPermissionJudgePolicy(this);
             }
-            this.feT = bwL();
+            this.feT = bwM();
             if (af(activity) != null && !x.isEmpty(this.feT)) {
                 ae(activity);
                 return true;
@@ -186,7 +186,7 @@ public class PermissionJudgePolicy {
                 }
             }
         }).b(j.K(activity));
-        aVar.btX();
+        aVar.btY();
         return false;
     }
 
@@ -248,7 +248,7 @@ public class PermissionJudgePolicy {
         }
     }
 
-    private List<String> bwL() {
+    private List<String> bwM() {
         LinkedList linkedList = new LinkedList();
         Iterator<String> it = this.requestPermissionList.iterator();
         while (it.hasNext()) {
@@ -271,10 +271,10 @@ public class PermissionJudgePolicy {
                     this.feW.a(this.feZ);
                 }
             }
-            this.feW.Ck(this.feT.get(0));
+            this.feW.Cj(this.feT.get(0));
             this.feW.b(af(activity));
             this.feW.onChangeSkinType();
-            this.feW.btX();
+            this.feW.btY();
         }
     }
 

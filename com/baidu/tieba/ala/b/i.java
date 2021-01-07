@@ -298,7 +298,7 @@ public final class i {
         public static final int commit_good_layout = 2131299142;
 
         /* renamed from: common  reason: collision with root package name */
-        public static final int f5610common = 2131299152;
+        public static final int f5611common = 2131299152;
         public static final int common_loading_view = 2131299156;
         public static final int common_progress = 2131299157;
         public static final int common_tab_content = 2131299158;

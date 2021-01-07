@@ -11,10 +11,10 @@ import com.baidu.mobads.openad.interfaces.event.IOAdEventListener;
 public class BaiduNativeH5AdView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f3314a;
+    IOAdEventListener f3315a;
 
     /* renamed from: b  reason: collision with root package name */
-    private BaiduNativeAdPlacement f3315b;
+    private BaiduNativeAdPlacement f3316b;
     private com.baidu.mobads.production.c.a c;
     private BaiduNativeH5EventListner d;
     private RequestParameters e;
@@ -50,7 +50,7 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         this.d = null;
         this.f = false;
         this.g = false;
-        this.f3314a = new h(this);
+        this.f3315a = new h(this);
         a(context, i);
     }
 
@@ -59,7 +59,7 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         this.d = null;
         this.f = false;
         this.g = false;
-        this.f3314a = new h(this);
+        this.f3315a = new h(this);
         a(context, 0);
     }
 
@@ -68,29 +68,29 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         this.d = null;
         this.f = false;
         this.g = false;
-        this.f3314a = new h(this);
+        this.f3315a = new h(this);
         a(context, 0);
     }
 
     public BaiduNativeAdPlacement getAdPlacement() {
-        return this.f3315b;
+        return this.f3316b;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public void setAdPlacement(BaiduNativeAdPlacement baiduNativeAdPlacement) {
-        this.f3315b = baiduNativeAdPlacement;
+        this.f3316b = baiduNativeAdPlacement;
     }
 
     public void makeRequest(RequestParameters requestParameters) {
-        if (this.f3315b != null) {
-            if (this.f3315b.hasValidResponse()) {
+        if (this.f3316b != null) {
+            if (this.f3316b.hasValidResponse()) {
                 if (this.f) {
                     return;
                 }
             } else {
                 this.f = false;
-                if (!this.f3315b.getRequestStarted()) {
-                    this.f3315b.setRequestStarted(true);
+                if (!this.f3316b.getRequestStarted()) {
+                    this.f3316b.setRequestStarted(true);
                 } else {
                     return;
                 }
@@ -105,23 +105,23 @@ public class BaiduNativeH5AdView extends RelativeLayout {
         }
         this.c = new com.baidu.mobads.production.c.a(getContext(), this);
         this.c.a(requestParameters);
-        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3314a);
-        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3314a);
-        this.c.addEventListener("AdUserClick", this.f3314a);
-        this.c.addEventListener(IXAdEvent.AD_IMPRESSION, this.f3314a);
-        this.c.addEventListener("AdLoadData", this.f3314a);
-        if (this.f3315b != null && this.f3315b.getAdResponse() != null) {
-            this.c.setAdResponseInfo(this.f3315b.getAdResponse());
+        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3315a);
+        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3315a);
+        this.c.addEventListener("AdUserClick", this.f3315a);
+        this.c.addEventListener(IXAdEvent.AD_IMPRESSION, this.f3315a);
+        this.c.addEventListener("AdLoadData", this.f3315a);
+        if (this.f3316b != null && this.f3316b.getAdResponse() != null) {
+            this.c.setAdResponseInfo(this.f3316b.getAdResponse());
         }
-        this.c.b(this.f3315b.getSessionId());
-        this.c.c(this.f3315b.getPosistionId());
-        this.c.d(this.f3315b.getSequenceId());
+        this.c.b(this.f3316b.getSessionId());
+        this.c.c(this.f3316b.getPosistionId());
+        this.c.d(this.f3316b.getSequenceId());
         this.c.request();
     }
 
     public void recordImpression() {
-        if (this.f3315b != null && this.f3315b.getAdResponse() != null && !this.f3315b.isWinSended()) {
-            this.c.a(this, this.f3315b.getAdResponse().getPrimaryAdInstanceInfo(), this.e);
+        if (this.f3316b != null && this.f3316b.getAdResponse() != null && !this.f3316b.isWinSended()) {
+            this.c.a(this, this.f3316b.getAdResponse().getPrimaryAdInstanceInfo(), this.e);
         }
     }
 

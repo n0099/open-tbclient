@@ -100,7 +100,7 @@ public class d extends BaseAdapter {
         view2.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.ala.alaar.sticker.view.d.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view3) {
-                if (d.this.gwP != null && !d.this.gwP.bTt()) {
+                if (d.this.gwP != null && !d.this.gwP.bTu()) {
                     BdUtilHelper.showToast(d.this.mContext, a.h.txt_punish_sticker_using);
                 } else if ((gVar instanceof g) || (gVar instanceof h)) {
                     if (d.this.gwP != null) {
@@ -142,9 +142,9 @@ public class d extends BaseAdapter {
             }
             this.gwM = i;
             notifyDataSetChanged();
-        } else if (TextUtils.isEmpty(fuFaceItem.file) || !com.baidu.tieba.ala.alaar.sticker.download.b.bSW().isRunning(fuFaceItem.file)) {
+        } else if (TextUtils.isEmpty(fuFaceItem.file) || !com.baidu.tieba.ala.alaar.sticker.download.b.bSX().isRunning(fuFaceItem.file)) {
             if (this.gwP != null) {
-                this.gwP.bTu();
+                this.gwP.bTv();
             }
             a(fuFaceItem, fVar, i);
         }
@@ -161,7 +161,7 @@ public class d extends BaseAdapter {
                 public void J(FuFaceItem fuFaceItem2) {
                     Log.e("AlaSticker Adapter", "onStarted:" + fuFaceItem2.name);
                     if (fVar != null) {
-                        fVar.bTG();
+                        fVar.bTH();
                     }
                 }
 
@@ -170,7 +170,7 @@ public class d extends BaseAdapter {
                 /* renamed from: c */
                 public void aF(FuFaceItem fuFaceItem2) {
                     Log.e("AlaSticker Adapter", "onCompleted:" + fuFaceItem2.name);
-                    if (d.this.gwP == null || d.this.gwP.bTt()) {
+                    if (d.this.gwP == null || d.this.gwP.bTu()) {
                         if (d.this.gwN != i) {
                             d.this.notifyDataSetChanged();
                             return;

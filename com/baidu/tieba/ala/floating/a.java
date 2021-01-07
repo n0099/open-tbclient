@@ -41,7 +41,7 @@ public class a {
         boolean a(SdkLivePlayer sdkLivePlayer);
     }
 
-    public AlaLiveInfoData bXV() {
+    public AlaLiveInfoData bXW() {
         return this.mLiveInfo;
     }
 
@@ -57,12 +57,12 @@ public class a {
         this.gVS = sdkLivePlayer;
         if (this.gVS == null || !this.gVS.isPlaying()) {
             Log.d("AlaFloatLiveController", "switchToFloating canceled when player null or stoped");
-        } else if (!bXY()) {
+        } else if (!bXZ()) {
             AlaLiveInfoData alaLiveInfoData = xVar != null ? xVar.mLiveInfo : null;
             if (alaLiveInfoData != null) {
                 this.mLiveInfo = alaLiveInfoData;
                 if (alaLiveInfoData.live_status == 2) {
-                    bXX();
+                    bXY();
                     return;
                 }
                 this.gVT = i.Pq().Ps();
@@ -102,7 +102,7 @@ public class a {
                         String d = h.d(currentLiveInfoData);
                         if (!TextUtils.isEmpty(currentLiveInfoData.playUrl) && !TextUtils.equals(d, currentLiveInfoData.playUrl)) {
                             currentLiveInfoData.playUrl = null;
-                            this.gVS.cqZ();
+                            this.gVS.cra();
                             this.gVS.c(currentLiveInfoData);
                         }
                     }
@@ -113,7 +113,7 @@ public class a {
                     if (isDebug()) {
                         Log.d("AlaFloatLiveController", "switchToFloating ...");
                     }
-                    this.gVT.a(this.gVS.getCurrentFloatingPlayer(), bXW().h(this.mContext, null), jSONObject, this.gVX);
+                    this.gVT.a(this.gVS.getCurrentFloatingPlayer(), bXX().h(this.mContext, null), jSONObject, this.gVX);
                     this.gVS.setFloatingModel(true);
                     if (this.gVU == null) {
                         this.gVU = new com.baidu.tieba.ala.liveroom.p.a();
@@ -122,7 +122,7 @@ public class a {
                             public void a(int i, String str2, int i2, Object obj) {
                                 x xVar2;
                                 if (i2 == 1 && (xVar2 = (x) obj) != null && xVar2.mLiveInfo != null && xVar2.mLiveInfo.live_status == 2) {
-                                    a.this.bXX();
+                                    a.this.bXY();
                                 }
                             }
                         });
@@ -133,37 +133,37 @@ public class a {
         }
     }
 
-    private d bXW() {
+    private d bXX() {
         if (this.gVR != null) {
             return this.gVR;
         }
         this.gVR = new d(this.mContext);
         this.gVR.a(new d.a() { // from class: com.baidu.tieba.ala.floating.a.4
             @Override // com.baidu.tieba.ala.floating.d.a
-            public void bYb() {
+            public void bYc() {
                 if (a.this.isDebug()) {
                     Log.d("AlaFloatLiveController", "onRetryClicked");
                 }
             }
 
             @Override // com.baidu.tieba.ala.floating.d.a
-            public void bYc() {
+            public void bYd() {
                 if (a.this.isDebug()) {
                     Log.d("AlaFloatLiveController", "onFloatingClicked");
                 }
-                a.this.bXZ();
+                a.this.bYa();
             }
 
             @Override // com.baidu.tieba.ala.floating.d.a
-            public void bYd() {
+            public void bYe() {
                 if (a.this.gVS != null) {
                     if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isTieba() || TbadkCoreApplication.getInst().isYinbo()) {
-                        a.this.gVS.cqY();
+                        a.this.gVS.cqZ();
                         return;
                     }
                     a.this.gVS.resume();
                     if (!a.this.gVS.isPlaying()) {
-                        a.this.gVS.cqY();
+                        a.this.gVS.cqZ();
                     }
                     a.this.gVR.nc(false);
                 }
@@ -173,15 +173,15 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bXX() {
-        bXW().bYe();
+    public void bXY() {
+        bXX().bYf();
     }
 
-    public boolean bXY() {
+    public boolean bXZ() {
         return this.gVT != null && this.gVT.Pn();
     }
 
-    public void bXZ() {
+    public void bYa() {
         if (isDebug()) {
             Log.d("AlaFloatLiveController", "switchFloatingToNormal");
         }
@@ -197,7 +197,7 @@ public class a {
         }
     }
 
-    public void bYa() {
+    public void bYb() {
         if (isDebug()) {
             Log.d("AlaFloatLiveController", "dismissFloating");
         }
@@ -225,7 +225,7 @@ public class a {
                     Log.d("AlaFloatLiveController", "has OnClosePlayer");
                 }
             } else {
-                this.gVS.cqZ();
+                this.gVS.cra();
                 if (isDebug()) {
                     Log.d("AlaFloatLiveController", "close player");
                 }

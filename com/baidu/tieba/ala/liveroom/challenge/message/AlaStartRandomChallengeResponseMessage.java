@@ -21,7 +21,7 @@ public class AlaStartRandomChallengeResponseMessage extends JsonHttpResponsedMes
         }
     }
 
-    public com.baidu.live.challenge.a cfJ() {
+    public com.baidu.live.challenge.a cfK() {
         return this.hvz;
     }
 }

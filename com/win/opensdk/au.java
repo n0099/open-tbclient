@@ -46,8 +46,8 @@ public class au {
 
         @Override // android.location.LocationListener
         public final void onLocationChanged(Location location) {
-            a.eKa().qcY = location.getLatitude();
-            a.eKa().qcZ = location.getLongitude();
+            a.eKE().qeG = location.getLatitude();
+            a.eKE().qeH = location.getLongitude();
         }
 
         @Override // android.location.LocationListener
@@ -65,12 +65,12 @@ public class au {
 
     /* loaded from: classes4.dex */
     public static class a {
-        private static final a qcX = new a();
-        public double qcY;
-        public double qcZ;
+        private static final a qeF = new a();
+        public double qeG;
+        public double qeH;
 
-        public static a eKa() {
-            return qcX;
+        public static a eKE() {
+            return qeF;
         }
     }
 }

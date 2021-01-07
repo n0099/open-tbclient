@@ -15,15 +15,15 @@ public class e extends a {
         this.cMU.add(this.cMX);
     }
 
-    public int aol() {
-        return this.cMX.aol();
+    public int aom() {
+        return this.cMX.aom();
     }
 
-    public List<com.baidu.swan.apps.canvas.a.a.a> aom() {
+    public List<com.baidu.swan.apps.canvas.a.a.a> aon() {
         return this.cMU;
     }
 
-    public boolean aon() {
+    public boolean aoo() {
         return true;
     }
 }

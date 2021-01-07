@@ -7,13 +7,13 @@ import com.baidu.mobstat.Config;
 public class e extends m {
     @Override // com.baidu.tbadk.n.m
     public void a(h hVar) {
-        if (k.bHF().isSmallFlow()) {
+        if (k.bHG().isSmallFlow()) {
             com.baidu.adp.lib.stats.a pi = pi();
             pi.append("action", "time_t");
             a(pi, hVar);
             pi.append("ishttp", hVar.fLU ? "1" : "0");
             pi.append("issuccess", hVar.isSuccess ? "1" : "0");
-            pi.append("nettype", k.bHF().getNetType());
+            pi.append("nettype", k.bHG().getNetType());
             pi.append(Config.EXCEPTION_CRASH_TYPE, String.valueOf(hVar.fLJ));
             pi.append("wt", String.valueOf(hVar.fLR));
             pi.append("qt", String.valueOf(hVar.cmK));
@@ -50,7 +50,7 @@ public class e extends m {
 
     @Override // com.baidu.tbadk.n.m
     public void a(h hVar, boolean z) {
-        if (k.bHF().isSmallFlow()) {
+        if (k.bHG().isSmallFlow()) {
             if (!z || hVar.fLZ > 0) {
                 if (z || hVar.fMa > 0) {
                     com.baidu.adp.lib.stats.a pi = pi();
@@ -63,7 +63,7 @@ public class e extends m {
                     }
                     pi.append("ishttp", hVar.fLU ? "1" : "0");
                     pi.append("issuccess", hVar.isSuccess ? "1" : "0");
-                    pi.append("nettype", k.bHF().getNetType());
+                    pi.append("nettype", k.bHG().getNetType());
                     pi.append("qt", String.valueOf(hVar.cmK));
                     pi.append("connt", String.valueOf(hVar.fLK));
                     pi.append("rwt", String.valueOf(hVar.fLL));
@@ -89,7 +89,7 @@ public class e extends m {
 
     @Override // com.baidu.tbadk.n.m
     public void a(h hVar, int i) {
-        if (k.bHF().isSmallFlow() && hVar.fMb > 0) {
+        if (k.bHG().isSmallFlow() && hVar.fMb > 0) {
             com.baidu.adp.lib.stats.a pi = pi();
             pi.append("action", "time_t");
             a(pi, hVar);

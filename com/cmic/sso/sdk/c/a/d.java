@@ -15,9 +15,9 @@ public class d implements b {
             b(cVar, cVar2, aVar);
             return;
         }
-        t m48if = t.m48if(null);
+        t m59if = t.m59if(null);
         if (Build.VERSION.SDK_INT >= 21) {
-            m48if.a(new t.a() { // from class: com.cmic.sso.sdk.c.a.d.1
+            m59if.a(new t.a() { // from class: com.cmic.sso.sdk.c.a.d.1
                 private AtomicBoolean e = new AtomicBoolean(false);
 
                 @Override // com.cmic.sso.sdk.e.t.a
@@ -34,7 +34,7 @@ public class d implements b {
                     }
                 }
             });
-        } else if (m48if.a(cVar.a())) {
+        } else if (m59if.a(cVar.a())) {
             com.cmic.sso.sdk.e.c.b("WifiChangeInterceptor", "切换网络成功");
             b(cVar, cVar2, aVar);
         } else {

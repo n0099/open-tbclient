@@ -10,9 +10,9 @@ import com.facebook.common.internal.g;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
 import javax.annotation.Nullable;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public final class a {
-    private static final Pools.SynchronizedPool<ByteBuffer> pGq = new Pools.SynchronizedPool<>(12);
+    private static final Pools.SynchronizedPool<ByteBuffer> pHW = new Pools.SynchronizedPool<>(12);
 
     @SuppressLint({"NewApi"})
     public static int ak(@Nullable Bitmap bitmap) {
@@ -35,7 +35,7 @@ public final class a {
     public static Pair<Integer, Integer> B(InputStream inputStream) {
         Pair<Integer, Integer> pair = null;
         g.checkNotNull(inputStream);
-        ByteBuffer acquire = pGq.acquire();
+        ByteBuffer acquire = pHW.acquire();
         if (acquire == null) {
             acquire = ByteBuffer.allocate(16384);
         }
@@ -49,13 +49,13 @@ public final class a {
             }
             return pair;
         } finally {
-            pGq.release(acquire);
+            pHW.release(acquire);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.facebook.d.a$1  reason: invalid class name */
-    /* loaded from: classes6.dex */
+    /* loaded from: classes5.dex */
     public static /* synthetic */ class AnonymousClass1 {
         static final /* synthetic */ int[] $SwitchMap$android$graphics$Bitmap$Config = new int[Bitmap.Config.values().length];
 
@@ -93,7 +93,7 @@ public final class a {
         }
     }
 
-    public static int g(int i, int i2, Bitmap.Config config) {
+    public static int i(int i, int i2, Bitmap.Config config) {
         return i * i2 * f(config);
     }
 }

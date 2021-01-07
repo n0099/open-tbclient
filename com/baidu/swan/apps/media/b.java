@@ -32,7 +32,7 @@ public final class b {
         }
         for (int size = dkS.size() - 1; size >= 0; size--) {
             a aVar = dkS.get(size);
-            if (aVar != null && TextUtils.equals(str, aVar.azX())) {
+            if (aVar != null && TextUtils.equals(str, aVar.azY())) {
                 return aVar;
             }
         }
@@ -45,7 +45,7 @@ public final class b {
         }
         for (int size = dkS.size() - 1; size >= 0; size--) {
             a aVar = dkS.get(size);
-            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.aDZ())) || TextUtils.equals(str3, aVar.azX())))) {
+            if (aVar != null && ((TextUtils.isEmpty(str) || TextUtils.equals(str, aVar.getSlaveId())) && ((!TextUtils.isEmpty(str2) && TextUtils.equals(str2, aVar.aEa())) || TextUtils.equals(str3, aVar.azY())))) {
                 return aVar;
             }
         }
@@ -64,7 +64,7 @@ public final class b {
         }
     }
 
-    public static void aEb() {
+    public static void aEc() {
         dkS.clear();
     }
 

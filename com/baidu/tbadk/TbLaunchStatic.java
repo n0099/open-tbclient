@@ -62,11 +62,11 @@ public class TbLaunchStatic {
             @Override // com.baidu.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                    long j = b.bvq().getLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, 0L);
+                    long j = b.bvr().getLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, 0L);
                     long currentTimeMillis = System.currentTimeMillis();
                     if (currentTimeMillis - j > 86400000) {
                         PluginPackageManager.px().pN();
-                        b.bvq().putLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, currentTimeMillis);
+                        b.bvr().putLong(SharedPrefConfig.CLEAR_REDUNDANCE_FILES_TIME, currentTimeMillis);
                     }
                 }
             }

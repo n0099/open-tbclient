@@ -2,15 +2,15 @@ package com.facebook.imagepipeline.memory;
 
 import javax.annotation.concurrent.ThreadSafe;
 @ThreadSafe
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class i {
-    final a pDr;
-    private final com.facebook.common.references.c<byte[]> pti;
+    final a pEY;
+    private final com.facebook.common.references.c<byte[]> ptp;
 
     public i(com.facebook.common.memory.c cVar, r rVar) {
-        com.facebook.common.internal.g.checkArgument(rVar.pDO > 0);
-        this.pDr = new a(cVar, rVar, n.ezH());
-        this.pti = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
+        com.facebook.common.internal.g.checkArgument(rVar.pFv > 0);
+        this.pEY = new a(cVar, rVar, n.eAl());
+        this.ptp = new com.facebook.common.references.c<byte[]>() { // from class: com.facebook.imagepipeline.memory.i.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.facebook.common.references.c
             public void release(byte[] bArr) {
@@ -19,24 +19,24 @@ public class i {
         };
     }
 
-    public com.facebook.common.references.a<byte[]> QU(int i) {
-        return com.facebook.common.references.a.a(this.pDr.get(i), this.pti);
+    public com.facebook.common.references.a<byte[]> QM(int i) {
+        return com.facebook.common.references.a.a(this.pEY.get(i), this.ptp);
     }
 
     public void release(byte[] bArr) {
-        this.pDr.release(bArr);
+        this.pEY.release(bArr);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public static class a extends j {
         public a(com.facebook.common.memory.c cVar, r rVar, s sVar) {
             super(cVar, rVar, sVar);
         }
 
         @Override // com.facebook.imagepipeline.memory.BasePool
-        d<byte[]> QP(int i) {
-            return new o(QM(i), this.pCZ.pDO, 0);
+        d<byte[]> Rg(int i) {
+            return new o(Rd(i), this.pEG.pFv, 0);
         }
     }
 }

@@ -56,7 +56,7 @@ public class ForumTestActivity extends BaseActivity implements b {
         @Override // com.baidu.tbadk.core.dialog.k.b
         public void onClick() {
             ForumTestActivity.this.saveImage(ForumTestActivity.this.iGT.getHitTestResult().getExtra());
-            ForumTestActivity.this.cuV();
+            ForumTestActivity.this.cuW();
         }
     };
 
@@ -71,7 +71,7 @@ public class ForumTestActivity extends BaseActivity implements b {
         this.mStatusBarView = findViewById(R.id.status_bar_view);
         this.iGT = (ForumTestWebView) findViewById(R.id.activity_forum_test_web);
         this.iGT.a(this);
-        cya();
+        cyb();
         initData();
         this.iGT.loadUrl(this.mUrl);
         this.iGT.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.1
@@ -80,7 +80,7 @@ public class ForumTestActivity extends BaseActivity implements b {
                 return ForumTestActivity.this.handleLongClick();
             }
         });
-        cxZ();
+        cya();
     }
 
     private void initData() {
@@ -91,7 +91,7 @@ public class ForumTestActivity extends BaseActivity implements b {
         }
     }
 
-    private void cxZ() {
+    private void cya() {
         if (this.iwA == null) {
             this.iwB = new k(this);
         }
@@ -101,7 +101,7 @@ public class ForumTestActivity extends BaseActivity implements b {
         this.iwA = new i(getPageContext(), this.iwB);
     }
 
-    private void cya() {
+    private void cyb() {
         ViewGroup.LayoutParams layoutParams = this.mStatusBarView.getLayoutParams();
         layoutParams.height = UtilHelper.getStatusBarHeight();
         this.mStatusBarView.setLayoutParams(layoutParams);
@@ -204,12 +204,12 @@ public class ForumTestActivity extends BaseActivity implements b {
         if (this.iGT == null || (hitTestResult = this.iGT.getHitTestResult()) == null || hitTestResult.getType() != 5) {
             return false;
         }
-        cyb();
+        cyc();
         show();
         return true;
     }
 
-    private void cyb() {
+    private void cyc() {
         this.iwF.clear();
         this.iGV = new g(getString(R.string.save_this_image), this.iwB);
         this.iGV.a(this.iGW);
@@ -217,7 +217,7 @@ public class ForumTestActivity extends BaseActivity implements b {
         this.iwB.a(new k.a() { // from class: com.baidu.tieba.enterForum.forumtest.ForumTestActivity.3
             @Override // com.baidu.tbadk.core.dialog.k.a
             public void onClick() {
-                ForumTestActivity.this.cuV();
+                ForumTestActivity.this.cuW();
             }
         });
         this.iwB.bB(this.iwF);
@@ -253,7 +253,7 @@ public class ForumTestActivity extends BaseActivity implements b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cuV() {
+    public void cuW() {
         if (this.iwA != null && this.iwA.isShowing()) {
             this.iwA.dismiss();
         }

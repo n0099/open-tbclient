@@ -23,7 +23,7 @@ public interface ak extends IInterface {
             if (queryLocalInterface != null && (queryLocalInterface instanceof ak)) {
                 return (ak) queryLocalInterface;
             }
-            return new C1208a(iBinder);
+            return new C1249a(iBinder);
         }
 
         @Override // android.os.IInterface
@@ -50,18 +50,18 @@ public interface ak extends IInterface {
 
         /* renamed from: com.ss.android.socialbase.downloader.d.ak$a$a  reason: collision with other inner class name */
         /* loaded from: classes4.dex */
-        private static class C1208a implements ak {
+        private static class C1249a implements ak {
 
             /* renamed from: a  reason: collision with root package name */
-            private IBinder f13407a;
+            private IBinder f13408a;
 
-            C1208a(IBinder iBinder) {
-                this.f13407a = iBinder;
+            C1249a(IBinder iBinder) {
+                this.f13408a = iBinder;
             }
 
             @Override // android.os.IInterface
             public IBinder asBinder() {
-                return this.f13407a;
+                return this.f13408a;
             }
 
             @Override // com.ss.android.socialbase.downloader.d.ak
@@ -72,7 +72,7 @@ public interface ak extends IInterface {
                     obtain.writeInterfaceToken("com.ss.android.socialbase.downloader.depend.IRetryDelayTimeAidlCalculator");
                     obtain.writeInt(i);
                     obtain.writeInt(i2);
-                    this.f13407a.transact(1, obtain, obtain2, 0);
+                    this.f13408a.transact(1, obtain, obtain2, 0);
                     obtain2.readException();
                     return obtain2.readLong();
                 } finally {

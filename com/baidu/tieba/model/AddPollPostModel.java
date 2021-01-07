@@ -52,10 +52,10 @@ public class AddPollPostModel extends BdBaseModel {
                 }
             }
         };
-        cQo();
+        cQp();
     }
 
-    private void cQo() {
+    private void cQp() {
         com.baidu.tieba.tbadkCore.a.a.a(309006, AddPollPostSocketResponseMessage.class, false, false);
         com.baidu.tieba.tbadkCore.a.a.a(309006, CmdConfigHttp.CMD_ADD_POLL_POST, TbConfig.VOTE_ADD, AddPollPostHttpResponseMessage.class, false, false, false, false);
     }

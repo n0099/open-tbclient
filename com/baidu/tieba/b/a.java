@@ -35,16 +35,16 @@ public class a {
         C0713a() {
         }
 
-        void ctm() {
+        void ctn() {
             a.this.ing = SystemClock.uptimeMillis();
             a.this.fS(a.this.ing);
             if (a.this.mAnimationCallbacks.size() > 0) {
-                a.this.ctk().kx();
+                a.this.ctl().kx();
             }
         }
     }
 
-    public static a ctj() {
+    public static a ctk() {
         if (inc.get() == null) {
             inc.set(new a());
         }
@@ -52,7 +52,7 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public c ctk() {
+    public c ctl() {
         if (this.inf == null) {
             if (Build.VERSION.SDK_INT >= 16) {
                 this.inf = new e(this.ine);
@@ -65,7 +65,7 @@ public class a {
 
     public void a(b bVar, long j) {
         if (this.mAnimationCallbacks.size() == 0) {
-            ctk().kx();
+            ctl().kx();
         }
         if (!this.mAnimationCallbacks.contains(bVar)) {
             this.mAnimationCallbacks.add(bVar);
@@ -97,7 +97,7 @@ public class a {
                 }
                 i = i2 + 1;
             } else {
-                ctl();
+                ctm();
                 return;
             }
         }
@@ -115,7 +115,7 @@ public class a {
         return false;
     }
 
-    private void ctl() {
+    private void ctm() {
         if (this.inh) {
             for (int size = this.mAnimationCallbacks.size() - 1; size >= 0; size--) {
                 if (this.mAnimationCallbacks.get(size) == null) {
@@ -139,7 +139,7 @@ public class a {
             this.inm = new Choreographer.FrameCallback() { // from class: com.baidu.tieba.b.a.e.1
                 @Override // android.view.Choreographer.FrameCallback
                 public void doFrame(long j) {
-                    e.this.inj.ctm();
+                    e.this.inj.ctn();
                 }
             };
         }
@@ -164,7 +164,7 @@ public class a {
                 @Override // java.lang.Runnable
                 public void run() {
                     d.this.ink = SystemClock.uptimeMillis();
-                    d.this.inj.ctm();
+                    d.this.inj.ctn();
                 }
             };
             this.mHandler = new Handler(Looper.myLooper());

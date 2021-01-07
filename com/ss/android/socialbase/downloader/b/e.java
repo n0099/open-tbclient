@@ -7,10 +7,10 @@ import org.json.JSONObject;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    public static volatile String f13371a = "";
+    public static volatile String f13372a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    public static volatile String f13372b = "";
+    public static volatile String f13373b = "";
     public static volatile String c = "";
     public static long d = ImageUploadStrategy.FILE_SIZE_5M;
     public static long e = 31457280;
@@ -19,7 +19,7 @@ public class e {
 
     public static void a(String str) {
         if (!TextUtils.isEmpty(str)) {
-            f13371a = str;
+            f13372a = str;
         }
     }
 }

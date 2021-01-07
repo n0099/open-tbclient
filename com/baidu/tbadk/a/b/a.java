@@ -12,15 +12,15 @@ public class a {
     public static final String eIV = TbadkCoreApplication.getInst().getString(R.string.frs_hot_tab_name);
     public static final String eIW = TbadkCoreApplication.getInst().getString(R.string.frs_new_area_tab_name);
 
-    public static int bne() {
-        if (d.bmU()) {
+    public static int bnf() {
+        if (d.bmV()) {
             return 1;
         }
-        if (d.bmV()) {
+        if (d.bmW()) {
             return 503;
         }
-        if (d.bmW()) {
-            return Am(bnh());
+        if (d.bmX()) {
+            return Am(bni());
         }
         return 1;
     }
@@ -29,29 +29,29 @@ public class a {
         return (!eIV.equals(str) && eIW.equals(str)) ? 503 : 1;
     }
 
-    private static String bnf() {
+    private static String bng() {
         return eIS + TbadkCoreApplication.getCurrentAccount();
     }
 
-    private static String bng() {
+    private static String bnh() {
         return eIT + TbadkCoreApplication.getCurrentAccount();
     }
 
-    private static String bnh() {
-        return com.baidu.tbadk.core.sharedPref.b.bvq().getString(bnf(), eIV);
+    private static String bni() {
+        return com.baidu.tbadk.core.sharedPref.b.bvr().getString(bng(), eIV);
     }
 
     public static void An(String str) {
         if (eIV.equals(str) || eIW.equals(str)) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putString(bnf(), str);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putString(bng(), str);
         }
     }
 
-    public static int bni() {
-        return com.baidu.tbadk.core.sharedPref.b.bvq().getInt(bng(), eIU);
+    public static int bnj() {
+        return com.baidu.tbadk.core.sharedPref.b.bvr().getInt(bnh(), eIU);
     }
 
     public static void om(int i) {
-        com.baidu.tbadk.core.sharedPref.b.bvq().putInt(bng(), i);
+        com.baidu.tbadk.core.sharedPref.b.bvr().putInt(bnh(), i);
     }
 }

@@ -8,17 +8,17 @@ import java.io.IOException;
 public final class a implements x {
 
     /* renamed from: a  reason: collision with root package name */
-    public final z f6158a;
+    public final z f6159a;
 
     public a(z zVar) {
-        this.f6158a = zVar;
+        this.f6159a = zVar;
     }
 
     @Override // com.bytedance.sdk.a.b.x
     public com.bytedance.sdk.a.b.b a(x.a aVar) throws IOException {
         com.bytedance.sdk.a.b.a.c.g gVar = (com.bytedance.sdk.a.b.a.c.g) aVar;
-        ab eqN = gVar.eqN();
-        g eqJ = gVar.eqJ();
-        return gVar.a(eqN, eqJ, eqJ.a(this.f6158a, aVar, !eqN.b().equals("GET")), eqJ.eqG());
+        ab eqO = gVar.eqO();
+        g eqK = gVar.eqK();
+        return gVar.a(eqO, eqK, eqK.a(this.f6159a, aVar, !eqO.b().equals("GET")), eqK.eqH());
     }
 }

@@ -4,68 +4,68 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.down.manage.DownloadConstants;
 /* loaded from: classes2.dex */
 class c {
-    protected int mmk;
-    protected byte[] mml;
+    protected int mmj;
+    protected byte[] mmk;
+    protected int mml;
     protected int mmm;
-    protected int mmn;
+    protected int[] mmo = new int[256];
     protected int[] mmp = new int[256];
     protected int[] mmq = new int[256];
-    protected int[] mmr = new int[256];
-    protected int[] mms = new int[32];
-    protected int[][] mmo = new int[256];
+    protected int[] mmr = new int[32];
+    protected int[][] mmn = new int[256];
 
     public c(byte[] bArr, int i, int i2) {
-        this.mml = bArr;
-        this.mmm = i;
-        this.mmn = i2;
+        this.mmk = bArr;
+        this.mml = i;
+        this.mmm = i2;
         for (int i3 = 0; i3 < 256; i3++) {
-            this.mmo[i3] = new int[4];
-            int[] iArr = this.mmo[i3];
+            this.mmn[i3] = new int[4];
+            int[] iArr = this.mmn[i3];
             int i4 = (i3 << 12) / 256;
             iArr[2] = i4;
             iArr[1] = i4;
             iArr[0] = i4;
-            this.mmr[i3] = 256;
-            this.mmq[i3] = 0;
+            this.mmq[i3] = 256;
+            this.mmp[i3] = 0;
         }
     }
 
-    public byte[] dxB() {
+    public byte[] dxC() {
         byte[] bArr = new byte[768];
         int[] iArr = new int[256];
         for (int i = 0; i < 256; i++) {
-            iArr[this.mmo[i][3]] = i;
+            iArr[this.mmn[i][3]] = i;
         }
         int i2 = 0;
         for (int i3 = 0; i3 < 256; i3++) {
             int i4 = iArr[i3];
             int i5 = i2 + 1;
-            bArr[i2] = (byte) this.mmo[i4][0];
+            bArr[i2] = (byte) this.mmn[i4][0];
             int i6 = i5 + 1;
-            bArr[i5] = (byte) this.mmo[i4][1];
+            bArr[i5] = (byte) this.mmn[i4][1];
             i2 = i6 + 1;
-            bArr[i6] = (byte) this.mmo[i4][2];
+            bArr[i6] = (byte) this.mmn[i4][2];
         }
         return bArr;
     }
 
-    public void dxC() {
+    public void dxD() {
         int i;
         int i2 = 0;
         int i3 = 0;
         int i4 = 0;
         while (i4 < 256) {
-            int[] iArr = this.mmo[i4];
+            int[] iArr = this.mmn[i4];
             int i5 = iArr[1];
             int i6 = i4;
             for (int i7 = i4 + 1; i7 < 256; i7++) {
-                int[] iArr2 = this.mmo[i7];
+                int[] iArr2 = this.mmn[i7];
                 if (iArr2[1] < i5) {
                     i5 = iArr2[1];
                     i6 = i7;
                 }
             }
-            int[] iArr3 = this.mmo[i6];
+            int[] iArr3 = this.mmn[i6];
             if (i4 != i6) {
                 int i8 = iArr3[0];
                 iArr3[0] = iArr[0];
@@ -81,9 +81,9 @@ class c {
                 iArr[3] = i11;
             }
             if (i5 != i3) {
-                this.mmp[i3] = (i2 + i4) >> 1;
+                this.mmo[i3] = (i2 + i4) >> 1;
                 for (int i12 = i3 + 1; i12 < i5; i12++) {
-                    this.mmp[i12] = i4;
+                    this.mmo[i12] = i4;
                 }
                 i = i4;
             } else {
@@ -94,32 +94,32 @@ class c {
             i2 = i;
             i3 = i5;
         }
-        this.mmp[i3] = (i2 + 255) >> 1;
+        this.mmo[i3] = (i2 + 255) >> 1;
         for (int i13 = i3 + 1; i13 < 256; i13++) {
-            this.mmp[i13] = 255;
+            this.mmo[i13] = 255;
         }
     }
 
-    public void dxD() {
+    public void dxE() {
         int i;
-        if (this.mmm < 1509) {
-            this.mmn = 1;
+        if (this.mml < 1509) {
+            this.mmm = 1;
         }
-        this.mmk = ((this.mmn - 1) / 3) + 30;
-        byte[] bArr = this.mml;
-        int i2 = this.mmm;
-        int i3 = this.mmm / (this.mmn * 3);
+        this.mmj = ((this.mmm - 1) / 3) + 30;
+        byte[] bArr = this.mmk;
+        int i2 = this.mml;
+        int i3 = this.mml / (this.mmm * 3);
         int i4 = i3 / 100;
         for (int i5 = 0; i5 < 32; i5++) {
-            this.mms[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
+            this.mmr[i5] = (((1024 - (i5 * i5)) * 256) / 1024) * 1024;
         }
-        if (this.mmm < 1509) {
+        if (this.mml < 1509) {
             i = 3;
-        } else if (this.mmm % DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR != 0) {
+        } else if (this.mml % DownloadConstants.STATUS_DEVICE_NOT_FOUND_ERROR != 0) {
             i = 1497;
-        } else if (this.mmm % 491 != 0) {
+        } else if (this.mml % 491 != 0) {
             i = 1473;
-        } else if (this.mmm % 487 != 0) {
+        } else if (this.mml % 487 != 0) {
             i = 1461;
         } else {
             i = 1509;
@@ -139,16 +139,16 @@ class c {
                 g(i8, aa, i11, i12, i13);
             }
             int i14 = i6 + i;
-            int i15 = i14 >= i2 ? i14 - this.mmm : i14;
+            int i15 = i14 >= i2 ? i14 - this.mml : i14;
             int i16 = i10 + 1;
             int i17 = i4 == 0 ? 1 : i4;
             if (i16 % i17 == 0) {
-                int i18 = i7 - (i7 / this.mmk);
+                int i18 = i7 - (i7 / this.mmj);
                 int i19 = i9 - (i9 / 30);
                 int i20 = i19 >> 6;
                 int i21 = i20 <= 1 ? 0 : i20;
                 for (int i22 = 0; i22 < i21; i22++) {
-                    this.mms[i22] = ((((i21 * i21) - (i22 * i22)) * 256) / (i21 * i21)) * i18;
+                    this.mmr[i22] = ((((i21 * i21) - (i22 * i22)) * 256) / (i21 * i21)) * i18;
                 }
                 i6 = i15;
                 i4 = i17;
@@ -167,14 +167,14 @@ class c {
     public int Z(int i, int i2, int i3) {
         int i4;
         int i5 = 1000;
-        int i6 = this.mmp[i2];
+        int i6 = this.mmo[i2];
         int i7 = -1;
         int i8 = i6 - 1;
         while (true) {
             int i9 = i6;
             if (i9 < 256 || i8 >= 0) {
                 if (i9 < 256) {
-                    int[] iArr = this.mmo[i9];
+                    int[] iArr = this.mmn[i9];
                     int i10 = iArr[1] - i2;
                     if (i10 >= i5) {
                         i4 = i7;
@@ -207,7 +207,7 @@ class c {
                     i6 = i9;
                 }
                 if (i8 >= 0) {
-                    int[] iArr2 = this.mmo[i8];
+                    int[] iArr2 = this.mmn[i8];
                     int i15 = i2 - iArr2[1];
                     if (i15 >= i5) {
                         i7 = i4;
@@ -242,22 +242,22 @@ class c {
         }
     }
 
-    public byte[] dxE() {
+    public byte[] dxF() {
+        dxE();
+        dxG();
         dxD();
-        dxF();
-        dxC();
-        return dxB();
+        return dxC();
     }
 
-    public void dxF() {
+    public void dxG() {
         for (int i = 0; i < 256; i++) {
-            int[] iArr = this.mmo[i];
+            int[] iArr = this.mmn[i];
             iArr[0] = iArr[0] >> 4;
-            int[] iArr2 = this.mmo[i];
+            int[] iArr2 = this.mmn[i];
             iArr2[1] = iArr2[1] >> 4;
-            int[] iArr3 = this.mmo[i];
+            int[] iArr3 = this.mmn[i];
             iArr3[2] = iArr3[2] >> 4;
-            this.mmo[i][3] = i;
+            this.mmn[i][3] = i;
         }
     }
 
@@ -275,10 +275,10 @@ class c {
         while (true) {
             if (i10 < i9 || i12 > i8) {
                 int i13 = i11 + 1;
-                int i14 = this.mms[i11];
+                int i14 = this.mmr[i11];
                 if (i10 < i9) {
                     i6 = i10 + 1;
-                    int[] iArr = this.mmo[i10];
+                    int[] iArr = this.mmn[i10];
                     try {
                         iArr[0] = iArr[0] - (((iArr[0] - i3) * i14) / 262144);
                         iArr[1] = iArr[1] - (((iArr[1] - i4) * i14) / 262144);
@@ -291,7 +291,7 @@ class c {
                 }
                 if (i12 > i8) {
                     int i15 = i12 - 1;
-                    int[] iArr2 = this.mmo[i12];
+                    int[] iArr2 = this.mmn[i12];
                     try {
                         iArr2[0] = iArr2[0] - (((iArr2[0] - i3) * i14) / 262144);
                         iArr2[1] = iArr2[1] - (((iArr2[1] - i4) * i14) / 262144);
@@ -316,7 +316,7 @@ class c {
     }
 
     protected void h(int i, int i2, int i3, int i4, int i5) {
-        int[] iArr = this.mmo[i2];
+        int[] iArr = this.mmn[i2];
         iArr[0] = iArr[0] - (((iArr[0] - i3) * i) / 1024);
         iArr[1] = iArr[1] - (((iArr[1] - i4) * i) / 1024);
         iArr[2] = iArr[2] - (((iArr[2] - i5) * i) / 1024);
@@ -330,7 +330,7 @@ class c {
         int i8 = -1;
         int i9 = 0;
         while (i9 < 256) {
-            int[] iArr = this.mmo[i9];
+            int[] iArr = this.mmn[i9];
             int i10 = iArr[0] - i;
             if (i10 < 0) {
                 i10 = -i10;
@@ -351,24 +351,24 @@ class c {
             } else {
                 i4 = i6;
             }
-            int i15 = i14 - (this.mmq[i9] >> 12);
+            int i15 = i14 - (this.mmp[i9] >> 12);
             if (i15 < i5) {
                 i7 = i9;
             } else {
                 i15 = i5;
             }
-            int i16 = this.mmr[i9] >> 10;
-            int[] iArr2 = this.mmr;
+            int i16 = this.mmq[i9] >> 10;
+            int[] iArr2 = this.mmq;
             iArr2[i9] = iArr2[i9] - i16;
-            int[] iArr3 = this.mmq;
+            int[] iArr3 = this.mmp;
             iArr3[i9] = (i16 << 10) + iArr3[i9];
             i9++;
             i5 = i15;
             i6 = i4;
         }
-        int[] iArr4 = this.mmr;
+        int[] iArr4 = this.mmq;
         iArr4[i8] = iArr4[i8] + 64;
-        int[] iArr5 = this.mmq;
+        int[] iArr5 = this.mmp;
         iArr5[i8] = iArr5[i8] - 65536;
         return i7;
     }

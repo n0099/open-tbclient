@@ -94,11 +94,11 @@ public class c implements NetModel.b {
                 if (this.joC >= 0) {
                     this.jow.lastThreadId = this.joC;
                 }
-                this.jow.adExtParams = cIt();
+                this.jow.adExtParams = cIu();
                 this.jox.loadData();
             }
         } else if (!this.joz.isLoading()) {
-            if (au.bwr().bws()) {
+            if (au.bws().bwt()) {
                 this.joy.qType = 2;
             } else {
                 this.joy.qType = 1;
@@ -116,11 +116,11 @@ public class c implements NetModel.b {
                 this.jow.pn = this.mPn;
                 this.jow.sortType = i;
                 this.jow.lastThreadId = -1L;
-                this.jow.adExtParams = cIt();
+                this.jow.adExtParams = cIu();
                 this.jox.loadData();
             }
         } else if (!this.joz.isLoading()) {
-            if (au.bwr().bws()) {
+            if (au.bws().bwt()) {
                 this.joy.qType = 2;
             } else {
                 this.joy.qType = 1;
@@ -146,7 +146,7 @@ public class c implements NetModel.b {
                     }
                 }
             }
-            if (com.baidu.tieba.funad.a.cPq()) {
+            if (com.baidu.tieba.funad.a.cPr()) {
                 if (this.funAdController != null) {
                     this.funAdController.q(this.jop.threadList, this.joA);
                 }
@@ -169,7 +169,7 @@ public class c implements NetModel.b {
                     }
                 }
             }
-            if (com.baidu.tieba.funad.a.cPq()) {
+            if (com.baidu.tieba.funad.a.cPr()) {
                 if (this.funAdController != null) {
                     this.funAdController.q(arrayList, this.joA);
                 }
@@ -266,8 +266,8 @@ public class c implements NetModel.b {
         }
     }
 
-    private String cIt() {
-        return AdExtParam.a.bIs().td(this.joA ? 0 : com.baidu.tieba.recapp.a.fL(this.jop.threadList)).EC(com.baidu.tieba.recapp.report.b.dFU().RU(this.joD)).ED(this.jnQ.forumName).bIt();
+    private String cIu() {
+        return AdExtParam.a.bIt().td(this.joA ? 0 : com.baidu.tieba.recapp.a.fL(this.jop.threadList)).EB(com.baidu.tieba.recapp.report.b.dFV().RT(this.joD)).EC(this.jnQ.forumName).bIu();
     }
 
     private void w(List<App> list, List<n> list2) {
@@ -281,11 +281,11 @@ public class c implements NetModel.b {
         if (!com.baidu.tieba.lego.card.c.a.isEmpty(list)) {
             ArrayList arrayList = new ArrayList();
             for (n nVar : list) {
-                if ((nVar instanceof bz) && (f = com.baidu.tieba.recapp.report.b.f(((bz) nVar).btu())) != null) {
+                if ((nVar instanceof bz) && (f = com.baidu.tieba.recapp.report.b.f(((bz) nVar).btv())) != null) {
                     arrayList.add(f);
                 }
             }
-            com.baidu.tieba.recapp.report.b.dFU().q(this.joD, arrayList);
+            com.baidu.tieba.recapp.report.b.dFV().q(this.joD, arrayList);
         }
     }
 
@@ -293,7 +293,7 @@ public class c implements NetModel.b {
         return (this.jop == null || x.isEmpty(this.jop.threadList)) ? false : true;
     }
 
-    public d cIu() {
+    public d cIv() {
         return this.jop;
     }
 
@@ -301,7 +301,7 @@ public class c implements NetModel.b {
         this.joC = j;
     }
 
-    public boolean cIv() {
+    public boolean cIw() {
         return this.joA;
     }
 
@@ -309,7 +309,7 @@ public class c implements NetModel.b {
         return this.mPn;
     }
 
-    public void KR(String str) {
+    public void KQ(String str) {
         if (this.jop != null && !com.baidu.tieba.lego.card.c.a.isEmpty(this.jop.threadList)) {
             com.baidu.tieba.recapp.a.i(str, this.jop.threadList);
             this.jnQ.a(this.jop);

@@ -18,7 +18,7 @@ public class c extends Thread {
     private static volatile c f;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile String f3366b;
+    private volatile String f3367b;
     private String c;
     private double d;
     private Handler e;
@@ -28,7 +28,7 @@ public class c extends Thread {
     private IXAdLogger j = XAdSDKFoundationFacade.getInstance().getAdLogger();
 
     /* renamed from: a  reason: collision with root package name */
-    o.a f3365a = new d(this);
+    o.a f3366a = new d(this);
 
     public static c a(Context context, e eVar, String str, Handler handler) {
         if (f == null) {
@@ -47,7 +47,7 @@ public class c extends Thread {
     }
 
     public void a(String str) {
-        this.f3366b = str;
+        this.f3367b = str;
         interrupt();
     }
 
@@ -99,18 +99,18 @@ public class c extends Thread {
         double d;
         try {
             try {
-                this.h = new o(this.g, new URL(this.f3366b), this.i, this.f3365a);
+                this.h = new o(this.g, new URL(this.f3367b), this.i, this.f3366a);
             } catch (MalformedURLException e) {
-                this.h = new o(this.g, this.f3366b, this.i, this.f3365a);
+                this.h = new o(this.g, this.f3367b, this.i, this.f3366a);
             }
             if (g.c != null) {
-                d = g.c.f3361a;
-            } else if (g.f3371b == null) {
+                d = g.c.f3362a;
+            } else if (g.f3372b == null) {
                 d = 0.0d;
-            } else if (g.f3371b.f3361a > 0.0d) {
-                d = g.f3371b.f3361a;
+            } else if (g.f3372b.f3362a > 0.0d) {
+                d = g.f3372b.f3362a;
             } else {
-                d = g.f3371b.f3361a;
+                d = g.f3372b.f3362a;
             }
             this.j.d("XAdApkDownloadThread", "isNewApkAvailable: local apk version is: " + d + ", remote apk version: " + this.i.b());
             if (d > 0.0d) {

@@ -43,7 +43,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         getWindow().setLayout(-1, -1);
     }
 
-    public a aLr() {
+    public a aLs() {
         return this.dEO;
     }
 
@@ -75,7 +75,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             this.dEg = this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_btns_height);
         }
 
-        public a aLs() {
+        public a aLt() {
             if (ah.isScreenLand()) {
                 kw(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_default_width));
                 kt(this.mContext.getResources().getDimensionPixelSize(a.d.aiapps_dialog_landscape_content_default_height));
@@ -111,7 +111,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
                 this.dEP.dDV.setVisibility(0);
             }
             this.dEP.dDU.setText(this.mContext.getText(i));
-            aLu();
+            aLv();
             return this;
         }
 
@@ -121,7 +121,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             }
             if (str != null) {
                 this.dEP.dDU.setText(str);
-                aLu();
+                aLv();
             }
             return this;
         }
@@ -133,17 +133,17 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             if (spanned != null) {
                 this.dEP.dDU.setMovementMethod(LinkMovementMethod.getInstance());
                 this.dEP.dDU.setText(spanned);
-                aLu();
+                aLv();
             }
             return this;
         }
 
-        public a aLt() {
+        public a aLu() {
             this.dEP.dDU.setGravity(3);
             return this;
         }
 
-        private void aLu() {
+        private void aLv() {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, this.dEg);
             layoutParams.addRule(3, a.f.dialog_message_content);
             this.dEP.dEf.setLayoutParams(layoutParams);
@@ -197,7 +197,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             }
         }
 
-        public TextView aLm() {
+        public TextView aLn() {
             TextView textView;
             int i = 0;
             if (this.dEP.dDW == null || this.dEP.dDW.getVisibility() != 0) {
@@ -313,12 +313,12 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
-        public a aLv() {
+        public a aLw() {
             this.dEP.dFc.setPadding(0, 0, 0, 0);
             return this;
         }
 
-        public a aLw() {
+        public a aLx() {
             ((ViewGroup.MarginLayoutParams) this.dEP.dEW.getLayoutParams()).setMargins(0, 0, 0, 0);
             return this;
         }
@@ -353,7 +353,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
-        public g atG() {
+        public g atH() {
             this.cVQ.setCancelable(this.dEP.dEU.booleanValue());
             if (this.dEP.dEU.booleanValue()) {
                 this.cVQ.setCanceledOnTouchOutside(false);
@@ -364,7 +364,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             if (this.dEP.mOnKeyListener != null) {
                 this.cVQ.setOnKeyListener(this.dEP.mOnKeyListener);
             }
-            aLz();
+            aLA();
             if (this.dEP.dFb != null) {
                 this.dEP.dFb.a(this.cVQ, this.dEP);
             }
@@ -374,57 +374,57 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
 
         @Deprecated
         public g gX(boolean z) {
-            return aLx();
+            return aLy();
         }
 
-        public g aLx() {
-            g atG = atG();
+        public g aLy() {
+            g atH = atH();
             if (this.dEQ) {
-                atG.getWindow().setType(2003);
+                atH.getWindow().setType(2003);
             }
             try {
-                atG.show();
+                atH.show();
             } catch (WindowManager.BadTokenException e) {
                 if (g.DEBUG) {
                     e.printStackTrace();
                 }
             }
             EventBusWrapper.post(new com.baidu.swan.apps.res.widget.dialog.a("show"));
-            return atG;
+            return atH;
         }
 
-        protected Resources aLy() {
+        protected Resources aLz() {
             return this.mContext.getResources();
         }
 
-        private void aLz() {
-            int color = aLy().getColor(a.c.aiapps_dialog_title_text_color);
-            int color2 = aLy().getColor(a.c.aiapps_dialog_btn_text_color);
-            int color3 = aLy().getColor(a.c.aiapps_dialog_btn_text_color);
-            int color4 = aLy().getColor(a.c.aiapps_box_dialog_message_text_color);
-            int color5 = aLy().getColor(a.c.aiapps_dialog_gray);
-            this.dEP.dEd.setBackground(aLy().getDrawable(this.dEP.dFf != -1 ? this.dEP.dFf : a.e.aiapps_dialog_bg_white));
+        private void aLA() {
+            int color = aLz().getColor(a.c.aiapps_dialog_title_text_color);
+            int color2 = aLz().getColor(a.c.aiapps_dialog_btn_text_color);
+            int color3 = aLz().getColor(a.c.aiapps_dialog_btn_text_color);
+            int color4 = aLz().getColor(a.c.aiapps_box_dialog_message_text_color);
+            int color5 = aLz().getColor(a.c.aiapps_dialog_gray);
+            this.dEP.dEd.setBackground(aLz().getDrawable(this.dEP.dFf != -1 ? this.dEP.dFf : a.e.aiapps_dialog_bg_white));
             this.dEP.mTitle.setTextColor(color);
             this.dEP.dDU.setTextColor(color4);
             this.dEP.dDW.setTextColor(this.dEP.dEY != color3 ? this.dEP.dEY : color3);
             if (this.dEP.dEZ != color2) {
                 this.dEP.dDX.setTextColor(this.dEP.dEZ);
             } else if (this.dEP.dFa != -1) {
-                this.dEP.dDX.setTextColor(aLy().getColorStateList(this.dEP.dFa));
+                this.dEP.dDX.setTextColor(aLz().getColorStateList(this.dEP.dFa));
             } else {
                 this.dEP.dDX.setTextColor(color2);
             }
             this.dEP.dDY.setTextColor(color2);
-            int color6 = this.dEP.dFg != -1 ? aLy().getColor(this.dEP.dFg) : color5;
+            int color6 = this.dEP.dFg != -1 ? aLz().getColor(this.dEP.dFg) : color5;
             this.dEP.dDZ.setBackgroundColor(color6);
             this.dEP.dEa.setBackgroundColor(color6);
             this.dEP.dEb.setBackgroundColor(color6);
-            this.dEP.dDW.setBackground(aLy().getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
-            this.dEP.dDX.setBackground(aLy().getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
-            this.dEP.dDY.setBackground(aLy().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
-            TextView aLm = aLm();
-            if (aLm != null) {
-                aLm.setBackground(this.dEP.dFh ? aLy().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector) : null);
+            this.dEP.dDW.setBackground(aLz().getDrawable(a.e.aiapp_alertdialog_button_day_bg_right_selector));
+            this.dEP.dDX.setBackground(aLz().getDrawable(a.e.aiapp_alertdialog_button_day_bg_left_selector));
+            this.dEP.dDY.setBackground(aLz().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector));
+            TextView aLn = aLn();
+            if (aLn != null) {
+                aLn.setBackground(this.dEP.dFh ? aLz().getDrawable(a.e.aiapp_alertdialog_button_day_bg_all_selector) : null);
             }
         }
 
@@ -447,7 +447,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
         }
 
         public a ky(int i) {
-            return kz(aLy().getColor(i));
+            return kz(aLz().getColor(i));
         }
 
         public a X(String str, int i) {
@@ -504,7 +504,7 @@ public class g extends com.baidu.swan.apps.res.widget.dialog.c {
             return this;
         }
 
-        public ViewGroup aLA() {
+        public ViewGroup aLB() {
             return this.dEP.dEc;
         }
 

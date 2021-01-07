@@ -8,7 +8,7 @@ import java.io.IOException;
 import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class JSONPObject implements JSONSerializable {
     private String function;
     private final List<Object> parameters = new ArrayList();

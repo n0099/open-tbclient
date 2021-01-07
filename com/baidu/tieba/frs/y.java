@@ -35,28 +35,28 @@ public class y {
     private View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.frs.y.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            Bitmap bon = y.this.bon();
+            Bitmap boo = y.this.boo();
             if (view.getId() == y.this.eLn.getId()) {
-                y.this.u(bon);
+                y.this.u(boo);
             } else if (view.getId() == y.this.eLo.getId()) {
-                y.this.d(bon, 3);
+                y.this.d(boo, 3);
             } else if (view.getId() == y.this.eLp.getId()) {
-                y.this.d(bon, 2);
+                y.this.d(boo, 2);
             } else if (view.getId() == y.this.eLq.getId()) {
-                y.this.d(bon, 4);
+                y.this.d(boo, 4);
             } else if (view.getId() == y.this.eLr.getId()) {
-                y.this.d(bon, 8);
+                y.this.d(boo, 8);
             } else if (view.getId() == y.this.eLs.getId()) {
-                y.this.d(bon, 6);
+                y.this.d(boo, 6);
             }
         }
     };
 
     /* loaded from: classes2.dex */
     public interface a {
-        void cGT();
-
         void cGU();
+
+        void cGV();
     }
 
     /* loaded from: classes2.dex */
@@ -125,7 +125,7 @@ public class y {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void u(Bitmap bitmap) {
-        if (!boo()) {
+        if (!bop()) {
             if (this.jjq != null) {
                 this.jjq.An(1);
             }
@@ -140,7 +140,7 @@ public class y {
         }
     }
 
-    private boolean boo() {
+    private boolean bop() {
         if (this.mPermissionJudgement == null) {
             this.mPermissionJudgement = new PermissionJudgePolicy();
         }
@@ -151,7 +151,7 @@ public class y {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void d(final Bitmap bitmap, final int i) {
-        if (bitmap != null && !boo()) {
+        if (bitmap != null && !bop()) {
             int i2 = 1;
             if (i == 3) {
                 i2 = 2;
@@ -184,7 +184,7 @@ public class y {
             com.baidu.tbadk.util.ac.a(new com.baidu.tbadk.util.ab<ShareItem>() { // from class: com.baidu.tieba.frs.y.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.tbadk.util.ab
-                /* renamed from: bop */
+                /* renamed from: boq */
                 public ShareItem doInBackground() {
                     return y.this.e(bitmap, i);
                 }
@@ -212,19 +212,19 @@ public class y {
         }
         shareItem.content = "";
         shareItem.x(bitmap);
-        shareItem.bCG();
+        shareItem.bCH();
         return shareItem;
     }
 
-    public Bitmap bon() {
+    public Bitmap boo() {
         if (this.eLw == null) {
             if (this.jjt != null) {
-                this.jjt.cGU();
+                this.jjt.cGV();
             }
             this.jjr.buildDrawingCache();
             this.eLw = this.jjr.getDrawingCache();
             if (this.jjt != null) {
-                this.jjt.cGT();
+                this.jjt.cGU();
             }
         }
         return this.eLw;

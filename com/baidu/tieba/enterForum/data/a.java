@@ -10,7 +10,7 @@ public class a extends v {
         this.isTop = z;
     }
 
-    public boolean bsa() {
+    public boolean bsb() {
         return this.isTop;
     }
 }

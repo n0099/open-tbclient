@@ -1,5 +1,5 @@
 package com.baidu.platform.comapi.exception;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ComInitException extends Exception {
     public ComInitException() {
     }

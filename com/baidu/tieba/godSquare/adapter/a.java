@@ -14,7 +14,7 @@ public class a {
     private d jUy;
     private GodSquareRecGodAdapter jUz;
 
-    public List<com.baidu.adp.widget.ListView.a> bUQ() {
+    public List<com.baidu.adp.widget.ListView.a> bUR() {
         return this.boM;
     }
 

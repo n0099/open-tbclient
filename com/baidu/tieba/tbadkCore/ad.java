@@ -6,17 +6,17 @@ import com.baidu.tbadk.core.data.cb;
 import com.baidu.tbadk.core.data.ce;
 /* loaded from: classes.dex */
 public class ad extends bz {
-    public static final BdUniqueId nqz = BdUniqueId.gen();
+    public static final BdUniqueId nqy = BdUniqueId.gen();
     private boolean gIH = false;
-    private cb nqA;
-    private ce nqB;
+    private ce nqA;
+    private cb nqz;
 
     @Override // com.baidu.tbadk.core.data.bz, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return nqz;
+        return nqy;
     }
 
-    public boolean dOz() {
+    public boolean dOA() {
         return this.gIH;
     }
 
@@ -24,19 +24,19 @@ public class ad extends bz {
         this.gIH = z;
     }
 
-    public cb dOA() {
-        return this.nqA;
+    public cb dOB() {
+        return this.nqz;
     }
 
     public void a(cb cbVar) {
-        this.nqA = cbVar;
+        this.nqz = cbVar;
     }
 
-    public ce dOB() {
-        return this.nqB;
+    public ce dOC() {
+        return this.nqA;
     }
 
     public void a(ce ceVar) {
-        this.nqB = ceVar;
+        this.nqA = ceVar;
     }
 }

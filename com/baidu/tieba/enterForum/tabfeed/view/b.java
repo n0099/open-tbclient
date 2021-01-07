@@ -106,7 +106,7 @@ public class b {
                 } else {
                     this.iOq.setVisibility(0);
                     this.iOp.setVisibility(8);
-                    SvgManager.bwq().a(this.iOq, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
+                    SvgManager.bwr().a(this.iOq, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
                 }
             }
             onChangeSkinType();
@@ -118,14 +118,14 @@ public class b {
             this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
             ao.setBackgroundColor(this.iOm, R.color.CAM_X0206);
             if (this.iOq.getVisibility() == 0) {
-                SvgManager.bwq().a(this.iOq, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
+                SvgManager.bwr().a(this.iOq, R.drawable.ic_icon_mask_red_default_crown24, SvgManager.SvgResourceStateType.NORMAL);
             }
-            SvgManager.bwq().a(this.iOn, R.drawable.ic_pic_mask_list_red, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.iOn, R.drawable.ic_pic_mask_list_red, SvgManager.SvgResourceStateType.NORMAL);
             ao.setImageResource(this.iOo, R.drawable.pic_list_redword);
-            SvgManager.bwq().a(this.iOu, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.iOu, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0311, SvgManager.SvgResourceStateType.NORMAL);
             ao.setViewTextColor(this.iIN, R.color.CAM_X0311);
             ao.setViewTextColor(this.iOr, R.color.CAM_X0311);
-            SvgManager.bwq().a(this.iOs, R.drawable.ic_icon_mask_first24, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwr().a(this.iOs, R.drawable.ic_icon_mask_first24, (SvgManager.SvgResourceStateType) null);
             this.iOt.onChangeSkinType();
         }
     }

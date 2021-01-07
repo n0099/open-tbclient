@@ -16,8 +16,8 @@ public class c {
     private List<ImageFileInfo> bMO;
     private final com.baidu.adp.base.f mContext;
     private WriteImagesInfo mWriteImagesInfo;
-    private VideoFileInfo nYv;
-    private ImageFileInfo nYw;
+    private VideoFileInfo nYu;
+    private ImageFileInfo nYv;
     private int maxImagesAllowed = 9;
     private final List<com.baidu.tbadk.album.a> bMP = new ArrayList();
 
@@ -26,27 +26,27 @@ public class c {
     }
 
     public void a(VideoFileInfo videoFileInfo) {
-        this.nYv = videoFileInfo;
+        this.nYu = videoFileInfo;
     }
 
-    public VideoFileInfo dYq() {
-        return this.nYv;
-    }
-
-    public boolean WO() {
-        return !x.isEmpty(WR());
+    public VideoFileInfo dYr() {
+        return this.nYu;
     }
 
     public boolean WP() {
-        return this.nYv != null;
+        return !x.isEmpty(WS());
+    }
+
+    public boolean WQ() {
+        return this.nYu != null;
     }
 
     public boolean b(VideoFileInfo videoFileInfo) {
-        return (this.nYv == null || videoFileInfo == null || this.nYv.videoId != videoFileInfo.videoId) ? false : true;
+        return (this.nYu == null || videoFileInfo == null || this.nYu.videoId != videoFileInfo.videoId) ? false : true;
     }
 
     public void d(ImageFileInfo imageFileInfo) {
-        this.nYw = imageFileInfo;
+        this.nYv = imageFileInfo;
     }
 
     public void addChooseFile(ImageFileInfo imageFileInfo) {
@@ -62,7 +62,7 @@ public class c {
         }
     }
 
-    public void WQ() {
+    public void WR() {
         if (this.mWriteImagesInfo != null) {
             this.mWriteImagesInfo.clear();
         }
@@ -75,7 +75,7 @@ public class c {
         return this.mWriteImagesInfo.isAdded(imageFileInfo);
     }
 
-    public List<ImageFileInfo> WR() {
+    public List<ImageFileInfo> WS() {
         if (this.mWriteImagesInfo != null) {
             return this.mWriteImagesInfo.getChosedFiles();
         }
@@ -111,7 +111,7 @@ public class c {
         return 0;
     }
 
-    public String WT() {
+    public String WU() {
         return this.bMF;
     }
 
@@ -138,11 +138,11 @@ public class c {
         }
     }
 
-    public List<ImageFileInfo> WU() {
+    public List<ImageFileInfo> WV() {
         return this.bMO;
     }
 
-    public List<com.baidu.tbadk.album.a> WV() {
+    public List<com.baidu.tbadk.album.a> WW() {
         return this.bMP;
     }
 
@@ -199,7 +199,7 @@ public class c {
     }
 
     public int getCurrentIndex() {
-        if (this.nYw == null || TextUtils.isEmpty(this.nYw.getFilePath())) {
+        if (this.nYv == null || TextUtils.isEmpty(this.nYv.getFilePath())) {
             return 0;
         }
         if (this.bMO == null || this.bMO.size() == 0) {
@@ -208,7 +208,7 @@ public class c {
         int size = this.bMO.size();
         for (int i = 0; i < size; i++) {
             ImageFileInfo imageFileInfo = this.bMO.get(i);
-            if (imageFileInfo != null && this.nYw.getFilePath().equals(imageFileInfo.getFilePath())) {
+            if (imageFileInfo != null && this.nYv.getFilePath().equals(imageFileInfo.getFilePath())) {
                 return i;
             }
         }

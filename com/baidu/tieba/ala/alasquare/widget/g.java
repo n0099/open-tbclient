@@ -89,7 +89,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.g>
         this.gLY = (TextView) getView().findViewById(R.id.tvSquareNewTitle);
         this.gLW.setIsRound(true);
         this.gLO.setCompoundDrawablesWithIntrinsicBounds(this.mContext.getResources().getDrawable(R.drawable.icon_home_card_like_grey), (Drawable) null, (Drawable) null, (Drawable) null);
-        this.gKY.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bVO());
+        this.gKY.setDefaultBgResource(com.baidu.tieba.ala.alasquare.widget.a.bVP());
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gLb.getLayoutParams();
         this.mViewWidth = l.getEquipmentWidth(this.mContext) / 2;
         this.gLD = (this.mViewWidth * 9) / 16;
@@ -157,23 +157,23 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.g>
             this.gLR.setVisibility(0);
             if (this.gMa) {
                 int i = this.gLD;
-                if (gVar != null && gVar.gAx != null && gVar.gAx.brH() != null && gVar.gAx.brH().thumbnail_width != null && gVar.gAx.brH().thumbnail_width.intValue() > 0) {
-                    i = (this.mViewWidth * gVar.gAx.brH().thumbnail_height.intValue()) / gVar.gAx.brH().thumbnail_width.intValue();
+                if (gVar != null && gVar.gAx != null && gVar.gAx.brI() != null && gVar.gAx.brI().thumbnail_width != null && gVar.gAx.brI().thumbnail_width.intValue() > 0) {
+                    i = (this.mViewWidth * gVar.gAx.brI().thumbnail_height.intValue()) / gVar.gAx.brI().thumbnail_width.intValue();
                 }
                 ViewGroup.LayoutParams layoutParams = this.gLb.getLayoutParams();
                 layoutParams.width = this.mViewWidth;
                 layoutParams.height = i;
                 this.gLb.setLayoutParams(layoutParams);
             }
-            String numberUniformFormatExtra = at.numberUniformFormatExtra(gVar.gAx.bsR());
+            String numberUniformFormatExtra = at.numberUniformFormatExtra(gVar.gAx.bsS());
             this.gLa.setText(numberUniformFormatExtra);
             this.gLc.setVisibility(0);
             this.gLc.setData(gVar.gAx);
             this.gLc.setIsRound(true);
             this.gLd.setText(gVar.gAx.getTitle());
-            this.gKY.startLoad(gVar.gAx.brH().thumbnail_url, 10, false);
+            this.gKY.startLoad(gVar.gAx.brI().thumbnail_url, 10, false);
             this.bac.setVisibility(0);
-            this.gMe = gVar.gAx.bsJ();
+            this.gMe = gVar.gAx.bsK();
             this.gLT.setText(at.getFormatTime(gVar.gAx.getCreateTime()));
             if (this.gMe != null) {
                 String str = this.gMe.channelName;
@@ -182,8 +182,8 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.g>
                 }
                 this.bac.setText(str);
                 this.gLX.setText(str);
-            } else if (gVar.gAx.brq() != null && !StringUtils.isNull(gVar.gAx.brq().getName_show())) {
-                String name_show = gVar.gAx.brq().getName_show();
+            } else if (gVar.gAx.brr() != null && !StringUtils.isNull(gVar.gAx.brr().getName_show())) {
+                String name_show = gVar.gAx.brr().getName_show();
                 if (ad.getTextLengthWithEmoji(name_show) > 10) {
                     name_show = ad.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
                 }
@@ -193,7 +193,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.g>
             this.gLW.setData(gVar.gAx, false);
             this.gLO.setText(numberUniformFormatExtra);
             this.gLY.setText(gVar.gAx.getTitle());
-            if (gVar.bUm()) {
+            if (gVar.bUn()) {
                 this.gMg.setVisibility(0);
             } else {
                 this.gMg.setVisibility(8);
@@ -211,7 +211,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.a.g>
             if (this.gAq != null) {
                 this.gAq.a(this.gMd, view);
             }
-            com.baidu.tieba.ala.alasquare.b.a.bVl().mG(true);
+            com.baidu.tieba.ala.alasquare.b.a.bVm().mG(true);
         }
     }
 

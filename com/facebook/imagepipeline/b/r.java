@@ -1,9 +1,9 @@
 package com.facebook.imagepipeline.b;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public interface r<K> {
     void br(K k);
 
-    void ewC();
+    void exf();
 
-    void ewD();
+    void exg();
 }

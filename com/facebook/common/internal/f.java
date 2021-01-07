@@ -30,14 +30,14 @@ public final class f {
     /* loaded from: classes3.dex */
     public static final class a {
         private final String className;
-        private C1016a psV;
-        private C1016a psW;
-        private boolean psX;
+        private C1054a ptc;
+        private C1054a ptd;
+        private boolean pte;
 
         private a(String str) {
-            this.psV = new C1016a();
-            this.psW = this.psV;
-            this.psX = false;
+            this.ptc = new C1054a();
+            this.ptd = this.ptc;
+            this.pte = false;
             this.className = (String) g.checkNotNull(str);
         }
 
@@ -54,47 +54,47 @@ public final class f {
         }
 
         public String toString() {
-            boolean z = this.psX;
+            boolean z = this.pte;
             String str = "";
             StringBuilder append = new StringBuilder(32).append(this.className).append('{');
-            for (C1016a c1016a = this.psV.psY; c1016a != null; c1016a = c1016a.psY) {
-                if (!z || c1016a.value != null) {
+            for (C1054a c1054a = this.ptc.ptf; c1054a != null; c1054a = c1054a.ptf) {
+                if (!z || c1054a.value != null) {
                     append.append(str);
                     str = ", ";
-                    if (c1016a.name != null) {
-                        append.append(c1016a.name).append('=');
+                    if (c1054a.name != null) {
+                        append.append(c1054a.name).append('=');
                     }
-                    append.append(c1016a.value);
+                    append.append(c1054a.value);
                 }
             }
             return append.append('}').toString();
         }
 
-        private C1016a etS() {
-            C1016a c1016a = new C1016a();
-            this.psW.psY = c1016a;
-            this.psW = c1016a;
-            return c1016a;
+        private C1054a etY() {
+            C1054a c1054a = new C1054a();
+            this.ptd.ptf = c1054a;
+            this.ptd = c1054a;
+            return c1054a;
         }
 
         private a J(String str, @Nullable Object obj) {
-            C1016a etS = etS();
-            etS.value = obj;
-            etS.name = (String) g.checkNotNull(str);
+            C1054a etY = etY();
+            etY.value = obj;
+            etY.name = (String) g.checkNotNull(str);
             return this;
         }
 
         /* JADX INFO: Access modifiers changed from: private */
         /* renamed from: com.facebook.common.internal.f$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public static final class C1016a {
+        public static final class C1054a {
             @Nullable
             String name;
-            C1016a psY;
+            C1054a ptf;
             @Nullable
             Object value;
 
-            private C1016a() {
+            private C1054a() {
             }
         }
     }

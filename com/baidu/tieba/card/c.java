@@ -63,7 +63,7 @@ public abstract class c<T extends com.baidu.tieba.card.data.a> extends b<T> {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    private void cuD() {
+    private void cuE() {
         if (getFrom() != null && getFrom().equals("home")) {
             ao.setViewTextColor(this.ity, R.color.CAM_X0109, 1);
             this.itE.setVisibility(8);
@@ -84,7 +84,7 @@ public abstract class c<T extends com.baidu.tieba.card.data.a> extends b<T> {
     @Override // com.baidu.tieba.card.b
     public void onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
         if (this.mSkinType != i) {
-            cuD();
+            cuE();
         }
         this.mSkinType = i;
     }
@@ -131,7 +131,7 @@ public abstract class c<T extends com.baidu.tieba.card.data.a> extends b<T> {
         if (this.itA == view && view != null && (view.getTag() instanceof String)) {
             String str = (String) view.getTag();
             if (!StringUtils.isNull(str)) {
-                be.bwu().b(getTbPageContext(), new String[]{str});
+                be.bwv().b(getTbPageContext(), new String[]{str});
             }
         }
     }

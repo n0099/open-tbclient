@@ -12,26 +12,26 @@ import java.util.List;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import javax.net.ssl.HttpsURLConnection;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class d {
     private c d;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f3150b = 1;
+    private int f3151b = 1;
     private List<com.baidu.mapsdkplatform.comapi.commonutils.a.b> c = new LinkedList();
 
     /* renamed from: a  reason: collision with root package name */
-    private ExecutorService f3149a = Executors.newCachedThreadPool();
+    private ExecutorService f3150a = Executors.newCachedThreadPool();
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class a implements b {
 
         /* renamed from: b  reason: collision with root package name */
-        private File f3152b;
+        private File f3153b;
 
         private a(File file) {
-            this.f3152b = file;
+            this.f3153b = file;
         }
 
         /* synthetic */ a(d dVar, File file, e eVar) {
@@ -45,7 +45,7 @@ public class d {
             }
             d.this.c.remove(bVar);
             if (d.this.c.size() == 0) {
-                d.this.d.a(this.f3152b);
+                d.this.d.a(this.f3153b);
             }
         }
 
@@ -61,14 +61,14 @@ public class d {
         }
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface b {
         void a(com.baidu.mapsdkplatform.comapi.commonutils.a.b bVar);
 
         void b(com.baidu.mapsdkplatform.comapi.commonutils.a.b bVar);
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a();
 
@@ -99,17 +99,17 @@ public class d {
         if (TextUtils.isEmpty(str) || file == null || i <= 0 || i2 <= 0) {
             return;
         }
-        for (int i3 = 0; i3 < this.f3150b; i3++) {
+        for (int i3 = 0; i3 < this.f3151b; i3++) {
             com.baidu.mapsdkplatform.comapi.commonutils.a.a aVar = new com.baidu.mapsdkplatform.comapi.commonutils.a.a(i3, i3 * i, ((i3 + 1) * i) - 1);
-            if (i3 == this.f3150b - 1) {
+            if (i3 == this.f3151b - 1) {
                 aVar.a(i2);
             }
             com.baidu.mapsdkplatform.comapi.commonutils.a.b bVar = new com.baidu.mapsdkplatform.comapi.commonutils.a.b(str, file, aVar, new a(this, file, null));
             if (this.c != null) {
                 this.c.add(bVar);
             }
-            if (this.f3149a != null && !this.f3149a.isShutdown()) {
-                this.f3149a.submit(bVar);
+            if (this.f3150a != null && !this.f3150a.isShutdown()) {
+                this.f3150a.submit(bVar);
             }
         }
     }
@@ -134,7 +134,7 @@ public class d {
                         randomAccessFile.setLength(contentLength);
                         randomAccessFile.close();
                         a2.disconnect();
-                        a(str, file2, contentLength % this.f3150b == 0 ? contentLength / this.f3150b : (contentLength / this.f3150b) + 1, contentLength);
+                        a(str, file2, contentLength % this.f3151b == 0 ? contentLength / this.f3151b : (contentLength / this.f3151b) + 1, contentLength);
                         return;
                     }
                 } catch (Exception e) {
@@ -149,7 +149,7 @@ public class d {
         if (i <= 0 || TextUtils.isEmpty(str) || TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
             return;
         }
-        this.f3150b = i;
+        this.f3151b = i;
         this.d = cVar;
         a(str, str2, str3);
     }

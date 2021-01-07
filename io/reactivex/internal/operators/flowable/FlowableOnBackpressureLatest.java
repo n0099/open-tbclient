@@ -6,14 +6,14 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicReference;
 import org.a.d;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class FlowableOnBackpressureLatest<T> extends a<T, T> {
     @Override // io.reactivex.g
     protected void a(org.a.c<? super T> cVar) {
-        this.qgK.a((j) new BackpressureLatestSubscriber(cVar));
+        this.qit.a((j) new BackpressureLatestSubscriber(cVar));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class BackpressureLatestSubscriber<T> extends AtomicInteger implements j<T>, d {
         private static final long serialVersionUID = 163080509307634843L;
         final org.a.c<? super T> actual;

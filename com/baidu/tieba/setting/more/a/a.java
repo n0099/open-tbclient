@@ -8,14 +8,14 @@ import java.io.File;
 /* loaded from: classes8.dex */
 public class a {
     private Context context;
-    private b ndw;
-    private String ndx = null;
-    private boolean ndy = false;
-    private b.a ndz = new b.a() { // from class: com.baidu.tieba.setting.more.a.a.1
+    private b ndv;
+    private String ndw = null;
+    private boolean ndx = false;
+    private b.a ndy = new b.a() { // from class: com.baidu.tieba.setting.more.a.a.1
         @Override // com.baidu.tieba.setting.more.a.b.a
-        public void dKo() {
-            if (a.this.ndy) {
-                a.this.ndy = false;
+        public void dKp() {
+            if (a.this.ndx) {
+                a.this.ndx = false;
             }
         }
     };
@@ -24,22 +24,22 @@ public class a {
         this.context = context;
     }
 
-    public void dKk() {
-        String dKn = dKn();
-        if (!TextUtils.isEmpty(dKn)) {
+    public void dKl() {
+        String dKo = dKo();
+        if (!TextUtils.isEmpty(dKo)) {
             stop();
-            if (c.Sw(dKn) && G(dKn, "instant", true)) {
-                this.ndy = true;
+            if (c.Sv(dKo) && G(dKo, "instant", true)) {
+                this.ndx = true;
             }
         }
     }
 
-    public void dKl() {
+    public void dKm() {
         stop();
     }
 
-    public boolean dKm() {
-        return this.ndy;
+    public boolean dKn() {
+        return this.ndx;
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tieba.setting.more.a.b */
@@ -51,27 +51,27 @@ public class a {
         } catch (Exception e) {
             BdLog.e(e);
         } finally {
-            this.ndw.a(null);
-            this.ndw = null;
+            this.ndv.a(null);
+            this.ndv = null;
         }
-        if (this.ndw != null) {
-            this.ndw.dKp();
+        if (this.ndv != null) {
+            this.ndv.dKq();
         }
-        this.ndy = false;
+        this.ndx = false;
     }
 
     private boolean G(String str, String str2, boolean z) {
-        if (this.ndw == null) {
-            Sv(str);
-            this.ndw = new b(str, str2, z);
-            this.ndw.a(this.ndz);
+        if (this.ndv == null) {
+            Su(str);
+            this.ndv = new b(str, str2, z);
+            this.ndv.a(this.ndy);
             try {
-                this.ndw.start();
+                this.ndv.start();
                 return true;
             } catch (IllegalThreadStateException e) {
                 return true;
             } catch (Exception e2) {
-                this.ndw = null;
+                this.ndv = null;
                 BdLog.e(e2);
                 return false;
             }
@@ -79,7 +79,7 @@ public class a {
         return true;
     }
 
-    private void Sv(String str) {
+    private void Su(String str) {
         File file = new File(str);
         if (!file.exists()) {
             if (file.mkdirs()) {
@@ -93,16 +93,16 @@ public class a {
         }
     }
 
-    private String dKn() {
-        if (!TextUtils.isEmpty(this.ndx)) {
-            return this.ndx;
+    private String dKo() {
+        if (!TextUtils.isEmpty(this.ndw)) {
+            return this.ndw;
         }
-        this.ndx = c.dKr();
-        if (TextUtils.isEmpty(this.ndx)) {
-            this.ndx = c.dKs();
-        } else if (!this.ndx.endsWith(File.separator)) {
-            this.ndx += File.separator;
+        this.ndw = c.dKs();
+        if (TextUtils.isEmpty(this.ndw)) {
+            this.ndw = c.dKt();
+        } else if (!this.ndw.endsWith(File.separator)) {
+            this.ndw += File.separator;
         }
-        return this.ndx;
+        return this.ndw;
     }
 }

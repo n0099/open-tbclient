@@ -7,7 +7,7 @@ import com.idlefish.flutterboost.interfaces.IFlutterViewContainer;
 import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class ContainerRecord implements IContainerRecord {
     private final IFlutterViewContainer mContainer;
     private final long mCreatTime;
@@ -166,7 +166,7 @@ public class ContainerRecord implements IContainerRecord {
     public void onLowMemory() {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     private class MethodChannelProxy {
         private int mState;
 

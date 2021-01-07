@@ -102,7 +102,7 @@ public class p {
     private Runnable cyD = new Runnable() { // from class: com.baidu.rtc.p.18
         @Override // java.lang.Runnable
         public void run() {
-            p.this.air();
+            p.this.ais();
             p.this.mHandler.postDelayed(p.this.cyD, p.cyA);
         }
     };
@@ -118,7 +118,7 @@ public class p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void air() {
+    public void ais() {
         String e = e((Integer) 12);
         JSONObject jSONObject = new JSONObject();
         try {
@@ -132,7 +132,7 @@ public class p {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ais() {
+    public void ait() {
         String e = e((Integer) 12);
         d dVar = new d();
         dVar.tid = e;
@@ -255,7 +255,7 @@ public class p {
             public void aE(JSONObject jSONObject) {
                 p.this.cyY = new BigInteger(jSONObject.optJSONObject("data").optString("id"));
                 p.this.mHandler.postDelayed(p.this.cyD, p.cyA);
-                p.this.ais();
+                p.this.ait();
             }
         };
         dVar.cws = new n() { // from class: com.baidu.rtc.p.21
@@ -352,7 +352,7 @@ public class p {
                     String optString4 = jSONObject.optJSONObject(BdStatsConstant.StatsType.ERROR).optString(TiebaInitialize.LogFields.REASON);
                     if (optString4.contains("Room is disbanded")) {
                         if (this.cyB != null) {
-                            this.cyB.aid();
+                            this.cyB.aie();
                         }
                     } else if (!optString4.contains("User is kick out") || this.cyB == null) {
                     } else {
@@ -364,7 +364,7 @@ public class p {
                 if (optString.equals("timeout")) {
                     this.mHandler.removeCallbacks(this.cyD);
                     if (this.cyB != null) {
-                        this.cyB.aia();
+                        this.cyB.aib();
                     }
                 } else if (optString.equals("slowlink")) {
                     this.cyB.g(jSONObject.optBoolean("uplink"), jSONObject.optInt("nacks"));
@@ -581,7 +581,7 @@ public class p {
                     Log.i("WebSocketChannel", "onClosing");
                 }
                 if (p.this.cyB != null) {
-                    p.this.cyB.aia();
+                    p.this.cyB.aib();
                 }
             }
 
@@ -597,7 +597,7 @@ public class p {
                 }
                 if (th instanceof SocketTimeoutException) {
                     if (p.this.cyB != null) {
-                        p.this.cyB.aic();
+                        p.this.cyB.aid();
                     }
                 } else if (th instanceof NumberFormatException) {
                     Log.e("WebSocketChannel", "onFailure: java.lang.NumberFormatException");
@@ -605,12 +605,12 @@ public class p {
                     Log.e("WebSocketChannel", "onFailure: java.lang.NullPointerException");
                 } else if (!(th instanceof SSLException)) {
                     if (p.this.cyB != null) {
-                        p.this.cyB.aib();
+                        p.this.cyB.aic();
                     }
                 } else {
                     Log.e("WebSocketChannel", "onFailure: SSLException");
                     if (p.this.cyB != null) {
-                        p.this.cyB.aia();
+                        p.this.cyB.aib();
                     }
                 }
             }
@@ -778,7 +778,7 @@ public class p {
         aF(jSONObject2);
     }
 
-    public BaiduRtcRoom.d[] ait() {
+    public BaiduRtcRoom.d[] aiu() {
         if (this.cza.size() < 1) {
             return null;
         }

@@ -10,35 +10,35 @@ import java.util.Set;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public abstract class g implements d {
-    public c<com.baidu.swan.pms.model.f> aui() {
+    public c<com.baidu.swan.pms.model.f> auj() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.g> auf() {
+    public c<com.baidu.swan.pms.model.g> aug() {
         return null;
     }
 
-    public c<i> axB() {
+    public c<i> axC() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.d> auj() {
+    public c<com.baidu.swan.pms.model.d> auk() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.b> auk() {
+    public c<com.baidu.swan.pms.model.b> aul() {
         return null;
     }
 
-    public c<com.baidu.swan.pms.model.h> aIk() {
+    public c<com.baidu.swan.pms.model.h> aIl() {
         return null;
     }
 
-    public a<a.C0559a> aue() {
+    public a<a.C0559a> auf() {
         return null;
     }
 
-    public f aul() {
+    public f aum() {
         return null;
     }
 
@@ -57,26 +57,26 @@ public abstract class g implements d {
         return bundle2;
     }
 
-    public void are() {
+    public void arf() {
     }
 
     public void R(String str, int i) {
     }
 
-    public void aud() {
+    public void aue() {
     }
 
     public void b(com.baidu.swan.pms.model.a aVar) {
     }
 
-    public void arc() {
+    public void ard() {
     }
 
     public void a(com.baidu.swan.pms.utils.f fVar) {
     }
 
     @Override // com.baidu.swan.pms.a.d
-    public void atY() {
+    public void atZ() {
     }
 
     @Override // com.baidu.swan.pms.a.d
@@ -86,15 +86,15 @@ public abstract class g implements d {
     public void b(String str, String str2, JSONObject jSONObject) {
     }
 
-    public Map<String, String> bfY() {
-        return null;
-    }
-
     public Map<String, String> bfZ() {
         return null;
     }
 
     public Map<String, String> bga() {
+        return null;
+    }
+
+    public Map<String, String> bgb() {
         return null;
     }
 }

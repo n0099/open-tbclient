@@ -61,7 +61,7 @@ public class RecommendActivityView extends com.baidu.tieba.card.b<com.baidu.tieb
                 if (obj != null && (obj instanceof com.baidu.tieba.ala.alasquare.special_forum.data.b)) {
                     com.baidu.tieba.ala.alasquare.special_forum.data.b bVar = (com.baidu.tieba.ala.alasquare.special_forum.data.b) obj;
                     if (!StringUtils.isNull(bVar.url)) {
-                        be.bwu().a((TbPageContext) j.K(RecommendActivityView.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
+                        be.bwv().a((TbPageContext) j.K(RecommendActivityView.this.mTbPageContext.getPageActivity()), new String[]{bVar.url}, true);
                     }
                     TiebaStatic.log("c12902");
                 }

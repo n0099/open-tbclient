@@ -10,19 +10,19 @@ import io.reactivex.t;
 import io.reactivex.u;
 import java.util.concurrent.Callable;
 import java.util.concurrent.atomic.AtomicBoolean;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ObservableUsing<T, D> extends q<T> {
     final g<? super D> disposer;
     final boolean eager;
-    final Callable<? extends D> qgI;
-    final h<? super D, ? extends t<? extends T>> qhE;
+    final Callable<? extends D> qir;
+    final h<? super D, ? extends t<? extends T>> qjn;
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
         try {
-            D call = this.qgI.call();
+            D call = this.qir.call();
             try {
-                ((t) io.reactivex.internal.functions.a.m(this.qhE.apply(call), "The sourceSupplier returned a null ObservableSource")).subscribe(new UsingObserver(uVar, call, this.disposer, this.eager));
+                ((t) io.reactivex.internal.functions.a.m(this.qjn.apply(call), "The sourceSupplier returned a null ObservableSource")).subscribe(new UsingObserver(uVar, call, this.disposer, this.eager));
             } catch (Throwable th) {
                 io.reactivex.exceptions.a.O(th);
                 try {
@@ -39,7 +39,7 @@ public final class ObservableUsing<T, D> extends q<T> {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class UsingObserver<T, D> extends AtomicBoolean implements io.reactivex.disposables.b, u<T> {
         private static final long serialVersionUID = 5904473792286235046L;
         final u<? super T> actual;

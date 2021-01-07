@@ -64,17 +64,17 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     private void M(bz bzVar) {
-        if (this.fnZ != null && bzVar != null && this.foc && bzVar.brJ() != null && bzVar.bsN()) {
+        if (this.fnZ != null && bzVar != null && this.foc && bzVar.brK() != null && bzVar.bsO()) {
             this.fnZ.setVisibility(0);
-            this.fnZ.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), at.numberUniformFormat(bzVar.brJ().audience_count)));
+            this.fnZ.setText(String.format(this.mContext.getString(R.string.person_view_item_live_watch_num), at.numberUniformFormat(bzVar.brK().audience_count)));
         }
     }
 
     private void N(bz bzVar) {
         if (this.fnZ != null && bzVar != null && this.foa) {
-            if (bzVar.bri() >= 0) {
+            if (bzVar.brj() >= 0) {
                 this.fnZ.setVisibility(0);
-                this.fnZ.setText(String.format(this.mContext.getString(R.string.person_view_num), at.numberUniformFormat(bzVar.bri())));
+                this.fnZ.setText(String.format(this.mContext.getString(R.string.person_view_num), at.numberUniformFormat(bzVar.brj())));
                 return;
             }
             this.fnZ.setVisibility(8);
@@ -83,9 +83,9 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
 
     private void O(bz bzVar) {
         if (this.eLi != null && bzVar != null && this.fob) {
-            if (bzVar.brh() >= 0) {
+            if (bzVar.bri() >= 0) {
                 this.eLi.setVisibility(0);
-                this.eLi.setText(String.format(this.mContext.getString(R.string.comment_num_tip), at.numberUniformFormat(bzVar.brh())));
+                this.eLi.setText(String.format(this.mContext.getString(R.string.comment_num_tip), at.numberUniformFormat(bzVar.bri())));
                 return;
             }
             this.eLi.setVisibility(8);
@@ -93,16 +93,16 @@ public class ThreadViewAndCommentInfoLayout extends LinearLayout {
     }
 
     private void P(bz bzVar) {
-        if (this.eLi != null && bzVar != null && this.fod && bzVar.bsN()) {
+        if (this.eLi != null && bzVar != null && this.fod && bzVar.bsO()) {
             this.eLi.setVisibility(0);
-            this.eLi.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), at.numberUniformFormat(bzVar.bsR())));
+            this.eLi.setText(String.format(this.mContext.getString(R.string.person_view_item_live_zan_num), at.numberUniformFormat(bzVar.bsS())));
         }
     }
 
     private void B(bz bzVar) {
-        if (this.eLi != null && bzVar != null && this.foe && bzVar.bsN()) {
+        if (this.eLi != null && bzVar != null && this.foe && bzVar.bsO()) {
             this.eLi.setVisibility(0);
-            this.eLi.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), at.numberUniformFormat((bzVar.brJ() == null || bzVar.brJ().share_info == null) ? 0 : bzVar.brJ().share_info.share_count)));
+            this.eLi.setText(String.format(this.mContext.getString(R.string.person_view_item_live_share_num), at.numberUniformFormat((bzVar.brK() == null || bzVar.brK().share_info == null) ? 0 : bzVar.brK().share_info.share_count)));
         }
     }
 

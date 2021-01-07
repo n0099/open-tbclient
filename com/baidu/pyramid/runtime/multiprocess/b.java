@@ -6,8 +6,8 @@ public class b {
 
     /* loaded from: classes6.dex */
     public static class a {
-        public static Bundle ahH() {
-            return IPCServiceManager.ahH();
+        public static Bundle ahI() {
+            return IPCServiceManager.ahI();
         }
     }
 }

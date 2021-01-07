@@ -37,7 +37,7 @@ public class b {
                 } else {
                     b.this.kUO.add(valueOf);
                 }
-                b.this.dcJ();
+                b.this.dcK();
             }
         }
     };
@@ -64,7 +64,7 @@ public class b {
         this.kUM = new com.baidu.tieba.interestlabel.a.a(this.kUI.getPageContext().getPageActivity());
         this.kUM.setOnClickListener(this.kUP);
         this.kUN = new a(this.kUI.getPageContext().getPageActivity());
-        this.WV.addHeaderView(this.kUN.dcF());
+        this.WV.addHeaderView(this.kUN.dcG());
         this.WV.setAdapter((ListAdapter) this.kUM);
         onChangeSkinType();
     }
@@ -91,24 +91,24 @@ public class b {
         return this.mRootView;
     }
 
-    public View dcH() {
+    public View dcI() {
         return this.kUK;
     }
 
-    public View dcI() {
+    public View dcJ() {
         return this.kUL;
     }
 
     public void setData(com.baidu.tieba.interestlabel.b.b bVar) {
-        if (bVar != null && bVar.dcy() != null && bVar.dcz() != null) {
-            for (com.baidu.tieba.interestlabel.b.a aVar : bVar.dcz()) {
+        if (bVar != null && bVar.dcz() != null && bVar.dcA() != null) {
+            for (com.baidu.tieba.interestlabel.b.a aVar : bVar.dcA()) {
                 if (aVar != null) {
                     aVar.isFollow = false;
                 }
             }
             this.mDataList.clear();
-            this.mDataList.addAll(bVar.dcz());
-            this.kUN.setData(bVar.dcy());
+            this.mDataList.addAll(bVar.dcA());
+            this.kUN.setData(bVar.dcz());
             this.kUM.setData(this.mDataList);
             this.WV.setVisibility(0);
             cV(0, this.mDataList.size());
@@ -116,7 +116,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dcJ() {
+    public void dcK() {
         for (com.baidu.tieba.interestlabel.b.a aVar : this.mDataList) {
             if (aVar != null) {
                 aVar.isFollow = this.kUO.contains(Integer.valueOf(aVar.labelId));
@@ -126,9 +126,9 @@ public class b {
         cV(this.kUO.size(), this.mDataList.size());
     }
 
-    public List<Integer> dcK() {
+    public List<Integer> dcL() {
         ArrayList arrayList = new ArrayList(this.kUO);
-        arrayList.add(0, Integer.valueOf(this.kUN.dcG()));
+        arrayList.add(0, Integer.valueOf(this.kUN.dcH()));
         return arrayList;
     }
 }

@@ -67,7 +67,7 @@ public class AlaChallengeCountDown extends LinearLayout {
         this.maxCount = i;
     }
 
-    private void cgI() {
+    private void cgJ() {
         ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
         ofFloat.setDuration(300L);
         ofFloat.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.ala.liveroom.challenge.view.AlaChallengeCountDown.1
@@ -86,9 +86,9 @@ public class AlaChallengeCountDown extends LinearLayout {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cgJ() {
+    public void cgK() {
         if (this.count <= 0) {
-            cgL();
+            cgM();
             return;
         }
         this.hyS.setText(String.valueOf(this.count));
@@ -111,7 +111,7 @@ public class AlaChallengeCountDown extends LinearLayout {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                AlaChallengeCountDown.this.cgJ();
+                AlaChallengeCountDown.this.cgK();
             }
 
             @Override // android.view.animation.Animation.AnimationListener
@@ -121,7 +121,7 @@ public class AlaChallengeCountDown extends LinearLayout {
         this.hyS.startAnimation(animationSet);
     }
 
-    public void cgK() {
+    public void cgL() {
         this.hyT = false;
         this.hyU = false;
         if (this.hyR != null) {
@@ -134,7 +134,7 @@ public class AlaChallengeCountDown extends LinearLayout {
         }
     }
 
-    public void cgL() {
+    public void cgM() {
         if (!this.hyU) {
             this.hyU = true;
             if (this.hyR != null) {
@@ -182,8 +182,8 @@ public class AlaChallengeCountDown extends LinearLayout {
             this.hyT = true;
             this.count = this.maxCount;
             this.rootView.setAlpha(1.0f);
-            cgI();
             cgJ();
+            cgK();
         }
     }
 

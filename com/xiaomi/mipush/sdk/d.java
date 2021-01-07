@@ -8,9 +8,9 @@ public enum d {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private int f150a;
+    private int f151a;
 
     d(int i) {
-        this.f150a = i;
+        this.f151a = i;
     }
 }

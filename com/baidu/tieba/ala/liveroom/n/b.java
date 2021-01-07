@@ -49,7 +49,7 @@ public class b {
 
     /* loaded from: classes11.dex */
     public interface a {
-        boolean ceJ();
+        boolean ceK();
 
         void onClose();
     }
@@ -79,8 +79,8 @@ public class b {
             OF();
             RM();
             registerListener();
-            ciK();
             ciL();
+            ciM();
         }
     }
 
@@ -101,7 +101,7 @@ public class b {
                     fVar.setIsAttention(true);
                     fVar.setInLive("1");
                     fVar.setFrom("source_guide_pop");
-                    com.baidu.live.view.a.Zx().b(String.valueOf(l), fVar);
+                    com.baidu.live.view.a.Zy().b(String.valueOf(l), fVar);
                 }
             }
         };
@@ -117,8 +117,8 @@ public class b {
     }
 
     public boolean TQ() {
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && this.hER && TbadkCoreApplication.isLogin() && this.hEN != null && !this.hEN.ceJ()) {
-            ciQ();
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && this.hER && TbadkCoreApplication.isLogin() && this.hEN != null && !this.hEN.ceK()) {
+            ciR();
             return true;
         }
         return false;
@@ -198,7 +198,7 @@ public class b {
         }
     }
 
-    private void ciK() {
+    private void ciL() {
         bj bjVar;
         int i;
         if (!this.hEQ && TbadkCoreApplication.isLogin() && !this.hES.hFa && this.hEY != null && (bjVar = this.hEY.aOM) != null) {
@@ -217,14 +217,14 @@ public class b {
         }
     }
 
-    private void ciL() {
+    private void ciM() {
         bj bjVar;
         int i;
         if (this.hEY != null && (bjVar = this.hEY.aOM) != null && (i = bjVar.aRi) > 0) {
             LiveTimerManager.getInstance().addLiveTimerTask("guide_follow_pop", this.bvY, new OnLiveTimerListener() { // from class: com.baidu.tieba.ala.liveroom.n.b.4
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
                 public void onComplete(boolean z) {
-                    b.this.ciP();
+                    b.this.ciQ();
                 }
 
                 @Override // com.baidu.live.tbadk.timer.OnLiveTimerListener
@@ -236,18 +236,18 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void om(boolean z) {
-        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && z && this.hET && !this.hEU && !this.hES.hFa && this.hEN != null && !this.hEN.ceJ()) {
-            ciM();
+        if ((TbadkCoreApplication.sAlaLiveSwitchData == null || !TbadkCoreApplication.sAlaLiveSwitchData.isFollowBtnUnabled()) && z && this.hET && !this.hEU && !this.hES.hFa && this.hEN != null && !this.hEN.ceK()) {
+            ciN();
         }
     }
 
-    private void ciM() {
+    private void ciN() {
         this.hEQ = true;
-        ciN();
         ciO();
+        ciP();
     }
 
-    private void ciN() {
+    private void ciO() {
         if (this.hEV == null) {
             if (UtilHelper.getRealScreenOrientation(this.mPageContext.getPageActivity()) == 2) {
                 this.hEV = new e(this.mPageContext.getPageActivity());
@@ -257,7 +257,7 @@ public class b {
             this.hEV.a(new a.InterfaceC0686a() { // from class: com.baidu.tieba.ala.liveroom.n.b.5
                 @Override // com.baidu.tieba.ala.liveroom.n.a.InterfaceC0686a
                 public void onConfirm() {
-                    LogManager.getCommonLogger().doClickGuideFollowFloatConfirmLog(b.this.mVid, String.valueOf(b.this.bvY), b.this.hEV.ciJ(), b.this.mOtherParams);
+                    LogManager.getCommonLogger().doClickGuideFollowFloatConfirmLog(b.this.mVid, String.valueOf(b.this.bvY), b.this.hEV.ciK(), b.this.mOtherParams);
                     b.this.on(false);
                 }
             });
@@ -269,7 +269,7 @@ public class b {
         }
     }
 
-    private void ciO() {
+    private void ciP() {
         bj bjVar;
         String b2 = k.b(new Date());
         if (b2.equals(this.hES.date)) {
@@ -287,17 +287,17 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ciP() {
+    public void ciQ() {
         this.hER = true;
     }
 
-    private void ciQ() {
+    private void ciR() {
         if (this.hEW == null) {
             this.hEW = new d(this.mPageContext.getPageActivity());
             this.hEW.a(new d.a() { // from class: com.baidu.tieba.ala.liveroom.n.b.6
                 @Override // com.baidu.tieba.ala.liveroom.n.d.a
                 public void onConfirm() {
-                    LogManager.getCommonLogger().doClickGuideFollowPopConfirmLog(b.this.mVid, String.valueOf(b.this.bvY), b.this.hEW.ciJ(), b.this.mOtherParams);
+                    LogManager.getCommonLogger().doClickGuideFollowPopConfirmLog(b.this.mVid, String.valueOf(b.this.bvY), b.this.hEW.ciK(), b.this.mOtherParams);
                     UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", "liveroom", "follow_clk").setContentExt(null, "popup", null));
                     b.this.on(true);
                 }
@@ -310,7 +310,7 @@ public class b {
             });
         }
         if (this.mPageContext != null && !this.mPageContext.getPageActivity().isFinishing()) {
-            this.hEW.GB(this.hEO);
+            this.hEW.GA(this.hEO);
             LogManager.getCommonLogger().doDisplayGuideFollowPopLog(this.mVid, this.mOtherParams);
         }
     }
@@ -333,7 +333,7 @@ public class b {
             fVar.setIsAttention(true);
             fVar.setInLive("1");
             fVar.setFrom(z ? "source_guide_pop_2" : "source_guide_pop");
-            com.baidu.live.view.a.Zx().a(String.valueOf(this.mUid), fVar);
+            com.baidu.live.view.a.Zy().a(String.valueOf(this.mUid), fVar);
         } else {
             BdUtilHelper.showToast(this.mPageContext.getPageActivity(), "网络不好，关注失败");
         }
@@ -364,12 +364,12 @@ public class b {
         }
     }
 
-    public void bnO() {
+    public void bnP() {
         if (this.hEV != null && this.hEV.isShowing()) {
-            this.hEV.ciI();
+            this.hEV.ciJ();
         }
         if (this.hEW != null && this.hEW.isShowing()) {
-            this.hEW.ciI();
+            this.hEW.ciJ();
         }
     }
 }

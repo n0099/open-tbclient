@@ -46,7 +46,7 @@ public class a implements d {
             }
             a.this.gQm.completePullRefresh();
             a.this.gQm.hideLoadingView();
-            a.this.gQm.bWW();
+            a.this.gQm.bWX();
             a.this.gQn = true;
         }
     };
@@ -69,7 +69,7 @@ public class a implements d {
                         a.this.gQm.aB(updateAttentionMessage.getData().toUid, !updateAttentionMessage.getData().isAttention);
                     }
                     Message<?> message = updateAttentionMessage.getmOrginalMessage();
-                    if (message != null && message.getTag() != null && message.getTag().equals(a.this.mPageId) && !com.baidu.live.view.a.Zx().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false) && !StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
+                    if (message != null && message.getTag() != null && message.getTag().equals(a.this.mPageId) && !com.baidu.live.view.a.Zy().a(updateAttentionMessage.getData(), (BdPageContext<?>) a.this.mPageContext, false) && !StringUtils.isNull(updateAttentionMessage.getData().errorString)) {
                         a.this.mPageContext.showToast(updateAttentionMessage.getData().errorString);
                         return;
                     }
@@ -81,7 +81,7 @@ public class a implements d {
                         a.this.gQm.aB(updateAttentionMessage.getData().toUid, updateAttentionMessage.getData().isAttention);
                     }
                 } else if (updateAttentionMessage.getData().isAttention) {
-                    com.baidu.live.view.a.Zx().a(a.this.mPageContext, true);
+                    com.baidu.live.view.a.Zy().a(a.this.mPageContext, true);
                 }
             }
         }
@@ -96,7 +96,7 @@ public class a implements d {
     public void createView() {
         if (this.gQm == null) {
             this.gQm = new b(this.mPageContext, this.mPageId, this.mGroupId, this.mLiveId, this.boZ, this.aGB);
-            this.gQm.Hl(this.gPk);
+            this.gQm.Hk(this.gPk);
             this.gQm.a(this.gQo);
         }
         this.gPp = new com.baidu.tieba.ala.charm.model.a(this.mPageContext, this.mUid, this.gPt);
@@ -106,22 +106,22 @@ public class a implements d {
         }
     }
 
-    public a Hh(String str) {
+    public a Hg(String str) {
         this.mGroupId = str;
         return this;
     }
 
-    public a Hi(String str) {
+    public a Hh(String str) {
         this.mLiveId = str;
         return this;
     }
 
-    public a Hj(String str) {
+    public a Hi(String str) {
         this.mUid = str;
         return this;
     }
 
-    public a Hk(String str) {
+    public a Hj(String str) {
         this.gPk = str;
         return this;
     }

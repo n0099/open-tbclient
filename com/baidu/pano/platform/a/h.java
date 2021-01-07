@@ -3,18 +3,18 @@ package com.baidu.pano.platform.a;
 import java.io.UnsupportedEncodingException;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 class h {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final char[] f3914a = "0123456789ABCDEF".toCharArray();
+    private static final char[] f3915a = "0123456789ABCDEF".toCharArray();
 
     private static String a(byte[] bArr) {
         char[] cArr = new char[bArr.length * 2];
         for (int i = 0; i < bArr.length; i++) {
             int i2 = bArr[i] & 255;
-            cArr[i * 2] = f3914a[i2 >>> 4];
-            cArr[(i * 2) + 1] = f3914a[i2 & 15];
+            cArr[i * 2] = f3915a[i2 >>> 4];
+            cArr[(i * 2) + 1] = f3915a[i2 & 15];
         }
         return new String(cArr);
     }

@@ -6,13 +6,13 @@ import android.text.TextUtils;
 public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14655a = "";
+    private String f14656a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private Context f14656b;
+    private Context f14657b;
 
     public b(Context context) {
-        this.f14656b = context;
+        this.f14657b = context;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
@@ -33,13 +33,13 @@ public final class b implements com.yxcorp.kuaishou.addfp.a.b.a {
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final String b() {
-        String b2 = a.jc(this.f14656b).b();
+        String b2 = a.jc(this.f14657b).b();
         return TextUtils.isEmpty(b2) ? "" : b2;
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a
     public final boolean c() {
-        return a.jc(this.f14656b).a();
+        return a.jc(this.f14657b).a();
     }
 
     @Override // com.yxcorp.kuaishou.addfp.a.b.a

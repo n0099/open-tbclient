@@ -7,11 +7,11 @@ import java.util.concurrent.atomic.AtomicInteger;
 class b extends TimerTask {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ a f3460a;
+    final /* synthetic */ a f3461a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar) {
-        this.f3460a = aVar;
+        this.f3461a = aVar;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
@@ -25,27 +25,27 @@ class b extends TimerTask {
         int i3;
         IOAdTimer.EventHandler eventHandler4;
         int i4;
-        atomicInteger = this.f3460a.h;
+        atomicInteger = this.f3461a.h;
         if (atomicInteger.get() == 0) {
-            eventHandler = this.f3460a.f3459b;
+            eventHandler = this.f3461a.f3460b;
             if (eventHandler != null) {
-                a aVar = this.f3460a;
-                i2 = this.f3460a.d;
-                i3 = this.f3460a.e;
+                a aVar = this.f3461a;
+                i2 = this.f3461a.d;
+                i3 = this.f3461a.e;
                 aVar.f = i2 - i3;
-                eventHandler4 = this.f3460a.f3459b;
-                i4 = this.f3460a.f;
+                eventHandler4 = this.f3461a.f3460b;
+                i4 = this.f3461a.f;
                 eventHandler4.onTimer(i4);
             }
-            i = this.f3460a.e;
+            i = this.f3461a.e;
             if (i > 0) {
-                a.f(this.f3460a);
+                a.f(this.f3461a);
                 return;
             }
-            this.f3460a.stop();
-            eventHandler2 = this.f3460a.f3459b;
+            this.f3461a.stop();
+            eventHandler2 = this.f3461a.f3460b;
             if (eventHandler2 != null) {
-                eventHandler3 = this.f3460a.f3459b;
+                eventHandler3 = this.f3461a.f3460b;
                 eventHandler3.onTimerComplete();
             }
         }

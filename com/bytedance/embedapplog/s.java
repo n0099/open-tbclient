@@ -19,7 +19,7 @@ public final class s extends ch {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.embedapplog.ch
     public boolean a(JSONObject jSONObject) {
-        Map<String, String> a2 = ba.a(this.e, this.pgJ.epH());
+        Map<String, String> a2 = ba.a(this.e, this.pgJ.epI());
         if (a2 != null) {
             jSONObject.put("oaid", new JSONObject(a2));
             return true;

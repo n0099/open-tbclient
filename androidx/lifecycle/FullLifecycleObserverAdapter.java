@@ -1,7 +1,7 @@
 package androidx.lifecycle;
 
 import androidx.lifecycle.Lifecycle;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class FullLifecycleObserverAdapter implements LifecycleEventObserver {
     private final FullLifecycleObserver mFullLifecycleObserver;
     private final LifecycleEventObserver mLifecycleEventObserver;

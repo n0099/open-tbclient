@@ -42,7 +42,7 @@ public class PipedOutputStreamAndroid25 extends OutputStream {
     @Override // java.io.OutputStream, java.io.Closeable, java.lang.AutoCloseable
     public void close() throws IOException {
         if (this.oLo != null) {
-            this.oLo.ehZ();
+            this.oLo.eia();
         }
     }
 }

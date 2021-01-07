@@ -2,7 +2,7 @@ package com.baidu.poly.a.d;
 
 import android.graphics.Bitmap;
 import android.widget.ImageView;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class f {
     public Bitmap bitmap;
     public ImageView cnQ;

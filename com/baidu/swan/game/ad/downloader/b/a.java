@@ -57,7 +57,7 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.a {
     }
 
     @Override // com.baidu.swan.game.ad.downloader.c.a
-    public void aVk() {
+    public void aVl() {
         this.eaT.execSQL("UPDATE ad_download SET status=? WHERE status!=?;", new Object[]{Integer.valueOf(STATUS_PAUSED), Integer.valueOf(STATUS_COMPLETED)});
     }
 

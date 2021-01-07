@@ -40,15 +40,15 @@ public class a implements n {
         this.avatar = str;
     }
 
-    public String cJB() {
+    public String cJC() {
         return this.publish_time;
     }
 
-    public String bru() {
+    public String brv() {
         return this.forum_name;
     }
 
-    public void Bd(String str) {
+    public void Bc(String str) {
         this.forum_name = str;
     }
 

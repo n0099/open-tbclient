@@ -58,7 +58,7 @@ public class f extends ClickableSpan {
         this.urlType = i;
     }
 
-    public void EU(String str) {
+    public void ET(String str) {
         this.fZK = str;
     }
 
@@ -70,7 +70,7 @@ public class f extends ClickableSpan {
     public void updateDrawState(TextPaint textPaint) {
         if (this.textColor != -1) {
             textPaint.setColor(ao.getColor(this.textColor));
-        } else if (bLv()) {
+        } else if (bLw()) {
             textPaint.setColor(TbadkCoreApplication.getInst().getResources().getColor(R.color.CAM_X0304));
         } else {
             textPaint.setColor(textPaint.linkColor);
@@ -78,7 +78,7 @@ public class f extends ClickableSpan {
         textPaint.setUnderlineText(false);
         if (this.color != -1) {
             textPaint.bgColor = this.color;
-        } else if (this.fZL == 1 && bLw()) {
+        } else if (this.fZL == 1 && bLx()) {
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 textPaint.bgColor = ao.getColor(R.color.CAM_X0204);
             } else {
@@ -89,7 +89,7 @@ public class f extends ClickableSpan {
         }
     }
 
-    private boolean bLv() {
+    private boolean bLw() {
         switch (this.mType) {
             case 2:
             case 16:
@@ -100,7 +100,7 @@ public class f extends ClickableSpan {
         }
     }
 
-    public boolean bLw() {
+    public boolean bLx() {
         switch (this.mType) {
             case 16:
             case 18:

@@ -18,7 +18,7 @@ public class b implements Cloneable {
     private Drawable mThumbDrawable = null;
     private int pax = a.paJ;
     private int paz = a.paI;
-    private int owA = a.paK;
+    private int owz = a.paK;
     private int paA = a.paL;
     private int paB = 0;
     private int paC = 0;
@@ -45,14 +45,14 @@ public class b implements Cloneable {
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.switchbutton.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    static class C0949b {
+    static class C0987b {
         static int paP = 24;
     }
 
     public static b by(float f) {
         b bVar = new b();
         bVar.dok = f;
-        bVar.Pe(bVar.enr());
+        bVar.Pe(bVar.ens());
         bVar.paH = new Rect(a.paO, a.paO, a.paO, a.paO);
         return bVar;
     }
@@ -75,11 +75,11 @@ public class b implements Cloneable {
         }
     }
 
-    public Drawable enp() {
+    public Drawable enq() {
         return this.pav;
     }
 
-    public Drawable enq() {
+    public Drawable enr() {
         return this.paw;
     }
 
@@ -106,23 +106,23 @@ public class b implements Cloneable {
         P(i, i, i, i);
     }
 
-    public int enr() {
+    public int ens() {
         return (int) (a.paM * this.dok);
     }
 
-    public int ens() {
+    public int ent() {
         return this.paB;
     }
 
-    public int ent() {
+    public int enu() {
         return this.paC;
     }
 
-    public int enu() {
+    public int env() {
         return this.paD;
     }
 
-    public int env() {
+    public int enw() {
         return this.paE;
     }
 
@@ -142,7 +142,7 @@ public class b implements Cloneable {
         this.bKi = i;
     }
 
-    public int enw() {
+    public int enx() {
         return this.bKi;
     }
 
@@ -155,21 +155,21 @@ public class b implements Cloneable {
         }
     }
 
-    public Drawable enx() {
+    public Drawable eny() {
         return this.paw != null ? this.paw : Pj(this.paz);
     }
 
-    public Drawable eny() {
+    public Drawable enz() {
         return this.pav != null ? this.pav : Pj(this.pax);
     }
 
-    public Drawable enz() {
+    public Drawable enA() {
         int[] iArr;
         if (this.mThumbDrawable != null) {
             return this.mThumbDrawable;
         }
         StateListDrawable stateListDrawable = new StateListDrawable();
-        Drawable Pj = Pj(this.owA);
+        Drawable Pj = Pj(this.owz);
         Drawable Pj2 = Pj(this.paA);
         try {
             Field declaredField = View.class.getDeclaredField("PRESSED_ENABLED_STATE_SET");
@@ -186,7 +186,7 @@ public class b implements Cloneable {
         return stateListDrawable;
     }
 
-    public float enA() {
+    public float enB() {
         if (this.paG <= 0.0f) {
             this.paG = a.paN;
         }
@@ -200,7 +200,7 @@ public class b implements Cloneable {
         this.paG = f;
     }
 
-    public Rect enB() {
+    public Rect enC() {
         return this.paH;
     }
 
@@ -239,23 +239,23 @@ public class b implements Cloneable {
         this.paH.bottom = i;
     }
 
-    public int enC() {
-        return enE() / 2;
-    }
-
     public int enD() {
         return enF() / 2;
     }
 
     public int enE() {
-        return this.paH.left + this.paH.right;
+        return enG() / 2;
     }
 
     public int enF() {
+        return this.paH.left + this.paH.right;
+    }
+
+    public int enG() {
         return this.paH.top + this.paH.bottom;
     }
 
-    public boolean enG() {
+    public boolean enH() {
         return ((this.paH.left + this.paH.right) + this.paH.top) + this.paH.bottom != 0;
     }
 
@@ -267,7 +267,7 @@ public class b implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int enH() {
+    public int enI() {
         int i = this.mThumbWidth;
         if (i < 0) {
             if (this.mThumbDrawable == null || (i = this.mThumbDrawable.getIntrinsicWidth()) <= 0) {
@@ -275,7 +275,7 @@ public class b implements Cloneable {
                     c.e("SwitchButtonConfiguration", "density must be a positive number");
                     return i;
                 }
-                return (int) (C0949b.paP * this.dok);
+                return (int) (C0987b.paP * this.dok);
             }
             return i;
         }
@@ -283,7 +283,7 @@ public class b implements Cloneable {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public int enI() {
+    public int enJ() {
         int i = this.paF;
         if (i < 0) {
             if (this.mThumbDrawable == null || (i = this.mThumbDrawable.getIntrinsicHeight()) <= 0) {
@@ -291,7 +291,7 @@ public class b implements Cloneable {
                     c.e("SwitchButtonConfiguration", "density must be a positive number");
                     return i;
                 }
-                return (int) (C0949b.paP * this.dok);
+                return (int) (C0987b.paP * this.dok);
             }
             return i;
         }

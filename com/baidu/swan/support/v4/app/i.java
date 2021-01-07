@@ -24,8 +24,8 @@ public class i {
         this.ezc = jVar;
     }
 
-    public k bhE() {
-        return this.ezc.bhG();
+    public k bhF() {
+        return this.ezc.bhH();
     }
 
     public int getActiveFragmentsCount() {
@@ -68,7 +68,7 @@ public class i {
     }
 
     public List<Fragment> retainNonConfig() {
-        return this.ezc.ezb.bhI();
+        return this.ezc.ezb.bhJ();
     }
 
     public void dispatchCreate() {
@@ -151,8 +151,8 @@ public class i {
         this.ezc.reportLoaderStart();
     }
 
-    public com.baidu.swan.support.v4.b.f<String, o> bhF() {
-        return this.ezc.bhF();
+    public com.baidu.swan.support.v4.b.f<String, o> bhG() {
+        return this.ezc.bhG();
     }
 
     public void a(com.baidu.swan.support.v4.b.f<String, o> fVar) {

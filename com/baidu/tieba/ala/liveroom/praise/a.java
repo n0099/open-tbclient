@@ -18,7 +18,7 @@ public class a {
     private String otherParams;
     private DetailPraiseView.a hNy = new DetailPraiseView.a() { // from class: com.baidu.tieba.ala.liveroom.praise.a.1
         @Override // com.baidu.tieba.ala.liveroom.praise.DetailPraiseView.a
-        public void cnb() {
+        public void cnc() {
             if (a.this.hNw != null) {
                 a.this.hNw.v(a.this.hNv, 12);
             }
@@ -83,9 +83,9 @@ public class a {
         }
     }
 
-    public void bZv() {
+    public void bZw() {
         if (this.hNv != null) {
-            this.hNv.bZv();
+            this.hNv.bZw();
         }
     }
 

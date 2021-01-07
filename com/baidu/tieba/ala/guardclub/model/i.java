@@ -27,7 +27,7 @@ public class i implements m {
         this.hcz = aVar;
     }
 
-    public void HG(String str) {
+    public void HF(String str) {
         HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS);
         httpMessage.addParam("guard_club_id", str);
         httpMessage.addParam("scene_from", q.Ia());
@@ -48,14 +48,14 @@ public class i implements m {
     }
 
     private void registerTask() {
-        bZa();
+        bZb();
     }
 
     private void unRegisterTask() {
         MessageManager.getInstance().unRegisterTask(1021146);
     }
 
-    private void bZa() {
+    private void bZb() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021146, TbConfig.SERVER_HOST + "liveserver/guardClub/clubRankList");
         tbHttpMessageTask.setIsNeedLogin(false);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -66,8 +66,8 @@ public class i implements m {
     }
 
     private void registerListener() {
-        bZb();
         bZc();
+        bZd();
     }
 
     private void unRegisterListener() {
@@ -75,7 +75,7 @@ public class i implements m {
         MessageManager.getInstance().unRegisterListener(this.hcB);
     }
 
-    private void bZb() {
+    private void bZc() {
         if (this.hcA == null) {
             this.hcA = new HttpMessageListener(AlaCmdConfigHttp.CMD_ALA_UPDATE_MARK_WEAR_STATUS) { // from class: com.baidu.tieba.ala.guardclub.model.i.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -103,7 +103,7 @@ public class i implements m {
         }
     }
 
-    private void bZc() {
+    private void bZd() {
         if (this.hcB == null) {
             this.hcB = new HttpMessageListener(1021146) { // from class: com.baidu.tieba.ala.guardclub.model.i.2
                 /* JADX DEBUG: Method merged with bridge method */

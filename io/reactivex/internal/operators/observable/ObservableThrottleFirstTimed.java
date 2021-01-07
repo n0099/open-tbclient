@@ -5,7 +5,7 @@ import io.reactivex.u;
 import io.reactivex.v;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class ObservableThrottleFirstTimed<T> extends a<T, T> {
     final v scheduler;
     final long timeout;
@@ -13,10 +13,10 @@ public final class ObservableThrottleFirstTimed<T> extends a<T, T> {
 
     @Override // io.reactivex.q
     public void a(u<? super T> uVar) {
-        this.source.subscribe(new DebounceTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.eLe()));
+        this.source.subscribe(new DebounceTimedObserver(new io.reactivex.observers.b(uVar), this.timeout, this.unit, this.scheduler.eLI()));
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class DebounceTimedObserver<T> extends AtomicReference<io.reactivex.disposables.b> implements io.reactivex.disposables.b, u<T>, Runnable {
         private static final long serialVersionUID = 786994795061867455L;
         final u<? super T> actual;

@@ -114,7 +114,7 @@ public abstract class k<T, V extends TypeAdapter.ViewHolder> extends com.baidu.a
         this.jeK = iVar;
     }
 
-    public boolean cEM() {
+    public boolean cEN() {
         return this.jeL;
     }
 

@@ -24,10 +24,10 @@ public class c extends BaseAdapter {
 
     public c(ViewGroup viewGroup) {
         this.gyx = viewGroup;
-        bTR();
+        bTS();
     }
 
-    private void bTR() {
+    private void bTS() {
         if (this.gyy != null) {
             this.gyy.clear();
             this.gyy.addAll(Arrays.asList(new Boolean[this.hBC.length]));
@@ -45,7 +45,7 @@ public class c extends BaseAdapter {
         }
     }
 
-    public void Io(String str) {
+    public void In(String str) {
         if (!TextUtils.isEmpty(str)) {
             for (int i = 0; i < this.hBC.length; i++) {
                 if (str.equals(this.hBC[i].mFilterName)) {

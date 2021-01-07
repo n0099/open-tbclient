@@ -31,7 +31,7 @@ public class c extends HandlerThread {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public Handler aAq() {
+    public Handler aAr() {
         return new Handler(getLooper()) { // from class: com.baidu.swan.apps.r.a.c.1
             @Override // android.os.Handler
             public void handleMessage(Message message) {

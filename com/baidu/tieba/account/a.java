@@ -139,7 +139,7 @@ public class a extends BaseAdapter {
         this.giC = z;
     }
 
-    public boolean bOu() {
+    public boolean bOv() {
         return this.giC;
     }
 

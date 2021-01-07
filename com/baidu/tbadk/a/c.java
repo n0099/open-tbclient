@@ -29,11 +29,11 @@ public class c {
     private final HashMap<BdUniqueId, e> eIM = new HashMap<>();
 
     private c() {
-        bmp();
-        B(bmo());
+        bmq();
+        B(bmp());
     }
 
-    private void bmp() {
+    private void bmq() {
         a(new o());
         a(new g());
         a(new h());
@@ -49,7 +49,7 @@ public class c {
         a(new j());
     }
 
-    public static c bmq() {
+    public static c bmr() {
         if (eIK == null) {
             synchronized (c.class) {
                 if (eIK == null) {
@@ -61,16 +61,16 @@ public class c {
     }
 
     protected void a(com.baidu.tbadk.a.a.a aVar) {
-        if (aVar != null && aVar.bnb() != null) {
-            this.eIL.put(aVar.bnb(), aVar);
+        if (aVar != null && aVar.bnc() != null) {
+            this.eIL.put(aVar.bnc(), aVar);
         }
     }
 
-    public Map<BdUniqueId, e> bmr() {
+    public Map<BdUniqueId, e> bms() {
         return this.eIM;
     }
 
-    private void bms() {
+    private void bmt() {
         this.eIM.clear();
         for (BdUniqueId bdUniqueId : this.eIL.keySet()) {
             this.eIM.put(bdUniqueId, j(bdUniqueId));
@@ -83,28 +83,28 @@ public class c {
         if (aVar == null) {
             return null;
         }
-        return aVar.bnd();
+        return aVar.bne();
     }
 
-    private void bmt() {
+    private void bmu() {
         for (Map.Entry<BdUniqueId, com.baidu.tbadk.a.a.a> entry : this.eIL.entrySet()) {
             com.baidu.tbadk.a.a.a value = entry.getValue();
             if (value != null) {
                 b(value);
             }
         }
-        bms();
+        bmt();
     }
 
     private void b(com.baidu.tbadk.a.a.a aVar) {
         e eVar = null;
         if (aVar != null) {
-            ArrayList<String> bnc = aVar.bnc();
-            if (x.isEmpty(bnc)) {
+            ArrayList<String> bnd = aVar.bnd();
+            if (x.isEmpty(bnd)) {
                 aVar.a((e) null);
                 return;
             }
-            Iterator<String> it = bnc.iterator();
+            Iterator<String> it = bnd.iterator();
             while (it.hasNext()) {
                 eVar = this.mSwitchs.get(it.next());
                 if (eVar != null) {
@@ -115,7 +115,7 @@ public class c {
         }
     }
 
-    private static String bmu() {
+    private static String bmv() {
         return "ubs_abtest_config";
     }
 
@@ -129,7 +129,7 @@ public class c {
             if (hashMap != null) {
                 this.mSwitchs.putAll(hashMap);
             }
-            bmt();
+            bmu();
         }
     }
 
@@ -146,10 +146,10 @@ public class c {
 
     public void N(JSONArray jSONArray) {
         try {
-            String bmu = bmu();
+            String bmv = bmv();
             if (jSONArray == null) {
                 this.mSwitchs.clear();
-                com.baidu.tbadk.core.sharedPref.b.bvq().remove(bmu);
+                com.baidu.tbadk.core.sharedPref.b.bvr().remove(bmv);
                 return;
             }
             HashMap<String, e> hashMap = new HashMap<>();
@@ -161,23 +161,23 @@ public class c {
                 }
             }
             B(hashMap);
-            com.baidu.tbadk.core.sharedPref.b.bvq().putString(bmu, jSONArray.toString());
-            bmv();
+            com.baidu.tbadk.core.sharedPref.b.bvr().putString(bmv, jSONArray.toString());
+            bmw();
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private void bmv() {
+    private void bmw() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921506, 1));
-        com.baidu.tbadk.core.sharedPref.b.bvq().putInt("static_opt_open", d.bmz() ? 1 : 0);
+        com.baidu.tbadk.core.sharedPref.b.bvr().putInt("static_opt_open", d.bmA() ? 1 : 0);
     }
 
-    private HashMap<String, e> bmo() {
+    private HashMap<String, e> bmp() {
         HashMap<String, e> hashMap = new HashMap<>();
         try {
-            bmu();
-            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bvq().getString(bmu(), "[]"));
+            bmv();
+            JSONArray jSONArray = new JSONArray(com.baidu.tbadk.core.sharedPref.b.bvr().getString(bmv(), "[]"));
             for (int i = 0; i < jSONArray.length(); i++) {
                 JSONObject jSONObject = jSONArray.getJSONObject(i);
                 if (jSONObject != null) {

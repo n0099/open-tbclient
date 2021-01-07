@@ -19,7 +19,7 @@ import java.lang.reflect.InvocationTargetException;
 import java.nio.ByteBuffer;
 import java.util.List;
 @Keep
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class DuXRSessionFace {
     private static final boolean DEBUG = false;
     private static final int FACE_INPUT_IMAGE_BGR = 0;
@@ -216,7 +216,7 @@ public class DuXRSessionFace {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public class a extends Handler {
         public a(Looper looper) {
             super(looper);

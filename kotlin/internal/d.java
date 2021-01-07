@@ -4,30 +4,30 @@ import kotlin.e;
 @e
 /* loaded from: classes5.dex */
 public final class d {
-    private static final int el(int i, int i2) {
+    private static final int en(int i, int i2) {
         int i3 = i % i2;
         return i3 >= 0 ? i3 : i3 + i2;
     }
 
-    private static final long U(long j, long j2) {
+    private static final long V(long j, long j2) {
         long j3 = j % j2;
         return j3 >= 0 ? j3 : j3 + j2;
     }
 
-    private static final int am(int i, int i2, int i3) {
-        return el(el(i, i3) - el(i2, i3), i3);
+    private static final int an(int i, int i2, int i3) {
+        return en(en(i, i3) - en(i2, i3), i3);
     }
 
     private static final long i(long j, long j2, long j3) {
-        return U(U(j, j3) - U(j2, j3), j3);
+        return V(V(j, j3) - V(j2, j3), j3);
     }
 
-    public static final int an(int i, int i2, int i3) {
+    public static final int ao(int i, int i2, int i3) {
         if (i3 > 0) {
-            return i2 - am(i2, i, i3);
+            return i2 - an(i2, i, i3);
         }
         if (i3 < 0) {
-            return am(i, i2, -i3) + i2;
+            return an(i, i2, -i3) + i2;
         }
         throw new IllegalArgumentException("Step is zero.");
     }

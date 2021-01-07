@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.util;
 
 import java.util.Locale;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class au {
     public static String a(long j) {
         return String.format(Locale.ENGLISH, "%.2f M", Float.valueOf(((float) j) / 1048576.0f));

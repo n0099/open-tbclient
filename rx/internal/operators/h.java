@@ -4,12 +4,12 @@ import rx.d;
 import rx.internal.producers.SingleDelayedProducer;
 /* loaded from: classes15.dex */
 public final class h<T> implements d.b<Boolean, T> {
-    final rx.functions.f<? super T, Boolean> qrG;
-    final boolean qsA;
+    final rx.functions.f<? super T, Boolean> qto;
+    final boolean qui;
 
     public h(rx.functions.f<? super T, Boolean> fVar, boolean z) {
-        this.qrG = fVar;
-        this.qsA = z;
+        this.qto = fVar;
+        this.qui = z;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -18,16 +18,16 @@ public final class h<T> implements d.b<Boolean, T> {
         final SingleDelayedProducer singleDelayedProducer = new SingleDelayedProducer(jVar);
         rx.j jVar2 = (rx.j<T>) new rx.j<T>() { // from class: rx.internal.operators.h.1
             boolean done;
-            boolean qsB;
+            boolean quj;
 
             @Override // rx.e
             public void onNext(T t) {
                 if (!this.done) {
-                    this.qsB = true;
+                    this.quj = true;
                     try {
-                        if (h.this.qrG.call(t).booleanValue()) {
+                        if (h.this.qto.call(t).booleanValue()) {
                             this.done = true;
-                            singleDelayedProducer.setValue(Boolean.valueOf(!h.this.qsA));
+                            singleDelayedProducer.setValue(Boolean.valueOf(!h.this.qui));
                             unsubscribe();
                         }
                     } catch (Throwable th) {
@@ -50,10 +50,10 @@ public final class h<T> implements d.b<Boolean, T> {
             public void onCompleted() {
                 if (!this.done) {
                     this.done = true;
-                    if (this.qsB) {
+                    if (this.quj) {
                         singleDelayedProducer.setValue(false);
                     } else {
-                        singleDelayedProducer.setValue(Boolean.valueOf(h.this.qsA));
+                        singleDelayedProducer.setValue(Boolean.valueOf(h.this.qui));
                     }
                 }
             }

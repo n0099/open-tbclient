@@ -5,7 +5,7 @@ public class l {
     private boolean fCD;
     private String method;
 
-    public boolean bEf() {
+    public boolean bEg() {
         return this.fCC;
     }
 
@@ -13,7 +13,7 @@ public class l {
         this.fCC = z;
     }
 
-    public void bEg() {
+    public void bEh() {
         this.fCC = false;
     }
 

@@ -25,7 +25,7 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
     @Nullable
 
     /* renamed from: b  reason: collision with root package name */
-    public com.kwad.sdk.core.download.b.b f8969b;
+    public com.kwad.sdk.core.download.b.b f8970b;
     private AnimatorSet c;
     private ap d;
     private View e;
@@ -52,22 +52,22 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
         this.i = (TextView) this.e.findViewById(R.id.ksad_home_banner_ad_link_btn);
         this.g = this.e.findViewById(R.id.ksad_home_banner_ad_link_btn_layout);
         this.j = (ImageView) this.e.findViewById(R.id.ksad_home_banner_ad_img);
-        com.kwad.sdk.glide.c.b(o()).a(com.kwad.sdk.core.response.b.c.q(adTemplate)).a(com.kwad.sdk.glide.load.engine.h.f10515a).a((com.kwad.sdk.glide.load.h<Bitmap>) new com.kwad.sdk.contentalliance.widget.a(o(), ao.a(o(), 4.0f), 0, 1, Color.parseColor("#eaeaea"), 15)).a(this.j);
+        com.kwad.sdk.glide.c.b(o()).a(com.kwad.sdk.core.response.b.c.q(adTemplate)).a(com.kwad.sdk.glide.load.engine.h.f10516a).a((com.kwad.sdk.glide.load.h<Bitmap>) new com.kwad.sdk.contentalliance.widget.a(o(), ao.a(o(), 4.0f), 0, 1, Color.parseColor("#eaeaea"), 15)).a(this.j);
         this.h.setText(String.format(o().getString(z ? R.string.ksad_home_banner_installed_format : R.string.ksad_home_banner_uninstalled_format), com.kwad.sdk.core.response.b.a.q(com.kwad.sdk.core.response.b.c.j(adTemplate))));
         this.i.setText(z ? "立即体验" : "安装");
         this.e.setTranslationY(this.l);
-        this.f8969b = new com.kwad.sdk.core.download.b.b(adTemplate);
+        this.f8970b = new com.kwad.sdk.core.download.b.b(adTemplate);
         this.g.setOnClickListener(new View.OnClickListener() { // from class: com.kwad.sdk.contentalliance.home.b.b.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (z) {
-                    if (b.this.f8969b != null) {
-                        b.this.f8969b.d();
+                    if (b.this.f8970b != null) {
+                        b.this.f8970b.d();
                     }
                     com.kwad.sdk.core.report.b.c(adTemplate, 47);
                 } else {
-                    if (b.this.f8969b != null) {
-                        b.this.f8969b.e();
+                    if (b.this.f8970b != null) {
+                        b.this.f8970b.e();
                     }
                     com.kwad.sdk.core.report.b.c(adTemplate, 45);
                 }
@@ -197,8 +197,8 @@ public class b extends com.kwad.sdk.contentalliance.home.e implements ap.a {
     public void b_() {
         super.b_();
         this.d.removeCallbacksAndMessages(null);
-        if (this.f8969b != null) {
-            this.f8969b.f();
+        if (this.f8970b != null) {
+            this.f8970b.f();
         }
         com.kwad.sdk.utils.f.a(new Runnable() { // from class: com.kwad.sdk.contentalliance.home.b.b.1
             @Override // java.lang.Runnable

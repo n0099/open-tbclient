@@ -43,13 +43,13 @@ public class h extends BdBaseModel {
                     long logId = alaGetRedPacketInfoResponseMessage.getLogId();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(alaGetRedPacketInfoResponseMessage.getError()));
-                    if (alaGetRedPacketInfoResponseMessage.coH() != null) {
-                        com.baidu.tieba.ala.data.i iVar = alaGetRedPacketInfoResponseMessage.coH().gUa;
+                    if (alaGetRedPacketInfoResponseMessage.coI() != null) {
+                        com.baidu.tieba.ala.data.i iVar = alaGetRedPacketInfoResponseMessage.coI().gUa;
                         if (iVar != null) {
                             alaStatsItem.addValue("redpacketId", iVar.id);
                             alaStatsItem.addValue("status", Integer.valueOf(iVar.status));
                         }
-                        c.a aVar2 = alaGetRedPacketInfoResponseMessage.coH().gUb;
+                        c.a aVar2 = alaGetRedPacketInfoResponseMessage.coI().gUb;
                         if (aVar2 != null) {
                             alaStatsItem.addValue("needFollow", aVar2.gUe ? "1" : "0");
                             alaStatsItem.addValue("hasFollowed", aVar2.isFollowed ? "1" : "0");
@@ -64,7 +64,7 @@ public class h extends BdBaseModel {
                         if (alaGetRedPacketInfoResponseMessage.getError() != 0 || !alaGetRedPacketInfoResponseMessage.isSuccess()) {
                             h.this.gsz.aQ(alaGetRedPacketInfoResponseMessage.getError(), alaGetRedPacketInfoResponseMessage.getErrorString());
                         } else {
-                            h.this.gsz.b(alaGetRedPacketInfoResponseMessage.coH());
+                            h.this.gsz.b(alaGetRedPacketInfoResponseMessage.coI());
                         }
                     }
                 }
@@ -79,18 +79,18 @@ public class h extends BdBaseModel {
                     long logId = alaSnatchRedPacketResponseMessage.getLogId();
                     AlaStatsItem alaStatsItem = new AlaStatsItem();
                     alaStatsItem.addValue(BaseJsonData.TAG_ERRNO, Integer.valueOf(alaSnatchRedPacketResponseMessage.getError()));
-                    com.baidu.tieba.ala.data.l coJ = alaSnatchRedPacketResponseMessage.coJ();
-                    if (coJ != null) {
-                        alaStatsItem.addValue("result", coJ.bXq() ? "1" : "0");
-                        alaStatsItem.addValue("resultAmount", Long.valueOf(coJ.bXr()));
+                    com.baidu.tieba.ala.data.l coK = alaSnatchRedPacketResponseMessage.coK();
+                    if (coK != null) {
+                        alaStatsItem.addValue("result", coK.bXr() ? "1" : "0");
+                        alaStatsItem.addValue("resultAmount", Long.valueOf(coK.bXs()));
                     }
                     AlaStatManager.getInstance().debug("redpacket_loot_result", logId, "", alaStatsItem);
                     if (h.this.gsz != null) {
-                        com.baidu.tieba.ala.data.l coJ2 = alaSnatchRedPacketResponseMessage.coJ();
+                        com.baidu.tieba.ala.data.l coK2 = alaSnatchRedPacketResponseMessage.coK();
                         if (alaSnatchRedPacketResponseMessage.getError() != 0 || !alaSnatchRedPacketResponseMessage.isSuccess()) {
                             h.this.gsz.aR(alaSnatchRedPacketResponseMessage.getError(), alaSnatchRedPacketResponseMessage.getErrorString());
                         } else {
-                            h.this.gsz.b(coJ2);
+                            h.this.gsz.b(coK2);
                         }
                     }
                 }

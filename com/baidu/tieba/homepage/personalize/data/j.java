@@ -49,7 +49,7 @@ public class j {
         this.threadId = j;
     }
 
-    public long cTy() {
+    public long cTz() {
         return this.khU;
     }
 
@@ -57,7 +57,7 @@ public class j {
         this.khU = j;
     }
 
-    public int bUl() {
+    public int bUm() {
         return this.liveType;
     }
 

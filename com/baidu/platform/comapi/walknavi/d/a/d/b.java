@@ -5,18 +5,18 @@ import android.text.TextUtils;
 import com.baidu.ar.npc.ArBridge;
 import com.baidu.platform.comapi.walknavi.d.a.g.j;
 import java.io.File;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Context f4434a;
+    private final Context f4435a;
 
     /* renamed from: b  reason: collision with root package name */
-    private C0298b f4435b;
+    private C0298b f4436b;
     private a c;
     private g d;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface a {
         void a(int i);
 
@@ -24,7 +24,7 @@ public class b {
     }
 
     public b(Context context) {
-        this.f4434a = context;
+        this.f4435a = context;
         this.d = new g(context);
     }
 
@@ -39,7 +39,7 @@ public class b {
         }
         String a3 = this.d.a();
         if (!TextUtils.isEmpty(a3)) {
-            File file = new File(b(this.f4434a), a3);
+            File file = new File(b(this.f4435a), a3);
             if (file.exists() && (a2 = a(new File(file, "res"))) != null && a2.length > 0) {
                 return a(a2);
             }
@@ -68,7 +68,7 @@ public class b {
                 String a2 = this.d.a();
                 String e = e(str);
                 if (!TextUtils.isEmpty(a2) && TextUtils.equals(a2, e)) {
-                    File file = new File(b(this.f4434a), a2);
+                    File file = new File(b(this.f4435a), a2);
                     if (file.exists()) {
                         File[] a3 = a(new File(file, "res"));
                         if (a3 != null && a3.length > 0) {
@@ -99,8 +99,8 @@ public class b {
 
     private void d(String str) {
         b();
-        this.f4435b = new C0298b(this.f4434a, str);
-        this.f4435b.start();
+        this.f4436b = new C0298b(this.f4435a, str);
+        this.f4436b.start();
     }
 
     private File[] a(File file) {
@@ -142,9 +142,9 @@ public class b {
     }
 
     public void b() {
-        if (this.f4435b != null) {
-            this.f4435b.a();
-            this.f4435b = null;
+        if (this.f4436b != null) {
+            this.f4436b.a();
+            this.f4436b = null;
         }
     }
 
@@ -157,16 +157,16 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.platform.comapi.walknavi.d.a.d.b$b  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class C0298b extends Thread {
 
         /* renamed from: b  reason: collision with root package name */
-        private Context f4437b;
+        private Context f4438b;
         private String c;
         private volatile boolean d = false;
 
         public C0298b(Context context, String str) {
-            this.f4437b = context;
+            this.f4438b = context;
             this.c = str;
         }
 
@@ -174,10 +174,10 @@ public class b {
         public void run() {
             super.run();
             h hVar = new h();
-            hVar.f4446b = this.c;
-            hVar.f4445a = b.e(this.c);
-            String str = hVar.f4446b;
-            File file = new File(b.b(this.f4437b), hVar.f4445a);
+            hVar.f4447b = this.c;
+            hVar.f4446a = b.e(this.c);
+            String str = hVar.f4447b;
+            File file = new File(b.b(this.f4438b), hVar.f4446a);
             File file2 = new File(file, "res.zip");
             com.baidu.platform.comapi.walknavi.d.a.d.a.a.a(file2);
             boolean a2 = a(str, file2);

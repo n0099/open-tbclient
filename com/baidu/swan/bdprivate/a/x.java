@@ -3,7 +3,7 @@ package com.baidu.swan.bdprivate.a;
 public class x {
     private static volatile w dVX;
 
-    public static synchronized w aSV() {
+    public static synchronized w aSW() {
         w wVar;
         synchronized (x.class) {
             if (dVX == null) {

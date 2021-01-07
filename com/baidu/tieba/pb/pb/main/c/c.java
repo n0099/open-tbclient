@@ -14,35 +14,35 @@ import com.baidu.tieba.card.OriginalThreadCardView;
 /* loaded from: classes2.dex */
 public class c extends a {
     private OriginalThreadCardView ixo;
-    private int lMo;
-    private int lMq;
+    private int lMn;
+    private int lMp;
 
     public c(TbPageContext tbPageContext, int i) {
         super(tbPageContext);
-        this.lMo = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
-        this.lMq = i;
+        this.lMn = l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.ds34);
+        this.lMp = i;
     }
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public View getView() {
         if (this.ixo == null) {
             this.ixo = new OriginalThreadCardView(this.eXu.getPageActivity());
-            this.ixo.iyd = this.lMq;
+            this.ixo.iyd = this.lMp;
             this.ixo.setSubClickListener(new OriginalThreadCardView.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1
                 @Override // com.baidu.tieba.card.OriginalThreadCardView.a
                 public void a(OriginalThreadInfo originalThreadInfo) {
-                    if (c.this.lZR != null) {
-                        c.this.lZR.a(c.this.ixo, new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
+                    if (c.this.lZQ != null) {
+                        c.this.lZQ.a(c.this.ixo, new com.baidu.tbadk.core.data.a() { // from class: com.baidu.tieba.pb.pb.main.c.c.1.1
                             @Override // com.baidu.tbadk.core.data.a
-                            public bz boO() {
-                                if (c.this.lZS != null) {
-                                    return c.this.lZS.bpQ();
+                            public bz boP() {
+                                if (c.this.lZR != null) {
+                                    return c.this.lZR.bpR();
                                 }
                                 return null;
                             }
 
                             @Override // com.baidu.tbadk.core.data.a
-                            public at boQ() {
+                            public at boR() {
                                 return null;
                             }
 
@@ -55,9 +55,9 @@ public class c extends a {
                 }
             });
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-            layoutParams.bottomMargin = this.lMo;
-            layoutParams.leftMargin = this.lMo;
-            layoutParams.rightMargin = this.lMo;
+            layoutParams.bottomMargin = this.lMn;
+            layoutParams.leftMargin = this.lMn;
+            layoutParams.rightMargin = this.lMn;
             this.ixo.setLayoutParams(layoutParams);
             this.ixo.onChangeSkinType();
         }
@@ -66,9 +66,9 @@ public class c extends a {
 
     @Override // com.baidu.tieba.pb.pb.main.c.a
     public void g(OriginalThreadInfo originalThreadInfo) {
-        this.lZS = originalThreadInfo;
+        this.lZR = originalThreadInfo;
         if (this.ixo != null) {
-            this.ixo.b(this.lZS);
+            this.ixo.b(this.lZR);
         }
     }
 

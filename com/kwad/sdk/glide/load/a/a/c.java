@@ -19,28 +19,28 @@ import java.io.InputStream;
 public class c implements com.kwad.sdk.glide.load.a.d<InputStream> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Uri f10332a;
+    private final Uri f10333a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final e f10333b;
+    private final e f10334b;
     private InputStream c;
 
     /* loaded from: classes5.dex */
     static class a implements d {
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String[] f10334b = {"_data"};
+        private static final String[] f10335b = {"_data"};
 
         /* renamed from: a  reason: collision with root package name */
-        private final ContentResolver f10335a;
+        private final ContentResolver f10336a;
 
         a(ContentResolver contentResolver) {
-            this.f10335a = contentResolver;
+            this.f10336a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.a.a.d
         public Cursor a(Uri uri) {
-            return this.f10335a.query(MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, f10334b, "kind = 1 AND image_id = ?", new String[]{uri.getLastPathSegment()}, null);
+            return this.f10336a.query(MediaStore.Images.Thumbnails.EXTERNAL_CONTENT_URI, f10335b, "kind = 1 AND image_id = ?", new String[]{uri.getLastPathSegment()}, null);
         }
     }
 
@@ -48,25 +48,25 @@ public class c implements com.kwad.sdk.glide.load.a.d<InputStream> {
     static class b implements d {
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String[] f10336b = {"_data"};
+        private static final String[] f10337b = {"_data"};
 
         /* renamed from: a  reason: collision with root package name */
-        private final ContentResolver f10337a;
+        private final ContentResolver f10338a;
 
         b(ContentResolver contentResolver) {
-            this.f10337a = contentResolver;
+            this.f10338a = contentResolver;
         }
 
         @Override // com.kwad.sdk.glide.load.a.a.d
         public Cursor a(Uri uri) {
-            return this.f10337a.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, f10336b, "kind = 1 AND video_id = ?", new String[]{uri.getLastPathSegment()}, null);
+            return this.f10338a.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, f10337b, "kind = 1 AND video_id = ?", new String[]{uri.getLastPathSegment()}, null);
         }
     }
 
     @VisibleForTesting
     c(Uri uri, e eVar) {
-        this.f10332a = uri;
-        this.f10333b = eVar;
+        this.f10333a = uri;
+        this.f10334b = eVar;
     }
 
     public static c a(Context context, Uri uri) {
@@ -82,8 +82,8 @@ public class c implements com.kwad.sdk.glide.load.a.d<InputStream> {
     }
 
     private InputStream e() {
-        InputStream b2 = this.f10333b.b(this.f10332a);
-        int a2 = b2 != null ? this.f10333b.a(this.f10332a) : -1;
+        InputStream b2 = this.f10334b.b(this.f10333a);
+        int a2 = b2 != null ? this.f10334b.a(this.f10333a) : -1;
         return a2 != -1 ? new g(b2, a2) : b2;
     }
 

@@ -25,7 +25,7 @@ public class o {
         this.mStatus = i;
     }
 
-    public int bXC() {
+    public int bXD() {
         return this.gUP;
     }
 
@@ -33,11 +33,11 @@ public class o {
         this.gUP = i;
     }
 
-    public String bXD() {
+    public String bXE() {
         return this.gUQ;
     }
 
-    public String bXE() {
+    public String bXF() {
         return this.mIcon;
     }
 
@@ -45,15 +45,15 @@ public class o {
         return this.mName;
     }
 
-    public String bXF() {
+    public String bXG() {
         return this.gUR;
     }
 
-    public String bXG() {
+    public String bXH() {
         return this.gqZ;
     }
 
-    public String bXH() {
+    public String bXI() {
         return this.gqE;
     }
 }

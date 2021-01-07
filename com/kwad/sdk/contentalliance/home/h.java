@@ -11,10 +11,10 @@ import java.util.List;
 public class h {
 
     /* renamed from: a  reason: collision with root package name */
-    public com.kwad.sdk.core.i.a f9041a;
+    public com.kwad.sdk.core.i.a f9042a;
 
     /* renamed from: b  reason: collision with root package name */
-    public KsContentPage.PageListener f9042b;
+    public KsContentPage.PageListener f9043b;
     public KsContentPage.VideoListener c;
     @Nullable
     public LiveSlidHomeParam d;
@@ -28,9 +28,9 @@ public class h {
     public boolean j = false;
 
     public void a() {
-        if (this.f9041a != null) {
-            this.f9041a.b();
-            this.f9041a.f();
+        if (this.f9042a != null) {
+            this.f9042a.b();
+            this.f9042a.f();
         }
         if (this.e != null) {
             this.e.clear();

@@ -26,19 +26,19 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         this.kUm = new LabelSettingModel(getPageContext());
         setContentView(this.kUl);
         this.kUm.a(this);
-        dcv();
+        dcw();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
-    public void dcv() {
+    public void dcw() {
         if (!j.isNetworkAvailableForImmediately()) {
             this.kUl.hideLoadingView();
             this.kUl.pU(true);
             return;
         }
-        this.kUl.Zi();
+        this.kUl.Zj();
         this.kUl.it(true);
-        this.kUm.dcB();
+        this.kUm.dcC();
     }
 
     @Override // com.baidu.tieba.interestlabel.model.a
@@ -55,16 +55,16 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
         switch (labelRequestEnum) {
             case GET_LABEL:
                 this.kUl.hideLoadingView();
-                if (bVar == null || x.isEmpty(bVar.dcz())) {
+                if (bVar == null || x.isEmpty(bVar.dcA())) {
                     this.kUl.pU(true);
                     return;
                 }
-                this.kUl.Zi();
+                this.kUl.Zj();
                 this.kUl.setData(bVar);
                 return;
             case SUB_LABEL:
                 if (i == 0) {
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putBoolean(SharedPrefConfig.SET_RECOMMEND_LABEL, true);
                     finish();
                     return;
                 }
@@ -83,7 +83,7 @@ public class LabelSettingActivity extends BaseActivity<LabelSettingActivity> imp
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (i == 4 && this.kUl != null && this.kUl.dcL()) {
+        if (i == 4 && this.kUl != null && this.kUl.dcM()) {
             this.kUl.SY();
             return true;
         }

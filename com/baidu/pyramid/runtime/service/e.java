@@ -8,10 +8,10 @@ public class e {
     private static final HashMap<d, b<?>> cwe = new HashMap<>();
 
     static {
-        ahX();
+        ahY();
     }
 
-    private static void ahX() {
+    private static void ahY() {
         a("ubc", UBC.TAG, ae.class);
     }
 
@@ -34,7 +34,7 @@ public class e {
     public static <T> T a(d dVar) {
         b<?> bVar = cwe.get(dVar);
         if (bVar != null) {
-            return (T) bVar.ahV();
+            return (T) bVar.ahW();
         }
         return null;
     }

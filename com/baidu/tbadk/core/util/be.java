@@ -71,7 +71,7 @@ public class be {
         return spannableString;
     }
 
-    public static be bwu() {
+    public static be bwv() {
         return fdM;
     }
 
@@ -320,7 +320,7 @@ public class be {
         return aw.fdI.matcher(charSequence).find();
     }
 
-    public String Cf(String str) {
+    public String Ce(String str) {
         if (!m(str)) {
             return null;
         }

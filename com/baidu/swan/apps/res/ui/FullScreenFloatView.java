@@ -33,7 +33,7 @@ public class FullScreenFloatView extends FrameLayout {
 
     /* loaded from: classes9.dex */
     public interface b {
-        void aDv();
+        void aDw();
 
         void onClick();
     }
@@ -174,7 +174,7 @@ public class FullScreenFloatView extends FrameLayout {
                     }
                     removeCallbacks(this.dyU);
                 } else if (this.dyR && this.dyV != null) {
-                    this.dyV.aDv();
+                    this.dyV.aDw();
                 }
                 if (DEBUG) {
                     Log.e("FullScreenFloatView", "ACTION_UP--> x = " + x + ", y = " + y + ",mIsClickDrag = " + this.dyQ);
@@ -277,7 +277,7 @@ public class FullScreenFloatView extends FrameLayout {
         }
     }
 
-    public void aKk() {
+    public void aKl() {
         if (this.dyL != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(a.d.dimens_21dp);
             int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(a.d.dimens_51dp);
@@ -293,6 +293,6 @@ public class FullScreenFloatView extends FrameLayout {
         if (DEBUG) {
             Log.e("FullScreenFloatView", "onConfigurationChanged--> newConfig " + configuration.orientation + ", mScreenWidth = " + this.dyO + ", mScreenHeight = " + this.dyP);
         }
-        aKk();
+        aKl();
     }
 }

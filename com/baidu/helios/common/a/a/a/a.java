@@ -3,7 +3,7 @@ package com.baidu.helios.common.a.a.a;
 import java.math.BigInteger;
 import java.security.SecureRandom;
 import javax.crypto.BadPaddingException;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public final class a {
     public static final SecureRandom afc = new SecureRandom();
 

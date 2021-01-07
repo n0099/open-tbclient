@@ -2,7 +2,7 @@ package android.view.accessibility;
 
 import android.os.Bundle;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public abstract class AccessibilityNodeProvider {
     public static final int HOST_VIEW_ID = -1;
 

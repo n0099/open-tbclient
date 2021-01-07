@@ -14,7 +14,7 @@ public class a extends d {
         this.mStatusCode = -200;
     }
 
-    public com.baidu.p.a.a.c ekf() {
+    public com.baidu.p.a.a.c ekg() {
         final Object obj = new Object();
         final AtomicBoolean atomicBoolean = new AtomicBoolean(false);
         com.b.a.a.a(this.mCtx, new a.b() { // from class: com.baidu.p.a.b.a.1
@@ -51,7 +51,7 @@ public class a extends d {
     }
 
     @Override // com.baidu.p.a.a.c
-    public com.baidu.p.a.a.c ekd() {
-        return ekf();
+    public com.baidu.p.a.a.c eke() {
+        return ekg();
     }
 }

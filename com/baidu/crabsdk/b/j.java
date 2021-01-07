@@ -70,7 +70,7 @@ public final class j {
             jSONObject.put("curPage", a.r());
             jSONObject.put("locale", i.B());
             jSONObject.put("cuid", h.z());
-            jSONObject.put("channel", com.baidu.crabsdk.a.f1741b);
+            jSONObject.put("channel", com.baidu.crabsdk.a.f1742b);
             jSONObject.put("cpuabi", Build.CPU_ABI);
             jSONObject.put("romVN", str);
             jSONObject.put("launcherVN", str2);

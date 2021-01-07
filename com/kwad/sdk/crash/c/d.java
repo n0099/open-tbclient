@@ -7,10 +7,10 @@ import java.lang.Thread;
 public class d implements Thread.UncaughtExceptionHandler {
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile boolean f9932a = false;
+    private volatile boolean f9933a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private Thread.UncaughtExceptionHandler f9933b = Thread.getDefaultUncaughtExceptionHandler();
+    private Thread.UncaughtExceptionHandler f9934b = Thread.getDefaultUncaughtExceptionHandler();
     private Context c;
 
     public d(Context context) {
@@ -20,19 +20,19 @@ public class d implements Thread.UncaughtExceptionHandler {
     @Override // java.lang.Thread.UncaughtExceptionHandler
     public void uncaughtException(Thread thread, Throwable th) {
         try {
-            if (this.f9932a) {
+            if (this.f9933a) {
                 com.kwad.sdk.core.d.a.a("ExceptionCollector", "SDK捕获 uncaughtException 正在处理 ex=" + th.getMessage());
-                this.f9933b.uncaughtException(thread, th);
+                this.f9934b.uncaughtException(thread, th);
                 return;
             }
-            this.f9932a = true;
+            this.f9933a = true;
             com.kwad.sdk.core.d.a.a("ExceptionCollector", "thread=" + thread + " ex=" + th.getMessage());
             if (th != null && com.kwad.sdk.crash.b.a.a(th)) {
                 c.d().a(th, new JavaExceptionMessage(), this.c);
             }
-            this.f9933b.uncaughtException(thread, th);
+            this.f9934b.uncaughtException(thread, th);
         } catch (Throwable th2) {
-            this.f9933b.uncaughtException(thread, th);
+            this.f9934b.uncaughtException(thread, th);
         }
     }
 }

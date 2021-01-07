@@ -15,16 +15,16 @@ public class a {
     public void fB(long j) {
         if (j > this.hBt) {
             this.hBt = j;
-            chj();
+            chk();
         }
     }
 
-    public void chi() {
+    public void chj() {
         this.hBt = 0L;
-        chj();
+        chk();
     }
 
-    private void chj() {
+    private void chk() {
         this.hBu.setText(String.format(this.mContext.getString(a.h.sdk_charm_name), StringHelper.formatTosepara((int) this.hBt)));
     }
 

@@ -1,7 +1,7 @@
 package com.facebook.imagepipeline.f;
 
 import android.graphics.Bitmap;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public abstract class b extends c {
-    public abstract Bitmap ezc();
+    public abstract Bitmap ezF();
 }

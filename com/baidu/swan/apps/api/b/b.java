@@ -34,7 +34,7 @@ public class b implements a {
         } else if (aVar.getEnd() <= 0) {
             aVar.setEnd(System.currentTimeMillis());
             if (DEBUG) {
-                Log.d("Api-FirstRecorder", str + " first called cost " + aVar.atQ());
+                Log.d("Api-FirstRecorder", str + " first called cost " + aVar.atR());
             }
             if (TextUtils.equals(str, "request")) {
                 if (DEBUG) {

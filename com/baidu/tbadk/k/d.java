@@ -72,12 +72,12 @@ public class d {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2001304 && (customResponsedMessage.getData() instanceof Integer) && d.this.mFloatingView != null && d.this.fHI != null) {
-                d.this.fHI.bxN();
+                d.this.fHI.bxO();
             }
         }
     };
 
-    public static d bGb() {
+    public static d bGc() {
         if (fHF == null) {
             fHF = new d();
         }
@@ -188,7 +188,7 @@ public class d {
         this.fHI = cVar;
     }
 
-    public boolean bGc() {
+    public boolean bGd() {
         return (this.wm == null || this.mFloatingView == null || this.mFloatingView.getParent() == null) ? false : true;
     }
 

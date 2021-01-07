@@ -10,7 +10,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.concurrent.atomic.AtomicLong;
 import java.util.concurrent.atomic.AtomicLongArray;
-/* loaded from: classes6.dex */
+/* loaded from: classes3.dex */
 public class AtomicCodec implements ObjectDeserializer, ObjectSerializer {
     public static final AtomicCodec instance = new AtomicCodec();
 

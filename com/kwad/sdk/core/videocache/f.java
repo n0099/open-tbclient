@@ -24,10 +24,10 @@ import org.apache.http.protocol.HTTP;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Object f9786a;
+    private final Object f9787a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final ExecutorService f9787b;
+    private final ExecutorService f9788b;
     private final Map<String, g> c;
     private final ServerSocket d;
     private final int e;
@@ -38,21 +38,21 @@ public class f {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private File f9788a;
+        private File f9789a;
         private com.kwad.sdk.core.videocache.d.b d;
         private com.kwad.sdk.core.videocache.a.a c = new com.kwad.sdk.core.videocache.a.g(KsMediaMeta.AV_CH_STEREO_LEFT);
 
         /* renamed from: b  reason: collision with root package name */
-        private com.kwad.sdk.core.videocache.a.c f9789b = new com.kwad.sdk.core.videocache.a.f();
+        private com.kwad.sdk.core.videocache.a.c f9790b = new com.kwad.sdk.core.videocache.a.f();
         private com.kwad.sdk.core.videocache.b.b e = new com.kwad.sdk.core.videocache.b.a();
 
         public a(Context context) {
             this.d = com.kwad.sdk.core.videocache.d.c.a(context);
-            this.f9788a = o.a(context);
+            this.f9789a = o.a(context);
         }
 
         private com.kwad.sdk.core.videocache.c b() {
-            return new com.kwad.sdk.core.videocache.c(this.f9788a, this.f9789b, this.c, this.d, this.e);
+            return new com.kwad.sdk.core.videocache.c(this.f9789a, this.f9790b, this.c, this.d, this.e);
         }
 
         public a a(long j) {
@@ -70,15 +70,15 @@ public class f {
     public final class b implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private final Socket f9791b;
+        private final Socket f9792b;
 
         public b(Socket socket) {
-            this.f9791b = socket;
+            this.f9792b = socket;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            f.this.a(this.f9791b);
+            f.this.a(this.f9792b);
         }
     }
 
@@ -86,16 +86,16 @@ public class f {
     private final class c implements Runnable {
 
         /* renamed from: b  reason: collision with root package name */
-        private final CountDownLatch f9793b;
+        private final CountDownLatch f9794b;
 
         public c(CountDownLatch countDownLatch) {
-            this.f9793b = countDownLatch;
+            this.f9794b = countDownLatch;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             try {
-                this.f9793b.countDown();
+                this.f9794b.countDown();
                 f.this.a();
             } catch (Throwable th) {
                 com.kwad.sdk.core.d.a.a(th);
@@ -104,8 +104,8 @@ public class f {
     }
 
     private f(com.kwad.sdk.core.videocache.c cVar) {
-        this.f9786a = new Object();
-        this.f9787b = Executors.newFixedThreadPool(8);
+        this.f9787a = new Object();
+        this.f9788b = Executors.newFixedThreadPool(8);
         this.c = new ConcurrentHashMap();
         this.g = (com.kwad.sdk.core.videocache.c) j.a(cVar);
         try {
@@ -117,7 +117,7 @@ public class f {
             this.f.start();
             countDownLatch.await();
         } catch (IOException | InterruptedException e) {
-            this.f9787b.shutdown();
+            this.f9788b.shutdown();
             throw new IllegalStateException("Error starting local proxy server", e);
         }
     }
@@ -128,7 +128,7 @@ public class f {
             try {
                 Socket accept = this.d.accept();
                 com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "Accept new socket " + accept);
-                this.f9787b.submit(new b(accept));
+                this.f9788b.submit(new b(accept));
             } catch (IOException e) {
                 a(new ProxyCacheException("Error during waiting connection", e));
                 return;
@@ -155,7 +155,7 @@ public class f {
             try {
                 d a2 = d.a(socket.getInputStream());
                 com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "Request to cache proxy:" + a2);
-                f(l.c(a2.f9781a)).a(a2, socket);
+                f(l.c(a2.f9782a)).a(a2, socket);
                 b(socket);
                 com.kwad.sdk.core.d.a.a("HttpProxyCacheServer", "Opened connections: " + b());
             } catch (ProxyCacheException e) {
@@ -182,7 +182,7 @@ public class f {
 
     private int b() {
         int i;
-        synchronized (this.f9786a) {
+        synchronized (this.f9787a) {
             i = 0;
             for (g gVar : this.c.values()) {
                 i = gVar.b() + i;
@@ -238,7 +238,7 @@ public class f {
 
     private g f(String str) {
         g gVar;
-        synchronized (this.f9786a) {
+        synchronized (this.f9787a) {
             gVar = this.c.get(str);
             if (gVar == null) {
                 gVar = new g(str, this.g);
@@ -387,6 +387,6 @@ public class f {
     }
 
     public File d(String str) {
-        return new File(this.g.f9778a, this.g.f9779b.a(str));
+        return new File(this.g.f9779a, this.g.f9780b.a(str));
     }
 }

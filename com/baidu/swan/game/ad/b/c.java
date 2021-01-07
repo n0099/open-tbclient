@@ -19,20 +19,20 @@ public class c extends d {
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected String aVN() {
+    protected String aVO() {
         return "";
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected HashMap<String, String> aVO() {
+    protected HashMap<String, String> aVP() {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("act", this.ebD);
         hashMap.put("prod", this.ebA);
         hashMap.put("at", this.ebB);
         hashMap.put(IXAdRequestInfo.FET, this.ebC);
         if (this.ebR != null) {
-            hashMap.put("w", "" + this.ebR.aVI());
-            hashMap.put("h", "" + this.ebR.aVJ());
+            hashMap.put("w", "" + this.ebR.aVJ());
+            hashMap.put("h", "" + this.ebR.aVK());
         }
         return hashMap;
     }

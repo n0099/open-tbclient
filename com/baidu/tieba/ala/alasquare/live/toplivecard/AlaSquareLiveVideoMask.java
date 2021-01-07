@@ -84,38 +84,38 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
         this.gBJ.setFromSpecialForum(this.gBM);
         ao.setImageResource(this.fWp, R.drawable.btn_icon_play_live_on_n);
         this.gBK = (ProgressBar) this.mRootView.findViewById(R.id.auto_video_loading_progress);
-        bCO();
+        bCP();
     }
 
     public void setData(bz bzVar) {
-        if (bzVar != null && bzVar.brJ() != null && bzVar.brq() != null) {
-            AlaInfoData brJ = bzVar.brJ();
-            this.gBD.startLoad(brJ.cover, 10, false);
-            AlaUserInfoData alaUserInfoData = brJ.user_info;
+        if (bzVar != null && bzVar.brK() != null && bzVar.brr() != null) {
+            AlaInfoData brK = bzVar.brK();
+            this.gBD.startLoad(brK.cover, 10, false);
+            AlaUserInfoData alaUserInfoData = brK.user_info;
             if (alaUserInfoData != null && !StringUtils.isNull(alaUserInfoData.portrait) && alaUserInfoData.ala_id > 0) {
                 this.gBE.setVisibility(0);
                 this.gBF.startLoad(alaUserInfoData.portrait, 10, false);
-                this.eLt.setText(bzVar.brq().getName_show());
+                this.eLt.setText(bzVar.brr().getName_show());
                 this.gBG.setText(String.format(this.mContext.getString(R.string.square_recommend_top_card_ala_host_id), String.valueOf(alaUserInfoData.ala_id)));
             } else {
                 this.gBE.setVisibility(8);
             }
             this.gBH.setText(bzVar.getTitle());
-            this.gBI.setText(this.mContext.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(brJ.audience_count)));
+            this.gBI.setText(this.mContext.getResources().getString(R.string.square_sub_live_audience_label, String.valueOf(brK.audience_count)));
             if (!this.gBM) {
                 this.gBJ.startPlayAnimation();
             }
         }
     }
 
-    public void bCO() {
+    public void bCP() {
         ao.setViewTextColor(this.gBI, R.color.CAM_X0101);
         ao.setViewTextColor(this.eLt, R.color.CAM_X0101);
         ao.setViewTextColor(this.gBG, R.color.CAM_X0101);
         ao.setViewTextColor(this.gBH, R.color.CAM_X0101);
     }
 
-    public void bUs() {
+    public void bUt() {
         if (this.gBM) {
             this.fWp.setVisibility(8);
             this.gBK.setVisibility(8);
@@ -124,11 +124,11 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
         this.gBL.startAnimation(this.ciC);
     }
 
-    public void bUt() {
+    public void bUu() {
         this.gBL.clearAnimation();
     }
 
-    public void bUu() {
+    public void bUv() {
         if (!this.gBM) {
             this.gBJ.startPlayAnimation();
         }
@@ -136,7 +136,7 @@ public class AlaSquareLiveVideoMask extends FrameLayout {
 
     public void onDestroy() {
         if (!this.gBM) {
-            this.gBJ.Wq();
+            this.gBJ.Wr();
         }
         this.gBL.clearAnimation();
     }

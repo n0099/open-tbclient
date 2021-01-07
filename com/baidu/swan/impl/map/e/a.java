@@ -33,7 +33,7 @@ public class a extends c {
     }
 
     @Override // com.baidu.swan.impl.map.e.c
-    public final List<OverlayOptions> beW() {
+    public final List<OverlayOptions> beX() {
         if (this.etO == null) {
             return null;
         }

@@ -8,19 +8,19 @@ import java.util.concurrent.Executor;
 public final class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Executor f10319a = new Executor() { // from class: com.kwad.sdk.glide.g.e.1
+    private static final Executor f10320a = new Executor() { // from class: com.kwad.sdk.glide.g.e.1
 
         /* renamed from: a  reason: collision with root package name */
-        private final Handler f10321a = new Handler(Looper.getMainLooper());
+        private final Handler f10322a = new Handler(Looper.getMainLooper());
 
         @Override // java.util.concurrent.Executor
         public void execute(@NonNull Runnable runnable) {
-            this.f10321a.post(runnable);
+            this.f10322a.post(runnable);
         }
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Executor f10320b = new Executor() { // from class: com.kwad.sdk.glide.g.e.2
+    private static final Executor f10321b = new Executor() { // from class: com.kwad.sdk.glide.g.e.2
         @Override // java.util.concurrent.Executor
         public void execute(@NonNull Runnable runnable) {
             runnable.run();
@@ -28,10 +28,10 @@ public final class e {
     };
 
     public static Executor a() {
-        return f10319a;
+        return f10320a;
     }
 
     public static Executor b() {
-        return f10320b;
+        return f10321b;
     }
 }

@@ -26,17 +26,17 @@ public abstract class d extends a {
     private Runnable dGC = null;
     private boolean dGE = false;
 
-    protected abstract com.baidu.swan.pms.c.f aMf();
+    protected abstract com.baidu.swan.pms.c.f aMg();
 
-    public static d aMg() {
-        d aMh = aMh();
-        if (!aMh.dGE) {
-            aMh.init();
+    public static d aMh() {
+        d aMi = aMi();
+        if (!aMi.dGE) {
+            aMi.init();
         }
-        return aMh;
+        return aMi;
     }
 
-    private static d aMh() {
+    private static d aMi() {
         if (dGw instanceof j) {
             return dGw;
         }
@@ -71,13 +71,13 @@ public abstract class d extends a {
 
     private void init() {
         if (!this.dGE) {
-            aMj();
+            aMk();
             com.baidu.swan.apps.process.b.c.init();
         }
     }
 
     @Override // com.baidu.swan.apps.runtime.h
-    public com.baidu.swan.apps.adaptation.a aMi() {
+    public com.baidu.swan.apps.adaptation.a aMj() {
         if (this.dGy == null) {
             this.dGy = new com.baidu.swan.apps.adaptation.a();
         }
@@ -158,9 +158,9 @@ public abstract class d extends a {
         }
     }
 
-    public com.baidu.swan.pms.c.f aMj() {
+    public com.baidu.swan.pms.c.f aMk() {
         if (this.dGD == null) {
-            this.dGD = aMf();
+            this.dGD = aMg();
         }
         return this.dGD;
     }

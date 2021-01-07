@@ -59,17 +59,17 @@ public class u implements Comparable<u> {
         if (aVar == null) {
             return uVar;
         }
-        uVar.mContent = TextUtils.isEmpty(aVar.cQh()) ? TbadkCoreApplication.getInst().getString(R.string.web_page_link) : aVar.cQh() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
-        uVar.mTitle = aVar.cQf();
-        uVar.ePq = aVar.cQi();
+        uVar.mContent = TextUtils.isEmpty(aVar.cQi()) ? TbadkCoreApplication.getInst().getString(R.string.web_page_link) : aVar.cQi() + TbadkCoreApplication.getInst().getString(R.string.commodity_link);
+        uVar.mTitle = aVar.cQg();
+        uVar.ePq = aVar.cQj();
         if (!com.baidu.tbadk.core.util.x.isEmpty(aVar.getImageList()) && aVar.getImageList().get(0) != null) {
             uVar.mIcon = aVar.getImageList().get(0).getSrc();
         }
-        uVar.ePp = aVar.cQh();
+        uVar.ePp = aVar.cQi();
         uVar.mPrice = aVar.getPrice();
-        if (aVar.cQg() != null) {
-            uVar.ePn = aVar.cQg().cQj();
-            uVar.ePo = aVar.cQg().cQk();
+        if (aVar.cQh() != null) {
+            uVar.ePn = aVar.cQh().cQk();
+            uVar.ePo = aVar.cQh().cQl();
         }
         tbLinkSpanGroup.b(uVar);
         return uVar;

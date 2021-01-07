@@ -37,18 +37,18 @@ public class b implements a<JSONObject> {
         }
     }
 
-    public JSONObject aOP() {
+    public JSONObject aOQ() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("launchLog", this.dNn);
-            jSONObject.put("performance", e.aHx());
+            jSONObject.put("performance", e.aHy());
         } catch (JSONException e) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
             }
         }
         try {
-            jSONObject.put("abtest", com.baidu.swan.apps.t.a.aAu().getRawSwitch());
+            jSONObject.put("abtest", com.baidu.swan.apps.t.a.aAv().getRawSwitch());
         } catch (Exception e2) {
             if (DEBUG) {
                 Log.e("LaunchTraceCollector", Log.getStackTraceString(e2));

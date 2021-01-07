@@ -89,18 +89,18 @@ public class c {
         this.mRoot.addOnAttachStateChangeListener(new View.OnAttachStateChangeListener() { // from class: com.baidu.tieba.ad.browser.newstyle.c.2
             @Override // android.view.View.OnAttachStateChangeListener
             public void onViewAttachedToWindow(View view) {
-                c.this.bOI();
+                c.this.bOJ();
             }
 
             @Override // android.view.View.OnAttachStateChangeListener
             public void onViewDetachedFromWindow(View view) {
-                c.this.bOJ();
+                c.this.bOK();
             }
         });
-        bOH();
+        bOI();
     }
 
-    private void bOH() {
+    private void bOI() {
         int statusBarHeight = UtilHelper.getStatusBarHeight();
         int dimens = l.getDimens(this.gjh.getPageContext().getPageActivity(), R.dimen.ds98);
         int i = l.getScreenSize(this.gjh.getPageContext().getPageActivity()).heightPixels;
@@ -108,11 +108,11 @@ public class c {
         this.gjm = i - statusBarHeight;
     }
 
-    public boolean bob() {
+    public boolean boc() {
         return this.mNavigationBar != null && this.mNavigationBar.getVisibility() == 0;
     }
 
-    public boolean bod() {
+    public boolean boe() {
         try {
             this.eKi.addView(this.gjh.createWebView());
             this.eKj.setVisibility(8);
@@ -157,7 +157,7 @@ public class c {
         }
     }
 
-    public void bes() {
+    public void bet() {
         g.dismissPopupWindow(this.eKn, this.gjh.getPageContext().getPageActivity());
     }
 
@@ -186,11 +186,11 @@ public class c {
             aqVar.dX(TiebaInitialize.Params.OBJ_URL, shareItem.linkUrl);
             aqVar.an("obj_type", 0);
             TiebaStatic.log(aqVar);
-            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) this.gjh.getPageContext().getPageActivity(), shareItem, true, bog())));
+            MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.CMD_SHARE_DIALOG_SHOW, new ShareDialogConfig((Context) this.gjh.getPageContext().getPageActivity(), shareItem, true, boh())));
         }
     }
 
-    private SparseArray<String> bog() {
+    private SparseArray<String> boh() {
         if (0 != 0) {
             return null;
         }
@@ -265,7 +265,7 @@ public class c {
         this.gjh.getWindow().setFlags(1024, 1024);
     }
 
-    public void boi() {
+    public void boj() {
         RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.eKi.getLayoutParams();
         layoutParams.addRule(3, R.id.view_navigation_bar);
         this.eKi.setLayoutParams(layoutParams);
@@ -283,25 +283,25 @@ public class c {
     public void a(DownloadCacheKey downloadCacheKey) {
         this.gjj = downloadCacheKey;
         if (this.gjk == null) {
-            AdDownloadData d = com.baidu.tieba.ad.download.d.bOQ().d(downloadCacheKey);
+            AdDownloadData d = com.baidu.tieba.ad.download.d.bOR().d(downloadCacheKey);
             com.baidu.tieba.ad.browser.newstyle.view.a aVar = new com.baidu.tieba.ad.browser.newstyle.view.a(this.gji, d, "LANDING_PAGE");
             this.gjk = new com.baidu.tieba.ad.download.a.b(aVar);
             if (d.extra().getPercent() > 0) {
                 aVar.b((com.baidu.tieba.ad.browser.newstyle.view.a) d);
             }
         }
-        bOI();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public void bOI() {
-        if (this.gjj != null && this.gjk != null) {
-            com.baidu.tieba.ad.download.d.bOQ().a(this.gjj, this.gjk);
-        }
+        bOJ();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void bOJ() {
-        com.baidu.tieba.ad.download.d.bOQ().b(this.gjj, this.gjk);
+        if (this.gjj != null && this.gjk != null) {
+            com.baidu.tieba.ad.download.d.bOR().a(this.gjj, this.gjk);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void bOK() {
+        com.baidu.tieba.ad.download.d.bOR().b(this.gjj, this.gjk);
     }
 }

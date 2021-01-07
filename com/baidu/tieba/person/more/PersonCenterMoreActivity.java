@@ -28,15 +28,15 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.card.aa
         public void a(View view, h hVar) {
-            PersonCenterMoreActivity.this.mox = hVar;
-            if (PersonCenterMoreActivity.this.mox != null && !PersonCenterMoreActivity.this.cjE()) {
-                PersonCenterMoreActivity.this.Qz(PersonCenterMoreActivity.this.mox.aJH);
+            PersonCenterMoreActivity.this.mow = hVar;
+            if (PersonCenterMoreActivity.this.mow != null && !PersonCenterMoreActivity.this.cjF()) {
+                PersonCenterMoreActivity.this.Qy(PersonCenterMoreActivity.this.mow.aJH);
             }
         }
     };
-    private b mov;
-    private Bundle mow;
-    private h mox;
+    private b mou;
+    private Bundle mov;
+    private h mow;
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -44,15 +44,15 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         super.onCreate(bundle);
         Intent intent = getIntent();
         if (intent != null) {
-            this.mow = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
+            this.mov = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
         }
         setContentView(R.layout.person_center_more_layout);
-        this.mov = new b(getPageContext(), this.mow, this.hnl);
-        this.mov.initView();
+        this.mou = new b(getPageContext(), this.mov, this.hnl);
+        this.mou.initView();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public boolean cjE() {
+    public boolean cjF() {
         Activity pageActivity = getPageContext().getPageActivity();
         PermissionJudgePolicy permissionJudgePolicy = new PermissionJudgePolicy();
         permissionJudgePolicy.clearRequestPermissionList();
@@ -63,18 +63,18 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
         if (25040 == i && iArr[0] == 0) {
-            Qz(this.mox.aJH);
+            Qy(this.mow.aJH);
         }
     }
 
-    private void Qy(String str) {
+    private void Qx(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
                 if (!TbadkCoreApplication.getInst().appResponseToIntentClass(ConsumptionRecordsActivityConfig.class)) {
                     l.showToast(getPageContext().getPageActivity(), R.string.cosume_record_plugin_not_install_tip);
                     return;
                 }
-                be.bwu().b(getPageContext(), new String[]{str.substring("tieba&".length())});
+                be.bwv().b(getPageContext(), new String[]{str.substring("tieba&".length())});
             } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) || str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
                 com.baidu.tbadk.browser.a.startWebActivity((Context) getPageContext().getPageActivity(), true, str);
             } else {
@@ -84,14 +84,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Qz(String str) {
+    public void Qy(String str) {
         if (!StringUtils.isNull(str)) {
             if (str.startsWith("tieba&")) {
-                Qy(str);
+                Qx(str);
             } else if (str.startsWith("nohead:url")) {
-                be.bwu().b(getPageContext(), new String[]{str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, "") + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
+                be.bwv().b(getPageContext(), new String[]{str.replaceFirst(UrlSchemaHelper.PREFIX_BOOK_TOWN, "") + (str.contains("?") ? ETAG.ITEM_SEPARATOR : "?") + "jump=open_full_screen_web_page&nonavigationbar=1"});
             } else {
-                be.bwu().b(getPageContext(), new String[]{str});
+                be.bwv().b(getPageContext(), new String[]{str});
             }
         }
     }
@@ -100,8 +100,8 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
     @Override // com.baidu.tbadk.BaseActivity
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        if (this.mov != null) {
-            this.mov.onChangeSkinType();
+        if (this.mou != null) {
+            this.mou.onChangeSkinType();
         }
     }
 }

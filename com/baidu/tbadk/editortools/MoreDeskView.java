@@ -47,7 +47,7 @@ public class MoreDeskView extends CommonTabHost {
         super.a(aVar);
         if (aVar != null && aVar.code == 2 && aVar.id != 5) {
             c(aVar);
-            bEW();
+            bEX();
         }
     }
 
@@ -67,7 +67,7 @@ public class MoreDeskView extends CommonTabHost {
         this.fEj.put(aVar.id, intValue >= 0 ? intValue : 0);
     }
 
-    private void bEW() {
+    private void bEX() {
         int i;
         int i2 = 0;
         int i3 = 0;

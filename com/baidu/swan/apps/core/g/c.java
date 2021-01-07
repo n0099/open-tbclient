@@ -17,15 +17,15 @@ public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    public void aqT() {
+    public void aqU() {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager
-    protected void aqQ() {
+    protected void aqR() {
     }
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
-    public String amt() {
+    public String amu() {
         return this.cWn;
     }
 
@@ -35,8 +35,8 @@ public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
     }
 
     @Override // com.baidu.swan.apps.core.g.a
-    public com.baidu.swan.apps.core.container.a anh() {
-        return amr();
+    public com.baidu.swan.apps.core.container.a ani() {
+        return ams();
     }
 
     @Override // com.baidu.swan.apps.core.g.a
@@ -51,6 +51,6 @@ public class c extends SwanAppWebViewManager implements com.baidu.swan.apps.adap
 
     @Override // com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.swan.apps.adaptation.b.e
     public void onJSLoaded() {
-        com.baidu.swan.apps.core.turbo.d.avA().fA(true);
+        com.baidu.swan.apps.core.turbo.d.avB().fA(true);
     }
 }

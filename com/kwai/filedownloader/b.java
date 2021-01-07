@@ -6,10 +6,10 @@ import com.kwai.filedownloader.r;
 public class b implements r.a, r.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private long f11163a;
+    private long f11164a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f11164b;
+    private long f11165b;
     private long c;
     private long d;
     private int e;
@@ -18,7 +18,7 @@ public class b implements r.a, r.b {
     @Override // com.kwai.filedownloader.r.b
     public void a() {
         this.e = 0;
-        this.f11163a = 0L;
+        this.f11164a = 0L;
     }
 
     @Override // com.kwai.filedownloader.r.b
@@ -38,7 +38,7 @@ public class b implements r.a, r.b {
             return;
         }
         long j2 = j - this.c;
-        this.f11163a = 0L;
+        this.f11164a = 0L;
         long uptimeMillis = SystemClock.uptimeMillis() - this.d;
         if (uptimeMillis <= 0) {
             this.e = (int) j2;
@@ -53,18 +53,18 @@ public class b implements r.a, r.b {
         if (this.f <= 0) {
             return;
         }
-        if (this.f11163a != 0) {
-            long uptimeMillis = SystemClock.uptimeMillis() - this.f11163a;
+        if (this.f11164a != 0) {
+            long uptimeMillis = SystemClock.uptimeMillis() - this.f11164a;
             if (uptimeMillis >= this.f || (this.e == 0 && uptimeMillis > 0)) {
-                this.e = (int) ((j - this.f11164b) / uptimeMillis);
+                this.e = (int) ((j - this.f11165b) / uptimeMillis);
                 this.e = Math.max(0, this.e);
             } else {
                 z = false;
             }
         }
         if (z) {
-            this.f11164b = j;
-            this.f11163a = SystemClock.uptimeMillis();
+            this.f11165b = j;
+            this.f11164a = SystemClock.uptimeMillis();
         }
     }
 }

@@ -41,7 +41,7 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
         return this.hGe.get(Integer.valueOf(i));
     }
 
-    public void cjB() {
+    public void cjC() {
         if (this.hGe == null) {
             this.hGe = new SimpleArrayMap<>();
         }
@@ -75,10 +75,10 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
     public void a(int i, AlaLiveInfoData alaLiveInfoData, x xVar) {
         AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.hGe.get(Integer.valueOf(xc(i)));
         if (alaLiveInfoData != null) {
-            alaLiveRoomBlurPageLayout.cnX();
+            alaLiveRoomBlurPageLayout.cnY();
             alaLiveRoomBlurPageLayout.setBgImageUrl(alaLiveInfoData.cover, null);
         } else if (xVar != null && xVar.mLiveInfo != null) {
-            alaLiveRoomBlurPageLayout.cnX();
+            alaLiveRoomBlurPageLayout.cnY();
             alaLiveRoomBlurPageLayout.setBgImageUrl(xVar.mLiveInfo.cover, null);
         }
     }
@@ -86,10 +86,10 @@ public class AlaLoopViewPagerAdapter extends PagerAdapter {
     public void b(int i, AlaLiveInfoData alaLiveInfoData, x xVar) {
         AlaLiveRoomBlurPageLayout alaLiveRoomBlurPageLayout = this.hGe.get(Integer.valueOf(xd(i)));
         if (alaLiveInfoData != null) {
-            alaLiveRoomBlurPageLayout.cnX();
+            alaLiveRoomBlurPageLayout.cnY();
             alaLiveRoomBlurPageLayout.setBgImageUrl(alaLiveInfoData.cover, null);
         } else if (xVar != null && xVar.mLiveInfo != null) {
-            alaLiveRoomBlurPageLayout.cnX();
+            alaLiveRoomBlurPageLayout.cnY();
             alaLiveRoomBlurPageLayout.setBgImageUrl(xVar.mLiveInfo.cover, null);
         }
     }

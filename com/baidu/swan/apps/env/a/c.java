@@ -14,10 +14,10 @@ public class c implements a {
         if (list == null) {
             return null;
         }
-        List<SwanFavorItemData> ayk = SwanFavorDataManager.ayj().ayk();
-        if (ayk.size() != 0) {
+        List<SwanFavorItemData> ayl = SwanFavorDataManager.ayk().ayl();
+        if (ayl.size() != 0) {
             HashSet hashSet = new HashSet();
-            for (SwanFavorItemData swanFavorItemData : ayk) {
+            for (SwanFavorItemData swanFavorItemData : ayl) {
                 hashSet.add(swanFavorItemData.getAppKey());
             }
             list.removeAll(hashSet);

@@ -1,14 +1,14 @@
 package com.baidu.platform.comapi.walknavi.d.a;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class e implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ d f4447a;
+    final /* synthetic */ d f4448a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public e(d dVar) {
-        this.f4447a = dVar;
+        this.f4448a = dVar;
     }
 
     @Override // java.lang.Runnable

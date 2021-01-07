@@ -20,10 +20,10 @@ public class AdExtParam {
         private a() {
         }
 
-        public static a bIs() {
+        public static a bIt() {
             a aVar = new a();
             aVar.fOL = new HashMap();
-            aVar.fOL.put(AdExtParam.KEY_IADEX, c.bIz());
+            aVar.fOL.put(AdExtParam.KEY_IADEX, c.bIA());
             return aVar;
         }
 
@@ -37,22 +37,22 @@ public class AdExtParam {
             return this;
         }
 
-        public a EB(String str) {
+        public a EA(String str) {
             this.fOL.put(AdExtParam.KEY_SHOUBAI_CUID, str);
             return this;
         }
 
-        public a EC(String str) {
+        public a EB(String str) {
             this.fOL.put(AdExtParam.KEY_AD_CONTEXT_LIST, str);
             return this;
         }
 
-        public a ED(String str) {
+        public a EC(String str) {
             this.fOL.put("forum_name", str);
             return this;
         }
 
-        public String bIt() {
+        public String bIu() {
             try {
                 return new Gson().toJson(this.fOL);
             } catch (Exception e) {

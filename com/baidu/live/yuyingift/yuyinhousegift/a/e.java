@@ -18,11 +18,11 @@ public class e extends a {
         this.startY = f2;
         this.endX = f3;
         this.endY = f4;
-        this.ccF = aby();
+        this.ccF = abz();
     }
 
     @Override // com.baidu.live.yuyingift.yuyinhousegift.a.a
-    protected AnimatorSet aby() {
+    protected AnimatorSet abz() {
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.play(ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat("scaleX", 1.2f, 1.0f), PropertyValuesHolder.ofFloat("scaleY", 1.2f, 1.0f))).with(ObjectAnimator.ofPropertyValuesHolder(this.mTarget, PropertyValuesHolder.ofFloat("x", this.startX, this.endX), PropertyValuesHolder.ofFloat("y", this.startY, this.endY)));
         animatorSet.setInterpolator(new LinearInterpolator());

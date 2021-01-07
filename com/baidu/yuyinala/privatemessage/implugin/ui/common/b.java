@@ -24,15 +24,15 @@ public class b {
         oWe.add("万水千山都是情，从此都是一家人");
     }
 
-    public static String elR() {
+    public static String elS() {
         return oWb;
     }
 
-    public static String elS() {
+    public static String elT() {
         return oWc;
     }
 
-    public static String elT() {
+    public static String elU() {
         int nextInt = new Random().nextInt(oWd.size());
         if (nextInt >= oWd.size()) {
             nextInt = 0;
@@ -40,7 +40,7 @@ public class b {
         return oWd.get(nextInt);
     }
 
-    public static String elU() {
+    public static String elV() {
         int nextInt = new Random().nextInt(oWe.size());
         if (nextInt >= oWe.size()) {
             nextInt = 0;
@@ -48,7 +48,7 @@ public class b {
         return oWe.get(nextInt);
     }
 
-    public static String elV() {
+    public static String elW() {
         return oWg;
     }
 }

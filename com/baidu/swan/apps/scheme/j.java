@@ -33,7 +33,7 @@ public class j extends UnitedSchemeBaseDispatcher {
     protected final Map<String, aa> dIN = new HashMap();
 
     public j() {
-        aNr();
+        aNs();
     }
 
     @Override // com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher
@@ -84,7 +84,7 @@ public class j extends UnitedSchemeBaseDispatcher {
         return null;
     }
 
-    protected void aNr() {
+    protected void aNs() {
         this.dIN.clear();
         a(new u(this));
         a(new com.baidu.swan.apps.network.i(this));

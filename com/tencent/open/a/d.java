@@ -17,7 +17,7 @@ public class d {
 
     /* renamed from: com.tencent.open.a.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public static final class C1240d {
+    public static final class C1281d {
         @SuppressLint({"SimpleDateFormat"})
         public static SimpleDateFormat a(String str) {
             return new SimpleDateFormat(str);
@@ -43,26 +43,26 @@ public class d {
     public static class c {
 
         /* renamed from: a  reason: collision with root package name */
-        private File f13674a;
+        private File f13675a;
 
         /* renamed from: b  reason: collision with root package name */
-        private long f13675b;
+        private long f13676b;
         private long c;
 
         public File a() {
-            return this.f13674a;
+            return this.f13675a;
         }
 
         public void a(File file) {
-            this.f13674a = file;
+            this.f13675a = file;
         }
 
         public long b() {
-            return this.f13675b;
+            return this.f13676b;
         }
 
         public void a(long j) {
-            this.f13675b = j;
+            this.f13676b = j;
         }
 
         public long c() {

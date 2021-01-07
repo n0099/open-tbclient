@@ -102,7 +102,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
             public void onClick(View view) {
                 if (view.getTag() instanceof String) {
                     TiebaStatic.log(new aq("c13047").an("obj_locate", 7).dX("fid", CardFrsGameCompetitionItemView.this.mForumId));
-                    be.bwu().a((TbPageContext) com.baidu.adp.base.j.K(CardFrsGameCompetitionItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
+                    be.bwv().a((TbPageContext) com.baidu.adp.base.j.K(CardFrsGameCompetitionItemView.this.getContext()), new String[]{(String) view.getTag()}, true);
                 }
             }
         });

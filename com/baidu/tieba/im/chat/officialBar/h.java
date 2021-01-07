@@ -58,11 +58,11 @@ public class h {
                     data = responsedMessage instanceof ResponseSocketMajorHistoryMessage ? ((ResponseSocketMajorHistoryMessage) responsedMessage).getData() : null;
                 }
                 if (data != null) {
-                    List<com.baidu.tieba.im.forum.broadcast.data.b> cXM = data.cXM();
-                    if (cXM != null && cXM.size() > 0) {
-                        LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray2 = new LongSparseArray<>(cXM.size());
-                        for (com.baidu.tieba.im.forum.broadcast.data.b bVar : cXM) {
-                            longSparseArray2.put(bVar.cXS(), bVar);
+                    List<com.baidu.tieba.im.forum.broadcast.data.b> cXN = data.cXN();
+                    if (cXN != null && cXN.size() > 0) {
+                        LongSparseArray<com.baidu.tieba.im.forum.broadcast.data.b> longSparseArray2 = new LongSparseArray<>(cXN.size());
+                        for (com.baidu.tieba.im.forum.broadcast.data.b bVar : cXN) {
+                            longSparseArray2.put(bVar.cXT(), bVar);
                         }
                         longSparseArray = longSparseArray2;
                     }
@@ -104,13 +104,13 @@ public class h {
                 List<ChatMessage> list = loadHistoryResponsedMessage.getData().msgList;
                 ArrayList arrayList = new ArrayList();
                 for (ChatMessage chatMessage : list) {
-                    List<a.C0766a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
+                    List<a.C0775a> a2 = com.baidu.tieba.im.message.chat.a.a(chatMessage.getContent(), chatMessage.getUserInfo().getUserId(), chatMessage.getUserInfo(), chatMessage.getMsgId(), chatMessage.getStatTaskId(), chatMessage.getStatisticsServiceId());
                     if (a2 != null && a2.size() > 0 && (chatMessage instanceof OfficialChatMessage)) {
                         int i = 0;
                         while (i < a2.size()) {
-                            a.C0766a c0766a = a2.get(i);
-                            com.baidu.tieba.im.message.chat.b a3 = com.baidu.tieba.im.message.chat.b.a(chatMessage, c0766a);
-                            a3.sQ(i == 0 && !StringUtils.isNull(c0766a.src));
+                            a.C0775a c0775a = a2.get(i);
+                            com.baidu.tieba.im.message.chat.b a3 = com.baidu.tieba.im.message.chat.b.a(chatMessage, c0775a);
+                            a3.sQ(i == 0 && !StringUtils.isNull(c0775a.src));
                             arrayList.add(a3);
                             i++;
                         }
@@ -128,8 +128,8 @@ public class h {
         if (list != null && list.size() > 0) {
             ArrayList arrayList = new ArrayList(list.size());
             for (com.baidu.tieba.im.message.chat.b bVar : list) {
-                if (bVar.cYM()) {
-                    arrayList.add(Long.valueOf(bVar.cYN().kFM));
+                if (bVar.cYN()) {
+                    arrayList.add(Long.valueOf(bVar.cYO().kFM));
                 }
             }
             BroadcastMajorHistoryRequestMessage broadcastMajorHistoryRequestMessage = new BroadcastMajorHistoryRequestMessage();

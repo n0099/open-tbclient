@@ -27,24 +27,24 @@ public class b {
             }
         }
         jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-        jSONObject.put("sdkExtension", b(d.avA().avW()));
-        jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.j.a.bah().avW()));
+        jSONObject.put("sdkExtension", b(d.avB().avX()));
+        jSONObject.put("gameSdkExtension", b(com.baidu.swan.games.j.a.bai().avX()));
         jSONObject.put("isDebugSdk", DEBUG);
-        String string = h.aPH().getString("ctsUrl", "");
-        if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ad.a.a.aII()) {
+        String string = h.aPI().getString("ctsUrl", "");
+        if (!TextUtils.isEmpty(string) && com.baidu.swan.apps.ad.a.a.aIJ()) {
             jSONObject.put("ctsJsAddress", new JSONObject(string));
         }
-        String alc = com.baidu.swan.apps.t.a.aAD().alc();
-        if (!TextUtils.isEmpty(alc)) {
-            jSONObject.put("hostName", alc);
+        String ald = com.baidu.swan.apps.t.a.aAE().ald();
+        if (!TextUtils.isEmpty(ald)) {
+            jSONObject.put("hostName", ald);
         }
         jSONObject.put("platform", HttpConstants.OS_TYPE_VALUE);
-        JSONObject aPM = com.baidu.swan.apps.swancore.a.a.aPM();
-        aPM.put("swanswitch_common_sys_info_binding", true);
-        aPM.put("swanswitch_ab_sync_auth", true);
-        jSONObject.put("abTestSwitch", aPM);
+        JSONObject aPN = com.baidu.swan.apps.swancore.a.a.aPN();
+        aPN.put("swanswitch_common_sys_info_binding", true);
+        aPN.put("swanswitch_ab_sync_auth", true);
+        jSONObject.put("abTestSwitch", aPN);
         jSONObject.put("userDataPath", com.baidu.swan.games.i.a.USER_DATA_PATH);
-        jSONObject.put("preloadId", d.avA().awb());
+        jSONObject.put("preloadId", d.avB().awc());
         String jSONObject2 = jSONObject.toString();
         return TextUtils.isEmpty(jSONObject2) ? "" : jSONObject2;
     }

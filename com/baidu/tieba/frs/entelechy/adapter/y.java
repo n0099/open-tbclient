@@ -55,7 +55,7 @@ public class y extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
         threadCardViewHolder.ty().setPosition(i);
         threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eMv);
         threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
-        byVar.eMv.bsE();
+        byVar.eMv.bsF();
         return threadCardViewHolder.getView();
     }
 
@@ -74,7 +74,7 @@ public class y extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> imple
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 

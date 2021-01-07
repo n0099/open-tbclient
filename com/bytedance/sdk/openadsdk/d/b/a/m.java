@@ -10,32 +10,32 @@ import java.lang.reflect.TypeVariable;
 public final class m<T> extends v<T> {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.d.f f7201a;
+    private final com.bytedance.sdk.openadsdk.d.f f7202a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final v<T> f7202b;
+    private final v<T> f7203b;
     private final Type c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public m(com.bytedance.sdk.openadsdk.d.f fVar, v<T> vVar, Type type) {
-        this.f7201a = fVar;
-        this.f7202b = vVar;
+        this.f7202a = fVar;
+        this.f7203b = vVar;
         this.c = type;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.v
     public T b(com.bytedance.sdk.openadsdk.d.d.a aVar) throws IOException {
-        return this.f7202b.b(aVar);
+        return this.f7203b.b(aVar);
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.v
     public void a(com.bytedance.sdk.openadsdk.d.d.c cVar, T t) throws IOException {
-        v<T> vVar = this.f7202b;
+        v<T> vVar = this.f7203b;
         Type a2 = a(this.c, t);
         if (a2 != this.c) {
-            vVar = this.f7201a.a((com.bytedance.sdk.openadsdk.d.c.a) com.bytedance.sdk.openadsdk.d.c.a.a(a2));
-            if ((vVar instanceof i.a) && !(this.f7202b instanceof i.a)) {
-                vVar = this.f7202b;
+            vVar = this.f7202a.a((com.bytedance.sdk.openadsdk.d.c.a) com.bytedance.sdk.openadsdk.d.c.a.a(a2));
+            if ((vVar instanceof i.a) && !(this.f7203b instanceof i.a)) {
+                vVar = this.f7203b;
             }
         }
         vVar.a(cVar, t);

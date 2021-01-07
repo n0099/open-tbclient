@@ -16,7 +16,7 @@ import com.baidu.android.imsdk.mcast.McastConfig;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class j extends ag implements Runnable, Comparator {
     public static boolean d = false;
     private static long i = 0;
@@ -87,7 +87,7 @@ public final class j extends ag implements Runnable, Comparator {
         WifiManager wifiManager = wVar.AY;
         if (wifiManager != null) {
             try {
-                if (Build.VERSION.SDK_INT < 23 || Settings.Secure.getInt(wVar.f1081a.getContentResolver(), "location_mode") != 0) {
+                if (Build.VERSION.SDK_INT < 23 || Settings.Secure.getInt(wVar.f1082a.getContentResolver(), "location_mode") != 0) {
                     boolean isWifiEnabled = wifiManager.isWifiEnabled();
                     return (isWifiEnabled || Build.VERSION.SDK_INT < 18) ? isWifiEnabled : wifiManager.isScanAlwaysAvailable();
                 }
@@ -163,7 +163,7 @@ public final class j extends ag implements Runnable, Comparator {
         }
         try {
             if (Build.VERSION.SDK_INT >= 23) {
-                if (Settings.Secure.getInt(this.Bm.f1081a.getContentResolver(), "location_mode") == 0) {
+                if (Settings.Secure.getInt(this.Bm.f1082a.getContentResolver(), "location_mode") == 0) {
                     i2 = 5;
                 }
             }
@@ -181,7 +181,7 @@ public final class j extends ag implements Runnable, Comparator {
             intentFilter.addAction(McastConfig.ACTION_WIFI_STATE_CHANGED);
             intentFilter.addAction("android.net.wifi.SCAN_RESULTS");
             try {
-                this.Bm.f1081a.registerReceiver(this.h, intentFilter, null, handler2);
+                this.Bm.f1082a.registerReceiver(this.h, intentFilter, null, handler2);
             } catch (Throwable th) {
             }
         }
@@ -195,7 +195,7 @@ public final class j extends ag implements Runnable, Comparator {
             this.e = null;
         }
         try {
-            this.Bm.f1081a.unregisterReceiver(this.h);
+            this.Bm.f1082a.unregisterReceiver(this.h);
         } catch (Throwable th) {
         }
         this.g = 0L;

@@ -40,19 +40,19 @@ public class LiveVideoChatSendCancelResponseMessage extends JsonHttpResponsedMes
         }
     }
 
-    public boolean YR() {
+    public boolean YS() {
         return this.bRp == 1;
     }
 
-    public AlaLiveInfoData YS() {
+    public AlaLiveInfoData YT() {
         return this.brX;
     }
 
-    public com.baidu.live.videochat.b.a YT() {
+    public com.baidu.live.videochat.b.a YU() {
         return this.bRq;
     }
 
-    public c YU() {
+    public c YV() {
         return this.bRr;
     }
 }

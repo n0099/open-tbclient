@@ -93,11 +93,11 @@ public class a {
         }
     }
 
-    public void cnn() {
+    public void cno() {
         this.hOl.setVisibility(8);
     }
 
-    public void cno() {
+    public void cnp() {
         this.hOl.setVisibility(0);
     }
 }

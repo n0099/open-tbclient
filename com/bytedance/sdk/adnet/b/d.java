@@ -20,7 +20,7 @@ import java.util.concurrent.Executors;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private final ExecutorService f6296a = Executors.newCachedThreadPool();
+    private final ExecutorService f6297a = Executors.newCachedThreadPool();
     private int c = 50;
     private final Map<String, a> e = Collections.synchronizedMap(new HashMap());
     private final Map<String, a> f = Collections.synchronizedMap(new HashMap());
@@ -39,7 +39,7 @@ public class d {
 
     /* renamed from: com.bytedance.sdk.adnet.b.d$d  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0972d extends p.a<Bitmap> {
+    public interface InterfaceC1010d extends p.a<Bitmap> {
         void a();
 
         void a(c cVar, boolean z);
@@ -52,29 +52,29 @@ public class d {
         this.poR = bVar == null ? new com.bytedance.sdk.adnet.b.a() : bVar;
     }
 
-    public void a(String str, InterfaceC0972d interfaceC0972d) {
-        a(str, interfaceC0972d, 0, 0);
+    public void a(String str, InterfaceC1010d interfaceC1010d) {
+        a(str, interfaceC1010d, 0, 0);
     }
 
-    public void a(String str, InterfaceC0972d interfaceC0972d, int i, int i2) {
-        a(str, interfaceC0972d, i, i2, ImageView.ScaleType.CENTER_INSIDE);
+    public void a(String str, InterfaceC1010d interfaceC1010d, int i, int i2) {
+        a(str, interfaceC1010d, i, i2, ImageView.ScaleType.CENTER_INSIDE);
     }
 
-    public void a(final String str, final InterfaceC0972d interfaceC0972d, final int i, final int i2, final ImageView.ScaleType scaleType) {
-        this.f6296a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.1
+    public void a(final String str, final InterfaceC1010d interfaceC1010d, final int i, final int i2, final ImageView.ScaleType scaleType) {
+        this.f6297a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.1
             @Override // java.lang.Runnable
             public void run() {
-                d.this.b(str, interfaceC0972d, i, i2, scaleType);
+                d.this.b(str, interfaceC1010d, i, i2, scaleType);
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void b(String str, final InterfaceC0972d interfaceC0972d, int i, int i2, ImageView.ScaleType scaleType) {
+    public void b(String str, final InterfaceC1010d interfaceC1010d, int i, int i2, ImageView.ScaleType scaleType) {
         this.g.post(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.2
             @Override // java.lang.Runnable
             public void run() {
-                interfaceC0972d.a();
+                interfaceC1010d.a();
             }
         });
         String a2 = a(str, i, i2, scaleType);
@@ -84,13 +84,13 @@ public class d {
             this.g.post(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    interfaceC0972d.a(cVar, true);
-                    interfaceC0972d.b();
+                    interfaceC1010d.a(cVar, true);
+                    interfaceC1010d.b();
                 }
             });
             return;
         }
-        c cVar2 = new c(null, str, a2, interfaceC0972d);
+        c cVar2 = new c(null, str, a2, interfaceC1010d);
         a aVar = this.e.get(a2);
         if (aVar == null) {
             aVar = this.f.get(a2);
@@ -108,7 +108,7 @@ public class d {
         return new e(str, new p.a<Bitmap>() { // from class: com.bytedance.sdk.adnet.b.d.4
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void a(final p<Bitmap> pVar) {
-                d.this.f6296a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.4.1
+                d.this.f6297a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.4.1
                     @Override // java.lang.Runnable
                     public void run() {
                         d.this.a(str2, pVar);
@@ -118,7 +118,7 @@ public class d {
 
             @Override // com.bytedance.sdk.adnet.core.p.a
             public void b(final p<Bitmap> pVar) {
-                d.this.f6296a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.4.2
+                d.this.f6297a.execute(new Runnable() { // from class: com.bytedance.sdk.adnet.b.d.4.2
                     @Override // java.lang.Runnable
                     public void run() {
                         d.this.b(str2, pVar);
@@ -129,12 +129,12 @@ public class d {
     }
 
     protected void a(String str, p<Bitmap> pVar) {
-        this.poR.a(str, pVar.f6344a);
+        this.poR.a(str, pVar.f6345a);
         a remove = this.e.remove(str);
         if (remove == null) {
             return;
         }
-        remove.c = pVar.f6344a;
+        remove.c = pVar.f6345a;
         remove.a(pVar);
         a(str, remove);
     }
@@ -152,20 +152,20 @@ public class d {
     public class c {
 
         /* renamed from: b  reason: collision with root package name */
-        private Bitmap f6301b;
+        private Bitmap f6302b;
         private final String d;
         private final String e;
-        private final InterfaceC0972d ppb;
+        private final InterfaceC1010d ppb;
 
-        public c(Bitmap bitmap, String str, String str2, InterfaceC0972d interfaceC0972d) {
-            this.f6301b = bitmap;
+        public c(Bitmap bitmap, String str, String str2, InterfaceC1010d interfaceC1010d) {
+            this.f6302b = bitmap;
             this.e = str;
             this.d = str2;
-            this.ppb = interfaceC0972d;
+            this.ppb = interfaceC1010d;
         }
 
         public Bitmap a() {
-            return this.f6301b;
+            return this.f6302b;
         }
     }
 
@@ -174,7 +174,7 @@ public class d {
     public static class a {
 
         /* renamed from: b  reason: collision with root package name */
-        private p<Bitmap> f6300b;
+        private p<Bitmap> f6301b;
         private Bitmap c;
         private VAdError d;
         private final List<c> e = Collections.synchronizedList(new ArrayList());
@@ -189,16 +189,16 @@ public class d {
             this.d = vAdError;
         }
 
-        public VAdError esg() {
+        public VAdError esh() {
             return this.d;
         }
 
-        public p<Bitmap> esh() {
-            return this.f6300b;
+        public p<Bitmap> esi() {
+            return this.f6301b;
         }
 
         public void a(p<Bitmap> pVar) {
-            this.f6300b = pVar;
+            this.f6301b = pVar;
         }
 
         public void a(c cVar) {
@@ -215,11 +215,11 @@ public class d {
                 if (aVar2 != null) {
                     for (c cVar : aVar2.e) {
                         if (cVar.ppb != null) {
-                            if (aVar2.esg() == null) {
-                                cVar.f6301b = aVar2.c;
+                            if (aVar2.esh() == null) {
+                                cVar.f6302b = aVar2.c;
                                 cVar.ppb.a(cVar, false);
                             } else {
-                                cVar.ppb.b(aVar2.esh());
+                                cVar.ppb.b(aVar2.esi());
                             }
                             cVar.ppb.b();
                         }

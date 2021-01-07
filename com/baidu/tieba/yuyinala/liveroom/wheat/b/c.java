@@ -30,10 +30,10 @@ public class c {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_LIVE_TYPE, UbcStatConstant.VALUE_LIVE_TYPE_AUDIO);
-            x aas = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eeo().aas();
-            if (aas != null && aas.aLl != null) {
-                jSONObject.put("live_id", aas.aLl.live_id);
-                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aas.aLl.croom_id);
+            x aat = com.baidu.tieba.yuyinala.liveroom.wheat.a.c.eep().aat();
+            if (aat != null && aat.aLl != null) {
+                jSONObject.put("live_id", aat.aLl.live_id);
+                jSONObject.put(UbcStatConstant.KEY_CUSTOM_ROOM_ID, aat.aLl.croom_id);
             }
             jSONObject.put("loc", i);
             boolean z = false;

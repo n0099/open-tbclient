@@ -8,10 +8,10 @@ public enum ht {
     
 
     /* renamed from: a  reason: collision with other field name */
-    private final int f543a;
+    private final int f544a;
 
     ht(int i) {
-        this.f543a = i;
+        this.f544a = i;
     }
 
     public static ht a(int i) {

@@ -5,27 +5,27 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.widget.RelativeLayout;
 import com.baidu.mapapi.map.WearMapView;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class SwipeDismissView extends RelativeLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    WearMapView.OnDismissCallback f2877a;
+    WearMapView.OnDismissCallback f2878a;
 
     public SwipeDismissView(Context context, AttributeSet attributeSet, int i, View view) {
         super(context, attributeSet, i);
-        this.f2877a = null;
+        this.f2878a = null;
         a(context, view);
     }
 
     public SwipeDismissView(Context context, AttributeSet attributeSet, View view) {
         super(context, attributeSet);
-        this.f2877a = null;
+        this.f2878a = null;
         a(context, view);
     }
 
     public SwipeDismissView(Context context, View view) {
         super(context);
-        this.f2877a = null;
+        this.f2878a = null;
         a(context, view);
     }
 
@@ -34,6 +34,6 @@ public class SwipeDismissView extends RelativeLayout {
     }
 
     public void setCallback(WearMapView.OnDismissCallback onDismissCallback) {
-        this.f2877a = onDismissCallback;
+        this.f2878a = onDismissCallback;
     }
 }

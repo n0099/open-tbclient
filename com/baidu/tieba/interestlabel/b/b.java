@@ -41,15 +41,15 @@ public class b {
         }
     }
 
-    public List<a> dcy() {
+    public List<a> dcz() {
         return this.kUr;
     }
 
-    public List<a> dcz() {
+    public List<a> dcA() {
         return this.kUn;
     }
 
-    public List<Integer> dcA() {
+    public List<Integer> dcB() {
         return this.kUo;
     }
 }

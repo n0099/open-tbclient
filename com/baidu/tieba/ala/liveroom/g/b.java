@@ -19,9 +19,9 @@ public class b {
         }
     }
 
-    public void chi() {
+    public void chj() {
         if (this.hBv != null) {
-            this.hBv.chi();
+            this.hBv.chj();
         }
     }
 

@@ -22,15 +22,15 @@ public class b implements c {
 
     public b(Context context) {
         this.fHD.setText(R.string.frs_forum_rule_return_info);
-        bxN();
+        bxO();
     }
 
     @Override // com.baidu.tbadk.k.c
-    public void bxN() {
+    public void bxO() {
         if (this.rootView != null) {
             ao.setViewTextColor(this.fHD, R.color.CAM_X0101);
             this.fHC.setImageDrawable(WebPManager.a(R.drawable.icon_pure_arrow12_right_n, ao.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL_PRESS));
-            com.baidu.tbadk.core.util.f.a.bwU().qr(R.color.CAM_X0302).qq(0).qA(211).ag(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).ai(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bz(this.fHE);
+            com.baidu.tbadk.core.util.f.a.bwV().qr(R.color.CAM_X0302).qq(0).qA(211).ag(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).ai(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds52)).bz(this.fHE);
             this.fHB.setImageDrawable(WebPManager.a(R.drawable.icon_mask_manage_postdelete_cancel32, WebPManager.ResourceStateType.NORMAL));
         }
     }

@@ -10,10 +10,10 @@ import java.util.Set;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final Set<String> f7606a = new HashSet();
+    private static final Set<String> f7607a = new HashSet();
 
     /* renamed from: b  reason: collision with root package name */
-    private static final Set<String> f7607b = new HashSet();
+    private static final Set<String> f7608b = new HashSet();
     private final ArrayList<a> c;
     private final int d;
     private int e;
@@ -34,11 +34,11 @@ public class l {
         ArrayList arrayList3 = null;
         for (String str : list) {
             a aVar = new a(str);
-            if (f7606a.contains(str)) {
+            if (f7607a.contains(str)) {
                 arrayList3 = arrayList3 == null ? new ArrayList() : arrayList3;
                 arrayList3.add(aVar);
                 arrayList = arrayList2;
-            } else if (f7607b.contains(str)) {
+            } else if (f7608b.contains(str)) {
                 arrayList = arrayList2 == null ? new ArrayList() : arrayList2;
                 arrayList.add(aVar);
             } else {
@@ -89,7 +89,7 @@ public class l {
             this.e = i;
         }
         a aVar = this.c.get(i);
-        aVar.f7609b = (this.f * this.d) + this.e;
+        aVar.f7610b = (this.f * this.d) + this.e;
         return aVar;
     }
 
@@ -97,27 +97,27 @@ public class l {
     public class a {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f7608a;
+        final String f7609a;
 
         /* renamed from: b  reason: collision with root package name */
-        int f7609b;
+        int f7610b;
 
         a(String str) {
-            this.f7608a = str;
+            this.f7609a = str;
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void a() {
-            l.f7606a.add(this.f7608a);
+            l.f7607a.add(this.f7609a);
         }
 
         /* JADX INFO: Access modifiers changed from: package-private */
         public void b() {
-            l.f7607b.add(this.f7608a);
+            l.f7608b.add(this.f7609a);
         }
 
         public String toString() {
-            return this.f7608a;
+            return this.f7609a;
         }
     }
 }

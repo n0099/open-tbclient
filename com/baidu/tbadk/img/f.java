@@ -374,7 +374,7 @@ public class f {
                                             this.mNetwork.addPostData("pic_water_type", String.valueOf(this.fID));
                                         }
                                         if (z2) {
-                                            int imageWaterType = k.bou().getImageWaterType();
+                                            int imageWaterType = k.bov().getImageWaterType();
                                             if (imageWaterType != 0) {
                                                 this.mNetwork.addPostData("pic_water_type", String.valueOf(imageWaterType));
                                             }
@@ -382,12 +382,12 @@ public class f {
                                             if (!StringUtils.isNull(currentAccountName) && imageWaterType == 1) {
                                                 this.mNetwork.addPostData("user_name", currentAccountName);
                                             }
-                                            String forumNameForWaterImage = k.bou().getForumNameForWaterImage();
+                                            String forumNameForWaterImage = k.bov().getForumNameForWaterImage();
                                             if (!StringUtils.isNull(forumNameForWaterImage) && imageWaterType == 2) {
                                                 this.mNetwork.addPostData("forum_name", forumNameForWaterImage);
                                             }
                                         }
-                                        String forumNameForWaterImage2 = k.bou().getForumNameForWaterImage();
+                                        String forumNameForWaterImage2 = k.bov().getForumNameForWaterImage();
                                         if (!StringUtils.isNull(forumNameForWaterImage2)) {
                                             this.mNetwork.addPostData("small_flow_fname", forumNameForWaterImage2);
                                         }

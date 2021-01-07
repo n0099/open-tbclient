@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.h;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface a {
     String a(Context context);
 

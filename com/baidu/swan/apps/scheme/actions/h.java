@@ -67,7 +67,7 @@ public class h extends aa {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
             return false;
         } else {
-            eVar.aMw().b(context, "mapp_pre_download", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.2
+            eVar.aMx().b(context, "mapp_pre_download", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.scheme.actions.h.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: a */
@@ -138,7 +138,7 @@ public class h extends aa {
                 public void run() {
                     List<String> g = com.baidu.swan.apps.core.pms.d.a.g(arrayList);
                     if (!g.isEmpty()) {
-                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((Collection<String>) g, (com.baidu.swan.pms.utils.a) am.aRU());
+                        com.baidu.swan.pms.c.d.b bVar = new com.baidu.swan.pms.c.d.b((Collection<String>) g, (com.baidu.swan.pms.utils.a) am.aRV());
                         bVar.zc(str);
                         bVar.zb("1");
                         com.baidu.swan.pms.c.a(bVar, new com.baidu.swan.apps.core.pms.d().iz(5));

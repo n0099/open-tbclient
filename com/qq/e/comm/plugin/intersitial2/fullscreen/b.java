@@ -11,16 +11,16 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile b f12432a;
+    private static volatile b f12433a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, Set<a>> f12433b = new ConcurrentHashMap();
+    private Map<String, Set<a>> f12434b = new ConcurrentHashMap();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
         void a();
 
@@ -35,23 +35,23 @@ public class b {
     }
 
     public static b a() {
-        if (f12432a == null) {
+        if (f12433a == null) {
             synchronized (b.class) {
                 try {
-                    if (f12432a == null) {
-                        f12432a = new b();
+                    if (f12433a == null) {
+                        f12433a = new b();
                     }
                 } catch (Throwable th) {
                     throw th;
                 }
             }
         }
-        return f12432a;
+        return f12433a;
     }
 
     public void a(String str) {
         Set<a> set;
-        if (TextUtils.isEmpty(str) || (set = this.f12433b.get(str)) == null) {
+        if (TextUtils.isEmpty(str) || (set = this.f12434b.get(str)) == null) {
             return;
         }
         set.clear();
@@ -63,12 +63,12 @@ public class b {
             return;
         }
         if (aVar != null) {
-            Set<a> set = this.f12433b.get(str);
+            Set<a> set = this.f12434b.get(str);
             if (set == null) {
                 set = new HashSet<>();
             }
             set.add(aVar);
-            this.f12433b.put(str, set);
+            this.f12434b.put(str, set);
         }
         com.qq.e.comm.plugin.aa.a.a.a().a(new b.a().b(str).a(ah.a(str)).a(ah.f()).a(), str, new com.qq.e.comm.plugin.j.a() { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.b.1
             private int d;
@@ -79,7 +79,7 @@ public class b {
                 w.a(new Runnable() { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.b.1.1
                     @Override // java.lang.Runnable
                     public void run() {
-                        Set<a> set2 = (Set) b.this.f12433b.get(str);
+                        Set<a> set2 = (Set) b.this.f12434b.get(str);
                         if (set2 == null || set2.size() <= 0) {
                             return;
                         }
@@ -96,7 +96,7 @@ public class b {
                 w.a(new Runnable() { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.b.1.2
                     @Override // java.lang.Runnable
                     public void run() {
-                        Set<a> set2 = (Set) b.this.f12433b.get(str);
+                        Set<a> set2 = (Set) b.this.f12434b.get(str);
                         if (set2 == null || set2.size() <= 0) {
                             return;
                         }
@@ -119,13 +119,13 @@ public class b {
                 w.a(new Runnable() { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.b.1.4
                     @Override // java.lang.Runnable
                     public void run() {
-                        Set<a> set2 = (Set) b.this.f12433b.get(str);
+                        Set<a> set2 = (Set) b.this.f12434b.get(str);
                         if (set2 != null && set2.size() > 0) {
                             for (a aVar2 : set2) {
                                 aVar2.a(cVar2);
                             }
                         }
-                        b.this.f12433b.remove(str);
+                        b.this.f12434b.remove(str);
                     }
                 });
             }
@@ -136,14 +136,14 @@ public class b {
                 w.a(new Runnable() { // from class: com.qq.e.comm.plugin.intersitial2.fullscreen.b.1.3
                     @Override // java.lang.Runnable
                     public void run() {
-                        Set<a> set2 = (Set) b.this.f12433b.get(str);
+                        Set<a> set2 = (Set) b.this.f12434b.get(str);
                         if (set2 != null && set2.size() > 0) {
                             for (a aVar2 : set2) {
                                 File d = ah.d(str);
                                 aVar2.a(d == null ? "" : d.getAbsolutePath());
                             }
                         }
-                        b.this.f12433b.remove(str);
+                        b.this.f12434b.remove(str);
                     }
                 });
                 ba.a(j, this.d, str, cVar);

@@ -20,15 +20,15 @@ import java.util.List;
 import java.util.Locale;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static String o = "BDLocConfigManager";
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f2580a;
+    public boolean f2581a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f2581b;
+    public int f2582b;
     public double c;
     public int d;
     public int e;
@@ -52,14 +52,14 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.location.b.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class C0251a extends com.baidu.location.e.f {
 
         /* renamed from: a  reason: collision with root package name */
-        String f2582a = null;
+        String f2583a = null;
 
         /* renamed from: b  reason: collision with root package name */
-        boolean f2583b = false;
+        boolean f2584b = false;
 
         public C0251a() {
             this.k = new HashMap();
@@ -68,18 +68,18 @@ public class a {
         @Override // com.baidu.location.e.f
         public void a() {
             this.i = 2;
-            String encode = Jni.encode(this.f2582a);
-            this.f2582a = null;
+            String encode = Jni.encode(this.f2583a);
+            this.f2583a = null;
             this.k.put("qt", "conf");
             this.k.put("req", encode);
         }
 
         public void a(String str) {
-            if (this.f2583b) {
+            if (this.f2584b) {
                 return;
             }
-            this.f2583b = true;
-            this.f2582a = str;
+            this.f2584b = true;
+            this.f2583a = str;
             b("https://loc.map.baidu.com/cfgs/loc/commcfgs");
         }
 
@@ -99,22 +99,22 @@ public class a {
             if (this.k != null) {
                 this.k.clear();
             }
-            this.f2583b = false;
+            this.f2584b = false;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        public static final a f2584a = new a();
+        public static final a f2585a = new a();
     }
 
     private a() {
         this.p = null;
-        this.f2580a = false;
-        this.f2581b = 16;
+        this.f2581a = false;
+        this.f2582b = 16;
         this.q = 300L;
         this.c = 0.75d;
         this.d = 0;
@@ -136,7 +136,7 @@ public class a {
     }
 
     public static a a() {
-        return b.f2584a;
+        return b.f2585a;
     }
 
     private String a(Context context) {
@@ -186,10 +186,10 @@ public class a {
         try {
             JSONObject jSONObject = new JSONObject(str);
             if (jSONObject.has("is_check_Per") && jSONObject.getInt("is_check_Per") > 0) {
-                this.f2580a = true;
+                this.f2581a = true;
             }
             if (jSONObject.has("wfnum")) {
-                this.f2581b = jSONObject.getInt("wfnum");
+                this.f2582b = jSONObject.getInt("wfnum");
             }
             if (jSONObject.has("freq")) {
                 this.q = jSONObject.getLong("freq");

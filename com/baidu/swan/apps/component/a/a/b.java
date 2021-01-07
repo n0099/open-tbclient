@@ -34,7 +34,7 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
             this.selectionEnd = jSONObject.optInt("selectionEnd");
             this.cNn = jSONObject.optString("confirmType");
             this.cNo = jSONObject.optInt("password") == 1;
-            aor();
+            aos();
         }
     }
 
@@ -50,10 +50,10 @@ public class b extends com.baidu.swan.apps.component.a.c.b {
         this.selectionEnd = jSONObject.optInt("selectionEnd", this.selectionEnd);
         this.cNn = jSONObject.optString("confirmType", this.cNn);
         this.cNo = jSONObject.optInt("password", this.cNo ? 1 : 0) == 1;
-        aor();
+        aos();
     }
 
-    private void aor() {
+    private void aos() {
         if (this.cNz != null) {
             this.textColor = SwanAppConfigData.sF(this.cNz.optString("color"));
             this.cNr = true;

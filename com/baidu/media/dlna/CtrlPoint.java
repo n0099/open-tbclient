@@ -19,7 +19,7 @@ public class CtrlPoint extends CtrlPointProvider {
     private long d;
 
     /* renamed from: b  reason: collision with root package name */
-    String f3225b = null;
+    String f3226b = null;
     private Handler e = new Handler(Looper.getMainLooper()) { // from class: com.baidu.media.dlna.CtrlPoint.1
         @Override // android.os.Handler
         public void handleMessage(Message message) {
@@ -45,7 +45,7 @@ public class CtrlPoint extends CtrlPointProvider {
                 case 4:
                     if (CtrlPoint.this.ciL != null) {
                         HashMap hashMap = new HashMap();
-                        hashMap.put("url", CtrlPoint.this.f3225b);
+                        hashMap.put("url", CtrlPoint.this.f3226b);
                         hashMap.put("uuid", CtrlPoint.this.c);
                         CtrlPoint.this.ciL.onInfo(message.arg1, message.arg2, hashMap);
                         break;
@@ -221,7 +221,7 @@ public class CtrlPoint extends CtrlPointProvider {
             return;
         }
         nativeCtrlPointSetAVTransportURI(this.d, str);
-        this.f3225b = str;
+        this.f3226b = str;
     }
 
     @Override // com.baidu.cyberplayer.sdk.dlna.CtrlPointProvider

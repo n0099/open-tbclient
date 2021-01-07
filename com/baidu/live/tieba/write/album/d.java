@@ -31,7 +31,7 @@ public class d {
         void dl(boolean z);
     }
 
-    public static d WW() {
+    public static d WX() {
         if (bMQ == null) {
             synchronized (d.class) {
                 if (bMQ == null) {

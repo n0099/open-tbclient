@@ -5,12 +5,12 @@ import com.bytedance.a.a;
 public final class bb {
 
     /* renamed from: a  reason: collision with root package name */
-    private static int f6094a;
+    private static int f6095a;
     private static com.bytedance.a.a pgX;
 
     static {
         a(2);
-        a(new a.C0959a());
+        a(new a.C0997a());
     }
 
     public static void a(com.bytedance.a.a aVar) {
@@ -18,7 +18,7 @@ public final class bb {
     }
 
     public static void a(int i) {
-        f6094a = i;
+        f6095a = i;
     }
 
     public static void a(String str, String str2) {
@@ -26,7 +26,7 @@ public final class bb {
     }
 
     public static void a(String str, String str2, Throwable th) {
-        if (pgX != null && f6094a <= 2) {
+        if (pgX != null && f6095a <= 2) {
             pgX.h(str, str2, th);
         }
     }
@@ -36,7 +36,7 @@ public final class bb {
     }
 
     public static void b(String str, String str2, Throwable th) {
-        if (pgX != null && f6094a <= 3) {
+        if (pgX != null && f6095a <= 3) {
             pgX.j(str, str2, th);
         }
     }
@@ -46,7 +46,7 @@ public final class bb {
     }
 
     public static void c(String str, String str2, Throwable th) {
-        if (pgX != null && f6094a <= 6) {
+        if (pgX != null && f6095a <= 6) {
             pgX.k(str, str2, th);
         }
     }

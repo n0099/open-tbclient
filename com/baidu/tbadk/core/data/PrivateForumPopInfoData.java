@@ -10,27 +10,27 @@ public class PrivateForumPopInfoData extends OrmObject {
     private String eRB = null;
     private Integer eRC = null;
 
-    public void AR(String str) {
+    public void AQ(String str) {
         this.eRz = str;
     }
 
-    public String bqo() {
+    public String bqp() {
         return this.eRz;
     }
 
-    public void AS(String str) {
+    public void AR(String str) {
         this.eRA = str;
     }
 
-    public String bqp() {
+    public String bqq() {
         return this.eRA;
     }
 
-    public void AT(String str) {
+    public void AS(String str) {
         this.eRB = str;
     }
 
-    public String bqq() {
+    public String bqr() {
         return this.eRB;
     }
 
@@ -38,7 +38,7 @@ public class PrivateForumPopInfoData extends OrmObject {
         this.eRC = num;
     }
 
-    public Integer bqr() {
+    public Integer bqs() {
         return this.eRC;
     }
 

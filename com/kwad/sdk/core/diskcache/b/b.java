@@ -6,10 +6,10 @@ import java.io.File;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    Context f9378a;
+    Context f9379a;
 
     /* renamed from: b  reason: collision with root package name */
-    int f9379b;
+    int f9380b;
     long c;
     File d;
 
@@ -17,22 +17,22 @@ public class b {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private Context f9380a;
+        private Context f9381a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f9381b = 1;
+        private int f9382b = 1;
         private long c = 100;
         private File d;
 
         public a(Context context) {
-            this.f9380a = context.getApplicationContext();
+            this.f9381a = context.getApplicationContext();
         }
 
         public a a(int i) {
             if (i <= 0) {
                 throw new IllegalArgumentException("appVersion <= 0");
             }
-            this.f9381b = i;
+            this.f9382b = i;
             return this;
         }
 
@@ -52,8 +52,8 @@ public class b {
 
         public b a() {
             b bVar = new b();
-            bVar.f9378a = this.f9380a;
-            bVar.f9379b = this.f9381b;
+            bVar.f9379a = this.f9381a;
+            bVar.f9380b = this.f9382b;
             bVar.c = this.c;
             bVar.d = this.d;
             return bVar;

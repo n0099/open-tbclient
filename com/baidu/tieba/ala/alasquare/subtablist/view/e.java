@@ -39,7 +39,7 @@ public class e {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (j.isNetWorkAvailable()) {
-                if (e.this.gAx != null && e.this.gAx.brJ() != null && e.this.gIx != null) {
+                if (e.this.gAx != null && e.this.gAx.brK() != null && e.this.gIx != null) {
                     e.this.gIx.a(e.this.tabId, e.this.gEU, e.this.gAx);
                     return;
                 }
@@ -51,9 +51,9 @@ public class e {
     View.OnClickListener gKW = new View.OnClickListener() { // from class: com.baidu.tieba.ala.alasquare.subtablist.view.e.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (e.this.gAx != null && e.this.gAx.brq() != null && !StringUtils.isNull(e.this.gAx.brq().getUserId())) {
-                long j = com.baidu.adp.lib.f.b.toLong(e.this.gAx.brq().getUserId(), 0L);
-                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(e.this.mTbPageContext.getPageActivity()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), e.this.gAx.brq().isBigV())));
+            if (e.this.gAx != null && e.this.gAx.brr() != null && !StringUtils.isNull(e.this.gAx.brr().getUserId())) {
+                long j = com.baidu.adp.lib.f.b.toLong(e.this.gAx.brr().getUserId(), 0L);
+                MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new PersonPolymericActivityConfig(e.this.mTbPageContext.getPageActivity()).createNormalConfig(j, j == com.baidu.adp.lib.f.b.toLong(TbadkCoreApplication.getCurrentAccount(), 0L), e.this.gAx.brr().isBigV())));
             }
         }
     };
@@ -74,7 +74,7 @@ public class e {
     }
 
     public void b(com.baidu.tieba.ala.alasquare.a.e eVar) {
-        if (eVar == null || eVar.gAx == null || eVar.gAx.brJ() == null) {
+        if (eVar == null || eVar.gAx == null || eVar.gAx.brK() == null) {
             getView().setVisibility(4);
             return;
         }
@@ -85,18 +85,18 @@ public class e {
         this.gLy.gKY.setDrawerType(0);
         this.gLy.gKY.setBorderSurroundContent(true);
         this.gLy.gKY.setDrawBorder(true);
-        this.gLy.gKY.startLoad(this.gAx.brJ().cover, 10, false);
-        this.gLy.gLa.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, at.numberUniformFormatExtra(this.gAx.brJ().audience_count)));
+        this.gLy.gKY.startLoad(this.gAx.brK().cover, 10, false);
+        this.gLy.gLa.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_label, at.numberUniformFormatExtra(this.gAx.brK().audience_count)));
         this.gLy.gLc.setData(this.gAx, false);
         this.gLy.gLd.setText(this.gAx.getTitle());
-        if (this.gAx.brq() != null) {
-            String name_show = this.gAx.brq().getName_show();
+        if (this.gAx.brr() != null) {
+            String name_show = this.gAx.brr().getName_show();
             if (ad.getTextLengthWithEmoji(name_show) > 10) {
                 name_show = ad.subStringWithEmoji(name_show, 10) + StringHelper.STRING_MORE;
             }
             this.gLy.bac.setText(name_show);
         }
-        String str = this.gAx.brJ().label_name;
+        String str = this.gAx.brK().label_name;
         if (this.gKV && !StringUtils.isNull(str)) {
             this.gLy.gKZ.setText(str);
             this.gLy.gKZ.setVisibility(0);
@@ -104,7 +104,7 @@ public class e {
             this.gLy.gKZ.setVisibility(8);
         }
         if (eVar.gAF) {
-            this.gLy.gLe.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_distance, at.numberUniformFormatExtra((long) (this.gAx.brJ().distance / 1000.0d))));
+            this.gLy.gLe.setText(this.mTbPageContext.getPageActivity().getResources().getString(R.string.square_sub_live_audience_distance, at.numberUniformFormatExtra((long) (this.gAx.brK().distance / 1000.0d))));
             this.gLy.gLe.setVisibility(0);
         } else {
             this.gLy.gLe.setVisibility(8);

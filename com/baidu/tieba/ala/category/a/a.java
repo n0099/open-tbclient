@@ -30,7 +30,7 @@ public class a extends AbsDelegateAdapter<com.baidu.tieba.ala.category.b.c, b> {
         return view;
     }
 
-    public void GQ(String str) {
+    public void GP(String str) {
         this.gOD = str;
         notifyDataSetChanged();
     }

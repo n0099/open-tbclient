@@ -13,7 +13,7 @@ import com.kwad.sdk.utils.ao;
 public class e extends com.kwad.sdk.contentalliance.tube.detail.a.a implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private ViewGroup f9240b;
+    private ViewGroup f9241b;
     private View c;
     private TextView d;
     private b.a e = new b.a() { // from class: com.kwad.sdk.contentalliance.tube.detail.b.e.1
@@ -27,8 +27,8 @@ public class e extends com.kwad.sdk.contentalliance.tube.detail.a.a implements V
 
         @Override // com.kwad.sdk.contentalliance.tube.b.a
         public void a(boolean z, @NonNull AdResultData adResultData) {
-            if (e.this.f9221a.f9223b.mTubeInfo != null) {
-                e.this.d.setText(e.this.f9221a.f9223b.mTubeInfo.name);
+            if (e.this.f9222a.f9224b.mTubeInfo != null) {
+                e.this.d.setText(e.this.f9222a.f9224b.mTubeInfo.name);
             }
         }
 
@@ -41,11 +41,11 @@ public class e extends com.kwad.sdk.contentalliance.tube.detail.a.a implements V
         Activity m = m();
         if (m != null && com.kwad.sdk.utils.d.a(m)) {
             int a2 = ao.a(o());
-            ViewGroup.LayoutParams layoutParams = this.f9240b.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.f9241b.getLayoutParams();
             com.kwad.sdk.core.d.a.a("TubeTitleBarPresenter", "initImmersiveTitleBar() height=" + layoutParams.height);
             layoutParams.height += a2;
-            this.f9240b.setLayoutParams(layoutParams);
-            this.f9240b.setPadding(this.f9240b.getPaddingLeft(), a2, this.f9240b.getPaddingRight(), this.f9240b.getPaddingBottom());
+            this.f9241b.setLayoutParams(layoutParams);
+            this.f9241b.setPadding(this.f9241b.getPaddingLeft(), a2, this.f9241b.getPaddingRight(), this.f9241b.getPaddingBottom());
         }
     }
 
@@ -56,21 +56,21 @@ public class e extends com.kwad.sdk.contentalliance.tube.detail.a.a implements V
         this.c.setOnClickListener(this);
         com.kwad.sdk.core.d.a.a("TubeTitleBarPresenter", "onBind()");
         e();
-        this.f9221a.d.add(this.e);
+        this.f9222a.d.add(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9221a.d.remove(this.e);
+        this.f9222a.d.remove(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f9240b = (ViewGroup) b(R.id.ksad_tube_title_bar);
+        this.f9241b = (ViewGroup) b(R.id.ksad_tube_title_bar);
         this.c = b(R.id.ksad_tube_left_back);
         this.d = (TextView) b(R.id.ksad_tube_title);
     }
@@ -79,7 +79,7 @@ public class e extends com.kwad.sdk.contentalliance.tube.detail.a.a implements V
     public void onClick(View view) {
         if (view == this.c) {
             Activity m = m();
-            com.kwad.sdk.core.report.e.d(this.f9221a.f);
+            com.kwad.sdk.core.report.e.d(this.f9222a.f);
             if (m != null) {
                 m.finish();
             }

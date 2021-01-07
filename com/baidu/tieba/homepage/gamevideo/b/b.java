@@ -48,7 +48,7 @@ public class b {
         @Override // android.view.animation.Animation.AnimationListener
         public void onAnimationEnd(Animation animation) {
             b.this.kcf = false;
-            b.this.cSb();
+            b.this.cSc();
         }
 
         @Override // android.view.animation.Animation.AnimationListener
@@ -64,9 +64,9 @@ public class b {
                     if (b.this.kcc != null) {
                         b.this.kcc.b(aVar);
                     }
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
-                    com.baidu.tbadk.core.sharedPref.b.bvq().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
-                    b.this.cSb();
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putInt("key_game_video_tab_has_choosed_sub_class_id", aVar.sub_class_id);
+                    com.baidu.tbadk.core.sharedPref.b.bvr().putString("key_game_video_tab_has_choosed_sub_class_name", aVar.sub_class_name);
+                    b.this.cSc();
                     TiebaStatic.log(new aq("c13489").an("obj_type", aVar.sub_class_id));
                 }
             }
@@ -75,21 +75,21 @@ public class b {
     private View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.3
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            b.this.cSa();
+            b.this.cSb();
         }
     };
     private PopupWindow.OnDismissListener mOnDismissListener = new PopupWindow.OnDismissListener() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.4
         @Override // android.widget.PopupWindow.OnDismissListener
         public void onDismiss() {
             if (b.this.kcc != null) {
-                b.this.kcc.cSe();
+                b.this.kcc.cSf();
             }
         }
     };
-    private a.InterfaceC0752a kch = new a.InterfaceC0752a() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.5
-        @Override // com.baidu.tieba.homepage.gamevideo.view.a.InterfaceC0752a
-        public void cSc() {
-            b.this.cRZ();
+    private a.InterfaceC0761a kch = new a.InterfaceC0761a() { // from class: com.baidu.tieba.homepage.gamevideo.b.b.5
+        @Override // com.baidu.tieba.homepage.gamevideo.view.a.InterfaceC0761a
+        public void cSd() {
+            b.this.cSa();
         }
     };
 
@@ -97,9 +97,9 @@ public class b {
     public interface a {
         void b(com.baidu.tieba.homepage.gamevideo.c.a aVar);
 
-        void cSd();
-
         void cSe();
+
+        void cSf();
     }
 
     public b(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
@@ -122,11 +122,11 @@ public class b {
         this.kbW.setAdapter((ListAdapter) this.kbX);
         this.kbW.setOnItemClickListener(this.mOnItemClickListener);
         this.mRootView.setOnClickListener(this.mOnClickListener);
-        cRY();
+        cRZ();
         onChangeSkinType();
     }
 
-    private void cRY() {
+    private void cRZ() {
         this.kcd = new TranslateAnimation(1, 0.0f, 1, 0.0f, 1, -1.0f, 1, 0.0f);
         this.kcd.setDuration(300L);
         this.kcd.setFillAfter(true);
@@ -175,32 +175,32 @@ public class b {
                 this.kca.dismiss();
             }
             this.kca.showAsDropDown(view, 0, 0);
-            this.kbW.cSl();
+            this.kbW.cSm();
             if (this.gFm != null && this.kcd != null) {
                 this.gFm.startAnimation(this.kcd);
             }
             if (this.kcc != null) {
-                this.kcc.cSd();
+                this.kcc.cSe();
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cRZ() {
+    public void cSa() {
         if (this.kce != null && this.gFm != null && !this.kcf) {
             this.gFm.startAnimation(this.kce);
         }
     }
 
-    public void cSa() {
+    public void cSb() {
         if (this.kca != null) {
             this.kca.dismiss();
         }
     }
 
-    public void cSb() {
+    public void cSc() {
         if (this.kca != null) {
-            this.kca.aag();
+            this.kca.aah();
         }
     }
 
@@ -216,7 +216,7 @@ public class b {
     }
 
     public void onDestroy() {
-        cSb();
+        cSc();
         if (this.kcd != null) {
             this.kcd.cancel();
         }

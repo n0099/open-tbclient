@@ -84,7 +84,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 }
             }
         });
-        bYp();
+        bYq();
         linearLayout.addView(this.mNavigationBar, new LinearLayout.LayoutParams(-1, -2));
         this.mNavigationBar.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
         ao.setBackgroundColor(this.mNavigationBar.getBottomLine(), R.color.CAM_X0204);
@@ -176,7 +176,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
 
             @Override // com.baidu.tbadk.m.b
             public int getMaxCost() {
-                return e.bHs().getMaxCostFromServer();
+                return e.bHt().getMaxCostFromServer();
             }
 
             @Override // com.baidu.tbadk.m.b
@@ -222,8 +222,8 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
                 if (customResponsedMessage != null && (customResponsedMessage.getData() instanceof aj)) {
                     aj ajVar = (aj) customResponsedMessage.getData();
                     ArrayList arrayList = new ArrayList();
-                    if (ajVar.cED() != null) {
-                        for (com.baidu.tbadk.mainTab.b bVar : ajVar.cED()) {
+                    if (ajVar.cEE() != null) {
+                        for (com.baidu.tbadk.mainTab.b bVar : ajVar.cEE()) {
                             if (bVar.getFragmentTabStructure().frag != null) {
                                 arrayList.add(bVar.getFragmentTabStructure().frag);
                             }
@@ -277,7 +277,7 @@ public class AlaGameFrsLiveListActivity extends BaseFragmentActivity implements 
     public void onPageScrollStateChanged(int i) {
     }
 
-    private void bYp() {
+    private void bYq() {
         if (this.mNavigationBar != null) {
             StringBuilder sb = new StringBuilder();
             sb.append(UtilHelper.getFixedBarText(this.forumName, 5, true, true) + getResources().getString(R.string.forum));

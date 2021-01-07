@@ -64,7 +64,7 @@ public class SelectForumPagerAdapter extends PagerAdapter {
         }
     }
 
-    public void bNW() {
+    public void bNX() {
         for (d dVar : this.ghg) {
             dVar.onChangeSkinType();
         }

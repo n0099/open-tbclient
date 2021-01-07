@@ -20,7 +20,7 @@ public class bh {
 
     public static bh ad(@NonNull Activity activity) {
         bh bhVar = new bh(activity);
-        bhVar.avr();
+        bhVar.avs();
         UtilHelper.setTranslucentVirtualNavigation(activity);
         return bhVar;
     }
@@ -29,36 +29,36 @@ public class bh {
         this.fdY = ((FrameLayout) activity.findViewById(16908290)).getChildAt(0);
     }
 
-    private void bww() {
+    private void bwx() {
         if ((this.fdZ == null || !this.fdZ.isAlive()) && this.fdY != null) {
             this.fdZ = this.fdY.getViewTreeObserver();
         }
     }
 
-    private void avr() {
-        bww();
+    private void avs() {
+        bwx();
         if (this.fdZ != null && this.fdZ.isAlive()) {
             this.fdZ.addOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
         }
     }
 
-    private void bwx() {
-        bww();
+    private void bwy() {
+        bwx();
         if (this.fdZ != null && this.fdZ.isAlive()) {
             this.fdZ.removeOnGlobalLayoutListener(this.mOnGlobalLayoutListener);
         }
     }
 
     public void onPause() {
-        bwx();
+        bwy();
     }
 
     public void onResume() {
-        avr();
+        avs();
     }
 
     public void onDestroy() {
-        bwx();
+        bwy();
     }
 
     /* JADX INFO: Access modifiers changed from: private */

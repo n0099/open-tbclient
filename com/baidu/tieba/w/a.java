@@ -14,27 +14,27 @@ public class a {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                a.this.amH();
+                a.this.amI();
             }
         }
     };
     private long mEndTime;
     private long mInterval;
     private long mStartTime;
-    private long nQH;
-    private ai nQI;
+    private long nQG;
+    private ai nQH;
 
     public a() {
         init();
     }
 
     private void init() {
-        amH();
-        this.nQH = com.baidu.tbadk.core.sharedPref.b.bvq().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
+        amI();
+        this.nQG = com.baidu.tbadk.core.sharedPref.b.bvr().getLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, 0L);
         MessageManager.getInstance().registerListener(this.eMe);
     }
 
-    public boolean dXn() {
+    public boolean dXo() {
         if (this.mStartTime == 0 || this.mEndTime == 0 || this.mInterval == 0) {
             return false;
         }
@@ -47,22 +47,22 @@ public class a {
     }
 
     private boolean t(Date date) {
-        return date != null && date.getTime() - this.nQH >= this.mInterval;
+        return date != null && date.getTime() - this.nQG >= this.mInterval;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void amH() {
-        if (this.nQI == null) {
-            this.nQI = new ai();
+    public void amI() {
+        if (this.nQH == null) {
+            this.nQH = new ai();
         }
-        this.nQI.parseJson(com.baidu.tbadk.core.sharedPref.b.bvq().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
-        this.mStartTime = this.nQI.bAi();
-        this.mEndTime = this.nQI.bAj();
-        this.mInterval = this.nQI.bAk();
+        this.nQH.parseJson(com.baidu.tbadk.core.sharedPref.b.bvr().getString(SharedPrefConfig.KEY_VIDEO_SPLASH_CONFIG, ""));
+        this.mStartTime = this.nQH.bAj();
+        this.mEndTime = this.nQH.bAk();
+        this.mInterval = this.nQH.bAl();
     }
 
     public void hF(long j) {
-        this.nQH = j;
-        com.baidu.tbadk.core.sharedPref.b.bvq().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, j);
+        this.nQG = j;
+        com.baidu.tbadk.core.sharedPref.b.bvr().putLong(SharedPrefConfig.KEY_VIDEO_SPLASH_LAST_SHOW_TIME, j);
     }
 }

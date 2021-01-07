@@ -2,7 +2,7 @@ package com.baidu.prologue.a.c;
 
 import android.content.Context;
 import android.util.DisplayMetrics;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class m {
     private static final DisplayMetrics ctj = com.baidu.prologue.a.b.b.getAppContext().getResources().getDisplayMetrics();
     private static final float ctk = ctj.density;

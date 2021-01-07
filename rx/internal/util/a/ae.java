@@ -3,12 +3,12 @@ package rx.internal.util.a;
 import java.lang.reflect.Field;
 /* loaded from: classes15.dex */
 public final class ae {
-    public static final a qwp;
-    private static final boolean qwq;
+    public static final a qxX;
+    private static final boolean qxY;
 
     static {
         a aVar;
-        qwq = System.getProperty("rx.unsafe-disable") != null;
+        qxY = System.getProperty("rx.unsafe-disable") != null;
         try {
             Field declaredField = a.class.getDeclaredField("theUnsafe");
             declaredField.setAccessible(true);
@@ -16,16 +16,16 @@ public final class ae {
         } catch (Throwable th) {
             aVar = null;
         }
-        qwp = aVar;
+        qxX = aVar;
     }
 
-    public static boolean eOw() {
+    public static boolean ePa() {
         return false;
     }
 
     public static long m(Class<?> cls, String str) {
         try {
-            return qwp.c(cls.getDeclaredField(str));
+            return qxX.c(cls.getDeclaredField(str));
         } catch (NoSuchFieldException e) {
             InternalError internalError = new InternalError();
             internalError.initCause(e);

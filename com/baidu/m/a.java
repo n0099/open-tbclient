@@ -21,7 +21,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.afh().e(activity, str, aVar);
+        b.afi().e(activity, str, aVar);
         return true;
     }
 
@@ -29,7 +29,7 @@ public class a {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        b.afh().f(activity, str, aVar);
+        b.afi().f(activity, str, aVar);
         return true;
     }
 
@@ -190,8 +190,8 @@ public class a {
                 }
                 bundle.putString("chosenChannel", string);
             }
-            bundle.putString("zid", b.afh().getZid(activity));
-            bH(activity).a(activity, bundle, aff(), new a.b() { // from class: com.baidu.m.a.1
+            bundle.putString("zid", b.afi().getZid(activity));
+            bH(activity).a(activity, bundle, afg(), new a.b() { // from class: com.baidu.m.a.1
                 @Override // com.baidu.poly.a.b
                 public void onResult(int i2, String str2) {
                     if (i2 == 3) {
@@ -212,7 +212,7 @@ public class a {
         }
     }
 
-    private static com.baidu.poly.d.a.c aff() {
+    private static com.baidu.poly.d.a.c afg() {
         return new com.baidu.poly.d.a.c() { // from class: com.baidu.m.a.2
             @Override // com.baidu.poly.d.a.c
             public void a(Activity activity, com.baidu.poly.d.a.b bVar, final com.baidu.poly.d.a.a aVar) {
@@ -263,7 +263,7 @@ public class a {
                 switch (c) {
                     case 0:
                     case 1:
-                        c.afi().d(activity, bVar.cpB.optString("orderInfo"), new com.baidu.m.a.a() { // from class: com.baidu.m.a.2.1
+                        c.afj().d(activity, bVar.cpB.optString("orderInfo"), new com.baidu.m.a.a() { // from class: com.baidu.m.a.2.1
                             @Override // com.baidu.m.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -271,7 +271,7 @@ public class a {
                         });
                         break;
                     case 2:
-                        c.afi().a((Context) activity, bVar.cpB, new com.baidu.m.a.a() { // from class: com.baidu.m.a.2.2
+                        c.afj().a((Context) activity, bVar.cpB, new com.baidu.m.a.a() { // from class: com.baidu.m.a.2.2
                             @Override // com.baidu.m.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -279,7 +279,7 @@ public class a {
                         });
                         break;
                     case 3:
-                        c.afi().c(activity, bVar.cpB.optString("orderInfo"), new com.baidu.m.a.a() { // from class: com.baidu.m.a.2.3
+                        c.afj().c(activity, bVar.cpB.optString("orderInfo"), new com.baidu.m.a.a() { // from class: com.baidu.m.a.2.3
                             @Override // com.baidu.m.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -288,11 +288,11 @@ public class a {
                         break;
                     case 4:
                         com.baidu.poly.d.a.a unused = a.cne = aVar;
-                        d.afj();
-                        c.afi().e(activity, bVar.cpB);
+                        d.afk();
+                        c.afj().e(activity, bVar.cpB);
                         break;
                     case 5:
-                        c.afi().a(activity, bVar.cpB, new com.baidu.m.a.a() { // from class: com.baidu.m.a.2.4
+                        c.afj().a(activity, bVar.cpB, new com.baidu.m.a.a() { // from class: com.baidu.m.a.2.4
                             @Override // com.baidu.m.a.a
                             public void onPayResult(int i, String str2) {
                                 a.a(aVar, i, str2);
@@ -321,7 +321,7 @@ public class a {
             return cnd;
         }
         cnf = PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getInt("poly_cashier_env", 1);
-        cnd = new a.C0307a().he(cnf).bJ(context.getApplicationContext()).eg(false).afm();
+        cnd = new a.C0307a().he(cnf).bJ(context.getApplicationContext()).eg(false).afn();
         return cnd;
     }
 
@@ -354,7 +354,7 @@ public class a {
         }
     }
 
-    public static boolean afg() {
+    public static boolean afh() {
         return false;
     }
 }

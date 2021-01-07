@@ -12,7 +12,7 @@ public class a {
     private TbPageContext mPageContext;
     private b oQK;
 
-    public static a ekD() {
+    public static a ekE() {
         if (oQJ == null) {
             synchronized (a.class) {
                 if (oQJ == null) {
@@ -29,7 +29,7 @@ public class a {
             this.oQK = null;
         }
         AlaAudioModeDialogData alaAudioModeDialogData = new AlaAudioModeDialogData();
-        alaAudioModeDialogData.setModeList(Yd(xVar == null ? "" : xVar.aLk));
+        alaAudioModeDialogData.setModeList(Yc(xVar == null ? "" : xVar.aLk));
         if (this.oQK == null) {
             this.oQK = new b(tbPageContext, xVar, alaAudioModeDialogData);
         } else {
@@ -38,7 +38,7 @@ public class a {
         this.oQK.show();
     }
 
-    private List<com.baidu.yuyinala.mode.b.a> Yd(String str) {
+    private List<com.baidu.yuyinala.mode.b.a> Yc(String str) {
         try {
             JSONArray optJSONArray = new JSONObject(str).optJSONArray("mode_list");
             int length = optJSONArray.length();

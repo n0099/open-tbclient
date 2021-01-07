@@ -6,22 +6,22 @@ import com.bun.miitmdid.supplier.InnerIdSupplier;
 import com.bun.miitmdid.utils.SupplierListener;
 import com.bun.miitmdid.utils.sysParamters;
 import com.huawei.android.hms.pps.AdvertisingIdClient;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class a implements InnerIdSupplier {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f6040a;
+    private Context f6041a;
     private SupplierListener pgc;
     private boolean f = false;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6041b = "";
+    private String f6042b = "";
     private String c = "";
     private String d = "";
     private String e = "";
 
     public a(Context context) {
-        this.f6040a = context;
+        this.f6041a = context;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -47,7 +47,7 @@ public class a implements InnerIdSupplier {
             @Override // java.lang.Runnable
             public void run() {
                 try {
-                    AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(a.this.f6040a);
+                    AdvertisingIdClient.Info advertisingIdInfo = AdvertisingIdClient.getAdvertisingIdInfo(a.this.f6041a);
                     a.this.c = advertisingIdInfo.getId();
                     advertisingIdInfo.isLimitAdTrackingEnabled();
                 } catch (Exception e) {

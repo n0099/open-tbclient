@@ -6,13 +6,13 @@ import java.util.Map;
 final class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Map<com.kwad.sdk.glide.load.c, j<?>> f10541a = new HashMap();
+    private final Map<com.kwad.sdk.glide.load.c, j<?>> f10542a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<com.kwad.sdk.glide.load.c, j<?>> f10542b = new HashMap();
+    private final Map<com.kwad.sdk.glide.load.c, j<?>> f10543b = new HashMap();
 
     private Map<com.kwad.sdk.glide.load.c, j<?>> a(boolean z) {
-        return z ? this.f10542b : this.f10541a;
+        return z ? this.f10543b : this.f10542a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

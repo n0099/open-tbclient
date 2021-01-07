@@ -3,15 +3,15 @@ package com.baidu.mobads.production;
 class d implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f3473a;
+    final /* synthetic */ b f3474a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public d(b bVar) {
-        this.f3473a = bVar;
+        this.f3474a = bVar;
     }
 
     @Override // java.lang.Runnable
     public void run() {
-        this.f3473a.h.resize(this.f3473a.getProdBase().getWidth(), this.f3473a.getProdBase().getHeight());
+        this.f3474a.h.resize(this.f3474a.getProdBase().getWidth(), this.f3474a.getProdBase().getHeight());
     }
 }

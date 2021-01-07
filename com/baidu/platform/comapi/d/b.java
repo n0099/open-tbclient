@@ -10,14 +10,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Arrays;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final b f4234a = new b();
+    public static final b f4235a = new b();
 
     /* renamed from: b  reason: collision with root package name */
-    private c f4235b = new c(com.baidu.platform.comapi.b.e(), "res.json");
+    private c f4236b = new c(com.baidu.platform.comapi.b.e(), "res.json");
 
     private b() {
     }
@@ -150,14 +150,14 @@ public class b {
             String b3 = b();
             file = new File(b3, "/ver.dat");
             try {
-                byte[] a2 = this.f4235b.a();
+                byte[] a2 = this.f4236b.a();
                 try {
                     z = a(file, a2);
                     if (z) {
                         try {
                             AssetManager assets = e.getAssets();
                             byte[] bArr2 = new byte[65536];
-                            for (String str : this.f4235b.b()) {
+                            for (String str : this.f4236b.b()) {
                                 z2 = a(assets, bArr2, str, b3 + "/" + str);
                             }
                         } catch (RuntimeException e2) {

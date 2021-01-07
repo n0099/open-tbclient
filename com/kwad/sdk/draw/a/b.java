@@ -11,11 +11,11 @@ public class b extends com.kwad.sdk.core.e.b {
     @Nullable
 
     /* renamed from: a  reason: collision with root package name */
-    public KsDrawAd.AdInteractionListener f9973a;
+    public KsDrawAd.AdInteractionListener f9974a;
     @NonNull
 
     /* renamed from: b  reason: collision with root package name */
-    public AdBaseFrameLayout f9974b;
+    public AdBaseFrameLayout f9975b;
     @NonNull
     public AdTemplate c;
     @Nullable

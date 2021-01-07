@@ -43,13 +43,13 @@ public class b {
     private static final boolean dRk = c.hasLollipop();
 
     private b() {
-        Application aAr = com.baidu.swan.apps.t.a.aAr();
-        if (aAr != null) {
-            this.dRh = (ActivityManager) aAr.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
+        Application aAs = com.baidu.swan.apps.t.a.aAs();
+        if (aAs != null) {
+            this.dRh = (ActivityManager) aAs.getSystemService(PushConstants.INTENT_ACTIVITY_NAME);
         }
     }
 
-    public static b aQP() {
+    public static b aQQ() {
         if (dRl == null) {
             synchronized (b.class) {
                 if (dRl == null) {
@@ -64,21 +64,21 @@ public class b {
         p.postOnSerial(new Runnable() { // from class: com.baidu.swan.apps.ao.b.1
             @Override // java.lang.Runnable
             public void run() {
-                b.this.aQS();
-                if (aVar != null && "1202000800000000".equals(aVar.aCv())) {
+                b.this.aQT();
+                if (aVar != null && "1202000800000000".equals(aVar.aCw())) {
                     SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) aVar.pY("key_stack_info");
                     if (swanTaskDeadEvent != null) {
-                        b.this.dRj = swanTaskDeadEvent.aFV();
-                        SparseArray<SwanTaskDeadEvent> aFW = swanTaskDeadEvent.aFW();
-                        if (aFW != null) {
+                        b.this.dRj = swanTaskDeadEvent.aFW();
+                        SparseArray<SwanTaskDeadEvent> aFX = swanTaskDeadEvent.aFX();
+                        if (aFX != null) {
                             int i2 = 0;
                             while (true) {
                                 int i3 = i2;
-                                if (i3 >= aFW.size()) {
+                                if (i3 >= aFX.size()) {
                                     break;
                                 }
-                                int keyAt = aFW.keyAt(i3);
-                                SwanTaskDeadEvent valueAt = aFW.valueAt(i3);
+                                int keyAt = aFX.keyAt(i3);
+                                SwanTaskDeadEvent valueAt = aFX.valueAt(i3);
                                 if (valueAt != null && valueAt.getAppId() != null) {
                                     b.this.dRn.put(keyAt, valueAt);
                                     b.this.dRm.put(valueAt.getAppId().hashCode(), keyAt);
@@ -97,7 +97,7 @@ public class b {
                 if (aVar != null) {
                     b.this.n(aVar.getAppId(), -1, i);
                 }
-                b.this.dRj = b.this.aQU();
+                b.this.dRj = b.this.aQV();
                 if (b.DEBUG) {
                     Log.d("SwanActivityTaskManager", "getLaunchTask=" + b.this.dRj);
                 }
@@ -106,15 +106,15 @@ public class b {
     }
 
     public void b(@Nullable Intent intent, int i) {
-        ArrayList<Integer> aQU = aQU();
-        if (!l(this.dRj, aQU)) {
-            aQS();
+        ArrayList<Integer> aQV = aQV();
+        if (!l(this.dRj, aQV)) {
+            aQT();
             n(null, -1, i);
         }
         if (DEBUG) {
-            Log.d("SwanActivityTaskManager", "onNewIntent: " + i + ", newTaskList=" + aQU + ", mLaunchTaskList=" + this.dRj + ", flag=" + (intent != null ? intent.getFlags() : -1));
+            Log.d("SwanActivityTaskManager", "onNewIntent: " + i + ", newTaskList=" + aQV + ", mLaunchTaskList=" + this.dRj + ", flag=" + (intent != null ? intent.getFlags() : -1));
         }
-        this.dRj = aQU;
+        this.dRj = aQV;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -123,7 +123,7 @@ public class b {
         bundle.putInt("key_task_id", i2);
         bundle.putInt("key_task_id_old", i);
         bundle.putString("app_id", str);
-        com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(Constants.METHOD_IM_FRIEND_GROUP_QUERY, bundle).gH(true));
+        com.baidu.swan.apps.process.messaging.a.aIY().a(new com.baidu.swan.apps.process.messaging.c(Constants.METHOD_IM_FRIEND_GROUP_QUERY, bundle).gH(true));
     }
 
     private void V(@Nullable Bundle bundle) {
@@ -173,24 +173,24 @@ public class b {
         }
     }
 
-    public static boolean aQQ() {
+    public static boolean aQR() {
         if (djY == -1) {
             synchronized (b.class) {
                 if (djY == -1) {
-                    if (DEBUG && com.baidu.swan.apps.ad.a.a.aIs().getBoolean("swan_page_stack_optimize", false)) {
+                    if (DEBUG && com.baidu.swan.apps.ad.a.a.aIt().getBoolean("swan_page_stack_optimize", false)) {
                         djY = 1;
                         return true;
                     }
-                    djY = (dRk && com.baidu.swan.apps.t.a.aAu().getSwitch("swan_page_stack_optimize", true)) ? 1 : 0;
+                    djY = (dRk && com.baidu.swan.apps.t.a.aAv().getSwitch("swan_page_stack_optimize", true)) ? 1 : 0;
                 }
             }
         }
         return djY == 1;
     }
 
-    public static boolean aQR() {
+    public static boolean aQS() {
         if (dRg == -1) {
-            dRg = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_move_task_optimize", 1);
+            dRg = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_move_task_optimize", 1);
         }
         return dRg == 1;
     }
@@ -214,12 +214,12 @@ public class b {
                     if (this.dRn.indexOfKey(i) >= 0) {
                         SwanTaskDeadEvent swanTaskDeadEvent = this.dRn.get(i);
                         if (swanTaskDeadEvent != null) {
-                            c.a aVar = (c.a) ((c.a) ((c.a) new c.a().pK(swanTaskDeadEvent.getAppId())).pP(swanTaskDeadEvent.aFU())).pN("1202000800000000");
+                            c.a aVar = (c.a) ((c.a) ((c.a) new c.a().pK(swanTaskDeadEvent.getAppId())).pP(swanTaskDeadEvent.aFV())).pN("1202000800000000");
                             Bundle bundle = new Bundle();
-                            ArrayList<Integer> aFV = swanTaskDeadEvent.aFV();
-                            if (aFV != null && !aFV.isEmpty()) {
+                            ArrayList<Integer> aFW = swanTaskDeadEvent.aFW();
+                            if (aFW != null && !aFW.isEmpty()) {
                                 SparseArray<SwanTaskDeadEvent> sparseArray = new SparseArray<>();
-                                Iterator<Integer> it = aFV.iterator();
+                                Iterator<Integer> it = aFW.iterator();
                                 while (it.hasNext()) {
                                     Integer next = it.next();
                                     SwanTaskDeadEvent swanTaskDeadEvent2 = this.dRn.get(next.intValue(), null);
@@ -230,7 +230,7 @@ public class b {
                                 swanTaskDeadEvent.c(sparseArray);
                             }
                             bundle.putParcelable("key_stack_info", swanTaskDeadEvent);
-                            SwanLauncher.axd().a(aVar, bundle);
+                            SwanLauncher.axe().a(aVar, bundle);
                             if (DEBUG) {
                                 Log.i("SwanActivityTaskManager", "launch dead app:" + swanTaskDeadEvent.getAppId());
                             }
@@ -266,7 +266,7 @@ public class b {
         boolean z2;
         ArrayList<Integer> arrayList = this.dRj;
         if (z) {
-            arrayList = aQU();
+            arrayList = aQV();
         }
         if (arrayList != null && !arrayList.isEmpty() && this.dRh != null) {
             this.dRi = null;
@@ -282,7 +282,7 @@ public class b {
         return z2;
     }
 
-    public void aQS() {
+    public void aQT() {
         this.dRn.clear();
         this.dRm.clear();
     }
@@ -309,7 +309,7 @@ public class b {
     }
 
     public boolean lL(int i) {
-        if (aQQ() && dRk && this.dRh != null) {
+        if (aQR() && dRk && this.dRh != null) {
             int i2 = 0;
             for (ActivityManager.AppTask appTask : this.dRh.getAppTasks()) {
                 if (i2 > 0 && a(appTask) == i) {
@@ -323,7 +323,7 @@ public class b {
         return false;
     }
 
-    public int aQT() {
+    public int aQU() {
         if (!dRk || this.dRh == null) {
             return -1;
         }
@@ -356,7 +356,7 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     @Nullable
-    public ArrayList<Integer> aQU() {
+    public ArrayList<Integer> aQV() {
         List<ActivityManager.AppTask> appTasks;
         int size;
         if (dRk && this.dRh != null && (size = (appTasks = this.dRh.getAppTasks()).size()) >= 2) {
@@ -373,22 +373,22 @@ public class b {
     }
 
     public static void O(@NonNull Message message) {
-        if (aQQ()) {
-            aQP().V((Bundle) message.obj);
+        if (aQR()) {
+            aQQ().V((Bundle) message.obj);
         }
     }
 
     public static void P(@NonNull Message message) {
-        if (aQQ()) {
-            b aQP = aQP();
+        if (aQR()) {
+            b aQQ = aQQ();
             if (message.obj instanceof Bundle) {
                 Bundle bundle = (Bundle) message.obj;
                 bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
                 SwanTaskDeadEvent swanTaskDeadEvent = (SwanTaskDeadEvent) bundle.getParcelable("key_stack_info");
                 if (swanTaskDeadEvent != null && !TextUtils.isEmpty(swanTaskDeadEvent.getAppId())) {
-                    if (ProcessUtils.isMainProcess() || (aQP.dRj != null && aQP.dRj.contains(Integer.valueOf(swanTaskDeadEvent.getTaskId())))) {
-                        aQP.dRm.put(swanTaskDeadEvent.getAppId().hashCode(), swanTaskDeadEvent.getTaskId());
-                        aQP.dRn.put(swanTaskDeadEvent.getTaskId(), swanTaskDeadEvent);
+                    if (ProcessUtils.isMainProcess() || (aQQ.dRj != null && aQQ.dRj.contains(Integer.valueOf(swanTaskDeadEvent.getTaskId())))) {
+                        aQQ.dRm.put(swanTaskDeadEvent.getAppId().hashCode(), swanTaskDeadEvent.getTaskId());
+                        aQQ.dRn.put(swanTaskDeadEvent.getTaskId(), swanTaskDeadEvent);
                     }
                 }
             }
@@ -396,16 +396,16 @@ public class b {
     }
 
     public void l(@Nullable SwanAppActivity swanAppActivity) {
-        com.baidu.swan.apps.core.d.f ajs;
+        com.baidu.swan.apps.core.d.f ajt;
         com.baidu.swan.apps.core.d.e eVar;
-        com.baidu.swan.apps.model.c ast;
-        if (aQQ() && swanAppActivity != null && (ajs = swanAppActivity.ajs()) != null && (eVar = (com.baidu.swan.apps.core.d.e) ajs.j(com.baidu.swan.apps.core.d.e.class)) != null && (ast = eVar.ast()) != null) {
+        com.baidu.swan.apps.model.c asu;
+        if (aQR() && swanAppActivity != null && (ajt = swanAppActivity.ajt()) != null && (eVar = (com.baidu.swan.apps.core.d.e) ajt.j(com.baidu.swan.apps.core.d.e.class)) != null && (asu = eVar.asu()) != null) {
             Bundle bundle = new Bundle();
-            bundle.putParcelable("key_stack_info", new SwanTaskDeadEvent(swanAppActivity.ajB(), swanAppActivity.getTaskId(), ast.getPage() + "?" + ast.getParams(), this.dRj));
+            bundle.putParcelable("key_stack_info", new SwanTaskDeadEvent(swanAppActivity.ajC(), swanAppActivity.getTaskId(), asu.getPage() + "?" + asu.getParams(), this.dRj));
             bundle.setClassLoader(SwanTaskDeadEvent.class.getClassLoader());
-            com.baidu.swan.apps.process.messaging.a.aIX().a(new com.baidu.swan.apps.process.messaging.c(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER, bundle).gH(true));
+            com.baidu.swan.apps.process.messaging.a.aIY().a(new com.baidu.swan.apps.process.messaging.c(Constants.METHOD_IM_FRIEND_GROUP_QUERY_MEMBER, bundle).gH(true));
             if (DEBUG) {
-                Log.d("SwanActivityTaskManager", "notify dead " + swanAppActivity.ajB() + ", " + swanAppActivity.getTaskId());
+                Log.d("SwanActivityTaskManager", "notify dead " + swanAppActivity.ajC() + ", " + swanAppActivity.getTaskId());
             }
         }
     }

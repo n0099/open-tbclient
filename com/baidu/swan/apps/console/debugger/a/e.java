@@ -8,12 +8,12 @@ public class e {
     private static String cPH;
     private static String cPI;
 
-    public static boolean apG() {
+    public static boolean apH() {
         return !TextUtils.isEmpty(cPH);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static boolean apH() {
+    public static boolean apI() {
         return TextUtils.equals(cPI, "update_tag_by_remote_debug");
     }
 
@@ -23,20 +23,20 @@ public class e {
         }
         cPI = str;
         if (TextUtils.equals(cPI, "update_tag_by_activity_on_new_intent")) {
-            d.apz().apA();
+            d.apA().apB();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static void apI() {
+    public static void apJ() {
         cPI = "update_tag_by_remote_debug";
     }
 
-    public static String apJ() {
+    public static String apK() {
         return cPH + "/swan-core/master/master.html";
     }
 
-    public static String apK() {
+    public static String apL() {
         return cPH + "/swan-core/slaves/slaves.html";
     }
 

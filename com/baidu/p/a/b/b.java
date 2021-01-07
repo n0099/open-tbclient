@@ -12,12 +12,12 @@ public class b extends d {
         this.mStatusCode = -100;
     }
 
-    public com.baidu.p.a.a.c ekf() {
+    public com.baidu.p.a.a.c ekg() {
         return this;
     }
 
     @Override // com.baidu.p.a.a.c
-    public com.baidu.p.a.a.c ekd() {
-        return ekf();
+    public com.baidu.p.a.a.c eke() {
+        return ekg();
     }
 }

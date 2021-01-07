@@ -42,13 +42,13 @@ public class j extends BdBaseModel {
         registerListener(this.hUm);
     }
 
-    public void IM(String str) {
+    public void IL(String str) {
         HttpMessage httpMessage = new HttpMessage(1021165);
         httpMessage.addParam("anchor_id", str);
         sendMessage(httpMessage);
     }
 
-    public void coT() {
+    public void coU() {
         sendMessage(new HttpMessage(1021165));
     }
 

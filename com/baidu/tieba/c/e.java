@@ -187,7 +187,7 @@ public class e {
     /* JADX INFO: Access modifiers changed from: private */
     public void VK() {
         if (!this.iCh) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt(this.bHC, this.bHE + 1);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt(this.bHC, this.bHE + 1);
         }
     }
 
@@ -202,7 +202,7 @@ public class e {
         this.mMessage = str;
         this.bHC = str2;
         this.iCh = z2;
-        this.bHE = com.baidu.tbadk.core.sharedPref.b.bvq().getInt(str2, 0);
+        this.bHE = com.baidu.tbadk.core.sharedPref.b.bvr().getInt(str2, 0);
         if (this.bHE < this.bHF || this.iCh) {
             if (z) {
                 VK();
@@ -221,7 +221,7 @@ public class e {
         return b(str, str2, z, false);
     }
 
-    public void Jy(String str) {
+    public void Jx(String str) {
         if (!StringUtils.isNull(str)) {
             this.mMessage = str;
             if (this.mHandler == null) {

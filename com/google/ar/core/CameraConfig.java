@@ -1,9 +1,9 @@
 package com.google.ar.core;
 
 import com.google.ar.core.exceptions.FatalException;
-/* loaded from: classes3.dex */
+/* loaded from: classes6.dex */
 public class CameraConfig {
-    long pKb;
+    long pLJ;
 
     private static native void nativeDestroyCameraConfig(long j);
 
@@ -15,7 +15,7 @@ public class CameraConfig {
 
     private native void nativeGetTextureDimensions(long j, long j2, int[] iArr);
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes6.dex */
     public enum FacingDirection {
         BACK(0),
         FRONT(1);
@@ -38,9 +38,9 @@ public class CameraConfig {
     }
 
     protected void finalize() throws Throwable {
-        if (this.pKb != 0) {
-            nativeDestroyCameraConfig(this.pKb);
-            this.pKb = 0L;
+        if (this.pLJ != 0) {
+            nativeDestroyCameraConfig(this.pLJ);
+            this.pLJ = 0L;
         }
         super.finalize();
     }

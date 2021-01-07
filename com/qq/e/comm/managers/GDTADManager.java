@@ -16,33 +16,33 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class GDTADManager {
     public static final ExecutorService INIT_EXECUTOR = Executors.newSingleThreadExecutor();
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile Boolean f11843a;
+    private volatile Boolean f11844a;
 
     /* renamed from: b  reason: collision with root package name */
-    private volatile Context f11844b;
+    private volatile Context f11845b;
     private volatile SM c;
     private volatile PM d;
     private volatile DevTools e;
     private volatile APPStatus f;
     private volatile DeviceStatus g;
     private volatile String h;
-    private PM.a.InterfaceC1157a i;
+    private PM.a.InterfaceC1198a i;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static GDTADManager f11845a = new GDTADManager((byte) 0);
+        private static GDTADManager f11846a = new GDTADManager((byte) 0);
     }
 
     private GDTADManager() {
-        this.f11843a = Boolean.FALSE;
+        this.f11844a = Boolean.FALSE;
     }
 
     /* synthetic */ GDTADManager(byte b2) {
@@ -50,7 +50,7 @@ public class GDTADManager {
     }
 
     public static GDTADManager getInstance() {
-        return a.f11845a;
+        return a.f11846a;
     }
 
     public JSONObject buildS2SSBaseInfo() throws JSONException {
@@ -69,7 +69,7 @@ public class GDTADManager {
     }
 
     public Context getAppContext() {
-        return this.f11844b;
+        return this.f11845b;
     }
 
     public APPStatus getAppStatus() {
@@ -125,7 +125,7 @@ public class GDTADManager {
             if (Build.VERSION.SDK_INT < 14) {
                 GDTLogger.e("system version not support !");
                 z = false;
-            } else if (this.f11843a.booleanValue()) {
+            } else if (this.f11844a.booleanValue()) {
                 z = true;
             } else if (context == null || StringUtil.isEmpty(str)) {
                 GDTLogger.e("Context And APPID should Never Be NULL while init GDTADManager");
@@ -133,15 +133,15 @@ public class GDTADManager {
             } else {
                 long nanoTime = System.nanoTime();
                 this.h = SystemUtil.getProcessName(context);
-                this.f11844b = context.getApplicationContext();
-                this.c = new SM(this.f11844b);
-                this.d = new PM(this.f11844b, this.i);
-                this.f = new APPStatus(str, this.f11844b);
-                this.g = new DeviceStatus(this.f11844b);
+                this.f11845b = context.getApplicationContext();
+                this.c = new SM(this.f11845b);
+                this.d = new PM(this.f11845b, this.i);
+                this.f = new APPStatus(str, this.f11845b);
+                this.g = new DeviceStatus(this.f11845b);
                 if (Build.VERSION.SDK_INT > 7) {
-                    com.qq.e.comm.services.a.a().a(this.f11844b, this.c, this.d, this.g, this.f, nanoTime);
+                    com.qq.e.comm.services.a.a().a(this.f11845b, this.c, this.d, this.g, this.f, nanoTime);
                 }
-                this.f11843a = Boolean.TRUE;
+                this.f11844a = Boolean.TRUE;
                 z = true;
             }
         }
@@ -149,13 +149,13 @@ public class GDTADManager {
     }
 
     public boolean isInitialized() {
-        if (this.f11843a == null) {
+        if (this.f11844a == null) {
             return false;
         }
-        return this.f11843a.booleanValue();
+        return this.f11844a.booleanValue();
     }
 
-    public void setPluginLoadListener(PM.a.InterfaceC1157a interfaceC1157a) {
-        this.i = interfaceC1157a;
+    public void setPluginLoadListener(PM.a.InterfaceC1198a interfaceC1198a) {
+        this.i = interfaceC1198a;
     }
 }

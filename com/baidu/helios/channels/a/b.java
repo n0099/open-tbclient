@@ -25,13 +25,13 @@ import com.baidu.mobstat.Config;
 import java.io.Closeable;
 import java.io.OutputStream;
 import org.json.JSONObject;
-/* loaded from: classes7.dex */
+/* loaded from: classes15.dex */
 public class b extends com.baidu.helios.channels.a {
     private C0138b awY;
     a.C0141a awu;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public static class a {
         private int d;
         private String e;
@@ -73,7 +73,7 @@ public class b extends com.baidu.helios.channels.a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.helios.channels.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     public class C0138b {
         private int g;
         private long h;
@@ -139,7 +139,7 @@ public class b extends com.baidu.helios.channels.a {
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes15.dex */
     class c extends a.b {
         private int h;
         private String i;

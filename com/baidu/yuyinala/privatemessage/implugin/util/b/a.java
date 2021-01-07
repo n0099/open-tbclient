@@ -17,7 +17,7 @@ public class a {
     }
 
     public static void hJ(Context context) {
-        if (enZ() == null) {
+        if (eoa() == null) {
             initDisplayMetrics(context);
         }
     }
@@ -51,7 +51,7 @@ public class a {
     }
 
     @Deprecated
-    public static DisplayMetrics enY() {
+    public static DisplayMetrics enZ() {
         return pbG;
     }
 
@@ -59,7 +59,7 @@ public class a {
         pbH = displayMetrics;
     }
 
-    public static DisplayMetrics enZ() {
+    public static DisplayMetrics eoa() {
         return pbH;
     }
 }

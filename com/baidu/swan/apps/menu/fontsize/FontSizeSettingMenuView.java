@@ -32,12 +32,12 @@ public class FontSizeSettingMenuView extends BaseMenuView {
     private void init() {
         setLayoutParams(new FrameLayout.LayoutParams(-1, -2));
         this.dqf = (SliderBar) inflate(this.mContext, a.g.swan_app_font_setting, null);
-        this.dqf.kf(b.aFM());
+        this.dqf.kf(b.aFN());
         a(this.dqf, new FrameLayout.LayoutParams(-1, (int) this.mContext.getResources().getDimension(a.d.font_setting_font_slider_bar_height_pop)));
     }
 
     @Override // com.baidu.swan.menu.BaseMenuView
-    public boolean aFO() {
+    public boolean aFP() {
         return false;
     }
 

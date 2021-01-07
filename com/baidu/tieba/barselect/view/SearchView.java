@@ -58,7 +58,7 @@ public class SearchView extends LinearLayout {
 
     public void vU(int i) {
         ao.e(this.isx, l.getDimens(getContext(), R.dimen.tbds100), R.color.CAM_X0204, R.color.CAM_X0204, i);
-        SvgManager.bwq().a(this.gZe, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bwr().a(this.gZe, R.drawable.icon_pure_search_import16_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         ao.setViewTextColor(this.isv, R.color.CAM_X0105, 1, i);
         ao.setViewTextColor(this.isw, R.color.CAM_X0105, 1, i);
         ao.setViewTextColor(this.isy, R.color.CAM_X0109, 1, i);

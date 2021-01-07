@@ -23,21 +23,21 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final AtomicInteger f12934a = new AtomicInteger();
+    private static final AtomicInteger f12935a = new AtomicInteger();
 
     /* renamed from: com.qq.e.comm.plugin.w.a.d$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass1 implements com.qq.e.comm.plugin.t.b {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ j f12935a;
+        final /* synthetic */ j f12936a;
 
         AnonymousClass1(j jVar) {
-            this.f12935a = jVar;
+            this.f12936a = jVar;
         }
 
         /* JADX WARN: Removed duplicated region for block: B:11:0x0025  */
@@ -66,69 +66,69 @@ public class d {
                         } catch (JSONException e3) {
                             GDTLogger.e("JSONExceptionWhileParseClickADResponse");
                             e = NativeErrorCode.EKS_AVERROR_PROTOCOL_NOT_FOUND;
-                            if (this.f12935a == null) {
+                            if (this.f12936a == null) {
                             }
                         } catch (Throwable th2) {
                             GDTLogger.e("JSONExceptionWhileParseClickADResponse");
                             e = NativeErrorCode.EKS_AVERROR_EIO;
-                            if (this.f12935a == null) {
+                            if (this.f12936a == null) {
                             }
                         }
                     }
-                    if (this.f12935a == null) {
-                        this.f12935a.a(new Pair(Integer.valueOf(e), jSONObject));
+                    if (this.f12936a == null) {
+                        this.f12936a.a(new Pair(Integer.valueOf(e), jSONObject));
                         return;
                     }
                     return;
                 }
             }
             jSONObject = null;
-            if (this.f12935a == null) {
+            if (this.f12936a == null) {
             }
         }
 
         @Override // com.qq.e.comm.plugin.t.b
         public void a(Exception exc) {
-            if (this.f12935a != null) {
-                this.f12935a.a(new Pair(-1, null));
+            if (this.f12936a != null) {
+                this.f12936a.a(new Pair(-1, null));
             }
         }
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.d$2  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass2 implements j<Pair<Integer, JSONObject>> {
 
         /* renamed from: a  reason: collision with root package name */
-        final /* synthetic */ Exchanger f12936a;
+        final /* synthetic */ Exchanger f12937a;
 
         /* renamed from: b  reason: collision with root package name */
-        final /* synthetic */ long f12937b;
+        final /* synthetic */ long f12938b;
 
         AnonymousClass2(Exchanger exchanger, long j) {
-            this.f12936a = exchanger;
-            this.f12937b = j;
+            this.f12937a = exchanger;
+            this.f12938b = j;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.qq.e.comm.plugin.util.j
         public void a(Pair<Integer, JSONObject> pair) {
             try {
-                this.f12936a.exchange(pair, this.f12937b, TimeUnit.MILLISECONDS);
+                this.f12937a.exchange(pair, this.f12938b, TimeUnit.MILLISECONDS);
             } catch (Exception e) {
                 GDTLogger.e("ExceptionWhileDoClickADSync", e);
             }
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public final JSONObject f12938a;
+        public final JSONObject f12939a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final String f12939b;
+        public final String f12940b;
         public final com.qq.e.comm.plugin.s.a c;
 
         public a(JSONObject jSONObject, String str) {
@@ -136,21 +136,21 @@ public class d {
         }
 
         public a(JSONObject jSONObject, String str, com.qq.e.comm.plugin.s.a aVar) {
-            this.f12938a = jSONObject;
-            this.f12939b = str;
+            this.f12939a = jSONObject;
+            this.f12940b = str;
             this.c = aVar;
         }
 
         public String toString() {
-            return "ADParam [adInfo=" + this.f12938a + ", clickURL=" + this.f12939b + "]";
+            return "ADParam [adInfo=" + this.f12939a + ", clickURL=" + this.f12940b + "]";
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b {
 
         /* renamed from: b  reason: collision with root package name */
-        public int f12941b;
+        public int f12942b;
         public c c;
         public String d;
         public boolean e;
@@ -163,16 +163,16 @@ public class d {
         private boolean m = false;
 
         /* renamed from: a  reason: collision with root package name */
-        public int f12940a = 0;
+        public int f12941a = 0;
         public int j = 0;
 
         public b(int i, c cVar) {
-            this.f12941b = i;
+            this.f12942b = i;
             this.c = cVar;
         }
 
         public b a(int i) {
-            this.f12940a = i;
+            this.f12941a = i;
             return this;
         }
 
@@ -231,34 +231,34 @@ public class d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public enum c {
         InnerBrowser,
         SysBrowser
     }
 
     /* renamed from: com.qq.e.comm.plugin.w.a.d$d  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    private static class RunnableC1184d<T> implements Runnable {
+    /* loaded from: classes4.dex */
+    private static class RunnableC1225d<T> implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        private final T f12944a;
+        private final T f12945a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final a f12945b;
+        private final a f12946b;
         private final b c;
         private final e d;
         private com.qq.e.comm.plugin.y.c e = new com.qq.e.comm.plugin.y.c();
 
-        public RunnableC1184d(T t, a aVar, b bVar, e eVar) {
-            this.f12944a = t;
-            this.f12945b = aVar;
+        public RunnableC1225d(T t, a aVar, b bVar, e eVar) {
+            this.f12945a = t;
+            this.f12946b = aVar;
             this.c = bVar;
             this.d = eVar;
             this.e.a(eVar.c);
-            if (aVar.f12938a != null) {
-                this.e.b(aVar.f12938a.optString(Config.CELL_LOCATION));
-                this.e.c(aVar.f12938a.optString("traceid"));
+            if (aVar.f12939a != null) {
+                this.e.b(aVar.f12939a.optString(Config.CELL_LOCATION));
+                this.e.c(aVar.f12939a.optString("traceid"));
             }
         }
 
@@ -268,46 +268,46 @@ public class d {
             Context context;
             try {
                 d.a().incrementAndGet();
-                if (this.f12944a instanceof View) {
-                    Context context2 = ((View) this.f12944a).getRootView().getContext();
+                if (this.f12945a instanceof View) {
+                    Context context2 = ((View) this.f12945a).getRootView().getContext();
                     if (this.c.i <= 0) {
-                        this.c.i = com.qq.e.comm.plugin.ad.a.a().b((View) this.f12944a);
+                        this.c.i = com.qq.e.comm.plugin.ad.a.a().b((View) this.f12945a);
                     }
                     ai.b("gdt_tag_p", "DoClickRunable : viewIdentifier = %d", Integer.valueOf(this.c.i));
                     context = context2;
-                } else if (this.f12944a instanceof com.qq.e.comm.plugin.ab.h) {
-                    Context context3 = ((com.qq.e.comm.plugin.ab.h) this.f12944a).a().getRootView().getContext();
+                } else if (this.f12945a instanceof com.qq.e.comm.plugin.ab.h) {
+                    Context context3 = ((com.qq.e.comm.plugin.ab.h) this.f12945a).a().getRootView().getContext();
                     if (this.c.i <= 0) {
-                        this.c.i = com.qq.e.comm.plugin.ad.a.a().b(((com.qq.e.comm.plugin.ab.h) this.f12944a).a());
+                        this.c.i = com.qq.e.comm.plugin.ad.a.a().b(((com.qq.e.comm.plugin.ab.h) this.f12945a).a());
                     }
                     ai.b("gdt_tag_p", "DoClickRunable(IWebView) : viewIdentifier = %d", Integer.valueOf(this.c.i));
                     context = context3;
                 } else {
                     context = null;
                 }
-                boolean z = (this.f12945b.c instanceof com.qq.e.comm.plugin.s.f) && ((com.qq.e.comm.plugin.s.f) this.f12945b.c).ap().booleanValue();
-                if (z || com.qq.e.comm.plugin.util.b.c(this.f12945b.f12938a)) {
-                    if (!((Boolean) i.a(this.f12944a, this.f12945b, this.c, this.d, (i.a) null).second).booleanValue() && z) {
-                        h.a(this.f12944a, context, this.f12945b, this.c, this.d);
+                boolean z = (this.f12946b.c instanceof com.qq.e.comm.plugin.s.f) && ((com.qq.e.comm.plugin.s.f) this.f12946b.c).ap().booleanValue();
+                if (z || com.qq.e.comm.plugin.util.b.c(this.f12946b.f12939a)) {
+                    if (!((Boolean) i.a(this.f12945a, this.f12946b, this.c, this.d, (i.a) null).second).booleanValue() && z) {
+                        h.a(this.f12945a, context, this.f12946b, this.c, this.d);
                     }
-                } else if (this.c.f12941b == 18) {
-                    d.a(this.f12945b, this.c);
-                } else if (this.c.f12941b == 1 && com.qq.e.comm.plugin.util.d.a(this.f12945b.f12938a)) {
-                    f.a(this.f12944a, context, this.f12945b, this.c, this.d);
-                } else if (this.c.f12941b == 0) {
-                    h.a(this.f12944a, context, this.f12945b, this.c, this.d);
-                } else if (36 == this.c.f12941b) {
-                    d.a(context, this.f12945b, this.c, this.d);
-                } else if (45 == this.c.f12941b) {
-                    d.b(this.f12945b, this.c);
-                } else if (this.c.f12941b == 9001) {
-                    g.a(this.f12944a, context, this.f12945b, this.c, this.d);
-                } else if (this.c.f12941b == 9000) {
-                    g.a(this.f12944a, this.f12945b, this.c, this.d);
-                } else if (this.c.f12941b == 9002) {
-                    g.b(this.f12944a, context, this.f12945b, this.c, this.d);
+                } else if (this.c.f12942b == 18) {
+                    d.a(this.f12946b, this.c);
+                } else if (this.c.f12942b == 1 && com.qq.e.comm.plugin.util.d.a(this.f12946b.f12939a)) {
+                    f.a(this.f12945a, context, this.f12946b, this.c, this.d);
+                } else if (this.c.f12942b == 0) {
+                    h.a(this.f12945a, context, this.f12946b, this.c, this.d);
+                } else if (36 == this.c.f12942b) {
+                    d.a(context, this.f12946b, this.c, this.d);
+                } else if (45 == this.c.f12942b) {
+                    d.b(this.f12946b, this.c);
+                } else if (this.c.f12942b == 9001) {
+                    g.a(this.f12945a, context, this.f12946b, this.c, this.d);
+                } else if (this.c.f12942b == 9000) {
+                    g.a(this.f12945a, this.f12946b, this.c, this.d);
+                } else if (this.c.f12942b == 9002) {
+                    g.b(this.f12945a, context, this.f12946b, this.c, this.d);
                 } else {
-                    d.c(this.f12945b, this.c);
+                    d.c(this.f12946b, this.c);
                 }
             } catch (Throwable th) {
                 try {
@@ -318,7 +318,7 @@ public class d {
                         return;
                     }
                     com.qq.e.comm.plugin.y.d dVar = new com.qq.e.comm.plugin.y.d();
-                    dVar.a("adParam", this.f12945b.toString());
+                    dVar.a("adParam", this.f12946b.toString());
                     dVar.a("stack", a2.toString());
                     u.a(90012, 0, this.e, dVar);
                 } finally {
@@ -326,7 +326,7 @@ public class d {
                     Stack<b.a> a3 = com.qq.e.comm.plugin.w.a.b.a();
                     if (a3 != null && !a3.isEmpty()) {
                         com.qq.e.comm.plugin.y.d dVar2 = new com.qq.e.comm.plugin.y.d();
-                        dVar2.a("adParam", this.f12945b.toString());
+                        dVar2.a("adParam", this.f12946b.toString());
                         dVar2.a("stack", a3.toString());
                         u.a(90012, 0, this.e, dVar2);
                     }
@@ -335,19 +335,19 @@ public class d {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        public final String f12946a;
+        public final String f12947a;
 
         /* renamed from: b  reason: collision with root package name */
-        public final com.qq.e.comm.plugin.ad.e f12947b;
+        public final com.qq.e.comm.plugin.ad.e f12948b;
         public final String c;
 
         public e(String str, com.qq.e.comm.plugin.ad.e eVar, String str2) {
-            this.f12946a = str;
-            this.f12947b = eVar;
+            this.f12947a = str;
+            this.f12948b = eVar;
             this.c = str2;
         }
     }

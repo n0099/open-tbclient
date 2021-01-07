@@ -3,17 +3,17 @@ package com.qq.e.comm.plugin.ad;
 import android.text.TextUtils;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public abstract class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private Map<String, Object> f12203a = new HashMap();
+    private Map<String, Object> f12204a = new HashMap();
 
     private void a(String str, Object obj) {
         if (str == null || obj == null) {
             return;
         }
-        this.f12203a.put(str, obj);
+        this.f12204a.put(str, obj);
     }
 
     public String a(String str) {
@@ -21,7 +21,7 @@ public abstract class p {
         if (TextUtils.isEmpty(str)) {
             return null;
         }
-        Object obj = this.f12203a.get(str);
+        Object obj = this.f12204a.get(str);
         if (obj != null) {
             try {
                 str2 = (String) obj;
@@ -48,7 +48,7 @@ public abstract class p {
 
     public int b(String str) {
         Object obj;
-        if (!TextUtils.isEmpty(str) && (obj = this.f12203a.get(str)) != null) {
+        if (!TextUtils.isEmpty(str) && (obj = this.f12204a.get(str)) != null) {
             try {
                 return ((Integer) obj).intValue();
             } catch (ClassCastException e) {
@@ -63,7 +63,7 @@ public abstract class p {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        Object obj = this.f12203a.get(str);
+        Object obj = this.f12204a.get(str);
         if (obj != null) {
             try {
                 booleanValue = ((Boolean) obj).booleanValue();

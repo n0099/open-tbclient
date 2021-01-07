@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 public final class d implements Closeable, Flushable {
 
     /* renamed from: a  reason: collision with root package name */
-    static final Pattern f6155a;
+    static final Pattern f6156a;
     static final /* synthetic */ boolean j;
     final int c;
     int f;
@@ -29,7 +29,7 @@ public final class d implements Closeable, Flushable {
 
     static {
         j = !d.class.desiredAssertionStatus();
-        f6155a = Pattern.compile("[a-z0-9_-]{1,120}");
+        f6156a = Pattern.compile("[a-z0-9_-]{1,120}");
     }
 
     synchronized void a(a aVar, boolean z) throws IOException {
@@ -68,8 +68,8 @@ public final class d implements Closeable, Flushable {
             bVar.piK = null;
             if (bVar.e | z) {
                 bVar.e = true;
-                this.piu.YH("CLEAN").PM(32);
-                this.piu.YH(bVar.f6156a);
+                this.piu.YG("CLEAN").PM(32);
+                this.piu.YG(bVar.f6157a);
                 bVar.a(this.piu);
                 this.piu.PM(10);
                 if (z) {
@@ -78,9 +78,9 @@ public final class d implements Closeable, Flushable {
                     bVar.g = j3;
                 }
             } else {
-                this.piD.remove(bVar.f6156a);
-                this.piu.YH("REMOVE").PM(32);
-                this.piu.YH(bVar.f6156a);
+                this.piD.remove(bVar.f6157a);
+                this.piu.YG("REMOVE").PM(32);
+                this.piu.YG(bVar.f6157a);
                 this.piu.PM(10);
             }
             this.piu.flush();
@@ -104,8 +104,8 @@ public final class d implements Closeable, Flushable {
             bVar.phA[i] = 0;
         }
         this.f++;
-        this.piu.YH("REMOVE").PM(32).YH(bVar.f6156a).PM(10);
-        this.piD.remove(bVar.f6156a);
+        this.piu.YG("REMOVE").PM(32).YG(bVar.f6157a).PM(10);
+        this.piD.remove(bVar.f6157a);
         if (a()) {
             this.piE.execute(this.o);
             return true;
@@ -194,7 +194,7 @@ public final class d implements Closeable, Flushable {
     public final class b {
 
         /* renamed from: a  reason: collision with root package name */
-        final String f6156a;
+        final String f6157a;
         boolean e;
         long g;
         final long[] phA;

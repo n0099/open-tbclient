@@ -147,8 +147,8 @@ public class FH {
             Method method = null;
             JSONArray optJSONArray = jSONObject.optJSONArray("p");
             if (optString.equals("callSync")) {
-                if (c.f5490b == null && context != null) {
-                    c.f5490b = context.getApplicationContext();
+                if (c.f5491b == null && context != null) {
+                    c.f5491b = context.getApplicationContext();
                 }
                 if (optJSONArray != null && optJSONArray.length() == 2) {
                     method = FH.class.getMethod("callSync", Integer.TYPE, String.class);
@@ -231,8 +231,8 @@ public class FH {
                 if (cls.equals(Context.class)) {
                     if (context != null) {
                         objArr[i3] = context;
-                    } else if (c.f5490b != null) {
-                        objArr[i3] = c.f5490b;
+                    } else if (c.f5491b != null) {
+                        objArr[i3] = c.f5491b;
                     } else {
                         throw new IllegalArgumentException("method request context");
                     }

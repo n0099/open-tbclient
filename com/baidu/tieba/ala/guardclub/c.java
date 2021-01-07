@@ -21,7 +21,7 @@ public class c implements com.baidu.live.guardclub.i {
     private static volatile c gZy = null;
     private long currLiveId;
 
-    public static c bYG() {
+    public static c bYH() {
         if (gZy == null) {
             synchronized (c.class) {
                 if (gZy == null) {

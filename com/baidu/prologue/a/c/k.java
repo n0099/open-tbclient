@@ -3,7 +3,7 @@ package com.baidu.prologue.a.c;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.preference.PreferenceManager;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class k {
     private static SharedPreferences mPreference = null;
     private static SharedPreferences cth = null;

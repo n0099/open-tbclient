@@ -90,7 +90,7 @@ public class b {
                     }
                     b.this.kQd.sS(R.string.loading);
                     if (b.this.kQe != null) {
-                        b.this.kQe.bYV();
+                        b.this.kQe.bYW();
                         b.this.isLoadMore = true;
                     }
                 }

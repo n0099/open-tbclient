@@ -63,7 +63,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bPX();
+        bPY();
     }
 
     @Override // android.view.View
@@ -72,7 +72,7 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             uH(0);
         } else {
-            bPX();
+            bPY();
         }
     }
 
@@ -83,7 +83,7 @@ public class CountDownTextView extends TextView {
         }
     }
 
-    private void bPX() {
+    private void bPY() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 

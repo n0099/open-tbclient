@@ -38,7 +38,7 @@ public class i extends BaseAdapter {
         }
     }
 
-    public void cgD() {
+    public void cgE() {
         if (!ListUtils.isEmpty(this.hvB)) {
             this.hvB.clear();
             notifyDataSetChanged();

@@ -72,7 +72,7 @@ public class b {
                         n nVar = (n) it.next();
                         if (nVar instanceof com.baidu.tieba.card.data.b) {
                             com.baidu.tieba.card.data.b bVar = (com.baidu.tieba.card.data.b) nVar;
-                            if (bVar.boO() != null && bVar.boO().getTid() != null && bVar.boO().getTid().equals(str)) {
+                            if (bVar.boP() != null && bVar.boP().getTid() != null && bVar.boP().getTid().equals(str)) {
                                 it.remove();
                                 com.baidu.tieba.homepage.personalize.model.b.eg(b.this.jbj);
                                 b.this.kem.cC(new ArrayList(b.this.jbj));
@@ -145,7 +145,7 @@ public class b {
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
             int i = 1;
-            if (au.bwr().bws()) {
+            if (au.bws().bwt()) {
                 i = 2;
             }
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();

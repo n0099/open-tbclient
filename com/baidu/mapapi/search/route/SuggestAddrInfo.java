@@ -5,15 +5,15 @@ import android.os.Parcelable;
 import com.baidu.mapapi.search.core.CityInfo;
 import com.baidu.mapapi.search.core.PoiInfo;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class SuggestAddrInfo implements Parcelable {
     public static final Parcelable.Creator<SuggestAddrInfo> CREATOR = new n();
 
     /* renamed from: a  reason: collision with root package name */
-    private List<PoiInfo> f3043a;
+    private List<PoiInfo> f3044a;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<PoiInfo> f3044b;
+    private List<PoiInfo> f3045b;
     private List<List<PoiInfo>> c;
     private List<CityInfo> d;
     private List<CityInfo> e;
@@ -24,8 +24,8 @@ public class SuggestAddrInfo implements Parcelable {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public SuggestAddrInfo(Parcel parcel) {
-        this.f3043a = parcel.readArrayList(PoiInfo.class.getClassLoader());
-        this.f3044b = parcel.readArrayList(PoiInfo.class.getClassLoader());
+        this.f3044a = parcel.readArrayList(PoiInfo.class.getClassLoader());
+        this.f3045b = parcel.readArrayList(PoiInfo.class.getClassLoader());
         this.c = parcel.readArrayList(PoiInfo.class.getClassLoader());
         this.d = parcel.readArrayList(CityInfo.class.getClassLoader());
         this.e = parcel.readArrayList(CityInfo.class.getClassLoader());
@@ -42,7 +42,7 @@ public class SuggestAddrInfo implements Parcelable {
     }
 
     public List<PoiInfo> getSuggestEndNode() {
-        return this.f3044b;
+        return this.f3045b;
     }
 
     public List<CityInfo> getSuggestStartCity() {
@@ -50,7 +50,7 @@ public class SuggestAddrInfo implements Parcelable {
     }
 
     public List<PoiInfo> getSuggestStartNode() {
-        return this.f3043a;
+        return this.f3044a;
     }
 
     public List<List<CityInfo>> getSuggestWpCity() {
@@ -66,7 +66,7 @@ public class SuggestAddrInfo implements Parcelable {
     }
 
     public void setSuggestEndNode(List<PoiInfo> list) {
-        this.f3044b = list;
+        this.f3045b = list;
     }
 
     public void setSuggestStartCity(List<CityInfo> list) {
@@ -74,7 +74,7 @@ public class SuggestAddrInfo implements Parcelable {
     }
 
     public void setSuggestStartNode(List<PoiInfo> list) {
-        this.f3043a = list;
+        this.f3044a = list;
     }
 
     public void setSuggestWpCity(List<List<CityInfo>> list) {
@@ -87,8 +87,8 @@ public class SuggestAddrInfo implements Parcelable {
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeList(this.f3043a);
-        parcel.writeList(this.f3044b);
+        parcel.writeList(this.f3044a);
+        parcel.writeList(this.f3045b);
         parcel.writeList(this.c);
         parcel.writeList(this.d);
         parcel.writeList(this.e);

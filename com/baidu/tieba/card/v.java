@@ -88,20 +88,20 @@ public class v extends b<bz> implements com.baidu.tieba.a.e {
             getView().setVisibility(0);
             getView().setOnClickListener(this);
         }
-        if (bzVar.brq() != null) {
-            this.ixP.setText(bzVar.brq().getName_show());
+        if (bzVar.brr() != null) {
+            this.ixP.setText(bzVar.brr().getName_show());
         }
-        this.ixQ.setText(at.getFormatTime(bzVar.brj() * 1000));
-        String str = bzVar.bsY() + "：";
+        this.ixQ.setText(at.getFormatTime(bzVar.brk() * 1000));
+        String str = bzVar.bsZ() + "：";
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
         spannableStringBuilder.append((CharSequence) bzVar.B(false, true));
         spannableStringBuilder.setSpan(new ForegroundColorSpan(ao.getColor(R.color.CAM_X0304)), 0, str.length(), 33);
         this.ixR.setText(spannableStringBuilder);
-        ArrayList<MediaData> brz = bzVar.brz();
-        if (com.baidu.tbadk.core.k.bou().isShowImages() && com.baidu.tbadk.core.util.x.getCount(brz) != 0) {
+        ArrayList<MediaData> brA = bzVar.brA();
+        if (com.baidu.tbadk.core.k.bov().isShowImages() && com.baidu.tbadk.core.util.x.getCount(brA) != 0) {
             ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < brz.size(); i++) {
-                MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.x.getItem(brz, i);
+            for (int i = 0; i < brA.size(); i++) {
+                MediaData mediaData = (MediaData) com.baidu.tbadk.core.util.x.getItem(brA, i);
                 if (mediaData != null && mediaData.getType() == 3) {
                     arrayList.add(mediaData);
                 }
@@ -122,30 +122,30 @@ public class v extends b<bz> implements com.baidu.tieba.a.e {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (this.aim != null) {
-            if (cuC() != null) {
-                cuC().a(view, (View) this.aim, (Object) this.ixS);
+            if (cuD() != null) {
+                cuD().a(view, (View) this.aim, (Object) this.ixS);
             }
             if (view == getView()) {
-                m.Jo(this.aim.getTid());
+                m.Jn(this.aim.getTid());
                 m.a(this.ixR, this.aim.getTid(), R.color.CAM_X0105, R.color.CAM_X0109);
-                cvb();
+                cvc();
             }
         }
     }
 
-    private void cvb() {
-        if (this.aim != null && this.aim.brq() != null && this.aim.brq().getName_show() != null) {
+    private void cvc() {
+        if (this.aim != null && this.aim.brr() != null && this.aim.brr().getName_show() != null) {
             long fid = this.aim.getFid();
             if (this.aim.eVM != null) {
                 fid = com.baidu.adp.lib.f.b.toLong(this.aim.eVM.id, 0L);
             }
-            if (com.baidu.tbadk.plugins.b.lr(true) && !com.baidu.tbadk.plugins.b.bIb()) {
-                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aim.brq().getName_show() + "", "3");
-                createNormalConfig.setExtra(fid, this.aim.btb(), this.aim.btc(), com.baidu.adp.lib.f.b.toLong(this.aim.getTid(), 0L));
+            if (com.baidu.tbadk.plugins.b.lr(true) && !com.baidu.tbadk.plugins.b.bIc()) {
+                HotTopicActivityConfig createNormalConfig = new HotTopicActivityConfig(getContext()).createNormalConfig("", this.aim.brr().getName_show() + "", "3");
+                createNormalConfig.setExtra(fid, this.aim.btc(), this.aim.btd(), com.baidu.adp.lib.f.b.toLong(this.aim.getTid(), 0L));
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, createNormalConfig));
                 return;
             }
-            be.bwu().b(this.mPageContext, new String[]{this.aim.btd()});
+            be.bwv().b(this.mPageContext, new String[]{this.aim.bte()});
         }
     }
 

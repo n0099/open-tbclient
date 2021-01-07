@@ -18,7 +18,7 @@ public class a extends SQLiteOpenHelper {
     private static volatile a ewx;
     private ConcurrentHashMap<Class<?>, com.baidu.swan.pms.database.b.a> eww;
 
-    private void bgh() {
+    private void bgi() {
         this.eww = new ConcurrentHashMap<>();
         this.eww.put(f.class, new e());
         this.eww.put(g.class, new com.baidu.swan.pms.database.b.f());
@@ -32,14 +32,14 @@ public class a extends SQLiteOpenHelper {
 
     private a() {
         this("ai_apps_pms.db", DB_VERSION);
-        bgh();
+        bgi();
     }
 
     private a(String str, int i) {
         super(AppRuntime.getAppContext(), str, null, i, null);
     }
 
-    public static a bgi() {
+    public static a bgj() {
         if (ewx == null) {
             synchronized (a.class) {
                 if (ewx == null) {

@@ -7,7 +7,7 @@ public abstract class c implements a<com.baidu.swan.apps.process.a.b.a.b> {
     private String dvC;
 
     @Override // com.baidu.swan.apps.process.a.b.c.a
-    public String aIP() {
+    public String aIQ() {
         if (!TextUtils.isEmpty(this.dvC)) {
             return this.dvC;
         }

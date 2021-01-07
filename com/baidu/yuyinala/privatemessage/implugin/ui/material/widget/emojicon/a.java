@@ -37,7 +37,7 @@ public class a implements AdapterView.OnItemClickListener {
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconGridFragment", "EmojiconGridFragment is creating, emojicons.length = " + emojiconArr.length);
     }
 
-    public GridView ZX() {
+    public GridView ZY() {
         this.bVM = LayoutInflater.from(this.mContext).inflate(a.g.bd_im_emojicon_grid, (ViewGroup) null);
         GridView gridView = (GridView) this.bVM.findViewById(a.f.Emoji_GridView);
         this.oZa = new Emojicon[this.oYZ.length + 1];
@@ -45,7 +45,7 @@ public class a implements AdapterView.OnItemClickListener {
             this.oZa[i] = this.oYZ[i];
         }
         c(gridView);
-        gridView.setAdapter((ListAdapter) new C0945a(this.mContext, this.oZa));
+        gridView.setAdapter((ListAdapter) new C0983a(this.mContext, this.oZa));
         gridView.setOnItemClickListener(this);
         com.baidu.yuyinala.privatemessage.implugin.util.c.d("EmojiconGridFragment", "onViewCreated, gridView.count = " + gridView.getCount());
         return gridView;
@@ -76,7 +76,7 @@ public class a implements AdapterView.OnItemClickListener {
         throw new IllegalArgumentException(bVar + " must implement interface " + b.class.getSimpleName());
     }
 
-    public static void emT() {
+    public static void emU() {
         oYX = null;
         oYY = null;
     }
@@ -98,8 +98,8 @@ public class a implements AdapterView.OnItemClickListener {
 
     /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    class C0945a extends ArrayAdapter<Emojicon> {
-        public C0945a(Context context, Emojicon[] emojiconArr) {
+    class C0983a extends ArrayAdapter<Emojicon> {
+        public C0983a(Context context, Emojicon[] emojiconArr) {
             super(context, a.g.bd_im_emojicon_item, emojiconArr);
         }
 
@@ -107,17 +107,17 @@ public class a implements AdapterView.OnItemClickListener {
         public View getView(int i, View view, ViewGroup viewGroup) {
             if (view == null) {
                 view = View.inflate(getContext(), a.g.bd_im_emojicon_item, null);
-                C0946a c0946a = new C0946a();
-                c0946a.icon = (TextView) view.findViewById(a.f.emojicon_icon);
-                view.setTag(c0946a);
+                C0984a c0984a = new C0984a();
+                c0984a.icon = (TextView) view.findViewById(a.f.emojicon_icon);
+                view.setTag(c0984a);
             }
             if (i == getCount() - 1) {
                 return View.inflate(getContext(), a.g.bd_im_emojicon_backspace, null);
             }
             Emojicon item = getItem(i);
-            C0946a c0946a2 = (C0946a) view.getTag();
-            if (c0946a2 != null && c0946a2.icon != null && item != null) {
-                c0946a2.icon.setText(item.getEmoji());
+            C0984a c0984a2 = (C0984a) view.getTag();
+            if (c0984a2 != null && c0984a2.icon != null && item != null) {
+                c0984a2.icon.setText(item.getEmoji());
                 return view;
             }
             return view;
@@ -125,10 +125,10 @@ public class a implements AdapterView.OnItemClickListener {
 
         /* renamed from: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a$a$a  reason: collision with other inner class name */
         /* loaded from: classes11.dex */
-        class C0946a {
+        class C0984a {
             TextView icon;
 
-            C0946a() {
+            C0984a() {
             }
         }
     }

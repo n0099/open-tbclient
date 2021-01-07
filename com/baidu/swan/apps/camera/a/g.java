@@ -24,7 +24,7 @@ public class g extends a {
             com.baidu.swan.apps.console.c.e("SwanAppCameraManager", "handle action, but context is not Activity");
             return false;
         }
-        eVar.aMw().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.g.1
+        eVar.aMx().b(context, PermissionProxy.SCOPE_ID_CAMERA, new com.baidu.swan.apps.ao.e.b<h<b.d>>() { // from class: com.baidu.swan.apps.camera.a.g.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */

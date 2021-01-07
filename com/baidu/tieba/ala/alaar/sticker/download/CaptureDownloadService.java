@@ -158,7 +158,7 @@ public class CaptureDownloadService extends Service {
     }
 
     private void download(int i, d dVar, String str) {
-        this.mDownloadManager.a(new c.a().Gm(dVar.getUrl()).bSX(), str, new a(i, dVar, getApplicationContext()));
+        this.mDownloadManager.a(new c.a().Gl(dVar.getUrl()).bSY(), str, new a(i, dVar, getApplicationContext()));
     }
 
     /* loaded from: classes11.dex */
@@ -239,7 +239,7 @@ public class CaptureDownloadService extends Service {
     @Override // android.app.Service
     public void onCreate() {
         super.onCreate();
-        this.mDownloadManager = b.bSW();
+        this.mDownloadManager = b.bSX();
     }
 
     @Override // android.app.Service

@@ -35,11 +35,11 @@ public class a implements ImagePagerAdapter.a {
         this.kQi = i;
     }
 
-    public boolean dbx() {
+    public boolean dby() {
         if (!this.kQk || this.kQj == null) {
             return false;
         }
-        return this.kQj.bpg() || this.kQj.bpf();
+        return this.kQj.bph() || this.kQj.bpg();
     }
 
     public String getAdId() {
@@ -55,20 +55,20 @@ public class a implements ImagePagerAdapter.a {
             return null;
         }
         if (ER(i)) {
-            this.kQl = r.dEV().a(this.eXu, this.kQj.legoCard, 99, this.fzb, this.mForumId, this.mPostId);
+            this.kQl = r.dEW().a(this.eXu, this.kQj.legoCard, 99, this.fzb, this.mForumId, this.mPostId);
             if (this.kQl == null) {
                 return null;
             }
             this.kQl.setDragToExitListener(this.fAM);
-            View deq = this.kQl.deq();
-            viewGroup.addView(deq);
-            return deq;
+            View der = this.kQl.der();
+            viewGroup.addView(der);
+            return der;
         }
         return null;
     }
 
     private boolean ER(int i) {
-        return dbx() && this.kQi != 0 && i == this.kQi;
+        return dby() && this.kQi != 0 && i == this.kQi;
     }
 
     public void setDragToExitListener(DragImageView.d dVar) {

@@ -49,8 +49,8 @@ public class c extends b {
 
     @Override // com.baidu.tieba.myAttentionAndFans.b
     public void a(be beVar) {
-        if (beVar != null && beVar.bqi() != null) {
-            Iterator<UserData> it = beVar.bqi().iterator();
+        if (beVar != null && beVar.bqj() != null) {
+            Iterator<UserData> it = beVar.bqj().iterator();
             while (it.hasNext()) {
                 UserData next = it.next();
                 if (next != null) {
@@ -61,7 +61,7 @@ public class c extends b {
             if (this.eYq == null) {
                 this.eYq = new ArrayList<>();
             }
-            arrayList.addAll(beVar.bqi());
+            arrayList.addAll(beVar.bqj());
             if (!x.isEmpty(this.eYq) && this.eYq.get(this.eYq.size() - 1) != null && this.eYq.get(this.eYq.size() - 1).isNewFan && !((UserData) arrayList.get(0)).isNewFan) {
                 this.eYq.get(this.eYq.size() - 1).isLastNewFan = true;
             } else {
@@ -162,7 +162,7 @@ public class c extends b {
                             }
                         }
                     });
-                    aVar.lsf = com.baidu.tbadk.ala.b.bno().A(this.lsa.getPageContext().getPageActivity(), 5);
+                    aVar.lsf = com.baidu.tbadk.ala.b.bnp().A(this.lsa.getPageContext().getPageActivity(), 5);
                     if (aVar.lsf != null) {
                         aVar.lsf.setVisibility(8);
                         aVar.mContainer.addView(aVar.lsf, 1);
@@ -254,7 +254,7 @@ public class c extends b {
                             aVar.lsg.setVisibility(8);
                         } else {
                             aVar.lsg.setStatsParams(2, userId);
-                            aVar.alC.Bb("9");
+                            aVar.alC.Ba("9");
                             aVar.lsg.setVisibility(0);
                         }
                     }

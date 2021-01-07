@@ -100,7 +100,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
         this.fky = view;
     }
 
-    private boolean bxB() {
+    private boolean bxC() {
         if (this.fky == null) {
             return false;
         }
@@ -111,7 +111,7 @@ public class NoPressedRelativeLayout extends RelativeLayout {
     }
 
     private Rect getTopViewRect() {
-        if (bxB()) {
+        if (bxC()) {
             int[] iArr = {0, 0};
             if (this.fky != null) {
                 this.fky.getLocationOnScreen(iArr);

@@ -9,43 +9,43 @@ import java.util.TreeMap;
 public class c extends b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6511a;
+    private int f6512a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6512b;
+    private int f6513b;
     private volatile boolean c;
 
     public c(int i, int i2) {
-        this.f6511a = 15;
-        this.f6512b = 3;
+        this.f6512a = 15;
+        this.f6513b = 3;
         if (i <= 0) {
             throw new IllegalArgumentException("Max count must be positive number!");
         }
-        this.f6511a = i;
-        this.f6512b = i2;
+        this.f6512a = i;
+        this.f6513b = i2;
     }
 
     public c(int i, int i2, boolean z) {
-        this.f6511a = 15;
-        this.f6512b = 3;
+        this.f6512a = 15;
+        this.f6513b = 3;
         if (i <= 0) {
             throw new IllegalArgumentException("Max count must be positive number!");
         }
-        this.f6511a = i;
-        this.f6512b = i2;
+        this.f6512a = i;
+        this.f6513b = i2;
         this.c = z;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(long j, int i) {
-        return i <= this.f6511a;
+        return i <= this.f6512a;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.bytedance.sdk.openadsdk.b.b
     public boolean a(File file, long j, int i) {
-        return i <= this.f6512b;
+        return i <= this.f6513b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.b.b
@@ -113,7 +113,7 @@ public class c extends b {
                                     i2 = size;
                                 }
                                 if (a(file2, b2, i2)) {
-                                    u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + i2 + " 最大值存储上限个数 maxCount " + this.f6511a + " 最小个数 " + this.f6512b);
+                                    u.c("splashLoadAd", "停止删除 当前总个数 totalCount：" + i2 + " 最大值存储上限个数 maxCount " + this.f6512a + " 最小个数 " + this.f6513b);
                                     return;
                                 }
                                 i = i2;

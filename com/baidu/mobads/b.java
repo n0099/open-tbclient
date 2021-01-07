@@ -9,15 +9,15 @@ import org.json.JSONObject;
 class b implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ IOAdEvent f3339a;
+    final /* synthetic */ IOAdEvent f3340a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ a f3340b;
+    final /* synthetic */ a f3341b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public b(a aVar, IOAdEvent iOAdEvent) {
-        this.f3340b = aVar;
-        this.f3339a = iOAdEvent;
+        this.f3341b = aVar;
+        this.f3340a = iOAdEvent;
     }
 
     @Override // java.lang.Runnable
@@ -28,23 +28,23 @@ class b implements Runnable {
         AdViewListener adViewListener4;
         AdViewListener adViewListener5;
         AdViewListener adViewListener6;
-        if (IXAdEvent.AD_LOADED.equals(this.f3339a.getType())) {
-            adViewListener6 = this.f3340b.f3334a.d;
-            adViewListener6.onAdReady(this.f3340b.f3334a);
-        } else if (IXAdEvent.AD_STARTED.equals(this.f3339a.getType())) {
-            adViewListener4 = this.f3340b.f3334a.d;
+        if (IXAdEvent.AD_LOADED.equals(this.f3340a.getType())) {
+            adViewListener6 = this.f3341b.f3335a.d;
+            adViewListener6.onAdReady(this.f3341b.f3335a);
+        } else if (IXAdEvent.AD_STARTED.equals(this.f3340a.getType())) {
+            adViewListener4 = this.f3341b.f3335a.d;
             adViewListener4.onAdSwitch();
-            adViewListener5 = this.f3340b.f3334a.d;
+            adViewListener5 = this.f3341b.f3335a.d;
             adViewListener5.onAdShow(new JSONObject());
-        } else if (IXAdEvent.AD_ERROR.equals(this.f3339a.getType())) {
-            adViewListener3 = this.f3340b.f3334a.d;
-            adViewListener3.onAdFailed(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f3339a.getData()));
-        } else if ("AdUserClick".equals(this.f3339a.getType())) {
-            adViewListener2 = this.f3340b.f3334a.d;
+        } else if (IXAdEvent.AD_ERROR.equals(this.f3340a.getType())) {
+            adViewListener3 = this.f3341b.f3335a.d;
+            adViewListener3.onAdFailed(XAdSDKFoundationFacade.getInstance().getErrorCode().getMessage(this.f3340a.getData()));
+        } else if ("AdUserClick".equals(this.f3340a.getType())) {
+            adViewListener2 = this.f3341b.f3335a.d;
             adViewListener2.onAdClick(new JSONObject());
-        } else if (IXAdEvent.AD_USER_CLOSE.equals(this.f3339a.getType())) {
-            XAdSDKFoundationFacade.getInstance().getCommonUtils().a((View) this.f3340b.f3334a);
-            adViewListener = this.f3340b.f3334a.d;
+        } else if (IXAdEvent.AD_USER_CLOSE.equals(this.f3340a.getType())) {
+            XAdSDKFoundationFacade.getInstance().getCommonUtils().a((View) this.f3341b.f3335a);
+            adViewListener = this.f3341b.f3335a.d;
             adViewListener.onAdClose(new JSONObject());
         }
     }

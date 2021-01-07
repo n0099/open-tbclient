@@ -46,7 +46,7 @@ public class c implements ImagePagerAdapter.a {
 
         @Override // com.baidu.tieba.h.a.f, com.baidu.tieba.h.a.e
         public void onAdClicked(String str) {
-            c.this.dbz();
+            c.this.dbA();
         }
     };
 
@@ -60,7 +60,7 @@ public class c implements ImagePagerAdapter.a {
         this.mTbPageContext = imageViewerActivity.getPageContext();
         this.kQk = z;
         this.mRootView = new RelativeLayout(this.kQm);
-        this.kQn = com.baidu.tieba.h.a.cPm().g(imageViewerActivity, "6051001309-133086300");
+        this.kQn = com.baidu.tieba.h.a.cPn().g(imageViewerActivity, "6051001309-133086300");
         if (this.kQn != null) {
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(l.getEquipmentWidth(this.kQm), -2);
             layoutParams.addRule(14, -1);
@@ -71,7 +71,7 @@ public class c implements ImagePagerAdapter.a {
 
     @Override // com.baidu.tbadk.coreExtra.view.ImagePagerAdapter.a
     public View p(ViewGroup viewGroup, int i) {
-        if (this.mTbPageContext != null && this.kQn != null && this.kQk && ER(i) && dby()) {
+        if (this.mTbPageContext != null && this.kQn != null && this.kQk && ER(i) && dbz()) {
             if (this.mRootView.getParent() instanceof ViewGroup) {
                 ((ViewGroup) this.mRootView.getParent()).removeView(this.mRootView);
             }
@@ -82,8 +82,8 @@ public class c implements ImagePagerAdapter.a {
     }
 
     public boolean ES(int i) {
-        if (this.mTbPageContext != null && this.kQn != null && this.kQk && ER(i) && dby()) {
-            com.baidu.tieba.h.a.cPm().a(this.mTbPageContext.getPageActivity(), "6051001309-133086300", this.kQn, this.kQq);
+        if (this.mTbPageContext != null && this.kQn != null && this.kQk && ER(i) && dbz()) {
+            com.baidu.tieba.h.a.cPn().a(this.mTbPageContext.getPageActivity(), "6051001309-133086300", this.kQn, this.kQq);
             ao.setBackgroundColor(this.kQn, R.color.CAM_X0101, 0);
             ET(0);
             return true;
@@ -91,11 +91,11 @@ public class c implements ImagePagerAdapter.a {
         return false;
     }
 
-    public boolean dby() {
+    public boolean dbz() {
         return this.kQo;
     }
 
-    public boolean dbx() {
+    public boolean dby() {
         return this.kQk && this.kQn != null && this.kQo;
     }
 
@@ -112,7 +112,7 @@ public class c implements ImagePagerAdapter.a {
     }
 
     public void onDestroy() {
-        com.baidu.tieba.h.a.cPm().destroyAd("6051001309-133086300");
+        com.baidu.tieba.h.a.cPn().destroyAd("6051001309-133086300");
     }
 
     public void onAdShow() {
@@ -127,12 +127,12 @@ public class c implements ImagePagerAdapter.a {
     public void X(int i, int i2, final int i3) {
         if (this.kQk && this.kQn != null && !this.kQp && !this.kQo && W(i, i2, i3)) {
             this.kQp = true;
-            com.baidu.tieba.h.a.cPm().a(this.kQm, "6051001309-133086300", new a.d() { // from class: com.baidu.tieba.image.c.1
+            com.baidu.tieba.h.a.cPn().a(this.kQm, "6051001309-133086300", new a.d() { // from class: com.baidu.tieba.image.c.1
                 @Override // com.baidu.tieba.h.a.d
                 public void a(String str, n nVar) {
                     c.this.kQp = false;
                     c.this.kQo = true;
-                    if (com.baidu.tieba.h.a.cPm().isAdReady(str)) {
+                    if (com.baidu.tieba.h.a.cPn().isAdReady(str)) {
                         c.this.setAddSize(1);
                         c.this.ES(i3);
                         c.this.Cx(0);
@@ -154,17 +154,17 @@ public class c implements ImagePagerAdapter.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dbz() {
-        aq.BY("c14053").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).bwn();
+    public void dbA() {
+        aq.BX("c14053").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).bwo();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Cx(int i) {
-        aq.BY("c14005").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).an("obj_locate", i).bwn();
+        aq.BX("c14005").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).an("obj_locate", i).bwo();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void ET(int i) {
-        aq.BY("c14006").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).an("obj_locate", i).bwn();
+        aq.BX("c14006").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.BIGIMAGE).an("obj_locate", i).bwo();
     }
 }

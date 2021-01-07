@@ -53,12 +53,12 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullUp() {
-        return aKV();
+        return aKW();
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
     protected boolean isReadyForPullDown() {
-        return aKU();
+        return aKV();
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.PullToRefreshBase
@@ -92,7 +92,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
 
     @Override // android.widget.AbsListView.OnScrollListener
     public void onScrollStateChanged(AbsListView absListView, int i) {
-        if (isScrollLoadEnabled() && aKT() && ((i == 0 || i == 2) && isReadyForPullUp())) {
+        if (isScrollLoadEnabled() && aKU() && ((i == 0 || i == 2) && isReadyForPullUp())) {
             startLoading();
         }
         if (this.dBw != null) {
@@ -107,11 +107,11 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         }
     }
 
-    private boolean aKT() {
+    private boolean aKU() {
         return this.dCd == null || this.dCd.getState() != ILoadingLayout.State.NO_MORE_DATA;
     }
 
-    private boolean aKU() {
+    private boolean aKV() {
         ListAdapter adapter = this.mListView.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;
@@ -119,7 +119,7 @@ public class PullToRefreshListView extends PullToRefreshBase<ListView> implement
         return (this.mListView.getChildCount() > 0 ? this.mListView.getChildAt(0).getTop() : 0) >= 0 && this.mListView.getFirstVisiblePosition() == 0;
     }
 
-    private boolean aKV() {
+    private boolean aKW() {
         ListAdapter adapter = this.mListView.getAdapter();
         if (adapter == null || adapter.isEmpty()) {
             return true;

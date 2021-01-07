@@ -33,7 +33,7 @@ public abstract class CommandLine {
         return sCommandLine.get() != null;
     }
 
-    public static CommandLine ehp() {
+    public static CommandLine ehq() {
         CommandLine commandLine = sCommandLine.get();
         if ($assertionsDisabled || commandLine != null) {
             return commandLine;

@@ -12,7 +12,7 @@ public class ce extends PostData {
     private int position = 0;
     private String summary;
 
-    public String btL() {
+    public String btM() {
         return this.eRf;
     }
 

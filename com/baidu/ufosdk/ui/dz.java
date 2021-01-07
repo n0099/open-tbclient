@@ -7,24 +7,24 @@ import android.view.View;
 public final class dz implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ FeedbackReportActivity f5829a;
+    final /* synthetic */ FeedbackReportActivity f5830a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public dz(FeedbackReportActivity feedbackReportActivity) {
-        this.f5829a = feedbackReportActivity;
+        this.f5830a = feedbackReportActivity;
     }
 
     @Override // android.view.View.OnClickListener
     public final void onClick(View view) {
         boolean z;
-        z = this.f5829a.B;
+        z = this.f5830a.B;
         if (z) {
             return;
         }
-        this.f5829a.f5700a = ((Integer) view.getTag()).intValue();
+        this.f5830a.f5701a = ((Integer) view.getTag()).intValue();
         if (Build.VERSION.SDK_INT >= 23) {
             com.baidu.ufosdk.f.c.d(" CommonUtil.getAPILevel() >= 23 ");
         }
-        FeedbackReportActivity.D(this.f5829a);
+        FeedbackReportActivity.D(this.f5830a);
     }
 }

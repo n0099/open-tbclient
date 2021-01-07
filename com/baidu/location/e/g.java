@@ -8,15 +8,15 @@ import java.net.URL;
 import java.util.zip.GZIPInputStream;
 import javax.net.ssl.HttpsURLConnection;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class g implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ f f2724a;
+    final /* synthetic */ f f2725a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public g(f fVar) {
-        this.f2724a = fVar;
+        this.f2725a = fVar;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:105:0x00b6 A[EDGE_INSN: B:105:0x00b6->B:33:0x00b6 ?: BREAK  , SYNTHETIC] */
@@ -33,20 +33,20 @@ public class g implements Runnable {
         HttpsURLConnection httpsURLConnection;
         boolean z;
         boolean z2;
-        this.f2724a.h = l.f;
-        this.f2724a.a();
+        this.f2725a.h = l.f;
+        this.f2725a.a();
         HttpsURLConnection httpsURLConnection2 = null;
-        int i = this.f2724a.i;
+        int i = this.f2725a.i;
         while (i > 0) {
             try {
-                httpsURLConnection = (HttpsURLConnection) new URL(this.f2724a.h).openConnection();
+                httpsURLConnection = (HttpsURLConnection) new URL(this.f2725a.h).openConnection();
                 try {
                     httpsURLConnection.setRequestMethod("GET");
                     httpsURLConnection.setDoInput(true);
                     httpsURLConnection.setDoOutput(true);
                     httpsURLConnection.setUseCaches(false);
-                    httpsURLConnection.setConnectTimeout(a.f2710b);
-                    httpsURLConnection.setReadTimeout(a.f2710b);
+                    httpsURLConnection.setConnectTimeout(a.f2711b);
+                    httpsURLConnection.setReadTimeout(a.f2711b);
                     httpsURLConnection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded; charset=utf-8");
                     httpsURLConnection.setRequestProperty("Accept-Charset", "UTF-8");
                     if (l.ax != null) {
@@ -72,8 +72,8 @@ public class g implements Runnable {
                                     }
                                     inputStream.close();
                                     byteArrayOutputStream2.close();
-                                    this.f2724a.j = new String(byteArrayOutputStream2.toByteArray(), "utf-8");
-                                    this.f2724a.a(true);
+                                    this.f2725a.j = new String(byteArrayOutputStream2.toByteArray(), "utf-8");
+                                    this.f2725a.a(true);
                                     httpsURLConnection.disconnect();
                                     z2 = true;
                                 } catch (Throwable th2) {
@@ -100,7 +100,7 @@ public class g implements Runnable {
                                     throw th;
                                 }
                             } catch (Exception e3) {
-                                Log.d(a.f2709a, "NetworkCommunicationException!");
+                                Log.d(a.f2710a, "NetworkCommunicationException!");
                                 if (httpsURLConnection != null) {
                                     httpsURLConnection.disconnect();
                                 }
@@ -193,7 +193,7 @@ public class g implements Runnable {
             return;
         }
         f.p++;
-        this.f2724a.j = null;
-        this.f2724a.a(false);
+        this.f2725a.j = null;
+        this.f2725a.a(false);
     }
 }

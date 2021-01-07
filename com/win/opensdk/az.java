@@ -70,7 +70,7 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static String m54a(Context context) {
+    public static String m65a(Context context) {
         return G(context, "sever_tk", "");
     }
 
@@ -87,7 +87,7 @@ public class az {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static String m56b(Context context) {
+    public static String m67b(Context context) {
         return G(context, "pids", "[]");
     }
 
@@ -96,7 +96,7 @@ public class az {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static String m58c(Context context) {
+    public static String m69c(Context context) {
         return G(context, "psdid", "");
     }
 
@@ -143,7 +143,7 @@ public class az {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static String m60d(Context context) {
+    public static String m71d(Context context) {
         return G(context, "bp", "");
     }
 
@@ -180,7 +180,7 @@ public class az {
     }
 
     /* renamed from: a  reason: collision with other method in class */
-    public static long m53a(Context context) {
+    public static long m64a(Context context) {
         return j(context, "spl_dev_timeout", 2000L);
     }
 
@@ -203,7 +203,7 @@ public class az {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public static String m62e(Context context) {
+    public static String m73e(Context context) {
         return G(context, "p_i", "");
     }
 
@@ -220,7 +220,7 @@ public class az {
     }
 
     /* renamed from: b  reason: collision with other method in class */
-    public static long m55b(Context context) {
+    public static long m66b(Context context) {
         return j(context, "ck_al", 0L);
     }
 
@@ -229,7 +229,7 @@ public class az {
     }
 
     /* renamed from: c  reason: collision with other method in class */
-    public static long m57c(Context context) {
+    public static long m68c(Context context) {
         return j(context, "bdts", 0L);
     }
 
@@ -238,7 +238,7 @@ public class az {
     }
 
     /* renamed from: d  reason: collision with other method in class */
-    public static long m59d(Context context) {
+    public static long m70d(Context context) {
         return j(context, "bdtsi", 24L);
     }
 
@@ -271,7 +271,7 @@ public class az {
     }
 
     /* renamed from: e  reason: collision with other method in class */
-    public static long m61e(Context context) {
+    public static long m72e(Context context) {
         return j(context, "las", 12L) * 3600 * 1000;
     }
 

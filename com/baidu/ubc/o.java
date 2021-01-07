@@ -11,7 +11,7 @@ class o {
         this.eBp = str3;
     }
 
-    public String biE() {
+    public String biF() {
         return this.mState;
     }
 }

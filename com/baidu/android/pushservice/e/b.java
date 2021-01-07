@@ -40,13 +40,13 @@ public class b {
     public static class a extends SSLSocketFactory {
 
         /* renamed from: a  reason: collision with root package name */
-        private HostnameVerifier f1286a = HttpsURLConnection.getDefaultHostnameVerifier();
+        private HostnameVerifier f1287a = HttpsURLConnection.getDefaultHostnameVerifier();
 
         /* renamed from: b  reason: collision with root package name */
-        private HttpsURLConnection f1287b;
+        private HttpsURLConnection f1288b;
 
         a(HttpsURLConnection httpsURLConnection) {
-            this.f1287b = httpsURLConnection;
+            this.f1288b = httpsURLConnection;
         }
 
         @Override // javax.net.SocketFactory
@@ -76,7 +76,7 @@ public class b {
 
         @Override // javax.net.ssl.SSLSocketFactory
         public Socket createSocket(Socket socket, String str, int i, boolean z) throws IOException {
-            String requestProperty = this.f1287b.getRequestProperty("Host");
+            String requestProperty = this.f1288b.getRequestProperty("Host");
             if (!TextUtils.isEmpty(requestProperty)) {
                 str = requestProperty;
             }
@@ -95,7 +95,7 @@ public class b {
                 } catch (Throwable th) {
                 }
             }
-            if (this.f1286a.verify(str, sSLSocket.getSession())) {
+            if (this.f1287a.verify(str, sSLSocket.getSession())) {
                 return sSLSocket;
             }
             throw new SSLPeerUnverifiedException("Cannot verify hostname: " + str);

@@ -46,17 +46,17 @@ public class s {
         if (context == null || advertAppInfo == null) {
             return false;
         }
-        com.baidu.tbadk.distribute.a.bEv().b(advertAppInfo);
+        com.baidu.tbadk.distribute.a.bEw().b(advertAppInfo);
         String str2 = advertAppInfo.eNU;
         if (StringUtils.isNull(str2)) {
             str2 = str;
         }
-        com.baidu.tieba.recapp.download.e.dFb().a(advertAppInfo.eNW, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.RE(advertAppInfo.eNW).intValue(), null, true, false, true, advertAppInfo.eOc.userPortrait, downloadStaticsData, advertAppInfo.eOc.userName);
+        com.baidu.tieba.recapp.download.e.dFc().a(advertAppInfo.eNW, advertAppInfo.apkUrl, str2, i, com.baidu.tieba.recapp.download.e.RD(advertAppInfo.eNW).intValue(), null, true, false, true, advertAppInfo.eOc.userPortrait, downloadStaticsData, advertAppInfo.eOc.userName);
         return true;
     }
 
     public static final void h(AdvertAppInfo advertAppInfo) {
-        com.baidu.tieba.recapp.download.e.dFb().F(advertAppInfo.apkUrl, advertAppInfo.eNW, true);
+        com.baidu.tieba.recapp.download.e.dFc().F(advertAppInfo.apkUrl, advertAppInfo.eNW, true);
     }
 
     public static final void installApp(Context context, String str) {
@@ -178,11 +178,11 @@ public class s {
     }
 
     public static void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4) {
-        r.dEV().sendFRS(z, str, str2, str3, list, str4);
+        r.dEW().sendFRS(z, str, str2, str3, list, str4);
     }
 
     public static void sendPB(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5) {
-        r.dEV().a(z, str, str2, str3, str4, list, str5);
+        r.dEW().a(z, str, str2, str3, str4, list, str5);
     }
 
     public static int c(TbPageContext tbPageContext, String str, String str2) {
@@ -210,15 +210,15 @@ public class s {
 
     private static boolean c(@NonNull Context context, String str, Bundle bundle) {
         String[] strArr = {str};
-        i dES = r.dEV().dES();
-        if (dES == null) {
+        i dET = r.dEW().dET();
+        if (dET == null) {
             return false;
         }
-        if (dES.Fq(str)) {
-            dES.a(context, strArr, true, bundle);
+        if (dET.Fp(str)) {
+            dET.a(context, strArr, true, bundle);
             return true;
         }
-        return dES.a(context, strArr, bundle);
+        return dET.a(context, strArr, bundle);
     }
 
     public static int a(Context context, String str, AdvertAppInfo advertAppInfo) {
@@ -228,7 +228,7 @@ public class s {
         if (str.startsWith("tieba://deeplink?") && f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)))) {
             return 1;
         }
-        r.dEV().a(advertAppInfo, context);
+        r.dEW().a(advertAppInfo, context);
         return 2;
     }
 
@@ -239,11 +239,11 @@ public class s {
         return f(context, Uri.parse(Uri.parse(str).getQueryParameter(TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT)));
     }
 
-    public static boolean Rz(String str) {
+    public static boolean Ry(String str) {
         return !TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?");
     }
 
-    public static String RA(String str) {
+    public static String Rz(String str) {
         if (!TextUtils.isEmpty(str) && str.startsWith("tieba://deeplink?")) {
             return Uri.parse(str).getQueryParameter("wap");
         }
@@ -251,7 +251,7 @@ public class s {
     }
 
     public static boolean b(AdvertAppInfo advertAppInfo, String str) {
-        if (advertAppInfo == null || !advertAppInfo.bpf() || TextUtils.isEmpty(str) || !isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.eNW) || str.startsWith("tieba://deeplink?")) {
+        if (advertAppInfo == null || !advertAppInfo.bpg() || TextUtils.isEmpty(str) || !isInstalledPackage(TbadkCoreApplication.getInst(), advertAppInfo.eNW) || str.startsWith("tieba://deeplink?")) {
             return false;
         }
         return i(advertAppInfo);

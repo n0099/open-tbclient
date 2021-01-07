@@ -39,7 +39,7 @@ public class a {
         if ((ChatInfo.oTH == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oTH == ChatInfo.ChatCategory.SMART || ChatInfo.oTH == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String gZ = gZ(str, str2);
             if (!TextUtils.isEmpty(gZ)) {
-                b.ell().onEvent(str, gZ);
+                b.elm().onEvent(str, gZ);
             }
         }
     }
@@ -48,7 +48,7 @@ public class a {
         if ((ChatInfo.oTH == ChatInfo.ChatCategory.DUZHAN || ChatInfo.oTH == ChatInfo.ChatCategory.C2C) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             String f = f(str, str2, i, str3);
             if (!TextUtils.isEmpty(f)) {
-                b.ell().onEvent(str, f);
+                b.elm().onEvent(str, f);
             }
         }
     }
@@ -63,7 +63,7 @@ public class a {
             if (ChatInfo.oTH == ChatInfo.ChatCategory.DUZHAN) {
                 jSONObject.put("paid", ChatInfo.mPaid);
             }
-            if (b.ell().isCuidLogin(this.mContext)) {
+            if (b.elm().isCuidLogin(this.mContext)) {
                 jSONObject.put("account_type", "cuid");
             } else {
                 jSONObject.put("account_type", "uid");
@@ -85,7 +85,7 @@ public class a {
             JSONObject ha = ha(str, str2);
             JSONObject jSONObject = new JSONObject();
             jSONObject.put("paid", ChatInfo.mPaid);
-            if (b.ell().isCuidLogin(this.mContext)) {
+            if (b.elm().isCuidLogin(this.mContext)) {
                 jSONObject.put("account_type", "cuid");
             } else {
                 jSONObject.put("account_type", "uid");

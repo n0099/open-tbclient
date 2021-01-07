@@ -11,11 +11,11 @@ public class j implements com.baidu.tieba.l.g {
 
     /* loaded from: classes8.dex */
     private static class a {
-        private static final com.baidu.tieba.l.g mHK = new j();
+        private static final com.baidu.tieba.l.g mHJ = new j();
     }
 
-    public static com.baidu.tieba.l.g dCP() {
-        return a.mHK;
+    public static com.baidu.tieba.l.g dCQ() {
+        return a.mHJ;
     }
 
     private j() {
@@ -23,84 +23,84 @@ public class j implements com.baidu.tieba.l.g {
     }
 
     @Override // com.baidu.tieba.l.g
-    public void diy() {
+    public void diz() {
         this.mUuid = UUID.randomUUID().toString();
     }
 
     @Override // com.baidu.tieba.l.g
     public void bD(int i, String str) {
-        dCQ().p(this.mUuid, i, str);
+        dCR().p(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.l.g
     public void bE(int i, String str) {
-        dCQ().q(this.mUuid, i, str);
+        dCR().q(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.l.g
     public void bF(int i, String str) {
-        dCQ().r(this.mUuid, i, str);
-    }
-
-    @Override // com.baidu.tieba.l.g
-    public void diz() {
-        dCQ().OS(this.mUuid);
-    }
-
-    @Override // com.baidu.tieba.l.g
-    public void p(int i, int i2, String str) {
-        dCQ().e(this.mUuid, i, i2, str);
+        dCR().r(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.l.g
     public void diA() {
-        dCQ().OT(this.mUuid);
+        dCR().OR(this.mUuid);
+    }
+
+    @Override // com.baidu.tieba.l.g
+    public void p(int i, int i2, String str) {
+        dCR().e(this.mUuid, i, i2, str);
+    }
+
+    @Override // com.baidu.tieba.l.g
+    public void diB() {
+        dCR().OS(this.mUuid);
         report(this.mUuid);
     }
 
     @Override // com.baidu.tieba.l.g
     public void bG(int i, String str) {
-        dCQ().s(this.mUuid, i, str);
+        dCR().s(this.mUuid, i, str);
     }
 
     @Override // com.baidu.tieba.l.g
-    public void OW(String str) {
+    public void OV(String str) {
         if (!StringUtils.isNull(this.lqY)) {
-            if (OU(this.lqY) || OV(this.lqY)) {
+            if (OT(this.lqY) || OU(this.lqY)) {
                 report(this.lqY);
             } else {
-                com.baidu.tieba.l.d.OR(this.lqY);
+                com.baidu.tieba.l.d.OQ(this.lqY);
                 this.mMap.remove(this.mUuid);
             }
-            diy();
-            dCQ().fO(this.lqY, str);
+            diz();
+            dCR().fO(this.lqY, str);
             this.lqY = null;
         }
     }
 
     @Override // com.baidu.tieba.l.g
-    public void diB() {
+    public void diC() {
         this.lqY = this.mUuid;
     }
 
     @Override // com.baidu.tieba.l.g
-    public void OX(String str) {
-        dCQ().fP(this.mUuid, str);
-        if (OU(this.mUuid) || OV(this.mUuid)) {
+    public void OW(String str) {
+        dCR().fP(this.mUuid, str);
+        if (OT(this.mUuid) || OU(this.mUuid)) {
             report(this.mUuid);
         } else {
-            com.baidu.tieba.l.d.OR(this.mUuid);
+            com.baidu.tieba.l.d.OQ(this.mUuid);
             this.mMap.remove(this.mUuid);
         }
         this.mUuid = null;
     }
 
-    public boolean OU(String str) {
-        return dCQ().OU(str);
+    public boolean OT(String str) {
+        return dCR().OT(str);
     }
 
-    public boolean OV(String str) {
-        return dCQ().OV(str);
+    public boolean OU(String str) {
+        return dCR().OU(str);
     }
 
     public void report(String str) {
@@ -111,15 +111,15 @@ public class j implements com.baidu.tieba.l.g {
         }
     }
 
-    private com.baidu.tieba.l.e dCQ() {
+    private com.baidu.tieba.l.e dCR() {
         com.baidu.tieba.l.e eVar = this.mMap.get(this.mUuid);
         if (eVar == null) {
-            return dCR();
+            return dCS();
         }
         return eVar;
     }
 
-    private com.baidu.tieba.l.e dCR() {
+    private com.baidu.tieba.l.e dCS() {
         i iVar = new i(this.mUuid);
         this.mMap.put(this.mUuid, iVar);
         return iVar;

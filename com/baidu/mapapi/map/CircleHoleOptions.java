@@ -3,14 +3,14 @@ package com.baidu.mapapi.map;
 import android.util.Log;
 import com.baidu.mapapi.model.LatLng;
 import com.baidu.mobstat.Config;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class CircleHoleOptions extends HoleOptions {
 
     /* renamed from: a  reason: collision with root package name */
-    private LatLng f2804a;
+    private LatLng f2805a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f2805b;
+    private int f2806b;
 
     public CircleHoleOptions() {
         this.mHoleType = Config.TRACE_CIRCLE;
@@ -20,24 +20,24 @@ public class CircleHoleOptions extends HoleOptions {
         if (latLng == null) {
             Log.e("baidumapsdk", "CircleHole center can not be null");
         } else {
-            this.f2804a = latLng;
+            this.f2805a = latLng;
         }
         return this;
     }
 
     public LatLng getHoleCenter() {
-        return this.f2804a;
+        return this.f2805a;
     }
 
     public int getHoleRadius() {
-        return this.f2805b;
+        return this.f2806b;
     }
 
     public CircleHoleOptions radius(int i) {
         if (i <= 0) {
             Log.e("baidumapsdk", "CircleHole's radius can not be less than zero");
         } else {
-            this.f2805b = i;
+            this.f2806b = i;
         }
         return this;
     }

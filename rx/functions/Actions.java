@@ -3,10 +3,10 @@ package rx.functions;
 import rx.exceptions.OnErrorNotImplementedException;
 /* loaded from: classes15.dex */
 public final class Actions {
-    private static final b qqZ = new b();
+    private static final b qsH = new b();
 
-    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> eNL() {
-        return qqZ;
+    public static <T0, T1, T2, T3, T4, T5, T6, T7, T8> b<T0, T1, T2, T3, T4, T5, T6, T7, T8> eOp() {
+        return qsH;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -47,8 +47,9 @@ public final class Actions {
         }
     }
 
+    /* JADX INFO: Access modifiers changed from: package-private */
     /* loaded from: classes15.dex */
-    enum NotImplemented implements rx.functions.b<Throwable> {
+    public enum NotImplemented implements rx.functions.b<Throwable> {
         INSTANCE;
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -58,7 +59,7 @@ public final class Actions {
         }
     }
 
-    public static rx.functions.b<Throwable> eNM() {
+    public static rx.functions.b<Throwable> eOq() {
         return NotImplemented.INSTANCE;
     }
 }

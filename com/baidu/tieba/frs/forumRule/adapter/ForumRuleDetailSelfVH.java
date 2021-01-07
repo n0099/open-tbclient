@@ -61,9 +61,9 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         this.juf = (EMTextView) view.findViewById(R.id.forum_rules_preface);
     }
 
-    public void KW(String str) {
+    public void KV(String str) {
         if (Config.BAWU_TYPE_MANAGER.equals(str) || Config.BAWU_TYPE_ASSIST.equals(str)) {
-            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.f.a.b.bwV().qq(0).ae(this.juh).b("TL_BR", R.color.CAM_X0303, R.color.CAM_X0303).bwX(), com.baidu.tbadk.core.util.f.a.b.bwV().qq(0).ae(this.juh).Cr("#4D000000").bwX()});
+            LayerDrawable layerDrawable = new LayerDrawable(new Drawable[]{com.baidu.tbadk.core.util.f.a.b.bwW().qq(0).ae(this.juh).b("TL_BR", R.color.CAM_X0303, R.color.CAM_X0303).bwY(), com.baidu.tbadk.core.util.f.a.b.bwW().qq(0).ae(this.juh).Cq("#4D000000").bwY()});
             if (TbadkCoreApplication.getInst().getSkinType() == 1) {
                 if (layerDrawable.getDrawable(1) != null) {
                     layerDrawable.getDrawable(1).setAlpha(255);
@@ -82,15 +82,15 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void KX(String str) {
+    public void KW(String str) {
         if (str == null || str.isEmpty() || str.equals("null")) {
             this.gFk.setVisibility(8);
         } else {
-            this.gFk.setText(KV(str));
+            this.gFk.setText(KU(str));
         }
     }
 
-    public void KY(String str) {
+    public void KX(String str) {
         if (this.juf != null && this.jud != null) {
             if (StringUtils.isNull(str)) {
                 this.jud.setVisibility(8);
@@ -101,7 +101,7 @@ public class ForumRuleDetailSelfVH extends TypeAdapter.ViewHolder {
         }
     }
 
-    public String KV(String str) {
+    public String KU(String str) {
         return new SimpleDateFormat("yyyy-MM-dd").format(new Date(Long.valueOf(str + "000").longValue()));
     }
 

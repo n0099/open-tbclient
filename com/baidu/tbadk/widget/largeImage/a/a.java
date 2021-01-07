@@ -79,7 +79,7 @@ public class a {
         this.fVw.sampleScale = i3;
     }
 
-    public C0606a bKu() {
+    public C0606a bKv() {
         return this.fVw;
     }
 

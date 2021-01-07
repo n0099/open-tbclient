@@ -22,11 +22,11 @@ public class a {
         ij(this.enq);
     }
 
-    public void bbL() {
+    public void bbM() {
         ij(true);
     }
 
-    public void bbM() {
+    public void bbN() {
         ij(false);
     }
 }

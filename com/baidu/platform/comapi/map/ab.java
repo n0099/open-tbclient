@@ -1,13 +1,13 @@
 package com.baidu.platform.comapi.map;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class ab {
 
     /* renamed from: a  reason: collision with root package name */
-    private static long f4293a = System.currentTimeMillis();
+    private static long f4294a = System.currentTimeMillis();
 
     public static String a() {
-        long j = f4293a;
-        f4293a = 1 + j;
+        long j = f4294a;
+        f4294a = 1 + j;
         return String.valueOf(j);
     }
 }

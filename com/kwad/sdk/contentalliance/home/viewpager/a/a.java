@@ -13,7 +13,7 @@ import com.kwad.sdk.contentalliance.refreshview.e;
 public class a extends c {
 
     /* renamed from: b  reason: collision with root package name */
-    private SlidePlayViewPager f9055b;
+    private SlidePlayViewPager f9056b;
     private i c;
     @Nullable
     private e d;
@@ -44,8 +44,8 @@ public class a extends c {
 
         @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
         public void onPageSelected(int i) {
-            int a2 = a.this.f9055b.getAdapter().a(i);
-            int a3 = a.this.f9055b.getAdapter().a();
+            int a2 = a.this.f9056b.getAdapter().a(i);
+            int a3 = a.this.f9056b.getAdapter().a();
             if (a3 <= 0 || a2 < a3 - 3) {
                 return;
             }
@@ -59,33 +59,33 @@ public class a extends c {
             if (a.this.d != null) {
                 a.this.d.setRefreshing(false);
             }
-            a.this.f9055b.i();
+            a.this.f9056b.i();
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
             if (!z) {
-                a.this.f9055b.a(a.this.c.d());
-                a.this.f9055b.i();
+                a.this.f9056b.a(a.this.c.d());
+                a.this.f9056b.i();
                 return;
             }
             if (a.this.d != null) {
                 a.this.d.setRefreshing(false);
             }
-            a.this.f9055b.postDelayed(a.this.i, 300L);
+            a.this.f9056b.postDelayed(a.this.i, 300L);
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.e, com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, boolean z2, int i, int i2) {
             super.a(z, z2, i, i2);
-            a.this.f9055b.h();
+            a.this.f9056b.h();
         }
     };
     private Runnable i = new Runnable() { // from class: com.kwad.sdk.contentalliance.home.viewpager.a.a.5
         @Override // java.lang.Runnable
         public void run() {
-            a.this.f9055b.b(a.this.c.d());
-            a.this.f9055b.i();
+            a.this.f9056b.b(a.this.c.d());
+            a.this.f9056b.i();
         }
     };
 
@@ -110,15 +110,15 @@ public class a extends c {
     @Override // com.kwad.sdk.contentalliance.home.viewpager.c, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.c = this.f9065a.f9066a;
-        this.f9055b = this.f9065a.c;
-        this.f9055b.a(this.g);
+        this.c = this.f9066a.f9067a;
+        this.f9056b = this.f9066a.c;
+        this.f9056b.a(this.g);
         this.c.a(this.h);
-        this.d = this.f9065a.d;
+        this.d = this.f9066a.d;
         if (this.d != null) {
             this.d.setOnRefreshListener(this.e);
         }
-        this.f9055b.a(this.f);
+        this.f9056b.a(this.f);
         e();
     }
 
@@ -126,9 +126,9 @@ public class a extends c {
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f9055b.b(this.g);
+        this.f9056b.b(this.g);
         this.c.b(this.h);
-        this.f9055b.removeCallbacks(this.i);
+        this.f9056b.removeCallbacks(this.i);
         this.c.b();
     }
 }

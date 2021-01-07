@@ -55,7 +55,7 @@ public class c {
         this.eLJ.setScaleType(ImageView.ScaleType.CENTER_CROP);
         this.eLJ.setPlaceHolder(2);
         this.amB = (ImageView) this.mRoot.findViewById(R.id.play_icon);
-        this.amB.setImageDrawable(SvgManager.bwq().a(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
+        this.amB.setImageDrawable(SvgManager.bwr().a(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, (SvgManager.SvgResourceStateType) null));
     }
 
     public View getView() {

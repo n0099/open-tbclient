@@ -18,20 +18,20 @@ public class d {
     private static int duq = -1;
 
     @AnyThread
-    public static void aHY() {
+    public static void aHZ() {
         p.a(new Runnable() { // from class: com.baidu.swan.apps.performance.b.d.1
             @Override // java.lang.Runnable
             public void run() {
-                e aMl = e.aMl();
-                if (aMl != null) {
+                e aMm = e.aMm();
+                if (aMm != null) {
                     ContentValues contentValues = new ContentValues();
-                    contentValues.put("appKey", aMl.getAppId());
+                    contentValues.put("appKey", aMm.getAppId());
                     contentValues.put("launch_type", Integer.valueOf(g.getStartType()));
-                    contentValues.put("source", aMl.aMo().aCv());
+                    contentValues.put("source", aMm.aMp().aCw());
                     contentValues.put("time", Long.valueOf(System.currentTimeMillis()));
-                    ContentResolver contentResolver = com.baidu.swan.apps.t.a.aAr().getContentResolver();
+                    ContentResolver contentResolver = com.baidu.swan.apps.t.a.aAs().getContentResolver();
                     if (contentResolver != null) {
-                        contentResolver.insert(com.baidu.swan.apps.database.favorite.d.awM(), contentValues);
+                        contentResolver.insert(com.baidu.swan.apps.database.favorite.d.awN(), contentValues);
                     }
                 }
             }
@@ -41,9 +41,9 @@ public class d {
     @IntRange(from = 0)
     @WorkerThread
     private static int rx(@NonNull String str) {
-        ContentResolver contentResolver = com.baidu.swan.apps.t.a.aAr().getContentResolver();
+        ContentResolver contentResolver = com.baidu.swan.apps.t.a.aAs().getContentResolver();
         if (contentResolver != null) {
-            Cursor query = contentResolver.query(com.baidu.swan.apps.database.favorite.d.awM(), null, "time>? and appKey=?", new String[]{String.valueOf(System.currentTimeMillis() - 86400000), str}, null);
+            Cursor query = contentResolver.query(com.baidu.swan.apps.database.favorite.d.awN(), null, "time>? and appKey=?", new String[]{String.valueOf(System.currentTimeMillis() - 86400000), str}, null);
             int count = query != null ? query.getCount() : 0;
             com.baidu.swan.c.d.closeSafely(query);
             return count;
@@ -55,44 +55,44 @@ public class d {
     @WorkerThread
     public static int ry(@NonNull String str) {
         int rx2 = rx(str);
-        int i = aIb().getInt("step", 300);
+        int i = aIc().getInt("step", 300);
         int i2 = (i > 0 ? i : 300) * (rx2 + 1);
         return i2 > 3600 ? SdkConfigData.DEFAULT_REQUEST_INTERVAL : i2;
     }
 
     private static int rz(@NonNull final String str) {
-        int i = aIb().getInt(str, 300);
+        int i = aIc().getInt(str, 300);
         p.a(new Runnable() { // from class: com.baidu.swan.apps.performance.b.d.2
             @Override // java.lang.Runnable
             public void run() {
-                d.aIb().putInt(str, d.ry(str));
+                d.aIc().putInt(str, d.ry(str));
             }
         }, "SwanLaunchBehavior");
         return i;
     }
 
-    private static int aHZ() {
-        String appId = com.baidu.swan.apps.runtime.d.aMg().getAppId();
+    private static int aIa() {
+        String appId = com.baidu.swan.apps.runtime.d.aMh().getAppId();
         if (TextUtils.isEmpty(appId)) {
             return 300;
         }
         return rz(appId);
     }
 
-    public static int aIa() {
+    public static int aIb() {
         if (duq != -1) {
             return duq;
         }
-        switch (com.baidu.swan.apps.t.a.aAu().getSwitch("swan_backstage_policy", 0)) {
+        switch (com.baidu.swan.apps.t.a.aAv().getSwitch("swan_backstage_policy", 0)) {
             case 0:
                 duq = 300;
                 break;
             case 1:
-                duq = com.baidu.swan.apps.t.a.aAu().getSwitch("swan_backstage_interval_setting", 300);
+                duq = com.baidu.swan.apps.t.a.aAv().getSwitch("swan_backstage_interval_setting", 300);
                 break;
             case 2:
-                aIb().putInt("step", com.baidu.swan.apps.t.a.aAu().getSwitch("swan_backstage_interval_setting", 300));
-                duq = aHZ();
+                aIc().putInt("step", com.baidu.swan.apps.t.a.aAv().getSwitch("swan_backstage_interval_setting", 300));
+                duq = aIa();
                 break;
         }
         if (duq < 60) {
@@ -105,7 +105,7 @@ public class d {
 
     /* JADX INFO: Access modifiers changed from: private */
     @NonNull
-    public static com.baidu.swan.apps.storage.c.b aIb() {
+    public static com.baidu.swan.apps.storage.c.b aIc() {
         return h.um("sp_launch_behavior");
     }
 }

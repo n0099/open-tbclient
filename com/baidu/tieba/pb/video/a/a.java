@@ -48,7 +48,7 @@ public class a {
             SpannableString spannableString = new SpannableString(PageStayDurationHelper.STAT_SOURCE_TRACE_CONNECTORS);
             Drawable drawable = ao.getDrawable(R.drawable.icon_video_pb_ad_link);
             drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            spannableString.setSpan(new C0822a(drawable, 0), 0, 1, 17);
+            spannableString.setSpan(new C0855a(drawable, 0), 0, 1, 17);
             spannableString.setSpan(new ClickableSpan() { // from class: com.baidu.tieba.pb.video.a.a.1
                 @Override // android.text.style.ClickableSpan
                 public void onClick(View view) {
@@ -114,8 +114,8 @@ public class a {
 
     /* renamed from: com.baidu.tieba.pb.video.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes2.dex */
-    private static class C0822a extends ImageSpan {
-        public C0822a(Drawable drawable, int i) {
+    private static class C0855a extends ImageSpan {
+        public C0855a(Drawable drawable, int i) {
             super(drawable, i);
         }
 

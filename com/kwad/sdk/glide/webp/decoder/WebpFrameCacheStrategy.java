@@ -3,10 +3,10 @@ package com.kwad.sdk.glide.webp.decoder;
 public final class WebpFrameCacheStrategy {
 
     /* renamed from: a  reason: collision with root package name */
-    public static final WebpFrameCacheStrategy f10663a = new a().a().d();
+    public static final WebpFrameCacheStrategy f10664a = new a().a().d();
 
     /* renamed from: b  reason: collision with root package name */
-    public static final WebpFrameCacheStrategy f10664b = new a().c().d();
+    public static final WebpFrameCacheStrategy f10665b = new a().c().d();
     public static final WebpFrameCacheStrategy c = new a().b().d();
     private CacheControl d;
     private int e;
@@ -23,23 +23,23 @@ public final class WebpFrameCacheStrategy {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private CacheControl f10665a;
+        private CacheControl f10666a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f10666b;
+        private int f10667b;
 
         public a a() {
-            this.f10665a = CacheControl.CACHE_NONE;
+            this.f10666a = CacheControl.CACHE_NONE;
             return this;
         }
 
         public a b() {
-            this.f10665a = CacheControl.CACHE_ALL;
+            this.f10666a = CacheControl.CACHE_ALL;
             return this;
         }
 
         public a c() {
-            this.f10665a = CacheControl.CACHE_AUTO;
+            this.f10666a = CacheControl.CACHE_AUTO;
             return this;
         }
 
@@ -49,8 +49,8 @@ public final class WebpFrameCacheStrategy {
     }
 
     private WebpFrameCacheStrategy(a aVar) {
-        this.d = aVar.f10665a;
-        this.e = aVar.f10666b;
+        this.d = aVar.f10666a;
+        this.e = aVar.f10667b;
     }
 
     public boolean a() {

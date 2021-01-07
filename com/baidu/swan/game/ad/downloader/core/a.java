@@ -44,15 +44,15 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
         } else {
             this.eaI = aVar;
         }
-        if (this.eaI.aVe() == null) {
+        if (this.eaI.aVf() == null) {
             this.eaB = new com.baidu.swan.game.ad.downloader.b.a(context, this.eaI);
         } else {
-            this.eaB = this.eaI.aVe();
+            this.eaB = this.eaI.aVf();
         }
         this.eaG = new ArrayList();
         this.eaF = new ConcurrentHashMap<>();
-        this.eaB.aVk();
-        this.mExecutorService = Executors.newFixedThreadPool(this.eaI.aVd());
+        this.eaB.aVl();
+        this.mExecutorService = Executors.newFixedThreadPool(this.eaI.aVe());
         this.eaH = new b(this.eaB);
     }
 
@@ -72,7 +72,7 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
     }
 
     private void f(DownloadInfo downloadInfo) {
-        if (this.eaF.size() >= this.eaI.aVd()) {
+        if (this.eaF.size() >= this.eaI.aVe()) {
             downloadInfo.setStatus(SwanAdDownloadState.WAIT.value());
             this.eaH.l(downloadInfo);
             return;
@@ -86,12 +86,12 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
 
     @Override // com.baidu.swan.game.ad.downloader.c.c
     public void g(DownloadInfo downloadInfo) {
-        if (aVg()) {
+        if (aVh()) {
             j(downloadInfo);
         }
     }
 
-    private void aVf() {
+    private void aVg() {
         for (DownloadInfo downloadInfo : this.eaG) {
             if (downloadInfo.getStatus() == SwanAdDownloadState.WAIT.value()) {
                 f(downloadInfo);
@@ -102,7 +102,7 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
 
     @Override // com.baidu.swan.game.ad.downloader.c.c
     public void h(DownloadInfo downloadInfo) {
-        if (aVg()) {
+        if (aVh()) {
             f(downloadInfo);
         }
     }
@@ -119,7 +119,7 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
 
     @Override // com.baidu.swan.game.ad.downloader.c.c
     public void destroy() {
-        aVh();
+        aVi();
         if (this.mExecutorService != null) {
             this.mExecutorService.shutdownNow();
             this.mExecutorService = null;
@@ -151,7 +151,7 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
         downloadInfo.setStatus(SwanAdDownloadState.DOWNLOAD_PAUSED.value());
         this.eaF.remove(downloadInfo.getId());
         this.eaH.l(downloadInfo);
-        aVf();
+        aVg();
     }
 
     @Override // com.baidu.swan.game.ad.downloader.core.c.a
@@ -159,10 +159,10 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
         e.ak(downloadInfo.getPath(), false);
         this.eaF.remove(downloadInfo.getId());
         this.eaG.remove(downloadInfo);
-        aVf();
+        aVg();
     }
 
-    public boolean aVg() {
+    public boolean aVh() {
         if (System.currentTimeMillis() - this.eaD > 500) {
             this.eaD = System.currentTimeMillis();
             return true;
@@ -215,7 +215,7 @@ public final class a implements com.baidu.swan.game.ad.downloader.c.c, c.a {
         }
     }
 
-    private void aVh() {
+    private void aVi() {
         final Timer timer = new Timer();
         timer.schedule(new TimerTask() { // from class: com.baidu.swan.game.ad.downloader.core.a.3
             @Override // java.util.TimerTask, java.lang.Runnable

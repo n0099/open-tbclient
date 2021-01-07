@@ -29,19 +29,19 @@ public class f extends d {
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected String aVN() {
+    protected String aVO() {
         String str = "";
         String str2 = "";
         if (!com.baidu.swan.games.view.a.c.isLandScape()) {
             str = "";
-        } else if (com.baidu.swan.games.view.a.c.bcZ()) {
-            str = this.ebW;
         } else if (com.baidu.swan.games.view.a.c.bda()) {
+            str = this.ebW;
+        } else if (com.baidu.swan.games.view.a.c.bdb()) {
             str = this.ebV;
         }
-        if (com.baidu.swan.game.ad.downloader.a.aUT()) {
+        if (com.baidu.swan.game.ad.downloader.a.aUU()) {
             str2 = this.ebY;
-        } else if (com.baidu.swan.game.ad.downloader.a.aUU()) {
+        } else if (com.baidu.swan.game.ad.downloader.a.aUV()) {
             str2 = this.ebX;
         }
         if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
@@ -51,7 +51,7 @@ public class f extends d {
     }
 
     @Override // com.baidu.swan.game.ad.b.d
-    protected HashMap<String, String> aVO() {
+    protected HashMap<String, String> aVP() {
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("act", this.ebD);
         hashMap.put("prod", this.ebA);

@@ -26,7 +26,7 @@ public class a {
         private static final a dfC = new a();
     }
 
-    public static a azm() {
+    public static a azn() {
         return C0445a.dfC;
     }
 
@@ -46,11 +46,11 @@ public class a {
             if (!y(file2)) {
                 oU("delete old tmp dir failed");
             } else {
-                File azq = com.baidu.swan.apps.impl.a.a.a.azq();
-                if (azq == null) {
+                File azr = com.baidu.swan.apps.impl.a.a.a.azr();
+                if (azr == null) {
                     oU("dest zip dir is null");
                 } else {
-                    file = new File(azq, com.baidu.swan.apps.impl.a.a.a.dfQ);
+                    file = new File(azr, com.baidu.swan.apps.impl.a.a.a.dfQ);
                     if (file.exists()) {
                         d.safeDeleteFile(file);
                     }
@@ -129,9 +129,9 @@ public class a {
     public boolean h(String str, File file) {
         File a2 = a(str, new File(file, com.baidu.swan.apps.impl.a.a.a.dfN), "swan_plugin_workspace");
         if (a2 != null) {
-            File aAj = com.baidu.swan.apps.r.d.aAj();
-            if (aAj.exists()) {
-                d.l(aAj, a2);
+            File aAk = com.baidu.swan.apps.r.d.aAk();
+            if (aAk.exists()) {
+                d.l(aAk, a2);
             }
         }
         return false;
@@ -149,11 +149,11 @@ public class a {
             str2 = list[0];
         }
         oU("upload file: ready");
-        w aAA = com.baidu.swan.apps.t.a.aAA();
+        w aAB = com.baidu.swan.apps.t.a.aAB();
         HashMap<String, String> hashMap = new HashMap<>();
         hashMap.put("aiappid", str);
         hashMap.put("aiappversion", str2);
-        aAA.a(hashMap, file, new w.a() { // from class: com.baidu.swan.apps.impl.a.a.1
+        aAB.a(hashMap, file, new w.a() { // from class: com.baidu.swan.apps.impl.a.a.1
             @Override // com.baidu.swan.apps.adaptation.a.w.a
             public void onResult(String str3) {
                 if (!com.baidu.swan.apps.b.DEBUG) {

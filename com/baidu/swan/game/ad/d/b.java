@@ -109,6 +109,6 @@ public class b {
     }
 
     public static String cV(String str, String str2) {
-        return TextUtils.equals("3010012", str) ? String.format(str2, Long.valueOf(com.baidu.swan.games.utils.c.bcl().bco() / 1000)) : TextUtils.equals("3010013", str) ? String.format(str2, Long.valueOf(com.baidu.swan.games.utils.c.bcl().bcp() / 1000)) : str2;
+        return TextUtils.equals("3010012", str) ? String.format(str2, Long.valueOf(com.baidu.swan.games.utils.c.bcm().bcp() / 1000)) : TextUtils.equals("3010013", str) ? String.format(str2, Long.valueOf(com.baidu.swan.games.utils.c.bcm().bcq() / 1000)) : str2;
     }
 }

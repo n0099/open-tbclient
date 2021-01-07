@@ -26,7 +26,7 @@ import java.util.List;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes11.dex */
-public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreFunctionDialogData> implements a.b, a.InterfaceC0938a {
+public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreFunctionDialogData> implements a.b, a.InterfaceC0976a {
     private View eup;
     private com.baidu.live.tieba.pb.interactionpopupwindow.c hyr;
     private AlaMoreFunctionDialogData oQZ;
@@ -94,7 +94,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         com.baidu.yuyinala.more.b.b bVar = (com.baidu.yuyinala.more.b.b) ListUtils.getItem(list, count - 2);
         if (bVar != null) {
             this.oRb.setText(bVar.getTitle());
-            this.oRf.gx(bVar.ekX());
+            this.oRf.gx(bVar.ekY());
             this.oRb.setVisibility(0);
             this.oRd.setVisibility(0);
             this.eup.setVisibility(0);
@@ -106,7 +106,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         com.baidu.yuyinala.more.b.b bVar2 = (com.baidu.yuyinala.more.b.b) ListUtils.getItem(list, count - 1);
         if (bVar2 != null) {
             this.oRc.setText(bVar2.getTitle());
-            this.oRg.gx(bVar2.ekX());
+            this.oRg.gx(bVar2.ekY());
             this.oRc.setVisibility(0);
             this.oRe.setVisibility(0);
             return;
@@ -235,7 +235,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     runnable = new Runnable() { // from class: com.baidu.yuyinala.more.c.8
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.ekS();
+                            c.this.ekT();
                         }
                     };
                     break;
@@ -243,7 +243,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
                     runnable = new Runnable() { // from class: com.baidu.yuyinala.more.c.9
                         @Override // java.lang.Runnable
                         public void run() {
-                            c.this.ekT();
+                            c.this.ekU();
                         }
                     };
                     break;
@@ -296,19 +296,19 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
             }
             this.hyr.dismiss();
             if (z) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501017, Boolean.valueOf(ekR())));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2501017, Boolean.valueOf(ekS())));
             }
         }
     }
 
-    private boolean ekR() {
+    private boolean ekS() {
         if (this.oQZ == null || ListUtils.isEmpty(this.oQZ.getGroupList())) {
             return false;
         }
         for (com.baidu.yuyinala.more.b.b bVar : this.oQZ.getGroupList()) {
-            if (bVar != null && !ListUtils.isEmpty(bVar.ekX())) {
-                for (com.baidu.yuyinala.more.b.a aVar : bVar.ekX()) {
-                    if (aVar != null && aVar.ekW()) {
+            if (bVar != null && !ListUtils.isEmpty(bVar.ekY())) {
+                for (com.baidu.yuyinala.more.b.a aVar : bVar.ekY()) {
+                    if (aVar != null && aVar.ekX()) {
                         return true;
                     }
                 }
@@ -319,7 +319,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ekS() {
+    public void ekT() {
         AlaWheatMoreFunctionData alaWheatMoreFunctionData = new AlaWheatMoreFunctionData();
         alaWheatMoreFunctionData.mLiveId = this.oQZ.getLiveId();
         alaWheatMoreFunctionData.mCustomRoomId = this.oQZ.getCustomRoomId();
@@ -328,7 +328,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void ekT() {
+    public void ekU() {
         final com.baidu.live.view.c cVar = new com.baidu.live.view.c(getTbPageContext().getPageActivity());
         cVar.setCancelable(false);
         cVar.setCanceledOnTouchOutside(false);
@@ -344,10 +344,10 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         cVar.a(new c.a() { // from class: com.baidu.yuyinala.more.c.4
             @Override // com.baidu.live.view.c.a
             public void Sw() {
-                c.this.oRh.ekY();
                 c.this.oRh.ekZ();
+                c.this.oRh.ela();
                 cVar.dismiss();
-                c.this.Yf("roomclose_cfm");
+                c.this.Ye("roomclose_cfm");
             }
 
             @Override // com.baidu.live.view.c.a
@@ -372,10 +372,10 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         } catch (JSONException e) {
             BdLog.e(e);
         }
-        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, Ye(str)).setContentExt(jSONObject));
+        UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, Yd(str)).setContentExt(jSONObject));
     }
 
-    private String Ye(String str) {
+    private String Yd(String str) {
         char c = 65535;
         switch (str.hashCode()) {
             case -2061609278:
@@ -464,7 +464,7 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Yf(String str) {
+    public void Ye(String str) {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put(UbcStatConstant.KEY_CONTENT_EXT_SUBPAGE, "moretab");
@@ -478,13 +478,13 @@ public class c extends com.baidu.live.tieba.pb.interactionpopupwindow.b<AlaMoreF
         UbcStatisticManager.getInstance().logEvent(new UbcStatisticItem(UbcStatisticLiveKey.KEY_ID_1396, "click", UbcStatConstant.Page.VOICE_ROOM, str).setContentExt(jSONObject));
     }
 
-    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0938a
+    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0976a
     public void zX(boolean z) {
         this.mTbPageContext.showToast(z ? a.h.ala_audio_clear_charm_succ : a.h.ala_audio_clear_charm_fail);
     }
 
-    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0938a
-    public void ekU() {
+    @Override // com.baidu.yuyinala.more.c.a.InterfaceC0976a
+    public void ekV() {
         this.mTbPageContext.showToast(a.h.ala_audio_close_room_fail);
     }
 }

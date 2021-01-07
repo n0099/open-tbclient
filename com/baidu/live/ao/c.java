@@ -10,9 +10,9 @@ public interface c {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void XQ();
-
         void XR();
+
+        void XS();
     }
 
     void TF();

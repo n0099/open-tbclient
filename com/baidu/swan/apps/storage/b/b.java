@@ -34,12 +34,12 @@ public class b implements c {
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aPB() {
+    public String aPC() {
         return null;
     }
 
     @Override // com.baidu.swan.apps.storage.b.c
-    public String aPC() {
+    public String aPD() {
         return null;
     }
 
@@ -65,11 +65,11 @@ public class b implements c {
 
     @Override // com.baidu.swan.apps.storage.b.c
     @NonNull
-    public d aPD() {
+    public d aPE() {
         return new a() { // from class: com.baidu.swan.apps.storage.b.b.1
             @Override // com.baidu.swan.apps.storage.b.a
             @NonNull
-            public String aPA() {
+            public String aPB() {
                 return "";
             }
 

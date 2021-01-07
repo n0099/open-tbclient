@@ -8,7 +8,7 @@ import com.baidu.mobstat.Config;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 class e implements h {
     @Override // com.baidu.helios.a.a.h
     public String a(Context context) {

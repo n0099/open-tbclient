@@ -7,10 +7,10 @@ import java.lang.ref.WeakReference;
 public class BaiduNativeAdPlacement {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3312a;
+    private String f3313a;
 
     /* renamed from: b  reason: collision with root package name */
-    private IXAdResponseInfo f3313b;
+    private IXAdResponseInfo f3314b;
     private boolean c;
     private boolean d;
     private boolean e = false;
@@ -43,11 +43,11 @@ public class BaiduNativeAdPlacement {
     }
 
     public void setApId(String str) {
-        this.f3312a = str;
+        this.f3313a = str;
     }
 
     public String getApId() {
-        return this.f3312a;
+        return this.f3313a;
     }
 
     public static void setAppSid(String str) {
@@ -56,24 +56,24 @@ public class BaiduNativeAdPlacement {
 
     public void setAdResponse(IXAdResponseInfo iXAdResponseInfo) {
         this.d = false;
-        this.f3313b = iXAdResponseInfo;
+        this.f3314b = iXAdResponseInfo;
     }
 
     public boolean hasValidResponse() {
-        return this.f3313b != null && isAdAvailable();
+        return this.f3314b != null && isAdAvailable();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     public IXAdResponseInfo getAdResponse() {
-        return this.f3313b;
+        return this.f3314b;
     }
 
     protected boolean isAdAvailable() {
         boolean z;
-        if (this.f3313b == null || this.f3313b.getPrimaryAdInstanceInfo() == null) {
+        if (this.f3314b == null || this.f3314b.getPrimaryAdInstanceInfo() == null) {
             z = false;
         } else {
-            z = System.currentTimeMillis() - this.f3313b.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
+            z = System.currentTimeMillis() - this.f3314b.getPrimaryAdInstanceInfo().getCreateTime() <= 1800000;
         }
         return z && !this.c;
     }

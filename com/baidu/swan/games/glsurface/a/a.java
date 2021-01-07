@@ -20,15 +20,15 @@ public final class a {
 
     public boolean onTouchEvent(MotionEvent motionEvent) {
         if (this.ejQ != null) {
-            boolean a2 = b.a(this.ejQ.aZG());
-            boolean a3 = b.a(this.ejQ.aZH());
+            boolean a2 = b.a(this.ejQ.aZH());
+            boolean a3 = b.a(this.ejQ.aZI());
             JSEvent jSEvent = null;
             if (a2 || a3) {
                 jSEvent = b.D(motionEvent);
             }
             r0 = a2 ? this.ejQ.dispatchEvent(jSEvent) : false;
             if (a3 && this.ejQ.isLoaded()) {
-                this.ejQ.aZH().dispatchEvent(jSEvent);
+                this.ejQ.aZI().dispatchEvent(jSEvent);
             }
             b.ig(true);
         }

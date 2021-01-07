@@ -29,7 +29,7 @@ public class b implements f {
 
     @Override // com.baidu.swan.apps.t.b.f
     public void e(Activity activity, String str, final com.baidu.m.a.a aVar) {
-        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.aDG().aDq(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.Gb(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
+        DelegateUtils.callOnMainWithActivity(com.baidu.swan.apps.v.f.aDH().aDr(), MainProcessDelegateActivity.class, com.baidu.tieba.aiapps.apps.f.b.a.class, com.baidu.tieba.aiapps.apps.f.b.a.Ga(str), new DelegateListener() { // from class: com.baidu.tieba.aiapps.apps.f.b.1
             @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
             public void onDelegateCallBack(DelegateResult delegateResult) {
                 aVar.onPayResult(delegateResult.mResult.getInt("status_code"), delegateResult.mResult.getString("params"));
@@ -39,16 +39,16 @@ public class b implements f {
 
     @Override // com.baidu.swan.apps.t.b.f
     public void f(Activity activity, String str, final com.baidu.m.a.a aVar) {
-        if (!com.baidu.tbadk.pay.c.bHv().isWalletOk()) {
+        if (!com.baidu.tbadk.pay.c.bHw().isWalletOk()) {
             l.showToast(TbadkCoreApplication.getInst(), R.string.plugin_pay_wallet_not_found);
             return;
         }
-        e aMk = e.aMk();
-        if (aMk != null && aMk.getActivity() != null) {
+        e aMl = e.aMl();
+        if (aMl != null && aMl.getActivity() != null) {
             a aVar2 = new a();
             aVar2.mParams.putInt("type", 2);
             aVar2.mParams.putString("orderInfo", str);
-            aVar2.al(aMk.getActivity());
+            aVar2.al(aMl.getActivity());
             aVar2.a(new com.baidu.tieba.aiapps.apps.f.a.a() { // from class: com.baidu.tieba.aiapps.apps.f.b.2
                 @Override // com.baidu.tieba.aiapps.apps.f.a.a
                 public void ah(Bundle bundle) {
@@ -68,8 +68,8 @@ public class b implements f {
         createWXAPI.registerApp(dA.appId);
         if (!createWXAPI.isWXAppInstalled()) {
             aVar.onPayResult(3, "wx_not_installed");
-            d.a(context, "您没有安装微信，请选择其他支付方式").aLS();
-        } else if (e.aMk() != null) {
+            d.a(context, "您没有安装微信，请选择其他支付方式").aLT();
+        } else if (e.aMl() != null) {
             if (!createWXAPI.sendReq(dA)) {
                 aVar.onPayResult(6, "wx_start_failed");
             }
@@ -106,7 +106,7 @@ public class b implements f {
         if (WXAPIFactory.createWXAPI(context, null).isWXAppInstalled()) {
             return true;
         }
-        d.a(context, "您没有安装微信，请选择其他支付方式").aLS();
+        d.a(context, "您没有安装微信，请选择其他支付方式").aLT();
         return false;
     }
 }

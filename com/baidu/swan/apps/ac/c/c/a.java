@@ -19,7 +19,7 @@ public class a {
     }
 
     /* JADX WARN: Type inference failed for: r2v0, types: [org.json.JSONObject, T] */
-    public void aIn() {
+    public void aIo() {
         g gVar = new g();
         ?? jSONObject = new JSONObject();
         try {
@@ -34,7 +34,7 @@ public class a {
             com.baidu.swan.apps.ac.d.a.print(Log.getStackTraceString(e));
         }
         gVar.mData = jSONObject;
-        f.aDG().a(this.cNP, gVar);
+        f.aDH().a(this.cNP, gVar);
         com.baidu.swan.apps.ac.d.a.print("finish event, isSuccess = " + this.isSuccess);
     }
 

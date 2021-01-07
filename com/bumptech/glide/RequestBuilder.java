@@ -30,7 +30,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class RequestBuilder<TranscodeType> implements ModelTypes<RequestBuilder<TranscodeType>>, Cloneable {
     protected static final RequestOptions DOWNLOAD_ONLY_OPTIONS = new RequestOptions().diskCacheStrategy(DiskCacheStrategy.DATA).priority(Priority.LOW).skipMemoryCache(true);
     private final Context context;
@@ -87,7 +87,7 @@ public class RequestBuilder<TranscodeType> implements ModelTypes<RequestBuilder<
 
     @NonNull
     protected RequestOptions getMutableOptions() {
-        return this.defaultRequestOptions == this.requestOptions ? this.requestOptions.m46clone() : this.requestOptions;
+        return this.defaultRequestOptions == this.requestOptions ? this.requestOptions.m57clone() : this.requestOptions;
     }
 
     @NonNull
@@ -245,11 +245,11 @@ public class RequestBuilder<TranscodeType> implements ModelTypes<RequestBuilder<
     /* JADX DEBUG: Method merged with bridge method */
     @CheckResult
     /* renamed from: clone */
-    public RequestBuilder<TranscodeType> m44clone() {
+    public RequestBuilder<TranscodeType> m55clone() {
         try {
             RequestBuilder<TranscodeType> requestBuilder = (RequestBuilder) super.clone();
-            requestBuilder.requestOptions = requestBuilder.requestOptions.m46clone();
-            requestBuilder.transitionOptions = (TransitionOptions<?, ? super TranscodeType>) requestBuilder.transitionOptions.m45clone();
+            requestBuilder.requestOptions = requestBuilder.requestOptions.m57clone();
+            requestBuilder.transitionOptions = (TransitionOptions<?, ? super TranscodeType>) requestBuilder.transitionOptions.m56clone();
             return requestBuilder;
         } catch (CloneNotSupportedException e) {
             throw new RuntimeException(e);
@@ -300,18 +300,18 @@ public class RequestBuilder<TranscodeType> implements ModelTypes<RequestBuilder<
         if (!requestOptions.isTransformationSet() && requestOptions.isTransformationAllowed() && imageView.getScaleType() != null) {
             switch (AnonymousClass2.$SwitchMap$android$widget$ImageView$ScaleType[imageView.getScaleType().ordinal()]) {
                 case 1:
-                    requestOptions = requestOptions.m46clone().optionalCenterCrop();
+                    requestOptions = requestOptions.m57clone().optionalCenterCrop();
                     break;
                 case 2:
-                    requestOptions = requestOptions.m46clone().optionalCenterInside();
+                    requestOptions = requestOptions.m57clone().optionalCenterInside();
                     break;
                 case 3:
                 case 4:
                 case 5:
-                    requestOptions = requestOptions.m46clone().optionalFitCenter();
+                    requestOptions = requestOptions.m57clone().optionalFitCenter();
                     break;
                 case 6:
-                    requestOptions = requestOptions.m46clone().optionalCenterInside();
+                    requestOptions = requestOptions.m57clone().optionalCenterInside();
                     break;
             }
         }
@@ -376,7 +376,7 @@ public class RequestBuilder<TranscodeType> implements ModelTypes<RequestBuilder<
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.bumptech.glide.RequestBuilder$2  reason: invalid class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static /* synthetic */ class AnonymousClass2 {
         static final /* synthetic */ int[] $SwitchMap$android$widget$ImageView$ScaleType;
 
@@ -505,7 +505,7 @@ public class RequestBuilder<TranscodeType> implements ModelTypes<RequestBuilder<
             return thumbnailRequestCoordinator;
         } else if (this.thumbSizeMultiplier != null) {
             ThumbnailRequestCoordinator thumbnailRequestCoordinator2 = new ThumbnailRequestCoordinator(requestCoordinator);
-            thumbnailRequestCoordinator2.setRequests(obtainRequest(target, requestListener, requestOptions, thumbnailRequestCoordinator2, transitionOptions, priority, i, i2), obtainRequest(target, requestListener, requestOptions.m46clone().sizeMultiplier(this.thumbSizeMultiplier.floatValue()), thumbnailRequestCoordinator2, transitionOptions, getThumbnailPriority(priority), i, i2));
+            thumbnailRequestCoordinator2.setRequests(obtainRequest(target, requestListener, requestOptions, thumbnailRequestCoordinator2, transitionOptions, priority, i, i2), obtainRequest(target, requestListener, requestOptions.m57clone().sizeMultiplier(this.thumbSizeMultiplier.floatValue()), thumbnailRequestCoordinator2, transitionOptions, getThumbnailPriority(priority), i, i2));
             return thumbnailRequestCoordinator2;
         } else {
             return obtainRequest(target, requestListener, requestOptions, requestCoordinator, transitionOptions, priority, i, i2);

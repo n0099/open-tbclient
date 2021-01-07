@@ -24,6 +24,7 @@ import java.util.Hashtable;
 public class NewUserGuideMainFragment extends BaseFragment {
     private ViewGroup bcK;
     private View iYi;
+    private TbImageView nzB;
     private TbImageView nzC;
     private TbImageView nzD;
     private TbImageView nzE;
@@ -33,67 +34,66 @@ public class NewUserGuideMainFragment extends BaseFragment {
     private TbImageView nzI;
     private TbImageView nzJ;
     private TbImageView nzK;
-    private TbImageView nzL;
-    private Button nzM;
-    private NewUserGuideModel nzf;
-    private NewUserGuideActivity nzv;
-    private final Hashtable<Integer, TbImageView> nzB = new Hashtable<>();
+    private Button nzL;
+    private NewUserGuideModel nze;
+    private NewUserGuideActivity nzu;
+    private final Hashtable<Integer, TbImageView> nzA = new Hashtable<>();
     private boolean mIsNewUser = false;
-    private boolean nzN = false;
-    private boolean nzO = true;
+    private boolean nzM = false;
+    private boolean nzN = true;
     private final View.OnClickListener onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view.getTag() == null || !(view.getTag() instanceof InterestFrsData.Tag)) {
-                if (view == NewUserGuideMainFragment.this.nzM) {
-                    if (NewUserGuideMainFragment.this.nzv.dSc()) {
+                if (view == NewUserGuideMainFragment.this.nzL) {
+                    if (NewUserGuideMainFragment.this.nzu.dSd()) {
                         TbadkApplication.getInst().setLikeBarChanged(true);
                     }
-                    NewUserGuideMainFragment.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(NewUserGuideMainFragment.this.nzv.getPageContext().getPageActivity()).createNewUserCfg(1, NewUserGuideMainFragment.this.mIsNewUser)));
-                    NewUserGuideMainFragment.this.nzv.finish();
+                    NewUserGuideMainFragment.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_MAINTAB, new MainTabActivityConfig(NewUserGuideMainFragment.this.nzu.getPageContext().getPageActivity()).createNewUserCfg(1, NewUserGuideMainFragment.this.mIsNewUser)));
+                    NewUserGuideMainFragment.this.nzu.finish();
                 }
-            } else if (NewUserGuideMainFragment.this.nzO) {
-                NewUserGuideMainFragment.this.nzO = false;
+            } else if (NewUserGuideMainFragment.this.nzN) {
+                NewUserGuideMainFragment.this.nzN = false;
                 TiebaStatic.log("newUserInterestSelect");
-                f fVar = new f(NewUserGuideMainFragment.this.nzv, (InterestFrsData.Tag) view.getTag(), new a() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.1.1
+                f fVar = new f(NewUserGuideMainFragment.this.nzu, (InterestFrsData.Tag) view.getTag(), new a() { // from class: com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.1.1
                     @Override // com.baidu.tieba.tblauncherInterestGuide.NewUserGuideMainFragment.a
-                    public void dSj() {
+                    public void dSk() {
                         NewUserGuideMainFragment.this.iYi.setVisibility(8);
                     }
                 });
                 NewUserGuideMainFragment.this.iYi.setVisibility(0);
                 fVar.show();
-                NewUserGuideMainFragment.this.nzO = true;
+                NewUserGuideMainFragment.this.nzN = true;
             }
         }
     };
 
     /* loaded from: classes2.dex */
     public interface a {
-        void dSj();
+        void dSk();
     }
 
     public void c(InterestFrsData interestFrsData) {
         d(interestFrsData);
-        this.nzN = true;
+        this.nzM = true;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         super.onCreate(bundle);
-        this.nzv = (NewUserGuideActivity) getBaseFragmentActivity();
-        this.nzf = this.nzv.dSe();
+        this.nzu = (NewUserGuideActivity) getBaseFragmentActivity();
+        this.nze = this.nzu.dSf();
         initData(bundle);
     }
 
     private void initData(Bundle bundle) {
-        if (this.nzf != null && !this.nzN) {
+        if (this.nze != null && !this.nzM) {
             if (bundle != null) {
                 this.mIsNewUser = bundle.getBoolean("is_new_user");
             } else {
-                this.mIsNewUser = this.nzv.getIntent().getBooleanExtra("is_new_user", false);
+                this.mIsNewUser = this.nzu.getIntent().getBooleanExtra("is_new_user", false);
             }
-            d(this.nzf.dSl());
+            d(this.nze.dSm());
         }
     }
 
@@ -103,7 +103,7 @@ public class NewUserGuideMainFragment extends BaseFragment {
         if (interestFrsData != null && (tag_list = interestFrsData.getTag_list()) != null && tag_list.size() != 0) {
             for (int i = 0; i < tag_list.size(); i++) {
                 InterestFrsData.Tag tag = tag_list.get(i);
-                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.nzB.get(Integer.valueOf(tag.getBid()))) != null) {
+                if (tag.getBid() >= 1 && tag.getBid() <= 10 && (tbImageView = this.nzA.get(Integer.valueOf(tag.getBid()))) != null) {
                     tbImageView.setTag(tag);
                     tbImageView.startLoad(tag.getBicon(), 21, false);
                 }
@@ -116,28 +116,29 @@ public class NewUserGuideMainFragment extends BaseFragment {
         try {
             this.bcK = (ViewGroup) LayoutInflater.from(layoutInflater.getContext()).inflate(R.layout.guide_main, (ViewGroup) null);
             this.iYi = this.bcK.findViewById(R.id.root_main_view_cover);
-            this.nzC = (TbImageView) this.bcK.findViewById(R.id.icon_1);
-            this.nzD = (TbImageView) this.bcK.findViewById(R.id.icon_2);
-            this.nzE = (TbImageView) this.bcK.findViewById(R.id.icon_3);
-            this.nzF = (TbImageView) this.bcK.findViewById(R.id.icon_4);
-            this.nzG = (TbImageView) this.bcK.findViewById(R.id.icon_5);
-            this.nzH = (TbImageView) this.bcK.findViewById(R.id.icon_6);
-            this.nzI = (TbImageView) this.bcK.findViewById(R.id.icon_7);
-            this.nzJ = (TbImageView) this.bcK.findViewById(R.id.icon_8);
-            this.nzK = (TbImageView) this.bcK.findViewById(R.id.icon_9);
-            this.nzL = (TbImageView) this.bcK.findViewById(R.id.icon_10);
-            this.nzM = (Button) this.bcK.findViewById(R.id.btn_next);
-            this.nzB.put(1, this.nzC);
-            this.nzB.put(2, this.nzD);
-            this.nzB.put(3, this.nzE);
-            this.nzB.put(4, this.nzF);
-            this.nzB.put(5, this.nzG);
-            this.nzB.put(6, this.nzH);
-            this.nzB.put(7, this.nzI);
-            this.nzB.put(8, this.nzJ);
-            this.nzB.put(9, this.nzK);
-            this.nzB.put(10, this.nzL);
-            this.nzM.setOnClickListener(this.onClickListener);
+            this.nzB = (TbImageView) this.bcK.findViewById(R.id.icon_1);
+            this.nzC = (TbImageView) this.bcK.findViewById(R.id.icon_2);
+            this.nzD = (TbImageView) this.bcK.findViewById(R.id.icon_3);
+            this.nzE = (TbImageView) this.bcK.findViewById(R.id.icon_4);
+            this.nzF = (TbImageView) this.bcK.findViewById(R.id.icon_5);
+            this.nzG = (TbImageView) this.bcK.findViewById(R.id.icon_6);
+            this.nzH = (TbImageView) this.bcK.findViewById(R.id.icon_7);
+            this.nzI = (TbImageView) this.bcK.findViewById(R.id.icon_8);
+            this.nzJ = (TbImageView) this.bcK.findViewById(R.id.icon_9);
+            this.nzK = (TbImageView) this.bcK.findViewById(R.id.icon_10);
+            this.nzL = (Button) this.bcK.findViewById(R.id.btn_next);
+            this.nzA.put(1, this.nzB);
+            this.nzA.put(2, this.nzC);
+            this.nzA.put(3, this.nzD);
+            this.nzA.put(4, this.nzE);
+            this.nzA.put(5, this.nzF);
+            this.nzA.put(6, this.nzG);
+            this.nzA.put(7, this.nzH);
+            this.nzA.put(8, this.nzI);
+            this.nzA.put(9, this.nzJ);
+            this.nzA.put(10, this.nzK);
+            this.nzL.setOnClickListener(this.onClickListener);
+            this.nzB.setOnClickListener(this.onClickListener);
             this.nzC.setOnClickListener(this.onClickListener);
             this.nzD.setOnClickListener(this.onClickListener);
             this.nzE.setOnClickListener(this.onClickListener);
@@ -146,16 +147,15 @@ public class NewUserGuideMainFragment extends BaseFragment {
             this.nzH.setOnClickListener(this.onClickListener);
             this.nzI.setOnClickListener(this.onClickListener);
             this.nzJ.setOnClickListener(this.onClickListener);
+            this.nzJ.setOnClickListener(this.onClickListener);
             this.nzK.setOnClickListener(this.onClickListener);
-            this.nzK.setOnClickListener(this.onClickListener);
-            this.nzL.setOnClickListener(this.onClickListener);
             return this.bcK;
         } catch (InflateException e) {
             if (TbadkApplication.getInst().isDebugMode()) {
                 throw e;
             }
             BdLog.e(e);
-            this.nzv.dSg();
+            this.nzu.dSh();
             TbadkApplication.getInst().onAppMemoryLow();
             return new FrameLayout(layoutInflater.getContext());
         }

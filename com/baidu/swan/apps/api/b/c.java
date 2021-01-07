@@ -13,7 +13,7 @@ public class c implements a {
         this.cKX.add(new b());
     }
 
-    public static c anY() {
+    public static c anZ() {
         if (cKW == null) {
             synchronized (c.class) {
                 if (cKW == null) {

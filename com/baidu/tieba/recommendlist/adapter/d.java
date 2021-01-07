@@ -73,62 +73,62 @@ public class d extends AbsDelegateAdapter<f, a> {
         private String igr;
         private Context mContext;
         private int mPosition;
-        private LinearLayout[] mVJ;
+        private LinearLayout[] mVI;
+        private ViewGroup[] mVJ;
         private ViewGroup[] mVK;
-        private ViewGroup[] mVL;
-        private LinearLayout[] mVM;
-        private ImageView[] mVN;
+        private LinearLayout[] mVL;
+        private ImageView[] mVM;
+        private TextView[] mVN;
         private TextView[] mVO;
-        private TextView[] mVP;
-        private TbImageView[] mVQ;
-        private f mVR;
-        private String mVS;
+        private TbImageView[] mVP;
+        private f mVQ;
+        private String mVR;
 
         private a(View view, Context context, int i) {
             super(view);
             this.igr = "";
-            this.mVS = "";
+            this.mVR = "";
             this.mContext = context;
-            this.mVJ = new LinearLayout[2];
+            this.mVI = new LinearLayout[2];
+            this.mVJ = new ViewGroup[2];
             this.mVK = new ViewGroup[2];
-            this.mVL = new ViewGroup[2];
             this.igi = new TbImageView[2];
             this.igj = new TextView[2];
             this.igk = new TextView[2];
-            this.mVM = new LinearLayout[2];
-            this.mVN = new ImageView[2];
+            this.mVL = new LinearLayout[2];
+            this.mVM = new ImageView[2];
+            this.mVN = new TextView[2];
             this.mVO = new TextView[2];
-            this.mVP = new TextView[2];
-            this.mVQ = new TbImageView[2];
-            this.mVJ[0] = (LinearLayout) view.findViewById(a.f.left_content_layout);
-            this.mVJ[1] = (LinearLayout) view.findViewById(a.f.right_content_layout);
-            this.mVK[0] = (ViewGroup) view.findViewById(a.f.left_container_cover);
-            this.mVK[1] = (ViewGroup) view.findViewById(a.f.right_container_cover);
-            this.mVL[0] = (ViewGroup) view.findViewById(a.f.left_playback_shadow);
-            this.mVL[1] = (ViewGroup) view.findViewById(a.f.right_playback_shadow);
+            this.mVP = new TbImageView[2];
+            this.mVI[0] = (LinearLayout) view.findViewById(a.f.left_content_layout);
+            this.mVI[1] = (LinearLayout) view.findViewById(a.f.right_content_layout);
+            this.mVJ[0] = (ViewGroup) view.findViewById(a.f.left_container_cover);
+            this.mVJ[1] = (ViewGroup) view.findViewById(a.f.right_container_cover);
+            this.mVK[0] = (ViewGroup) view.findViewById(a.f.left_playback_shadow);
+            this.mVK[1] = (ViewGroup) view.findViewById(a.f.right_playback_shadow);
             this.igi[0] = (TbImageView) view.findViewById(a.f.left_cover_imageView);
             this.igi[1] = (TbImageView) view.findViewById(a.f.right_cover_imageView);
             this.igj[0] = (TextView) view.findViewById(a.f.left_count_textView);
             this.igj[1] = (TextView) view.findViewById(a.f.right_count_textView);
             this.igk[0] = (TextView) view.findViewById(a.f.left_name_textView);
             this.igk[1] = (TextView) view.findViewById(a.f.right_name_textView);
-            this.mVM[0] = (LinearLayout) view.findViewById(a.f.left_tag_layout);
-            this.mVM[1] = (LinearLayout) view.findViewById(a.f.right_tag_layout);
-            this.mVN[0] = (ImageView) view.findViewById(a.f.left_tag_icon_imageView);
-            this.mVN[1] = (ImageView) view.findViewById(a.f.right_tag_icon_imageView);
-            this.mVO[0] = (TextView) view.findViewById(a.f.left_tag_des_textView);
-            this.mVO[1] = (TextView) view.findViewById(a.f.right_tag_des_textView);
-            this.mVP[0] = (TextView) view.findViewById(a.f.left_des_textView);
-            this.mVP[1] = (TextView) view.findViewById(a.f.right_des_textView);
-            this.mVQ[0] = (TbImageView) view.findViewById(a.f.left_portrait_imageView);
-            this.mVQ[1] = (TbImageView) view.findViewById(a.f.right_portrait_imageView);
+            this.mVL[0] = (LinearLayout) view.findViewById(a.f.left_tag_layout);
+            this.mVL[1] = (LinearLayout) view.findViewById(a.f.right_tag_layout);
+            this.mVM[0] = (ImageView) view.findViewById(a.f.left_tag_icon_imageView);
+            this.mVM[1] = (ImageView) view.findViewById(a.f.right_tag_icon_imageView);
+            this.mVN[0] = (TextView) view.findViewById(a.f.left_tag_des_textView);
+            this.mVN[1] = (TextView) view.findViewById(a.f.right_tag_des_textView);
+            this.mVO[0] = (TextView) view.findViewById(a.f.left_des_textView);
+            this.mVO[1] = (TextView) view.findViewById(a.f.right_des_textView);
+            this.mVP[0] = (TbImageView) view.findViewById(a.f.left_portrait_imageView);
+            this.mVP[1] = (TbImageView) view.findViewById(a.f.right_portrait_imageView);
             int dimensionPixelOffset = (context.getResources().getDimensionPixelOffset(a.d.sdk_tbds146) * i) / context.getResources().getDimensionPixelOffset(a.d.sdk_tbds260);
-            this.mVK[0].getLayoutParams().width = i;
-            this.mVK[0].getLayoutParams().height = dimensionPixelOffset;
-            this.mVK[1].getLayoutParams().width = i;
-            this.mVK[1].getLayoutParams().height = dimensionPixelOffset;
-            this.mVQ[0].setDefaultBgResource(a.e.sdk_shape_transparent);
-            this.mVQ[1].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.mVJ[0].getLayoutParams().width = i;
+            this.mVJ[0].getLayoutParams().height = dimensionPixelOffset;
+            this.mVJ[1].getLayoutParams().width = i;
+            this.mVJ[1].getLayoutParams().height = dimensionPixelOffset;
+            this.mVP[0].setDefaultBgResource(a.e.sdk_shape_transparent);
+            this.mVP[1].setDefaultBgResource(a.e.sdk_shape_transparent);
             this.igi[0].setDefaultBgResource(a.e.sdk_shape_transparent);
             this.igi[1].setDefaultBgResource(a.e.sdk_shape_transparent);
             if (!TbadkCoreApplication.getInst().isMobileBaidu() && i > 0) {
@@ -136,25 +136,25 @@ public class d extends AbsDelegateAdapter<f, a> {
             }
             if (!TbadkCoreApplication.getInst().isMobileBaidu()) {
                 int dimensionPixelOffset2 = context.getResources().getDimensionPixelOffset(a.d.sdk_ds28);
-                this.mVS = "@resize{w:" + dimensionPixelOffset2 + ",h:" + dimensionPixelOffset2 + "}";
+                this.mVR = "@resize{w:" + dimensionPixelOffset2 + ",h:" + dimensionPixelOffset2 + "}";
             }
-            this.mVJ[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.d.a.1
+            this.mVI[0].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.d.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.mVR != null) {
-                        if (a.this.mVR.mWb != null) {
-                            a.this.b(a.this.mVR.mWb, 0);
-                        } else if (a.this.mVR.mWc != null) {
-                            a.this.b(a.this.mVR.mWc, 0);
+                    if (a.this.mVQ != null) {
+                        if (a.this.mVQ.mWa != null) {
+                            a.this.b(a.this.mVQ.mWa, 0);
+                        } else if (a.this.mVQ.mWb != null) {
+                            a.this.b(a.this.mVQ.mWb, 0);
                         }
                     }
                 }
             });
-            this.mVJ[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.d.a.2
+            this.mVI[1].setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.recommendlist.adapter.d.a.2
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    if (a.this.mVR != null && a.this.mVR.mWc != null) {
-                        a.this.b(a.this.mVR.mWc, 1);
+                    if (a.this.mVQ != null && a.this.mVQ.mWb != null) {
+                        a.this.b(a.this.mVQ.mWb, 1);
                     }
                 }
             });
@@ -166,28 +166,28 @@ public class d extends AbsDelegateAdapter<f, a> {
             boolean z;
             int i2;
             if (fVar != null) {
-                this.mVR = fVar;
+                this.mVQ = fVar;
                 this.mPosition = i;
                 this.bzc = xVar;
-                if (fVar.mWb != null) {
-                    a(fVar.mWb, 0);
+                if (fVar.mWa != null) {
+                    a(fVar.mWa, 0);
                 }
-                if (fVar.mWc != null) {
-                    if (fVar.mWb == null) {
+                if (fVar.mWb != null) {
+                    if (fVar.mWa == null) {
                         i2 = 0;
                         z = false;
                     } else {
                         i2 = 1;
                         z = true;
                     }
-                    a(fVar.mWc, i2);
+                    a(fVar.mWb, i2);
                 } else {
                     z = false;
                 }
                 if (z) {
-                    this.mVJ[1].setVisibility(0);
+                    this.mVI[1].setVisibility(0);
                 } else {
-                    this.mVJ[1].setVisibility(8);
+                    this.mVI[1].setVisibility(8);
                 }
             }
         }
@@ -214,40 +214,40 @@ public class d extends AbsDelegateAdapter<f, a> {
             tbImageView.stopLoad();
             tbImageView.startLoad(alaRecommendLiveData.cover + this.igr, 10, false);
             this.igk[i].setText(alaRecommendLiveData.getNameShow());
-            this.mVL[i].setVisibility(8);
+            this.mVK[i].setVisibility(8);
             if (alaRecommendLiveData.mixType == 0) {
                 if (alaRecommendLiveData.live_status == 3) {
-                    this.mVM[i].setVisibility(8);
+                    this.mVL[i].setVisibility(8);
                     this.igj[i].setText(alaRecommendLiveData.duration);
-                    this.mVL[i].setVisibility(0);
+                    this.mVK[i].setVisibility(0);
                 } else {
                     this.igj[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_watch_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
                     com.baidu.tieba.recommendlist.data.c cVar = alaRecommendLiveData.interactTag;
                     if (cVar != null && !TextUtils.isEmpty(cVar.type)) {
                         int a2 = d.a(cVar);
                         if (a2 == 0) {
-                            this.mVM[i].setVisibility(8);
+                            this.mVL[i].setVisibility(8);
                         } else {
-                            this.mVN[i].setImageResource(a2);
-                            this.mVO[i].setText(cVar.msg);
-                            this.mVM[i].setVisibility(0);
+                            this.mVM[i].setImageResource(a2);
+                            this.mVN[i].setText(cVar.msg);
+                            this.mVL[i].setVisibility(0);
                         }
                     } else {
-                        this.mVM[i].setVisibility(8);
+                        this.mVL[i].setVisibility(8);
                     }
                 }
             } else {
                 this.igj[i].setText(String.format(this.mContext.getResources().getString(a.h.recommend_live_watch_count), StringHelper.formatValue(alaRecommendLiveData.audience_count)));
                 if (!TextUtils.isEmpty(alaRecommendLiveData.distance) && !TextUtils.equals(alaRecommendLiveData.distance, "0")) {
-                    this.mVN[i].setImageResource(a.e.icon_recommend_location);
-                    this.mVO[i].setText(alaRecommendLiveData.distance);
-                    this.mVM[i].setVisibility(0);
+                    this.mVM[i].setImageResource(a.e.icon_recommend_location);
+                    this.mVN[i].setText(alaRecommendLiveData.distance);
+                    this.mVL[i].setVisibility(0);
                 } else {
-                    this.mVM[i].setVisibility(8);
+                    this.mVL[i].setVisibility(8);
                 }
             }
-            this.mVP[i].setText(alaRecommendLiveData.description);
-            this.mVQ[i].startLoad(alaRecommendLiveData.getLivePortrait() + this.mVS, 12, false);
+            this.mVO[i].setText(alaRecommendLiveData.description);
+            this.mVP[i].startLoad(alaRecommendLiveData.getLivePortrait() + this.mVR, 12, false);
             a(UbcStatisticLiveKey.KEY_ID_1392, "show", alaRecommendLiveData, i);
         }
 
@@ -260,7 +260,7 @@ public class d extends AbsDelegateAdapter<f, a> {
                     b(alaRecommendLiveData);
                 } else {
                     BdLog.e("openByScheme: " + alaRecommendLiveData.scheme);
-                    if (!Si(alaRecommendLiveData.scheme)) {
+                    if (!Sh(alaRecommendLiveData.scheme)) {
                         BdLog.e("openInner: scheme: " + alaRecommendLiveData.scheme);
                         b(alaRecommendLiveData);
                     }
@@ -269,7 +269,7 @@ public class d extends AbsDelegateAdapter<f, a> {
             }
         }
 
-        private boolean Si(String str) {
+        private boolean Sh(String str) {
             return openScheme(TbadkCoreApplication.getInst(), str);
         }
 

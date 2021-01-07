@@ -10,30 +10,30 @@ import java.nio.ByteBuffer;
 /* loaded from: classes8.dex */
 class e {
     private final MediaMuxer cil;
+    private volatile boolean nHr;
     private volatile boolean nHs;
-    private volatile boolean nHt;
-    private int nHr = 2;
+    private int nHq = 2;
     private boolean mIsStarted = false;
 
     public e(String str) throws IOException {
         this.cil = new MediaMuxer(str, 0);
     }
 
-    public void dUp() {
-        this.nHs = true;
+    public void dUq() {
+        this.nHr = true;
     }
 
-    public void dUq() {
-        this.nHt = true;
+    public void dUr() {
+        this.nHs = true;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized boolean start() {
         boolean z;
-        if (!this.nHt || !this.nHs) {
+        if (!this.nHs || !this.nHr) {
             z = false;
         } else {
-            if (this.nHr > 0 && this.nHt && this.nHs) {
+            if (this.nHq > 0 && this.nHs && this.nHr) {
                 this.cil.start();
                 this.mIsStarted = true;
                 notifyAll();
@@ -45,7 +45,7 @@ class e {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public synchronized void stop() {
-        if (this.nHr > 0) {
+        if (this.nHq > 0) {
             try {
                 this.cil.stop();
                 this.cil.release();

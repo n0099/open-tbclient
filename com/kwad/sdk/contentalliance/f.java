@@ -15,10 +15,10 @@ import java.util.List;
 public class f extends AbstractKsContentPage {
 
     /* renamed from: a  reason: collision with root package name */
-    private KsScene f8913a;
+    private KsScene f8914a;
 
     /* renamed from: b  reason: collision with root package name */
-    private WeakReference<g> f8914b;
+    private WeakReference<g> f8915b;
     private KsContentPage.PageListener c;
     private KsContentPage.VideoListener d;
     private List<KsContentPage.SubShowItem> e = new ArrayList();
@@ -30,34 +30,34 @@ public class f extends AbstractKsContentPage {
     private static class a implements com.kwad.sdk.contentalliance.home.a.d {
 
         /* renamed from: a  reason: collision with root package name */
-        private final KsContentPage.OnPageLoadListener f8915a;
+        private final KsContentPage.OnPageLoadListener f8916a;
 
         /* renamed from: b  reason: collision with root package name */
-        private final KsContentPage f8916b;
+        private final KsContentPage f8917b;
 
         a(KsContentPage.OnPageLoadListener onPageLoadListener, KsContentPage ksContentPage) {
-            this.f8915a = onPageLoadListener;
-            this.f8916b = ksContentPage;
+            this.f8916a = onPageLoadListener;
+            this.f8917b = ksContentPage;
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(int i, String str) {
-            if (this.f8915a != null) {
-                this.f8915a.onLoadError(this.f8916b);
+            if (this.f8916a != null) {
+                this.f8916a.onLoadError(this.f8917b);
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, int i) {
-            if (this.f8915a != null) {
-                this.f8915a.onLoadFinish(this.f8916b, i);
+            if (this.f8916a != null) {
+                this.f8916a.onLoadFinish(this.f8917b, i);
             }
         }
 
         @Override // com.kwad.sdk.contentalliance.home.a.d
         public void a(boolean z, boolean z2, int i, int i2) {
-            if (this.f8915a != null) {
-                this.f8915a.onLoadStart(this.f8916b, i2);
+            if (this.f8916a != null) {
+                this.f8916a.onLoadStart(this.f8917b, i2);
             }
         }
     }
@@ -67,42 +67,42 @@ public class f extends AbstractKsContentPage {
     public static class b implements KsContentPage.PageListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private final KsContentPage.PageListener f8917a;
+        private final KsContentPage.PageListener f8918a;
 
         b(KsContentPage.PageListener pageListener) {
-            this.f8917a = pageListener;
+            this.f8918a = pageListener;
         }
 
         @Override // com.kwad.sdk.api.KsContentPage.PageListener
         public void onPageEnter(KsContentPage.ContentItem contentItem) {
-            if (this.f8917a == null) {
+            if (this.f8918a == null) {
                 return;
             }
-            this.f8917a.onPageEnter(contentItem);
+            this.f8918a.onPageEnter(contentItem);
         }
 
         @Override // com.kwad.sdk.api.KsContentPage.PageListener
         public void onPageLeave(KsContentPage.ContentItem contentItem) {
-            if (this.f8917a == null) {
+            if (this.f8918a == null) {
                 return;
             }
-            this.f8917a.onPageLeave(contentItem);
+            this.f8918a.onPageLeave(contentItem);
         }
 
         @Override // com.kwad.sdk.api.KsContentPage.PageListener
         public void onPagePause(KsContentPage.ContentItem contentItem) {
-            if (this.f8917a == null) {
+            if (this.f8918a == null) {
                 return;
             }
-            this.f8917a.onPagePause(contentItem);
+            this.f8918a.onPagePause(contentItem);
         }
 
         @Override // com.kwad.sdk.api.KsContentPage.PageListener
         public void onPageResume(KsContentPage.ContentItem contentItem) {
-            if (this.f8917a == null) {
+            if (this.f8918a == null) {
                 return;
             }
-            this.f8917a.onPageResume(contentItem);
+            this.f8918a.onPageResume(contentItem);
         }
     }
 
@@ -111,55 +111,55 @@ public class f extends AbstractKsContentPage {
     public static class c implements KsContentPage.VideoListener {
 
         /* renamed from: a  reason: collision with root package name */
-        private final KsContentPage.VideoListener f8918a;
+        private final KsContentPage.VideoListener f8919a;
 
         private c(KsContentPage.VideoListener videoListener) {
-            this.f8918a = videoListener;
+            this.f8919a = videoListener;
         }
 
         @Override // com.kwad.sdk.api.KsContentPage.VideoListener
         public void onVideoPlayCompleted(KsContentPage.ContentItem contentItem) {
-            if (this.f8918a == null) {
+            if (this.f8919a == null) {
                 return;
             }
-            this.f8918a.onVideoPlayCompleted(contentItem);
+            this.f8919a.onVideoPlayCompleted(contentItem);
         }
 
         @Override // com.kwad.sdk.api.KsContentPage.VideoListener
         public void onVideoPlayError(KsContentPage.ContentItem contentItem, int i, int i2) {
-            if (this.f8918a == null) {
+            if (this.f8919a == null) {
                 return;
             }
-            this.f8918a.onVideoPlayError(contentItem, i, i2);
+            this.f8919a.onVideoPlayError(contentItem, i, i2);
         }
 
         @Override // com.kwad.sdk.api.KsContentPage.VideoListener
         public void onVideoPlayPaused(KsContentPage.ContentItem contentItem) {
-            if (this.f8918a == null) {
+            if (this.f8919a == null) {
                 return;
             }
-            this.f8918a.onVideoPlayPaused(contentItem);
+            this.f8919a.onVideoPlayPaused(contentItem);
         }
 
         @Override // com.kwad.sdk.api.KsContentPage.VideoListener
         public void onVideoPlayResume(KsContentPage.ContentItem contentItem) {
-            if (this.f8918a == null) {
+            if (this.f8919a == null) {
                 return;
             }
-            this.f8918a.onVideoPlayResume(contentItem);
+            this.f8919a.onVideoPlayResume(contentItem);
         }
 
         @Override // com.kwad.sdk.api.KsContentPage.VideoListener
         public void onVideoPlayStart(KsContentPage.ContentItem contentItem) {
-            if (this.f8918a == null) {
+            if (this.f8919a == null) {
                 return;
             }
-            this.f8918a.onVideoPlayStart(contentItem);
+            this.f8919a.onVideoPlayStart(contentItem);
         }
     }
 
     public f(KsScene ksScene) {
-        this.f8913a = ksScene;
+        this.f8914a = ksScene;
     }
 
     private void a(@NonNull g gVar) {
@@ -182,7 +182,7 @@ public class f extends AbstractKsContentPage {
     @Override // com.kwad.sdk.api.KsContentPage
     public void addPageLoadListener(KsContentPage.OnPageLoadListener onPageLoadListener) {
         a aVar = new a(onPageLoadListener, this);
-        g gVar = this.f8914b != null ? this.f8914b.get() : null;
+        g gVar = this.f8915b != null ? this.f8915b.get() : null;
         if (gVar != null) {
             gVar.a(aVar);
         } else {
@@ -192,7 +192,7 @@ public class f extends AbstractKsContentPage {
 
     @Override // com.kwad.sdk.api.KsContentPage
     public void addSubItem(List<KsContentPage.SubShowItem> list) {
-        g gVar = this.f8914b != null ? this.f8914b.get() : null;
+        g gVar = this.f8915b != null ? this.f8915b.get() : null;
         if (gVar != null) {
             gVar.a(list);
         } else {
@@ -203,8 +203,8 @@ public class f extends AbstractKsContentPage {
     @Override // com.kwad.sdk.api.core.AbstractKsContentPage
     @NonNull
     public KsFragment getFragment2() {
-        g a2 = g.a(this.f8913a);
-        this.f8914b = new WeakReference<>(a2);
+        g a2 = g.a(this.f8914a);
+        this.f8915b = new WeakReference<>(a2);
         a(a2);
         if (!this.e.isEmpty()) {
             a2.a(this.e);
@@ -225,7 +225,7 @@ public class f extends AbstractKsContentPage {
     @Override // com.kwad.sdk.api.KsContentPage
     public int getSubCountInPage() {
         DevelopMangerPlugin.DevelopValue a2 = ((DevelopMangerPlugin) com.kwad.sdk.plugin.g.a(DevelopMangerPlugin.class)).a("KEY_SUBCOUNT");
-        return a2 != null ? ((Integer) a2.getValue()).intValue() : com.kwad.sdk.core.config.c.a(this.f8913a.getPosId());
+        return a2 != null ? ((Integer) a2.getValue()).intValue() : com.kwad.sdk.core.config.c.a(this.f8914a.getPosId());
     }
 
     @Override // com.kwad.sdk.api.KsContentPage
@@ -246,7 +246,7 @@ public class f extends AbstractKsContentPage {
     @Override // com.kwad.sdk.api.KsContentPage
     public void tryToRefresh() {
         g gVar;
-        if (this.f8914b == null || (gVar = this.f8914b.get()) == null) {
+        if (this.f8915b == null || (gVar = this.f8915b.get()) == null) {
             return;
         }
         gVar.a();

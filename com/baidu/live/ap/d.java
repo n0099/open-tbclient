@@ -44,10 +44,10 @@ public class d extends e implements f {
     }
 
     public void c(c cVar) {
-        int aaj;
         int aak;
+        int aal;
         int i;
-        int aai;
+        int aaj;
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && cVar != null) {
             this.bXi = cVar;
             View findViewById = ((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290);
@@ -67,22 +67,22 @@ public class d extends e implements f {
                     case 2:
                         this.bXh = 5;
                         if (cVar.isFullScreen) {
-                            aaj = aah();
+                            aak = aai();
                         } else {
-                            aaj = aaj();
+                            aak = aak();
                         }
-                        aak = aak();
+                        aal = aal();
                         this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
-                        i = aaj;
+                        i = aak;
                         break;
                     default:
                         this.bXh = 80;
-                        i = aah();
+                        i = aai();
                         if (cVar.isFullScreen) {
                             ah(this.byQ);
                             setClippingEnabled(false);
                             this.byQ.setSystemUiVisibility(4870);
-                            aak = -1;
+                            aal = -1;
                             break;
                         } else {
                             float f = 0.7f;
@@ -93,18 +93,18 @@ public class d extends e implements f {
                                 f = 0.1f;
                             }
                             if (f > 1.0f) {
-                                aai = (int) ((f * this.mContext.getResources().getDisplayMetrics().density) + 0.5f);
+                                aaj = (int) ((f * this.mContext.getResources().getDisplayMetrics().density) + 0.5f);
                             } else {
-                                aai = (int) (f * aai());
+                                aaj = (int) (f * aaj());
                             }
                             setClippingEnabled(true);
                             this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
-                            aak = aai;
+                            aal = aaj;
                             break;
                         }
                 }
                 setWidth(i);
-                setHeight(aak);
+                setHeight(aal);
                 showAtLocation(findViewById, 85, 0, 0);
                 if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
                     ah(this.byQ);
@@ -119,7 +119,7 @@ public class d extends e implements f {
     }
 
     public void d(c cVar) {
-        int aai;
+        int aaj;
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && cVar != null) {
             this.bXi = cVar;
             View findViewById = ((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290);
@@ -136,9 +136,9 @@ public class d extends e implements f {
                     });
                 }
                 this.bXh = 80;
-                int aah = aah();
+                int aai = aai();
                 if (cVar.isFullScreen) {
-                    aai = -1;
+                    aaj = -1;
                     ah(this.byQ);
                     setClippingEnabled(false);
                     this.byQ.setSystemUiVisibility(4870);
@@ -151,15 +151,15 @@ public class d extends e implements f {
                         f = 0.1f;
                     }
                     if (f > 1.0f) {
-                        aai = (int) ((f * this.mContext.getResources().getDisplayMetrics().density) + 0.5f);
+                        aaj = (int) ((f * this.mContext.getResources().getDisplayMetrics().density) + 0.5f);
                     } else {
-                        aai = (int) (f * aai());
+                        aaj = (int) (f * aaj());
                     }
                     setClippingEnabled(true);
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
                 }
-                setWidth(aah);
-                setHeight(aai);
+                setWidth(aai);
+                setHeight(aaj);
                 showAtLocation(findViewById, 85, 0, 0);
                 if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
                     ah(this.byQ);
@@ -174,32 +174,32 @@ public class d extends e implements f {
     }
 
     public void dU(int i) {
-        int aaj;
         int aak;
+        int aal;
         int i2;
-        int aai;
+        int aaj;
         if (((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290) != null) {
             switch (i) {
                 case 2:
                     this.bXh = 5;
                     if (this.bXi.isFullScreen) {
-                        aaj = aah();
+                        aak = aai();
                     } else {
-                        aaj = aaj();
+                        aak = aak();
                     }
-                    aak = aak();
+                    aal = aal();
                     this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
-                    i2 = aaj;
+                    i2 = aak;
                     break;
                 default:
                     this.bXh = 80;
-                    i2 = aah();
+                    i2 = aai();
                     if (this.bXi.isFullScreen) {
-                        int aai2 = aai();
+                        int aaj2 = aaj();
                         ah(this.byQ);
                         setClippingEnabled(false);
                         this.byQ.setSystemUiVisibility(4870);
-                        aak = aai2;
+                        aal = aaj2;
                         break;
                     } else {
                         float f = 0.7f;
@@ -210,31 +210,31 @@ public class d extends e implements f {
                             f = 0.1f;
                         }
                         if (f > 1.0f) {
-                            aai = (int) f;
+                            aaj = (int) f;
                         } else {
-                            aai = (int) (f * aai());
+                            aaj = (int) (f * aaj());
                         }
                         setClippingEnabled(true);
                         this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
-                        aak = aai;
+                        aal = aaj;
                         break;
                     }
             }
-            update(i2, aak);
+            update(i2, aal);
             if (i == 2) {
                 ah(this.byQ);
             }
         }
     }
 
-    public void aag() {
+    public void aah() {
         super.dismiss();
     }
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!aal() || this.bXi.url.contains("disableDisAnimation=1")) {
-            aag();
+        if (!aam() || this.bXi.url.contains("disableDisAnimation=1")) {
+            aah();
         }
     }
 
@@ -310,19 +310,19 @@ public class d extends e implements f {
         this.byS.setVisibility(8);
     }
 
-    private int aah() {
+    private int aai() {
         return ScreenHelper.getRealScreenWidth(this.mContext);
     }
 
-    private int aai() {
+    private int aaj() {
         return ScreenHelper.getRealScreenHeight(this.mContext);
     }
 
-    private int aaj() {
-        return aak();
+    private int aak() {
+        return aal();
     }
 
-    private int aak() {
+    private int aal() {
         return ScreenHelper.getRealScreenHeight(this.mContext);
     }
 
@@ -345,7 +345,7 @@ public class d extends e implements f {
         }
     }
 
-    private boolean aal() {
+    private boolean aam() {
         if (getContentView() == null) {
             return false;
         }
@@ -373,7 +373,7 @@ public class d extends e implements f {
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
                     d.this.bXj = false;
-                    d.this.aag();
+                    d.this.aah();
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener

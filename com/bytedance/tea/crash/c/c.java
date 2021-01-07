@@ -5,27 +5,27 @@ import org.json.JSONObject;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f7928a;
+    private String f7929a;
 
     /* renamed from: b  reason: collision with root package name */
-    private JSONObject f7929b;
+    private JSONObject f7930b;
     private String c;
     private boolean d;
 
     public String a() {
-        return this.f7928a;
+        return this.f7929a;
     }
 
     public void a(String str) {
-        this.f7928a = str;
+        this.f7929a = str;
     }
 
     public JSONObject b() {
-        return this.f7929b;
+        return this.f7930b;
     }
 
     public void a(JSONObject jSONObject) {
-        this.f7929b = jSONObject;
+        this.f7930b = jSONObject;
     }
 
     public void b(String str) {

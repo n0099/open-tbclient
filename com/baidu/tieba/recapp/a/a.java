@@ -30,23 +30,23 @@ public class a extends com.baidu.tbadk.b.a {
         if (hashMap != null && !hashMap.isEmpty() && hashMap.containsKey("url")) {
             String str2 = hashMap.get("url");
             if (!TextUtils.isEmpty(str2)) {
-                C0835a c0835a = new C0835a(str, str2, hashMap, eVar);
-                c0835a.setPriority(2);
-                c0835a.execute(new Object[0]);
+                C0868a c0868a = new C0868a(str, str2, hashMap, eVar);
+                c0868a.setPriority(2);
+                c0868a.execute(new Object[0]);
             }
         }
     }
 
     /* renamed from: com.baidu.tieba.recapp.a.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    private class C0835a extends BdAsyncTask<Object, Integer, h> {
+    private class C0868a extends BdAsyncTask<Object, Integer, h> {
         private String eJd;
         private HashMap<String, String> kWM;
         private e kWN;
         private volatile z mNetwork = null;
         private String postUrl;
 
-        public C0835a(String str, String str2, HashMap<String, String> hashMap, e eVar) {
+        public C0868a(String str, String str2, HashMap<String, String> hashMap, e eVar) {
             this.eJd = str;
             this.postUrl = str2;
             this.kWM = hashMap;
@@ -71,16 +71,16 @@ public class a extends com.baidu.tbadk.b.a {
                 }
                 this.mNetwork.addPostData("user_name", TbadkCoreApplication.getCurrentAccountName());
                 this.mNetwork.addPostData("user_id", TbadkCoreApplication.getCurrentAccount());
-                this.mNetwork.bvQ().bwz().mIsNeedTbs = true;
+                this.mNetwork.bvR().bwA().mIsNeedTbs = true;
                 String postNetData = this.mNetwork.postNetData();
-                if (!this.mNetwork.bvQ().bwA().isNetSuccess()) {
+                if (!this.mNetwork.bvR().bwB().isNetSuccess()) {
                     hVar.errorCode = this.mNetwork.getNetErrorCode();
                     hVar.errorString = this.mNetwork.getNetString();
                 } else {
                     hVar.errorCode = this.mNetwork.getServerErrorCode();
                     hVar.errorString = this.mNetwork.getErrorString();
                 }
-                if (this.mNetwork.bvQ().bwA().isRequestSuccess() && !TextUtils.isEmpty(postNetData)) {
+                if (this.mNetwork.bvR().bwB().isRequestSuccess() && !TextUtils.isEmpty(postNetData)) {
                     JSONObject jSONObject = new JSONObject(postNetData);
                     if (jSONObject.has("code")) {
                         if (jSONObject.optInt("code", -1) == 0) {

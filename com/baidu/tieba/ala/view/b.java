@@ -69,8 +69,8 @@ public class b implements View.OnClickListener {
         public void onItemClick(AdapterView<?> adapterView, View view, int i, long j) {
             com.baidu.tieba.ala.data.b item = ((com.baidu.tieba.ala.adapter.b) adapterView.getAdapter()).getItem(i);
             if (item != null) {
-                if (item.Xn() != 0) {
-                    if (b.this.ihR.Xl() == i) {
+                if (item.Xo() != 0) {
+                    if (b.this.ihR.Xm() == i) {
                         b.this.ihR.gA(-1);
                         b.this.ihR.notifyDataSetChanged();
                         b.this.bOC.setEnabled(false);
@@ -100,10 +100,10 @@ public class b implements View.OnClickListener {
         this.ihR.setData(list);
     }
 
-    public com.baidu.tieba.ala.data.b crX() {
-        if (this.ihR == null || this.ihR.Xl() < 0) {
+    public com.baidu.tieba.ala.data.b crY() {
+        if (this.ihR == null || this.ihR.Xm() < 0) {
             return null;
         }
-        return this.ihR.getItem(this.ihR.Xl());
+        return this.ihR.getItem(this.ihR.Xm());
     }
 }

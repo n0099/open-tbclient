@@ -51,7 +51,7 @@ public class h implements View.OnClickListener {
     private final com.baidu.adp.framework.listener.a iCG = new com.baidu.adp.framework.listener.a(1003010, CmdConfigSocket.CMD_GET_MY_POST) { // from class: com.baidu.tieba.c.h.1
         @Override // com.baidu.adp.framework.listener.a
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            h.this.cni();
+            h.this.cnj();
             if (responsedMessage instanceof GetMyPostHttpResponseMessage) {
                 GetMyPostHttpResponseMessage getMyPostHttpResponseMessage = (GetMyPostHttpResponseMessage) responsedMessage;
                 h.this.a(getMyPostHttpResponseMessage.getError(), getMyPostHttpResponseMessage.getResponseData());
@@ -96,7 +96,7 @@ public class h implements View.OnClickListener {
                 }
                 ao.setViewTextColor(this.iCA, R.color.CAM_X0302);
                 ao.setViewTextColor(this.iCB, R.color.CAM_X0302);
-                this.iCC.bxO();
+                this.iCC.bxP();
                 this.iCz.onChangeSkinType();
                 this.iCC.setOnClickListener(this);
                 this.iCy.setBackgroundColor(0);
@@ -113,7 +113,7 @@ public class h implements View.OnClickListener {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cni() {
+    public void cnj() {
         if (this.iCD != null) {
             this.iCD.setDialogVisiable(false);
         }
@@ -131,18 +131,18 @@ public class h implements View.OnClickListener {
             int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst());
             int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst());
             float f = this.mActivity.getResources().getDisplayMetrics().density;
-            int i = au.bwr().bws() ? 2 : 1;
+            int i = au.bws().bwt() ? 2 : 1;
             RequestGetMyPostNetMessage requestGetMyPostNetMessage = new RequestGetMyPostNetMessage();
             requestGetMyPostNetMessage.setTag(this.mPageContext.getUniqueId());
             requestGetMyPostNetMessage.setParams(this.threadId, this.postId, 0L, equipmentWidth, equipmentHeight, f, i);
             MessageManager.getInstance().sendMessage(requestGetMyPostNetMessage);
             showLoadingDialog();
             this.iCy.hideTip();
-            byc();
+            byd();
         }
     }
 
-    private void byc() {
+    private void byd() {
         aq aqVar = new aq(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
         aqVar.w("tid", this.threadId);
         aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
@@ -161,13 +161,13 @@ public class h implements View.OnClickListener {
         }
         this.aim = new bz();
         this.aim.a(getMyPostResIdl.data.thread_info);
-        bye();
+        byf();
     }
 
-    private void bye() {
+    private void byf() {
         if (this.aim != null && this.mActivity != null) {
             String valueOf = String.valueOf(this.aim.getFid());
-            String bru = this.aim.bru();
+            String brv = this.aim.brv();
             String title = this.aim.getTitle();
             if (TextUtils.isEmpty(title)) {
                 title = this.aim.getAbstract();
@@ -189,7 +189,7 @@ public class h implements View.OnClickListener {
             shareItem.extData = tid;
             shareItem.fxp = 3;
             shareItem.fid = valueOf;
-            shareItem.fName = bru;
+            shareItem.fName = brv;
             shareItem.tid = tid;
             shareItem.fxb = true;
             shareItem.fxo = getShareObjSource();
@@ -208,7 +208,7 @@ public class h implements View.OnClickListener {
             bundle.putString("tid", shareItem.tid);
             bundle.putInt("obj_source", shareItem.eWH);
             shareItem.ae(bundle);
-            f.cwe().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
+            f.cwf().b(new ShareDialogConfig((Context) this.mActivity, shareItem, true, true));
         }
     }
 
@@ -217,13 +217,13 @@ public class h implements View.OnClickListener {
     }
 
     private String getShareImageUrl(bz bzVar) {
-        if (bzVar == null || bzVar.brz() == null) {
+        if (bzVar == null || bzVar.brA() == null) {
             return null;
         }
-        ArrayList<MediaData> brz = bzVar.brz();
-        int size = brz.size();
+        ArrayList<MediaData> brA = bzVar.brA();
+        int size = brA.size();
         for (int i = 0; i < size; i++) {
-            MediaData mediaData = brz.get(i);
+            MediaData mediaData = brA.get(i);
             if (mediaData != null && mediaData.getType() == 3) {
                 if (!StringUtils.isNull(mediaData.getThumbnails_url())) {
                     return mediaData.getThumbnails_url();
@@ -238,13 +238,13 @@ public class h implements View.OnClickListener {
 
     private int getStateThreadType(bz bzVar) {
         if (bzVar != null) {
-            if (bzVar.brs()) {
+            if (bzVar.brt()) {
                 return 4;
             }
-            if (bzVar.brn() == 1) {
+            if (bzVar.bro() == 1) {
                 return 3;
             }
-            return bzVar.bsL() ? 2 : 1;
+            return bzVar.bsM() ? 2 : 1;
         }
         return 0;
     }

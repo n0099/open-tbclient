@@ -3,7 +3,7 @@ package com.baidu.swan.apps.console.debugger;
 import android.os.Bundle;
 /* loaded from: classes9.dex */
 public interface a {
-    String apm();
+    String apn();
 
     void n(Bundle bundle);
 

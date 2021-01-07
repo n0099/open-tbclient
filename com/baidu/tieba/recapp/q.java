@@ -22,17 +22,17 @@ public interface q {
 
     void a(boolean z, String str, String str2, String str3, String str4, List<a.b> list, String str5);
 
-    l dEP();
+    l dEQ();
 
-    n dEQ();
+    n dER();
 
-    com.baidu.tieba.r.a dER();
+    com.baidu.tieba.r.a dES();
 
-    i dES();
+    i dET();
 
-    List<AppData> dET();
+    List<AppData> dEU();
 
-    void dEU();
+    void dEV();
 
     void sendFRS(boolean z, String str, String str2, String str3, List<a.b> list, String str4);
 }

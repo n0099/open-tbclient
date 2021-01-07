@@ -42,7 +42,7 @@ public class b extends aa {
         if (DEBUG) {
             Log.d("AudioPlayerAction", "handleSubAction subAction: " + str);
         }
-        if (eVar.ank()) {
+        if (eVar.anl()) {
             if (DEBUG) {
                 Log.d("AudioPlayerAction", "AudioPlayerAction does not supported when app is invisible.");
             }
@@ -96,7 +96,7 @@ public class b extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            com.baidu.swan.apps.media.audio.b a2 = com.baidu.swan.apps.media.audio.b.a(qn, qo.aEf());
+            com.baidu.swan.apps.media.audio.b a2 = com.baidu.swan.apps.media.audio.b.a(qn, qo.aEg());
             if (!a2.isValid()) {
                 c.e("audio", "params is invalid");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
@@ -199,7 +199,7 @@ public class b extends aa {
 
     private void a(Context context, final SwanAppAudioPlayer swanAppAudioPlayer, final com.baidu.swan.apps.media.audio.b bVar) {
         if (TextUtils.isEmpty(bVar.mUrl) && com.baidu.swan.apps.storage.b.tW(bVar.mUrl) == PathType.CLOUD) {
-            com.baidu.swan.apps.t.a.aAK().a(context, bVar.mUrl, new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.apps.media.audio.a.b.1
+            com.baidu.swan.apps.t.a.aAL().a(context, bVar.mUrl, new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.apps.media.audio.a.b.1
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: onCallback */
@@ -219,9 +219,9 @@ public class b extends aa {
     }
 
     private void a(Context context, final CallbackHandler callbackHandler, final SwanAppAudioPlayer swanAppAudioPlayer, final com.baidu.swan.apps.media.audio.b bVar) {
-        q aAK = com.baidu.swan.apps.t.a.aAK();
-        if (aAK != null && com.baidu.swan.apps.storage.b.tW(bVar.mUrl) == PathType.CLOUD) {
-            aAK.a(context, bVar.mUrl, new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.apps.media.audio.a.b.2
+        q aAL = com.baidu.swan.apps.t.a.aAL();
+        if (aAL != null && com.baidu.swan.apps.storage.b.tW(bVar.mUrl) == PathType.CLOUD) {
+            aAL.a(context, bVar.mUrl, new com.baidu.swan.apps.ao.e.b<String>() { // from class: com.baidu.swan.apps.media.audio.a.b.2
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.swan.apps.ao.e.b
                 /* renamed from: onCallback */
@@ -248,7 +248,7 @@ public class b extends aa {
         if (!(qi instanceof SwanAppAudioPlayer)) {
             return null;
         }
-        return (SwanAppAudioPlayer) qi.aEa();
+        return (SwanAppAudioPlayer) qi.aEb();
     }
 
     private JSONObject qn(String str) {
@@ -272,7 +272,7 @@ public class b extends aa {
         }
         try {
             boolean optBoolean = jSONObject.optBoolean("mixWithOther", false);
-            eVar.aMC().a("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
+            eVar.aMD().a("key_audio_is_mix_with_other", Boolean.valueOf(optBoolean));
             if (DEBUG) {
                 Log.d("AudioPlayerAction", "Audio Mix Changed to " + optBoolean);
             }

@@ -41,7 +41,7 @@ public class c extends g {
     @CheckResult
     /* renamed from: c */
     public <ResourceType> b<ResourceType> a(@NonNull Class<ResourceType> cls) {
-        return new b<>(this.f10300a, this, cls, this.f10301b);
+        return new b<>(this.f10301a, this, cls, this.f10302b);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

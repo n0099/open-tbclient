@@ -3,11 +3,11 @@ package com.baidu.swan.game.ad.downloader.a;
 public class a {
     private com.baidu.swan.game.ad.downloader.c.a eaB;
 
-    public int aVd() {
+    public int aVe() {
         return 3;
     }
 
-    public com.baidu.swan.game.ad.downloader.c.a aVe() {
+    public com.baidu.swan.game.ad.downloader.c.a aVf() {
         return this.eaB;
     }
 }

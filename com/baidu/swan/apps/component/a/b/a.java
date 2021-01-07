@@ -72,19 +72,19 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
             String str = m.cNq;
             if (!TextUtils.isEmpty(str) && (mC = mC(str)) != null) {
                 c.i("Component-SimpleDrawee", "Image Uri:" + mC);
-                e b2 = com.facebook.drawee.a.a.c.euI().c(v.getController());
+                e b2 = com.facebook.drawee.a.a.c.euP().c(v.getController());
                 if (bVar != null) {
                     b2.c(bVar);
                 }
                 b2.Y(mC);
-                com.facebook.drawee.controller.a evv = b2.evz();
+                com.facebook.drawee.controller.a evC = b2.evG();
                 RoundingParams roundingParams = new RoundingParams();
                 roundingParams.bH(m.cNA);
-                com.facebook.drawee.generic.a ewj = new com.facebook.drawee.generic.b(v.getResources()).ewj();
-                ewj.a(roundingParams);
-                ewj.b(p.b.pxB);
-                v.setHierarchy(ewj);
-                v.setController(evv);
+                com.facebook.drawee.generic.a ewq = new com.facebook.drawee.generic.b(v.getResources()).ewq();
+                ewq.a(roundingParams);
+                ewq.b(p.b.pxI);
+                v.setHierarchy(ewq);
+                v.setController(evC);
             }
         }
     }
@@ -93,10 +93,10 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
         String str2;
         String str3;
         PathType tW = com.baidu.swan.apps.storage.b.tW(str);
-        com.baidu.swan.apps.runtime.e aMk = com.baidu.swan.apps.runtime.e.aMk();
-        if (aMk != null) {
-            str3 = aMk.id;
-            str2 = aMk.getVersion();
+        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
+        if (aMl != null) {
+            str3 = aMl.id;
+            str2 = aMl.getVersion();
         } else {
             str2 = null;
             str3 = null;
@@ -116,7 +116,7 @@ public abstract class a<V extends SimpleDraweeView, M extends b> extends com.bai
                 if (file.exists()) {
                     return Uri.fromFile(file);
                 }
-                String a2 = com.baidu.swan.apps.storage.b.a(str, aMk, str2);
+                String a2 = com.baidu.swan.apps.storage.b.a(str, aMl, str2);
                 if (TextUtils.isEmpty(a2)) {
                     return null;
                 }

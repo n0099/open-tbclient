@@ -20,27 +20,27 @@ import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile int f3237a = 0;
+    private static volatile int f3238a = 0;
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f3238b;
+    private static String f3239b;
     private static String c;
     private static boolean d;
 
     public static void a(int i, Map<String, String> map) {
-        int b2 = e.adA().b(i);
-        if ((f3237a & b2) == b2) {
+        int b2 = e.adB().b(i);
+        if ((f3238a & b2) == b2) {
             return;
         }
-        for (int i2 = (f3237a ^ b2) & b2; i2 > 0 && d(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (f3237a ^ b2) & b2) {
+        for (int i2 = (f3238a ^ b2) & b2; i2 > 0 && d(1 << Integer.numberOfTrailingZeros(i2), map); i2 = (f3238a ^ b2) & b2) {
         }
-        e.adA().d();
+        e.adB().d();
     }
 
     public static void a(Context context, String str) {
         c = str;
         d = Utils.e(context);
-        e.adA().a(context, str);
+        e.adB().a(context, str);
     }
 
     private static void a(Context context, Map<String, String> map) {
@@ -76,8 +76,8 @@ public class b {
     }
 
     public static boolean a(int i) {
-        int b2 = e.adA().b(i);
-        return (f3237a & b2) == b2;
+        int b2 = e.adB().b(i);
+        return (f3238a & b2) == b2;
     }
 
     private static boolean a(int i, String str) {
@@ -99,11 +99,11 @@ public class b {
     }
 
     public static String[] a() {
-        return e.adA().b();
+        return e.adB().b();
     }
 
     public static String b() {
-        return f3238b;
+        return f3239b;
     }
 
     public static String c() {
@@ -149,8 +149,8 @@ public class b {
                 }
                 try {
                     try {
-                        File file = new File(e.adA().ha(1).c());
-                        File file2 = new File(e.adA().ha(2).c());
+                        File file = new File(e.adB().ha(1).c());
+                        File file2 = new File(e.adB().ha(2).c());
                         String parent = file.getParent();
                         String parent2 = file2.getParent();
                         try {
@@ -210,7 +210,7 @@ public class b {
 
     private static boolean d(int i, Map<String, String> map) {
         boolean a2;
-        d ha = e.adA().ha(i);
+        d ha = e.adB().ha(i);
         if (ha == null) {
             CyberLog.e("CyberLibsLoader", "Unable to find (" + i + ") LibInfo");
             return false;
@@ -219,46 +219,46 @@ public class b {
         String b2 = ha.b();
         String c2 = ha.c();
         File file = new File(c2);
-        if (ha.adz() == d.a.LIB_TYPE_JAR) {
+        if (ha.adA() == d.a.LIB_TYPE_JAR) {
             if (!"apk_internal_jar".equals(c2)) {
                 if (!file.exists()) {
-                    throw new FileNotFoundException(e.adA().c(i));
+                    throw new FileNotFoundException(e.adB().c(i));
                 }
-                if (e.adA().h(i)) {
+                if (e.adB().h(i)) {
                     a2 = CyberMediaExtLoader.init(CyberPlayerManager.getApplicationContext());
                 }
             }
             a2 = true;
         } else {
-            if (ha.adz() == d.a.LIB_TYPE_SO) {
+            if (ha.adA() == d.a.LIB_TYPE_SO) {
                 if (!file.exists()) {
                     if (i == 8) {
                         i = 16;
                     }
-                    throw new FileNotFoundException(e.adA().c(i));
-                } else if (e.adA().d(i)) {
+                    throw new FileNotFoundException(e.adB().c(i));
+                } else if (e.adB().d(i)) {
                     System.load(c2);
                     if (i == 16) {
                         a(CyberPlayerManager.getApplicationContext(), map);
                         a2 = true;
                     }
-                } else if (e.adA().e(i)) {
+                } else if (e.adB().e(i)) {
                     IjkMediaPlayer.nativeSetEnableFFmpegExtend(c2);
                     a2 = true;
-                } else if (e.adA().f(i)) {
-                    f3238b = c2;
+                } else if (e.adB().f(i)) {
+                    f3239b = c2;
                     a2 = true;
-                } else if (e.adA().i(i)) {
+                } else if (e.adB().i(i)) {
                     a2 = c(i, map);
-                } else if (e.adA().g(i)) {
+                } else if (e.adB().g(i)) {
                     a2 = a(i, c2);
                 }
             }
             a2 = true;
         }
-        f3237a |= i;
+        f3238a |= i;
         if (a2) {
-            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.adA().c() + " lib:" + a3 + " ver:" + b2 + " load success");
+            CyberLog.d("CyberLibsLoader", "isMediaProcess:" + d + " abi:" + e.adB().c() + " lib:" + a3 + " ver:" + b2 + " load success");
             return true;
         }
         return true;

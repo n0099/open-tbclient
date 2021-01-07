@@ -8,7 +8,7 @@ import android.content.pm.ResolveInfo;
 import android.text.TextUtils;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class f extends com.vivo.push.v {
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(com.vivo.push.y yVar) {
@@ -75,17 +75,17 @@ public final class f extends com.vivo.push.v {
 
     @Override // com.vivo.push.v
     protected final void a(com.vivo.push.y yVar) {
-        if (!this.f14008a.getPackageName().equals(com.vivo.push.util.s.b(this.f14008a))) {
+        if (!this.f14009a.getPackageName().equals(com.vivo.push.util.s.b(this.f14009a))) {
             com.vivo.push.b.l lVar = (com.vivo.push.b.l) yVar;
             int d = lVar.d();
             int e = lVar.e();
             com.vivo.push.util.p.d("OnChangePushStatusTask", "OnChangePushStatusTask serviceStatus is " + d + " ; receiverStatus is " + e);
             if (d == 2) {
-                b(this.f14008a);
+                b(this.f14009a);
             } else if (d == 1) {
-                a(this.f14008a);
+                a(this.f14009a);
             } else if (d == 0) {
-                Context context = this.f14008a;
+                Context context = this.f14009a;
                 Intent intent = new Intent("com.vivo.pushservice.action.PUSH_SERVICE");
                 intent.setPackage(context.getPackageName());
                 List<ResolveInfo> queryIntentServices = context.getPackageManager().queryIntentServices(intent, 576);
@@ -103,7 +103,7 @@ public final class f extends com.vivo.push.v {
                 }
             }
             if (e == 2) {
-                Context context2 = this.f14008a;
+                Context context2 = this.f14009a;
                 List<ResolveInfo> c = c(context2);
                 if (c == null || c.size() <= 0) {
                     com.vivo.push.util.p.a("OnChangePushStatusTask", "disableReceiver error: can not find push service.");
@@ -124,7 +124,7 @@ public final class f extends com.vivo.push.v {
                 }
                 com.vivo.push.sdk.a.a().b();
             } else if (e == 1) {
-                Context context3 = this.f14008a;
+                Context context3 = this.f14009a;
                 List<ResolveInfo> c2 = c(context3);
                 if (c2 == null || c2.size() <= 0) {
                     com.vivo.push.util.p.a("OnChangePushStatusTask", "enableReceiver error: can not find push service.");
@@ -144,7 +144,7 @@ public final class f extends com.vivo.push.v {
                 }
                 com.vivo.push.util.p.d("OnChangePushStatusTask", "push service has enableReceiver ");
             } else if (e == 0) {
-                Context context4 = this.f14008a;
+                Context context4 = this.f14009a;
                 List<ResolveInfo> c3 = c(context4);
                 if (c3 == null || c3.size() <= 0) {
                     com.vivo.push.util.p.a("OnChangePushStatusTask", "defaultReceiver error: can not find push service.");

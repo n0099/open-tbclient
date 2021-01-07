@@ -45,9 +45,9 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c, com.baidu.tieba.card.b
     public void a(bz bzVar) {
         if (bzVar != null) {
-            if (x.getCount(bzVar.brz()) > 1) {
+            if (x.getCount(bzVar.brA()) > 1) {
                 ArrayList<MediaData> arrayList = new ArrayList<>();
-                arrayList.add(bzVar.brz().get(0));
+                arrayList.add(bzVar.brA().get(0));
                 bzVar.G(arrayList);
             }
             super.a(bzVar);
@@ -55,15 +55,15 @@ public class d extends c {
                 @Override // com.baidu.tbadk.widget.layout.d
                 public void c(View view, int i, boolean z) {
                     if (d.this.aim != null && d.this.KE()) {
-                        be.bwu().b(d.this.mTbPageContext, new String[]{d.this.aim.getActUrl()});
+                        be.bwv().b(d.this.mTbPageContext, new String[]{d.this.aim.getActUrl()});
                     }
                 }
             });
-            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) x.getItem(bzVar.brA(), 0);
+            com.baidu.tbadk.core.data.b bVar = (com.baidu.tbadk.core.data.b) x.getItem(bzVar.brB(), 0);
             if (bVar != null) {
                 SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy.MM.dd");
-                this.jso.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.bpa()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.bpb())))));
-                this.jsp.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(bVar.bpc())));
+                this.jso.setText(StringUtils.string(getContext().getResources().getString(R.string.lottery_time), "  ", simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.bpb()))), Constants.ACCEPT_TIME_SEPARATOR_SERVER, simpleDateFormat.format(new Date(TimeUnit.SECONDS.toMillis(bVar.bpc())))));
+                this.jsp.setText(String.format(getContext().getResources().getString(R.string.lottery_join_num), String.valueOf(bVar.bpd())));
                 this.jsq.setText(R.string.lottery_btn_text);
                 this.hnz.setCommentNumEnable(false);
             }
@@ -73,7 +73,7 @@ public class d extends c {
     @Override // com.baidu.tieba.frs.entelechy.view.c
     protected void pp(boolean z) {
         if (this.aim != null && KE()) {
-            be.bwu().b(this.mTbPageContext, new String[]{this.aim.getActUrl()});
+            be.bwv().b(this.mTbPageContext, new String[]{this.aim.getActUrl()});
         }
     }
 

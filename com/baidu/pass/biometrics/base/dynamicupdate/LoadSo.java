@@ -13,10 +13,10 @@ import java.util.Map;
 public class LoadSo {
 
     /* renamed from: a  reason: collision with root package name */
-    static final String f3979a = "3.0.0";
+    static final String f3980a = "3.0.0";
 
     /* renamed from: b  reason: collision with root package name */
-    static final String[] f3980b = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
+    static final String[] f3981b = {"bd_idl_pass_token", "idl_license", "FaceSDK"};
     private Context c;
     private StatService d;
     private Bundle e;
@@ -26,10 +26,10 @@ public class LoadSo {
     public class StatService {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f3981a = "sapi_bio_dynamic_load_so";
+        private static final String f3982a = "sapi_bio_dynamic_load_so";
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f3982b = "host_version";
+        private static final String f3983b = "host_version";
         private static final String c = "zip_version";
         private static final String d = "modle_name";
         private static final String e = "load_default_so";
@@ -84,7 +84,7 @@ public class LoadSo {
 
         /* JADX INFO: Access modifiers changed from: private */
         public void b() {
-            com.baidu.pass.biometrics.base.utils.StatService.onEvent(LoadSo.this.c, f3981a, a());
+            com.baidu.pass.biometrics.base.utils.StatService.onEvent(LoadSo.this.c, f3982a, a());
         }
     }
 
@@ -127,7 +127,7 @@ public class LoadSo {
     }
 
     private void a() {
-        for (String str : f3980b) {
+        for (String str : f3981b) {
             System.loadLibrary(str);
         }
         this.d.s = true;
@@ -137,7 +137,7 @@ public class LoadSo {
         String[] strArr;
         boolean z = true;
         try {
-            int length = f3980b.length;
+            int length = f3981b.length;
             for (int i = 0; i < length; i++) {
                 System.load(LocalConfigOptions.getLoadSoPath(this.c) + "/lib" + strArr[i] + PluginInstallerService.APK_LIB_SUFFIX);
             }

@@ -31,18 +31,18 @@ public class OfficialFeedItemBottom extends LinearLayout {
         LayoutInflater.from(this.mContext).inflate(R.layout.official_feed_item_bottom, (ViewGroup) this, true);
         this.kAk = (TextView) findViewById(R.id.message_no_image_title);
         this.kAl = (TextView) findViewById(R.id.message_info);
-        cWY();
+        cWZ();
     }
 
-    public void cWY() {
+    public void cWZ() {
         ao.setViewTextColor(this.kAl, R.color.CAM_X0107);
         ao.setViewTextColor(this.kAk, R.color.CAM_X0105);
     }
 
-    public void setData(a.C0766a c0766a, boolean z) {
-        int i = TextUtils.isEmpty(c0766a.text) ? 8 : 0;
-        this.kAk.setText(c0766a.title);
-        this.kAl.setText(c0766a.text);
+    public void setData(a.C0775a c0775a, boolean z) {
+        int i = TextUtils.isEmpty(c0775a.text) ? 8 : 0;
+        this.kAk.setText(c0775a.title);
+        this.kAl.setText(c0775a.text);
         this.kAl.setVisibility(i);
         if (z) {
             this.kAk.setVisibility(8);

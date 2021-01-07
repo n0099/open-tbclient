@@ -2,14 +2,14 @@ package com.qq.e.comm.constants;
 
 import java.util.Map;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class LoadAdParams {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11839a;
+    private int f11840a;
 
     /* renamed from: b  reason: collision with root package name */
-    private LoginType f11840b;
+    private LoginType f11841b;
     private String c;
     private String d;
     private String e;
@@ -28,7 +28,7 @@ public class LoadAdParams {
     }
 
     public int getFlowSourceId() {
-        return this.f11839a;
+        return this.f11840a;
     }
 
     public String getLoginAppId() {
@@ -40,7 +40,7 @@ public class LoadAdParams {
     }
 
     public LoginType getLoginType() {
-        return this.f11840b;
+        return this.f11841b;
     }
 
     public Map getPassThroughInfo() {
@@ -80,7 +80,7 @@ public class LoadAdParams {
     }
 
     public void setFlowSourceId(int i) {
-        this.f11839a = i;
+        this.f11840a = i;
     }
 
     public void setHotStart(boolean z) {
@@ -96,7 +96,7 @@ public class LoadAdParams {
     }
 
     public void setLoginType(LoginType loginType) {
-        this.f11840b = loginType;
+        this.f11841b = loginType;
     }
 
     public void setPassThroughInfo(Map map) {
@@ -112,6 +112,6 @@ public class LoadAdParams {
     }
 
     public String toString() {
-        return "LoadAdParams{flowSourceId=" + this.f11839a + ", loginType=" + this.f11840b + ", loginAppId=" + this.c + ", loginOpenid=" + this.d + ", uin=" + this.e + ", blockEffect=" + this.f + ", passThroughInfo=" + this.h + ", extraInfo=" + this.j + '}';
+        return "LoadAdParams{flowSourceId=" + this.f11840a + ", loginType=" + this.f11841b + ", loginAppId=" + this.c + ", loginOpenid=" + this.d + ", uin=" + this.e + ", blockEffect=" + this.f + ", passThroughInfo=" + this.h + ", extraInfo=" + this.j + '}';
     }
 }

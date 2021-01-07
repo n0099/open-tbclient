@@ -106,7 +106,7 @@ public class SusPendedView extends LinearLayout {
         switch (motionEvent.getAction()) {
             case 0:
                 this.bHV = motionEvent.getRawY();
-                if (bIg()) {
+                if (bIh()) {
                     this.bHX = motionEvent.getRawY();
                     z = false;
                     break;
@@ -117,8 +117,8 @@ public class SusPendedView extends LinearLayout {
                 }
             case 1:
             case 3:
-                z = this.bHV > this.bHX && bIg();
-                this.mIsFinish = this.bHV - this.bHX > ((float) this.fOi) && bIg();
+                z = this.bHV > this.bHX && bIh();
+                this.mIsFinish = this.bHV - this.bHX > ((float) this.fOi) && bIh();
                 if (this.mIsFinish) {
                     this.fOg.setIntValues((int) (this.bHV - this.bHX), l.getEquipmentHeight(getContext()));
                     this.fOg.start();
@@ -133,7 +133,7 @@ public class SusPendedView extends LinearLayout {
                 break;
             case 2:
                 this.bHV = motionEvent.getRawY();
-                if (this.bHX == 0.0f && bIg()) {
+                if (this.bHX == 0.0f && bIh()) {
                     this.bHX = motionEvent.getRawY();
                 }
                 this.mRatio = 1.0f - ((this.bHV - this.bHX) / l.getEquipmentHeight(getContext()));
@@ -143,7 +143,7 @@ public class SusPendedView extends LinearLayout {
                 z = false;
                 break;
         }
-        if (this.bHV > this.bHX && bIg()) {
+        if (this.bHV > this.bHX && bIh()) {
             this.fAF = true;
             requestLayout();
             return true;
@@ -176,11 +176,11 @@ public class SusPendedView extends LinearLayout {
         this.fOf = aVar;
     }
 
-    public boolean bIg() {
+    public boolean bIh() {
         if (this.fOf == null) {
             return false;
         }
-        return this.fOf.bIg();
+        return this.fOf.bIh();
     }
 
     public void setTranView(TranView tranView) {

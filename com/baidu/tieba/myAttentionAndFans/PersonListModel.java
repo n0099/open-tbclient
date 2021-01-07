@@ -151,11 +151,11 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         this.bmX = z;
     }
 
-    public boolean cbk() {
+    public boolean cbl() {
         return this.bmX;
     }
 
-    public void bUn() {
+    public void bUo() {
         String str;
         MessageManager messageManager = MessageManager.getInstance();
         if (this.bmX) {
@@ -172,14 +172,14 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
     public void loadData(int i) {
         this.hlx = i;
         this.cea = 0;
-        cbl();
+        cbm();
     }
 
     public int getLoadType() {
         return this.hlx;
     }
 
-    public void cbl() {
+    public void cbm() {
         HttpMessage httpMessage = new HttpMessage(1002004);
         HashMap hashMap = new HashMap();
         if (this.bmX) {
@@ -217,7 +217,7 @@ public class PersonListModel extends BdBaseModel<PersonListActivity> {
         return false;
     }
 
-    public void Pd(String str) {
+    public void Pc(String str) {
         new b(str).execute(new Void[0]);
     }
 

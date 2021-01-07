@@ -30,7 +30,7 @@ public class a extends d {
         if (DEBUG) {
             Log.d("Api-Base", "handle: " + str);
         }
-        if (ank()) {
+        if (anl()) {
             c.e("Api-Base", "Api-Base does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-Base does not supported when app is invisible.");
         }
@@ -45,7 +45,7 @@ public class a extends d {
         }
         JSONObject jSONObject = (JSONObject) bo.second;
         String optString = jSONObject.optString("filePath");
-        String cE = com.baidu.swan.apps.storage.b.cE(optString, e.aMm());
+        String cE = com.baidu.swan.apps.storage.b.cE(optString, e.aMn());
         if (TextUtils.isEmpty(optString) || com.baidu.swan.apps.storage.b.tW(optString) != PathType.BD_FILE || TextUtils.isEmpty(cE)) {
             c.e("Api-Base", "a valid filePath is required");
             return new com.baidu.swan.apps.api.c.b(202, "a valid filePath is required");
@@ -60,15 +60,15 @@ public class a extends d {
             c.e("Api-Base", "file not exists");
             return new com.baidu.swan.apps.api.c.b(1001, "file not exists");
         }
-        SwanAppActivity aDq = f.aDG().aDq();
-        if (aDq == null) {
+        SwanAppActivity aDr = f.aDH().aDr();
+        if (aDr == null) {
             c.e("Api-Base", "activity null");
             return new com.baidu.swan.apps.api.c.b(1001, "activity null");
         }
-        ActivityResultDispatcher resultDispatcher = aDq.getResultDispatcher();
+        ActivityResultDispatcher resultDispatcher = aDr.getResultDispatcher();
         Intent intent = new Intent();
         if (com.baidu.swan.apps.ao.c.hasNougat()) {
-            fromFile = FileProvider.getUriForFile(aDq, aDq.getPackageName() + ".swan.fileprovider", file);
+            fromFile = FileProvider.getUriForFile(aDr, aDr.getPackageName() + ".swan.fileprovider", file);
             intent.setFlags(3);
         } else {
             fromFile = Uri.fromFile(file);

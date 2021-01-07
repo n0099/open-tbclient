@@ -16,7 +16,7 @@ public class d {
         HashMap hashMap = new HashMap();
         hashMap.put("Content-Type", "application/octet-stream");
         hashMap.put("Bdtls", "Bdtls");
-        com.baidu.swan.a.c.a.bfE().postByteRequest().url("https://mbd.baidu.com/bdtls").cookieManager(com.baidu.swan.apps.t.a.aAQ().alT()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<byte[]>() { // from class: com.baidu.swan.games.bdtls.b.d.1
+        com.baidu.swan.a.c.a.bfF().postByteRequest().url("https://mbd.baidu.com/bdtls").cookieManager(com.baidu.swan.apps.t.a.aAR().alU()).headers(hashMap).content(bArr).build().executeAsync(new ResponseCallback<byte[]>() { // from class: com.baidu.swan.games.bdtls.b.d.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.searchbox.http.callback.ResponseCallback
             public byte[] parseResponse(Response response, int i) throws Exception {

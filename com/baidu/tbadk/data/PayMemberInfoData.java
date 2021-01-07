@@ -32,11 +32,11 @@ public class PayMemberInfoData extends OrmObject {
         }
     }
 
-    public int bEa() {
+    public int bEb() {
         return this.props_id;
     }
 
-    public int bpb() {
+    public int bpc() {
         return this.aUT;
     }
 
@@ -44,11 +44,11 @@ public class PayMemberInfoData extends OrmObject {
         return this.url;
     }
 
-    public String bEb() {
+    public String bEc() {
         return this.expire_remind;
     }
 
-    public void Dy(String str) {
+    public void Dx(String str) {
         this.expire_remind = str;
     }
 }

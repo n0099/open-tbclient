@@ -10,7 +10,7 @@ import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
 /* loaded from: classes8.dex */
 public class d extends com.baidu.tieba.adapter.a<f, PersonInfoUserPicsHolder> {
     private TbPageContext mPageContext;
-    private View.OnClickListener mnK;
+    private View.OnClickListener mnJ;
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         super(tbPageContext.getPageActivity(), bdUniqueId);
@@ -23,7 +23,7 @@ public class d extends com.baidu.tieba.adapter.a<f, PersonInfoUserPicsHolder> {
     /* renamed from: cP */
     public PersonInfoUserPicsHolder e(ViewGroup viewGroup) {
         PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.mContext).inflate(R.layout.person_info_user_pics_layout, viewGroup, false), this.mPageContext);
-        personInfoUserPicsHolder.mol.setItemOnclickListener(this.mnK);
+        personInfoUserPicsHolder.mok.setItemOnclickListener(this.mnJ);
         return personInfoUserPicsHolder;
     }
 
@@ -32,7 +32,7 @@ public class d extends com.baidu.tieba.adapter.a<f, PersonInfoUserPicsHolder> {
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, f fVar, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
         if (fVar != null && personInfoUserPicsHolder != null) {
-            personInfoUserPicsHolder.dxY();
+            personInfoUserPicsHolder.dxZ();
             personInfoUserPicsHolder.a(fVar);
         }
         return view;

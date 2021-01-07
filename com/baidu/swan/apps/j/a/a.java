@@ -28,7 +28,7 @@ public class a extends aa {
         if (context == null || callbackHandler == null || eVar == null) {
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
-        } else if (eVar.ank()) {
+        } else if (eVar.anl()) {
             if (DEBUG) {
                 Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
             }
@@ -122,20 +122,20 @@ public class a extends aa {
 
     private ArrayList<ContentValues> a(com.baidu.swan.apps.j.a aVar) {
         ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-        arrayList.add(aVar.aqm());
         arrayList.add(aVar.aqn());
         arrayList.add(aVar.aqo());
         arrayList.add(aVar.aqp());
         arrayList.add(aVar.aqq());
         arrayList.add(aVar.aqr());
-        arrayList.add(aVar.aqk());
         arrayList.add(aVar.aqs());
-        arrayList.add(aVar.aqu());
         arrayList.add(aVar.aql());
         arrayList.add(aVar.aqt());
         arrayList.add(aVar.aqv());
+        arrayList.add(aVar.aqm());
+        arrayList.add(aVar.aqu());
         arrayList.add(aVar.aqw());
         arrayList.add(aVar.aqx());
+        arrayList.add(aVar.aqy());
         return arrayList;
     }
 }

@@ -2,24 +2,24 @@ package com.baidu.platform.comapi.walknavi.g.c;
 
 import com.baidu.mapapi.walknavi.adapter.IWNPCLoadAndInitListener;
 import com.baidu.platform.comapi.walknavi.g.c.c;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 class p implements c.d {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ o f4534a;
+    final /* synthetic */ o f4535a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public p(o oVar) {
-        this.f4534a = oVar;
+        this.f4535a = oVar;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.g.c.c.d
     public void a() {
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener;
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener2;
-        iWNPCLoadAndInitListener = this.f4534a.f4533a.Y;
+        iWNPCLoadAndInitListener = this.f4535a.f4534a.Y;
         if (iWNPCLoadAndInitListener != null) {
-            iWNPCLoadAndInitListener2 = this.f4534a.f4533a.Y;
+            iWNPCLoadAndInitListener2 = this.f4535a.f4534a.Y;
             iWNPCLoadAndInitListener2.onSuccess();
         }
     }
@@ -28,13 +28,13 @@ class p implements c.d {
     public void b() {
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener;
         IWNPCLoadAndInitListener iWNPCLoadAndInitListener2;
-        iWNPCLoadAndInitListener = this.f4534a.f4533a.Y;
+        iWNPCLoadAndInitListener = this.f4535a.f4534a.Y;
         if (iWNPCLoadAndInitListener != null) {
             com.baidu.platform.comapi.walknavi.d.e.c().a("");
-            this.f4534a.f4533a.b(true);
+            this.f4535a.f4534a.b(true);
             com.baidu.platform.comapi.walknavi.b.a().G().a(0, 0);
-            this.f4534a.f4533a.s();
-            iWNPCLoadAndInitListener2 = this.f4534a.f4533a.Y;
+            this.f4535a.f4534a.s();
+            iWNPCLoadAndInitListener2 = this.f4535a.f4534a.Y;
             iWNPCLoadAndInitListener2.onFail();
         }
     }

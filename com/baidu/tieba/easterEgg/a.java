@@ -44,7 +44,7 @@ public class a {
             @Override // java.lang.Runnable
             public void run() {
                 a.this.handler.removeCallbacksAndMessages(null);
-                a.this.cwW();
+                a.this.cwX();
             }
         };
         this.iEh = new com.baidu.tieba.tbadkCore.e.a();
@@ -52,7 +52,7 @@ public class a {
         this.iEi = new ActivityLifeCycleListener();
     }
 
-    public static a cwV() {
+    public static a cwW() {
         return C0719a.iEl;
     }
 
@@ -82,7 +82,7 @@ public class a {
         }
     }
 
-    public void JC(final String str) {
+    public void JB(final String str) {
         Activity currentActivity;
         if (!at.isEmpty(str) && (currentActivity = com.baidu.adp.base.b.kC().currentActivity()) != null && currentActivity.getWindow() != null && currentActivity.getWindow().getDecorView() != null) {
             if (ar(currentActivity)) {
@@ -90,9 +90,9 @@ public class a {
                     @Override // java.lang.Runnable
                     public void run() {
                         try {
-                            a.this.JC(str);
+                            a.this.JB(str);
                         } catch (Throwable th) {
-                            a.this.cwW();
+                            a.this.cwX();
                         }
                     }
                 }, 1000L);
@@ -100,7 +100,7 @@ public class a {
             }
             if (this.iEg != null && this.iEg.isShowing()) {
                 if (this.iEg.getContentView() == null || this.iEg.getContentView().getContext() != currentActivity) {
-                    cwW();
+                    cwX();
                 } else {
                     return;
                 }
@@ -119,7 +119,7 @@ public class a {
                 @Override // com.baidu.tbadk.coreExtra.view.BaseWebView.f
                 public void onReceivedError(WebView webView, int i, String str2, String str3) {
                     a.this.handler.removeCallbacksAndMessages(null);
-                    a.this.cwW();
+                    a.this.cwX();
                 }
             });
             this.mWebView.setBackgroundColor(0);
@@ -139,7 +139,7 @@ public class a {
                             try {
                                 a.this.eP(str, str2);
                             } catch (Throwable th) {
-                                a.this.cwW();
+                                a.this.cwX();
                             }
                         }
                     }, 1000L);
@@ -157,11 +157,11 @@ public class a {
                     public void onClick(View view) {
                         if (!at.isEmpty(str2) && (view.getContext() instanceof TbPageContextSupport)) {
                             TiebaStatic.log(new aq("c13451").an("obj_type", 1));
-                            be.bwu().b(((TbPageContextSupport) view.getContext()).getPageContext(), new String[]{str2});
+                            be.bwv().b(((TbPageContextSupport) view.getContext()).getPageContext(), new String[]{str2});
                             return;
                         }
                         TiebaStatic.log(new aq("c13451").an("obj_type", 2));
-                        a.this.cwW();
+                        a.this.cwX();
                     }
                 });
                 tBLottieAnimationView.addAnimatorListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.easterEgg.a.9
@@ -172,7 +172,7 @@ public class a {
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        a.this.cwW();
+                        a.this.cwX();
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
@@ -189,7 +189,7 @@ public class a {
         }
     }
 
-    public void cwW() {
+    public void cwX() {
         if (this.iEg != null && this.iEg.isShowing()) {
             try {
                 this.iEg.dismiss();

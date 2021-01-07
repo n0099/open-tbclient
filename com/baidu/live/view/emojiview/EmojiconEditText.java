@@ -38,15 +38,15 @@ public class EmojiconEditText extends EditText {
 
     @Override // android.widget.TextView
     protected void onTextChanged(CharSequence charSequence, int i, int i2, int i3) {
-        ZW();
+        ZX();
     }
 
     public void setExpressionSize(int i) {
         this.bVF = i;
-        ZW();
+        ZX();
     }
 
-    private void ZW() {
+    private void ZX() {
         d.a(getContext(), getText(), this.bVF, this.bVG, this.bVH);
     }
 }

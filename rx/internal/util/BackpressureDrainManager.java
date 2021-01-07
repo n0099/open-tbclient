@@ -13,7 +13,7 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
     public interface a {
         void Z(Throwable th);
 
-        boolean cc(Object obj);
+        boolean cd(Object obj);
 
         Object peek();
 
@@ -205,7 +205,7 @@ public final class BackpressureDrainManager extends AtomicLong implements rx.f {
                             Object poll = aVar.poll();
                             if (poll == null) {
                                 break;
-                            } else if (!aVar.cc(poll)) {
+                            } else if (!aVar.cd(poll)) {
                                 j2--;
                                 i++;
                             } else {

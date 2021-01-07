@@ -8,13 +8,13 @@ import com.kwad.sdk.KsAdSDKImpl;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final boolean f9415a = KsAdSDKImpl.get().isDebugLogEnable();
+    private static final boolean f9416a = KsAdSDKImpl.get().isDebugLogEnable();
 
     public static void a(String str) {
-        if (f9415a) {
+        if (f9416a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadStart(), id=" + str);
         }
-        Intent intent = new Intent(a.f9389b);
+        Intent intent = new Intent(a.f9390b);
         Bundle bundle = new Bundle();
         bundle.putString("RESULT_DOWNLOAD_ID", str);
         intent.putExtras(bundle);
@@ -25,7 +25,7 @@ public class c {
     }
 
     public static void a(String str, int i, int i2, int i3) {
-        if (f9415a) {
+        if (f9416a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onProgressUpdate(), id=" + str + " progress=" + i);
         }
         Intent intent = new Intent(a.c);
@@ -42,7 +42,7 @@ public class c {
     }
 
     public static void a(String str, int i, String str2) {
-        if (f9415a) {
+        if (f9416a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFail(), id=" + str + " error=" + i);
         }
         Intent intent = new Intent(a.e);
@@ -58,7 +58,7 @@ public class c {
     }
 
     public static void a(String str, String str2) {
-        if (f9415a) {
+        if (f9416a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadFinished(), id=" + str);
         }
         Intent intent = new Intent(a.d);
@@ -73,7 +73,7 @@ public class c {
     }
 
     public static void b(String str) {
-        if (f9415a) {
+        if (f9416a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadPaused(), id=" + str);
         }
         Intent intent = new Intent(a.f);
@@ -87,7 +87,7 @@ public class c {
     }
 
     public static void c(String str) {
-        if (f9415a) {
+        if (f9416a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadResumed(), id=" + str);
         }
         Intent intent = new Intent(a.g);
@@ -101,7 +101,7 @@ public class c {
     }
 
     public static void d(String str) {
-        if (f9415a) {
+        if (f9416a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
         }
         Intent intent = new Intent(a.h);
@@ -115,7 +115,7 @@ public class c {
     }
 
     public static void e(String str) {
-        if (f9415a) {
+        if (f9416a) {
             com.kwad.sdk.core.d.a.a("DownloadMonitor", "onDownloadCanceled(), id=" + str);
         }
         Intent intent = new Intent(a.m);

@@ -45,7 +45,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         setContentView(R.layout.create_forum_activity);
         initData();
         initUI();
-        cQq();
+        cQr();
         TiebaStatic.log("c11223");
     }
 
@@ -61,11 +61,11 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (view == CreateForumActivity.this.jVM) {
-                    CreateForumActivity.this.cQs();
+                    CreateForumActivity.this.cQt();
                     TiebaStatic.log("c11223");
                     return;
                 }
-                CreateForumActivity.this.cQr();
+                CreateForumActivity.this.cQs();
             }
         };
         this.mRootView = (LinearLayout) findViewById(R.id.root_view);
@@ -101,7 +101,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         });
     }
 
-    private void cQq() {
+    private void cQr() {
         if (this.jVL == null) {
             this.jVL = new b();
             this.jVL.execute(new String[0]);
@@ -109,7 +109,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQr() {
+    public void cQs() {
         if (this.jVL == null && this.jVK == null) {
             this.jVL = new b();
             this.jVL.setPriority(3);
@@ -118,7 +118,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cQs() {
+    public void cQt() {
         if (this.jVK == null) {
             this.jVK = new a(this.jVj.getText().toString().trim(), this.jVk.getText().toString().trim());
             this.jVK.setPriority(3);
@@ -180,7 +180,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public String doInBackground(String... strArr) {
             try {
                 this.mNetwork = new z(TbConfig.SERVER_ADDRESS + Config.CREATE_BAR_ADDRESS);
-                this.mNetwork.bvQ().bwz().mIsNeedTbs = true;
+                this.mNetwork.bvR().bwA().mIsNeedTbs = true;
                 this.mNetwork.addPostData("kw", this.jVu);
                 this.mNetwork.addPostData("vcode", this.mVcode);
                 this.mNetwork.addPostData("vcode_md5", CreateForumActivity.this.jVq);
@@ -199,14 +199,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         public void onPostExecute(String str) {
             super.onPostExecute((a) str);
             CreateForumActivity.this.jVK = null;
-            if (this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+            if (this.mNetwork.bvR().bwB().isRequestSuccess()) {
                 CreateForumSuccessActivity.aV(CreateForumActivity.this.getPageContext().getPageActivity(), this.jVu);
                 CreateForumActivity.this.finish();
                 return;
             }
             CreateForumActivity.this.showToast(this.mNetwork.getErrorString());
             if (this.mNetwork.isNetSuccess()) {
-                CreateForumActivity.this.cQr();
+                CreateForumActivity.this.cQs();
             }
         }
 
@@ -250,7 +250,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                 this.mNetwork.addPostData("fname", "");
                 this.mNetwork.addPostData("tid", "0");
                 String postNetData = this.mNetwork.postNetData();
-                if (this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+                if (this.mNetwork.bvR().bwB().isRequestSuccess()) {
                     ah ahVar = new ah();
                     ahVar.parserJson(postNetData);
                     if (ahVar.getVcode_pic_url() == null || ahVar.getVcode_pic_url().length() <= 0) {

@@ -133,7 +133,7 @@ public class a extends BaseAdapter {
             view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.a.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view2) {
-                    a.this.aEG();
+                    a.this.aEH();
                 }
             });
             return;
@@ -142,14 +142,14 @@ public class a extends BaseAdapter {
         view.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.swan.apps.media.chooser.adapter.a.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {
-                a.this.aEI();
+                a.this.aEJ();
             }
         });
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aEG() {
-        if (com.baidu.swan.apps.media.chooser.b.e.aEP() >= d.dnF) {
+    public void aEH() {
+        if (com.baidu.swan.apps.media.chooser.b.e.aEQ() >= d.dnF) {
             d.qw(d.mMode);
         } else {
             db(this.mContext);
@@ -160,7 +160,7 @@ public class a extends BaseAdapter {
         com.baidu.swan.apps.ab.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.media.chooser.adapter.a.3
             @Override // com.baidu.swan.apps.ab.b
             public void kN(String str) {
-                a.this.aEH();
+                a.this.aEI();
             }
 
             @Override // com.baidu.swan.apps.ab.b
@@ -170,7 +170,7 @@ public class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aEH() {
+    public void aEI() {
         com.baidu.swan.apps.media.chooser.b.b.a(this.mContext, d.dnG, new com.baidu.swan.apps.media.chooser.listener.b() { // from class: com.baidu.swan.apps.media.chooser.adapter.a.4
             @Override // com.baidu.swan.apps.media.chooser.listener.b
             public void G(File file) {
@@ -180,7 +180,7 @@ public class a extends BaseAdapter {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("compressed", d.dlQ);
                 bundle.putString("swanAppId", d.dnG);
-                bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.aEO());
+                bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.aEP());
                 bundle.putString("swanTmpPath", d.dnJ);
                 d.c(a.this.mContext, bundle);
             }
@@ -192,11 +192,11 @@ public class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aEI() {
-        if (com.baidu.swan.apps.media.chooser.b.e.aEP() >= d.dnF) {
+    public void aEJ() {
+        if (com.baidu.swan.apps.media.chooser.b.e.aEQ() >= d.dnF) {
             d.qw(d.mMode);
         } else if (af.getAvailableExternalMemorySize() < Config.RAVEN_LOG_LIMIT) {
-            com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), this.mContext.getResources().getString(a.h.swanapp_album_camera_no_storage)).aLS();
+            com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), this.mContext.getResources().getString(a.h.swanapp_album_camera_no_storage)).aLT();
         } else {
             dc(this.mContext);
         }
@@ -206,7 +206,7 @@ public class a extends BaseAdapter {
         com.baidu.swan.apps.ab.a.a(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new com.baidu.swan.apps.ab.b() { // from class: com.baidu.swan.apps.media.chooser.adapter.a.5
             @Override // com.baidu.swan.apps.ab.b
             public void kN(String str) {
-                a.this.aEJ();
+                a.this.aEK();
             }
 
             @Override // com.baidu.swan.apps.ab.b
@@ -216,7 +216,7 @@ public class a extends BaseAdapter {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aEJ() {
+    public void aEK() {
         com.baidu.swan.apps.media.chooser.b.b.a(this.mContext, d.dnG, d.dnH, d.mIsFrontCamera, new com.baidu.swan.apps.media.chooser.listener.b() { // from class: com.baidu.swan.apps.media.chooser.adapter.a.6
             @Override // com.baidu.swan.apps.media.chooser.listener.b
             public void G(File file) {
@@ -224,7 +224,7 @@ public class a extends BaseAdapter {
                 Bundle bundle = new Bundle();
                 bundle.putBoolean("compressed", d.dlQ);
                 bundle.putString("swanAppId", d.dnG);
-                bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.aEO());
+                bundle.putParcelableArrayList("mediaModels", com.baidu.swan.apps.media.chooser.b.e.aEP());
                 bundle.putString("swanTmpPath", d.dnJ);
                 d.c(a.this.mContext, bundle);
             }
@@ -299,13 +299,13 @@ public class a extends BaseAdapter {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(MediaModel mediaModel, C0455a c0455a) {
-        int aEP = com.baidu.swan.apps.media.chooser.b.e.aEP();
+        int aEQ = com.baidu.swan.apps.media.chooser.b.e.aEQ();
         if (!com.baidu.swan.apps.media.chooser.b.e.g(mediaModel)) {
-            if (aEP >= d.dnF) {
+            if (aEQ >= d.dnF) {
                 d.qw(d.mMode);
                 return;
-            } else if (aEP > 0 && TextUtils.equals(d.mMode, "single") && !TextUtils.equals(com.baidu.swan.apps.media.chooser.b.e.aEQ(), mediaModel.getType())) {
-                com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.swanapp_album_select_single).aLS();
+            } else if (aEQ > 0 && TextUtils.equals(d.mMode, "single") && !TextUtils.equals(com.baidu.swan.apps.media.chooser.b.e.aER(), mediaModel.getType())) {
+                com.baidu.swan.apps.res.widget.b.d.u(this.mContext, a.h.swanapp_album_select_single).aLT();
                 return;
             } else {
                 c0455a.dmS.setImageResource(a.e.swanapp_album_select_icon_bg);
@@ -314,7 +314,7 @@ public class a extends BaseAdapter {
                 com.baidu.swan.apps.media.chooser.b.e.e(mediaModel);
                 c0455a.dmT.startAnimation(AnimationUtils.loadAnimation(this.mContext, a.C0372a.swanapp_album_checkshake));
                 if (this.dmJ != null) {
-                    this.dmJ.jz(aEP);
+                    this.dmJ.jz(aEQ);
                 }
                 notifyDataSetChanged();
                 return;
@@ -324,7 +324,7 @@ public class a extends BaseAdapter {
         c0455a.dmS.setImageResource(a.e.swanapp_album_unselect_thumb_icon);
         c0455a.dmR.setVisibility(8);
         if (this.dmJ != null) {
-            this.dmJ.jz(aEP);
+            this.dmJ.jz(aEQ);
         }
         notifyDataSetChanged();
     }
@@ -372,8 +372,8 @@ public class a extends BaseAdapter {
         ImageRequestBuilder aj = ImageRequestBuilder.aj(Uri.fromFile(new File(str)));
         aj.c(new com.facebook.imagepipeline.common.d((int) (this.mItemWidth / 2.0f), (int) (this.dmK / 2.0f)));
         aj.Bj(true);
-        aj.a(com.facebook.imagepipeline.common.b.exb().Bd(true).exj());
-        c0455a.dmP.setController(com.facebook.drawee.a.a.c.euI().bo(aj.eBe()).AX(false).c(c0455a.dmP.getController()).evz());
+        aj.a(com.facebook.imagepipeline.common.b.exD().Bd(true).exL());
+        c0455a.dmP.setController(com.facebook.drawee.a.a.c.euP().bo(aj.eBI()).AX(false).c(c0455a.dmP.getController()).evG());
     }
 
     private String cn(long j) {
@@ -403,17 +403,17 @@ public class a extends BaseAdapter {
         if (!TextUtils.isEmpty(str2) && str2.startsWith("video/")) {
             return TextUtils.equals("video/mp4", str2) || TextUtils.equals("video/3gp", str2) || TextUtils.equals("video/webm", str2) || TextUtils.equals("video/mkv", str2);
         }
-        com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), this.mContext.getString(a.h.swanapp_album_video_format)).aLS();
+        com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), this.mContext.getString(a.h.swanapp_album_video_format)).aLT();
         return false;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean co(long j) {
         if (j < IMConnection.RETRY_DELAY_TIMES) {
-            com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), this.mContext.getString(a.h.swanapp_album_video_duration_min)).aLS();
+            com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), this.mContext.getString(a.h.swanapp_album_video_duration_min)).aLT();
             return true;
         } else if (j > 300000) {
-            com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), this.mContext.getString(a.h.swanapp_album_video_duration_max)).aLS();
+            com.baidu.swan.apps.res.widget.b.d.a(AppRuntime.getAppContext(), this.mContext.getString(a.h.swanapp_album_video_duration_max)).aLT();
             return true;
         } else {
             return false;

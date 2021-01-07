@@ -40,7 +40,7 @@ public class at extends h {
     public void D(final com.baidu.tbadk.core.data.a aVar) {
         if (c(aVar)) {
             this.akk.setVisibility(0);
-            this.akk.setData(aVar.boO().btz(), aVar.boO().getTid(), aVar.boO().getFid());
+            this.akk.setData(aVar.boP().btA(), aVar.boP().getTid(), aVar.boP().getFid());
             this.akk.setOnItemClickListener(new View.OnClickListener() { // from class: com.baidu.card.at.1
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
@@ -58,6 +58,6 @@ public class at extends h {
     }
 
     private boolean c(com.baidu.tbadk.core.data.a aVar) {
-        return (aVar == null || aVar.boO() == null || aVar.boO().btz() == null || aVar.boO().btz().getOptions() == null || aVar.boO().btz().getOptions().size() <= 0 || aVar.boO().bpV()) ? false : true;
+        return (aVar == null || aVar.boP() == null || aVar.boP().btA() == null || aVar.boP().btA().getOptions() == null || aVar.boP().btA().getOptions().size() <= 0 || aVar.boP().bpW()) ? false : true;
     }
 }

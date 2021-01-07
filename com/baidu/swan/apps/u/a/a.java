@@ -10,26 +10,26 @@ import java.util.List;
 /* loaded from: classes9.dex */
 public class a implements com.baidu.swan.apps.u.d.a {
     public static List<af.a> getStorageList() {
-        List<af.a> list = (List) b.aCc().pu("getStorageListCache");
+        List<af.a> list = (List) b.aCd().pu("getStorageListCache");
         if (list == null) {
             List<af.a> storageList = af.getStorageList();
-            b.aCc().o("getStorageListCache", storageList);
+            b.aCd().o("getStorageListCache", storageList);
             return storageList;
         }
         return list;
     }
 
     public static void i(Boolean bool) {
-        b.aCc().o("getNightModeStateCache", bool);
+        b.aCd().o("getNightModeStateCache", bool);
     }
 
     public static Boolean fU(boolean z) {
-        Boolean bool = (Boolean) b.aCc().pu("getNightModeStateCache");
+        Boolean bool = (Boolean) b.aCd().pu("getNightModeStateCache");
         if (bool == null) {
-            return Boolean.valueOf(com.baidu.swan.apps.t.a.aAN().alD());
+            return Boolean.valueOf(com.baidu.swan.apps.t.a.aAO().alE());
         }
         if (z) {
-            b.aCc().pv("getNightModeStateCache");
+            b.aCd().pv("getNightModeStateCache");
             return bool;
         }
         return bool;
@@ -52,11 +52,11 @@ public class a implements com.baidu.swan.apps.u.d.a {
         if (file == null || !file.exists()) {
             return null;
         }
-        if (c.aHT()) {
-            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.aCc().pu(file.getAbsolutePath());
+        if (c.aHU()) {
+            SwanAppConfigData swanAppConfigData = (SwanAppConfigData) b.aCd().pu(file.getAbsolutePath());
             if (swanAppConfigData == null) {
                 SwanAppConfigData E = E(file);
-                b.aCc().o(file.getAbsolutePath(), E);
+                b.aCd().o(file.getAbsolutePath(), E);
                 return E;
             } else if (DEBUG) {
                 Log.d("SwanPreProcess", "adopt cached app.json");

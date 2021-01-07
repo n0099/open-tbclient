@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class a {
     private boolean fsu = false;
 
-    public boolean bzu() {
+    public boolean bzv() {
         return this.fsu;
     }
 
@@ -29,9 +29,9 @@ public class a {
 
     public void du(JSONObject jSONObject) {
         if (jSONObject != null) {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putString("praise_abtest_switch_json", jSONObject.toString());
+            com.baidu.tbadk.core.sharedPref.b.bvr().putString("praise_abtest_switch_json", jSONObject.toString());
         } else {
-            com.baidu.tbadk.core.sharedPref.b.bvq().putString("praise_abtest_switch_json", "");
+            com.baidu.tbadk.core.sharedPref.b.bvr().putString("praise_abtest_switch_json", "");
         }
     }
 }

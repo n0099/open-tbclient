@@ -9,91 +9,91 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public final class c {
-    private static c pJk;
-    private static b pJl;
-    g pJh;
-    private List<d> pJm = new LinkedList();
-    i pJi = new i(Looper.getMainLooper().getThread(), pJl.provideDumpInterval());
-    h pJj = new h(pJl.provideDumpInterval());
+    private static c pKS;
+    private static b pKT;
+    g pKP;
+    private List<d> pKU = new LinkedList();
+    i pKQ = new i(Looper.getMainLooper().getThread(), pKT.provideDumpInterval());
+    h pKR = new h(pKT.provideDumpInterval());
 
     public c() {
         a(new g(new g.a() { // from class: com.github.a.a.c.1
             @Override // com.github.a.a.g.a
             public void d(long j, long j2, long j3, long j4) {
-                ArrayList<String> O = c.this.pJi.O(j, j2);
-                if (!O.isEmpty()) {
-                    com.github.a.a.a.a eBE = com.github.a.a.a.a.eBD().e(j, j2, j3, j4).ZK(c.this.pJj.getCpuRateInfo()).bu(O).eBE();
-                    if (c.eBv().displayNotification()) {
-                        f.ZJ(eBE.toString());
+                ArrayList<String> P = c.this.pKQ.P(j, j2);
+                if (!P.isEmpty()) {
+                    com.github.a.a.a.a eCi = com.github.a.a.a.a.eCh().e(j, j2, j3, j4).ZL(c.this.pKR.getCpuRateInfo()).bu(P).eCi();
+                    if (c.eBZ().displayNotification()) {
+                        f.ZK(eCi.toString());
                     }
-                    if (c.this.pJm.size() != 0) {
-                        for (d dVar : c.this.pJm) {
-                            dVar.onBlock(c.eBv().provideContext(), eBE);
+                    if (c.this.pKU.size() != 0) {
+                        for (d dVar : c.this.pKU) {
+                            dVar.onBlock(c.eBZ().provideContext(), eCi);
                         }
                     }
                 }
             }
-        }, eBv().provideBlockThreshold(), eBv().stopWhenDebugging()));
-        f.eBA();
+        }, eBZ().provideBlockThreshold(), eBZ().stopWhenDebugging()));
+        f.eCe();
     }
 
-    public g eBr() {
-        return this.pJh;
+    public g eBV() {
+        return this.pKP;
     }
 
-    public i eBs() {
-        return this.pJi;
+    public i eBW() {
+        return this.pKQ;
     }
 
-    public h eBt() {
-        return this.pJj;
+    public h eBX() {
+        return this.pKR;
     }
 
-    public static c eBu() {
-        if (pJk == null) {
+    public static c eBY() {
+        if (pKS == null) {
             synchronized (c.class) {
-                if (pJk == null) {
-                    pJk = new c();
+                if (pKS == null) {
+                    pKS = new c();
                 }
             }
         }
-        return pJk;
+        return pKS;
     }
 
     public static void a(b bVar) {
-        pJl = bVar;
+        pKT = bVar;
     }
 
-    public static b eBv() {
-        return pJl;
+    public static b eBZ() {
+        return pKT;
     }
 
     public void addBlockInterceptor(d dVar) {
-        this.pJm.add(dVar);
+        this.pKU.add(dVar);
     }
 
     private void a(g gVar) {
-        this.pJh = gVar;
+        this.pKP = gVar;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public long eBw() {
-        return eBv().provideBlockThreshold() * 0.8f;
+    public long eCa() {
+        return eBZ().provideBlockThreshold() * 0.8f;
     }
 
     static String getPath() {
         String externalStorageState = Environment.getExternalStorageState();
-        String providePath = eBv() == null ? "" : eBv().providePath();
+        String providePath = eBZ() == null ? "" : eBZ().providePath();
         if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
             return Environment.getExternalStorageDirectory().getPath() + providePath;
         }
-        return eBv().provideContext().getFilesDir() + eBv().providePath();
+        return eBZ().provideContext().getFilesDir() + eBZ().providePath();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static File eBx() {
+    public static File eCb() {
         File file = new File(getPath());
         if (!file.exists()) {
             file.mkdirs();
@@ -101,15 +101,15 @@ public final class c {
         return file;
     }
 
-    public static File[] aqD() {
-        File eBx = eBx();
-        if (eBx.exists() && eBx.isDirectory()) {
-            return eBx.listFiles(new a());
+    public static File[] aqE() {
+        File eCb = eCb();
+        if (eCb.exists() && eCb.isDirectory()) {
+            return eCb.listFiles(new a());
         }
         return null;
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes6.dex */
     private static class a implements FilenameFilter {
         private String TYPE = BdStatsConstant.StatsFile.LOG_FILE_SUFFIX;
 

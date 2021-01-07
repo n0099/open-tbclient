@@ -30,7 +30,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Locale;
 import java.util.Random;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class f {
     private BDLocation ac;
     private String ag;
@@ -43,7 +43,7 @@ public class f {
     private static f d = null;
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f2680a = 0;
+    public static int f2681a = 0;
     private static int q = 0;
     private static int r = 0;
     private static int s = 0;
@@ -54,7 +54,7 @@ public class f {
     private static double K = 100.0d;
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f2681b = "";
+    public static String f2682b = "";
     private static float N = -1.0f;
     private LocationManager f = null;
     private C0255f h = null;
@@ -98,39 +98,39 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class a extends GnssMeasurementsEvent.Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2682a;
+        public int f2683a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2683b;
+        public String f2684b;
 
         @Override // android.location.GnssMeasurementsEvent.Callback
         public void onGnssMeasurementsReceived(GnssMeasurementsEvent gnssMeasurementsEvent) {
-            if (this.f2682a != 1 || gnssMeasurementsEvent == null) {
+            if (this.f2683a != 1 || gnssMeasurementsEvent == null) {
                 return;
             }
-            this.f2683b = gnssMeasurementsEvent.toString();
+            this.f2684b = gnssMeasurementsEvent.toString();
         }
 
         @Override // android.location.GnssMeasurementsEvent.Callback
         public void onStatusChanged(int i) {
-            this.f2682a = i;
+            this.f2683a = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class b extends GnssNavigationMessage.Callback {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f2684a;
+        public int f2685a;
 
         private b() {
-            this.f2684a = 0;
+            this.f2685a = 0;
         }
 
         /* synthetic */ b(f fVar, com.baidu.location.c.g gVar) {
@@ -148,13 +148,13 @@ public class f {
 
         @Override // android.location.GnssNavigationMessage.Callback
         public void onStatusChanged(int i) {
-            this.f2684a = i;
+            this.f2685a = i;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     @TargetApi(24)
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class c extends GnssStatus.Callback {
         private c() {
         }
@@ -226,8 +226,8 @@ public class f {
             arrayList2.addAll(f.this.U);
             f.this.b(arrayList2);
             f.this.Q = f.this.a(true, false, false, false, true, -1.0f);
-            f.f2681b = f.this.a(f.this.Q);
-            f.f2680a = i6;
+            f.f2682b = f.this.a(f.this.Q);
+            f.f2681a = i6;
             int unused = f.q = i5;
             int unused2 = f.u = i4;
             long unused3 = f.v = System.currentTimeMillis();
@@ -244,7 +244,7 @@ public class f {
         public void onStopped() {
             f.this.d((Location) null);
             f.this.b(false);
-            f.f2680a = 0;
+            f.f2681a = 0;
             int unused = f.q = 0;
             int unused2 = f.r = 0;
             int unused3 = f.s = 0;
@@ -253,14 +253,14 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class d implements GpsStatus.Listener {
 
         /* renamed from: b  reason: collision with root package name */
-        private long f2688b;
+        private long f2689b;
 
         private d() {
-            this.f2688b = 0L;
+            this.f2689b = 0L;
         }
 
         /* synthetic */ d(f fVar, com.baidu.location.c.g gVar) {
@@ -278,7 +278,7 @@ public class f {
                 case 2:
                     f.this.d((Location) null);
                     f.this.b(false);
-                    f.f2680a = 0;
+                    f.f2681a = 0;
                     int unused = f.q = 0;
                     int unused2 = f.r = 0;
                     int unused3 = f.s = 0;
@@ -343,16 +343,16 @@ public class f {
                             arrayList2.addAll(f.this.U);
                             f.this.b(arrayList2);
                             f.this.Q = f.this.a(true, false, false, false, true, -1.0f);
-                            f.f2681b = f.this.a(f.this.Q);
+                            f.f2682b = f.this.a(f.this.Q);
                             if (i5 > 0) {
                                 int unused5 = f.q = i5;
                             }
                             if (i6 > 0) {
-                                this.f2688b = System.currentTimeMillis();
-                                f.f2680a = i6;
-                            } else if (System.currentTimeMillis() - this.f2688b > 100) {
-                                this.f2688b = System.currentTimeMillis();
-                                f.f2680a = i6;
+                                this.f2689b = System.currentTimeMillis();
+                                f.f2681a = i6;
+                            } else if (System.currentTimeMillis() - this.f2689b > 100) {
+                                this.f2689b = System.currentTimeMillis();
+                                f.f2681a = i6;
                             }
                             long unused6 = f.v = System.currentTimeMillis();
                             return;
@@ -366,39 +366,39 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class e extends Handler {
 
         /* renamed from: a  reason: collision with root package name */
-        WeakReference<f> f2689a;
+        WeakReference<f> f2690a;
 
         /* renamed from: b  reason: collision with root package name */
-        f f2690b;
+        f f2691b;
 
         e(f fVar) {
-            this.f2689a = new WeakReference<>(fVar);
+            this.f2690a = new WeakReference<>(fVar);
         }
 
         @Override // android.os.Handler
         public void handleMessage(Message message) {
             if (com.baidu.location.f.isServing) {
-                this.f2690b = this.f2689a.get();
-                if (this.f2690b != null) {
+                this.f2691b = this.f2690a.get();
+                if (this.f2691b != null) {
                     switch (message.what) {
                         case 1:
-                            this.f2690b.f((Location) message.obj);
+                            this.f2691b.f((Location) message.obj);
                             return;
                         case 2:
                         default:
                             return;
                         case 3:
-                            this.f2690b.a("&og=1", (Location) message.obj);
+                            this.f2691b.a("&og=1", (Location) message.obj);
                             return;
                         case 4:
-                            this.f2690b.a("&og=2", (Location) message.obj);
+                            this.f2691b.a("&og=2", (Location) message.obj);
                             return;
                         case 5:
-                            this.f2690b.a((String) message.obj);
+                            this.f2691b.a((String) message.obj);
                             return;
                     }
                 }
@@ -408,7 +408,7 @@ public class f {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.location.c.f$f  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class C0255f implements LocationListener {
         private C0255f() {
         }
@@ -426,7 +426,7 @@ public class f {
                     f.this.F = System.currentTimeMillis() - f.this.G;
                 }
                 f.this.G = System.currentTimeMillis();
-                int i = f.f2680a;
+                int i = f.f2681a;
                 if (i == 0) {
                     try {
                         i = location.getExtras().getInt("satellites");
@@ -474,7 +474,7 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class g implements GpsStatus.NmeaListener {
         private g() {
         }
@@ -492,14 +492,14 @@ public class f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class h implements LocationListener {
 
         /* renamed from: b  reason: collision with root package name */
-        private long f2694b;
+        private long f2695b;
 
         private h() {
-            this.f2694b = 0L;
+            this.f2695b = 0L;
         }
 
         /* synthetic */ h(f fVar, com.baidu.location.c.g gVar) {
@@ -508,8 +508,8 @@ public class f {
 
         @Override // android.location.LocationListener
         public void onLocationChanged(Location location) {
-            if (!f.this.y && location != null && TextUtils.equals(location.getProvider(), "gps") && System.currentTimeMillis() - this.f2694b >= 10000 && Math.abs(location.getLatitude()) <= 360.0d && Math.abs(location.getLongitude()) <= 360.0d && ab.a(location, false)) {
-                this.f2694b = System.currentTimeMillis();
+            if (!f.this.y && location != null && TextUtils.equals(location.getProvider(), "gps") && System.currentTimeMillis() - this.f2695b >= 10000 && Math.abs(location.getLatitude()) <= 360.0d && Math.abs(location.getLongitude()) <= 360.0d && ab.a(location, false)) {
+                this.f2695b = System.currentTimeMillis();
                 if (f.this.J != null) {
                     f.this.c = System.currentTimeMillis();
                     f.this.J.sendMessage(f.this.J.obtainMessage(4, location));
@@ -574,7 +574,7 @@ public class f {
         int accuracy = (int) (location.hasAccuracy() ? location.getAccuracy() : -1.0f);
         double altitude = location.hasAltitude() ? location.getAltitude() : 555.0d;
         float bearing = location.hasBearing() ? location.getBearing() : -1.0f;
-        return N < -0.01f ? String.format(Locale.CHINA, "&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_r=%d&ll_n=%d&ll_h=%.2f&ll_t=%d&ll_sn=%d|%d|%d|%d|%d&ll_snr=%.1f", Double.valueOf(location.getLongitude()), Double.valueOf(location.getLatitude()), Float.valueOf(speed), Float.valueOf(bearing), Integer.valueOf(accuracy), Integer.valueOf(f2680a), Double.valueOf(altitude), Long.valueOf(location.getTime() / 1000), Integer.valueOf(f2680a), Integer.valueOf(q), Integer.valueOf(r), Integer.valueOf(s), Integer.valueOf(t), Double.valueOf(K)) : String.format(Locale.CHINA, "&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_r=%d&ll_n=%d&ll_h=%.2f&ll_t=%d&ll_sn=%d|%d|%d|%d|%d&ll_snr=%.1f&ll_bp=%.2f", Double.valueOf(location.getLongitude()), Double.valueOf(location.getLatitude()), Float.valueOf(speed), Float.valueOf(bearing), Integer.valueOf(accuracy), Integer.valueOf(f2680a), Double.valueOf(altitude), Long.valueOf(location.getTime() / 1000), Integer.valueOf(f2680a), Integer.valueOf(q), Integer.valueOf(r), Integer.valueOf(s), Integer.valueOf(t), Double.valueOf(K), Float.valueOf(N));
+        return N < -0.01f ? String.format(Locale.CHINA, "&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_r=%d&ll_n=%d&ll_h=%.2f&ll_t=%d&ll_sn=%d|%d|%d|%d|%d&ll_snr=%.1f", Double.valueOf(location.getLongitude()), Double.valueOf(location.getLatitude()), Float.valueOf(speed), Float.valueOf(bearing), Integer.valueOf(accuracy), Integer.valueOf(f2681a), Double.valueOf(altitude), Long.valueOf(location.getTime() / 1000), Integer.valueOf(f2681a), Integer.valueOf(q), Integer.valueOf(r), Integer.valueOf(s), Integer.valueOf(t), Double.valueOf(K)) : String.format(Locale.CHINA, "&ll=%.5f|%.5f&s=%.1f&d=%.1f&ll_r=%d&ll_n=%d&ll_h=%.2f&ll_t=%d&ll_sn=%d|%d|%d|%d|%d&ll_snr=%.1f&ll_bp=%.2f", Double.valueOf(location.getLongitude()), Double.valueOf(location.getLatitude()), Float.valueOf(speed), Float.valueOf(bearing), Integer.valueOf(accuracy), Integer.valueOf(f2681a), Double.valueOf(altitude), Long.valueOf(location.getTime() / 1000), Integer.valueOf(f2681a), Integer.valueOf(q), Integer.valueOf(r), Integer.valueOf(s), Integer.valueOf(t), Double.valueOf(K), Float.valueOf(N));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
@@ -835,7 +835,7 @@ public class f {
             this.g = null;
             return;
         }
-        if (f2680a == 0) {
+        if (f2681a == 0) {
             try {
                 location.getExtras().getInt("satellites");
             } catch (Exception e2) {
@@ -847,7 +847,7 @@ public class f {
         Location location2 = new Location(location);
         this.B = System.currentTimeMillis();
         this.g = location;
-        int i = f2680a;
+        int i = f2681a;
         if (this.g == null) {
             this.z = null;
         } else {
@@ -867,7 +867,7 @@ public class f {
         }
         if (this.g != null) {
             n();
-            if (f2680a > 2 && ab.a(this.g, true)) {
+            if (f2681a > 2 && ab.a(this.g, true)) {
                 boolean e4 = i.a().e();
                 x.a(new com.baidu.location.c.a(com.baidu.location.c.b.a().f()));
                 x.a(System.currentTimeMillis());
@@ -878,7 +878,7 @@ public class f {
                 }
             }
         }
-        ac.a().a(location2, f2680a);
+        ac.a().a(location2, f2681a);
     }
 
     public static String l() {
@@ -886,7 +886,7 @@ public class f {
         if (currentTimeMillis < 0 || currentTimeMillis >= IMConnection.RETRY_DELAY_TIMES) {
             return null;
         }
-        return String.format(Locale.US, "&gsvn=%d&gsfn=%d", Integer.valueOf(u), Integer.valueOf(f2680a));
+        return String.format(Locale.US, "&gsvn=%d&gsfn=%d", Integer.valueOf(u), Integer.valueOf(f2681a));
     }
 
     public void a(boolean z) {
@@ -918,7 +918,7 @@ public class f {
     }
 
     public void c() {
-        Log.d(com.baidu.location.e.a.f2709a, "start gps...");
+        Log.d(com.baidu.location.e.a.f2710a, "start gps...");
         if (this.y) {
             return;
         }
@@ -1034,7 +1034,7 @@ public class f {
                 }
                 z = false;
             }
-            String format = String.format(Locale.CHINA, str, Double.valueOf(dArr[0]), Double.valueOf(dArr[1]), Integer.valueOf(accuracy), Float.valueOf(this.g.getBearing()), Float.valueOf(speed), Integer.valueOf(f2680a));
+            String format = String.format(Locale.CHINA, str, Double.valueOf(dArr[0]), Double.valueOf(dArr[1]), Integer.valueOf(accuracy), Float.valueOf(this.g.getBearing()), Float.valueOf(speed), Integer.valueOf(f2681a));
             if (!z) {
                 format = format + ",\"in_cn\":\"0\"";
             }
@@ -1063,7 +1063,7 @@ public class f {
     public boolean i() {
         try {
             long currentTimeMillis = System.currentTimeMillis() - this.M;
-            if (f2680a == 0) {
+            if (f2681a == 0) {
                 try {
                     this.g.getExtras().getInt("satellites");
                 } catch (Exception e2) {

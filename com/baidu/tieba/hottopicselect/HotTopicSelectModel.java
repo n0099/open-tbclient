@@ -34,9 +34,9 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
 
     /* loaded from: classes8.dex */
     public interface a {
-        void MH(String str);
+        void MG(String str);
 
-        void MI(String str);
+        void MH(String str);
 
         void a(c cVar);
 
@@ -75,31 +75,31 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         sendMessage(new HotSelectCacheReqMessage());
     }
 
-    public void MJ(String str) {
+    public void MI(String str) {
         this.jcX = str;
         this.kvM = true;
         if (!j.isNetWorkAvailable()) {
-            this.kvL.MI("");
+            this.kvL.MH("");
         } else if (!this.kvN) {
             this.kvN = true;
-            HotTopicSelectNetMessage cVS = cVS();
-            cVS.setPrefix(str);
-            sendMessage(cVS);
+            HotTopicSelectNetMessage cVT = cVT();
+            cVT.setPrefix(str);
+            sendMessage(cVT);
         }
     }
 
-    public void cVR() {
+    public void cVS() {
         this.jcX = "";
         this.kvM = false;
         if (!j.isNetWorkAvailable()) {
             getCacheData();
         } else if (!this.kvN) {
             this.kvN = true;
-            sendMessage(cVS());
+            sendMessage(cVT());
         }
     }
 
-    private HotTopicSelectNetMessage cVS() {
+    private HotTopicSelectNetMessage cVT() {
         HotTopicSelectNetMessage hotTopicSelectNetMessage = new HotTopicSelectNetMessage();
         hotTopicSelectNetMessage.setFid(this.mForumId);
         hotTopicSelectNetMessage.setFirstDir(this.mFirstDir);
@@ -107,11 +107,11 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         return hotTopicSelectNetMessage;
     }
 
-    public void MK(String str) {
+    public void MJ(String str) {
         this.jcX = str;
     }
 
-    public String cDM() {
+    public String cDN() {
         return this.jcX;
     }
 
@@ -129,18 +129,18 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
     public void b(boolean z, ResponsedMessage<?> responsedMessage) {
         if (responsedMessage == null || TextUtils.isEmpty(responsedMessage.getErrorString())) {
             if (z) {
-                this.kvL.MI("");
+                this.kvL.MH("");
             } else {
-                this.kvL.MH(this.mPageContext.getString(R.string.neterror));
+                this.kvL.MG(this.mPageContext.getString(R.string.neterror));
             }
         } else if (z) {
-            this.kvL.MI("");
+            this.kvL.MH("");
         } else {
-            this.kvL.MH(responsedMessage.getErrorString());
+            this.kvL.MG(responsedMessage.getErrorString());
         }
     }
 
-    private void cVT() {
+    private void cVU() {
         this.gfF = new CustomMessageListener(CmdConfigCustom.CMD_HOT_TOPIC_SELECT_CACHE) { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectModel.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -169,7 +169,7 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         registerListener(this.gfF);
     }
 
-    private void cVU() {
+    private void cVV() {
         this.kvO = new com.baidu.adp.framework.listener.a(1003186, CmdConfigSocket.CMD_GET_HOTTOPIC_SELECT) { // from class: com.baidu.tieba.hottopicselect.HotTopicSelectModel.2
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -202,9 +202,9 @@ public class HotTopicSelectModel extends BdBaseModel<HotTopicSelectActivity> {
         registerListener(this.kvO);
     }
 
-    public void cVV() {
+    public void cVW() {
+        cVV();
         cVU();
-        cVT();
     }
 
     public void onDestroy() {

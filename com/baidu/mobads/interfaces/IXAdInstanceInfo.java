@@ -308,20 +308,20 @@ public interface IXAdInstanceInfo {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f3411a;
+        private final String f3412a;
 
         CreativeType(String str) {
-            this.f3411a = str;
+            this.f3412a = str;
         }
 
         public String getValue() {
-            return this.f3411a;
+            return this.f3412a;
         }
 
         public static CreativeType parse(String str) {
             CreativeType[] values;
             for (CreativeType creativeType : values()) {
-                if (creativeType.f3411a.equalsIgnoreCase(str)) {
+                if (creativeType.f3412a.equalsIgnoreCase(str)) {
                     return creativeType;
                 }
             }

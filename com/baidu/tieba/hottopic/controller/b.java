@@ -32,7 +32,7 @@ public class b {
         this.kqd = baseActivity;
     }
 
-    private SparseArray<String> bog() {
+    private SparseArray<String> boh() {
         if (this.kqe == null) {
             this.kqe = new SparseArray<>(8);
             this.kqe.put(2, "topic_wx_timeline");
@@ -60,7 +60,7 @@ public class b {
         shareItem.fwX = true;
         shareItem.extData = str;
         shareItem.imageUri = parse;
-        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.kqd.getActivity(), shareItem, true, bog());
+        ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.kqd.getActivity(), shareItem, true, boh());
         shareDialogConfig.setCopyLinkListener(new View.OnClickListener() { // from class: com.baidu.tieba.hottopic.controller.b.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -73,7 +73,7 @@ public class b {
     }
 
     public void a(final ShareFromTopicMsgData shareFromTopicMsgData, final long j, final String str, final long j2, e eVar) {
-        if (eVar != null && eVar.cUZ() != null) {
+        if (eVar != null && eVar.cVa() != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.kqd.getActivity());
             final ShareCardView shareCardView = new ShareCardView(this.kqd.getActivity());
             shareCardView.setData(shareFromTopicMsgData);
@@ -94,7 +94,7 @@ public class b {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.kqd.getPageContext()).btX();
+            aVar.b(this.kqd.getPageContext()).btY();
             if (!k.isEmpty(shareFromTopicMsgData.getImageUrl())) {
                 shareCardView.aQ(shareFromTopicMsgData.getImageUrl(), false);
             }
@@ -102,7 +102,7 @@ public class b {
     }
 
     public void a(final ShareFromTopicMsgData shareFromTopicMsgData, final long j, final String str, final String str2, final String str3, e eVar) {
-        if (eVar != null && eVar.cUZ() != null) {
+        if (eVar != null && eVar.cVa() != null) {
             com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.kqd.getActivity());
             final ShareCardView shareCardView = new ShareCardView(this.kqd.getActivity());
             shareCardView.setData(shareFromTopicMsgData);
@@ -123,7 +123,7 @@ public class b {
                     aVar2.dismiss();
                 }
             });
-            aVar.b(this.kqd.getPageContext()).btX();
+            aVar.b(this.kqd.getPageContext()).btY();
             if (!k.isEmpty(shareFromTopicMsgData.getImageUrl())) {
                 shareCardView.aQ(shareFromTopicMsgData.getImageUrl(), false);
             }

@@ -17,24 +17,24 @@ import java.util.Enumeration;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipException;
 import java.util.zip.ZipFile;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class b extends AsyncTask<String, Integer, String> {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f4451a;
+    private String f4452a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f4452b;
+    private int f4453b;
     private a<String> c;
     private boolean d = false;
     private boolean e;
     private String f;
 
     public b(String str, int i, boolean z, a<String> aVar) {
-        this.f4451a = "";
-        this.f4452b = 0;
-        this.f4451a = str;
-        this.f4452b = i;
+        this.f4452a = "";
+        this.f4453b = 0;
+        this.f4452a = str;
+        this.f4453b = i;
         this.c = aVar;
         this.e = z;
     }
@@ -97,7 +97,7 @@ public class b extends AsyncTask<String, Integer, String> {
             return null;
         }
         this.f = str;
-        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f4451a, this.f4452b);
+        String a2 = com.baidu.platform.comapi.walknavi.d.a.g.f.a(this.f4452a, this.f4453b);
         if (TextUtils.isEmpty(a2)) {
             return null;
         }
@@ -110,7 +110,7 @@ public class b extends AsyncTask<String, Integer, String> {
         if (file2.exists()) {
             try {
                 new ZipFile(str2);
-                if (com.baidu.platform.comapi.walknavi.d.a.b.f4422a) {
+                if (com.baidu.platform.comapi.walknavi.d.a.b.f4423a) {
                     return c(str2);
                 }
                 if (this.c != null) {
@@ -119,14 +119,14 @@ public class b extends AsyncTask<String, Integer, String> {
                 return "false";
             } catch (Exception e) {
                 file2.delete();
-                if (!com.baidu.platform.comapi.walknavi.d.a.b.f4422a) {
+                if (!com.baidu.platform.comapi.walknavi.d.a.b.f4423a) {
                     if (this.c != null) {
                         this.c.a(true, b(str));
                     }
                     return "true";
                 }
             }
-        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f4422a) {
+        } else if (!com.baidu.platform.comapi.walknavi.d.a.b.f4423a) {
             if (this.c != null) {
                 this.c.a(true, b(str));
             }

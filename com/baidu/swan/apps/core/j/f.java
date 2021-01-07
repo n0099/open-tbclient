@@ -11,14 +11,14 @@ public class f {
     private b cYV;
     private HashMap<String, c> cYW;
 
-    public static f auX() {
+    public static f auY() {
         return a.cYX;
     }
 
     private f() {
         long currentTimeMillis = System.currentTimeMillis();
-        this.cYV = auY();
-        this.cYW = this.cYV.auU();
+        this.cYV = auZ();
+        this.cYW = this.cYV.auV();
         if (DEBUG) {
             Log.d("SwanAppPresetManager", "构造PresetMap耗时：" + (System.currentTimeMillis() - currentTimeMillis));
         }
@@ -36,11 +36,11 @@ public class f {
         this.cYV.a(cVar, dVar);
     }
 
-    private b auY() {
-        return (DEBUG && auZ()) ? new e() : new com.baidu.swan.apps.core.j.a();
+    private b auZ() {
+        return (DEBUG && ava()) ? new e() : new com.baidu.swan.apps.core.j.a();
     }
 
-    public static boolean auZ() {
+    public static boolean ava() {
         return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getBoolean("sp_swan_sdcard_preset", false);
     }
 

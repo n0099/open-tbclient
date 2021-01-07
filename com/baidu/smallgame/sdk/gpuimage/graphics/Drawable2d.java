@@ -1,7 +1,7 @@
 package com.baidu.smallgame.sdk.gpuimage.graphics;
 
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class Drawable2d {
     private Prefab cDb;
     private static final float[] TRIANGLE_COORDS = {0.0f, 0.57735026f, -0.5f, -0.28867513f, 0.5f, -0.28867513f};
@@ -21,7 +21,7 @@ public class Drawable2d {
     public static final FloatBuffer FULL_RECTANGLE_TEX_BUF = a.createFloatBuffer(FULL_RECTANGLE_TEX_COORDS);
     public static final FloatBuffer cDa = a.createFloatBuffer(cCY);
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes3.dex */
     public enum Prefab {
         TRIANGLE,
         RECTANGLE,

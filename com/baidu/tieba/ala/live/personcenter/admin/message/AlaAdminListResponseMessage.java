@@ -17,7 +17,7 @@ public class AlaAdminListResponseMessage extends JsonHttpResponsedMessage {
         this.hkn.dG(jSONObject.optJSONObject("data"));
     }
 
-    public com.baidu.tieba.ala.live.personcenter.admin.b.a caW() {
+    public com.baidu.tieba.ala.live.personcenter.admin.b.a caX() {
         return this.hkn;
     }
 }

@@ -14,7 +14,7 @@ import com.baidu.ar.constants.HttpConstants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 /* loaded from: classes9.dex */
 public class ad {
-    public static boolean aRA() {
+    public static boolean aRB() {
         Context appContext = AppRuntime.getAppContext();
         if (dK(appContext)) {
             return false;
@@ -50,8 +50,8 @@ public class ad {
         return z;
     }
 
-    public static int aRB() {
-        if (!aRA()) {
+    public static int aRC() {
+        if (!aRB()) {
             return 0;
         }
         return ah.b(AppRuntime.getAppContext().getResources(), ah.isScreenPortrait() ? "navigation_bar_height" : "navigation_bar_height_landscape");
@@ -97,7 +97,7 @@ public class ad {
         }
     }
 
-    public static Pair<Integer, Integer> aRC() {
+    public static Pair<Integer, Integer> aRD() {
         Context appContext = AppRuntime.getAppContext();
         WindowManager windowManager = (WindowManager) appContext.getSystemService("window");
         if (windowManager == null) {
@@ -109,8 +109,8 @@ public class ad {
         return new Pair<>(Integer.valueOf(displayMetrics.widthPixels), Integer.valueOf(displayMetrics.heightPixels));
     }
 
-    public static Pair<Integer, Integer> aRD() {
-        Pair<Integer, Integer> aRC = aRC();
-        return new Pair<>(Integer.valueOf(((Integer) aRC.first).intValue()), Integer.valueOf(((Integer) aRC.second).intValue() - aRB()));
+    public static Pair<Integer, Integer> aRE() {
+        Pair<Integer, Integer> aRD = aRD();
+        return new Pair<>(Integer.valueOf(((Integer) aRD.first).intValue()), Integer.valueOf(((Integer) aRD.second).intValue() - aRC()));
     }
 }

@@ -122,7 +122,7 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
                     VideoPlayInputContainer.this.b(new com.baidu.tbadk.editortools.a(4, -1, VideoPlayInputContainer.this.fGr.getText().toString()));
                 }
                 VideoPlayInputContainer.this.bWc.setEnabled((editable == null || StringUtils.isNull(editable.toString().trim())) ? false : true);
-                VideoPlayInputContainer.this.dXm();
+                VideoPlayInputContainer.this.dXn();
             }
         });
         this.fGr.setHint(context.getString(R.string.reply_something));
@@ -204,12 +204,12 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
                         this.fGr.setText((CharSequence) null);
                     }
                     this.bWc.setEnabled(false);
-                    dXm();
+                    dXn();
                     return;
                 case 24:
                     if (aVar.data != null && (aVar.data instanceof u)) {
                         u uVar = (u) aVar.data;
-                        if (uVar.bzW() == EmotionGroupType.NET_SUG) {
+                        if (uVar.bzX() == EmotionGroupType.NET_SUG) {
                             a(uVar);
                             return;
                         } else {
@@ -227,8 +227,8 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
     private void a(u uVar) {
         if (uVar != null && !TextUtils.isEmpty(uVar.getName()) && !TextUtils.isEmpty(uVar.getUrl())) {
             String obj = this.fGr.getText().toString();
-            if (this.fFo && com.baidu.tieba.face.a.JT(obj) >= 10 && getContext() != null) {
-                e.bvy().showToast(R.string.too_many_face);
+            if (this.fFo && com.baidu.tieba.face.a.JS(obj) >= 10 && getContext() != null) {
+                e.bvz().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.a(getContext(), uVar, this.fGr);
             }
@@ -236,10 +236,10 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
     }
 
     private void b(u uVar) {
-        if (!this.fFn || uVar.bzW() == EmotionGroupType.LOCAL) {
+        if (!this.fFn || uVar.bzX() == EmotionGroupType.LOCAL) {
             String obj = this.fGr.getText().toString();
-            if (this.fFo && com.baidu.tieba.face.a.JT(obj) >= 10 && getContext() != null) {
-                e.bvy().showToast(R.string.too_many_face);
+            if (this.fFo && com.baidu.tieba.face.a.JS(obj) >= 10 && getContext() != null) {
+                e.bvz().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.b(getContext(), uVar, this.fGr);
             }
@@ -301,12 +301,12 @@ public class VideoPlayInputContainer extends LinearLayout implements n {
             j.h(this.fGr, R.drawable.edittext_cursor_1);
             this.fGr.setHintTextColor(ao.getColor(i, R.color.CAM_X0109));
         }
-        dXm();
+        dXn();
         ao.setImageResource(this.jiK, R.drawable.pbeditor_face_button);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dXm() {
+    public void dXn() {
         if (this.bWc.isEnabled()) {
             ao.setViewTextColor(this.bWc, R.color.CAM_X0302, 1, this.akW);
         } else {

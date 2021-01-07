@@ -17,7 +17,7 @@ class b implements com.baidu.tieba.lego.model.b {
         e eVar = new e();
         eVar.lcg = j;
         eVar.itemId = str;
-        com.baidu.tieba.lego.c.a a2 = com.baidu.tieba.lego.d.b.deM().a(eVar);
+        com.baidu.tieba.lego.c.a a2 = com.baidu.tieba.lego.d.b.deN().a(eVar);
         if (a2 != null) {
             a2.a(z, message, z2, i);
         }

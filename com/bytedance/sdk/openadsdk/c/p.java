@@ -10,10 +10,10 @@ import org.json.JSONObject;
 public class p {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6545a;
+    private String f6546a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.core.d.l f6546b;
+    private com.bytedance.sdk.openadsdk.core.d.l f6547b;
     private Boolean c = false;
     private Boolean d = false;
     private Boolean e = false;
@@ -23,9 +23,9 @@ public class p {
     private JSONArray h = new JSONArray();
 
     public p(int i, String str, com.bytedance.sdk.openadsdk.core.d.l lVar) {
-        this.f6545a = "embeded_ad";
-        this.f6545a = str;
-        this.f6546b = lVar;
+        this.f6546a = "embeded_ad";
+        this.f6546a = str;
+        this.f6547b = lVar;
         a(this.f, "webview_source", Integer.valueOf(i));
     }
 
@@ -214,7 +214,7 @@ public class p {
             if (com.bytedance.sdk.openadsdk.core.i.c().u() && this.f != null) {
                 u.b("WebviewTimeTrack", this.f.toString());
             }
-            d.h(com.bytedance.sdk.openadsdk.core.p.a(), this.f6546b, this.f6545a, "webview_time_track", hashMap);
+            d.h(com.bytedance.sdk.openadsdk.core.p.a(), this.f6547b, this.f6546a, "webview_time_track", hashMap);
             this.i = false;
         }
     }

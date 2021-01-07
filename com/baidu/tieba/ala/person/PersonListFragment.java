@@ -41,7 +41,7 @@ public class PersonListFragment extends BaseFragment {
                         if (PersonListFragment.this.hVh != null) {
                             PersonListFragment.this.hVh.aE(updateAttentionMessage.getData().toUid, updateAttentionMessage.isAttention() ? false : true);
                         }
-                        if (!com.baidu.live.view.a.Zx().a(updateAttentionMessage.getData(), (BdPageContext<?>) PersonListFragment.this.getPageContext(), false) && updateAttentionMessage.getData().errorString != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(PersonListFragment.this.getUniqueId())) {
+                        if (!com.baidu.live.view.a.Zy().a(updateAttentionMessage.getData(), (BdPageContext<?>) PersonListFragment.this.getPageContext(), false) && updateAttentionMessage.getData().errorString != null && (message = updateAttentionMessage.getmOrginalMessage()) != null && message.getTag() != null && message.getTag().equals(PersonListFragment.this.getUniqueId())) {
                             PersonListFragment.this.showToast(updateAttentionMessage.getData().errorString);
                             return;
                         }
@@ -108,7 +108,7 @@ public class PersonListFragment extends BaseFragment {
         initData();
         ap(inflate);
         initListener();
-        cpo();
+        cpp();
         return inflate;
     }
 
@@ -146,12 +146,12 @@ public class PersonListFragment extends BaseFragment {
                         bhVar.aQP = 1;
                         f fVar = new f(bhVar.portrait, bhVar.id, bhVar.metaKey, "1", true, PersonListFragment.this.getUniqueId());
                         fVar.setFrom("source_person_card_list");
-                        com.baidu.live.view.a.Zx().a(bhVar.id, fVar);
+                        com.baidu.live.view.a.Zy().a(bhVar.id, fVar);
                     } else {
                         bhVar.aQP = 0;
                         f fVar2 = new f(bhVar.portrait, bhVar.id, bhVar.metaKey, "1", false, PersonListFragment.this.getUniqueId());
                         fVar2.setFrom("source_person_card_list");
-                        com.baidu.live.view.a.Zx().a(bhVar.id, fVar2);
+                        com.baidu.live.view.a.Zy().a(bhVar.id, fVar2);
                     }
                     PersonListFragment.this.hVh.notifyDataSetChanged();
                 }
@@ -205,7 +205,7 @@ public class PersonListFragment extends BaseFragment {
         }
     }
 
-    private void cpo() {
+    private void cpp() {
         if (JavaTypesHelper.toLong(this.userId, 0L) == 0) {
             this.hVh.a(true, null, this.type);
         } else if (this.hVn == null) {

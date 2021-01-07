@@ -44,14 +44,14 @@ public class a extends FrameLayout implements ICyberVideoView {
     private int W;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1781a;
+    private int f1782a;
     private int aa;
     private boolean ab;
     private float ac;
     private HashMap<String, String> ad;
 
     /* renamed from: b  reason: collision with root package name */
-    protected Context f1782b;
+    protected Context f1783b;
     protected Surface c;
     protected View d;
     protected boolean e;
@@ -138,7 +138,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1781a = 0;
+        this.f1782a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -166,7 +166,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1781a = 0;
+        this.f1782a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -191,7 +191,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         this.m = null;
         this.n = null;
         this.p = false;
-        this.f1781a = 0;
+        this.f1782a = 0;
         this.T = "0.0.0.0";
         this.U = true;
         this.V = 0;
@@ -230,7 +230,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     /* JADX INFO: Access modifiers changed from: protected */
     public void a(Context context) {
         if (context != null) {
-            this.f1782b = context.getApplicationContext();
+            this.f1783b = context.getApplicationContext();
         } else {
             CyberLog.e("VrMovieView", "Context not be null");
         }
@@ -250,7 +250,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         if (z2) {
             this.H = h.IDLE;
         }
-        ((AudioManager) this.f1782b.getSystemService("audio")).abandonAudioFocus(null);
+        ((AudioManager) this.f1783b.getSystemService("audio")).abandonAudioFocus(null);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -280,7 +280,7 @@ public class a extends FrameLayout implements ICyberVideoView {
 
     protected void c(int i2) {
         a(this.n != null, false);
-        ((AudioManager) this.f1782b.getSystemService("audio")).requestAudioFocus(null, 3, 1);
+        ((AudioManager) this.f1783b.getSystemService("audio")).requestAudioFocus(null, 3, 1);
         this.h = d(i2);
         if (this.ad != null) {
             for (String str : this.ad.keySet()) {
@@ -468,7 +468,7 @@ public class a extends FrameLayout implements ICyberVideoView {
         c();
         try {
             if (Build.VERSION.SDK_INT >= 14) {
-                this.h.setDataSource(this.f1782b, this.m, this.o);
+                this.h.setDataSource(this.f1783b, this.m, this.o);
             } else {
                 this.h.setDataSource(this.m.toString());
             }
@@ -834,7 +834,7 @@ public class a extends FrameLayout implements ICyberVideoView {
     }
 
     public void setScaleType(int i2) {
-        this.f1781a = i2;
+        this.f1782a = i2;
     }
 
     @Override // com.baidu.cyberplayer.sdk.ICyberVideoView

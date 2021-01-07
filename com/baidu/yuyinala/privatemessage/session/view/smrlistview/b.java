@@ -51,7 +51,7 @@ public class b implements WrapperListAdapter, SMView.a {
             return sMLayout;
         }
         SMLayout sMLayout2 = (SMLayout) view;
-        sMLayout2.eoE();
+        sMLayout2.eoF();
         sMLayout2.setPosition(i);
         this.mAdapter.getView(i, sMLayout2.getContentView(), viewGroup);
         return sMLayout2;

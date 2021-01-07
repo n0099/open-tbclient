@@ -17,7 +17,7 @@ public class f extends com.baidu.swan.apps.api.a.d {
             /* renamed from: f */
             public void L(Integer num) {
                 if (num.intValue() == 1 || num.intValue() == 0) {
-                    f.this.anK();
+                    f.this.anL();
                 }
             }
         };
@@ -37,15 +37,15 @@ public class f extends com.baidu.swan.apps.api.a.d {
         if (TextUtils.isEmpty(this.cKv)) {
             return new com.baidu.swan.apps.api.c.b(201);
         }
-        j.anN().b(this.cKw);
-        j.anN().anS();
+        j.anO().b(this.cKw);
+        j.anO().anT();
         return new com.baidu.swan.apps.api.c.b(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void anK() {
-        j.anN().anT();
-        j.anN().anQ();
+    public void anL() {
+        j.anO().anU();
+        j.anO().anR();
         a(this.cKv, new com.baidu.swan.apps.api.c.b(0));
     }
 }

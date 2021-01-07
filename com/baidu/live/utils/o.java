@@ -43,11 +43,11 @@ public class o {
         return true;
     }
 
-    private static boolean XC() {
+    private static boolean XD() {
         if (everyDayUser <= 0 || everyDayDevice <= 0) {
             init();
         }
-        JSONObject optJSONObject = XE().optJSONObject(k.b(new Date()));
+        JSONObject optJSONObject = XF().optJSONObject(k.b(new Date()));
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
@@ -55,7 +55,7 @@ public class o {
         return ((currentAccountId > 0L ? 1 : (currentAccountId == 0L ? 0 : -1)) > 0 ? optJSONObject.optInt(new StringBuilder().append("uid_").append(currentAccountId).toString()) : 0) < everyDayUser && optJSONObject.optInt("dev") < everyDayDevice;
     }
 
-    private static boolean XD() {
+    private static boolean XE() {
         if (deviceNotClick <= 0) {
             init();
         }
@@ -68,9 +68,9 @@ public class o {
             num = bOT.get(Long.valueOf(j));
         }
         bOT.put(Long.valueOf(j), Integer.valueOf(num.intValue() + 1));
-        JSONObject XE = XE();
+        JSONObject XF = XF();
         String b2 = k.b(new Date());
-        JSONObject optJSONObject = XE.optJSONObject(b2);
+        JSONObject optJSONObject = XF.optJSONObject(b2);
         if (optJSONObject == null) {
             optJSONObject = new JSONObject();
         }
@@ -102,7 +102,7 @@ public class o {
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    private static JSONObject XE() {
+    private static JSONObject XF() {
         JSONObject jSONObject;
         String string = com.baidu.live.d.Ba().getString("feed_diversion_show_frequency", "");
         if (!TextUtils.isEmpty(string)) {
@@ -128,7 +128,7 @@ public class o {
     public static boolean bv(long j) {
         boolean bt;
         if (!bOS && (bt = bt(j))) {
-            bOS = (XC() && XD()) ? false : true;
+            bOS = (XD() && XE()) ? false : true;
             return bt & (bOS ? false : true);
         }
         return false;

@@ -23,13 +23,13 @@ public class f extends g {
     };
     public long fLz;
 
-    public void bHA() {
+    public void bHB() {
         this.fLF.sendEmptyMessage(0);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bHB() {
-        i iVar = (i) k.bHF().sW(this.mSubType);
+    public void bHC() {
+        i iVar = (i) k.bHG().sW(this.mSubType);
         if (iVar != null) {
             iVar.c(this);
         }
@@ -44,8 +44,8 @@ public class f extends g {
         /* JADX INFO: Access modifiers changed from: protected */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         public Boolean doInBackground(String... strArr) {
-            f.this.fLD = k.bHF().getCpuUsageStatistic();
-            f.this.bHB();
+            f.this.fLD = k.bHG().getCpuUsageStatistic();
+            f.this.bHC();
             return Boolean.TRUE;
         }
 

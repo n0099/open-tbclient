@@ -31,13 +31,13 @@ public interface b {
 
     String aBH();
 
-    CookieManager aBI();
+    String aBI();
 
-    String aBJ();
+    CookieManager aBJ();
 
-    com.baidu.swan.pms.c.f aBK();
+    String aBK();
 
-    String aBy();
+    com.baidu.swan.pms.c.f aBL();
 
     String aBz();
 

@@ -170,7 +170,7 @@ public class CandidateSearchActivity extends BaseActivity {
         if (getIntent() != null) {
             this.mForumId = getIntent().getStringExtra("forum_id");
         }
-        bIk();
+        bIl();
         this.ioP = (BdRecyclerView) findViewById(R.id.recycler_view);
         this.ioP.setLayoutManager(new LinearLayoutManager(this));
         this.mNoDataView = findViewById(R.id.text_no_data);
@@ -182,7 +182,7 @@ public class CandidateSearchActivity extends BaseActivity {
         e.mB().postDelayed(this.ioX, 100L);
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
         this.mNavigationBar.showBottomLine();
         this.ioS = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.candidate_search_navigation_view, (View.OnClickListener) null);
@@ -208,10 +208,10 @@ public class CandidateSearchActivity extends BaseActivity {
         super.onChangeSkinType(i);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
         ao.setViewTextColor(this.mNoDataView, R.color.CAM_X0109);
-        SvgManager.bwq().a(this.gZe, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+        SvgManager.bwr().a(this.gZe, R.drawable.icon_pure_topbar_search44_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
         this.ioT.setHintTextColor(ao.getColor(R.color.CAM_X0110));
         ao.setNavbarTitleColor(this.ioT, R.color.CAM_X0105, R.color.s_navbar_title_color);
-        SvgManager.bwq().a(this.fiW, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.fiW, R.drawable.icon_pure_search_empty16_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         ao.setViewTextColor(this.ioU, R.color.CAM_X0302, 1);
     }
 

@@ -6,7 +6,7 @@ public class b {
     private static volatile b hOo;
     public am bwr = new am();
 
-    public static b cnp() {
+    public static b cnq() {
         if (hOo == null) {
             synchronized (b.class) {
                 if (hOo == null) {

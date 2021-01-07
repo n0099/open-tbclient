@@ -3,10 +3,10 @@ package com.bytedance.sdk.openadsdk.core.d;
 public class n {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f6814a;
+    private boolean f6815a;
 
     /* renamed from: b  reason: collision with root package name */
-    private double f6815b;
+    private double f6816b;
     private double c;
     private double d;
     private double e;
@@ -16,19 +16,19 @@ public class n {
     private int i;
 
     public boolean a() {
-        return this.f6814a;
+        return this.f6815a;
     }
 
     public void a(boolean z) {
-        this.f6814a = z;
+        this.f6815a = z;
     }
 
     public double b() {
-        return this.f6815b;
+        return this.f6816b;
     }
 
     public void a(double d) {
-        this.f6815b = d;
+        this.f6816b = d;
     }
 
     public double c() {

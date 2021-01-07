@@ -34,13 +34,13 @@ public class b {
         }
     }
 
-    public void bcj() {
+    public void bck() {
         if (this.eoh != null) {
             this.eoh.call();
         }
     }
 
-    public void bck() {
+    public void bcl() {
         if (this.eoi != null) {
             this.eoi.call();
         }

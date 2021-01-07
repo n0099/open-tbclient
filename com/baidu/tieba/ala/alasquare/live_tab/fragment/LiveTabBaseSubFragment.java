@@ -30,21 +30,21 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         }
     };
 
-    public abstract void WE();
+    public abstract void WF();
 
-    public abstract void bUN();
+    public abstract void bUO();
 
     public abstract void loadData();
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bUL() {
+    public void bUM() {
         this.gCZ.setVisibility(0);
         if (this.gDa == null) {
             this.gDa = new h(this.mContext, null);
         }
         this.gDa.hideRefreshButton();
         this.gDa.sO(R.drawable.new_pic_emotion_03);
-        this.gDa.Eh(this.mContext.getResources().getString(R.string.no_data_common_txt));
+        this.gDa.Eg(this.mContext.getResources().getString(R.string.no_data_common_txt));
         this.gDa.onChangeSkinType();
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -1);
         if (this.gDa.getAttachedView() != null && this.gDa.getAttachedView().getParent() == null) {
@@ -58,7 +58,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public void bUM() {
+    public void bUN() {
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921441, false));
         this.gDb = true;
     }
@@ -76,7 +76,7 @@ public abstract class LiveTabBaseSubFragment extends BaseFragment {
         this.gDc = str2;
     }
 
-    public boolean boV() {
+    public boolean boW() {
         return (at.isEmpty(this.fPy) || at.isEmpty(this.gDc)) ? false : true;
     }
 }

@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a bME() {
+    public static a bMF() {
         return geg;
     }
 
@@ -27,11 +27,11 @@ public class a {
         }
     }
 
-    public boolean bMF() {
+    public boolean bMG() {
         return this.gej == 1;
     }
 
-    public boolean bMG() {
+    public boolean bMH() {
         return this.gek == 1;
     }
 }

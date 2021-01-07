@@ -26,10 +26,10 @@ public class f {
 
     public f(Context context) {
         this.mContext = context;
-        cKB();
+        cKC();
     }
 
-    private void cKB() {
+    private void cKC() {
         this.jxB = new TextView(this.mContext);
         this.jxB.setTextSize(0, this.mContext.getResources().getDimensionPixelSize(R.dimen.fontsize24));
         ao.setBackgroundResource(this.jxB, R.color.CAM_X0302);
@@ -55,7 +55,7 @@ public class f {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (f.this.jxB != null) {
-                    f.this.cHv();
+                    f.this.cHw();
                 }
             }
 
@@ -69,7 +69,7 @@ public class f {
         });
     }
 
-    public void cHv() {
+    public void cHw() {
         if (this.mHandler != null) {
             this.mHandler.removeCallbacksAndMessages(null);
         }
@@ -90,11 +90,11 @@ public class f {
         return this.jxB != null && this.jxB.getVisibility() == 0;
     }
 
-    public TextView cKC() {
+    public TextView cKD() {
         return this.jxB;
     }
 
-    public void cKD() {
+    public void cKE() {
         this.mHandler.removeCallbacks(this.mHideRunnable);
         this.mHandler.postDelayed(this.mHideRunnable, 2000L);
     }

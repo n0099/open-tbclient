@@ -17,40 +17,40 @@ import com.baidu.webkit.internal.ETAG;
 public class b {
     private CustomMessageListener bXd;
     private Activity mContext;
-    private a.InterfaceC0911a owU;
-    private a owW;
+    private a.InterfaceC0949a owT;
+    private a owV;
 
     public b(Activity activity) {
         this.mContext = activity;
-        aaf();
+        aag();
     }
 
     public void b(String str, long j, long j2, long j3) {
-        this.owW = new a(this.mContext);
-        this.owW.a(this.owU);
-        this.owW.getWebView().setBackgroundColor(ih(str));
+        this.owV = new a(this.mContext);
+        this.owV.a(this.owT);
+        this.owV.getWebView().setBackgroundColor(ih(str));
         g gVar = new g();
-        gVar.w(this.mContext).a(this.owW).a(this.owW.getWebView().getSchemeCallback());
-        com.baidu.live.view.web.a[] aae = gVar.aae();
-        for (com.baidu.live.view.web.a aVar : aae) {
-            this.owW.getWebView().addJavascriptInterface(aVar, aVar.getName());
+        gVar.w(this.mContext).a(this.owV).a(this.owV.getWebView().getSchemeCallback());
+        com.baidu.live.view.web.a[] aaf = gVar.aaf();
+        for (com.baidu.live.view.web.a aVar : aaf) {
+            this.owV.getWebView().addJavascriptInterface(aVar, aVar.getName());
         }
-        this.owW.GB(c(str, j, j2, j3));
+        this.owV.GA(c(str, j, j2, j3));
     }
 
     public void dismiss() {
-        if (this.owW != null) {
-            this.owW.aag();
+        if (this.owV != null) {
+            this.owV.aah();
         }
     }
 
-    private void aaf() {
+    private void aag() {
         this.bXd = new CustomMessageListener(2913123) { // from class: com.baidu.tieba.yuyinala.liveroom.turntable.b.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.live.adp.framework.listener.MessageListener
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-                if (b.this.owW != null && b.this.owW.isShowing()) {
-                    b.this.owW.dismiss();
+                if (b.this.owV != null && b.this.owV.isShowing()) {
+                    b.this.owV.dismiss();
                 }
             }
         };
@@ -94,7 +94,7 @@ public class b {
         sb.append("&_sdk_version=");
         sb.append(TbConfig.SDK_VERSION);
         sb.append("&scene_from=");
-        sb.append(t.XF());
+        sb.append(t.XG());
         return sb.toString();
     }
 }

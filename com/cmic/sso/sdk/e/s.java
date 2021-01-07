@@ -8,7 +8,7 @@ import java.util.UUID;
 public class s {
 
     /* renamed from: a  reason: collision with root package name */
-    private static char[] f8035a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    private static char[] f8036a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static String a(byte[] bArr) {
@@ -22,8 +22,8 @@ public class s {
         while (i < length) {
             byte b2 = bArr[i];
             int i3 = i2 + 1;
-            cArr[i2] = f8035a[(b2 >>> 4) & 15];
-            cArr[i3] = f8035a[b2 & 15];
+            cArr[i2] = f8036a[(b2 >>> 4) & 15];
+            cArr[i3] = f8036a[b2 & 15];
             i++;
             i2 = i3 + 1;
         }

@@ -7,24 +7,24 @@ import java.util.Map;
 public class b {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8016a;
+    private int f8017a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Map<String, List<String>> f8017b;
+    private Map<String, List<String>> f8018b;
     private String c;
 
     public b(int i, Map<String, List<String>> map, String str) {
-        this.f8016a = i;
-        this.f8017b = map;
+        this.f8017a = i;
+        this.f8018b = map;
         this.c = str;
     }
 
     public int a() {
-        return this.f8016a;
+        return this.f8017a;
     }
 
     public Map<String, List<String>> b() {
-        return this.f8017b == null ? new HashMap() : this.f8017b;
+        return this.f8018b == null ? new HashMap() : this.f8018b;
     }
 
     public String c() {
@@ -32,6 +32,6 @@ public class b {
     }
 
     public boolean d() {
-        return this.f8016a == 302 || this.f8016a == 301;
+        return this.f8017a == 302 || this.f8017a == 301;
     }
 }

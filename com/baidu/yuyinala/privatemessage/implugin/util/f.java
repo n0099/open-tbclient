@@ -203,7 +203,7 @@ public class f {
         return 55;
     }
 
-    public static long enV() {
+    public static long enW() {
         long j = 0;
         if (Environment.getExternalStorageState().equals("mounted")) {
             try {
@@ -261,7 +261,7 @@ public class f {
                                 context.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                                 return;
                             }
-                            com.baidu.yuyinala.privatemessage.implugin.d.b.ell().h(context, str, false);
+                            com.baidu.yuyinala.privatemessage.implugin.d.b.elm().h(context, str, false);
                         } catch (Exception e) {
                             c.e("Utils", "ex " + e.getMessage());
                         }
@@ -282,16 +282,16 @@ public class f {
             jSONObject.put("oauth", "");
             jSONObject.put("needUserSetting", false);
             jSONObject.put("thirdLogin", false);
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ell().a(jSONObject.toString(), dVar);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elm().a(jSONObject.toString(), dVar);
         } catch (JSONException e) {
             e.printStackTrace();
         }
     }
 
-    public static void emB() {
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a emH = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emC().emH();
-        if (emH != null) {
-            emH.emB();
+    public static void emC() {
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.a emI = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emD().emI();
+        if (emI != null) {
+            emI.emC();
         }
     }
 

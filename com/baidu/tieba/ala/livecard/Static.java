@@ -37,8 +37,8 @@ public class Static {
                         absDelegateAdapterList.add(new c(null, bz.eTl, null));
                         absDelegateAdapterList.add(new f(null, bz.eTk, null));
                         absDelegateAdapterList.add(new FrsSplitAlaShareItemAdapter(null, bz.eTm, null));
-                        absDelegateAdapterList.add(new a(null, g.npf, null));
-                        absDelegateAdapterList.add(new d(null, h.npi, null));
+                        absDelegateAdapterList.add(new a(null, g.npe, null));
+                        absDelegateAdapterList.add(new d(null, h.nph, null));
                     }
                 }
             });
@@ -51,7 +51,7 @@ public class Static {
                         absDelegateAdapterList.add(new c(null, bz.eTl, null));
                         absDelegateAdapterList.add(new e(null, bz.eTk, null));
                         absDelegateAdapterList.add(new FrsAlaShareItemAdapter(null, bz.eTm, null));
-                        absDelegateAdapterList.add(new e(null, h.npi, null));
+                        absDelegateAdapterList.add(new e(null, h.nph, null));
                     }
                 }
             });
@@ -67,7 +67,7 @@ public class Static {
                     }
                 }
             });
-            af.cHe().Av(49);
+            af.cHf().Av(49);
         }
         MessageManager messageManager = MessageManager.getInstance();
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1003390, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_FRS_NEGATIVE_URL);

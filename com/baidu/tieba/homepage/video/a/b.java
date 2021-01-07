@@ -34,8 +34,8 @@ public class b extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
 
     /* JADX INFO: Access modifiers changed from: private */
     public void b(View view, l lVar) {
-        if (this.iNy != null && this.iNy.tE() != null && this.iNy.tE().dBx() != null) {
-            if (view.getId() == this.iNy.tE().dBx().getId()) {
+        if (this.iNy != null && this.iNy.tE() != null && this.iNy.tE().dBy() != null) {
+            if (view.getId() == this.iNy.tE().dBy().getId()) {
                 com.baidu.tieba.homepage.video.c.a.r(lVar);
             } else if (view.getId() == R.id.thread_card_root) {
                 com.baidu.tieba.homepage.video.c.a.p(lVar);
@@ -50,11 +50,11 @@ public class b extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.tieba.card.aa
             public void a(View view, l lVar) {
-                if (view != null && lVar != null && lVar.boO() != null) {
+                if (view != null && lVar != null && lVar.boP() != null) {
                     b.this.b(view, lVar);
-                    if (b.this.kgb != null && (view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.gA(com.baidu.adp.lib.f.b.toLong(lVar.boO().getTid(), 0L))) {
-                        com.baidu.tieba.homepage.personalize.f.gz(com.baidu.adp.lib.f.b.toLong(lVar.boO().getTid(), 0L));
-                        b.this.kgb.a(com.baidu.adp.lib.f.b.toLong(lVar.boO().getTid(), 0L), lVar.getWeight(), lVar.getSource(), lVar.cvm(), lVar.cvn(), com.baidu.adp.lib.f.b.toInt("3", 1), "video_tab", lVar.boO().getBaijiahaoData());
+                    if (b.this.kgb != null && (view.getTag() instanceof String) && !com.baidu.tieba.homepage.personalize.f.gA(com.baidu.adp.lib.f.b.toLong(lVar.boP().getTid(), 0L))) {
+                        com.baidu.tieba.homepage.personalize.f.gz(com.baidu.adp.lib.f.b.toLong(lVar.boP().getTid(), 0L));
+                        b.this.kgb.a(com.baidu.adp.lib.f.b.toLong(lVar.boP().getTid(), 0L), lVar.getWeight(), lVar.getSource(), lVar.cvn(), lVar.cvo(), com.baidu.adp.lib.f.b.toInt("3", 1), "video_tab", lVar.boP().getBaijiahaoData());
                     }
                 }
             }
@@ -143,23 +143,23 @@ public class b extends com.baidu.adp.widget.ListView.a<l, AutoVideoCardViewHolde
             oVar = new o();
             oVar.mLocate = Constants.VIA_ACT_TYPE_NINETEEN;
             oVar.anD = lVar.tid;
-            if (lVar.boO() != null) {
-                oVar.fPy = String.valueOf(lVar.boO().getFid());
-                oVar.mDQ = lVar.boO().bpO();
-                if (lVar.boO().brH() != null) {
-                    oVar.mDM = lVar.boO().brH().video_md5;
-                    oVar.mDO = String.valueOf(lVar.boO().brH().is_vertical);
+            if (lVar.boP() != null) {
+                oVar.fPy = String.valueOf(lVar.boP().getFid());
+                oVar.mDP = lVar.boP().bpP();
+                if (lVar.boP().brI() != null) {
+                    oVar.mDL = lVar.boP().brI().video_md5;
+                    oVar.mDN = String.valueOf(lVar.boP().brI().is_vertical);
                 }
             }
             oVar.eQd = lVar.getExtra();
             oVar.mSource = lVar.getSource();
-            oVar.mDL = lVar.cvn();
-            oVar.mDI = lVar.getWeight();
+            oVar.mDK = lVar.cvo();
+            oVar.mDH = lVar.getWeight();
             oVar.mUid = TbadkCoreApplication.getCurrentAccount();
-            oVar.mFloor = String.valueOf(lVar.cvm());
-            if (lVar.boO() != null && lVar.boO().getBaijiahaoData() != null) {
-                oVar.eVY = lVar.boO().getBaijiahaoData().oriUgcNid;
-                oVar.mVid = lVar.boO().getBaijiahaoData().oriUgcVid;
+            oVar.mFloor = String.valueOf(lVar.cvn());
+            if (lVar.boP() != null && lVar.boP().getBaijiahaoData() != null) {
+                oVar.eVY = lVar.boP().getBaijiahaoData().oriUgcNid;
+                oVar.mVid = lVar.boP().getBaijiahaoData().oriUgcVid;
             }
         }
         return oVar;

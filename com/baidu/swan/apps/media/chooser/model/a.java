@@ -16,7 +16,7 @@ public class a implements Comparable<Object> {
         this.Cz = str;
     }
 
-    public String aER() {
+    public String aES() {
         return this.dnS;
     }
 
@@ -32,11 +32,11 @@ public class a implements Comparable<Object> {
         this.lastModified = j;
     }
 
-    public int aES() {
+    public int aET() {
         return this.dnT.size();
     }
 
-    public ArrayList<MediaModel> aEL() {
+    public ArrayList<MediaModel> aEM() {
         return this.dnT;
     }
 
@@ -48,7 +48,7 @@ public class a implements Comparable<Object> {
     }
 
     public String toString() {
-        return "MediaDir [firstImgPath=, dirName=" + this.Cz + ", imageCount=" + aES() + "]";
+        return "MediaDir [firstImgPath=, dirName=" + this.Cz + ", imageCount=" + aET() + "]";
     }
 
     public boolean equals(Object obj) {

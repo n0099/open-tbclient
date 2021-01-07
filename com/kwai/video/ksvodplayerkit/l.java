@@ -3,10 +3,10 @@ package com.kwai.video.ksvodplayerkit;
 public class l {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f11401a;
+    public String f11402a;
 
     /* renamed from: b  reason: collision with root package name */
-    public String f11402b;
+    public String f11403b;
     public String c;
     public long d;
     public String e;

@@ -81,7 +81,7 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
 
         @Override // com.baidu.tieba.ala.g.e.a
         public void bn(int i, String str) {
-            AlaMyAssistWishActivity.this.avu();
+            AlaMyAssistWishActivity.this.avv();
         }
     };
 
@@ -98,7 +98,7 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
         if (!isFinishing()) {
             parserIntent();
             this.hSO = new e(getPageContext(), this.hSQ);
-            this.hSO.IM(this.bvS);
+            this.hSO.IL(this.bvS);
             MessageManager.getInstance().registerListener(this.aYs);
             MessageManager.getInstance().registerListener(this.aYr);
             MessageManager.getInstance().registerListener(this.aBj);
@@ -139,16 +139,16 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void avu() {
-        bUL();
+    public void avv() {
+        bUM();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void showNoDataView() {
-        bUL();
+        bUM();
     }
 
-    private void bUL() {
+    private void bUM() {
         if (this.hSN != null) {
             this.hSN.setVisibility(8);
         }
@@ -160,7 +160,7 @@ public class AlaMyAssistWishActivity extends BaseFragmentActivity {
             public void onClick(View view) {
                 AlaMyAssistWishActivity.this.bxT.setVisibility(8);
                 if (AlaMyAssistWishActivity.this.hSO != null) {
-                    AlaMyAssistWishActivity.this.hSO.IM(AlaMyAssistWishActivity.this.bvS);
+                    AlaMyAssistWishActivity.this.hSO.IL(AlaMyAssistWishActivity.this.bvS);
                 }
             }
         });

@@ -4,19 +4,19 @@ import android.text.TextUtils;
 import java.util.HashSet;
 import org.json.JSONArray;
 import org.json.JSONException;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public final class c {
 
     /* renamed from: a  reason: collision with root package name */
-    public String f6000a;
+    public String f6001a;
 
     /* renamed from: b  reason: collision with root package name */
-    public HashSet<String> f6001b = new HashSet<>();
+    public HashSet<String> f6002b = new HashSet<>();
     public HashSet<String> c = new HashSet<>();
 
     public c(String str) {
-        this.f6000a = "full";
-        this.f6000a = str;
+        this.f6001a = "full";
+        this.f6001a = str;
     }
 
     public final void a(JSONArray jSONArray) throws JSONException {
@@ -26,7 +26,7 @@ public final class c {
         for (int i = 0; i < jSONArray.length(); i++) {
             String string = jSONArray.getString(i);
             if (!TextUtils.isEmpty(string)) {
-                this.f6001b.add(string);
+                this.f6002b.add(string);
             }
         }
     }

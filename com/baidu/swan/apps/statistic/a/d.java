@@ -23,8 +23,8 @@ public class d extends f {
     }
 
     public d i(@NonNull com.baidu.swan.apps.al.a aVar) {
-        this.mType = String.valueOf(aVar.aQF());
-        cD("detail", aVar.aQE().toString());
+        this.mType = String.valueOf(aVar.aQG());
+        cD("detail", aVar.aQF().toString());
         return this;
     }
 
@@ -71,14 +71,14 @@ public class d extends f {
 
     public d a(com.baidu.swan.apps.u.c.e eVar) {
         if (eVar != null) {
-            if (!TextUtils.isEmpty(eVar.aCv())) {
-                this.mSource = eVar.aCv();
+            if (!TextUtils.isEmpty(eVar.aCw())) {
+                this.mSource = eVar.aCw();
             }
             if (!TextUtils.isEmpty(eVar.getAppId())) {
                 this.mAppId = eVar.getAppId();
             }
-            if (!TextUtils.isEmpty(eVar.aCx())) {
-                this.mScheme = eVar.aCx();
+            if (!TextUtils.isEmpty(eVar.aCy())) {
+                this.mScheme = eVar.aCy();
             }
             if (!TextUtils.isEmpty(eVar.getPage())) {
                 this.dOn = eVar.getPage();
@@ -102,9 +102,9 @@ public class d extends f {
                 }
                 this.dOd.put("info", this.dOc);
             }
-            ExtensionCore avW = com.baidu.swan.apps.core.turbo.d.avA().avW();
-            if (avW != null) {
-                this.dOd.put("extension_ver", avW.extensionCoreVersionName);
+            ExtensionCore avX = com.baidu.swan.apps.core.turbo.d.avB().avX();
+            if (avX != null) {
+                this.dOd.put("extension_ver", avX.extensionCoreVersionName);
             }
         } catch (JSONException e) {
             if (DEBUG) {

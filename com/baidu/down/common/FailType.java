@@ -1,5 +1,5 @@
 package com.baidu.down.common;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public final class FailType {
     public static final int FAIL_TYPE_302_HIJACK = 6;
     public static final int FAIL_TYPE_INTERCEPT = 4;

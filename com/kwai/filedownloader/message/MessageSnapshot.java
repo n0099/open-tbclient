@@ -42,7 +42,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                         jVar = new h.d(parcel);
                         break;
                     } else {
-                        jVar = new d.C1133d(parcel);
+                        jVar = new d.C1174d(parcel);
                         break;
                     }
                 case 1:
@@ -71,7 +71,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                     }
                 case 5:
                     if (!z) {
-                        jVar = new h.C1134h(parcel);
+                        jVar = new h.C1175h(parcel);
                         break;
                     } else {
                         jVar = new d.h(parcel);
@@ -82,7 +82,7 @@ public abstract class MessageSnapshot implements Parcelable, c {
                     break;
             }
             if (jVar != null) {
-                jVar.f11245a = z;
+                jVar.f11246a = z;
                 return jVar;
             }
             throw new IllegalStateException("Can't restore the snapshot because unknown status: " + ((int) readByte));
@@ -97,10 +97,10 @@ public abstract class MessageSnapshot implements Parcelable, c {
     };
 
     /* renamed from: a  reason: collision with root package name */
-    protected boolean f11245a;
+    protected boolean f11246a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int f11246b;
+    private final int f11247b;
 
     /* loaded from: classes5.dex */
     public static class NoFieldException extends IllegalStateException {
@@ -133,12 +133,12 @@ public abstract class MessageSnapshot implements Parcelable, c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MessageSnapshot(int i) {
-        this.f11246b = i;
+        this.f11247b = i;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public MessageSnapshot(Parcel parcel) {
-        this.f11246b = parcel.readInt();
+        this.f11247b = parcel.readInt();
     }
 
     public int a() {
@@ -187,17 +187,17 @@ public abstract class MessageSnapshot implements Parcelable, c {
     }
 
     public int m() {
-        return this.f11246b;
+        return this.f11247b;
     }
 
     public boolean n() {
-        return this.f11245a;
+        return this.f11246a;
     }
 
     @Override // android.os.Parcelable
     public void writeToParcel(Parcel parcel, int i) {
-        parcel.writeByte((byte) (this.f11245a ? 1 : 0));
+        parcel.writeByte((byte) (this.f11246a ? 1 : 0));
         parcel.writeByte(b());
-        parcel.writeInt(this.f11246b);
+        parcel.writeInt(this.f11247b);
     }
 }

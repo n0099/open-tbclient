@@ -22,5 +22,5 @@ public interface c<T> extends e {
 
     void ak(T t);
 
-    Map<String, Object> bfX();
+    Map<String, Object> bfY();
 }

@@ -182,7 +182,7 @@ public class a implements View.OnClickListener {
         } else if (this.aWM != null) {
             f fVar = new f(this.aWM.Ga(), this.aWM.getUserId(), true, BdUniqueId.gen());
             fVar.setFrom("live_show_perference");
-            com.baidu.live.view.a.Zx().a(this.aWM.getUserId(), fVar);
+            com.baidu.live.view.a.Zy().a(this.aWM.getUserId(), fVar);
         }
     }
 

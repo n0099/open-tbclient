@@ -14,7 +14,7 @@ import javax.net.ssl.TrustManagerFactory;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private X509Certificate f8018a;
+    private X509Certificate f8019a;
     private SSLContext prk;
 
     /* JADX DEBUG: Don't trust debug lines info. Repeating lines: [34=4] */
@@ -24,14 +24,14 @@ public class a {
     */
     private void a(String str) {
         ByteArrayInputStream byteArrayInputStream;
-        if (this.f8018a != null) {
+        if (this.f8019a != null) {
             return;
         }
         try {
             byteArrayInputStream = new ByteArrayInputStream(Base64.decode(str, 0));
             try {
                 try {
-                    this.f8018a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
+                    this.f8019a = (X509Certificate) CertificateFactory.getInstance("X.509").generateCertificate(byteArrayInputStream);
                     if (byteArrayInputStream != null) {
                         try {
                             byteArrayInputStream.close();
@@ -78,7 +78,7 @@ public class a {
         try {
             KeyStore keyStore = KeyStore.getInstance(KeyStore.getDefaultType());
             keyStore.load(null, null);
-            keyStore.setCertificateEntry("cert", this.f8018a);
+            keyStore.setCertificateEntry("cert", this.f8019a);
             TrustManagerFactory trustManagerFactory = TrustManagerFactory.getInstance(TrustManagerFactory.getDefaultAlgorithm());
             trustManagerFactory.init(keyStore);
             this.prk = SSLContext.getInstance(BdSailorConfig.SAILOR_BASE_SSL);
@@ -88,7 +88,7 @@ public class a {
         }
     }
 
-    public SSLContext esS() {
+    public SSLContext esT() {
         return this.prk;
     }
 }

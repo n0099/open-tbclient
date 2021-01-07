@@ -14,9 +14,9 @@ public abstract class a {
     protected final int ccC = 640;
     protected final float ccD = 1.5f;
     protected final float ccE = 1.2f;
-    public AnimatorSet ccF = aby();
+    public AnimatorSet ccF = abz();
 
-    protected abstract AnimatorSet aby();
+    protected abstract AnimatorSet abz();
 
     public a(View view) {
         this.mTarget = view;

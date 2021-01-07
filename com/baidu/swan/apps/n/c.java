@@ -34,7 +34,7 @@ public final class c {
         SwanAppRoundedImageView swanAppRoundedImageView = (SwanAppRoundedImageView) inflate.findViewById(a.f.swan_app_icon);
         final Resources resources = activity.getResources();
         if (swanAppRoundedImageView != null) {
-            swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, ak.a((com.baidu.swan.apps.u.c.b) eVar.aMo(), "SwanSubscribeMsgDialog", false)));
+            swanAppRoundedImageView.setImageDrawable(new BitmapDrawable(resources, ak.a((com.baidu.swan.apps.u.c.b) eVar.aMp(), "SwanSubscribeMsgDialog", false)));
             swanAppRoundedImageView.setBorderColor(resources.getColor(a.c.swan_app_auth_icon_border));
         }
         TextView textView = (TextView) inflate.findViewById(a.f.auth_negative_button);
@@ -57,12 +57,12 @@ public final class c {
                 }));
             }
         }
-        final g atG = new g.a(activity).gT(true).aK(inflate).a(new com.baidu.swan.apps.view.c.a()).kD(a.e.aiapps_action_sheet_bg).gY(false).aLv().gU(false).atG();
+        final g atH = new g.a(activity).gT(true).aK(inflate).a(new com.baidu.swan.apps.view.c.a()).kD(a.e.aiapps_action_sheet_bg).gY(false).aLw().gU(false).atH();
         final DialogInterface.OnClickListener onClickListener = new DialogInterface.OnClickListener() { // from class: com.baidu.swan.apps.n.c.2
             @Override // android.content.DialogInterface.OnClickListener
             public void onClick(DialogInterface dialogInterface, int i) {
                 if (a.this.a(dialogInterface, i, arrayList)) {
-                    atG.dismiss();
+                    atH.dismiss();
                 }
             }
         };
@@ -80,15 +80,15 @@ public final class c {
                 onClickListener.onClick(g.this, -2);
             }
         });
-        atG.gP(false);
-        atG.setOnCancelListener(onCancelListener);
-        Window window = atG.getWindow();
+        atH.gP(false);
+        atH.setOnCancelListener(onCancelListener);
+        Window window = atH.getWindow();
         if (window != null) {
             window.setGravity(80);
             window.setLayout(ah.dN(activity), -2);
             window.setWindowAnimations(a.i.action_sheet_animation);
         }
-        return atG;
+        return atH;
     }
 
     private static View a(@NonNull Activity activity, @NonNull final d dVar, final List<d> list, final View.OnClickListener onClickListener) {

@@ -2,7 +2,7 @@ package com.baidu.cesium.c.a;
 
 import java.lang.reflect.Array;
 import java.security.InvalidKeyException;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class b implements a {
     private static int[] h;
     private static int[] i;
@@ -182,8 +182,8 @@ public final class b implements a {
     }
 
     static final boolean a(int i2) {
-        for (int i3 = 0; i3 < f1686b.length; i3++) {
-            if (i2 == f1686b[i3]) {
+        for (int i3 = 0; i3 < f1687b.length; i3++) {
+            if (i2 == f1687b[i3]) {
                 return true;
             }
         }

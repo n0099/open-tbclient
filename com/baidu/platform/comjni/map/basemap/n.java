@@ -4,14 +4,14 @@ import android.os.Bundle;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class n implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ long f4748a;
+    final /* synthetic */ long f4749a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ long f4749b;
+    final /* synthetic */ long f4750b;
     final /* synthetic */ boolean c;
     final /* synthetic */ Bundle d;
     final /* synthetic */ NABaseMap e;
@@ -19,8 +19,8 @@ public class n implements Runnable {
     /* JADX INFO: Access modifiers changed from: package-private */
     public n(NABaseMap nABaseMap, long j, long j2, boolean z, Bundle bundle) {
         this.e = nABaseMap;
-        this.f4748a = j;
-        this.f4749b = j2;
+        this.f4749a = j;
+        this.f4750b = j2;
         this.c = z;
         this.d = bundle;
     }
@@ -39,11 +39,11 @@ public class n implements Runnable {
             readWriteLock3 = this.e.c;
             z = readWriteLock3.readLock().tryLock(2000L, TimeUnit.MILLISECONDS);
             if (z) {
-                a2 = this.e.a(this.f4748a);
+                a2 = this.e.a(this.f4749a);
                 if (!a2) {
                     NABaseMap nABaseMap = this.e;
-                    j = this.e.f4723b;
-                    nABaseMap.nativeSetFocus(j, this.f4748a, this.f4749b, this.c, this.d);
+                    j = this.e.f4724b;
+                    nABaseMap.nativeSetFocus(j, this.f4749a, this.f4750b, this.c, this.d);
                 }
             }
             if (z) {

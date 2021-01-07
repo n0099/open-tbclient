@@ -24,25 +24,25 @@ public class a extends aa {
         JSONObject b2 = b(unitedSchemeEntity, "params");
         if (b2 == null) {
             com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "params is null");
-            com.baidu.swan.apps.res.widget.b.d.u(context, a.h.aiapps_debug_extension_core_params_empty).aLS();
+            com.baidu.swan.apps.res.widget.b.d.u(context, a.h.aiapps_debug_extension_core_params_empty).aLT();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         final String optString = b2.optString("url");
         if (TextUtils.isEmpty(optString)) {
             com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "url is null");
-            com.baidu.swan.apps.res.widget.b.d.u(context, a.h.aiapps_debug_extension_core_url_empty).aLS();
+            com.baidu.swan.apps.res.widget.b.d.u(context, a.h.aiapps_debug_extension_core_url_empty).aLT();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
         final String optString2 = b2.optString("cb");
         if (TextUtils.isEmpty(optString2)) {
             com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "cb is null");
-            com.baidu.swan.apps.res.widget.b.d.u(context, a.h.aiapps_debug_extension_core_cb_empty).aLS();
+            com.baidu.swan.apps.res.widget.b.d.u(context, a.h.aiapps_debug_extension_core_cb_empty).aLT();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal cb");
             return false;
         }
-        eVar.aMw().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.a.1
+        eVar.aMx().b(context, "mapp_cts_debug", new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.setting.oauth.h<b.d>>() { // from class: com.baidu.swan.apps.extcore.c.a.a.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.swan.apps.ao.e.b
             /* renamed from: a */
@@ -73,16 +73,16 @@ public class a extends aa {
                     return;
                 }
                 try {
-                    File axZ = com.baidu.swan.apps.extcore.c.b.axZ();
-                    File axX = com.baidu.swan.apps.extcore.c.b.axX();
-                    if (axZ.exists() && com.baidu.swan.c.d.unzipFile(axZ.getPath(), axX.getPath())) {
+                    File aya = com.baidu.swan.apps.extcore.c.b.aya();
+                    File axY = com.baidu.swan.apps.extcore.c.b.axY();
+                    if (aya.exists() && com.baidu.swan.c.d.unzipFile(aya.getPath(), axY.getPath())) {
                         com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "download success");
-                        com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAr(), a.h.aiapps_debug_extension_core_download_success).aLS();
+                        com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAs(), a.h.aiapps_debug_extension_core_download_success).aLT();
                         jSONObject.put("status", 0);
                         callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
                     } else {
                         com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "download failed");
-                        com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAr(), a.h.aiapps_debug_extension_core_download_failed).aLS();
+                        com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAs(), a.h.aiapps_debug_extension_core_download_failed).aLT();
                         jSONObject.put("status", -1);
                         callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 1001).toString());
                     }
@@ -101,7 +101,7 @@ public class a extends aa {
                 }
                 try {
                     com.baidu.swan.apps.console.c.e("ExtCore-DebugDownload", "download failed");
-                    com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAr(), a.h.aiapps_debug_extension_core_download_failed).aLS();
+                    com.baidu.swan.apps.res.widget.b.d.u(com.baidu.swan.apps.t.a.aAs(), a.h.aiapps_debug_extension_core_download_failed).aLT();
                     jSONObject.put("status", -1);
                 } catch (JSONException e) {
                     e.printStackTrace();

@@ -40,11 +40,11 @@ public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
         this.gum.setData(list);
     }
 
-    public b bSH() {
+    public b bSI() {
         return this.gum;
     }
 
-    public boolean bSI() {
+    public boolean bSJ() {
         return this.guk;
     }
 
@@ -59,7 +59,7 @@ public class c extends com.baidu.tieba.ala.alaar.makeup.b.a {
         return this.gum.size();
     }
 
-    public boolean bSJ() {
+    public boolean bSK() {
         return this.gul;
     }
 

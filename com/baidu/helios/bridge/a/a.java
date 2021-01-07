@@ -43,11 +43,11 @@ public class a extends com.baidu.helios.bridge.a {
         public static class C0131a {
 
             /* renamed from: b  reason: collision with root package name */
-            boolean f2450b;
+            boolean f2451b;
             long c;
 
             C0131a(boolean z, long j) {
-                this.f2450b = z;
+                this.f2451b = z;
                 this.c = j;
             }
         }
@@ -124,10 +124,10 @@ public class a extends com.baidu.helios.bridge.a {
         public static class C0132a {
 
             /* renamed from: a  reason: collision with root package name */
-            boolean f2451a;
+            boolean f2452a;
 
             C0132a(boolean z) {
-                this.f2451a = z;
+                this.f2452a = z;
             }
         }
 
@@ -162,7 +162,7 @@ public class a extends com.baidu.helios.bridge.a {
         private FileLock awv;
 
         /* renamed from: b  reason: collision with root package name */
-        private FileOutputStream f2452b;
+        private FileOutputStream f2453b;
 
         public e(a.C0141a c0141a) {
             this.awu = c0141a;
@@ -171,8 +171,8 @@ public class a extends com.baidu.helios.bridge.a {
         public boolean a() {
             this.awu.zg();
             try {
-                this.f2452b = new FileOutputStream(this.awu.getFile("lock"));
-                this.awv = this.f2452b.getChannel().lock();
+                this.f2453b = new FileOutputStream(this.awu.getFile("lock"));
+                this.awv = this.f2453b.getChannel().lock();
                 return true;
             } catch (IOException e) {
                 return false;
@@ -184,22 +184,22 @@ public class a extends com.baidu.helios.bridge.a {
             if (this.awv != null) {
                 try {
                     this.awv.release();
-                    if (this.f2452b != null) {
-                        com.baidu.helios.common.b.a.c.c(this.f2452b);
-                        this.f2452b = null;
+                    if (this.f2453b != null) {
+                        com.baidu.helios.common.b.a.c.c(this.f2453b);
+                        this.f2453b = null;
                     }
                     this.awv = null;
                     return true;
                 } catch (IOException e) {
-                    if (this.f2452b != null) {
-                        com.baidu.helios.common.b.a.c.c(this.f2452b);
-                        this.f2452b = null;
+                    if (this.f2453b != null) {
+                        com.baidu.helios.common.b.a.c.c(this.f2453b);
+                        this.f2453b = null;
                     }
                     this.awv = null;
                 } catch (Throwable th) {
-                    if (this.f2452b != null) {
-                        com.baidu.helios.common.b.a.c.c(this.f2452b);
-                        this.f2452b = null;
+                    if (this.f2453b != null) {
+                        com.baidu.helios.common.b.a.c.c(this.f2453b);
+                        this.f2453b = null;
                     }
                     this.awv = null;
                     throw th;
@@ -214,15 +214,15 @@ public class a extends com.baidu.helios.bridge.a {
     public static class f {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f2453a;
+        public String f2454a;
 
         /* renamed from: b  reason: collision with root package name */
-        public String f2454b;
+        public String f2455b;
         public long c;
 
         public f(String str, String str2, long j) {
-            this.f2453a = str;
-            this.f2454b = str2;
+            this.f2454a = str;
+            this.f2455b = str2;
             this.c = j;
         }
     }
@@ -240,8 +240,8 @@ public class a extends com.baidu.helios.bridge.a {
             try {
                 for (f fVar : this.d) {
                     JSONObject jSONObject = new JSONObject();
-                    jSONObject.put(Config.INPUT_DEF_PKG, fVar.f2453a);
-                    jSONObject.put("aid", fVar.f2454b);
+                    jSONObject.put(Config.INPUT_DEF_PKG, fVar.f2454a);
+                    jSONObject.put("aid", fVar.f2455b);
                     jSONObject.put("priority", fVar.c);
                     jSONArray.put(jSONObject);
                 }
@@ -304,7 +304,7 @@ public class a extends com.baidu.helios.bridge.a {
                 Iterator it = arrayList.iterator();
                 while (it.hasNext()) {
                     d.C0132a fj = dVar.fj(((com.baidu.helios.ids.a) it.next()).getName());
-                    if (fj != null && !fj.f2451a) {
+                    if (fj != null && !fj.f2452a) {
                         it.remove();
                     }
                 }
@@ -330,7 +330,7 @@ public class a extends com.baidu.helios.bridge.a {
                     com.baidu.helios.channels.a next = it2.next();
                     C0130a.C0131a fi = c0130a.fi(next.getName());
                     if (fi != null) {
-                        if (!fi.f2450b) {
+                        if (!fi.f2451b) {
                             it2.remove();
                         } else if (fi.c > -1) {
                             next.setPriority(fi.c);
@@ -348,7 +348,7 @@ public class a extends com.baidu.helios.bridge.a {
                 aVar4.a(dVar3);
             }
             d.C0132a fj2 = dVar != null ? dVar.fj("sids") : null;
-            if (fj2 == null || fj2.f2451a) {
+            if (fj2 == null || fj2.f2452a) {
                 a(bVar, arrayList2);
             }
         } finally {

@@ -22,10 +22,10 @@ import java.util.Set;
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private Set<String> f3469a;
+    private Set<String> f3470a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Set<String> f3470b;
+    private Set<String> f3471b;
     private Set<String> c;
     private CookieManager d;
     private IXAdSystemUtils e;
@@ -77,13 +77,13 @@ public class c {
     }
 
     private void c() {
-        this.f3469a = new HashSet();
-        this.f3469a.add("46000");
-        this.f3469a.add("46002");
-        this.f3469a.add("46007");
-        this.f3470b = new HashSet();
-        this.f3470b.add("46001");
-        this.f3470b.add("46006");
+        this.f3470a = new HashSet();
+        this.f3470a.add("46000");
+        this.f3470a.add("46002");
+        this.f3470a.add("46007");
+        this.f3471b = new HashSet();
+        this.f3471b.add("46001");
+        this.f3471b.add("46006");
         this.c = new HashSet();
         this.c.add("46003");
         this.c.add("46005");
@@ -203,13 +203,13 @@ public class c {
         if (networkOperator == null) {
             return 0;
         }
-        if (this.f3469a.contains(networkOperator)) {
+        if (this.f3470a.contains(networkOperator)) {
             return 1;
         }
         if (this.c.contains(networkOperator)) {
             return 2;
         }
-        if (this.f3470b.contains(networkOperator)) {
+        if (this.f3471b.contains(networkOperator)) {
             return 3;
         }
         return 99;

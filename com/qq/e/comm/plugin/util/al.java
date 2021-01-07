@@ -26,11 +26,11 @@ import java.util.List;
 import java.util.Locale;
 import java.util.TimeZone;
 import java.util.zip.CRC32;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class al {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String[] f12858a = {"Y29tLnRlbmNlbnQubW0=", "Y29tLnRlbmNlbnQubW9iaWxlcXE="};
+    private static final String[] f12859a = {"Y29tLnRlbmNlbnQubW0=", "Y29tLnRlbmNlbnQubW9iaWxlcXE="};
 
     private static String a() {
         return Build.VERSION.RELEASE;
@@ -405,7 +405,7 @@ public class al {
     private static List<Long> e(Context context) {
         ArrayList arrayList = new ArrayList();
         PackageManager packageManager = context.getPackageManager();
-        for (String str : f12858a) {
+        for (String str : f12859a) {
             try {
                 arrayList.add(Long.valueOf(packageManager.getPackageInfo(a(str), 0).firstInstallTime));
             } catch (Exception e) {

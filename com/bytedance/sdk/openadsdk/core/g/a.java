@@ -30,10 +30,10 @@ import org.json.JSONObject;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile a f6852a;
+    private static volatile a f6853a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f6853b;
+    private String f6854b;
     private Map<l, b> c = Collections.synchronizedMap(new HashMap());
     private Map<String, JSONObject> d = Collections.synchronizedMap(new HashMap());
     private AtomicBoolean e = new AtomicBoolean(false);
@@ -42,19 +42,19 @@ public class a {
 
     /* renamed from: com.bytedance.sdk.openadsdk.core.g.a$a  reason: collision with other inner class name */
     /* loaded from: classes4.dex */
-    public interface InterfaceC0982a {
+    public interface InterfaceC1020a {
         void a(boolean z);
     }
 
     public static a a() {
-        if (f6852a == null) {
+        if (f6853a == null) {
             synchronized (a.class) {
-                if (f6852a == null) {
-                    f6852a = new a();
+                if (f6853a == null) {
+                    f6853a = new a();
                 }
             }
         }
-        return f6852a;
+        return f6853a;
     }
 
     private a() {
@@ -200,10 +200,10 @@ public class a {
         return optString != null && optString.equalsIgnoreCase(j.a(file));
     }
 
-    public void a(final l lVar, final InterfaceC0982a interfaceC0982a) {
+    public void a(final l lVar, final InterfaceC1020a interfaceC1020a) {
         if (lVar == null || lVar.F() == null || TextUtils.isEmpty(lVar.F().j())) {
             com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -701, (String) null);
-            a(interfaceC0982a, false);
+            a(interfaceC1020a, false);
             return;
         }
         final String j = lVar.F().j();
@@ -216,7 +216,7 @@ public class a {
                 com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, -702, (String) null);
                 b(file);
                 this.c.remove(lVar);
-                a(interfaceC0982a, true);
+                a(interfaceC1020a, true);
                 return;
             }
             try {
@@ -250,7 +250,7 @@ public class a {
                     if (bVar != null) {
                         bVar.b(System.currentTimeMillis());
                     }
-                    if (pVar != null && pVar.f6344a != null) {
+                    if (pVar != null && pVar.f6345a != null) {
                         com.bytedance.sdk.openadsdk.k.a.a().c(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.g.a.2.1
                             @Override // java.lang.Runnable
                             public void run() {
@@ -261,7 +261,7 @@ public class a {
                                     if (bVar != null) {
                                         bVar.c(System.currentTimeMillis());
                                     }
-                                    an.a(((File) pVar.f6344a).getAbsolutePath(), a.this.c());
+                                    an.a(((File) pVar.f6345a).getAbsolutePath(), a.this.c());
                                     if (bVar != null) {
                                         bVar.d(System.currentTimeMillis());
                                     }
@@ -285,10 +285,10 @@ public class a {
                                     z = false;
                                 }
                                 try {
-                                    ((File) pVar.f6344a).delete();
+                                    ((File) pVar.f6345a).delete();
                                 } catch (Throwable th4) {
                                 }
-                                a.this.a(interfaceC0982a, z);
+                                a.this.a(interfaceC1020a, z);
                             }
                         }, 5);
                         return;
@@ -298,7 +298,7 @@ public class a {
                         i = Long.valueOf(pVar.h).intValue();
                     }
                     com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i, (String) null);
-                    a.this.a(interfaceC0982a, false);
+                    a.this.a(interfaceC1020a, false);
                 }
 
                 @Override // com.bytedance.sdk.adnet.core.p.a
@@ -310,32 +310,32 @@ public class a {
                     if (pVar != null) {
                         if (pVar.h != 0) {
                             i = Long.valueOf(pVar.h).intValue();
-                        } else if (pVar.ppF != null && pVar.ppF.networkResponse != null && pVar.ppF.networkResponse.f6339a != 0) {
-                            i = pVar.ppF.networkResponse.f6339a;
+                        } else if (pVar.ppF != null && pVar.ppF.networkResponse != null && pVar.ppF.networkResponse.f6340a != 0) {
+                            i = pVar.ppF.networkResponse.f6340a;
                         }
                         if (pVar.ppF != null) {
                             str = pVar.ppF.getMessage();
                         }
                     }
                     com.bytedance.sdk.openadsdk.core.g.b.a(p.a(), lVar, i, str);
-                    a.this.a(interfaceC0982a, false);
+                    a.this.a(interfaceC1020a, false);
                 }
             });
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void a(final InterfaceC0982a interfaceC0982a, final boolean z) {
+    public void a(final InterfaceC1020a interfaceC1020a, final boolean z) {
         if (Looper.myLooper() == Looper.getMainLooper()) {
-            if (interfaceC0982a != null) {
-                interfaceC0982a.a(z);
+            if (interfaceC1020a != null) {
+                interfaceC1020a.a(z);
             }
-        } else if (interfaceC0982a != null) {
+        } else if (interfaceC1020a != null) {
             this.g.post(new Runnable() { // from class: com.bytedance.sdk.openadsdk.core.g.a.3
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (interfaceC0982a != null) {
-                        interfaceC0982a.a(z);
+                    if (interfaceC1020a != null) {
+                        interfaceC1020a.a(z);
                     }
                 }
             });
@@ -386,7 +386,7 @@ public class a {
     /* JADX INFO: Access modifiers changed from: private */
     public String d() {
         File externalCacheDir;
-        if (TextUtils.isEmpty(this.f6853b)) {
+        if (TextUtils.isEmpty(this.f6854b)) {
             try {
                 if (("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) && p.a().getExternalCacheDir() != null) {
                     externalCacheDir = p.a().getExternalCacheDir();
@@ -397,22 +397,22 @@ public class a {
                 if (!file.exists()) {
                     file.mkdirs();
                 }
-                this.f6853b = file.getAbsolutePath();
+                this.f6854b = file.getAbsolutePath();
             } catch (Throwable th) {
                 u.f("PlayableCache", "init root path error: " + th);
             }
         }
-        return this.f6853b;
+        return this.f6854b;
     }
 
     /* loaded from: classes4.dex */
     private static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        long f6863a;
+        long f6864a;
 
         /* renamed from: b  reason: collision with root package name */
-        long f6864b;
+        long f6865b;
         long c;
         long d;
 
@@ -420,7 +420,7 @@ public class a {
         }
 
         public long a() {
-            return this.f6864b - this.f6863a;
+            return this.f6865b - this.f6864a;
         }
 
         public long b() {
@@ -428,12 +428,12 @@ public class a {
         }
 
         public b a(long j) {
-            this.f6863a = j;
+            this.f6864a = j;
             return this;
         }
 
         public b b(long j) {
-            this.f6864b = j;
+            this.f6865b = j;
             return this;
         }
 

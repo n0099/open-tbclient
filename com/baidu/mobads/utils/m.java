@@ -6,22 +6,22 @@ import com.baidu.mobads.interfaces.utils.IXAdLogger;
 public class m implements IXAdLogger {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile m f3543a = null;
+    private static volatile m f3544a = null;
 
     public static m a() {
-        if (f3543a == null) {
+        if (f3544a == null) {
             synchronized (m.class) {
-                if (f3543a == null) {
-                    f3543a = new m();
+                if (f3544a == null) {
+                    f3544a = new m();
                 }
             }
         }
-        return f3543a;
+        return f3544a;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger
     public boolean isLoggable(String str, int i) {
-        return i >= com.baidu.mobads.a.a.f3336b;
+        return i >= com.baidu.mobads.a.a.f3337b;
     }
 
     @Override // com.baidu.mobads.interfaces.utils.IXAdLogger

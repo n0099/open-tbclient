@@ -33,7 +33,7 @@ public abstract class d implements IXAdRequestInfo {
     protected String c = "TODO";
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3561a = HttpConstants.OS_TYPE_VALUE;
+    private String f3562a = HttpConstants.OS_TYPE_VALUE;
     private String j = "";
     private int m = XAdSDKFoundationFacade.getInstance().getAdConstants().getAdCreativeTypeImage();
     private String n = "LP,DL";
@@ -43,7 +43,7 @@ public abstract class d implements IXAdRequestInfo {
     private long t = System.currentTimeMillis();
 
     /* renamed from: b  reason: collision with root package name */
-    protected String f3562b = "";
+    protected String f3563b = "";
     protected IXAdConstants h = XAdSDKFoundationFacade.getInstance().getAdConstants();
     protected IXAdURIUitls i = XAdSDKFoundationFacade.getInstance().getURIUitls();
 
@@ -179,7 +179,7 @@ public abstract class d implements IXAdRequestInfo {
     public String b() {
         HashMap<String, String> e = e();
         e.putAll(a());
-        return XAdSDKFoundationFacade.getInstance().getURIUitls().getRequestAdUrl(this.f3562b, e);
+        return XAdSDKFoundationFacade.getInstance().getURIUitls().getRequestAdUrl(this.f3563b, e);
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo
@@ -192,11 +192,11 @@ public abstract class d implements IXAdRequestInfo {
     }
 
     public String f() {
-        return this.f3561a;
+        return this.f3562a;
     }
 
     public void a(String str) {
-        this.f3561a = str;
+        this.f3562a = str;
     }
 
     @Override // com.baidu.mobads.interfaces.IXAdRequestInfo

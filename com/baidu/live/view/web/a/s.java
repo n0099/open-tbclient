@@ -48,7 +48,7 @@ public class s extends com.baidu.live.view.web.a {
             gVar.setGiftName(optString3);
             gVar.setPrice(optString2);
             gVar.gG(String.valueOf(optInt));
-            gVar.setSceneFrom(com.baidu.live.utils.q.XF());
+            gVar.setSceneFrom(com.baidu.live.utils.q.XG());
             gVar.eh(optInt2);
             gVar.setThumbnailUrl(optString4);
             BdUniqueId gen = BdUniqueId.gen();

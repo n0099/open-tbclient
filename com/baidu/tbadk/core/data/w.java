@@ -13,7 +13,7 @@ public class w {
     private String obj_id;
     private int width;
 
-    public ArrayList<z> bps() {
+    public ArrayList<z> bpt() {
         return this.ePy;
     }
 
@@ -21,7 +21,7 @@ public class w {
         this.ePy = arrayList;
     }
 
-    public String bpt() {
+    public String bpu() {
         return this.obj_id;
     }
 

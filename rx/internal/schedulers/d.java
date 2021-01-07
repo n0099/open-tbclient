@@ -6,15 +6,15 @@ import java.util.concurrent.ScheduledThreadPoolExecutor;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes15.dex */
 public final class d implements h {
-    public static final d qvg;
-    private static int qvh;
-    private final AtomicReference<ScheduledExecutorService[]> qkg = new AtomicReference<>(qvf);
-    private static final ScheduledExecutorService[] qvf = new ScheduledExecutorService[0];
-    private static final ScheduledExecutorService qki = Executors.newScheduledThreadPool(0);
+    public static final d qwO;
+    private static int qwP;
+    private final AtomicReference<ScheduledExecutorService[]> qlO = new AtomicReference<>(qwN);
+    private static final ScheduledExecutorService[] qwN = new ScheduledExecutorService[0];
+    private static final ScheduledExecutorService qlQ = Executors.newScheduledThreadPool(0);
 
     static {
-        qki.shutdown();
-        qvg = new d();
+        qlQ.shutdown();
+        qwO = new d();
     }
 
     private d() {
@@ -32,7 +32,7 @@ public final class d implements h {
         for (int i2 = 0; i2 < i; i2++) {
             scheduledExecutorServiceArr[i2] = GenericScheduledExecutorServiceFactory.create();
         }
-        if (this.qkg.compareAndSet(qvf, scheduledExecutorServiceArr)) {
+        if (this.qlO.compareAndSet(qwN, scheduledExecutorServiceArr)) {
             for (ScheduledExecutorService scheduledExecutorService : scheduledExecutorServiceArr) {
                 if (!g.b(scheduledExecutorService) && (scheduledExecutorService instanceof ScheduledThreadPoolExecutor)) {
                     g.a((ScheduledThreadPoolExecutor) scheduledExecutorService);
@@ -49,27 +49,27 @@ public final class d implements h {
     public void shutdown() {
         ScheduledExecutorService[] scheduledExecutorServiceArr;
         do {
-            scheduledExecutorServiceArr = this.qkg.get();
-            if (scheduledExecutorServiceArr == qvf) {
+            scheduledExecutorServiceArr = this.qlO.get();
+            if (scheduledExecutorServiceArr == qwN) {
                 return;
             }
-        } while (!this.qkg.compareAndSet(scheduledExecutorServiceArr, qvf));
+        } while (!this.qlO.compareAndSet(scheduledExecutorServiceArr, qwN));
         for (ScheduledExecutorService scheduledExecutorService : scheduledExecutorServiceArr) {
             g.a(scheduledExecutorService);
             scheduledExecutorService.shutdownNow();
         }
     }
 
-    public static ScheduledExecutorService eOe() {
-        ScheduledExecutorService[] scheduledExecutorServiceArr = qvg.qkg.get();
-        if (scheduledExecutorServiceArr == qvf) {
-            return qki;
+    public static ScheduledExecutorService eOI() {
+        ScheduledExecutorService[] scheduledExecutorServiceArr = qwO.qlO.get();
+        if (scheduledExecutorServiceArr == qwN) {
+            return qlQ;
         }
-        int i = qvh + 1;
+        int i = qwP + 1;
         if (i >= scheduledExecutorServiceArr.length) {
             i = 0;
         }
-        qvh = i;
+        qwP = i;
         return scheduledExecutorServiceArr[i];
     }
 }

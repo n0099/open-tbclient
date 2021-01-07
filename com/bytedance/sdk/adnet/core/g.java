@@ -6,10 +6,10 @@ import com.bytedance.sdk.adnet.err.VAdError;
 public class g implements com.bytedance.sdk.adnet.e.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6324a;
+    private int f6325a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6325b;
+    private int f6326b;
     private int c;
     private final float d;
 
@@ -18,7 +18,7 @@ public class g implements com.bytedance.sdk.adnet.e.e {
     }
 
     public g PT(int i) {
-        this.f6324a = i;
+        this.f6325a = i;
         return this;
     }
 
@@ -28,31 +28,31 @@ public class g implements com.bytedance.sdk.adnet.e.e {
     }
 
     public g(int i, int i2, float f) {
-        this.f6324a = i;
+        this.f6325a = i;
         this.c = i2;
         this.d = f;
     }
 
     @Override // com.bytedance.sdk.adnet.e.e
     public int a() {
-        return this.f6324a;
+        return this.f6325a;
     }
 
     @Override // com.bytedance.sdk.adnet.e.e
     public int b() {
-        return this.f6325b;
+        return this.f6326b;
     }
 
     @Override // com.bytedance.sdk.adnet.e.e
     public void b(VAdError vAdError) throws VAdError {
-        this.f6325b++;
-        this.f6324a += (int) (this.f6324a * this.d);
+        this.f6326b++;
+        this.f6325a += (int) (this.f6325a * this.d);
         if (!c()) {
             throw vAdError;
         }
     }
 
     protected boolean c() {
-        return this.f6325b <= this.c;
+        return this.f6326b <= this.c;
     }
 }

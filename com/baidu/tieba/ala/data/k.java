@@ -30,7 +30,7 @@ public class k {
         return this.giftId;
     }
 
-    public String bXz() {
+    public String bXA() {
         return this.aZq;
     }
 
@@ -38,7 +38,7 @@ public class k {
         return this.aZr;
     }
 
-    public long bXA() {
+    public long bXB() {
         return this.aZk;
     }
 
@@ -46,7 +46,7 @@ public class k {
         return this.portrait;
     }
 
-    public String bXB() {
+    public String bXC() {
         return this.gUK;
     }
 }

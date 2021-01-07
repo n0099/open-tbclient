@@ -40,7 +40,7 @@ public class bb {
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
                 if (bb.this.jko != null) {
-                    bb.this.cHv();
+                    bb.this.cHw();
                     bb.this.jko.setAlpha(1.0f);
                 }
             }
@@ -74,7 +74,7 @@ public class bb {
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, int i) {
         if (viewGroup != null && view != null) {
             this.jko = view;
-            cHv();
+            cHw();
             viewGroup.addView(this.jko, layoutParams);
             this.jko.setVisibility(0);
             this.jkp = i;
@@ -86,7 +86,7 @@ public class bb {
     public void a(View view, ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams) {
         if (viewGroup != null && view != null) {
             this.jko = view;
-            cHv();
+            cHw();
             viewGroup.addView(this.jko, layoutParams);
             this.jko.setVisibility(0);
         }
@@ -99,7 +99,7 @@ public class bb {
         }
     }
 
-    public void cHv() {
+    public void cHw() {
         com.baidu.adp.lib.f.e.mB().removeCallbacks(this.bVq);
         if (this.jko != null) {
             if (this.jkq != null && this.jkq.isRunning()) {
@@ -114,6 +114,6 @@ public class bb {
     }
 
     public void onDestroy() {
-        cHv();
+        cHw();
     }
 }

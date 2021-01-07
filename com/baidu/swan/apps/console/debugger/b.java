@@ -22,27 +22,27 @@ public class b {
         cPn = str;
     }
 
-    public static String apn() {
+    public static String apo() {
         return cPm;
     }
 
-    public static String apo() {
+    public static String app() {
         return cPn;
     }
 
-    public static String app() {
-        return cPo != null ? cPo.apm() + File.separator + cPn : "";
-    }
-
     public static String apq() {
-        return cPo != null ? cPo.apm() + File.separator + cPm : "";
+        return cPo != null ? cPo.apn() + File.separator + cPn : "";
     }
 
-    public static boolean apr() {
-        return cPp == 2;
+    public static String apr() {
+        return cPo != null ? cPo.apn() + File.separator + cPm : "";
     }
 
     public static boolean aps() {
+        return cPp == 2;
+    }
+
+    public static boolean apt() {
         return cPp == 1;
     }
 

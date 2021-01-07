@@ -45,7 +45,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
     }
 
     static {
-        d.bcF();
+        d.bcG();
     }
 
     public DuMixGameSurfaceView(Context context) {
@@ -80,15 +80,15 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
             }
 
             @Override // com.baidu.smallgame.sdk.b.a
-            public void aiX() {
-                com.baidu.swan.games.glsurface.a.b.baH();
+            public void aiY() {
+                com.baidu.swan.games.glsurface.a.b.baI();
             }
         });
         this.ejP.startEngine();
         i.rd("preload").f(new UbcFlowEvent("na_game_engine_end"));
         this.ejR = new com.baidu.swan.games.glsurface.a.a();
         this.ejU = new GameRecorderController(this.ejP);
-        com.baidu.swan.games.screenrecord.d.bbE().g(this.ejU);
+        com.baidu.swan.games.screenrecord.d.bbF().g(this.ejU);
     }
 
     private void setRenderer(GLSurfaceView.Renderer renderer) {
@@ -110,18 +110,18 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         return this.ejP.getFPS();
     }
 
-    public void baB() {
-        Pair<Integer, Integer> aDt = f.aDG().aDt();
+    public void baC() {
+        Pair<Integer, Integer> aDu = f.aDH().aDu();
         if (this.ejP != null) {
-            this.ejP.updateSurfaceViewSize(((Integer) aDt.first).intValue(), ((Integer) aDt.second).intValue());
+            this.ejP.updateSurfaceViewSize(((Integer) aDu.first).intValue(), ((Integer) aDu.second).intValue());
             this.ejP.initDisplayMetrics();
         }
         if (this.ejR != null) {
-            this.ejR.ax(((Integer) aDt.first).intValue(), ((Integer) aDt.second).intValue());
+            this.ejR.ax(((Integer) aDu.first).intValue(), ((Integer) aDu.second).intValue());
         }
     }
 
-    public void baC() {
+    public void baD() {
         surfaceChanged(getHolder(), 0, getWidth(), getHeight());
     }
 
@@ -176,7 +176,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", "surfaceDestroyed width");
         }
-        baD();
+        baE();
         if (this.ejP != null) {
             this.ejP.surfaceDestroyed();
         }
@@ -204,7 +204,7 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (this.ejP != null) {
             this.ejP.onPause();
         }
-        com.baidu.swan.games.screenrecord.d.bbE().bbH();
+        com.baidu.swan.games.screenrecord.d.bbF().bbI();
     }
 
     public void onResume() {
@@ -214,15 +214,15 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         if (this.ejP != null) {
             this.ejP.onResume();
         }
-        com.baidu.swan.games.screenrecord.d.bbE().bbI();
+        com.baidu.swan.games.screenrecord.d.bbF().bbJ();
     }
 
     public void onDestroy() {
         if (DEBUG) {
             Log.d("DuMixGameSurfaceView", MissionEvent.MESSAGE_DESTROY);
         }
-        baD();
-        com.baidu.swan.games.screenrecord.d.bbE().h(this.ejU);
+        baE();
+        com.baidu.swan.games.screenrecord.d.bbF().h(this.ejU);
         if (this.ejP != null) {
             if (this.ejQ != null) {
                 this.ejQ.finish();
@@ -314,24 +314,24 @@ public class DuMixGameSurfaceView extends SurfaceView implements SurfaceHolder.C
         }
     }
 
-    private void baD() {
+    private void baE() {
         this.mDrawHeight = 0;
         this.mDrawWidth = 0;
     }
 
     @Override // com.baidu.smallgame.sdk.ArBridge.FirstFrameListener
     public void onFirstFrameFinished() {
-        baE();
-        SwanAppActivity aDq = f.aDG().aDq();
-        if (aDq != null) {
-            c ajl = aDq.ajl();
-            if (ajl instanceof com.baidu.swan.games.j.b) {
-                ((com.baidu.swan.games.j.b) ajl).onFirstFrameFinished();
+        baF();
+        SwanAppActivity aDr = f.aDH().aDr();
+        if (aDr != null) {
+            c ajm = aDr.ajm();
+            if (ajm instanceof com.baidu.swan.games.j.b) {
+                ((com.baidu.swan.games.j.b) ajm).onFirstFrameFinished();
             }
         }
     }
 
-    public void baE() {
+    public void baF() {
         if (this.ejQ != null) {
             com.baidu.swan.games.v.d.J(this.ejQ.getPerformanceJson());
         }

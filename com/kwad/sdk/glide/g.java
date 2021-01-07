@@ -25,10 +25,10 @@ public class g implements i {
     private static final com.kwad.sdk.glide.request.f f = com.kwad.sdk.glide.request.f.b(com.kwad.sdk.glide.load.engine.h.c).a(Priority.LOW).b(true);
 
     /* renamed from: a  reason: collision with root package name */
-    protected final c f10300a;
+    protected final c f10301a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected final Context f10301b;
+    protected final Context f10302b;
     final com.kwad.sdk.glide.c.h c;
     @GuardedBy("this")
     private final m g;
@@ -48,17 +48,17 @@ public class g implements i {
         @GuardedBy("RequestManager.this")
 
         /* renamed from: b  reason: collision with root package name */
-        private final m f10304b;
+        private final m f10305b;
 
         a(m mVar) {
-            this.f10304b = mVar;
+            this.f10305b = mVar;
         }
 
         @Override // com.kwad.sdk.glide.c.c.a
         public void a(boolean z) {
             if (z) {
                 synchronized (g.this) {
-                    this.f10304b.d();
+                    this.f10305b.d();
                 }
             }
         }
@@ -77,11 +77,11 @@ public class g implements i {
             }
         };
         this.k = new Handler(Looper.getMainLooper());
-        this.f10300a = cVar;
+        this.f10301a = cVar;
         this.c = hVar;
         this.h = lVar;
         this.g = mVar;
-        this.f10301b = context;
+        this.f10302b = context;
         this.l = dVar.a(context.getApplicationContext(), new a(mVar));
         if (k.c()) {
             this.k.post(this.j);
@@ -95,7 +95,7 @@ public class g implements i {
     }
 
     private void c(@NonNull j<?> jVar) {
-        if (b(jVar) || this.f10300a.a(jVar) || jVar.b() == null) {
+        if (b(jVar) || this.f10301a.a(jVar) || jVar.b() == null) {
             return;
         }
         com.kwad.sdk.glide.request.c b2 = jVar.b();
@@ -106,7 +106,7 @@ public class g implements i {
     @NonNull
     @CheckResult
     public <ResourceType> f<ResourceType> a(@NonNull Class<ResourceType> cls) {
-        return new f<>(this.f10300a, this, cls, this.f10301b);
+        return new f<>(this.f10301a, this, cls, this.f10302b);
     }
 
     @NonNull
@@ -139,7 +139,7 @@ public class g implements i {
     /* JADX INFO: Access modifiers changed from: package-private */
     @NonNull
     public <T> h<?, T> b(Class<T> cls) {
-        return this.f10300a.e().a(cls);
+        return this.f10301a.e().a(cls);
     }
 
     public synchronized void b() {
@@ -186,7 +186,7 @@ public class g implements i {
         this.c.b(this);
         this.c.b(this.l);
         this.k.removeCallbacks(this.j);
-        this.f10300a.b(this);
+        this.f10301a.b(this);
     }
 
     @NonNull

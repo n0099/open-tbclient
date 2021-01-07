@@ -21,7 +21,7 @@ public class f {
         if (a4) {
             com.kwad.sdk.core.report.e.d(adTemplate, 1);
         } else {
-            com.kwad.sdk.core.report.e.b(adTemplate, 1, aVar.f9385a);
+            com.kwad.sdk.core.report.e.b(adTemplate, 1, aVar.f9386a);
         }
         return a4;
     }

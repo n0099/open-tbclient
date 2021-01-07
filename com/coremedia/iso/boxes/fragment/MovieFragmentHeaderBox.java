@@ -8,12 +8,12 @@ import com.googlecode.mp4parser.RequiresParseDetailAspect;
 import java.nio.ByteBuffer;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class MovieFragmentHeaderBox extends AbstractFullBox {
     public static final String TYPE = "mfhd";
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_2 = null;
     private long sequenceNumber;
 
     static {
@@ -54,7 +54,7 @@ public class MovieFragmentHeaderBox extends AbstractFullBox {
     }
 
     public void setSequenceNumber(long j) {
-        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.js(j)));
+        RequiresParseDetailAspect.aspectOf().before(b.a(ajc$tjp_1, this, this, org.aspectj.a.a.a.jv(j)));
         this.sequenceNumber = j;
     }
 

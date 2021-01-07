@@ -40,21 +40,21 @@ public class a extends e implements f {
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
         oh(false);
-        if (!aal()) {
-            aag();
+        if (!aam()) {
+            aah();
         }
     }
 
     public void a(long j, String str, long j2, AlaLastLiveroomInfo alaLastLiveroomInfo, boolean z) {
         g gVar = new g();
         gVar.w(this.mActivity).a(this).a(this.byR.getSchemeCallback()).bA(j).jj(str).dD(z).bB(j2).a(alaLastLiveroomInfo);
-        com.baidu.live.view.web.a[] aae = gVar.aae();
-        for (com.baidu.live.view.web.a aVar : aae) {
+        com.baidu.live.view.web.a[] aaf = gVar.aaf();
+        for (com.baidu.live.view.web.a aVar : aaf) {
             this.byR.addJavascriptInterface(aVar, aVar.getName());
         }
     }
 
-    public void GB(String str) {
+    public void GA(String str) {
         View findViewById;
         if (this.mActivity != null && !this.mActivity.isFinishing() && !this.mActivity.isDestroyed() && (findViewById = this.mActivity.getWindow().getDecorView().findViewById(16908290)) != null) {
             setWidth(ScreenHelper.getScreenWidth(this.mActivity));
@@ -90,7 +90,7 @@ public class a extends e implements f {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aag() {
+    public void aah() {
         super.dismiss();
     }
 
@@ -111,13 +111,13 @@ public class a extends e implements f {
     }
 
     private void initView() {
-        cim();
-        initWebView();
         cin();
+        initWebView();
+        cio();
         setContentView(this.byQ);
     }
 
-    private void cim() {
+    private void cin() {
         if (this.byQ == null) {
             this.byT = this.mActivity.getResources().getDimensionPixelOffset(a.d.sdk_ds10);
             this.byQ = new RoundRectRelativeLayout(this.mActivity);
@@ -169,7 +169,7 @@ public class a extends e implements f {
         this.byQ.addView(this.byR, new ViewGroup.LayoutParams(-1, -1));
     }
 
-    private void cin() {
+    private void cio() {
         if (this.mActivity != null && !this.mActivity.isFinishing() && !this.mActivity.isDestroyed()) {
             this.byS = LayoutInflater.from(this.mActivity).inflate(a.g.live_web_pop_progress, (ViewGroup) null);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-2, -2);
@@ -188,7 +188,7 @@ public class a extends e implements f {
         }
     }
 
-    private boolean aal() {
+    private boolean aam() {
         if (getContentView() == null) {
             return false;
         }
@@ -205,7 +205,7 @@ public class a extends e implements f {
 
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationEnd(Animation animation) {
-                a.this.aag();
+                a.this.aah();
                 a.this.hpp = false;
             }
 

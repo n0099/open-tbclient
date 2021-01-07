@@ -12,15 +12,15 @@ import com.kwad.sdk.collector.AppStatusRules;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class s extends Handler {
     private /* synthetic */ p AR;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f1075a;
+    private int f1076a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f1076b;
+    private long f1077b;
     private boolean c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -28,8 +28,8 @@ public final class s extends Handler {
     public s(p pVar, Looper looper) {
         super(looper);
         this.AR = pVar;
-        this.f1075a = 0;
-        this.f1076b = 0L;
+        this.f1076a = 0;
+        this.f1077b = 0L;
         this.c = false;
     }
 
@@ -42,7 +42,7 @@ public final class s extends Handler {
         boolean f;
         fVar = this.AR.AG;
         Location hJ = fVar.hJ();
-        if (hJ != aa.f1048a) {
+        if (hJ != aa.f1049a) {
             j = this.AR.v;
             if (j == 0) {
                 ae aeVar = new ae();
@@ -131,11 +131,11 @@ public final class s extends Handler {
                 removeMessages(2004);
                 Pair pair = (Pair) message.obj;
                 String obj = pair.first.toString();
-                ab abVar = (ab) ((v) pair.second).f1079a;
+                ab abVar = (ab) ((v) pair.second).f1080a;
                 this.AR.AN = abVar.Be;
                 String str = abVar.a() ? "gps" : "network";
                 ae aeVar = new ae();
-                aeVar.f1052b = obj;
+                aeVar.f1053b = obj;
                 aeVar.c = str;
                 ad hM = aeVar.hM();
                 if (hM == ad.Bh) {
@@ -170,37 +170,37 @@ public final class s extends Handler {
             return;
         }
         long currentTimeMillis2 = System.currentTimeMillis();
-        if (!h.a() || currentTimeMillis2 - this.f1076b <= AppStatusRules.DEFAULT_GRANULARITY) {
+        if (!h.a() || currentTimeMillis2 - this.f1077b <= AppStatusRules.DEFAULT_GRANULARITY) {
             this.c = false;
         } else {
             this.c = true;
-            this.f1076b = currentTimeMillis2;
+            this.f1077b = currentTimeMillis2;
         }
         wVar = this.AR.AA;
         String a2 = h.a(wVar, this.c);
         if (a(a2) ? false : true) {
-            this.f1075a++;
-            if (this.f1075a >= 2) {
+            this.f1076a++;
+            if (this.f1076a >= 2) {
                 a(2);
-                this.f1075a = 0;
+                this.f1076a = 0;
                 return;
             }
             return;
         }
-        this.f1075a = 0;
+        this.f1076a = 0;
         uVar = this.AR.AI;
         try {
             byte[] a3 = u.a(a2.getBytes("GBK"));
             v vVar = new v(a3, l.a(a3) == null ? u.a(0) : u.a(1), h);
-            vVar.f1080b = a2;
+            vVar.f1081b = a2;
             long elapsedRealtime = SystemClock.elapsedRealtime();
             bArr = vVar.f;
-            if (bArr != null ? uVar.f1078b.offer(vVar) : false) {
+            if (bArr != null ? uVar.f1079b.offer(vVar) : false) {
                 uVar.f = elapsedRealtime;
                 return;
             }
-            uVar.f1078b.clear();
-            uVar.f1078b.offer(vVar);
+            uVar.f1079b.clear();
+            uVar.f1079b.offer(vVar);
             new StringBuilder("post").append(Headers.LOCATION).append("Request: failed to add request,because the queue has full,so we delete the first");
         } catch (Throwable th) {
             th.getMessage();

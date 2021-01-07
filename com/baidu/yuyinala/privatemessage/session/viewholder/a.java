@@ -18,20 +18,20 @@ public class a {
     private TextView gFi;
     private TextView gFk;
     private HeadImageView hDn;
-    public View mmT;
+    public View mmS;
     private TagView pfN;
     private TextView pfO;
     private j pfP;
 
     public a(View view) {
-        this.mmT = view;
+        this.mmS = view;
         initView();
     }
 
     public void a(j jVar) {
         if (jVar != null) {
             this.pfP = jVar;
-            String str = h.eou().eov().get(h.encode(jVar.pdK + ""));
+            String str = h.eov().eow().get(h.encode(jVar.pdK + ""));
             if (!TextUtils.isEmpty(str)) {
                 this.eLt.setText(str);
             } else {
@@ -57,11 +57,11 @@ public class a {
     }
 
     private void initView() {
-        this.hDn = (HeadImageView) this.mmT.findViewById(a.f.user_message_item_icon);
-        this.eLt = (TextView) this.mmT.findViewById(a.f.user_message_item_name);
-        this.gFi = (TextView) this.mmT.findViewById(a.f.user_message_item_description);
-        this.gFk = (TextView) this.mmT.findViewById(a.f.user_message_item_time);
-        this.pfN = (TagView) this.mmT.findViewById(a.f.user_message_item_new_count);
-        this.pfO = (TextView) this.mmT.findViewById(a.f.yuyin_tv_chatlist_shield_status);
+        this.hDn = (HeadImageView) this.mmS.findViewById(a.f.user_message_item_icon);
+        this.eLt = (TextView) this.mmS.findViewById(a.f.user_message_item_name);
+        this.gFi = (TextView) this.mmS.findViewById(a.f.user_message_item_description);
+        this.gFk = (TextView) this.mmS.findViewById(a.f.user_message_item_time);
+        this.pfN = (TagView) this.mmS.findViewById(a.f.user_message_item_new_count);
+        this.pfO = (TextView) this.mmS.findViewById(a.f.yuyin_tv_chatlist_shield_status);
     }
 }

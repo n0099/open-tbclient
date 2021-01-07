@@ -17,7 +17,7 @@ public class AlaForbiddenListResponseMessage extends JsonHttpResponsedMessage {
         this.hlF.dG(jSONObject.optJSONObject("data"));
     }
 
-    public com.baidu.tieba.ala.live.personcenter.forbidden.b.a cbn() {
+    public com.baidu.tieba.ala.live.personcenter.forbidden.b.a cbo() {
         return this.hlF;
     }
 }

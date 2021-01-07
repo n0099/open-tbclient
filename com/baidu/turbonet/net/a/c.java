@@ -36,10 +36,10 @@ public final class c extends f {
     public void write(int i) throws IOException {
         checkNotClosed();
         Oo(1);
-        eiB();
+        eiC();
         this.mBuffer.put((byte) i);
         this.oMf++;
-        eiD();
+        eiE();
     }
 
     @Override // java.io.OutputStream
@@ -51,32 +51,32 @@ public final class c extends f {
         Oo(i2);
         int i3 = i2;
         while (i3 > 0) {
-            eiB();
+            eiC();
             int min = Math.min(i3, this.mBuffer.remaining());
             this.mBuffer.put(bArr, (i + i2) - i3, min);
             i3 -= min;
         }
         this.oMf += i2;
-        eiD();
+        eiE();
     }
 
-    private void eiB() throws IOException {
+    private void eiC() throws IOException {
         if (!this.mBuffer.hasRemaining()) {
-            eiC();
+            eiD();
+        }
+    }
+
+    private void eiE() throws IOException {
+        if (this.oMf == this.oMe) {
+            eiD();
         }
     }
 
     private void eiD() throws IOException {
-        if (this.oMf == this.oMe) {
-            eiC();
-        }
-    }
-
-    private void eiC() throws IOException {
         checkNotClosed();
         this.mBuffer.flip();
-        this.oLY.eiQ();
-        eiO();
+        this.oLY.eiR();
+        eiP();
     }
 
     private void Oo(int i) throws ProtocolException {
@@ -87,12 +87,12 @@ public final class c extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void eiy() throws IOException {
+    public void eiz() throws IOException {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public void eiz() throws IOException {
+    public void eiA() throws IOException {
         if (this.oMf < this.oMe) {
             throw new ProtocolException("Content received is less than Content-Length.");
         }
@@ -100,7 +100,7 @@ public final class c extends f {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     @Override // com.baidu.turbonet.net.a.f
-    public UploadDataProvider eiA() {
+    public UploadDataProvider eiB() {
         return this.oLJ;
     }
 

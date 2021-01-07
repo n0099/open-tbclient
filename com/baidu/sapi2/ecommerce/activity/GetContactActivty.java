@@ -32,9 +32,9 @@ public class GetContactActivty extends Activity {
             a aVar = new a();
             if (i2 == -1 && intent != null) {
                 String[] phoneContacts = getPhoneContacts(intent.getData());
-                aVar.f4102a = phoneContacts[0];
-                aVar.f4103b = phoneContacts[1];
-                if (TextUtils.isEmpty(aVar.f4102a) && TextUtils.isEmpty(aVar.f4103b)) {
+                aVar.f4103a = phoneContacts[0];
+                aVar.f4104b = phoneContacts[1];
+                if (TextUtils.isEmpty(aVar.f4103a) && TextUtils.isEmpty(aVar.f4104b)) {
                     Toast.makeText(this, String.format("读取手机联系人失败，可能%1$s已被禁止该权限或手机号为空", SapiUtils.getAppName(this)), 0).show();
                     aVar.setResultCode(-901);
                 } else {

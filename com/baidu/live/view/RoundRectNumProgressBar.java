@@ -106,13 +106,13 @@ public class RoundRectNumProgressBar extends View {
     protected void onMeasure(int i, int i2) {
         setMeasuredDimension(measureWidth(i), measureHeight(i2));
         if (this.lastWidth == 0 || this.lastHeight == 0 || this.lastWidth != getMeasuredWidth() || this.lastHeight != getMeasuredHeight()) {
-            ZM();
+            ZN();
             this.lastWidth = getMeasuredWidth();
             this.lastHeight = getMeasuredHeight();
         }
     }
 
-    private void ZM() {
+    private void ZN() {
         this.bUQ = 3.14f * getMeasuredHeight();
         this.bUP = this.bUQ / 2.0f;
         this.radius = (getMeasuredHeight() - this.bUH) / 2.0f;

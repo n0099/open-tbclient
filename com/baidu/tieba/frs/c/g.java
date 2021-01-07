@@ -73,10 +73,10 @@ public class g {
             ao.setBackgroundResource(this.jHS, R.drawable.white_bg_frs_header_round_corner);
             ao.setBackgroundResource(this.jHR, R.color.CAM_X0201);
             ao.setImageResource(this.jHU, R.drawable.ic_icon_pure_topbar_return40_svg);
-            SvgManager.bwq().a(this.jHV, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.jHV, R.drawable.ic_icon_pure_topbar_share40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
             this.jHW.setImageDrawable(WebPManager.a(R.drawable.icon_pure_topbar_information40, ao.getColor(R.color.CAM_X0101), (WebPManager.ResourceStateType) null));
-            SvgManager.bwq().a(this.jHX, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
-            SvgManager.bwq().a(this.jHR, R.drawable.bg_pure_loadingskeleton_svg, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.jHX, R.drawable.ic_icon_pure_topbar_search40_svg, R.color.CAM_X0101, SvgManager.SvgResourceStateType.NORMAL);
+            SvgManager.bwr().a(this.jHR, R.drawable.bg_pure_loadingskeleton_svg, R.color.CAM_X0204, SvgManager.SvgResourceStateType.NORMAL);
         }
     }
 }

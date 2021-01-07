@@ -28,11 +28,11 @@ public class a extends e implements f {
     private View byS;
     private float byT;
     private Context mContext;
-    private InterfaceC0911a owU;
+    private InterfaceC0949a owT;
 
     /* renamed from: com.baidu.tieba.yuyinala.liveroom.turntable.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    public interface InterfaceC0911a {
+    public interface InterfaceC0949a {
         void onDismiss();
     }
 
@@ -46,37 +46,37 @@ public class a extends e implements f {
         return this.byR;
     }
 
-    public void a(InterfaceC0911a interfaceC0911a) {
-        this.owU = interfaceC0911a;
+    public void a(InterfaceC0949a interfaceC0949a) {
+        this.owT = interfaceC0949a;
     }
 
-    public void GB(String str) {
+    public void GA(String str) {
         View findViewById;
-        int aaj;
         int aak;
+        int aal;
         if ((this.mContext instanceof Activity) && !((Activity) this.mContext).isFinishing() && (findViewById = ((Activity) this.mContext).getWindow().getDecorView().findViewById(16908290)) != null) {
             switch (UtilHelper.getRealScreenOrientation(this.mContext)) {
                 case 1:
                     this.bXh = 80;
-                    aaj = aah();
                     aak = aai();
+                    aal = aaj();
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
                     break;
                 case 2:
                     this.bXh = 5;
-                    aaj = aaj();
                     aak = aak();
+                    aal = aal();
                     this.byQ.setCornerRadius(this.byT, 0.0f, 0.0f, this.byT);
                     break;
                 default:
                     this.bXh = 80;
-                    aaj = aah();
                     aak = aai();
+                    aal = aaj();
                     this.byQ.setCornerRadius(this.byT, this.byT, 0.0f, 0.0f);
                     break;
             }
-            setWidth(aaj);
-            setHeight(aak);
+            setWidth(aak);
+            setHeight(aal);
             showAtLocation(findViewById, 85, 0, 0);
             if (UtilHelper.getRealScreenOrientation(this.mContext) == 2) {
                 ah(this.byQ);
@@ -86,14 +86,14 @@ public class a extends e implements f {
         }
     }
 
-    public void aag() {
+    public void aah() {
         super.dismiss();
     }
 
     @Override // com.baidu.live.view.e, android.widget.PopupWindow
     public void dismiss() {
-        if (!aal()) {
-            aag();
+        if (!aam()) {
+            aah();
         }
     }
 
@@ -109,8 +109,8 @@ public class a extends e implements f {
                 if (a.this.byR != null) {
                     a.this.byR.release();
                 }
-                if (a.this.owU != null) {
-                    a.this.owU.onDismiss();
+                if (a.this.owT != null) {
+                    a.this.owT.onDismiss();
                 }
             }
         });
@@ -172,19 +172,19 @@ public class a extends e implements f {
         this.byS.setVisibility(8);
     }
 
-    private int aah() {
+    private int aai() {
         return ScreenHelper.getRealScreenWidth(this.mContext);
     }
 
-    private int aai() {
-        return (aah() * 470) / 375;
-    }
-
     private int aaj() {
-        return (aak() * 375) / 470;
+        return (aai() * 470) / 375;
     }
 
     private int aak() {
+        return (aal() * 375) / 470;
+    }
+
+    private int aal() {
         return ScreenHelper.getRealScreenHeight(this.mContext);
     }
 
@@ -207,7 +207,7 @@ public class a extends e implements f {
         }
     }
 
-    private boolean aal() {
+    private boolean aam() {
         if (getContentView() == null) {
             return false;
         }
@@ -230,7 +230,7 @@ public class a extends e implements f {
 
                 @Override // android.view.animation.Animation.AnimationListener
                 public void onAnimationEnd(Animation animation) {
-                    a.this.aag();
+                    a.this.aah();
                 }
 
                 @Override // android.view.animation.Animation.AnimationListener

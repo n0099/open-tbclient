@@ -15,10 +15,10 @@ public final class q {
     private ExecutorService d;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f6268a = 64;
+    private int f6269a = 64;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6269b = 5;
+    private int f6270b = 5;
     private final Deque<aa.a> pnJ = new ArrayDeque();
     private final Deque<aa.a> pnK = new ArrayDeque();
     private final Deque<aa> pnL = new ArrayDeque();
@@ -31,16 +31,16 @@ public final class q {
     }
 
     private void c() {
-        if (this.pnK.size() < this.f6268a && !this.pnJ.isEmpty()) {
+        if (this.pnK.size() < this.f6269a && !this.pnJ.isEmpty()) {
             Iterator<aa.a> it = this.pnJ.iterator();
             while (it.hasNext()) {
                 aa.a next = it.next();
-                if (a(next) < this.f6269b) {
+                if (a(next) < this.f6270b) {
                     it.remove();
                     this.pnK.add(next);
                     a().execute(next);
                 }
-                if (this.pnK.size() >= this.f6268a) {
+                if (this.pnK.size() >= this.f6269a) {
                     return;
                 }
             }

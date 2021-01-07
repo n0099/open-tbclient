@@ -14,7 +14,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (this.mCallerContext == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : this.mCallerContext.f10823a) {
+        for (com.kwad.sdk.reward.a.a aVar : this.mCallerContext.f10824a) {
             aVar.a();
         }
     }
@@ -23,7 +23,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (this.mCallerContext == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : this.mCallerContext.f10823a) {
+        for (com.kwad.sdk.reward.a.a aVar : this.mCallerContext.f10824a) {
             aVar.d();
         }
     }
@@ -32,7 +32,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (this.mCallerContext == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : this.mCallerContext.f10823a) {
+        for (com.kwad.sdk.reward.a.a aVar : this.mCallerContext.f10824a) {
             aVar.c();
         }
     }
@@ -41,7 +41,7 @@ public abstract class a<T extends com.kwad.sdk.reward.a> extends com.kwad.sdk.b.
         if (this.mCallerContext == null) {
             return;
         }
-        for (com.kwad.sdk.reward.a.a aVar : this.mCallerContext.f10823a) {
+        for (com.kwad.sdk.reward.a.a aVar : this.mCallerContext.f10824a) {
             aVar.b();
         }
     }

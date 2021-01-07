@@ -9,7 +9,7 @@ public class g extends e {
     public String pkgName;
 
     @Override // com.baidu.swan.pms.model.e
-    public boolean auV() {
-        return super.auV() && !TextUtils.isEmpty(this.pkgName);
+    public boolean auW() {
+        return super.auW() && !TextUtils.isEmpty(this.pkgName);
     }
 }

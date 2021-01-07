@@ -7,15 +7,15 @@ public class a {
     public static final String dbA = "content://" + com.baidu.swan.apps.database.favorite.b.dbw + "/history";
     public static final String dbB = "content://" + com.baidu.swan.apps.database.favorite.b.dbw + "/history_with_aps_pms";
 
-    public static Uri awN() {
+    public static Uri awO() {
         return Uri.parse(dbz);
     }
 
-    public static Uri awO() {
+    public static Uri awP() {
         return Uri.parse(dbB);
     }
 
-    public static Uri awP() {
+    public static Uri awQ() {
         return Uri.parse(dbA);
     }
 }

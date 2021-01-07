@@ -22,7 +22,7 @@ public abstract class a {
     protected a.C0141a awJ;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f2465b;
+    private final String f2466b;
     private long c;
 
     /* renamed from: com.baidu.helios.channels.a$a  reason: collision with other inner class name */
@@ -38,13 +38,13 @@ public abstract class a {
         private a.C0141a awu;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f2466b;
+        private String f2467b;
         private String c;
         private boolean d = true;
 
         public b(a.C0141a c0141a, String str) {
             this.awu = c0141a;
-            this.f2466b = str;
+            this.f2467b = str;
             this.c = "target-pkg-" + Base64.encodeToString(str.getBytes(), 3);
         }
 
@@ -96,15 +96,15 @@ public abstract class a {
     public static class e {
 
         /* renamed from: a  reason: collision with root package name */
-        private int f2467a;
+        private int f2468a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f2468b;
+        private int f2469b;
         public Exception exception;
 
         public e(int i, int i2, Exception exc) {
-            this.f2467a = i;
-            this.f2468b = i2;
+            this.f2468a = i;
+            this.f2469b = i2;
             this.exception = exc;
         }
 
@@ -164,7 +164,7 @@ public abstract class a {
     }
 
     public a(String str, long j) {
-        this.f2465b = str;
+        this.f2466b = str;
         this.c = j;
     }
 
@@ -180,7 +180,7 @@ public abstract class a {
     public abstract void a(c cVar);
 
     public String getName() {
-        return this.f2465b;
+        return this.f2466b;
     }
 
     public long getPriority() {

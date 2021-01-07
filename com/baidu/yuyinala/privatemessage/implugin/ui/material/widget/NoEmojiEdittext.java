@@ -17,22 +17,22 @@ public class NoEmojiEdittext extends EditText {
     public NoEmojiEdittext(Context context) {
         super(context);
         this.mContext = context;
-        dxh();
+        dxi();
     }
 
     public NoEmojiEdittext(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.mContext = context;
-        dxh();
+        dxi();
     }
 
     public NoEmojiEdittext(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.mContext = context;
-        dxh();
+        dxi();
     }
 
-    private void dxh() {
+    private void dxi() {
         addTextChangedListener(new TextWatcher() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.NoEmojiEdittext.1
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {

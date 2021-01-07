@@ -56,12 +56,12 @@ public abstract class a {
     }
 
     public void show() {
-        if (com.baidu.swan.apps.t.a.aAN().alD() != this.dFD) {
+        if (com.baidu.swan.apps.t.a.aAO().alE() != this.dFD) {
             prepareMenuView(this.mContext);
             this.mPopupWindow = null;
         }
         hd(true);
-        this.dFD = com.baidu.swan.apps.t.a.aAN().alD();
+        this.dFD = com.baidu.swan.apps.t.a.aAO().alE();
     }
 
     public void dismiss() {
@@ -135,7 +135,7 @@ public abstract class a {
                 @Override // android.widget.PopupWindow.OnDismissListener
                 public void onDismiss() {
                     if (a.this.dFz) {
-                        a.this.aLI();
+                        a.this.aLJ();
                     }
                     if (a.this.dFv != null) {
                         a.this.dFv.onDismissMenu();
@@ -180,7 +180,7 @@ public abstract class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void aLI() {
+    public void aLJ() {
         if (this.mViewToAttach != null) {
             ((ViewGroup) this.mViewToAttach.getRootView()).getOverlay().clear();
         }

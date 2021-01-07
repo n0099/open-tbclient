@@ -10,7 +10,7 @@ public interface a extends d {
     /* renamed from: com.baidu.swan.apps.inlinewidget.f.c.a$a  reason: collision with other inner class name */
     /* loaded from: classes9.dex */
     public interface InterfaceC0449a {
-        void azO();
+        void azP();
 
         void hm(String str);
 
@@ -33,15 +33,15 @@ public interface a extends d {
 
     void a(@NonNull InterfaceC0449a interfaceC0449a);
 
-    InterfaceC0449a aAa();
+    void aAa();
 
-    boolean aAb();
+    InterfaceC0449a aAb();
 
-    int aAc();
+    boolean aAc();
 
-    String azX();
+    int aAd();
 
-    void azY();
+    String azY();
 
     void azZ();
 

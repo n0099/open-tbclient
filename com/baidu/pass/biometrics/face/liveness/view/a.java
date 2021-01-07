@@ -12,10 +12,10 @@ import com.baidu.pass.utils.CommonViewUtility;
 public class a extends AppCompatDialog {
 
     /* renamed from: a  reason: collision with root package name */
-    private ViewSwitcher f4088a;
+    private ViewSwitcher f4089a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f4089b;
+    private TextView f4090b;
     private TextView c;
     private TextView d;
     private TextView e;
@@ -32,8 +32,8 @@ public class a extends AppCompatDialog {
     private void a() {
         setContentView(R.layout.layout_pass_liveness_alert_dialog);
         setCanceledOnTouchOutside(false);
-        this.f4088a = (ViewSwitcher) findViewById(R.id.view_switcher);
-        this.f4089b = (TextView) findViewById(R.id.dialog_title);
+        this.f4089a = (ViewSwitcher) findViewById(R.id.view_switcher);
+        this.f4090b = (TextView) findViewById(R.id.dialog_title);
         this.c = (TextView) findViewById(R.id.dialog_msg);
         this.d = (TextView) findViewById(R.id.msg_text);
         this.e = (TextView) findViewById(R.id.positive_btn);
@@ -51,7 +51,7 @@ public class a extends AppCompatDialog {
     }
 
     public void c(String str) {
-        this.f4089b.setText(str);
+        this.f4090b.setText(str);
     }
 
     public void c(int i) {
@@ -79,17 +79,17 @@ public class a extends AppCompatDialog {
 
     public void a(boolean z) {
         if (z) {
-            this.f4089b.setVisibility(0);
+            this.f4090b.setVisibility(0);
         } else {
-            this.f4089b.setVisibility(8);
+            this.f4090b.setVisibility(8);
         }
     }
 
     public void a(int i) {
         if ((i < 1 ? 1 : Math.min(i, 2)) == 2) {
-            this.f4088a.setDisplayedChild(0);
+            this.f4089a.setDisplayedChild(0);
         } else {
-            this.f4088a.setDisplayedChild(1);
+            this.f4089a.setDisplayedChild(1);
         }
     }
 

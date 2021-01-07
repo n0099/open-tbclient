@@ -22,10 +22,10 @@ public class AlaChallengeShowAllJinzhuPagerAdapter extends PagerAdapter {
         this.huC = j;
         this.bvY = j2;
         this.gqJ = j3;
-        bZA();
+        bZB();
     }
 
-    private void bZA() {
+    private void bZB() {
         com.baidu.tieba.ala.liveroom.challenge.view.b bVar = new com.baidu.tieba.ala.liveroom.challenge.view.b(this.mTbPageContext, 1, this.mIsHost);
         bVar.e(this.huC, this.bvY, this.gqJ);
         this.hex.add(bVar);

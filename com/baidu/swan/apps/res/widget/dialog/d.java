@@ -53,7 +53,7 @@ public class d extends h {
         return this.dEB.sd(str);
     }
 
-    public String aLn() {
+    public String aLo() {
         StringBuilder sb = new StringBuilder();
         if (sd("year")) {
             sb.append(String.format("%d-", Integer.valueOf(getYear())));
@@ -71,7 +71,7 @@ public class d extends h {
         return sb2;
     }
 
-    private void aLo() {
+    private void aLp() {
         this.dEB = new BdDatePicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
@@ -82,15 +82,15 @@ public class d extends h {
         this.dEB.setYear(this.VL);
         this.dEB.setMonth(this.VM);
         this.dEB.setDay(this.VN);
-        this.dEB.aJZ();
+        this.dEB.aKa();
         this.dEB.setFields(this.dxr);
         this.dEB.setDisabled(this.dxs);
     }
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        aLo();
-        aLB().aL(this.dEB);
+        aLp();
+        aLC().aL(this.dEB);
     }
 
     @Override // com.baidu.swan.apps.res.widget.dialog.c, android.app.Dialog
@@ -157,8 +157,8 @@ public class d extends h {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        public h aLp() {
-            d dVar = (d) super.aLp();
+        public h aLq() {
+            d dVar = (d) super.aLq();
             dVar.setFields(this.dEF);
             dVar.setDisabled(this.dEG);
             if (this.dEE != null) {

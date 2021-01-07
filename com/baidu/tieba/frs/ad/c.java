@@ -36,27 +36,27 @@ public class c extends BaseCardInfo {
         }
     }
 
-    public int cHE() {
+    public int cHF() {
         return this.jlC;
     }
 
-    public String cHF() {
+    public String cHG() {
         return this.jlz;
     }
 
-    public String cHG() {
+    public String cHH() {
         return this.eNU;
     }
 
-    public String cHH() {
+    public String cHI() {
         return this.jlA;
     }
 
-    public String bIw() {
+    public String bIx() {
         return this.eNV;
     }
 
-    public List<MediaData> cHI() {
+    public List<MediaData> cHJ() {
         return this.jlB;
     }
 
@@ -64,7 +64,7 @@ public class c extends BaseCardInfo {
         this.jap = z;
     }
 
-    public boolean cHJ() {
+    public boolean cHK() {
         return this.jap;
     }
 

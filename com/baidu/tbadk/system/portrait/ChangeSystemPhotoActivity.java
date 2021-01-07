@@ -153,10 +153,10 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
     public void initData() {
         this.fOz = getIntent().getBooleanExtra("need_upload", true);
         this.fOv = new ArrayList<>();
-        bIo();
+        bIp();
     }
 
-    private void bIo() {
+    private void bIp() {
         SapiAccount session = SapiAccountManager.getInstance().getSession();
         if (session != null) {
             SapiAccountManager.getInstance().getAccountService().getPopularPortraitsInfo(new GetPopularPortraitsCallback() { // from class: com.baidu.tbadk.system.portrait.ChangeSystemPhotoActivity.4
@@ -171,7 +171,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                                 bVar.setUrl(popularPortraitsInfo.url);
                                 bVar.setNum(popularPortraitsInfo.num);
                                 bVar.tb(popularPortraitsInfo.myItem);
-                                bVar.Ez(popularPortraitsInfo.series);
+                                bVar.Ey(popularPortraitsInfo.series);
                                 ChangeSystemPhotoActivity.this.fOv.add(bVar);
                             }
                         }
@@ -226,7 +226,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 ChangeSystemPhotoActivity.this.finish();
             }
         });
-        aVar.b(getPageContext()).btX();
+        aVar.b(getPageContext()).btY();
     }
 
     @Override // com.baidu.tbadk.BaseActivity, android.app.Activity, android.view.KeyEvent.Callback
@@ -293,7 +293,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 str = null;
             }
             try {
-                if (this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+                if (this.mNetwork.bvR().bwB().isRequestSuccess()) {
                     return str;
                 }
                 return null;
@@ -321,7 +321,7 @@ public class ChangeSystemPhotoActivity extends BaseActivity<ChangeSystemPhotoAct
                 if (ChangeSystemPhotoActivity.this.fOA != null) {
                     ChangeSystemPhotoActivity.this.fOA.setDialogVisiable(false);
                 }
-                if (this.mNetwork.bvQ().bwA().isRequestSuccess()) {
+                if (this.mNetwork.bvR().bwB().isRequestSuccess()) {
                     new com.baidu.tbadk.core.view.c().showSuccessToast(ChangeSystemPhotoActivity.this.getResources().getString(R.string.reset_success));
                     Intent intent = new Intent();
                     intent.putExtra(ChangeSystemPhotoActivityConfig.NEW_PHOTO_URL, ChangeSystemPhotoActivity.this.currentUrl);

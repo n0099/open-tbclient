@@ -58,15 +58,15 @@ public class HorizontalProgressBar extends View {
         float max = Math.max(0.0f, Math.min(1.0f, f));
         if (this.hju != max) {
             if (A(max, this.hjv)) {
-                caJ();
+                caK();
                 return;
             }
             this.hju = max;
-            caL();
+            caM();
         }
     }
 
-    private void caJ() {
+    private void caK() {
         this.erW = true;
     }
 
@@ -74,11 +74,11 @@ public class HorizontalProgressBar extends View {
         float max = Math.max(0.0f, Math.min(1.0f, f));
         if (this.hjv != max) {
             if (A(this.hju, max)) {
-                caJ();
+                caK();
                 return;
             }
             this.hjv = max;
-            caL();
+            caM();
         }
     }
 
@@ -123,7 +123,7 @@ public class HorizontalProgressBar extends View {
 
     private void init(Context context, AttributeSet attributeSet) {
         c(context, attributeSet);
-        caK();
+        caL();
     }
 
     private void c(Context context, AttributeSet attributeSet) {
@@ -149,7 +149,7 @@ public class HorizontalProgressBar extends View {
         obtainStyledAttributes.recycle();
     }
 
-    private void caK() {
+    private void caL() {
         this.hjh = new Paint();
         this.hjh.setColor(this.progressColor);
         this.hjh.setStyle(Paint.Style.FILL);
@@ -341,11 +341,11 @@ public class HorizontalProgressBar extends View {
 
     public HorizontalProgressBar nw(boolean z) {
         this.hjt = z;
-        caL();
+        caM();
         return this;
     }
 
-    private void caL() {
+    private void caM() {
         if (isMainThread()) {
             invalidate();
         } else {

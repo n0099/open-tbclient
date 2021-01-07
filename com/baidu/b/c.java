@@ -17,12 +17,12 @@ import java.util.HashSet;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONObject;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c {
     private com.baidu.b.c.d.d afb;
 
     /* renamed from: b  reason: collision with root package name */
-    private List<b> f1591b;
+    private List<b> f1592b;
 
     public c() {
         a();
@@ -90,7 +90,7 @@ public class c {
                                 byte[] a2 = com.baidu.b.d.a.a(string.getBytes("utf-8"));
                                 JSONObject jSONObject = new JSONObject(new String(a2));
                                 b bVar = new b();
-                                bVar.f1573b = jSONObject.getInt("priority");
+                                bVar.f1574b = jSONObject.getInt("priority");
                                 bVar.aeJ = resolveInfo.activityInfo.applicationInfo;
                                 if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
                                     bVar.d = true;
@@ -144,12 +144,12 @@ public class c {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public List<b> b(Context context) {
-        if (this.f1591b != null) {
-            return this.f1591b;
+        if (this.f1592b != null) {
+            return this.f1592b;
         }
         a(context);
         List<b> a2 = a(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-        this.f1591b = a2;
+        this.f1592b = a2;
         return a2;
     }
 }

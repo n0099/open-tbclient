@@ -37,7 +37,7 @@ public final class b {
         }
     }
 
-    public static HashMap<String, Integer> ZY() {
+    public static HashMap<String, Integer> ZZ() {
         return mMap;
     }
 

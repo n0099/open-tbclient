@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
 import org.json.JSONObject;
-/* loaded from: classes4.dex */
+/* loaded from: classes15.dex */
 public class a {
     private static a axe;
     private Thread axf;
@@ -22,7 +22,7 @@ public class a {
     private Context m;
 
     /* renamed from: com.baidu.helios.a.a.a$1  reason: invalid class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     class AnonymousClass1 implements Runnable {
         final /* synthetic */ a axj;
 
@@ -35,7 +35,7 @@ public class a {
     }
 
     /* renamed from: com.baidu.helios.a.a.a$a  reason: collision with other inner class name */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes15.dex */
     public static class C0126a {
         private static C0126a axk;
 

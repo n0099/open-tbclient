@@ -22,10 +22,10 @@ import com.kwad.sdk.utils.ao;
 public class TailFrameBarAppLandscape extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f10992a;
+    private ImageView f10993a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f10993b;
+    private TextView f10994b;
     private AppScoreView c;
     private TextView d;
     private TextView e;
@@ -47,8 +47,8 @@ public class TailFrameBarAppLandscape extends LinearLayout {
 
     private void b() {
         inflate(getContext(), R.layout.ksad_video_tf_bar_app_landscape, this);
-        this.f10992a = (ImageView) findViewById(R.id.ksad_app_icon);
-        this.f10993b = (TextView) findViewById(R.id.ksad_app_name);
+        this.f10993a = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f10994b = (TextView) findViewById(R.id.ksad_app_name);
         this.c = (AppScoreView) findViewById(R.id.ksad_app_score);
         this.d = (TextView) findViewById(R.id.ksad_app_download_count);
         this.e = (TextView) findViewById(R.id.ksad_app_introduce);
@@ -102,8 +102,8 @@ public class TailFrameBarAppLandscape extends LinearLayout {
 
     public void setModel(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        KSImageLoader.loadAppIcon(this.f10992a, a.o(j), adTemplate, 16);
-        this.f10993b.setText(a.q(j));
+        KSImageLoader.loadAppIcon(this.f10993a, a.o(j), adTemplate, 16);
+        this.f10994b.setText(a.q(j));
         float u = a.u(j);
         if (u >= 3.0f) {
             this.c.setScore(u);

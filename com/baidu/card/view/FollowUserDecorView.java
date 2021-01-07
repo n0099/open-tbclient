@@ -31,7 +31,7 @@ public class FollowUserDecorView extends FollowUserButton {
     }
 
     public void setData(bz bzVar) {
-        if (bzVar == null || bzVar.brq() == null) {
+        if (bzVar == null || bzVar.brr() == null) {
             setVisibility(8);
             return;
         }
@@ -40,7 +40,7 @@ public class FollowUserDecorView extends FollowUserButton {
             this.alC.l(this.mBdUniqueId);
         }
         setVisibility(0);
-        this.alC.a(bzVar.brq());
+        this.alC.a(bzVar.brr());
     }
 
     public void setPageUniqueId(BdUniqueId bdUniqueId) {

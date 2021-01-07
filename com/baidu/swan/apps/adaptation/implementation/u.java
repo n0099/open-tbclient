@@ -5,16 +5,16 @@ import com.baidu.swan.apps.adaptation.a.am;
 public class u implements am {
     @Override // com.baidu.swan.apps.adaptation.a.am
     public String getSchemeHeader() {
-        return com.baidu.swan.config.c.c.aTH().getSchemeHeader();
+        return com.baidu.swan.config.c.c.aTI().getSchemeHeader();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
     public String getHostName() {
-        return com.baidu.swan.config.c.c.aTH().getHostName();
+        return com.baidu.swan.config.c.c.aTI().getHostName();
     }
 
     @Override // com.baidu.swan.apps.adaptation.a.am
-    public String als() {
-        return com.baidu.swan.config.c.c.aTH().als();
+    public String alt() {
+        return com.baidu.swan.config.c.c.aTI().alt();
     }
 }

@@ -109,15 +109,15 @@ public class CardUserInfoLayout extends LinearLayout implements q {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 String url;
-                if (bg.checkUpIsLogin(CardUserInfoLayout.this.mContext) && CardUserInfoLayout.this.aim != null && CardUserInfoLayout.this.aim.brq() != null && CardUserInfoLayout.this.aim.brq().getTShowInfoNew() != null && x.getItem(CardUserInfoLayout.this.aim.brq().getTShowInfoNew(), 0) != null && (url = CardUserInfoLayout.this.aim.brq().getTShowInfoNew().get(0).getUrl()) != null && (j.K(CardUserInfoLayout.this.mContext) instanceof TbPageContext)) {
-                    be.bwu().b((TbPageContext) j.K(CardUserInfoLayout.this.mContext), new String[]{url});
+                if (bg.checkUpIsLogin(CardUserInfoLayout.this.mContext) && CardUserInfoLayout.this.aim != null && CardUserInfoLayout.this.aim.brr() != null && CardUserInfoLayout.this.aim.brr().getTShowInfoNew() != null && x.getItem(CardUserInfoLayout.this.aim.brr().getTShowInfoNew(), 0) != null && (url = CardUserInfoLayout.this.aim.brr().getTShowInfoNew().get(0).getUrl()) != null && (j.K(CardUserInfoLayout.this.mContext) instanceof TbPageContext)) {
+                    be.bwv().b((TbPageContext) j.K(CardUserInfoLayout.this.mContext), new String[]{url});
                 }
             }
         };
         this.alu = new View.OnClickListener() { // from class: com.baidu.card.view.CardUserInfoLayout.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CardUserInfoLayout.this.aim != null && CardUserInfoLayout.this.aim.brq() != null && !StringUtils.isNull(CardUserInfoLayout.this.aim.brq().getName_show()) && !StringUtils.isNull(CardUserInfoLayout.this.aim.brq().getUserId()) && CardUserInfoLayout.this.aim.bru() != null) {
+                if (CardUserInfoLayout.this.aim != null && CardUserInfoLayout.this.aim.brr() != null && !StringUtils.isNull(CardUserInfoLayout.this.aim.brr().getName_show()) && !StringUtils.isNull(CardUserInfoLayout.this.aim.brr().getUserId()) && CardUserInfoLayout.this.aim.brv() != null) {
                     if (view.getTag(R.id.tag_nick_name_activity) != null && (view.getTag(R.id.tag_nick_name_activity) instanceof String)) {
                         String str = (String) view.getTag(R.id.tag_nick_name_activity);
                         if (!TextUtils.isEmpty(str) && bg.checkUpIsLogin(CardUserInfoLayout.this.getContext())) {
@@ -125,7 +125,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
                             return;
                         }
                     }
-                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(CardUserInfoLayout.this.mContext, CardUserInfoLayout.this.aim.brq().getUserId(), CardUserInfoLayout.this.aim.brq().getName_show(), CardUserInfoLayout.this.aim.bru(), AddFriendActivityConfig.TYPE_FRS_HEAD);
+                    PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(CardUserInfoLayout.this.mContext, CardUserInfoLayout.this.aim.brr().getUserId(), CardUserInfoLayout.this.aim.brr().getName_show(), CardUserInfoLayout.this.aim.brv(), AddFriendActivityConfig.TYPE_FRS_HEAD);
                     personInfoActivityConfig.setSourceTid(CardUserInfoLayout.this.aim.getTid());
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, personInfoActivityConfig));
                     if (CardUserInfoLayout.this.alk != null) {
@@ -137,8 +137,8 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         this.alv = new View.OnClickListener() { // from class: com.baidu.card.view.CardUserInfoLayout.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (CardUserInfoLayout.this.aim != null && CardUserInfoLayout.this.aim.brq() != null) {
-                    com.baidu.tbadk.browser.a.startWebActivity(CardUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), e.SERVER_ADDRESS_WEB_VIEW + Config.USER_ICON_WEBVIEW + "?user_id=" + CardUserInfoLayout.this.aim.brq().getUserId(), true, true, true);
+                if (CardUserInfoLayout.this.aim != null && CardUserInfoLayout.this.aim.brr() != null) {
+                    com.baidu.tbadk.browser.a.startWebActivity(CardUserInfoLayout.this.mContext.getApplicationContext(), TbadkCoreApplication.getInst().getString(R.string.user_icon_web_view_title), e.SERVER_ADDRESS_WEB_VIEW + Config.USER_ICON_WEBVIEW + "?user_id=" + CardUserInfoLayout.this.aim.brr().getUserId(), true, true, true);
                     if (CardUserInfoLayout.this.alm != null) {
                         CardUserInfoLayout.this.alk.onClick(view);
                     }
@@ -217,7 +217,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         this.alc.setOnClickListener(this.alv);
         this.alc.setAutoChangedStyle(false);
         this.ale = (TextView) findViewById(R.id.thread_extend_info);
-        if (g.bvD()) {
+        if (g.bvE()) {
             this.ale.setPadding(0, -alq, 0, 0);
         }
         this.alf = (ImageView) findViewById(R.id.ala_location_icon);
@@ -251,14 +251,14 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     }
 
     private void d(bz bzVar) {
-        if (this.akY != null && bzVar != null && this.aim.brq() != null) {
+        if (this.akY != null && bzVar != null && this.aim.brr() != null) {
             this.akY.setBigVDimenSize(R.dimen.tbds32);
-            if (!UtilHelper.showHeadBjhBigVIcon(this.akY, this.aim.brq(), 0)) {
+            if (!UtilHelper.showHeadBjhBigVIcon(this.akY, this.aim.brr(), 0)) {
                 this.akY.setIsHomePage(bzVar.eWd);
                 if (this.aim.eVz > 0 && this.aim.eVA == 0) {
                     this.akY.jZ(false);
                 } else {
-                    this.akY.a(this.aim.brq(), 0);
+                    this.akY.a(this.aim.brr(), 0);
                 }
             }
         }
@@ -284,7 +284,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
             h(bzVar);
             e(bzVar);
             setVisibility(0);
-            if (isShow(128) && !bzVar.eWd && !bzVar.btl()) {
+            if (isShow(128) && !bzVar.eWd && !bzVar.btm()) {
                 this.aln.post(this.als);
             }
         }
@@ -301,13 +301,13 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     }
 
     private void f(bz bzVar) {
-        if (bzVar != null && bzVar.brq() != null) {
-            if (bzVar.boV()) {
+        if (bzVar != null && bzVar.brr() != null) {
+            if (bzVar.boW()) {
                 this.alr |= 4096;
             } else {
                 this.alr &= -4097;
             }
-            if (!(bzVar instanceof AdvertAppInfo) && ((bzVar.eWd && !bzVar.bpZ() && !bzVar.btv() && bzVar.getType() != bz.eTk && bzVar.getType() != bz.eTn) || (bzVar.eWd && d.bmE() && bzVar.getType() != bz.eTk && bzVar.getType() != bz.eTn))) {
+            if (!(bzVar instanceof AdvertAppInfo) && ((bzVar.eWd && !bzVar.bqa() && !bzVar.btw() && bzVar.getType() != bz.eTk && bzVar.getType() != bz.eTn) || (bzVar.eWd && d.bmF() && bzVar.getType() != bz.eTk && bzVar.getType() != bz.eTn))) {
                 this.alr &= -129;
             } else {
                 this.alr |= 128;
@@ -317,13 +317,13 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     }
 
     private void g(bz bzVar) {
-        if (bzVar.brq() == null) {
+        if (bzVar.brr() == null) {
             this.akY.setVisibility(8);
             return;
         }
-        MetaData brq = bzVar.brq();
+        MetaData brr = bzVar.brr();
         if (!isShow(256)) {
-            brq.setPendantData(null);
+            brr.setPendantData(null);
         }
         this.akY.setData(bzVar);
     }
@@ -338,11 +338,11 @@ public class CardUserInfoLayout extends LinearLayout implements q {
             this.alp.setVisibility(8);
             return;
         }
-        boolean z = (bzVar == null || bzVar.brq() == null || bzVar.brq().getAlaUserData() == null || bzVar.brq().getAlaUserData().live_status != 1) ? false : true;
-        boolean z2 = (bzVar == null || bzVar.brJ() == null || bzVar.brJ().friendRoomStatus != 2) ? false : true;
+        boolean z = (bzVar == null || bzVar.brr() == null || bzVar.brr().getAlaUserData() == null || bzVar.brr().getAlaUserData().live_status != 1) ? false : true;
+        boolean z2 = (bzVar == null || bzVar.brK() == null || bzVar.brK().friendRoomStatus != 2) ? false : true;
         if (z || z2) {
             this.akY.setIsclearmode(true);
-            if (bzVar != null && bzVar.brq() != null && bzVar.brq().isOfficial()) {
+            if (bzVar != null && bzVar.brr() != null && bzVar.brr().isOfficial()) {
                 this.alp.setVisibility(0);
                 ao.setImageResource(this.alp, R.drawable.ic_icon_mask_shang22_n);
             }
@@ -367,7 +367,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
 
     private void i(bz bzVar) {
         if (this.ala != null && bzVar != null) {
-            if (bzVar.eWd || bzVar.btl()) {
+            if (bzVar.eWd || bzVar.btm()) {
                 ViewGroup.LayoutParams layoutParams = this.aln.getLayoutParams();
                 layoutParams.width = this.tbds580;
                 this.aln.setLayoutParams(layoutParams);
@@ -378,13 +378,13 @@ public class CardUserInfoLayout extends LinearLayout implements q {
                 layoutParams3.width = -1;
                 this.ala.setLayoutParams(layoutParams3);
                 this.ala.setEllipsize(TextUtils.TruncateAt.END);
-                if (bzVar.brq() != null && !StringUtils.isNull(bzVar.brq().getName_show())) {
-                    this.ala.setText(bzVar.brq().getName_show());
+                if (bzVar.brr() != null && !StringUtils.isNull(bzVar.brr().getName_show())) {
+                    this.ala.setText(bzVar.brr().getName_show());
                 } else {
                     this.ala.setText(R.string.user_name_default_txt);
                 }
-            } else if (!StringUtils.isNull(this.aim.bqN())) {
-                this.ala.setText(this.aim.bqN());
+            } else if (!StringUtils.isNull(this.aim.bqO())) {
+                this.ala.setText(this.aim.bqO());
             } else {
                 this.ala.setText(R.string.user_name_default_txt);
             }
@@ -402,7 +402,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
                 this.alh.getPaint().setFakeBoldText(true);
                 ao.setViewTextColor(this.alh, R.color.CAM_X0105);
             } else if (isShow(8)) {
-                if (StringUtils.isNull(bzVar.boP())) {
+                if (StringUtils.isNull(bzVar.boQ())) {
                     this.alh.setVisibility(8);
                     return;
                 }
@@ -411,13 +411,13 @@ public class CardUserInfoLayout extends LinearLayout implements q {
                     layoutParams.bottomMargin = 0;
                     this.alh.setLayoutParams(layoutParams);
                 }
-                this.alh.setText(bzVar.boP());
+                this.alh.setText(bzVar.boQ());
                 this.alh.setVisibility(0);
-            } else if (StringUtils.isNull(this.aim.bqP())) {
+            } else if (StringUtils.isNull(this.aim.bqQ())) {
                 this.alh.setVisibility(8);
             } else {
                 this.alh.setVisibility(0);
-                this.alh.setText(this.aim.bqP());
+                this.alh.setText(this.aim.bqQ());
             }
         }
     }
@@ -426,10 +426,10 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         if (this.alc != null) {
             if (!isShow(32)) {
                 this.alc.setVisibility(8);
-            } else if (bzVar == null || bzVar.brq() == null || (bzVar.eVz > 0 && bzVar.eVA == 0)) {
+            } else if (bzVar == null || bzVar.brr() == null || (bzVar.eVz > 0 && bzVar.eVA == 0)) {
                 this.alc.setVisibility(8);
             } else {
-                ArrayList<IconData> iconInfo = bzVar.brq().getIconInfo();
+                ArrayList<IconData> iconInfo = bzVar.brr().getIconInfo();
                 if (x.getCount(iconInfo) != 0) {
                     this.alc.setVisibility(0);
                     this.alc.a(iconInfo, 4, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds40), this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds40), this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds10), true);
@@ -445,11 +445,11 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     }
 
     private void tO() {
-        if (this.aim != null && this.aim.brq() != null) {
+        if (this.aim != null && this.aim.brr() != null) {
             if (this.aim.eVz > 0 && this.aim.eVA == 0) {
                 ao.setViewTextColor(this.ala, R.color.CAM_X0106);
                 b.h(this.ala);
-            } else if (!x.isEmpty(this.aim.brq().getTShowInfoNew()) || this.aim.btv()) {
+            } else if (!x.isEmpty(this.aim.brr().getTShowInfoNew()) || this.aim.btw()) {
                 ao.setViewTextColor(this.ala, R.color.CAM_X0301);
             } else {
                 ao.setViewTextColor(this.ala, R.color.CAM_X0106);
@@ -459,8 +459,8 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     }
 
     private void l(bz bzVar) {
-        if (this.ald != null && bzVar != null && bzVar.brq() != null && isShow(1)) {
-            ArrayList<IconData> tShowInfoNew = bzVar.brq().getTShowInfoNew();
+        if (this.ald != null && bzVar != null && bzVar.brr() != null && isShow(1)) {
+            ArrayList<IconData> tShowInfoNew = bzVar.brr().getTShowInfoNew();
             if (x.getCount(tShowInfoNew) != 0) {
                 this.ald.setVisibility(0);
                 this.ald.a(tShowInfoNew, 2, this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds48), this.mContext.getResources().getDimensionPixelSize(R.dimen.tbds48), this.mContext.getResources().getDimensionPixelSize(R.dimen.ds8), true);
@@ -471,31 +471,31 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     }
 
     private void m(bz bzVar) {
-        if (this.alb != null && bzVar != null && bzVar.brq() != null && isShow(16)) {
-            MetaData brq = bzVar.brq();
+        if (this.alb != null && bzVar != null && bzVar.brr() != null && isShow(16)) {
+            MetaData brr = bzVar.brr();
             if (this.alb.getLayoutParams() != null) {
                 this.alb.getLayoutParams().width = -2;
             }
             this.alb.setOnClickListener(null);
-            if (brq.getIs_bawu() == 1) {
+            if (brr.getIs_bawu() == 1) {
                 c.bv(this.alb).pC(R.color.CAM_X0101).pO(R.string.A_X04).pK(R.string.J_X04).setBackGroundColor(R.color.CAM_X0302);
                 if (bzVar.eVN) {
                     this.alb.setVisibility(0);
                     this.alb.setText(R.string.brand_Official);
                     return;
-                } else if (Config.BAWU_TYPE_MANAGER.equals(brq.getBawu_type())) {
+                } else if (Config.BAWU_TYPE_MANAGER.equals(brr.getBawu_type())) {
                     this.alb.setVisibility(0);
                     this.alb.setText(R.string.bawu_member_bazhu_tip);
                     return;
-                } else if (Config.BAWU_TYPE_ASSIST.equals(brq.getBawu_type())) {
+                } else if (Config.BAWU_TYPE_ASSIST.equals(brr.getBawu_type())) {
                     this.alb.setText(R.string.bawu_member_xbazhu_tip);
                     this.alb.setVisibility(0);
                     return;
-                } else if ("pri_content_assist".equals(brq.getBawu_type())) {
+                } else if ("pri_content_assist".equals(brr.getBawu_type())) {
                     this.alb.setText(R.string.bawu_content_assist_tip);
                     this.alb.setVisibility(0);
                     return;
-                } else if ("pri_manage_assist".equals(brq.getBawu_type())) {
+                } else if ("pri_manage_assist".equals(brr.getBawu_type())) {
                     this.alb.setText(R.string.bawu_manage_assist_tip);
                     this.alb.setVisibility(0);
                     return;
@@ -533,11 +533,11 @@ public class CardUserInfoLayout extends LinearLayout implements q {
 
     private void n(bz bzVar) {
         if (this.ale != null) {
-            if (bzVar == null || TextUtils.isEmpty(bzVar.bqO())) {
+            if (bzVar == null || TextUtils.isEmpty(bzVar.bqP())) {
                 this.ale.setVisibility(8);
                 return;
             }
-            if (bzVar.brq() != null && bzVar.brq().isBaijiahaoUser()) {
+            if (bzVar.brr() != null && bzVar.brr().isBaijiahaoUser()) {
                 this.ale.setLines(1);
                 this.ale.setEllipsize(TextUtils.TruncateAt.END);
             } else {
@@ -545,7 +545,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
                 this.ale.setEllipsize(null);
             }
             ao.setViewTextColor(this.ale, R.color.CAM_X0109);
-            this.ale.setText(bzVar.bqO());
+            this.ale.setText(bzVar.bqP());
             this.ale.setVisibility(isShow(128) ? 0 : 8);
         }
     }
@@ -555,20 +555,20 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         boolean z = true;
         dk("");
         if (bzVar != null) {
-            if ((bzVar.getType() == bz.eTk || bzVar.getType() == bz.eTn) && bzVar.brJ() != null && bzVar.brJ().openRecomLocation != 0) {
+            if ((bzVar.getType() == bz.eTk || bzVar.getType() == bz.eTn) && bzVar.brK() != null && bzVar.brK().openRecomLocation != 0) {
                 String latitude = bzVar.getLatitude();
-                String brF = bzVar.brF();
-                boolean z2 = UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(brF);
+                String brG = bzVar.brG();
+                boolean z2 = UtilHelper.isDecimal(latitude) && UtilHelper.isDecimal(brG);
                 boolean isSystemLocationProviderEnabled = UtilHelper.isSystemLocationProviderEnabled(TbadkCoreApplication.getInst());
                 if (z2 && isSystemLocationProviderEnabled) {
-                    AppPosInfo dFS = com.baidu.tieba.recapp.c.a.dFN().dFS();
-                    String str = dFS.latitude;
-                    String str2 = dFS.longitude;
+                    AppPosInfo dFT = com.baidu.tieba.recapp.c.a.dFO().dFT();
+                    String str = dFT.latitude;
+                    String str2 = dFT.longitude;
                     if (!UtilHelper.isDecimal(str) || !UtilHelper.isDecimal(str2)) {
                         z = false;
                     }
                     if (z) {
-                        double GetDistance = l.GetDistance(com.baidu.adp.lib.f.b.toDouble(str, 0.0d), com.baidu.adp.lib.f.b.toDouble(str2, 0.0d), com.baidu.adp.lib.f.b.toDouble(latitude, 0.0d), com.baidu.adp.lib.f.b.toDouble(brF, 0.0d));
+                        double GetDistance = l.GetDistance(com.baidu.adp.lib.f.b.toDouble(str, 0.0d), com.baidu.adp.lib.f.b.toDouble(str2, 0.0d), com.baidu.adp.lib.f.b.toDouble(latitude, 0.0d), com.baidu.adp.lib.f.b.toDouble(brG, 0.0d));
                         if (GetDistance <= 50.0d) {
                             address = at.v(GetDistance);
                         } else {
@@ -593,7 +593,7 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         this.alg.setVisibility(z ? 0 : 8);
         if (z) {
             this.alg.setText(str);
-            SvgManager.bwq().a(this.alf, R.drawable.icon_pure_post_location_n_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
+            SvgManager.bwr().a(this.alf, R.drawable.icon_pure_post_location_n_svg, R.color.CAM_X0109, (SvgManager.SvgResourceStateType) null);
             ao.setViewTextColor(this.alg, R.color.CAM_X0109);
         }
     }
@@ -609,8 +609,8 @@ public class CardUserInfoLayout extends LinearLayout implements q {
         TextPaint paint = this.ala.getPaint();
         int i = l.getScreenDimensions(this.mContext)[0];
         if (i > 0 && (width = (getWidth() - ((i * 31) / 108)) - l.getDimens(this.mContext, R.dimen.tbds107)) > 0) {
-            int textWidth = l.getTextWidth(paint, t(this.aim.brq().getName_show(), 12)) + this.ala.getPaddingLeft() + this.ala.getPaddingRight();
-            int textWidth2 = l.getTextWidth(paint, t(this.aim.brq().getName_show(), 10)) + this.ala.getPaddingLeft() + this.ala.getPaddingRight();
+            int textWidth = l.getTextWidth(paint, t(this.aim.brr().getName_show(), 12)) + this.ala.getPaddingLeft() + this.ala.getPaddingRight();
+            int textWidth2 = l.getTextWidth(paint, t(this.aim.brr().getName_show(), 10)) + this.ala.getPaddingLeft() + this.ala.getPaddingRight();
             int measuredWidth = this.ald.getMeasuredWidth();
             int measuredWidth2 = this.ala.getMeasuredWidth();
             int measuredWidth3 = this.alh.getMeasuredWidth();
@@ -639,9 +639,9 @@ public class CardUserInfoLayout extends LinearLayout implements q {
             int i2 = ActivityChooserView.ActivityChooserViewAdapter.MAX_ACTIVITY_COUNT_UNLIMITED;
             if (isShow(2048)) {
                 i2 = ((i - this.tbds164) - this.tbds156) - this.tbds148;
-            } else if (this.aim != null && this.aim.brq() != null && this.aim.brq().isBaijiahaoUser()) {
+            } else if (this.aim != null && this.aim.brr() != null && this.aim.brr().isBaijiahaoUser()) {
                 i2 = (i - this.tbds164) - this.tbds118;
-                if (!this.aim.brq().hadConcerned()) {
+                if (!this.aim.brr().hadConcerned()) {
                     i2 = ((i - this.tbds164) - this.tbds156) - this.tbds148;
                 }
             }
@@ -658,6 +658,6 @@ public class CardUserInfoLayout extends LinearLayout implements q {
     }
 
     private boolean c(bz bzVar) {
-        return (bzVar == null || bzVar.brq() == null || !bzVar.eWe || !d.bmN() || bzVar.brq().hadConcerned() || ay.x(bzVar)) ? false : true;
+        return (bzVar == null || bzVar.brr() == null || !bzVar.eWe || !d.bmO() || bzVar.brr().hadConcerned() || ay.x(bzVar)) ? false : true;
     }
 }

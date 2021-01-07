@@ -17,18 +17,18 @@ public class a implements Application.ActivityLifecycleCallbacks {
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
         if ("ImageViewerActivity".equalsIgnoreCase(activity.getClass().getSimpleName()) && this.feb != null) {
-            b.bwy().a(activity, this.feb.density, this.feb.densityDpi);
+            b.bwz().a(activity, this.feb.density, this.feb.densityDpi);
         } else {
-            b.bwy().fd(activity);
+            b.bwz().fd(activity);
         }
     }
 
     @Override // android.app.Application.ActivityLifecycleCallbacks
     public void onActivityStarted(@NonNull Activity activity) {
         if ("ImageViewerActivity".equalsIgnoreCase(activity.getClass().getSimpleName()) && this.feb != null) {
-            b.bwy().a(activity, this.feb.density, this.feb.densityDpi);
+            b.bwz().a(activity, this.feb.density, this.feb.densityDpi);
         } else {
-            b.bwy().fd(activity);
+            b.bwz().fd(activity);
         }
     }
 

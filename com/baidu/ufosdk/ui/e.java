@@ -9,24 +9,24 @@ import android.widget.TextView;
 public final class e extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f5830a;
+    public boolean f5831a;
 
     /* renamed from: b  reason: collision with root package name */
-    private ImageView f5831b;
+    private ImageView f5832b;
     private TextView c;
     private Context d;
 
     public e(Context context) {
         super(context);
-        this.f5830a = false;
+        this.f5831a = false;
         this.d = context;
         setOrientation(0);
         setGravity(16);
         setLayoutParams(new LinearLayout.LayoutParams(-2, -2));
-        this.f5831b = new ImageView(context);
+        this.f5832b = new ImageView(context);
         this.c = new TextView(context);
-        this.f5831b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
-        addView(this.f5831b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
+        this.f5832b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(context, "ufo_checkbox_default.png")));
+        addView(this.f5832b, new LinearLayout.LayoutParams(com.baidu.ufosdk.f.i.a(context, 14.0f), com.baidu.ufosdk.f.i.a(context, 14.0f)));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
         layoutParams.setMargins(com.baidu.ufosdk.f.i.a(context, 10.0f), 0, 0, 0);
         addView(this.c, layoutParams);
@@ -46,10 +46,10 @@ public final class e extends LinearLayout {
 
     public final void a(boolean z) {
         if (z) {
-            this.f5831b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.d, "ufo_checkbox_checked.png")));
+            this.f5832b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.d, "ufo_checkbox_checked.png")));
             return;
         }
-        this.f5831b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.d, "ufo_checkbox_default.png")));
+        this.f5832b.setBackgroundDrawable(new BitmapDrawable(com.baidu.ufosdk.f.m.a(this.d, "ufo_checkbox_default.png")));
     }
 
     public final String b() {

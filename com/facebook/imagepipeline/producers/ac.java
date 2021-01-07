@@ -14,7 +14,7 @@ import com.facebook.common.internal.ImmutableMap;
 import com.facebook.imagepipeline.request.ImageRequest;
 import java.util.Map;
 import java.util.concurrent.Executor;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class ac implements aj<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> {
     private final ContentResolver mContentResolver;
     private final Executor mExecutor;
@@ -26,57 +26,57 @@ public class ac implements aj<com.facebook.common.references.a<com.facebook.imag
 
     @Override // com.facebook.imagepipeline.producers.aj
     public void a(k<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> kVar, ak akVar) {
-        final am eAe = akVar.eAe();
+        final am eAI = akVar.eAI();
         final String id = akVar.getId();
-        final ImageRequest eAd = akVar.eAd();
-        final aq<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> aqVar = new aq<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>>(kVar, eAe, "VideoThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.ac.1
+        final ImageRequest eAH = akVar.eAH();
+        final aq<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>> aqVar = new aq<com.facebook.common.references.a<com.facebook.imagepipeline.f.c>>(kVar, eAI, "VideoThumbnailProducer", id) { // from class: com.facebook.imagepipeline.producers.ac.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.e
-            /* renamed from: j */
+            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
+            /* renamed from: m */
             public void onSuccess(com.facebook.common.references.a<com.facebook.imagepipeline.f.c> aVar) {
                 super.onSuccess(aVar);
-                eAe.M(id, "VideoThumbnailProducer", aVar != null);
+                eAI.M(id, "VideoThumbnailProducer", aVar != null);
             }
 
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.e
+            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
             public void onFailure(Exception exc) {
                 super.onFailure(exc);
-                eAe.M(id, "VideoThumbnailProducer", false);
+                eAI.M(id, "VideoThumbnailProducer", false);
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.common.b.e
-            /* renamed from: eyU */
+            @Override // com.facebook.common.b.h
+            /* renamed from: ezw */
             public com.facebook.common.references.a<com.facebook.imagepipeline.f.c> getResult() throws Exception {
                 Bitmap m;
-                if (ac.this.l(eAd) == null || (m = ac.this.m(eAd)) == null) {
+                if (ac.this.l(eAH) == null || (m = ac.this.m(eAH)) == null) {
                     return null;
                 }
-                return com.facebook.common.references.a.f(new com.facebook.imagepipeline.f.d(m, com.facebook.imagepipeline.a.g.ewB(), com.facebook.imagepipeline.f.g.pCU, 0));
+                return com.facebook.common.references.a.f(new com.facebook.imagepipeline.f.d(m, com.facebook.imagepipeline.a.g.exe(), com.facebook.imagepipeline.f.g.pEB, 0));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
             @Override // com.facebook.imagepipeline.producers.aq
-            /* renamed from: k */
-            public Map<String, String> bz(com.facebook.common.references.a<com.facebook.imagepipeline.f.c> aVar) {
+            /* renamed from: n */
+            public Map<String, String> bA(com.facebook.common.references.a<com.facebook.imagepipeline.f.c> aVar) {
                 return ImmutableMap.of("createdThumbnail", String.valueOf(aVar != null));
             }
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
-            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.e
-            /* renamed from: l */
+            @Override // com.facebook.imagepipeline.producers.aq, com.facebook.common.b.h
+            /* renamed from: o */
             public void ba(com.facebook.common.references.a<com.facebook.imagepipeline.f.c> aVar) {
                 com.facebook.common.references.a.c(aVar);
             }
         };
         akVar.a(new e() { // from class: com.facebook.imagepipeline.producers.ac.2
             @Override // com.facebook.imagepipeline.producers.e, com.facebook.imagepipeline.producers.al
-            public void eAk() {
+            public void eAO() {
                 aqVar.cancel();
             }
         });
@@ -93,21 +93,21 @@ public class ac implements aj<com.facebook.common.references.a<com.facebook.imag
     public String l(ImageRequest imageRequest) {
         String[] strArr;
         String str;
-        Uri eAT = imageRequest.eAT();
-        if (com.facebook.common.util.d.O(eAT)) {
-            return imageRequest.aeg().getPath();
+        Uri eBx = imageRequest.eBx();
+        if (com.facebook.common.util.d.O(eBx)) {
+            return imageRequest.aeh().getPath();
         }
-        if (com.facebook.common.util.d.P(eAT)) {
-            if (Build.VERSION.SDK_INT < 19 || !"com.android.providers.media.documents".equals(eAT.getAuthority())) {
+        if (com.facebook.common.util.d.P(eBx)) {
+            if (Build.VERSION.SDK_INT < 19 || !"com.android.providers.media.documents".equals(eBx.getAuthority())) {
                 strArr = null;
                 str = null;
             } else {
-                String documentId = DocumentsContract.getDocumentId(eAT);
-                eAT = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                String documentId = DocumentsContract.getDocumentId(eBx);
+                eBx = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
                 str = "_id=?";
                 strArr = new String[]{documentId.split(":")[1]};
             }
-            Cursor query = this.mContentResolver.query(eAT, new String[]{"_data"}, str, strArr, null);
+            Cursor query = this.mContentResolver.query(eBx, new String[]{"_data"}, str, strArr, null);
             if (query != null) {
                 try {
                     if (query.moveToFirst()) {
@@ -168,10 +168,10 @@ public class ac implements aj<com.facebook.common.references.a<com.facebook.imag
     public Bitmap m(ImageRequest imageRequest) {
         int i;
         int i2;
-        com.facebook.imagepipeline.common.d eAV = imageRequest.eAV();
-        if (eAV != null) {
-            int i3 = eAV.width;
-            i = eAV.height;
+        com.facebook.imagepipeline.common.d eBz = imageRequest.eBz();
+        if (eBz != null) {
+            int i3 = eBz.width;
+            i = eBz.height;
             i2 = i3;
         } else {
             i = 0;

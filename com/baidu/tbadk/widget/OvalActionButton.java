@@ -62,7 +62,7 @@ public class OvalActionButton extends ImageView {
     }
 
     private void init() {
-        bJC();
+        bJD();
         this.mPaint = new Paint();
         this.mPaint.setAntiAlias(true);
         this.mPaint.setColor(this.color);
@@ -75,7 +75,7 @@ public class OvalActionButton extends ImageView {
         setLayerType(1, null);
     }
 
-    private void bJC() {
+    private void bJD() {
         this.mSkinType = TbadkCoreApplication.getInst().getSkinType();
         if (this.mSkinType == 0) {
             this.startColor = com.baidu.tieba.tbadkCore.c.sF("#00E1FF");
@@ -235,7 +235,7 @@ public class OvalActionButton extends ImageView {
         postInvalidate();
     }
 
-    public void bGv() {
+    public void bGw() {
         if (this.mIcon != null) {
             this.mIcon.setAlpha(255);
             postInvalidate();
@@ -276,7 +276,7 @@ public class OvalActionButton extends ImageView {
             if ("webp".equals(str)) {
                 this.fQJ = WebPManager.a(i, ao.getColor(R.color.CAM_X0107), (WebPManager.ResourceStateType) null);
             } else {
-                this.fQJ = SvgManager.bwq().a(i, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+                this.fQJ = SvgManager.bwr().a(i, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
             }
         } else {
             this.fQJ = null;
@@ -323,7 +323,7 @@ public class OvalActionButton extends ImageView {
 
     public void onChangeSkinType(int i) {
         if (this.mSkinType != i) {
-            bJC();
+            bJD();
             this.color = ao.getColor(this.mSkinType, R.color.CAM_X0306);
             this.fQF.setColor(ao.getColor(R.color.CAM_X0101));
             this.fQC = true;

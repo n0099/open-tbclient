@@ -88,16 +88,16 @@ public class b extends ImageSpan {
             this.mUsedWidth = (int) (this.mUsedWidth * f);
             this.mUsedHeight = (int) (this.mUsedHeight * f);
         }
-        Zz();
-    }
-
-    private void Zz() {
-        if (!TextUtils.isEmpty(this.bTV)) {
-            ZB();
-        }
+        ZA();
     }
 
     private void ZA() {
+        if (!TextUtils.isEmpty(this.bTV)) {
+            ZC();
+        }
+    }
+
+    private void ZB() {
         try {
             this.bTX = Bitmap.createBitmap(this.mUsedWidth, this.mUsedHeight, Bitmap.Config.ARGB_8888);
             this.bTX.eraseColor(bTT);
@@ -110,15 +110,15 @@ public class b extends ImageSpan {
         }
     }
 
-    private void ZB() {
-        ZA();
+    private void ZC() {
+        ZB();
         if (this.bTW != null && this.bTX != null) {
             this.bTW.a(this, this.bTX);
         }
-        ZC();
+        ZD();
     }
 
-    private void ZC() {
+    private void ZD() {
         BdResourceLoader.getInstance().loadResource(this.bTV, 10, new BdResourceCallback<BdImage>() { // from class: com.baidu.live.view.b.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: protected */
@@ -230,7 +230,7 @@ public class b extends ImageSpan {
 
     protected Drawable getCachedDrawable() {
         if (this.bTX == null && !TextUtils.isEmpty(this.bTV) && this.mRetryCount < this.bTS) {
-            ZC();
+            ZD();
             this.mRetryCount++;
         }
         WeakReference<Drawable> weakReference = this.mDrawableRef;

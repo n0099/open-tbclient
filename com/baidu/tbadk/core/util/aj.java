@@ -7,7 +7,7 @@ public class aj {
     private static final aj fcQ = new aj();
     private final HashMap<Class<?>, Class<?>> mActicyConfig = new HashMap<>();
 
-    public static final aj bwc() {
+    public static final aj bwd() {
         return fcQ;
     }
 

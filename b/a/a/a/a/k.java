@@ -11,15 +11,15 @@ import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class k extends BroadcastReceiver {
 
     /* renamed from: a  reason: collision with root package name */
-    private /* synthetic */ j f1063a;
+    private /* synthetic */ j f1064a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public k(j jVar) {
-        this.f1063a = jVar;
+        this.f1064a = jVar;
     }
 
     private static void a(List list) {
@@ -45,19 +45,19 @@ public final class k extends BroadcastReceiver {
         try {
             String action = intent.getAction();
             if (McastConfig.ACTION_WIFI_STATE_CHANGED.equals(action)) {
-                this.f1063a.f();
+                this.f1064a.f();
             }
             if (McastConfig.ACTION_WIFI_STATE_CHANGED.equals(action) || "android.net.wifi.SCAN_RESULTS".equals(action)) {
-                List b2 = j.b(this.f1063a.Bm.AY);
+                List b2 = j.b(this.f1064a.Bm.AY);
                 if (b2 == null || b2.size() <= 0) {
-                    this.f1063a.a(af.Bl);
+                    this.f1064a.a(af.Bl);
                     return;
                 }
                 ArrayList arrayList = new ArrayList(b2);
                 a(arrayList);
                 if (arrayList.size() > 0) {
-                    Collections.sort(arrayList, this.f1063a);
-                    j.a(this.f1063a, arrayList);
+                    Collections.sort(arrayList, this.f1064a);
+                    j.a(this.f1064a, arrayList);
                 }
             }
         } catch (Throwable th) {

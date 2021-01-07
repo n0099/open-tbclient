@@ -1,7 +1,7 @@
 package com.tencent.turingfd.sdk.ams.au;
 
 import android.content.Context;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface k {
     n a(Context context);
 

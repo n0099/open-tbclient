@@ -7,7 +7,7 @@ import java.security.MessageDigest;
 public class t {
 
     /* renamed from: a  reason: collision with root package name */
-    static final char[] f11131a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
+    static final char[] f11132a = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'a', 'b', 'c', 'd', 'e', 'f'};
 
     @NonNull
     public static String a(String str) {
@@ -49,9 +49,9 @@ public class t {
         for (int i4 = 0; i4 < i2; i4++) {
             int i5 = bArr[i4 + i] & 255;
             int i6 = i3 + 1;
-            cArr[i3] = f11131a[i5 >> 4];
+            cArr[i3] = f11132a[i5 >> 4];
             i3 = i6 + 1;
-            cArr[i6] = f11131a[i5 & 15];
+            cArr[i6] = f11132a[i5 & 15];
         }
         return new String(cArr, 0, i2 * 2);
     }

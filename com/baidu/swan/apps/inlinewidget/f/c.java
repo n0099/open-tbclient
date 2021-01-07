@@ -19,7 +19,7 @@ public class c implements ZeusPluginFactory {
 
     @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
     public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        com.baidu.swan.apps.inlinewidget.f.c.a b2 = com.baidu.swan.apps.t.a.aBf().b(invoker, this.cGy);
+        com.baidu.swan.apps.inlinewidget.f.c.a b2 = com.baidu.swan.apps.t.a.aBg().b(invoker, this.cGy);
         if (com.baidu.swan.apps.b.DEBUG) {
             Log.i("【InlineLiveFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline live「Hash:" + b2.hashCode() + "」");
         }

@@ -20,15 +20,15 @@ public class c implements n {
         }
     }
 
-    public String cJK() {
+    public String cJL() {
         return this.mTitle;
     }
 
-    public void KZ(String str) {
+    public void KY(String str) {
         this.mTitle = str;
     }
 
-    public List<PbContent> cJL() {
+    public List<PbContent> cJM() {
         return this.mContent;
     }
 
@@ -36,7 +36,7 @@ public class c implements n {
         this.mContent = list;
     }
 
-    public boolean cJM() {
+    public boolean cJN() {
         return this.juo;
     }
 

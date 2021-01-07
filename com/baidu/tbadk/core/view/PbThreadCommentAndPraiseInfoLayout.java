@@ -39,10 +39,10 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         setNeedAddPraiseIcon(true);
         setNeedAddReplyIcon(true);
         setShareVisible(true);
-        bxF();
+        bxG();
     }
 
-    private void bxF() {
+    private void bxG() {
         View findViewById = findViewById(R.id.thread_comment_layout_root);
         ViewGroup.LayoutParams layoutParams = findViewById.getLayoutParams();
         layoutParams.height = -1;
@@ -83,7 +83,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         layoutParams6.topMargin = com.baidu.adp.lib.util.l.getDimens(getContext(), R.dimen.tbds12);
         layoutParams6.weight = 0.5f;
         agreeView.setLayoutParams(layoutParams6);
-        agreeView.bxj();
+        agreeView.bxk();
     }
 
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
@@ -100,13 +100,13 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
         }
     }
 
-    public void Cz(String str) {
+    public void Cy(String str) {
         if (this.aim != null && !TextUtils.isEmpty(str) && str.equals(this.aim.getTid())) {
             com.baidu.tbadk.core.data.d dVar = new com.baidu.tbadk.core.data.d();
             dVar.eOz = 4;
             dVar.eOB = 2;
             this.fmo.setStatisticData(dVar);
-            this.fmo.bxk();
+            this.fmo.bxl();
         }
     }
 
@@ -120,11 +120,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     @Override // com.baidu.tbadk.core.view.ThreadCommentAndPraiseInfoLayout
     public void setAgreeViewType(bz bzVar) {
         if (bzVar != null) {
-            this.fmo.setDisagreeShow(bzVar.bpZ());
+            this.fmo.setDisagreeShow(bzVar.bqa());
         }
         if (bzVar != null) {
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.fmo.getLayoutParams();
-            if (bzVar.bpZ()) {
+            if (bzVar.bqa()) {
                 layoutParams.weight = 0.25f;
             } else {
                 layoutParams.weight = 0.5f;

@@ -12,7 +12,7 @@ public class a extends BaseCardInfo {
         this.alW = bzVar;
     }
 
-    public bz boO() {
+    public bz boP() {
         return this.alW;
     }
 

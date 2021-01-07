@@ -21,18 +21,18 @@ public class SearchBoxView extends RelativeLayout {
     private String kYf;
     private Activity mCurrentActivity;
     private View.OnClickListener mOnClickListener;
-    private LinearLayout noC;
+    private LinearLayout noB;
+    private TextView noC;
     private TextView noD;
-    private TextView noE;
-    private View.OnClickListener noF;
+    private View.OnClickListener noE;
 
     public SearchBoxView(Context context) {
         super(context);
         this.kYf = "sq_tb_search";
+        this.noB = null;
         this.noC = null;
         this.noD = null;
-        this.noE = null;
-        this.noF = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
+        this.noE = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CaptureActivityConfig(SearchBoxView.this.mCurrentActivity, RequestResponseCode.REQUEST_CAPTURE_VIEW)));
@@ -53,10 +53,10 @@ public class SearchBoxView extends RelativeLayout {
     public SearchBoxView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
         this.kYf = "sq_tb_search";
+        this.noB = null;
         this.noC = null;
         this.noD = null;
-        this.noE = null;
-        this.noF = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
+        this.noE = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CaptureActivityConfig(SearchBoxView.this.mCurrentActivity, RequestResponseCode.REQUEST_CAPTURE_VIEW)));
@@ -77,10 +77,10 @@ public class SearchBoxView extends RelativeLayout {
     public SearchBoxView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         this.kYf = "sq_tb_search";
+        this.noB = null;
         this.noC = null;
         this.noD = null;
-        this.noE = null;
-        this.noF = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
+        this.noE = new View.OnClickListener() { // from class: com.baidu.tieba.square.view.SearchBoxView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new CaptureActivityConfig(SearchBoxView.this.mCurrentActivity, RequestResponseCode.REQUEST_CAPTURE_VIEW)));
@@ -101,11 +101,11 @@ public class SearchBoxView extends RelativeLayout {
     private void init(Context context) {
         this.mCurrentActivity = (Activity) context;
         LayoutInflater.from(context).inflate(R.layout.widget_search_box, this);
-        this.noC = (LinearLayout) findViewById(R.id.search_bg_layout);
-        this.noD = (TextView) findViewById(R.id.search_bar_text);
-        this.noC.setOnClickListener(this.mOnClickListener);
-        this.noE = (TextView) findViewById(R.id.search_from_qr);
-        this.noE.setOnClickListener(this.noF);
+        this.noB = (LinearLayout) findViewById(R.id.search_bg_layout);
+        this.noC = (TextView) findViewById(R.id.search_bar_text);
+        this.noB.setOnClickListener(this.mOnClickListener);
+        this.noD = (TextView) findViewById(R.id.search_from_qr);
+        this.noD.setOnClickListener(this.noE);
     }
 
     public void setClickStatKey(String str) {
@@ -115,15 +115,15 @@ public class SearchBoxView extends RelativeLayout {
     @Override // android.view.View
     public void setOnClickListener(View.OnClickListener onClickListener) {
         if (onClickListener != null) {
-            this.noC.setOnClickListener(onClickListener);
+            this.noB.setOnClickListener(onClickListener);
         }
     }
 
     public void setText(CharSequence charSequence) {
-        this.noD.setHint(charSequence);
+        this.noC.setHint(charSequence);
     }
 
     public void setText(int i) {
-        this.noD.setHint(i);
+        this.noC.setHint(i);
     }
 }

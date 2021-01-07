@@ -34,28 +34,28 @@ public final class a {
         public String cYo = "";
     }
 
-    public static String auz() {
-        return d.C0466d.aAl().getPath();
-    }
-
     public static String auA() {
-        return a.c.aAl().getPath();
+        return d.C0466d.aAm().getPath();
     }
 
     public static String auB() {
-        return d.C0466d.aAl().getPath();
-    }
-
-    public static String aut() {
-        return d.C0466d.aAl().getPath();
+        return a.c.aAm().getPath();
     }
 
     public static String auC() {
-        return a.c.aAl().getPath();
+        return d.C0466d.aAm().getPath();
+    }
+
+    public static String auu() {
+        return d.C0466d.aAm().getPath();
     }
 
     public static String auD() {
-        return a.c.aAl().getPath();
+        return a.c.aAm().getPath();
+    }
+
+    public static String auE() {
+        return a.c.aAm().getPath();
     }
 
     public static com.baidu.swan.games.t.a.a k(String str, long j) {
@@ -68,7 +68,7 @@ public final class a {
     public static com.baidu.swan.apps.al.a a(ReadableByteChannel readableByteChannel, String str, com.baidu.swan.pms.a.d dVar) throws IOException {
         if (readableByteChannel == null) {
             com.baidu.swan.apps.al.a uz = new com.baidu.swan.apps.al.a().cV(11L).cW(2300L).uz("empty source");
-            e.aQJ().j(uz);
+            e.aQK().j(uz);
             if (DEBUG) {
                 Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + uz);
                 return uz;
@@ -83,7 +83,7 @@ public final class a {
             return null;
         }
         com.baidu.swan.apps.al.a uz2 = new com.baidu.swan.apps.al.a().cV(11L).cW(2300L).uz("check zip file sign fail.");
-        e.aQJ().j(uz2);
+        e.aQK().j(uz2);
         if (DEBUG) {
             Log.i("PkgDownloadUtil", "checkPkgZipSign err: " + uz2);
             return uz2;
@@ -95,7 +95,7 @@ public final class a {
         File bS;
         if (eVar == null) {
             com.baidu.swan.apps.al.a uz = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("pkg info is empty");
-            e.aQJ().j(uz);
+            e.aQK().j(uz);
             return uz;
         }
         File file = new File(eVar.filePath);
@@ -105,26 +105,26 @@ public final class a {
             bS = d.C0466d.bS(eVar.ewI, String.valueOf(eVar.versionCode));
         } else {
             com.baidu.swan.apps.al.a uz2 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("pkh category illegal");
-            e.aQJ().j(uz2);
+            e.aQK().j(uz2);
             return uz2;
         }
         if (!file.exists()) {
             com.baidu.swan.apps.al.a uz3 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("解压失败：包不存在");
-            e.aQJ().j(uz3);
+            e.aQK().j(uz3);
             return uz3;
         } else if (bS.isFile() && !bS.delete()) {
             if (DEBUG) {
                 Log.e("PkgDownloadUtil", "解压失败：解压目录被文件占用，且无法删除");
             }
             com.baidu.swan.apps.al.a uz4 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("解压失败：解压目录被文件占用，且无法删除");
-            e.aQJ().j(uz4);
+            e.aQK().j(uz4);
             return uz4;
         } else if (!bS.exists() && !bS.mkdirs()) {
             if (DEBUG) {
                 Log.e("PkgDownloadUtil", "解压失败：解压文件夹创建失败 " + bS.getAbsolutePath());
             }
             com.baidu.swan.apps.al.a uz5 = new com.baidu.swan.apps.al.a().cV(11L).cW(2320L).uz("解压失败：解压文件夹创建失败");
-            e.aQJ().j(uz5);
+            e.aQK().j(uz5);
             return uz5;
         } else {
             if (DEBUG) {
@@ -153,7 +153,7 @@ public final class a {
                     aVar.cV(4L).cW(7L).uz("Unkown bundle type");
                     break;
             }
-            e.aQJ().j(aVar);
+            e.aQK().j(aVar);
             return aVar;
         }
     }
@@ -237,7 +237,7 @@ public final class a {
     }
 
     @AnyThread
-    public static void auE() {
+    public static void auF() {
         if (!cYk) {
             synchronized (a.class) {
                 if (!cYk) {

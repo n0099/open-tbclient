@@ -77,7 +77,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
                         }
                         this.gGa.setLayoutParams(layoutParams);
                         this.gGb.setLayoutParams(layoutParams2);
-                        bVf();
+                        bVg();
                         aq aqVar = new aq("c13558");
                         aqVar.dX("entryname", "推荐");
                         TiebaStatic.log(aqVar);
@@ -89,7 +89,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
                         this.gGc.onChangeSkinType();
                     }
 
-                    private void bVf() {
+                    private void bVg() {
                         this.gGd = b.this.getRealWidth();
                         this.gGe = b.this.getRealHeight();
                         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gGc.getLayoutParams();
@@ -118,7 +118,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
         this.eXI = getView().findViewById(R.id.recom_live_bottom_divider);
         this.gFS = (AlaBannerRecyclerView) getView().findViewById(R.id.recycle_view);
         this.gFS.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));
-        bVe();
+        bVf();
         this.gFT = new AlaBannerRecyclerAdapter(getContext(), this.gFY, false);
         this.gFS.setAdapter(this.gFT);
     }
@@ -133,7 +133,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
         return this.gFX ? this.gFW[1] : this.gFV;
     }
 
-    private void bVe() {
+    private void bVf() {
         int realHeight = getRealHeight();
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.gFS.getLayoutParams();
         if (layoutParams == null) {
@@ -162,7 +162,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.ala.alasquare.live
     public void a(com.baidu.tieba.ala.alasquare.live_tab.b.c cVar) {
         if (cVar != null && cVar.gCH != null) {
             this.gFX = x.getCount(cVar.gCH.gCF) == 1;
-            bVe();
+            bVf();
             this.gFT.setData(cVar.gCH.gCF);
             this.gFT.notifyDataSetChanged();
         }

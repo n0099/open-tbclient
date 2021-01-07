@@ -11,62 +11,62 @@ import com.kwad.sdk.utils.ao;
 public class d extends FrameLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private float f9827a;
+    private float f9828a;
 
     /* renamed from: b  reason: collision with root package name */
-    private RectF f9828b;
+    private RectF f9829b;
     private Path c;
 
     public d(Context context) {
         this(context, null);
         setLayerType(1, null);
-        this.f9827a = ao.a(context, 4.0f);
+        this.f9828a = ao.a(context, 4.0f);
     }
 
     public d(Context context, AttributeSet attributeSet) {
         this(context, attributeSet, 0);
         setLayerType(1, null);
-        this.f9827a = ao.a(context, 4.0f);
+        this.f9828a = ao.a(context, 4.0f);
     }
 
     public d(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
         setLayerType(1, null);
-        this.f9827a = ao.a(context, 4.0f);
+        this.f9828a = ao.a(context, 4.0f);
     }
 
     @Override // android.view.ViewGroup, android.view.View
     protected void dispatchDraw(Canvas canvas) {
         int save = canvas.save();
-        if (this.f9828b == null) {
+        if (this.f9829b == null) {
             this.c = new Path();
-            this.f9828b = new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
+            this.f9829b = new RectF(0.0f, 0.0f, canvas.getWidth(), canvas.getHeight());
         } else {
-            this.f9828b.right = canvas.getWidth();
-            this.f9828b.bottom = canvas.getHeight();
+            this.f9829b.right = canvas.getWidth();
+            this.f9829b.bottom = canvas.getHeight();
             this.c.reset();
         }
         float[] fArr = {0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f, 0.0f};
-        fArr[0] = this.f9827a;
-        fArr[1] = this.f9827a;
-        fArr[2] = this.f9827a;
-        fArr[3] = this.f9827a;
-        fArr[4] = this.f9827a;
-        fArr[5] = this.f9827a;
-        fArr[6] = this.f9827a;
-        fArr[7] = this.f9827a;
-        this.c.addRoundRect(this.f9828b, fArr, Path.Direction.CW);
+        fArr[0] = this.f9828a;
+        fArr[1] = this.f9828a;
+        fArr[2] = this.f9828a;
+        fArr[3] = this.f9828a;
+        fArr[4] = this.f9828a;
+        fArr[5] = this.f9828a;
+        fArr[6] = this.f9828a;
+        fArr[7] = this.f9828a;
+        this.c.addRoundRect(this.f9829b, fArr, Path.Direction.CW);
         canvas.clipPath(this.c);
         super.dispatchDraw(canvas);
         canvas.restoreToCount(save);
     }
 
     public float getRadius() {
-        return this.f9827a;
+        return this.f9828a;
     }
 
     public void setRadius(float f) {
-        this.f9827a = f;
+        this.f9828a = f;
         invalidate();
     }
 }

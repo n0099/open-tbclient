@@ -52,14 +52,14 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.card.b
     public void a(com.baidu.tieba.forumsearch.b.a aVar) {
-        if (aVar != null && !x.isEmpty(aVar.cDJ())) {
-            zN(aVar.cDJ().size());
+        if (aVar != null && !x.isEmpty(aVar.cDK())) {
+            zN(aVar.cDK().size());
             int size = this.jdD.size();
             for (int i = 0; i < size; i++) {
                 a aVar2 = this.jdD.get(i);
                 if (aVar2 != null) {
                     aVar2.qk(false);
-                    aVar2.mTextView.setText(aVar.cDJ().get(i));
+                    aVar2.mTextView.setText(aVar.cDK().get(i));
                 }
             }
             onChangeSkinType(this.mTbPageContext, TbadkCoreApplication.getInst().getSkinType());
@@ -72,12 +72,12 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
             if (size < i) {
                 int i2 = i - size;
                 for (int i3 = 0; i3 < i2; i3++) {
-                    a cDP = cDP();
+                    a cDQ = cDQ();
                     ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
                     marginLayoutParams.topMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds2);
                     marginLayoutParams.leftMargin = marginLayoutParams.topMargin;
-                    this.jdC.addView(cDP.getView(), marginLayoutParams);
-                    this.jdD.add(cDP);
+                    this.jdC.addView(cDQ.getView(), marginLayoutParams);
+                    this.jdD.add(cDQ);
                 }
             } else if (i == 0) {
                 this.jdC.removeAllViews();
@@ -92,7 +92,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
         }
     }
 
-    private a cDP() {
+    private a cDQ() {
         return new a();
     }
 
@@ -132,7 +132,7 @@ public class b extends com.baidu.tieba.card.b<com.baidu.tieba.forumsearch.b.a> {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (a.this.mTextView.getText() != null) {
-                        e.KE(a.this.mTextView.getText().toString());
+                        e.KD(a.this.mTextView.getText().toString());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_RELOAD_SEARCH_FORUM_HISTORY));
                     }
                 }

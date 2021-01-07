@@ -7,12 +7,12 @@ import com.xiaomi.push.cb;
 public class by extends cb.e {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f14196a;
+    private String f14197a;
 
     public by(String str, ContentValues contentValues, String str2) {
         super(str, contentValues);
-        this.f14196a = "MessageInsertJob";
-        this.f14196a = str2;
+        this.f14197a = "MessageInsertJob";
+        this.f14197a = str2;
     }
 
     public static by a(Context context, String str, hq hqVar) {
@@ -26,7 +26,7 @@ public class by extends cb.e {
         contentValues.put("messageItemId", hqVar.d());
         contentValues.put("messageItem", a2);
         contentValues.put("appId", bp.a(context).b());
-        contentValues.put("packageName", bp.a(context).m194a());
+        contentValues.put("packageName", bp.a(context).m205a());
         contentValues.put("createTimeStamp", Long.valueOf(System.currentTimeMillis()));
         contentValues.put("uploadTimestamp", (Integer) 0);
         return new by(str, contentValues, "a job build to insert message to db");

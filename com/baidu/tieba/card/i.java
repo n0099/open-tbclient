@@ -74,7 +74,7 @@ public class i extends c<com.baidu.tieba.card.data.i> {
         this.itF.addView(this.ivj);
         this.ivj.setSelector(R.drawable.list_selector_transparent);
         this.ivj.setPadding(tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0, tbPageContext.getResources().getDimensionPixelSize(R.dimen.ds4), 0);
-        cuE();
+        cuF();
         if (this.ivk == null) {
             ArrayList arrayList = new ArrayList();
             for (int i = 0; i < 10; i++) {
@@ -137,7 +137,7 @@ public class i extends c<com.baidu.tieba.card.data.i> {
             iVar.getDataList().clear();
             iVar.getDataList().addAll(arrayList.subList(0, 10));
         }
-        this.ivr = iVar.cvy();
+        this.ivr = iVar.cvz();
         this.stType = iVar.getStType();
         if (!u(iVar.getDataList(), this.ivn)) {
             boolean z = com.baidu.tbadk.core.util.x.getCount(iVar.getDataList()) != com.baidu.tbadk.core.util.x.getCount(this.ivn);
@@ -166,7 +166,7 @@ public class i extends c<com.baidu.tieba.card.data.i> {
         }
     }
 
-    private com.baidu.tieba.card.data.g Jn(String str) {
+    private com.baidu.tieba.card.data.g Jm(String str) {
         if (com.baidu.tbadk.core.util.x.getCount(this.ivn) > 0) {
             for (com.baidu.tieba.horizonalList.widget.c cVar : this.ivn) {
                 if (cVar != null && (cVar instanceof com.baidu.tieba.card.data.g)) {
@@ -182,9 +182,9 @@ public class i extends c<com.baidu.tieba.card.data.i> {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void h(long j, boolean z) {
-        com.baidu.tieba.card.data.g Jn = Jn(String.valueOf(j));
-        if (Jn != null) {
-            Jn.isLiked = z;
+        com.baidu.tieba.card.data.g Jm = Jm(String.valueOf(j));
+        if (Jm != null) {
+            Jm.isLiked = z;
         }
         if (this.ivk != null) {
             this.ivk.setData(this.ivn);
@@ -224,7 +224,7 @@ public class i extends c<com.baidu.tieba.card.data.i> {
         return z2;
     }
 
-    private void cuE() {
+    private void cuF() {
         this.onClickListener = new View.OnClickListener() { // from class: com.baidu.tieba.card.i.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
@@ -235,7 +235,7 @@ public class i extends c<com.baidu.tieba.card.data.i> {
                             String valueOf = String.valueOf(view.getTag(R.id.tag_forum_id));
                             if (at.isForumName(str)) {
                                 i.this.fpO.gr(str, valueOf);
-                                TiebaStatic.log(new aq(i.this.fUO).dX("fid", valueOf).dX(TiebaInitialize.Params.OBJ_PARAM3, m.cuR()));
+                                TiebaStatic.log(new aq(i.this.fUO).dX("fid", valueOf).dX(TiebaInitialize.Params.OBJ_PARAM3, m.cuS()));
                             }
                         }
                     } else if (view.getTag(R.id.tag_forum_name) != null) {
@@ -243,9 +243,9 @@ public class i extends c<com.baidu.tieba.card.data.i> {
                         String valueOf2 = String.valueOf(view.getTag(R.id.tag_forum_id));
                         if (at.isForumName(str2)) {
                             if (view.getId() == R.id.m_forum_name_textview) {
-                                TiebaStatic.log(new aq(i.this.ivq).dX("fid", valueOf2).dX(TiebaInitialize.Params.OBJ_PARAM3, m.cuR()));
+                                TiebaStatic.log(new aq(i.this.ivq).dX("fid", valueOf2).dX(TiebaInitialize.Params.OBJ_PARAM3, m.cuS()));
                             } else {
-                                TiebaStatic.log(new aq(i.this.ivp).dX("fid", valueOf2).dX(TiebaInitialize.Params.OBJ_PARAM3, m.cuR()));
+                                TiebaStatic.log(new aq(i.this.ivp).dX("fid", valueOf2).dX(TiebaInitialize.Params.OBJ_PARAM3, m.cuS()));
                             }
                             if (!StringUtils.isNull(i.this.stType) && !StringUtils.isNull(i.this.ivr)) {
                                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(i.this.getView().getContext()).createCfgForpersonalized(str2, i.this.stType, i.this.ivr)));

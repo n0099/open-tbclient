@@ -48,11 +48,11 @@ public final class f {
     private static Random g = new Random();
 
     /* renamed from: b  reason: collision with root package name */
-    public static List<Integer> f5510b = new ArrayList();
+    public static List<Integer> f5511b = new ArrayList();
     private Map<String, ApkInfo> h = new ConcurrentHashMap();
 
     /* renamed from: a  reason: collision with root package name */
-    public Map<String, ApkInfo> f5511a = new ConcurrentHashMap();
+    public Map<String, ApkInfo> f5512a = new ConcurrentHashMap();
     private Map<String, MyReceiver> i = new HashMap();
 
     public static f a(Context context) {
@@ -110,7 +110,7 @@ public final class f {
         ApkInfo apkInfo;
         String a2;
         MyReceiver myReceiver;
-        if (gVar.d != null && (apkInfo = this.f5511a.get(gVar.f5512a)) != null) {
+        if (gVar.d != null && (apkInfo = this.f5512a.get(gVar.f5513a)) != null) {
             if (apkInfo.intentFilters == null) {
                 apkInfo.intentFilters = new ArrayList();
             }
@@ -223,7 +223,7 @@ public final class f {
     public final synchronized void b(g gVar) {
         try {
             if (gVar.d != null) {
-                ApkInfo apkInfo = this.f5511a.get(gVar.f5512a);
+                ApkInfo apkInfo = this.f5512a.get(gVar.f5513a);
                 if (apkInfo != null && apkInfo.intentFilters != null) {
                     ArrayList<Integer> arrayList = new ArrayList();
                     for (int i = 0; i < apkInfo.intentFilters.size(); i++) {
@@ -278,8 +278,8 @@ public final class f {
     public final List<ApkInfo> b() {
         try {
             ArrayList arrayList = new ArrayList();
-            for (String str : this.f5511a.keySet()) {
-                arrayList.add(this.f5511a.get(str));
+            for (String str : this.f5512a.keySet()) {
+                arrayList.add(this.f5512a.get(str));
             }
             return arrayList;
         } catch (Throwable th) {
@@ -341,7 +341,7 @@ public final class f {
                             f(str2);
                             a(apkInfo, str2, str);
                             this.h.put(apkInfo.pkgPath, apkInfo);
-                            this.f5511a.put(apkInfo.packageName, apkInfo);
+                            this.f5512a.put(apkInfo.packageName, apkInfo);
                             a(apkInfo, apkInfo.className);
                             z = false;
                         } else {
@@ -384,7 +384,7 @@ public final class f {
                             f(str4);
                             a(apkInfo, str4, str3);
                             this.h.put(apkInfo.pkgPath, apkInfo);
-                            this.f5511a.put(apkInfo.packageName, apkInfo);
+                            this.f5512a.put(apkInfo.packageName, apkInfo);
                             a(apkInfo, packageInfo.applicationInfo.className);
                         } else {
                             z2 = false;
@@ -587,7 +587,7 @@ public final class f {
         ApkInfo apkInfo = this.h.get(str);
         if (apkInfo != null) {
             this.h.remove(str);
-            this.f5511a.remove(apkInfo.packageName);
+            this.f5512a.remove(apkInfo.packageName);
             com.baidu.sofire.mutiprocess.b.b(apkInfo.packageName);
             com.baidu.sofire.i.e.d(apkInfo.dataDir);
             if (f != null) {
@@ -599,10 +599,10 @@ public final class f {
     }
 
     public final boolean b(String str) {
-        ApkInfo apkInfo = this.f5511a.get(str);
+        ApkInfo apkInfo = this.f5512a.get(str);
         if (apkInfo != null) {
             this.h.remove(apkInfo.pkgPath);
-            this.f5511a.remove(str);
+            this.f5512a.remove(str);
             com.baidu.sofire.mutiprocess.b.b(str);
             com.baidu.sofire.i.e.d(apkInfo.dataDir);
             if (f != null) {
@@ -610,7 +610,7 @@ public final class f {
             }
             new StringBuilder().append(this.h.size());
             com.baidu.sofire.b.a();
-            new StringBuilder().append(this.f5511a.size());
+            new StringBuilder().append(this.f5512a.size());
             com.baidu.sofire.b.a();
             return true;
         }
@@ -628,7 +628,7 @@ public final class f {
 
     public final ApkInfo d(String str) {
         try {
-            return this.f5511a.get(str);
+            return this.f5512a.get(str);
         } catch (Throwable th) {
             com.baidu.sofire.i.e.a();
             return null;
@@ -1229,7 +1229,7 @@ public final class f {
 
     public final boolean e(String str) {
         try {
-            ApkInfo apkInfo = this.f5511a.get(str);
+            ApkInfo apkInfo = this.f5512a.get(str);
             if (apkInfo != null) {
                 Class<?> a2 = ((e) apkInfo.classLoader).a("com.baidu.sofire.engine.EngineImpl");
                 Object invoke = a2.getDeclaredMethod("getInstance", Context.class).invoke(a2, f);
@@ -1237,7 +1237,7 @@ public final class f {
                     com.baidu.sofire.i.e.a(invoke, "unload", (Class<?>[]) null, new Object[0]);
                 }
                 this.h.remove(apkInfo.pkgPath);
-                this.f5511a.remove(str);
+                this.f5512a.remove(str);
                 return true;
             }
             return false;

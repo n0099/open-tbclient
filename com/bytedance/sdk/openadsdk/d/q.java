@@ -5,40 +5,40 @@ import java.math.BigInteger;
 public final class q extends l {
 
     /* renamed from: a  reason: collision with root package name */
-    private final Object f7299a;
+    private final Object f7300a;
 
     public q(Boolean bool) {
-        this.f7299a = com.bytedance.sdk.openadsdk.d.b.a.a(bool);
+        this.f7300a = com.bytedance.sdk.openadsdk.d.b.a.a(bool);
     }
 
     public q(Number number) {
-        this.f7299a = com.bytedance.sdk.openadsdk.d.b.a.a(number);
+        this.f7300a = com.bytedance.sdk.openadsdk.d.b.a.a(number);
     }
 
     public q(String str) {
-        this.f7299a = com.bytedance.sdk.openadsdk.d.b.a.a(str);
+        this.f7300a = com.bytedance.sdk.openadsdk.d.b.a.a(str);
     }
 
     public boolean n() {
-        return this.f7299a instanceof Boolean;
+        return this.f7300a instanceof Boolean;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.l
     public boolean f() {
-        return n() ? ((Boolean) this.f7299a).booleanValue() : Boolean.parseBoolean(b());
+        return n() ? ((Boolean) this.f7300a).booleanValue() : Boolean.parseBoolean(b());
     }
 
     public boolean o() {
-        return this.f7299a instanceof Number;
+        return this.f7300a instanceof Number;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.l
     public Number a() {
-        return this.f7299a instanceof String ? new com.bytedance.sdk.openadsdk.d.b.g((String) this.f7299a) : (Number) this.f7299a;
+        return this.f7300a instanceof String ? new com.bytedance.sdk.openadsdk.d.b.g((String) this.f7300a) : (Number) this.f7300a;
     }
 
     public boolean p() {
-        return this.f7299a instanceof String;
+        return this.f7300a instanceof String;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.l
@@ -47,9 +47,9 @@ public final class q extends l {
             return a().toString();
         }
         if (n()) {
-            return ((Boolean) this.f7299a).toString();
+            return ((Boolean) this.f7300a).toString();
         }
-        return (String) this.f7299a;
+        return (String) this.f7300a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.d.l
@@ -68,17 +68,17 @@ public final class q extends l {
     }
 
     public int hashCode() {
-        if (this.f7299a == null) {
+        if (this.f7300a == null) {
             return 31;
         }
         if (a(this)) {
             long longValue = a().longValue();
             return (int) (longValue ^ (longValue >>> 32));
-        } else if (this.f7299a instanceof Number) {
+        } else if (this.f7300a instanceof Number) {
             long doubleToLongBits = Double.doubleToLongBits(a().doubleValue());
             return (int) (doubleToLongBits ^ (doubleToLongBits >>> 32));
         } else {
-            return this.f7299a.hashCode();
+            return this.f7300a.hashCode();
         }
     }
 
@@ -91,11 +91,11 @@ public final class q extends l {
             return false;
         }
         q qVar = (q) obj;
-        if (this.f7299a == null) {
-            return qVar.f7299a == null;
+        if (this.f7300a == null) {
+            return qVar.f7300a == null;
         } else if (a(this) && a(qVar)) {
             return a().longValue() == qVar.a().longValue();
-        } else if ((this.f7299a instanceof Number) && (qVar.f7299a instanceof Number)) {
+        } else if ((this.f7300a instanceof Number) && (qVar.f7300a instanceof Number)) {
             double doubleValue = a().doubleValue();
             double doubleValue2 = qVar.a().doubleValue();
             if (doubleValue == doubleValue2 || (Double.isNaN(doubleValue) && Double.isNaN(doubleValue2))) {
@@ -103,13 +103,13 @@ public final class q extends l {
             }
             return z;
         } else {
-            return this.f7299a.equals(qVar.f7299a);
+            return this.f7300a.equals(qVar.f7300a);
         }
     }
 
     private static boolean a(q qVar) {
-        if (qVar.f7299a instanceof Number) {
-            Number number = (Number) qVar.f7299a;
+        if (qVar.f7300a instanceof Number) {
+            Number number = (Number) qVar.f7300a;
             return (number instanceof BigInteger) || (number instanceof Long) || (number instanceof Integer) || (number instanceof Short) || (number instanceof Byte);
         }
         return false;

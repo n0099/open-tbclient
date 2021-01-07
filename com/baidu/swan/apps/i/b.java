@@ -11,7 +11,7 @@ public class b {
     public final long delta;
     public final long serverTime;
 
-    public static b aoU() {
+    public static b aoV() {
         return new b(0L);
     }
 

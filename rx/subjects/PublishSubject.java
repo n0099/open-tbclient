@@ -11,30 +11,30 @@ import rx.j;
 import rx.k;
 /* loaded from: classes15.dex */
 public final class PublishSubject<T> extends c<T, T> {
-    final PublishSubjectState<T> qxm;
+    final PublishSubjectState<T> qyU;
 
-    public static <T> PublishSubject<T> eOY() {
+    public static <T> PublishSubject<T> ePC() {
         return new PublishSubject<>(new PublishSubjectState());
     }
 
     protected PublishSubject(PublishSubjectState<T> publishSubjectState) {
         super(publishSubjectState);
-        this.qxm = publishSubjectState;
+        this.qyU = publishSubjectState;
     }
 
     @Override // rx.e
     public void onNext(T t) {
-        this.qxm.onNext(t);
+        this.qyU.onNext(t);
     }
 
     @Override // rx.e
     public void onError(Throwable th) {
-        this.qxm.onError(th);
+        this.qyU.onError(th);
     }
 
     @Override // rx.e
     public void onCompleted() {
-        this.qxm.onCompleted();
+        this.qyU.onCompleted();
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -146,7 +146,7 @@ public final class PublishSubject<T> extends c<T, T> {
                     arrayList.add(th2);
                 }
             }
-            rx.exceptions.a.hn(arrayList);
+            rx.exceptions.a.ho(arrayList);
         }
 
         @Override // rx.e
@@ -179,7 +179,7 @@ public final class PublishSubject<T> extends c<T, T> {
                     if (j2 == Long.MIN_VALUE) {
                         return;
                     }
-                } while (!compareAndSet(j2, rx.internal.operators.a.S(j2, j)));
+                } while (!compareAndSet(j2, rx.internal.operators.a.T(j2, j)));
             }
         }
 

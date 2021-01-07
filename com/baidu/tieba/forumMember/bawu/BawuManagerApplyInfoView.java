@@ -45,7 +45,7 @@ public class BawuManagerApplyInfoView extends RelativeLayout {
 
     public void aW(String str, int i) {
         this.jat.setText(str);
-        this.jas.setBackgroundDrawable(SvgManager.bwq().a(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
+        this.jas.setBackgroundDrawable(SvgManager.bwr().a(R.drawable.ic_icon_pure_ba_add_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS_DISABLE));
         if (i > 0) {
             this.jau.setText(String.format(this.mContext.getResources().getString(R.string.apply_left_num_tip), at.numberUniformFormat(i)));
             this.jas.setEnabled(true);

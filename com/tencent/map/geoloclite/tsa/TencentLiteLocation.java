@@ -1,7 +1,7 @@
 package com.tencent.map.geoloclite.tsa;
 
 import android.os.Bundle;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface TencentLiteLocation {
     public static final String GPS_PROVIDER = "gps";
     public static final String NETWORK_PROVIDER = "network";

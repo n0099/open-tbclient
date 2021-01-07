@@ -6,24 +6,24 @@ import com.bytedance.sdk.openadsdk.utils.u;
 public abstract class a implements c {
 
     /* renamed from: a  reason: collision with root package name */
-    private c.e f6996a;
+    private c.e f6997a;
 
     /* renamed from: b  reason: collision with root package name */
-    private c.b f6997b;
+    private c.b f6998b;
     private c.a c;
     private c.f d;
     private c.g e;
-    private c.InterfaceC0984c f;
+    private c.InterfaceC1022c f;
     private c.d g;
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.c
     public final void a(c.e eVar) {
-        this.f6996a = eVar;
+        this.f6997a = eVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.c
     public final void a(c.b bVar) {
-        this.f6997b = bVar;
+        this.f6998b = bVar;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.c
@@ -37,8 +37,8 @@ public abstract class a implements c {
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.c
-    public final void a(c.InterfaceC0984c interfaceC0984c) {
-        this.f = interfaceC0984c;
+    public final void a(c.InterfaceC1022c interfaceC1022c) {
+        this.f = interfaceC1022c;
     }
 
     @Override // com.bytedance.sdk.openadsdk.core.video.c.c
@@ -52,9 +52,9 @@ public abstract class a implements c {
     }
 
     public void a() {
-        this.f6996a = null;
+        this.f6997a = null;
         this.c = null;
-        this.f6997b = null;
+        this.f6998b = null;
         this.d = null;
         this.e = null;
         this.f = null;
@@ -64,8 +64,8 @@ public abstract class a implements c {
     /* JADX INFO: Access modifiers changed from: protected */
     public final void b() {
         try {
-            if (this.f6996a != null) {
-                this.f6996a.b(this);
+            if (this.f6997a != null) {
+                this.f6997a.b(this);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnPrepared error: ", th);
@@ -75,8 +75,8 @@ public abstract class a implements c {
     /* JADX INFO: Access modifiers changed from: protected */
     public final void c() {
         try {
-            if (this.f6997b != null) {
-                this.f6997b.a(this);
+            if (this.f6998b != null) {
+                this.f6998b.a(this);
             }
         } catch (Throwable th) {
             u.c("AbstractMediaPlayer", "AbstractMediaPlayer.notifyOnCompletion error: ", th);

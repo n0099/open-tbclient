@@ -5,10 +5,10 @@ import org.json.JSONObject;
 public class b implements com.ss.android.a.a.b.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13211a;
+    private String f13212a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13212b;
+    private String f13213b;
     private String c;
     private String d;
     private String e;
@@ -26,8 +26,8 @@ public class b implements com.ss.android.a.a.b.b {
     }
 
     private b(a aVar) {
-        this.f13211a = aVar.f13213a;
-        this.f13212b = aVar.f13214b;
+        this.f13212a = aVar.f13214a;
+        this.f13213b = aVar.f13215b;
         this.c = aVar.c;
         this.d = aVar.d;
         this.e = aVar.e;
@@ -49,12 +49,12 @@ public class b implements com.ss.android.a.a.b.b {
 
     @Override // com.ss.android.a.a.b.b
     public String b() {
-        return this.f13211a;
+        return this.f13212a;
     }
 
     @Override // com.ss.android.a.a.b.b
     public String c() {
-        return this.f13212b;
+        return this.f13213b;
     }
 
     @Override // com.ss.android.a.a.b.b
@@ -88,7 +88,7 @@ public class b implements com.ss.android.a.a.b.b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public Object eEP() {
+    public Object eFt() {
         return this.i;
     }
 
@@ -108,7 +108,7 @@ public class b implements com.ss.android.a.a.b.b {
     }
 
     @Override // com.ss.android.a.a.b.b
-    public JSONObject eEQ() {
+    public JSONObject eFu() {
         return this.prb;
     }
 
@@ -116,10 +116,10 @@ public class b implements com.ss.android.a.a.b.b {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f13213a;
+        private String f13214a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f13214b;
+        private String f13215b;
         private String c;
         private String d;
         private String e;
@@ -133,47 +133,47 @@ public class b implements com.ss.android.a.a.b.b {
         private String m;
         private JSONObject prb;
 
-        public a aas(String str) {
-            this.f13213a = str;
-            return this;
-        }
-
         public a aat(String str) {
-            this.f13214b = str;
+            this.f13214a = str;
             return this;
         }
 
         public a aau(String str) {
-            this.d = str;
+            this.f13215b = str;
             return this;
         }
 
         public a aav(String str) {
-            this.e = str;
+            this.d = str;
             return this;
         }
 
         public a aaw(String str) {
-            this.f = str;
+            this.e = str;
             return this;
         }
 
         public a aax(String str) {
+            this.f = str;
+            return this;
+        }
+
+        public a aay(String str) {
             this.g = str;
             return this;
         }
 
         @Deprecated
-        public a aay(String str) {
+        public a aaz(String str) {
             return this;
         }
 
-        public a aaz(String str) {
+        public a aaA(String str) {
             this.h = str;
             return this;
         }
 
-        public a RL(int i) {
+        public a Sb(int i) {
             this.j = i;
             return this;
         }
@@ -193,12 +193,12 @@ public class b implements com.ss.android.a.a.b.b {
             return this;
         }
 
-        public a aaA(String str) {
+        public a aaB(String str) {
             this.m = str;
             return this;
         }
 
-        public b eFb() {
+        public b eFF() {
             return new b(this);
         }
     }

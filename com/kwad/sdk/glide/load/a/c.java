@@ -8,10 +8,10 @@ public final class c extends OutputStream {
     @NonNull
 
     /* renamed from: a  reason: collision with root package name */
-    private final OutputStream f10342a;
+    private final OutputStream f10343a;
 
     /* renamed from: b  reason: collision with root package name */
-    private byte[] f10343b;
+    private byte[] f10344b;
     private com.kwad.sdk.glide.load.engine.bitmap_recycle.b c;
     private int d;
 
@@ -21,28 +21,28 @@ public final class c extends OutputStream {
 
     @VisibleForTesting
     c(@NonNull OutputStream outputStream, com.kwad.sdk.glide.load.engine.bitmap_recycle.b bVar, int i) {
-        this.f10342a = outputStream;
+        this.f10343a = outputStream;
         this.c = bVar;
-        this.f10343b = (byte[]) bVar.a(i, byte[].class);
+        this.f10344b = (byte[]) bVar.a(i, byte[].class);
     }
 
     private void a() {
         if (this.d > 0) {
-            this.f10342a.write(this.f10343b, 0, this.d);
+            this.f10343a.write(this.f10344b, 0, this.d);
             this.d = 0;
         }
     }
 
     private void b() {
-        if (this.d == this.f10343b.length) {
+        if (this.d == this.f10344b.length) {
             a();
         }
     }
 
     private void c() {
-        if (this.f10343b != null) {
-            this.c.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) this.f10343b);
-            this.f10343b = null;
+        if (this.f10344b != null) {
+            this.c.a((com.kwad.sdk.glide.load.engine.bitmap_recycle.b) this.f10344b);
+            this.f10344b = null;
         }
     }
 
@@ -50,10 +50,10 @@ public final class c extends OutputStream {
     public void close() {
         try {
             flush();
-            this.f10342a.close();
+            this.f10343a.close();
             c();
         } catch (Throwable th) {
-            this.f10342a.close();
+            this.f10343a.close();
             throw th;
         }
     }
@@ -61,12 +61,12 @@ public final class c extends OutputStream {
     @Override // java.io.OutputStream, java.io.Flushable
     public void flush() {
         a();
-        this.f10342a.flush();
+        this.f10343a.flush();
     }
 
     @Override // java.io.OutputStream
     public void write(int i) {
-        byte[] bArr = this.f10343b;
+        byte[] bArr = this.f10344b;
         int i2 = this.d;
         this.d = i2 + 1;
         bArr[i2] = (byte) i;
@@ -84,12 +84,12 @@ public final class c extends OutputStream {
         do {
             int i4 = i2 - i3;
             int i5 = i + i3;
-            if (this.d == 0 && i4 >= this.f10343b.length) {
-                this.f10342a.write(bArr, i5, i4);
+            if (this.d == 0 && i4 >= this.f10344b.length) {
+                this.f10343a.write(bArr, i5, i4);
                 return;
             }
-            int min = Math.min(i4, this.f10343b.length - this.d);
-            System.arraycopy(bArr, i5, this.f10343b, this.d, min);
+            int min = Math.min(i4, this.f10344b.length - this.d);
+            System.arraycopy(bArr, i5, this.f10344b, this.d, min);
             this.d += min;
             i3 += min;
             b();

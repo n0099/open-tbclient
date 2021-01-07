@@ -81,7 +81,7 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
                     case 4:
                         IMListView.this.oZv = 0.0f;
                         IMListView.this.oZu = 0.0f;
-                        IMListView.this.emY();
+                        IMListView.this.emZ();
                         IMListView.this.oZx = 2;
                         break;
                 }
@@ -131,7 +131,7 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
                     case 4:
                         IMListView.this.oZv = 0.0f;
                         IMListView.this.oZu = 0.0f;
-                        IMListView.this.emY();
+                        IMListView.this.emZ();
                         IMListView.this.oZx = 2;
                         break;
                 }
@@ -181,7 +181,7 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
                     case 4:
                         IMListView.this.oZv = 0.0f;
                         IMListView.this.oZu = 0.0f;
-                        IMListView.this.emY();
+                        IMListView.this.emZ();
                         IMListView.this.oZx = 2;
                         break;
                 }
@@ -198,7 +198,7 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
         this.oZn = new IMChatFooter(context);
     }
 
-    public boolean emV() {
+    public boolean emW() {
         View childAt;
         if (this.totalCount == 0) {
             c.d("", "RECEIVETEST -> return true");
@@ -232,15 +232,15 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
         this.oZo = aVar;
     }
 
-    public void emW() {
+    public void emX() {
         if (this.oZr) {
             c.d("", "LOADHAED stopRefresh");
             this.oZr = false;
-            emY();
+            emZ();
         }
     }
 
-    public void emX() {
+    public void emY() {
         if (this.oZq) {
             this.oZq = false;
         }
@@ -322,7 +322,7 @@ public class IMListView extends ListView implements AbsListView.OnScrollListener
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void emY() {
+    public void emZ() {
         int visiableHeight = this.oZm.getVisiableHeight();
         if (visiableHeight != 0) {
             this.mScroller.startScroll(0, visiableHeight, 0, 0, 200);

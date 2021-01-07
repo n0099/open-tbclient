@@ -7,16 +7,16 @@ import com.ksad.lottie.model.a.m;
 public class f implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8372a;
+    private final String f8373a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final m<PointF, PointF> f8373b;
+    private final m<PointF, PointF> f8374b;
     private final com.ksad.lottie.model.a.f c;
     private final com.ksad.lottie.model.a.b d;
 
     public f(String str, m<PointF, PointF> mVar, com.ksad.lottie.model.a.f fVar, com.ksad.lottie.model.a.b bVar) {
-        this.f8372a = str;
-        this.f8373b = mVar;
+        this.f8373a = str;
+        this.f8374b = mVar;
         this.c = fVar;
         this.d = bVar;
     }
@@ -27,7 +27,7 @@ public class f implements b {
     }
 
     public String a() {
-        return this.f8372a;
+        return this.f8373a;
     }
 
     public com.ksad.lottie.model.a.b b() {
@@ -39,10 +39,10 @@ public class f implements b {
     }
 
     public m<PointF, PointF> d() {
-        return this.f8373b;
+        return this.f8374b;
     }
 
     public String toString() {
-        return "RectangleShape{position=" + this.f8373b + ", size=" + this.c + '}';
+        return "RectangleShape{position=" + this.f8374b + ", size=" + this.c + '}';
     }
 }

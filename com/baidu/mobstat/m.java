@@ -10,38 +10,38 @@ import android.database.sqlite.SQLiteOpenHelper;
 class m extends SQLiteOpenHelper {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f3863a;
+    private String f3864a;
 
     /* renamed from: b  reason: collision with root package name */
-    private SQLiteDatabase f3864b;
+    private SQLiteDatabase f3865b;
 
     public m(Context context, String str) throws SQLiteException {
         super(context, ".confd", (SQLiteDatabase.CursorFactory) null, 1);
-        this.f3863a = str;
+        this.f3864a = str;
     }
 
     @Override // android.database.sqlite.SQLiteOpenHelper
     public void onCreate(SQLiteDatabase sQLiteDatabase) {
-        this.f3864b = sQLiteDatabase;
+        this.f3865b = sQLiteDatabase;
     }
 
     public synchronized boolean a() {
         boolean z;
         boolean z2 = true;
         synchronized (this) {
-            if (this.f3864b == null) {
+            if (this.f3865b == null) {
                 z = true;
             } else {
-                z = !this.f3864b.isOpen();
+                z = !this.f3865b.isOpen();
             }
             if (z) {
                 try {
-                    this.f3864b = getWritableDatabase();
+                    this.f3865b = getWritableDatabase();
                 } catch (NullPointerException e) {
                     throw new NullPointerException("db path is null");
                 }
             }
-            if (this.f3864b == null || !this.f3864b.isOpen()) {
+            if (this.f3865b == null || !this.f3865b.isOpen()) {
                 z2 = false;
             }
         }
@@ -51,9 +51,9 @@ class m extends SQLiteOpenHelper {
     @Override // android.database.sqlite.SQLiteOpenHelper, java.lang.AutoCloseable
     public synchronized void close() {
         super.close();
-        if (this.f3864b != null) {
-            this.f3864b.close();
-            this.f3864b = null;
+        if (this.f3865b != null) {
+            this.f3865b.close();
+            this.f3865b = null;
         }
     }
 
@@ -85,7 +85,7 @@ class m extends SQLiteOpenHelper {
         Cursor cursor = null;
         int i = 0;
         try {
-            cursor = this.f3864b.rawQuery("SELECT COUNT(*) FROM " + this.f3863a, null);
+            cursor = this.f3865b.rawQuery("SELECT COUNT(*) FROM " + this.f3864a, null);
             if (cursor != null && cursor.moveToNext()) {
                 i = cursor.getInt(0);
             } else if (cursor != null) {
@@ -100,14 +100,14 @@ class m extends SQLiteOpenHelper {
     }
 
     public Cursor a(String[] strArr, String str, String[] strArr2, String str2, String str3, String str4, String str5) {
-        return this.f3864b.query(this.f3863a, strArr, str, strArr2, str2, str3, str4, str5);
+        return this.f3865b.query(this.f3864a, strArr, str, strArr2, str2, str3, str4, str5);
     }
 
     public long a(String str, ContentValues contentValues) {
-        return this.f3864b.insert(this.f3863a, str, contentValues);
+        return this.f3865b.insert(this.f3864a, str, contentValues);
     }
 
     public int a(String str, String[] strArr) {
-        return this.f3864b.delete(this.f3863a, str, strArr);
+        return this.f3865b.delete(this.f3864a, str, strArr);
     }
 }

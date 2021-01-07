@@ -14,13 +14,13 @@ public interface a extends View.OnClickListener, CyberPlayerManager.OnCompletion
 
     void b(o oVar);
 
-    void bZj();
+    void bZk();
 
-    View dBx();
+    View dBy();
 
-    boolean dCj();
+    boolean dCk();
 
-    boolean dwT();
+    boolean dwU();
 
     int getCurrentPosition();
 

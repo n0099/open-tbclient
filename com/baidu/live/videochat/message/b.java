@@ -10,7 +10,7 @@ public class b extends HttpMessage {
         this.bRs = z;
     }
 
-    public boolean YW() {
+    public boolean YX() {
         return this.bRs;
     }
 }

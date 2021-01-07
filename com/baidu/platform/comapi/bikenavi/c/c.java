@@ -1,14 +1,14 @@
 package com.baidu.platform.comapi.bikenavi.c;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ b f4203a;
+    final /* synthetic */ b f4204a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public c(b bVar) {
-        this.f4203a = bVar;
+        this.f4204a = bVar;
     }
 
     @Override // java.lang.Runnable

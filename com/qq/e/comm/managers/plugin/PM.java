@@ -12,7 +12,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class PM {
     private static final Map<Class<?>, String> h = new HashMap<Class<?>, String>() { // from class: com.qq.e.comm.managers.plugin.PM.2
         {
@@ -21,38 +21,38 @@ public class PM {
     };
 
     /* renamed from: b  reason: collision with root package name */
-    private final Context f11848b;
+    private final Context f11849b;
     private RandomAccessFile c;
     private FileLock d;
-    private a.InterfaceC1157a f;
+    private a.InterfaceC1198a f;
 
     /* renamed from: a  reason: collision with root package name */
-    private ExecutorService f11847a = Executors.newSingleThreadExecutor();
+    private ExecutorService f11848a = Executors.newSingleThreadExecutor();
     private a.b g = new a.b() { // from class: com.qq.e.comm.managers.plugin.PM.1
     };
     private boolean e = a();
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public interface a {
 
         /* renamed from: com.qq.e.comm.managers.plugin.PM$a$a  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public interface InterfaceC1157a {
+        /* loaded from: classes4.dex */
+        public interface InterfaceC1198a {
         }
 
-        /* loaded from: classes3.dex */
+        /* loaded from: classes4.dex */
         public interface b {
         }
     }
 
-    public PM(Context context, a.InterfaceC1157a interfaceC1157a) {
-        this.f11848b = context.getApplicationContext();
-        this.f = interfaceC1157a;
+    public PM(Context context, a.InterfaceC1198a interfaceC1198a) {
+        this.f11849b = context.getApplicationContext();
+        this.f = interfaceC1198a;
     }
 
     private boolean a() {
         try {
-            File a2 = b.a(this.f11848b);
+            File a2 = b.a(this.f11849b);
             if (!a2.exists()) {
                 a2.createNewFile();
                 StringUtil.writeTo("lock", a2);

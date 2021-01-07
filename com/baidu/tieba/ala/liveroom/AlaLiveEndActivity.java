@@ -63,24 +63,24 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.live.adp.framework.listener.MessageListener
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            com.baidu.tieba.ala.liveroom.data.b clG;
-            if ((httpResponsedMessage instanceof AlaCloseLiveHttpResonpnseMessage) && (clG = ((AlaCloseLiveHttpResonpnseMessage) httpResponsedMessage).clG()) != null && clG.mLiveInfo != null) {
+            com.baidu.tieba.ala.liveroom.data.b clH;
+            if ((httpResponsedMessage instanceof AlaCloseLiveHttpResonpnseMessage) && (clH = ((AlaCloseLiveHttpResonpnseMessage) httpResponsedMessage).clH()) != null && clH.mLiveInfo != null) {
                 String str = "";
-                if (clG.aKu != null) {
-                    str = clG.aKu.nickName;
+                if (clH.aKu != null) {
+                    str = clH.aKu.nickName;
                 }
                 if (TextUtils.isEmpty(str) && !TextUtils.isEmpty(AlaLiveEndActivity.this.nickName)) {
                     str = AlaLiveEndActivity.this.nickName;
                 }
                 if (AlaLiveEndActivity.this.bzc != null) {
-                    if (clG.mLiveInfo != null) {
-                        AlaLiveEndActivity.this.bzc.mLiveInfo = clG.mLiveInfo;
+                    if (clH.mLiveInfo != null) {
+                        AlaLiveEndActivity.this.bzc.mLiveInfo = clH.mLiveInfo;
                     }
-                    if (clG.aKu != null) {
-                        AlaLiveEndActivity.this.bzc.aKu = clG.aKu;
+                    if (clH.aKu != null) {
+                        AlaLiveEndActivity.this.bzc.aKu = clH.aKu;
                     }
                 }
-                String str2 = clG.mLiveInfo.cover;
+                String str2 = clH.mLiveInfo.cover;
                 if (!StringUtils.isNull(str2) && !str2.equals(AlaLiveEndActivity.this.mCoverUrl)) {
                     AlaLiveEndActivity.this.mCoverUrl = str2;
                     AlaLiveEndActivity.this.hoO.startLoad(str2, 39, false);
@@ -266,11 +266,11 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
     }
 
     private void initListener() {
-        cbM();
+        cbN();
         registerListener(this.hoT);
     }
 
-    private void cbM() {
+    private void cbN() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(1021037, TbConfig.SERVER_ADDRESS + "ala/live/delRecord");
         tbHttpMessageTask.setIsNeedLogin(true);
         tbHttpMessageTask.setIsNeedTbs(true);
@@ -301,7 +301,7 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         if (this.hoP != null) {
             this.hoP.cA(false);
         }
-        cbN();
+        cbO();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -381,7 +381,7 @@ public class AlaLiveEndActivity extends BaseActivity<AlaLiveEndActivity> {
         UbcStatisticManager.getInstance().clear();
     }
 
-    public void cbN() {
+    public void cbO() {
         if (!TextUtils.isEmpty(this.hoR)) {
             if (TbadkCoreApplication.getInst().isHaokan() || TbadkCoreApplication.getInst().isQuanmin() || TbadkCoreApplication.getInst().isYinbo()) {
                 BrowserHelper.startInternalWebActivity(getPageContext().getPageActivity(), this.hoR);

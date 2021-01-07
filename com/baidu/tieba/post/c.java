@@ -1,5 +1,5 @@
 package com.baidu.tieba.post;
 /* loaded from: classes8.dex */
 public interface c {
-    void dCB();
+    void dCC();
 }

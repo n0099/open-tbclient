@@ -13,7 +13,7 @@ import com.kwad.sdk.utils.ao;
 public class b extends com.kwad.sdk.contentalliance.detail.b implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f8591b;
+    private TextView f8592b;
     private String c;
     private AdBaseFrameLayout d;
     private AdTemplate e;
@@ -22,11 +22,11 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
         @Override // java.lang.Runnable
         public void run() {
             try {
-                ao.a(b.this.f8591b, b.this.c, b.this.e());
+                ao.a(b.this.f8592b, b.this.c, b.this.e());
             } catch (Exception e) {
                 com.kwad.sdk.core.d.a.a(e);
-                b.this.f8591b.setText(b.this.c);
-                b.this.f8591b.setVisibility(0);
+                b.this.f8592b.setText(b.this.c);
+                b.this.f8592b.setVisibility(0);
             }
         }
     };
@@ -53,19 +53,19 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.contentalliance.detail.b, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.e = this.f8692a.j;
-        this.f = this.f8692a.o;
+        this.e = this.f8693a.j;
+        this.f = this.f8693a.o;
         this.c = com.kwad.sdk.core.response.b.c.w(this.e);
         if (com.kwad.sdk.core.response.b.c.c(this.e)) {
-            this.f8591b.post(this.g);
-            this.f8591b.setVisibility(0);
-            this.f8591b.setOnClickListener(this);
+            this.f8592b.post(this.g);
+            this.f8592b.setVisibility(0);
+            this.f8592b.setOnClickListener(this);
         } else if (ag.a(this.c)) {
-            this.f8591b.setVisibility(8);
+            this.f8592b.setVisibility(8);
         } else {
-            this.f8591b.setText(this.c);
-            this.f8591b.setVisibility(0);
-            this.f8591b.setOnClickListener(this);
+            this.f8592b.setText(this.c);
+            this.f8592b.setVisibility(0);
+            this.f8592b.setOnClickListener(this);
         }
     }
 
@@ -73,7 +73,7 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8591b.removeCallbacks(this.g);
+        this.f8592b.removeCallbacks(this.g);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -81,14 +81,14 @@ public class b extends com.kwad.sdk.contentalliance.detail.b implements View.OnC
     public void c() {
         super.c();
         this.d = (AdBaseFrameLayout) b(R.id.ksad_root_container);
-        this.f8591b = (TextView) b(R.id.ksad_bottom_content_describe);
+        this.f8592b = (TextView) b(R.id.ksad_bottom_content_describe);
     }
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (com.kwad.sdk.core.response.b.c.c(this.e)) {
-            com.kwad.sdk.core.download.b.a.a(this.f8591b.getContext(), this.e, new a.InterfaceC1064a() { // from class: com.kwad.sdk.contentalliance.detail.a.a.b.2
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+            com.kwad.sdk.core.download.b.a.a(this.f8592b.getContext(), this.e, new a.InterfaceC1105a() { // from class: com.kwad.sdk.contentalliance.detail.a.a.b.2
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
                 public void a() {
                     b.this.f();
                 }

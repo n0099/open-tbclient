@@ -41,10 +41,10 @@ public class j {
     private static String f;
 
     /* renamed from: a  reason: collision with root package name */
-    private static String f13743a = "";
+    private static String f13744a = "";
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13744b = "";
+    private static String f13745b = "";
     private static String c = "";
     private static String d = "";
     private static int e = -1;
@@ -118,17 +118,17 @@ public class j {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        public String f13745a;
+        public String f13746a;
 
         /* renamed from: b  reason: collision with root package name */
-        public long f13746b;
+        public long f13747b;
         public long c;
 
         public a(String str, int i) {
-            this.f13745a = str;
-            this.f13746b = i;
-            if (this.f13745a != null) {
-                this.c = this.f13745a.length();
+            this.f13746a = str;
+            this.f13747b = i;
+            if (this.f13746a != null) {
+                this.c = this.f13746a.length();
             }
         }
     }
@@ -463,9 +463,9 @@ public class j {
         if (context != null) {
             try {
                 PackageInfo packageInfo = context.getPackageManager().getPackageInfo(str, 0);
-                f13744b = packageInfo.versionName;
-                f13743a = f13744b.substring(0, f13744b.lastIndexOf(46));
-                d = f13744b.substring(f13744b.lastIndexOf(46) + 1, f13744b.length());
+                f13745b = packageInfo.versionName;
+                f13744a = f13745b.substring(0, f13745b.lastIndexOf(46));
+                d = f13745b.substring(f13745b.lastIndexOf(46) + 1, f13745b.length());
                 e = packageInfo.versionCode;
             } catch (PackageManager.NameNotFoundException e2) {
                 com.tencent.open.a.f.e("openSDK_LOG.Util", "getPackageInfo has exception: " + e2.getMessage());
@@ -480,7 +480,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f13744b;
+        return f13745b;
     }
 
     public static String d(Context context, String str) {
@@ -488,7 +488,7 @@ public class j {
             return "";
         }
         b(context, str);
-        return f13743a;
+        return f13744a;
     }
 
     public static String e(Context context, String str) {

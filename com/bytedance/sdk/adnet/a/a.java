@@ -86,8 +86,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         if (System.currentTimeMillis() - this.g > BdKVCache.MILLS_1Hour) {
             this.g = System.currentTimeMillis();
             try {
-                if (f.esk().esl() != null) {
-                    f.esk().esl().b();
+                if (f.esl().esm() != null) {
+                    f.esl().esm().b();
                 }
             } catch (Exception e) {
             }
@@ -165,8 +165,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
                 currentTimeMillis = j;
             }
             this.g = currentTimeMillis;
-            if (f.esk().esl() != null) {
-                f.esk().esl().a();
+            if (f.esl().esm() != null) {
+                f.esl().esm().a();
             }
         }
     }
@@ -176,7 +176,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         if (!TextUtils.isEmpty(str)) {
             if (Looper.myLooper() == Looper.getMainLooper()) {
                 try {
-                    return f.esk().a(str);
+                    return f.esl().a(str);
                 } catch (Throwable th) {
                     return str;
                 }
@@ -187,7 +187,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
                 } else {
                     b();
                 }
-                str = f.esk().a(str);
+                str = f.esl().a(str);
                 return str;
             } catch (Throwable th2) {
                 return str;
@@ -211,8 +211,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         }
     }
 
-    public String[] esf() {
-        String[] f = com.bytedance.sdk.adnet.a.esd().f();
+    public String[] esg() {
+        String[] f = com.bytedance.sdk.adnet.a.ese().f();
         if (f == null || f.length <= 0) {
             return new String[0];
         }
@@ -244,8 +244,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
                 edit.putLong("last_refresh_time", System.currentTimeMillis());
                 edit.apply();
             }
-            if (f.esk().esl() != null) {
-                f.esk().esl().a(jSONObject3);
+            if (f.esl().esm() != null) {
+                f.esl().esm().a(jSONObject3);
             }
             return true;
         }
@@ -253,8 +253,8 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
     }
 
     private boolean e() {
-        String[] esf = esf();
-        if (esf != null && esf.length != 0) {
+        String[] esg = esg();
+        if (esg != null && esg.length != 0) {
             a(0);
         }
         return false;
@@ -262,12 +262,12 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final int i) {
-        String[] esf = esf();
-        if (esf == null || esf.length <= i) {
+        String[] esg = esg();
+        if (esg == null || esg.length <= i) {
             b(102);
             return;
         }
-        String str = esf[i];
+        String str = esg[i];
         if (TextUtils.isEmpty(str)) {
             b(102);
             return;
@@ -280,7 +280,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
                 new com.bytedance.sdk.adnet.b.f(0, b2, new JSONObject(), new p.a<JSONObject>() { // from class: com.bytedance.sdk.adnet.a.a.3
                     @Override // com.bytedance.sdk.adnet.core.p.a
                     public void a(p<JSONObject> pVar) {
-                        JSONObject jSONObject = pVar.f6344a;
+                        JSONObject jSONObject = pVar.f6345a;
                         if (jSONObject == null) {
                             a.this.a(i + 1);
                             return;
@@ -329,7 +329,7 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         }
         StringBuilder sb = new StringBuilder();
         sb.append(SapiUtils.COOKIE_HTTPS_URL_PREFIX).append(str).append("/get_domains/v4/");
-        Address a2 = com.bytedance.sdk.adnet.a.esd().a(this.j);
+        Address a2 = com.bytedance.sdk.adnet.a.ese().a(this.j);
         i iVar = new i(sb.toString());
         if (a2 != null && a2.hasLatitude() && a2.hasLongitude()) {
             iVar.d("latitude", a2.getLatitude());
@@ -352,11 +352,11 @@ public class a implements com.bytedance.sdk.adnet.c.a, j.a {
         } catch (Throwable th) {
             th.printStackTrace();
         }
-        iVar.a("aid", com.bytedance.sdk.adnet.a.esd().a());
-        iVar.a("device_platform", com.bytedance.sdk.adnet.a.esd().c());
-        iVar.a("channel", com.bytedance.sdk.adnet.a.esd().b());
-        iVar.a("version_code", com.bytedance.sdk.adnet.a.esd().d());
-        iVar.a("device_id", com.bytedance.sdk.adnet.a.esd().e());
+        iVar.a("aid", com.bytedance.sdk.adnet.a.ese().a());
+        iVar.a("device_platform", com.bytedance.sdk.adnet.a.ese().c());
+        iVar.a("channel", com.bytedance.sdk.adnet.a.ese().b());
+        iVar.a("version_code", com.bytedance.sdk.adnet.a.ese().d());
+        iVar.a("device_id", com.bytedance.sdk.adnet.a.ese().e());
         return iVar.toString();
     }
 }

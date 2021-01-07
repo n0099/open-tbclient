@@ -50,7 +50,7 @@ public class TbRichTextData extends OrmObject {
         return this.mType;
     }
 
-    public ArrayList<d> bLb() {
+    public ArrayList<d> bLc() {
         if (this.fZn == null) {
             this.fZn = new ArrayList<>();
         }
@@ -92,7 +92,7 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public TbRichTextImageInfo bLc() {
+    public TbRichTextImageInfo bLd() {
         if (this.mType != 8) {
             return null;
         }
@@ -105,11 +105,11 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public SpannableStringBuilder bLd() {
+    public SpannableStringBuilder bLe() {
         return this.fZl;
     }
 
-    public TbRichTextVoiceInfo bLe() {
+    public TbRichTextVoiceInfo bLf() {
         if (this.mType == 512 || this.mType == 768) {
             return this.fnv;
         }
@@ -129,7 +129,7 @@ public class TbRichTextData extends OrmObject {
             }
         } else if (this.mType == 8) {
             if (this.fZm != null) {
-                return this.fZm.bLp();
+                return this.fZm.bLq();
             }
         } else if (this.mType == 17 && this.fZp != null) {
             return this.fZp.mGifInfo.mSharpText;
@@ -148,7 +148,7 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public TbRichTextTextInfo bLf() {
+    public TbRichTextTextInfo bLg() {
         if (this.mType != 1) {
             return null;
         }
@@ -161,7 +161,7 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public i bLg() {
+    public i bLh() {
         if (this.mType != 32) {
             return null;
         }
@@ -180,15 +180,15 @@ public class TbRichTextData extends OrmObject {
         }
     }
 
-    public TbRichTextEmotionInfo bLh() {
+    public TbRichTextEmotionInfo bLi() {
         return this.fZp;
     }
 
-    public TbRichTextMemeInfo bLi() {
+    public TbRichTextMemeInfo bLj() {
         return this.fZt;
     }
 
-    public int bLj() {
+    public int bLk() {
         return this.fZu;
     }
 
@@ -196,7 +196,7 @@ public class TbRichTextData extends OrmObject {
         this.fZu = i;
     }
 
-    public TbRichTextLinkImageInfo bLk() {
+    public TbRichTextLinkImageInfo bLl() {
         if (this.mType != 1280) {
             return null;
         }
@@ -225,7 +225,7 @@ public class TbRichTextData extends OrmObject {
         this.fZv = z;
     }
 
-    public boolean bLl() {
+    public boolean bLm() {
         return this.fZv;
     }
 

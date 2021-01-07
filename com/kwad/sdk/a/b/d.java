@@ -6,7 +6,7 @@ import com.kwad.sdk.R;
 public class d extends com.kwad.sdk.a.a.a {
 
     /* renamed from: b  reason: collision with root package name */
-    private View f8447b;
+    private View f8448b;
     private com.kwad.sdk.contentalliance.detail.video.e c = new com.kwad.sdk.contentalliance.detail.video.f() { // from class: com.kwad.sdk.a.b.d.1
         @Override // com.kwad.sdk.contentalliance.detail.video.f, com.kwad.sdk.contentalliance.detail.video.e
         public void b() {
@@ -23,35 +23,35 @@ public class d extends com.kwad.sdk.a.a.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        if (this.f8447b.getVisibility() != 0) {
+        if (this.f8448b.getVisibility() != 0) {
             return;
         }
-        this.f8447b.setVisibility(8);
+        this.f8448b.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.a.a.a, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        if (com.ksad.download.d.b.a(this.f8447b.getContext())) {
-            this.f8447b.setVisibility(8);
+        if (com.ksad.download.d.b.a(this.f8448b.getContext())) {
+            this.f8448b.setVisibility(8);
             return;
         }
-        this.f8447b.setVisibility(0);
-        this.f8435a.f.a(this.c);
+        this.f8448b.setVisibility(0);
+        this.f8436a.f.a(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f8435a.f.b(this.c);
+        this.f8436a.f.b(this.c);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f8447b = b(R.id.ksad_video_network_unavailable);
+        this.f8448b = b(R.id.ksad_video_network_unavailable);
     }
 }

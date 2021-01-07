@@ -17,7 +17,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
         if (DEBUG) {
             Log.d("Api-HandleException", "params = " + str);
         }
-        if (ank()) {
+        if (anl()) {
             com.baidu.swan.apps.console.c.e("Api-HandleException", "Api-HandleException does not supported when app is invisible.");
             return new com.baidu.swan.apps.api.c.b(1001, "Api-HandleException does not supported when app is invisible.");
         }
@@ -78,7 +78,7 @@ public class b extends com.baidu.swan.apps.api.a.d {
             if (TextUtils.isEmpty(optString2)) {
                 return new com.baidu.swan.apps.api.c.b(202, "path is required");
             }
-            if (ak.uY(optString2) && ak.aRJ()) {
+            if (ak.uY(optString2) && ak.aRK()) {
                 com.baidu.swan.apps.core.f.bu("skeleton", "5秒内未触发骨架屏移除");
             } else if (DEBUG) {
                 Log.d("Api-HandleException", "path is not first page: " + optString2);

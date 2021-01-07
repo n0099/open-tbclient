@@ -32,7 +32,7 @@ public class PerfSampleManager {
     }
 
     public void initmCallbackList() {
-        this.mCallbackList = com.baidu.pyramid.a.a.b.ahA();
+        this.mCallbackList = com.baidu.pyramid.a.a.b.ahB();
         this.mCallbackList.b(new IPerfSampleCallback_PerfSampleManager_ListProvider());
     }
 

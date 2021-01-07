@@ -54,9 +54,9 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
     public void build() {
         setValid(true);
         if (this.fqG == LINK_TYPE.PARSED_EXTERNAL_LINK) {
-            byN();
+            byO();
         } else {
-            byM();
+            byN();
         }
     }
 
@@ -71,7 +71,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         this.fqJ = editable.subSequence(i2 - 1, i2);
     }
 
-    public void byM() {
+    public void byN() {
         if (this.fqH != 1) {
             this.fqH = 1;
             this.fqL = fqF;
@@ -153,7 +153,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         this.fqE = tbLinkSpanGroup.fqE;
     }
 
-    public void byN() {
+    public void byO() {
         if (this.fqH != 2 && !at.isEmpty(this.fqK)) {
             this.fqH = 2;
             this.fqL = at.ao(this.fqK, 40);
@@ -167,11 +167,11 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         }
     }
 
-    public u byO() {
+    public u byP() {
         return this.fqE;
     }
 
-    public LINK_TYPE byP() {
+    public LINK_TYPE byQ() {
         return this.fqG;
     }
 
@@ -183,7 +183,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         return this.anD;
     }
 
-    public void CE(String str) {
+    public void CD(String str) {
         this.fqK = str;
     }
 
@@ -199,7 +199,7 @@ public class TbLinkSpanGroup extends a<TbLinkSpanGroup> {
         this.fqG = link_type;
     }
 
-    public int byQ() {
+    public int byR() {
         return this.fqM;
     }
 }

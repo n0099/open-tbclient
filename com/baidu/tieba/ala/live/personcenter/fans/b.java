@@ -7,7 +7,7 @@ public abstract class b extends BaseAdapter {
     protected ArrayList<a> eYq = null;
     boolean hlg = false;
 
-    public void cbi() {
+    public void cbj() {
         this.hlg = false;
         if (this.eYq != null && this.eYq.size() == 0) {
             this.hlg = true;

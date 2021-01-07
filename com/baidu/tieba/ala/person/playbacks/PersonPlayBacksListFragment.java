@@ -64,7 +64,7 @@ public class PersonPlayBacksListFragment extends BaseFragment {
         initData();
         ap(inflate);
         initListener();
-        cpo();
+        cpp();
         return inflate;
     }
 
@@ -96,7 +96,7 @@ public class PersonPlayBacksListFragment extends BaseFragment {
             public void a(AlaLiveInfoData alaLiveInfoData, View view) {
                 if (PersonPlayBacksListFragment.this.getPageContext().getOrignalPage() instanceof PersonCardActivity) {
                     PersonCardActivity personCardActivity = (PersonCardActivity) PersonPlayBacksListFragment.this.getPageContext().getOrignalPage();
-                    if (!personCardActivity.IQ(TbadkCoreApplication.getCurrentAccount())) {
+                    if (!personCardActivity.IP(TbadkCoreApplication.getCurrentAccount())) {
                         PersonPlayBacksListFragment.this.a(PersonPlayBacksListFragment.this.getPageContext(), alaLiveInfoData);
                     } else {
                         BdUtilHelper.showToast(personCardActivity.getActivity(), a.h.ala_person_owner_is_living);
@@ -140,11 +140,11 @@ public class PersonPlayBacksListFragment extends BaseFragment {
             } else {
                 this.hVl.sS(a.h.sdk_loading);
             }
-            this.hVh.a(z, ((d) obj).cpr(), 2);
+            this.hVh.a(z, ((d) obj).cps(), 2);
         }
     }
 
-    private void cpo() {
+    private void cpp() {
         if (JavaTypesHelper.toLong(this.userId, 0L) == 0) {
             this.hVh.a(true, null, 2);
         } else if (this.hXs != null) {
@@ -163,7 +163,7 @@ public class PersonPlayBacksListFragment extends BaseFragment {
     public void loadData() {
         if (this.hXt) {
             this.hXs.setUid(this.userId);
-            this.hXs.IR(this.userId);
+            this.hXs.IQ(this.userId);
         }
     }
 

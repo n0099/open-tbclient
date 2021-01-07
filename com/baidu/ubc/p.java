@@ -41,7 +41,7 @@ public class p {
         return this.mId;
     }
 
-    public int biz() {
+    public int biA() {
         return this.eBl;
     }
 
@@ -49,11 +49,11 @@ public class p {
         return this.mContent;
     }
 
-    public JSONObject biB() {
+    public JSONObject biC() {
         return this.eBm;
     }
 
-    public long biG() {
+    public long biH() {
         return this.acA;
     }
 
@@ -61,7 +61,7 @@ public class p {
         return this.mEndTime;
     }
 
-    public String biH() {
+    public String biI() {
         return this.mState;
     }
 
@@ -69,7 +69,7 @@ public class p {
         return this.mOption;
     }
 
-    public String biA() {
+    public String biB() {
         return this.eBn;
     }
 
@@ -113,13 +113,13 @@ public class p {
         this.eBo = z;
     }
 
-    public boolean biw() {
+    public boolean bix() {
         return this.eBo;
     }
 
-    public void biD() {
-        if (g.eiW().zp(this.mId)) {
-            this.eBn = UBC.getUBCContext().aGU();
+    public void biE() {
+        if (g.eiX().zp(this.mId)) {
+            this.eBn = UBC.getUBCContext().aGV();
         }
     }
 
@@ -133,7 +133,7 @@ public class p {
         }
     }
 
-    public JSONArray biI() {
+    public JSONArray biJ() {
         return this.eBq;
     }
 }

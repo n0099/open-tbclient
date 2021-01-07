@@ -11,17 +11,17 @@ import java.security.NoSuchAlgorithmException;
 public final class b {
 
     /* renamed from: b  reason: collision with root package name */
-    Context f5581b;
+    Context f5582b;
     public com.baidu.sofire.j.c c;
 
     /* renamed from: a  reason: collision with root package name */
-    public a f5580a = null;
+    public a f5581a = null;
     private String e = null;
     private String f = null;
     ServiceConnection d = new d(this);
 
     public b(Context context, com.baidu.sofire.j.c cVar) {
-        this.f5581b = context;
+        this.f5582b = context;
         this.c = cVar;
     }
 
@@ -36,11 +36,11 @@ public final class b {
         Signature[] signatureArr;
         try {
             if (TextUtils.isEmpty(this.e)) {
-                this.e = this.f5581b.getPackageName();
+                this.e = this.f5582b.getPackageName();
             }
             if (TextUtils.isEmpty(this.f)) {
                 try {
-                    signatureArr = this.f5581b.getPackageManager().getPackageInfo(this.e, 64).signatures;
+                    signatureArr = this.f5582b.getPackageManager().getPackageInfo(this.e, 64).signatures;
                 } catch (PackageManager.NameNotFoundException e) {
                     signatureArr = null;
                 }
@@ -67,7 +67,7 @@ public final class b {
                 }
                 str2 = null;
             }
-            str2 = this.f5580a.a(this.e, this.f, str);
+            str2 = this.f5581a.a(this.e, this.f, str);
         } catch (Throwable th2) {
             th = th2;
             str2 = null;

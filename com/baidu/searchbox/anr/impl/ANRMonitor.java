@@ -44,7 +44,7 @@ public class ANRMonitor implements IANRMonitor {
                 this.mAnrWatchTimeOut = i;
             }
             this.mANRWatchDog = new a(this.mAnrWatchTimeOut);
-            this.mANRWatchDog.eBp();
+            this.mANRWatchDog.eBT();
             this.mANRWatchDog.a(new ANRListenerImpl());
             if (AppConfig.isDebug()) {
                 Log.d("Ruka", "mANRWatchDog = " + this.mANRWatchDog.getName());

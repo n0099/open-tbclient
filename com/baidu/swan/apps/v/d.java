@@ -28,59 +28,59 @@ public interface d extends e.b {
 
     void a(String str, com.baidu.swan.apps.event.a.a aVar);
 
-    void aDf();
-
     void aDg();
 
     void aDh();
 
-    SwanCoreVersion aDi();
+    void aDi();
+
+    SwanCoreVersion aDj();
 
     @DebugTrace
-    com.baidu.swan.apps.adaptation.b.a aDj();
+    com.baidu.swan.apps.adaptation.b.a aDk();
 
-    boolean aDk();
+    boolean aDl();
 
-    SwanAppConfigData aDl();
+    SwanAppConfigData aDm();
 
     @NonNull
-    com.baidu.swan.apps.storage.b.c aDm();
-
-    String aDn();
+    com.baidu.swan.apps.storage.b.c aDn();
 
     String aDo();
 
     String aDp();
 
-    SwanAppActivity aDq();
+    String aDq();
 
-    com.baidu.swan.apps.adaptation.b.d aDr();
+    SwanAppActivity aDr();
 
-    @NonNull
-    Pair<Integer, Integer> aDs();
+    com.baidu.swan.apps.adaptation.b.d aDs();
 
     @NonNull
     Pair<Integer, Integer> aDt();
 
-    com.baidu.swan.games.q.a aDu();
+    @NonNull
+    Pair<Integer, Integer> aDu();
 
-    boolean aDw();
+    com.baidu.swan.games.q.a aDv();
 
-    void ajv();
+    boolean aDx();
 
-    void alX();
+    void ajw();
 
     void alY();
 
-    com.baidu.swan.apps.runtime.e arO();
+    void alZ();
 
-    String asD();
+    com.baidu.swan.apps.runtime.e arP();
 
-    com.baidu.swan.apps.core.d.e asU();
+    String asE();
 
-    com.baidu.swan.games.view.d ats();
+    com.baidu.swan.apps.core.d.e asV();
 
     com.baidu.swan.games.view.d att();
+
+    com.baidu.swan.games.view.d atu();
 
     void b(com.baidu.swan.apps.event.a.a aVar);
 

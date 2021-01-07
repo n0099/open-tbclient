@@ -39,9 +39,9 @@ public abstract class b<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>>
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (this.fKN && isDataEmpty()) {
-            return bHh();
+            return bHi();
         }
-        bHg();
+        bHh();
         int itemViewType = getItemViewType(i);
         Class<?> cls = this.fKH[itemViewType];
         int i2 = this.fKI[itemViewType];

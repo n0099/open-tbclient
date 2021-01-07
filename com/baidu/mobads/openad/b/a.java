@@ -23,10 +23,10 @@ import java.util.Observable;
 public class a extends Observable implements IOAdDownloader, Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    protected Context f3431a;
+    protected Context f3432a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected URL f3432b;
+    protected URL f3433b;
     protected URL c;
     protected String d;
     protected int e;
@@ -53,8 +53,8 @@ public class a extends Observable implements IOAdDownloader, Runnable {
     }
 
     public a(Context context, URL url, String str, String str2, int i, String str3, String str4) {
-        this.f3431a = context;
-        this.f3432b = url;
+        this.f3432a = context;
+        this.f3433b = url;
         this.d = str;
         this.e = i;
         if (str2 != null && str2.trim().length() > 0) {
@@ -129,7 +129,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
     public String getURL() {
-        return this.f3432b.toString();
+        return this.f3433b.toString();
     }
 
     @Override // com.baidu.mobads.openad.interfaces.download.IOAdDownloader
@@ -240,7 +240,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
             File file2 = new File(str);
             if (this.f.booleanValue() && file2.exists() && file2.length() == this.h) {
                 try {
-                    this.m = new g(this.f3431a);
+                    this.m = new g(this.f3432a);
                     List<h> b2 = this.m.b(url, str);
                     if (b2 != null && b2.size() > 0) {
                         ArrayList arrayList3 = new ArrayList();
@@ -421,13 +421,13 @@ public class a extends Observable implements IOAdDownloader, Runnable {
             if (this.f.booleanValue()) {
                 try {
                     if (this.m == null) {
-                        this.m = new g(this.f3431a);
+                        this.m = new g(this.f3432a);
                     }
                     ArrayList arrayList5 = new ArrayList();
                     Iterator<RunnableC0272a> it = this.l.iterator();
                     while (it.hasNext()) {
                         RunnableC0272a next = it.next();
-                        arrayList5.add(new h(next.f3433a, url, str, next.d, next.e, next.f));
+                        arrayList5.add(new h(next.f3434a, url, str, next.d, next.e, next.f));
                         XAdSDKFoundationFacade.getInstance().getAdLogger().d("Downloader", "save to db: start=" + next.d + ";end =" + next.e + ";complete=" + next.f);
                     }
                     if (this.m.a(url, str)) {
@@ -460,7 +460,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
         }
         try {
             try {
-                HttpURLConnection httpURLConnection2 = XAdSDKFoundationFacade.getInstance().getURIUitls().getHttpURLConnection(this.f3432b);
+                HttpURLConnection httpURLConnection2 = XAdSDKFoundationFacade.getInstance().getURIUitls().getHttpURLConnection(this.f3433b);
                 httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=0-");
                 httpURLConnection2.setConnectTimeout(10000);
                 httpURLConnection2.setInstanceFollowRedirects(true);
@@ -515,7 +515,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                         }
                         this.c = httpURLConnection2.getURL();
                         if ("mounted".equals(Environment.getExternalStorageState())) {
-                            String a2 = l.a(this.f3431a);
+                            String a2 = l.a(this.f3432a);
                             String str = XAdSDKFoundationFacade.getInstance().getCommonUtils().md5(this.c.toString()) + ".apk";
                             this.d = a2;
                             this.g = str;
@@ -601,10 +601,10 @@ public class a extends Observable implements IOAdDownloader, Runnable {
     public class RunnableC0272a implements Runnable {
 
         /* renamed from: a  reason: collision with root package name */
-        protected int f3433a;
+        protected int f3434a;
 
         /* renamed from: b  reason: collision with root package name */
-        protected URL f3434b;
+        protected URL f3435b;
         protected String c;
         protected int d;
         protected int e;
@@ -616,8 +616,8 @@ public class a extends Observable implements IOAdDownloader, Runnable {
         protected boolean g = false;
 
         public RunnableC0272a(int i, URL url, String str, int i2, int i3, int i4) {
-            this.f3433a = i;
-            this.f3434b = url;
+            this.f3434a = i;
+            this.f3435b = url;
             this.c = str;
             this.d = i2;
             this.e = i3;
@@ -685,7 +685,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                         httpURLConnection = null;
                     } else {
                         if (this.l == null) {
-                            HttpURLConnection httpURLConnection2 = (HttpURLConnection) this.f3434b.openConnection();
+                            HttpURLConnection httpURLConnection2 = (HttpURLConnection) this.f3435b.openConnection();
                             try {
                                 if (a.this.f.booleanValue()) {
                                     httpURLConnection2.setRequestProperty(Headers.RANGE, "bytes=" + ((this.d + this.f) + Constants.ACCEPT_TIME_SEPARATOR_SERVER + this.e));
@@ -695,7 +695,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                                 httpURLConnection2.connect();
                                 int responseCode = httpURLConnection2.getResponseCode();
                                 if (i != this.k) {
-                                    XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                                    XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                                     if (0 != 0) {
                                         try {
                                             randomAccessFile2.close();
@@ -722,7 +722,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                                     }
                                 } else if (responseCode / 100 != 2) {
                                     a.this.b();
-                                    XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                                    XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                                     if (0 != 0) {
                                         try {
                                             randomAccessFile2.close();
@@ -749,7 +749,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                                     }
                                 } else if (httpURLConnection2.getContentType().equals("text/html")) {
                                     a.this.b();
-                                    XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                                    XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                                     if (0 != 0) {
                                         try {
                                             randomAccessFile2.close();
@@ -785,7 +785,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                                 XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", e.getMessage());
                                 if (i == this.k) {
                                 }
-                                XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                                XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                                 if (randomAccessFile != null) {
                                 }
                                 if (bufferedInputStream != null) {
@@ -797,7 +797,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                                 randomAccessFile2 = null;
                                 bufferedInputStream = null;
                                 httpURLConnection = httpURLConnection2;
-                                XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                                XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                                 if (randomAccessFile2 != null) {
                                     try {
                                         randomAccessFile2.close();
@@ -834,7 +834,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                             XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", e.getMessage());
                             if (i == this.k) {
                             }
-                            XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                            XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                             if (randomAccessFile != null) {
                             }
                             if (bufferedInputStream != null) {
@@ -845,7 +845,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                             th = th3;
                             randomAccessFile2 = null;
                             bufferedInputStream = null;
-                            XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                            XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                             if (randomAccessFile2 != null) {
                             }
                             if (bufferedInputStream != null) {
@@ -885,7 +885,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                                 if (i == this.k) {
                                     a.this.b();
                                 }
-                                XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                                XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                                 if (randomAccessFile != null) {
                                     try {
                                         randomAccessFile.close();
@@ -917,7 +917,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                         } catch (Throwable th4) {
                             th = th4;
                             randomAccessFile2 = null;
-                            XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                            XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                             if (randomAccessFile2 != null) {
                             }
                             if (bufferedInputStream != null) {
@@ -927,7 +927,7 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                             throw th;
                         }
                     }
-                    XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3433a + "] ver(" + i + ") executed end; isFinished=" + this.g);
+                    XAdSDKFoundationFacade.getInstance().getAdLogger().d("DownloadThread", "Thread[" + this.f3434a + "] ver(" + i + ") executed end; isFinished=" + this.g);
                     if (randomAccessFile != null) {
                         try {
                             randomAccessFile.close();
@@ -977,8 +977,8 @@ public class a extends Observable implements IOAdDownloader, Runnable {
                 if (responseCode != 302 && responseCode != 301) {
                     return httpURLConnection3;
                 }
-                this.f3432b = new URL(httpURLConnection3.getHeaderField(Headers.LOCATION));
-                httpURLConnection2 = (HttpURLConnection) this.f3432b.openConnection();
+                this.f3433b = new URL(httpURLConnection3.getHeaderField(Headers.LOCATION));
+                httpURLConnection2 = (HttpURLConnection) this.f3433b.openConnection();
                 try {
                     httpURLConnection2.setConnectTimeout(10000);
                     httpURLConnection2.setInstanceFollowRedirects(false);

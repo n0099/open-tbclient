@@ -51,7 +51,7 @@ public class c implements a.b {
                     this.cQW = new com.baidu.swan.apps.console.v8inspector.a.a(accept.getInputStream(), accept.getOutputStream());
                     this.cQW.b(this.cQU);
                     ExecutorUtilsExt.postOnSerial(this.cQW, "V8InspectorServer");
-                    if (com.baidu.swan.apps.ad.a.a.aIK() && (i = i + 1) > 10) {
+                    if (com.baidu.swan.apps.ad.a.a.aIL() && (i = i + 1) > 10) {
                         if (DEBUG) {
                             Log.e("V8InspectorServer", "v8 inspector handshake exceeding the maximum limit");
                             return;
@@ -87,9 +87,9 @@ public class c implements a.b {
     public static abstract class b {
         a cRa;
 
-        abstract Map<String, String> apZ();
+        abstract Map<String, String> aqa();
 
-        abstract String aqa();
+        abstract String aqb();
 
         public b(a aVar) {
             this.cRa = aVar;
@@ -103,12 +103,12 @@ public class c implements a.b {
             SimpleDateFormat simpleDateFormat = new SimpleDateFormat("E, d MMM yyyy HH:mm:ss 'GMT'", Locale.US);
             simpleDateFormat.setTimeZone(TimeZone.getTimeZone("GMT"));
             PrintWriter printWriter = new PrintWriter(new BufferedWriter(new OutputStreamWriter(outputStream)));
-            printWriter.append("HTTP/1.1").append(' ').append((CharSequence) aqa()).append(" \r\n");
+            printWriter.append("HTTP/1.1").append(' ').append((CharSequence) aqb()).append(" \r\n");
             a(printWriter, "Date", simpleDateFormat.format(new Date()));
             printWriter.print("Content-Length: " + getContent().getBytes().length + "\r\n");
-            Map<String, String> apZ = apZ();
-            if (apZ != null && apZ.size() > 0) {
-                for (Map.Entry<String, String> entry : apZ().entrySet()) {
+            Map<String, String> aqa = aqa();
+            if (aqa != null && aqa.size() > 0) {
+                for (Map.Entry<String, String> entry : aqa().entrySet()) {
                     a(printWriter, entry.getKey(), entry.getValue());
                 }
             }

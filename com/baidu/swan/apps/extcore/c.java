@@ -14,7 +14,7 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
     private static volatile c ddE;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static c axO() {
+    public static c axP() {
         if (ddE == null) {
             synchronized (c.class) {
                 if (ddE == null) {
@@ -31,9 +31,9 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
 
     @Override // com.baidu.swan.apps.extcore.b.b
     @Nullable
-    public ExtensionCore avW() {
+    public ExtensionCore avX() {
         if (ProcessUtils.isMainProcess()) {
-            return axT();
+            return axU();
         }
         Bundle bundle = DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), a.class, null).mResult;
         bundle.setClassLoader(ExtensionCore.class.getClassLoader());
@@ -51,7 +51,7 @@ public class c extends com.baidu.swan.apps.extcore.b.b<com.baidu.swan.games.h.c.
         }
 
         @Override // com.baidu.swan.apps.extcore.a.C0442a
-        protected int ajk() {
+        protected int ajl() {
             return 1;
         }
     }

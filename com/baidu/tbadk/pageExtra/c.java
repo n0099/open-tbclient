@@ -31,15 +31,15 @@ public class c {
         return this.fKZ;
     }
 
-    public ArrayList<String> bHk() {
+    public ArrayList<String> bHl() {
         return this.fLa;
     }
 
-    public ArrayList<String> bHl() {
+    public ArrayList<String> bHm() {
         return d.d(this.fLa, this.fKZ);
     }
 
-    public String bHm() {
+    public String bHn() {
         return (String) x.getItem(this.fLa, x.getCount(this.fLa) - 1);
     }
 

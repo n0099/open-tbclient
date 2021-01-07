@@ -206,7 +206,7 @@ public class a extends com.baidu.tieba.card.b<com.baidu.tieba.homepage.topic.top
         }
     }
 
-    public CellTopicLinearLayout cUk() {
+    public CellTopicLinearLayout cUl() {
         return this.kme;
     }
 }

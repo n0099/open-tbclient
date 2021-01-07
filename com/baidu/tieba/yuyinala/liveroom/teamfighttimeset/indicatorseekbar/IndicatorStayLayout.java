@@ -43,7 +43,7 @@ public class IndicatorStayLayout extends LinearLayout {
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(new ViewGroup.LayoutParams(-2, -2));
             marginLayoutParams.setMargins(marginLayoutParams.leftMargin, marginLayoutParams.topMargin, marginLayoutParams.rightMargin, f.dp2px(indicatorSeekBar.getContext(), 2.0f) - indicatorSeekBar.getPaddingTop());
             addView(indicatorContentView, i, marginLayoutParams);
-            indicatorSeekBar.edP();
+            indicatorSeekBar.edQ();
         }
     }
 

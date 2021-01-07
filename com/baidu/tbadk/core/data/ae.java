@@ -19,11 +19,11 @@ public class ae {
     private int mType;
     private String mValue;
 
-    public int bpA() {
+    public int bpB() {
         return this.eQa;
     }
 
-    public String bpB() {
+    public String bpC() {
         return this.eQb;
     }
 
@@ -35,7 +35,7 @@ public class ae {
         return this.mType;
     }
 
-    public String bpt() {
+    public String bpu() {
         return this.eQd;
     }
 
@@ -51,7 +51,7 @@ public class ae {
                 this.eQd = jSONObject.optString("obj_id");
                 this.mTagName = jSONObject.optString("tag_name");
                 this.eQe = jSONObject.optString("tag_name_url");
-                AP(jSONObject.optString("tag_name_wh"));
+                AO(jSONObject.optString("tag_name_wh"));
             } catch (Exception e) {
                 BdLog.e(e.toString());
             }
@@ -69,11 +69,11 @@ public class ae {
             this.eQd = banner.obj_id;
             this.mTagName = banner.tag_name;
             this.eQe = banner.tag_name_url;
-            AP(banner.tag_name_wh);
+            AO(banner.tag_name_wh);
         }
     }
 
-    private void AP(String str) {
+    private void AO(String str) {
         if (!TextUtils.isEmpty(str)) {
             try {
                 String[] split = str.split(",");

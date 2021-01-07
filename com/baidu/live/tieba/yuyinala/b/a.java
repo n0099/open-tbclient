@@ -32,14 +32,14 @@ public class a {
     private final View.OnClickListener mOnClickListener = new View.OnClickListener() { // from class: com.baidu.live.tieba.yuyinala.b.a.2
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (a.this.bOh.Xs().length() > 20) {
+            if (a.this.bOh.Xt().length() > 20) {
                 BdUtilHelper.showToast(a.this.mTbPageContext.getPageActivity(), a.h.txt_describe_feedback_reason_text_max_limit);
             } else if (TextUtils.isEmpty(a.this.mRoomId) || a.this.bOi == null) {
                 if (!TextUtils.isEmpty(a.this.mRoomId) && !TextUtils.isEmpty(a.this.bNV) && a.this.bOj != null) {
-                    a.this.bOj.D(a.this.mRoomId, a.this.bOh.Xs(), a.this.bNV);
+                    a.this.bOj.D(a.this.mRoomId, a.this.bOh.Xt(), a.this.bNV);
                 }
             } else {
-                a.this.bOi.aP(a.this.mRoomId, a.this.bOh.Xs());
+                a.this.bOi.aP(a.this.mRoomId, a.this.bOh.Xt());
             }
         }
     };

@@ -21,20 +21,20 @@ public interface e extends s, ReadableByteChannel {
     boolean e() throws IOException;
 
     @Deprecated
-    c epS();
+    c epT();
 
-    InputStream epU();
+    InputStream epV();
 
-    byte epV() throws IOException;
-
-    short epW() throws IOException;
+    byte epW() throws IOException;
 
     short epX() throws IOException;
+
+    short epY() throws IOException;
 
     void h(long j) throws IOException;
 
     /* renamed from: if */
-    f mo47if(long j) throws IOException;
+    f mo58if(long j) throws IOException;
 
     byte[] ih(long j) throws IOException;
 

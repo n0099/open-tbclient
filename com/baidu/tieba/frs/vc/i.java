@@ -39,7 +39,7 @@ public class i {
                 if (sb.length() > 0) {
                     sb.deleteCharAt(sb.length() - 1);
                 }
-                TiebaStatic.log(new aq("c11974").dX("obj_locate", sb.toString()).dX("fid", atVar.getFid()).dX("tid", atVar.getTid()).dX(IntentConfig.NID, atVar.bpO()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("source", atVar.source).dX("weight", atVar.weight).dX("ab_tag", atVar.abTag).dX("extra", atVar.extra).an(IntentConfig.CARD_TYPE, atVar.cardType).an("obj_floor", atVar.eQR));
+                TiebaStatic.log(new aq("c11974").dX("obj_locate", sb.toString()).dX("fid", atVar.getFid()).dX("tid", atVar.getTid()).dX(IntentConfig.NID, atVar.bpP()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("source", atVar.source).dX("weight", atVar.weight).dX("ab_tag", atVar.abTag).dX("extra", atVar.extra).an(IntentConfig.CARD_TYPE, atVar.cardType).an("obj_floor", atVar.eQR));
             }
         }
     };
@@ -55,15 +55,15 @@ public class i {
         this.mBdUniqueId = bdUniqueId;
     }
 
-    public boolean cNY() {
+    public boolean cNZ() {
         return this.hnK != null && this.hnK.getVisibility() == 0;
     }
 
     public void aA(bz bzVar) {
         int i = 0;
         if (bzVar != null && this.mPageContext != null && this.hnL != null) {
-            boolean z = (bzVar.brq() == null || bzVar.brq().getUserId() == null || !bzVar.brq().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
-            if (bzVar.bsI() && bzVar.getFeedBackReasonMap() != null && !z) {
+            boolean z = (bzVar.brr() == null || bzVar.brr().getUserId() == null || !bzVar.brr().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) ? false : true;
+            if (bzVar.bsJ() && bzVar.getFeedBackReasonMap() != null && !z) {
                 if (this.hnK == null) {
                     this.hnK = new NEGFeedBackView(this.mPageContext);
                     this.hnK.setUniqueId(this.mBdUniqueId);
@@ -79,7 +79,7 @@ public class i {
                 at atVar = new at();
                 atVar.setTid(bzVar.getTid());
                 atVar.setFid(bzVar.getFid());
-                atVar.setNid(bzVar.bpO());
+                atVar.setNid(bzVar.bpP());
                 atVar.setFeedBackReasonMap(bzVar.getFeedBackReasonMap());
                 atVar.eQN = bzVar.eQN;
                 this.hnK.setData(atVar);
@@ -100,7 +100,7 @@ public class i {
                 this.hnL.setLayoutParams(layoutParams2);
             }
             if (this.hnK != null) {
-                this.hnK.bNI();
+                this.hnK.bNJ();
             }
         }
     }

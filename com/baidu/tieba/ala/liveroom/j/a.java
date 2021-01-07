@@ -26,9 +26,9 @@ public class a extends Dialog implements View.OnClickListener {
     /* renamed from: com.baidu.tieba.ala.liveroom.j.a$a  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
     public interface InterfaceC0683a {
-        void chX();
-
         void chY();
+
+        void chZ();
     }
 
     public a(Context context) {
@@ -69,34 +69,34 @@ public class a extends Dialog implements View.OnClickListener {
     public void onClick(View view) {
         if (view == this.hDp) {
             if (this.hDq != null) {
-                this.hDq.chY();
+                this.hDq.chZ();
             }
             dismiss();
             LogManager.getFeedDiversionLogger().doClickGuideFloatDialogLog(this.roomId + "", this.hDu, this.hDv);
         } else if (view == this.mClose) {
             if (this.hDq != null) {
-                this.hDq.chX();
+                this.hDq.chY();
             }
             dismiss();
             LogManager.getFeedDiversionLogger().doCloseGuideFloatDialogLog(this.roomId + "", this.hDv);
         }
     }
 
-    public void Ir(String str) {
+    public void Iq(String str) {
         this.hDr = str;
         if (this.hDn != null) {
             m.a(this.hDn, this.hDr, true, false);
         }
     }
 
-    public void Is(String str) {
+    public void Ir(String str) {
         this.hDs = str;
         if (this.hDo != null) {
             this.hDo.setText(this.hDs);
         }
     }
 
-    public void It(String str) {
+    public void Is(String str) {
         this.hDt = str;
         if (this.hDp != null) {
             this.hDp.setText(this.hDt);
@@ -107,11 +107,11 @@ public class a extends Dialog implements View.OnClickListener {
         this.roomId = j;
     }
 
-    public void Iu(String str) {
+    public void It(String str) {
         this.hDu = str;
     }
 
-    public void Iv(String str) {
+    public void Iu(String str) {
         this.hDv = str;
     }
 

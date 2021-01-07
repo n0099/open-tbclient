@@ -14,14 +14,14 @@ public class a {
             if (cVar.kdH) {
                 aq aqVar = new aq("c13736");
                 aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                aqVar.bwn();
+                aqVar.bwo();
                 return;
             }
             aq aqVar2 = new aq("c13735");
             aqVar2.an("obj_locate", i);
             aqVar2.w("topic_id", cVar.topicId);
             aqVar2.dX("uid", TbadkCoreApplication.getCurrentAccount());
-            aqVar2.bwn();
+            aqVar2.bwo();
         } else if (obj instanceof e) {
             bz bzVar = ((e) obj).eMv;
             aq aqVar3 = new aq("c13738");
@@ -31,17 +31,17 @@ public class a {
                 aqVar3.dX("tid", bzVar.getTid());
                 aqVar3.w("fid", bzVar.getFid());
             }
-            aqVar3.bwn();
+            aqVar3.bwo();
         } else if ((obj instanceof com.baidu.tbadk.core.data.a) && dh(view)) {
-            bz boO = ((com.baidu.tbadk.core.data.a) obj).boO();
+            bz boP = ((com.baidu.tbadk.core.data.a) obj).boP();
             aq aqVar4 = new aq("c13738");
             aqVar4.dX("obj_type", str);
             aqVar4.dX("uid", TbadkCoreApplication.getCurrentAccount());
-            if (boO != null) {
-                aqVar4.dX("tid", boO.getTid());
-                aqVar4.w("fid", boO.getFid());
+            if (boP != null) {
+                aqVar4.dX("tid", boP.getTid());
+                aqVar4.w("fid", boP.getFid());
             }
-            aqVar4.bwn();
+            aqVar4.bwo();
         }
     }
 
@@ -59,16 +59,16 @@ public class a {
             if (bzVar != null) {
                 aqVar.dX("tid", bzVar.getTid());
             }
-            aqVar.bwn();
+            aqVar.bwo();
         } else if (obj instanceof com.baidu.tbadk.core.data.a) {
-            bz boO = ((com.baidu.tbadk.core.data.a) obj).boO();
+            bz boP = ((com.baidu.tbadk.core.data.a) obj).boP();
             aq aqVar2 = new aq("c13825");
             aqVar2.dX("obj_type", str);
             aqVar2.dX("uid", TbadkCoreApplication.getCurrentAccount());
-            if (boO != null) {
-                aqVar2.dX("tid", boO.getTid());
+            if (boP != null) {
+                aqVar2.dX("tid", boP.getTid());
             }
-            aqVar2.bwn();
+            aqVar2.bwo();
         }
     }
 }

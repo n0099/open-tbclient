@@ -168,7 +168,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             if (this.jDP.getResponsedMessage() == null) {
                 this.jDP.a(this);
             }
-            this.jDO = this.jDP.cMr();
+            this.jDO = this.jDP.cMs();
         }
         Z(this.jDI);
     }
@@ -180,7 +180,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.jDY.a(this.jEl);
     }
 
-    public void cLD() {
+    public void cLE() {
         Looper.myQueue().removeIdleHandler(this.jEj);
         Looper.myQueue().removeIdleHandler(this.jEk);
         this.jDP.cancelLoadData();
@@ -205,11 +205,11 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             this.jEb = "";
         }
         this.mSource = this.mFrom;
-        cLX();
+        cLY();
         if (this.jeH == null) {
             this.jeH = new FrsViewData();
         }
-        if (this.jDP == null || this.jDO == null || this.jDO.bGL() == null || this.jDO.bGL().isEmpty() || this.jDO.bGL().containsKey(null) || this.jDO.bGL().containsValue(null)) {
+        if (this.jDP == null || this.jDO == null || this.jDO.bGM() == null || this.jDO.bGM().isEmpty() || this.jDO.bGM().containsKey(null) || this.jDO.bGM().containsValue(null)) {
             ar(bundle);
         }
         if (this.jfa != null && this.jfa.length() > 0) {
@@ -235,7 +235,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             this.jDO.setCallFrom(bundle.getInt(FrsActivityConfig.FRS_CALL_FROM));
             this.jDO.hB(bundle.getLong(FrsActivityConfig.FRS_HOT_THREAD_ID, 0L));
         }
-        this.jDO.Tf("2");
+        this.jDO.Te("2");
         this.jDO.setObjSource("-2");
         this.jDO.setKw(this.jfa);
         this.jDO.setWithGroup(1);
@@ -243,20 +243,20 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.jDO.setScrW(com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst()));
         this.jDO.setScrH(com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst()));
         this.jDO.setScrDip(com.baidu.adp.lib.util.l.getEquipmentDensity(TbadkCoreApplication.getInst()));
-        this.jDO.setqType(au.bwr().bws() ? 2 : 1);
+        this.jDO.setqType(au.bws().bwt() ? 2 : 1);
         this.jDO.setSchemeUrl(this.mSchemeUrl);
         this.jDO.setLastId(null);
         this.jDO.setYuelaouLocate(this.jEb);
-        this.jDO.setLastClickTid(com.baidu.adp.lib.f.b.toLong(z.bJf(), 0L));
+        this.jDO.setLastClickTid(com.baidu.adp.lib.f.b.toLong(z.bJg(), 0L));
         this.jDO.setStType(this.mFrom);
         this.jDO.KL(1);
         this.jDO.setNeedCache(true);
         this.jDO.setUpdateType(3);
         com.baidu.tieba.frs.d.j.a(this.jEc, this.jDO);
         this.jDO.setLoadType(1);
-        if (bz.eTz.get() && r.dEV().dEP() != null) {
-            int ba = r.dEV().dEP().ba(this.jfa, false);
-            int bb = r.dEV().dEP().bb(this.jfa, false);
+        if (bz.eTz.get() && r.dEW().dEQ() != null) {
+            int ba = r.dEW().dEQ().ba(this.jfa, false);
+            int bb = r.dEW().dEQ().bb(this.jfa, false);
             if (this.jDO.getLoadType() == 1) {
                 i = ba + 1;
             } else if (this.jDO.getLoadType() == 2) {
@@ -284,7 +284,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.mSchemeUrl = str;
     }
 
-    private void cLX() {
+    private void cLY() {
         AccountData currentAccountObj;
         if (FrsActivityConfig.FRS_FROM_FREQUENTLT_FORUM_NEW_THREAD.equals(this.mSource)) {
             By(3);
@@ -295,12 +295,12 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             if (TbadkCoreApplication.getCurrentAccountObj() != null) {
                 str = currentAccountObj.getID() + Constants.WAVE_SEPARATOR;
             }
-            this.jEe = com.baidu.tieba.frs.d.j.LG("1~" + str + this.jfa);
+            this.jEe = com.baidu.tieba.frs.d.j.LF("1~" + str + this.jfa);
             By(this.jEc);
         }
     }
 
-    public boolean cvK() {
+    public boolean cvL() {
         if (this.jwC != 1) {
             Bs(1);
             return true;
@@ -370,14 +370,14 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.mType = i;
         this.jDI.qq(z);
         this.jDQ.zW(i);
-        if (this.jDP.cMs() && (this.jDP.getResponsedMessage() instanceof MvcHttpResponsedMessage)) {
-            a((MvcHttpResponsedMessage) this.jDP.getResponsedMessage(), (MvcHttpMessage) this.jDP.cMt(), this.jDP.cMu());
-        } else if (this.jDP.cMs() && (this.jDP.getResponsedMessage() instanceof MvcSocketResponsedMessage)) {
-            a((MvcSocketResponsedMessage) this.jDP.getResponsedMessage(), (MvcSocketMessage) this.jDP.cMt(), this.jDP.cMu());
+        if (this.jDP.cMt() && (this.jDP.getResponsedMessage() instanceof MvcHttpResponsedMessage)) {
+            a((MvcHttpResponsedMessage) this.jDP.getResponsedMessage(), (MvcHttpMessage) this.jDP.cMu(), this.jDP.cMv());
+        } else if (this.jDP.cMt() && (this.jDP.getResponsedMessage() instanceof MvcSocketResponsedMessage)) {
+            a((MvcSocketResponsedMessage) this.jDP.getResponsedMessage(), (MvcSocketMessage) this.jDP.cMu(), this.jDP.cMv());
         } else {
             int BP = com.baidu.tieba.frs.d.j.BP(this.jEe);
             if (!Bx(this.jEe) && !this.jDI.jfb && !this.jEi) {
-                String f = com.baidu.tieba.tbadkCore.e.dNY().f("1~" + this.jfa, BP, frsRequestData.getIsGood(), this.jDO.getCategoryId());
+                String f = com.baidu.tieba.tbadkCore.e.dNZ().f("1~" + this.jfa, BP, frsRequestData.getIsGood(), this.jDO.getCategoryId());
                 this.jEg = f;
                 new a(this, true, f).execute(new Object[0]);
             }
@@ -402,7 +402,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.jDI.qq(z);
         this.jDQ.zW(i);
         this.jDP.a(frsRequestData);
-        frsRequestData.Tf(this.jDI.cFH() ? "1" : "2");
+        frsRequestData.Te(this.jDI.cFI() ? "1" : "2");
         if (this.jEf) {
             frsRequestData.setObjSource(String.valueOf(com.baidu.tieba.frs.d.j.BP(this.jEd)));
         } else {
@@ -415,7 +415,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         int equipmentWidth = com.baidu.adp.lib.util.l.getEquipmentWidth(TbadkCoreApplication.getInst());
         int equipmentHeight = com.baidu.adp.lib.util.l.getEquipmentHeight(TbadkCoreApplication.getInst());
         float equipmentDensity = com.baidu.adp.lib.util.l.getEquipmentDensity(TbadkCoreApplication.getInst());
-        int i2 = au.bwr().bws() ? 2 : 1;
+        int i2 = au.bws().bwt() ? 2 : 1;
         frsRequestData.setScrW(equipmentWidth);
         frsRequestData.setScrH(equipmentHeight);
         frsRequestData.setScrDip(equipmentDensity);
@@ -423,14 +423,14 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         frsRequestData.setSchemeUrl(this.mSchemeUrl);
         frsRequestData.setLastId(this.jCL);
         frsRequestData.setYuelaouLocate(this.jEb);
-        frsRequestData.setLastClickTid(com.baidu.adp.lib.f.b.toLong(z.bJf(), 0L));
+        frsRequestData.setLastClickTid(com.baidu.adp.lib.f.b.toLong(z.bJg(), 0L));
         if (this.mSource != null) {
             frsRequestData.setStType(this.mSource);
             if ("sidebar".equalsIgnoreCase(this.mSource)) {
                 frsRequestData.setStType(null);
             }
         }
-        frsRequestData.KL(cLY());
+        frsRequestData.KL(cLZ());
         if (FrsFragment.jfp != 0) {
             frsRequestData.setCtime((int) FrsFragment.jfp);
         }
@@ -448,15 +448,15 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         b(i, frsRequestData);
         a(this.jfa, frsRequestData);
         if (!Bx(this.jEe) && !this.jDI.jfb && !this.jEi) {
-            String f = com.baidu.tieba.tbadkCore.e.dNY().f("1~" + this.jfa, BP, frsRequestData.getIsGood(), this.jDO.getCategoryId());
+            String f = com.baidu.tieba.tbadkCore.e.dNZ().f("1~" + this.jfa, BP, frsRequestData.getIsGood(), this.jDO.getCategoryId());
             this.jEg = f;
             new a(this, true, f).execute(new Object[0]);
         }
-        cMb();
+        cMc();
         this.jEi = false;
     }
 
-    private int cLY() {
+    private int cLZ() {
         return (this.jDI == null || !(this.jDI.mHeadLineDefaultNavTabId == -1 || this.jDI.mHeadLineDefaultNavTabId == this.jwC)) ? 0 : 1;
     }
 
@@ -509,14 +509,14 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
         this.mSource = null;
         if (com.baidu.tieba.frs.smartsort.b.b(this.jDO)) {
-            cMp();
+            cMq();
         }
         if (!this.isNetFirstLoad && frsRequestData != null && frsRequestData.getUpdateType() == 4) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921498, this.jeH.getForum()));
         }
         this.isNetFirstLoad = false;
-        if (mVar.getForum() != null && !TextUtils.isEmpty(mVar.getForum().getName()) && frsRequestData != null && r.dEV().dEP() != null) {
-            r.dEV().dEP().f(mVar.getForum().getName(), frsRequestData.getLoadType(), false);
+        if (mVar.getForum() != null && !TextUtils.isEmpty(mVar.getForum().getName()) && frsRequestData != null && r.dEW().dEQ() != null) {
+            r.dEW().dEQ().f(mVar.getForum().getName(), frsRequestData.getLoadType(), false);
         }
         if (StringUtils.isNull(mVar.getUserData().getAppealThreadPopover())) {
             return true;
@@ -541,7 +541,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             fVar.isSuccess = mvcSocketResponsedMessage.hasError() ? false : true;
             fVar.errorCode = mvcSocketResponsedMessage.getError();
             fVar.errorMsg = mvcSocketResponsedMessage.getErrorString();
-            fVar.npe = mvcSocketResponsedMessage.getDownSize();
+            fVar.npd = mvcSocketResponsedMessage.getDownSize();
             this.jCK = fVar;
             if (!mvcSocketResponsedMessage.hasError() || 340001 == mvcSocketResponsedMessage.getError()) {
                 data = mvcSocketResponsedMessage.getData();
@@ -607,7 +607,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             fVar.isSuccess = mvcHttpResponsedMessage.hasError() ? false : true;
             fVar.errorCode = mvcHttpResponsedMessage.getError();
             fVar.errorMsg = mvcHttpResponsedMessage.getErrorString();
-            fVar.npe = mvcHttpResponsedMessage.getDownSize();
+            fVar.npd = mvcHttpResponsedMessage.getDownSize();
             this.jCK = fVar;
             if (mvcHttpResponsedMessage.hasError()) {
                 mVar = null;
@@ -663,7 +663,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         a(true, (ResponsedMessage<?>) mvcHttpResponsedMessage);
     }
 
-    public void cFy() {
+    public void cFz() {
         if (this.jeH != null && this.jeH.getForum() != null && this.jeH.getForum().getBannerListData() != null) {
             String lastIds = this.jeH.getForum().getBannerListData().getLastIds();
             if (!TextUtils.isEmpty(lastIds)) {
@@ -673,7 +673,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     }
 
     private void a(int i, boolean z, ResponsedMessage<?> responsedMessage) {
-        if (com.baidu.tbadk.n.k.bHF().isSmallFlow()) {
+        if (com.baidu.tbadk.n.k.bHG().isSmallFlow()) {
             this.fLR = System.currentTimeMillis() - this.jDI.iHN;
             this.jDI.fLQ = System.currentTimeMillis() - this.jDI.jfn;
             com.baidu.tbadk.n.h hVar = new com.baidu.tbadk.n.h(i, z, responsedMessage, this.jDI.fLH, this.jDI.createTime, this.jDI.fLQ, false, this.jDI.fLI, this.jDI.fLN, this.fLR);
@@ -681,12 +681,12 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             this.jDI.fLH = 0L;
             com.baidu.tieba.frs.d.k.a(this, this.jDI.iHN);
             this.jDI.iHN = -1L;
-            hVar.bHC();
+            hVar.bHD();
         }
     }
 
     private void a(boolean z, ResponsedMessage<?> responsedMessage) {
-        if (com.baidu.tbadk.n.k.bHF().isSmallFlow()) {
+        if (com.baidu.tbadk.n.k.bHG().isSmallFlow()) {
             this.fLR = System.currentTimeMillis() - this.jDI.jfo;
             this.jDI.fLQ = System.currentTimeMillis() - this.jDI.jfn;
             com.baidu.tbadk.n.h hVar = new com.baidu.tbadk.n.h(1000, z, responsedMessage, this.jDI.fLH, this.jDI.createTime, this.jDI.fLQ, false, this.jDI.fLI, this.jDI.fLN, this.fLR);
@@ -700,7 +700,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
     }
 
-    public FrsRequestData cLZ() {
+    public FrsRequestData cMa() {
         return this.jDO;
     }
 
@@ -716,15 +716,15 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         return this.mPn;
     }
 
-    public FrsViewData cLF() {
+    public FrsViewData cLG() {
         return this.jeH;
     }
 
-    public com.baidu.tieba.tbadkCore.f cMa() {
+    public com.baidu.tieba.tbadkCore.f cMb() {
         return this.jCK;
     }
 
-    private boolean cMb() {
+    private boolean cMc() {
         this.iKz = System.currentTimeMillis();
         return this.jDP.loadData();
     }
@@ -774,13 +774,13 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         public Void doInBackground(Object... objArr) {
             int i;
             CustomResponsedMessage runTask;
-            if (this.needCache && com.baidu.tieba.tbadkCore.e.dNY().Td(this.mCacheKey)) {
-                if (!com.baidu.tieba.tbadkCore.e.dNY().isSameDay(TbadkCoreApplication.getCurrentAccount() + this.mCacheKey)) {
-                    com.baidu.tieba.tbadkCore.e.dNY().getResponseData().getForum().getSignData().is_signed = 0;
+            if (this.needCache && com.baidu.tieba.tbadkCore.e.dNZ().Tc(this.mCacheKey)) {
+                if (!com.baidu.tieba.tbadkCore.e.dNZ().isSameDay(TbadkCoreApplication.getCurrentAccount() + this.mCacheKey)) {
+                    com.baidu.tieba.tbadkCore.e.dNZ().getResponseData().getForum().getSignData().is_signed = 0;
                 }
-                com.baidu.tieba.tbadkCore.m responseData = com.baidu.tieba.tbadkCore.e.dNY().getResponseData();
+                com.baidu.tieba.tbadkCore.m responseData = com.baidu.tieba.tbadkCore.e.dNZ().getResponseData();
                 responseData.setIsShowRedTip(false);
-                if (responseData.getBookInfo() != null && !StringUtils.isNull(responseData.getBookInfo().bpu(), true) && !responseData.getBookInfo().bpu().equals("0") && responseData.getBookInfo().bpv() == 3 && (i = com.baidu.adp.lib.f.b.toInt(responseData.getBookInfo().bpu(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(i))) != null) {
+                if (responseData.getBookInfo() != null && !StringUtils.isNull(responseData.getBookInfo().bpv(), true) && !responseData.getBookInfo().bpv().equals("0") && responseData.getBookInfo().bpw() == 3 && (i = com.baidu.adp.lib.f.b.toInt(responseData.getBookInfo().bpv(), -1)) > 0 && (runTask = MessageManager.getInstance().runTask(CmdConfigCustom.CMD_GET_MANGA_READ_RECORD, Integer.class, Long.valueOf(i))) != null) {
                     responseData.setMangaReadRecordChapterId(Integer.valueOf(((Integer) runTask.getData()).intValue()));
                 }
                 publishProgress(responseData);
@@ -799,30 +799,30 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             if (this.jEp != null && mVarArr != null) {
                 this.jEp.f(mVarArr.length > 0 ? mVarArr[0] : null);
                 this.jEp.R(this.jEp.jEc, true);
-            } else if (this.jEp != null && !this.jEp.jDP.cMs()) {
+            } else if (this.jEp != null && !this.jEp.jDP.cMt()) {
                 if (this.jEp.jDP.getResponsedMessage() instanceof MvcHttpResponsedMessage) {
-                    this.jEp.a((MvcHttpResponsedMessage) this.jEp.jDP.getResponsedMessage(), (MvcHttpMessage) this.jEp.jDP.cMt(), this.jEp.jDP.cMu());
+                    this.jEp.a((MvcHttpResponsedMessage) this.jEp.jDP.getResponsedMessage(), (MvcHttpMessage) this.jEp.jDP.cMu(), this.jEp.jDP.cMv());
                 }
                 if (this.jEp.jDP.getResponsedMessage() instanceof MvcSocketResponsedMessage) {
-                    this.jEp.a((MvcSocketResponsedMessage) this.jEp.jDP.getResponsedMessage(), (MvcSocketMessage) this.jEp.jDP.cMt(), this.jEp.jDP.cMu());
+                    this.jEp.a((MvcSocketResponsedMessage) this.jEp.jDP.getResponsedMessage(), (MvcSocketMessage) this.jEp.jDP.cMu(), this.jEp.jDP.cMv());
                 }
             }
         }
     }
 
-    public long czf() {
+    public long czg() {
         return this.iKC;
     }
 
-    public long czg() {
+    public long czh() {
         return this.iKA;
     }
 
-    public long czh() {
+    public long czi() {
         return this.iKB;
     }
 
-    public long czi() {
+    public long czj() {
         return this.iKz;
     }
 
@@ -830,11 +830,11 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         return this.jDP.isLoading();
     }
 
-    public int cMc() {
+    public int cMd() {
         return this.jDU;
     }
 
-    private void cMd() {
+    private void cMe() {
         if (this.jEa == null) {
             this.jEa = new ArrayList<>();
         }
@@ -856,7 +856,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 if (this.jeH != null && this.jeH.getForum() != null) {
                     baVar.forumId = this.jeH.getForum().getId();
                 }
-                cMd();
+                cMe();
                 this.jeH.setThreadList(this.jEa);
                 this.jDZ.a(i, i2, baVar, this.jEa);
             }
@@ -867,7 +867,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             axVar.forumId = this.jeH.getForum().getId();
         }
         axVar.forumName = this.jfa;
-        if (ac.cHd().At(1) != null && this.jwC == 1) {
+        if (ac.cHe().At(1) != null && this.jwC == 1) {
             this.jDO.setCategoryId(i2);
         }
         this.jDT = i2;
@@ -960,16 +960,16 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
     }
 
     @Override // com.baidu.tieba.frs.an
-    public void cbG() {
+    public void cbH() {
         this.jDY.destory();
         this.jDY.clear();
     }
 
-    public int cMe() {
+    public int cMf() {
         return this.jwC;
     }
 
-    public boolean cMf() {
+    public boolean cMg() {
         return 1 == this.jwC;
     }
 
@@ -1007,7 +1007,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
                 com.baidu.adp.widget.ListView.n next = it.next();
                 if (!(next instanceof by)) {
                     i = i2;
-                } else if (((by) next).eMv.brl() != 0) {
+                } else if (((by) next).eMv.brm() != 0) {
                     i = i2 + 1;
                 } else {
                     return i2;
@@ -1028,11 +1028,11 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         return false;
     }
 
-    public boolean cMg() {
+    public boolean cMh() {
         return this.jDW;
     }
 
-    public void cMh() {
+    public void cMi() {
         com.baidu.tieba.frs.s sVar = new com.baidu.tieba.frs.s();
         if (this.jDU == 0) {
             sVar.Al(this.jEc);
@@ -1047,7 +1047,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
     }
 
-    public ArrayList<com.baidu.adp.widget.ListView.n> cMi() {
+    public ArrayList<com.baidu.adp.widget.ListView.n> cMj() {
         return this.jDN;
     }
 
@@ -1062,9 +1062,9 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
             com.baidu.tieba.frs.d.j.ba("1~" + str + this.jfa, this.jEc);
         }
         if (7 == i) {
-            com.baidu.tieba.tbadkCore.util.e.dQr();
-        } else {
             com.baidu.tieba.tbadkCore.util.e.dQs();
+        } else {
+            com.baidu.tieba.tbadkCore.util.e.dQt();
         }
     }
 
@@ -1076,11 +1076,11 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.jEf = z;
     }
 
-    public int cMj() {
+    public int cMk() {
         return this.jEc;
     }
 
-    public int cMk() {
+    public int cMl() {
         return this.jEe;
     }
 
@@ -1088,33 +1088,33 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         return com.baidu.tieba.frs.d.j.BP(this.jEc);
     }
 
-    public boolean cMl() {
+    public boolean cMm() {
         return this.jDR;
     }
 
-    public boolean cMm() {
+    public boolean cMn() {
         return this.jEc == 5;
     }
 
-    public boolean cMn() {
+    public boolean cMo() {
         return this.jDO != null && this.jDO.getLoadType() == 1;
     }
 
-    public boolean cMo() {
-        return this.jEc == 7 || (!this.jDP.cMs() && this.jEe == 7);
+    public boolean cMp() {
+        return this.jEc == 7 || (!this.jDP.cMt() && this.jEe == 7);
     }
 
     private int c(int i, FrsRequestData frsRequestData) {
-        if (i == 1 && this.jDI.cEQ() != null) {
-            return this.jDI.cEQ().a(this.jEc, frsRequestData);
+        if (i == 1 && this.jDI.cER() != null) {
+            return this.jDI.cER().a(this.jEc, frsRequestData);
         }
         return i;
     }
 
     private void a(String str, FrsRequestData frsRequestData) {
-        if (bz.eTz.get() && r.dEV().dEP() != null) {
-            int ba = r.dEV().dEP().ba(str, false);
-            int bb = r.dEV().dEP().bb(str, false);
+        if (bz.eTz.get() && r.dEW().dEQ() != null) {
+            int ba = r.dEW().dEQ().ba(str, false);
+            int bb = r.dEW().dEQ().bb(str, false);
             if (frsRequestData.getLoadType() == 1) {
                 ba++;
             } else if (frsRequestData.getLoadType() == 2) {
@@ -1125,7 +1125,7 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         }
     }
 
-    public void cMp() {
+    public void cMq() {
         RequestIncrForumAccessCountNetMessage requestIncrForumAccessCountNetMessage = new RequestIncrForumAccessCountNetMessage();
         if (this.jeH != null && this.jeH.getForum() != null) {
             requestIncrForumAccessCountNetMessage.setForumId(com.baidu.adp.lib.f.b.toLong(this.jeH.getForum().getId(), 0L));
@@ -1133,31 +1133,31 @@ public class FrsModelController extends BdBaseModel<BaseFragmentActivity> implem
         this.jDI.sendMessage(requestIncrForumAccessCountNetMessage);
     }
 
-    public void Lz(final String str) {
+    public void Ly(final String str) {
         com.baidu.tbadk.util.ac.a(new ab<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.2
             @Override // com.baidu.tbadk.util.ab
             public Object doInBackground() {
-                com.baidu.tieba.tbadkCore.e.dNY().gn(FrsModelController.this.jEg, str);
+                com.baidu.tieba.tbadkCore.e.dNZ().gn(FrsModelController.this.jEg, str);
+                return null;
+            }
+        }, null);
+    }
+
+    public void Lz(final String str) {
+        com.baidu.tbadk.util.ac.a(new ab<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.3
+            @Override // com.baidu.tbadk.util.ab
+            public Object doInBackground() {
+                com.baidu.tieba.tbadkCore.e.dNZ().go(FrsModelController.this.jEg, str);
                 return null;
             }
         }, null);
     }
 
     public void LA(final String str) {
-        com.baidu.tbadk.util.ac.a(new ab<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.3
-            @Override // com.baidu.tbadk.util.ab
-            public Object doInBackground() {
-                com.baidu.tieba.tbadkCore.e.dNY().go(FrsModelController.this.jEg, str);
-                return null;
-            }
-        }, null);
-    }
-
-    public void LB(final String str) {
         com.baidu.tbadk.util.ac.a(new ab<Object>() { // from class: com.baidu.tieba.frs.mc.FrsModelController.4
             @Override // com.baidu.tbadk.util.ab
             public Object doInBackground() {
-                com.baidu.tieba.tbadkCore.e.dNY().gp(FrsModelController.this.jEg, str);
+                com.baidu.tieba.tbadkCore.e.dNZ().gp(FrsModelController.this.jEg, str);
                 return null;
             }
         }, null);

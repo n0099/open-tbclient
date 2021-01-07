@@ -19,11 +19,11 @@ public class e extends HttpMessage {
         this.hci = j;
     }
 
-    public void HE(String str) {
+    public void HD(String str) {
         this.hcj = str;
     }
 
-    public void HF(String str) {
+    public void HE(String str) {
         this.sign = str;
     }
 

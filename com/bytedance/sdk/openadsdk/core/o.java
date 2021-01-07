@@ -20,10 +20,10 @@ import org.json.JSONObject;
 public class o {
 
     /* renamed from: a  reason: collision with root package name */
-    private final com.bytedance.sdk.openadsdk.core.d.l f6950a;
+    private final com.bytedance.sdk.openadsdk.core.d.l f6951a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.bytedance.sdk.openadsdk.downloadnew.core.a f6951b;
+    private com.bytedance.sdk.openadsdk.downloadnew.core.a f6952b;
     private final Context c;
     private final TTNativeAd d;
     private List<View> e = new ArrayList();
@@ -33,17 +33,17 @@ public class o {
     public o(Context context, TTNativeAd tTNativeAd, com.bytedance.sdk.openadsdk.core.d.l lVar, String str) {
         this.f = "embeded_ad";
         this.d = tTNativeAd;
-        this.f6950a = lVar;
+        this.f6951a = lVar;
         this.c = context;
         this.f = str;
-        if (this.f6950a.H() == 4) {
-            this.f6951b = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.c, this.f6950a, this.f);
+        if (this.f6951a.H() == 4) {
+            this.f6952b = com.bytedance.sdk.openadsdk.downloadnew.a.a(this.c, this.f6951a, this.f);
         }
     }
 
     public void a(@NonNull Activity activity) {
-        if (this.f6951b != null) {
-            this.f6951b.a(activity);
+        if (this.f6952b != null) {
+            this.f6952b.a(activity);
         }
     }
 
@@ -54,15 +54,15 @@ public class o {
     }
 
     public com.bytedance.sdk.openadsdk.downloadnew.core.a a() {
-        return this.f6951b;
+        return this.f6952b;
     }
 
     public void a(@NonNull final ViewGroup viewGroup, List<View> list, List<View> list2, @Nullable List<View> list3, @Nullable View view, final TTNativeAd.AdInteractionListener adInteractionListener) {
         this.g = adInteractionListener;
-        if (this.f6951b != null) {
-            this.f6951b.b();
+        if (this.f6952b != null) {
+            this.f6952b.b();
         }
-        com.bytedance.sdk.openadsdk.c.d.a(this.f6950a);
+        com.bytedance.sdk.openadsdk.c.d.a(this.f6951a);
         EmptyView a2 = a(viewGroup);
         if (a2 == null) {
             a2 = new EmptyView(this.c, viewGroup);
@@ -71,14 +71,14 @@ public class o {
         a2.a();
         a2.setRefClickViews(list2);
         a2.setRefCreativeViews(list3);
-        if (this.f6951b != null) {
-            this.f6951b.a(a2);
+        if (this.f6952b != null) {
+            this.f6952b.a(a2);
         }
         this.e = list;
-        com.bytedance.sdk.openadsdk.core.a.b bVar = new com.bytedance.sdk.openadsdk.core.a.b(this.c, this.f6950a, this.f, aj.a(this.f));
+        com.bytedance.sdk.openadsdk.core.a.b bVar = new com.bytedance.sdk.openadsdk.core.a.b(this.c, this.f6951a, this.f, aj.a(this.f));
         bVar.a(viewGroup);
         bVar.b(view);
-        bVar.a(this.f6951b);
+        bVar.a(this.f6952b);
         bVar.a(this.d);
         bVar.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.core.o.1
             @Override // com.bytedance.sdk.openadsdk.core.a.b.a
@@ -88,10 +88,10 @@ public class o {
                 }
             }
         });
-        com.bytedance.sdk.openadsdk.core.a.a aVar = new com.bytedance.sdk.openadsdk.core.a.a(this.c, this.f6950a, this.f, aj.a(this.f));
+        com.bytedance.sdk.openadsdk.core.a.a aVar = new com.bytedance.sdk.openadsdk.core.a.a(this.c, this.f6951a, this.f, aj.a(this.f));
         aVar.a(viewGroup);
         aVar.b(view);
-        aVar.a(this.f6951b);
+        aVar.a(this.f6952b);
         aVar.a(this.d);
         aVar.a(new b.a() { // from class: com.bytedance.sdk.openadsdk.core.o.2
             @Override // com.bytedance.sdk.openadsdk.core.a.b.a
@@ -106,26 +106,26 @@ public class o {
         a2.setCallback(new EmptyView.a() { // from class: com.bytedance.sdk.openadsdk.core.o.3
             @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
             public void a(boolean z) {
-                if (o.this.f6951b != null) {
+                if (o.this.f6952b != null) {
                     if (z) {
-                        o.this.f6951b.b();
+                        o.this.f6952b.b();
                     } else {
-                        o.this.f6951b.c();
+                        o.this.f6952b.c();
                     }
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
             public void a() {
-                if (o.this.f6951b != null) {
-                    o.this.f6951b.a();
+                if (o.this.f6952b != null) {
+                    o.this.f6952b.a();
                 }
             }
 
             @Override // com.bytedance.sdk.openadsdk.core.EmptyView.a
             public void b() {
-                if (o.this.f6951b != null) {
-                    o.this.f6951b.d();
+                if (o.this.f6952b != null) {
+                    o.this.f6952b.d();
                 }
             }
 
@@ -158,12 +158,12 @@ public class o {
                     }
                     hashMap.put("root_view", jSONObject2.toString());
                 }
-                com.bytedance.sdk.openadsdk.c.d.a(o.this.c, o.this.f6950a, o.this.f, hashMap);
+                com.bytedance.sdk.openadsdk.c.d.a(o.this.c, o.this.f6951a, o.this.f, hashMap);
                 if (adInteractionListener != null) {
                     adInteractionListener.onAdShow(o.this.d);
                 }
-                if (o.this.f6950a.ab()) {
-                    aj.a(o.this.f6950a, view2);
+                if (o.this.f6951a.ab()) {
+                    aj.a(o.this.f6951a, view2);
                 }
             }
         });
@@ -188,8 +188,8 @@ public class o {
     }
 
     public void a(TTAppDownloadListener tTAppDownloadListener) {
-        if (this.f6951b != null) {
-            this.f6951b.a(tTAppDownloadListener);
+        if (this.f6952b != null) {
+            this.f6952b.a(tTAppDownloadListener);
         }
     }
 }

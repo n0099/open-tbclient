@@ -46,7 +46,7 @@ public class SendGiftSuccessMessage extends CustomResponsedMessage {
             this.url = str;
         }
 
-        public void BC(String str) {
+        public void BB(String str) {
             this.faN = str;
         }
     }

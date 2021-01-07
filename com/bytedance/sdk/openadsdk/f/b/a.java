@@ -15,7 +15,7 @@ import org.json.JSONObject;
 public class a extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject> {
 
     /* renamed from: a  reason: collision with root package name */
-    private WeakReference<x> f7455a;
+    private WeakReference<x> f7456a;
 
     public static void a(q qVar, final x xVar) {
         qVar.a("getNetworkData", new d.b() { // from class: com.bytedance.sdk.openadsdk.f.b.a.1
@@ -27,7 +27,7 @@ public class a extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject>
     }
 
     public a(x xVar) {
-        this.f7455a = new WeakReference<>(xVar);
+        this.f7456a = new WeakReference<>(xVar);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -37,7 +37,7 @@ public class a extends com.bytedance.sdk.openadsdk.f.a.d<JSONObject, JSONObject>
         if (i.c().u()) {
             Log.d("DoGetAdsFromNetwork", "[JSB-REQ] version: 3 data=" + (jSONObject != null ? jSONObject.toString() : ""));
         }
-        x xVar = this.f7455a.get();
+        x xVar = this.f7456a.get();
         if (xVar == null) {
             Log.e("DoGetAdsFromNetwork", "invoke error");
             c();

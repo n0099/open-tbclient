@@ -5,7 +5,7 @@ import org.json.JSONObject;
 public class d {
     private com.baidu.swan.apps.b.a.b cGP;
 
-    public static d and() {
+    public static d ane() {
         return a.cGQ;
     }
 

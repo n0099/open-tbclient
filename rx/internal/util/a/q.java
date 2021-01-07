@@ -10,13 +10,13 @@ public final class q<E> extends v<E> {
         if (e == null) {
             throw new NullPointerException("null elements not allowed");
         }
-        E[] eArr = this.qlO;
+        E[] eArr = this.qnw;
         long j = this.producerIndex;
-        long jv = jv(j);
-        if (b(eArr, jv) != null) {
+        long jy = jy(j);
+        if (b(eArr, jy) != null) {
             return false;
         }
-        b(eArr, jv, e);
+        b(eArr, jy, e);
         soProducerIndex(1 + j);
         return true;
     }
@@ -24,53 +24,53 @@ public final class q<E> extends v<E> {
     @Override // java.util.Queue
     public E poll() {
         long j = this.consumerIndex;
-        long jv = jv(j);
-        E[] eArr = this.qlO;
-        E b2 = b(eArr, jv);
+        long jy = jy(j);
+        E[] eArr = this.qnw;
+        E b2 = b(eArr, jy);
         if (b2 == null) {
             return null;
         }
-        b(eArr, jv, null);
+        b(eArr, jy, null);
         soConsumerIndex(j + 1);
         return b2;
     }
 
     @Override // java.util.Queue
     public E peek() {
-        return jw(jv(this.consumerIndex));
+        return jz(jy(this.consumerIndex));
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public int size() {
-        long eLr = eLr();
+        long eLV = eLV();
         while (true) {
-            long eLq = eLq();
-            long eLr2 = eLr();
-            if (eLr == eLr2) {
-                return (int) (eLq - eLr2);
+            long eLU = eLU();
+            long eLV2 = eLV();
+            if (eLV == eLV2) {
+                return (int) (eLU - eLV2);
             }
-            eLr = eLr2;
+            eLV = eLV2;
         }
     }
 
     @Override // java.util.AbstractCollection, java.util.Collection
     public boolean isEmpty() {
-        return eLq() == eLr();
+        return eLU() == eLV();
     }
 
     private void soProducerIndex(long j) {
-        ae.qwp.a(this, qwj, j);
+        ae.qxX.a(this, qxR, j);
     }
 
     private void soConsumerIndex(long j) {
-        ae.qwp.a(this, qwi, j);
+        ae.qxX.a(this, qxQ, j);
     }
 
-    private long eLq() {
-        return ae.qwp.e(this, qwj);
+    private long eLU() {
+        return ae.qxX.e(this, qxR);
     }
 
-    private long eLr() {
-        return ae.qwp.e(this, qwi);
+    private long eLV() {
+        return ae.qxX.e(this, qxQ);
     }
 }

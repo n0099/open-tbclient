@@ -89,7 +89,7 @@ public class LoadingProgressBar extends View {
         this.dYM.setStrokeCap(this.cME);
     }
 
-    private void aUw() {
+    private void aUx() {
         Shader shader = null;
         if (this.dYV != this.dYW) {
             switch (this.dYZ) {
@@ -201,7 +201,7 @@ public class LoadingProgressBar extends View {
         this.dYJ.bottom = this.dZb + this.mRadius;
         this.dYJ.left = this.dZa - this.mRadius;
         this.dYJ.right = this.dZa + this.mRadius;
-        aUw();
+        aUx();
         this.dYJ.inset(this.dYR / 2.0f, this.dYR / 2.0f);
     }
 
@@ -223,13 +223,13 @@ public class LoadingProgressBar extends View {
 
     public void setProgressStartColor(int i) {
         this.dYV = i;
-        aUw();
+        aUx();
         invalidate();
     }
 
     public void setProgressEndColor(int i) {
         this.dYW = i;
-        aUw();
+        aUx();
         invalidate();
     }
 
@@ -263,7 +263,7 @@ public class LoadingProgressBar extends View {
 
     public void setShader(int i) {
         this.dYZ = i;
-        aUw();
+        aUx();
         invalidate();
     }
 

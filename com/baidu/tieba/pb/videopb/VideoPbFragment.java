@@ -183,106 +183,106 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     public View jvO;
     public al kON;
     public ar kSQ;
-    private com.baidu.tieba.pb.videopb.c.a lGB;
-    private PbActivity lME;
-    private com.baidu.tieba.pb.pb.main.emotion.model.a lMX;
-    private PbFakeFloorModel lMz;
-    private EmotionImageData lNA;
-    private com.baidu.tbadk.core.view.c lNE;
-    int lNa;
-    private g lNw;
-    private com.baidu.tbadk.editortools.pb.e lNx;
-    private com.baidu.tieba.frs.profession.permission.c lNz;
-    private View lUL;
-    private r lVM;
-    private View lVd;
-    private LinearLayout lVf;
-    private HeadImageView lVg;
+    private com.baidu.tieba.pb.videopb.c.a lGA;
+    private PbActivity lMD;
+    private com.baidu.tieba.pb.pb.main.emotion.model.a lMW;
+    int lMZ;
+    private PbFakeFloorModel lMy;
+    private com.baidu.tbadk.core.view.c lND;
+    private g lNv;
+    private com.baidu.tbadk.editortools.pb.e lNw;
+    private com.baidu.tieba.frs.profession.permission.c lNy;
+    private EmotionImageData lNz;
+    private View lUK;
+    private r lVL;
+    private View lVc;
+    private LinearLayout lVe;
+    private HeadImageView lVf;
+    private ImageView lVg;
     private ImageView lVh;
     private ImageView lVi;
-    private ImageView lVj;
-    private com.baidu.tieba.pb.view.d lVk;
+    private com.baidu.tieba.pb.view.d lVj;
+    private TextView lVk;
     private TextView lVl;
-    private TextView lVm;
+    private int lVn;
     private int lVo;
-    private int lVp;
-    private String lWe;
+    private String lWd;
     private GestureDetector mGestureDetector;
     public NavigationBar mNavigationBar;
     private PermissionJudgePolicy mPermissionJudgePolicy;
     private View mStatusBar;
-    private VideoPbFragmentAdapter mfA;
+    private View mfA;
     private View mfB;
-    private View mfC;
-    private VideoContainerLayout mfD;
-    private com.baidu.tieba.pb.videopb.videoView.a mfE;
-    private e mfF;
+    private VideoContainerLayout mfC;
+    private com.baidu.tieba.pb.videopb.videoView.a mfD;
+    private e mfE;
+    private View mfF;
     private View mfG;
-    private View mfH;
+    private TextView mfI;
     private TextView mfJ;
-    private TextView mfK;
-    private ImageView mfL;
-    private TBSpecificationBtn mfM;
-    private TbImageView mfN;
-    private View mfO;
+    private ImageView mfK;
+    private TBSpecificationBtn mfL;
+    private TbImageView mfM;
+    private View mfN;
+    private ValueAnimator mfO;
     private ValueAnimator mfP;
-    private ValueAnimator mfQ;
-    public com.baidu.tieba.pb.videopb.b.a mfR;
+    public com.baidu.tieba.pb.videopb.b.a mfQ;
+    private float mfU;
     private float mfV;
-    private float mfW;
-    private boolean mfX;
-    private NewPagerSlidingTabBaseStrip mfz;
+    private boolean mfW;
+    private NewPagerSlidingTabBaseStrip mfy;
+    private VideoPbFragmentAdapter mfz;
+    private ObjectAnimator mga;
     private ObjectAnimator mgb;
-    private ObjectAnimator mgc;
     private RelativeLayout rootView;
-    public static int mfv = 0;
-    public static int mfw = 1;
-    public static int mfx = 0;
-    public static int lVE = 3;
-    public static int lVF = 0;
-    public static int lVG = 3;
-    public static int lVH = 4;
-    public static int lVI = 5;
-    public static int lVJ = 6;
+    public static int mfu = 0;
+    public static int mfv = 1;
+    public static int mfw = 0;
+    public static int lVD = 3;
+    public static int lVE = 0;
+    public static int lVF = 3;
+    public static int lVG = 4;
+    public static int lVH = 5;
+    public static int lVI = 6;
     private static final int kin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds146);
-    private static final int mfy = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds114);
-    private static final b.a lOx = new b.a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.14
+    private static final int mfx = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds114);
+    private static final b.a lOw = new b.a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.14
         @Override // com.baidu.tieba.f.b.a
         public void cZ(boolean z) {
             if (z) {
-                com.baidu.tieba.pb.a.b.dnL();
+                com.baidu.tieba.pb.a.b.dnM();
             } else {
-                com.baidu.tieba.pb.a.b.dnK();
+                com.baidu.tieba.pb.a.b.dnL();
             }
         }
     };
-    private long lMM = 0;
-    private boolean lMT = false;
-    View.OnClickListener mfI = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.1
+    private long lML = 0;
+    private boolean lMS = false;
+    View.OnClickListener mfH = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.1
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            if (VideoPbFragment.this.lGB == null || VideoPbFragment.this.lGB.dwL()) {
-                if (VideoPbFragment.this.lGB != null) {
-                    if (VideoPbFragment.this.lGB.isChushou) {
-                        VideoPbFragment.this.eI(VideoPbFragment.this.lGB.thirdRoomId, VideoPbFragment.this.lGB.thirdLiveType);
+            if (VideoPbFragment.this.lGA == null || VideoPbFragment.this.lGA.dwM()) {
+                if (VideoPbFragment.this.lGA != null) {
+                    if (VideoPbFragment.this.lGA.isChushou) {
+                        VideoPbFragment.this.eI(VideoPbFragment.this.lGA.thirdRoomId, VideoPbFragment.this.lGA.thirdLiveType);
                     } else {
                         AlaLiveInfoCoreData alaLiveInfoCoreData = new AlaLiveInfoCoreData();
-                        alaLiveInfoCoreData.liveID = VideoPbFragment.this.lGB.dwM();
+                        alaLiveInfoCoreData.liveID = VideoPbFragment.this.lGA.dwN();
                         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new AlaLiveRoomActivityConfig(VideoPbFragment.this.getContext(), alaLiveInfoCoreData, AlaLiveRoomActivityConfig.FROM_TYPE_VIDEO_PB_RECOMMEND, null, false, "")));
                     }
-                    if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().getForum() != null) {
-                        TiebaStatic.log(new aq("c13713").dX("fid", VideoPbFragment.this.dnV().getPbData().getForum().getId()).dX("fname", VideoPbFragment.this.dnV().getPbData().getForum().getName()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", VideoPbFragment.this.dnV().getPbData().getThreadId()).w("obj_param1", VideoPbFragment.this.lGB.userId));
+                    if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().getForum() != null) {
+                        TiebaStatic.log(new aq("c13713").dX("fid", VideoPbFragment.this.dnW().getPbData().getForum().getId()).dX("fname", VideoPbFragment.this.dnW().getPbData().getForum().getName()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", VideoPbFragment.this.dnW().getPbData().getThreadId()).w("obj_param1", VideoPbFragment.this.lGA.userId));
                         return;
                     }
                     return;
                 }
                 return;
             }
-            TiebaStatic.log(new aq("c13590").dX("obj_id", VideoPbFragment.this.lGB.getTitle()).dX("obj_name", VideoPbFragment.this.lGB.dwI()).an("obj_type", 2).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", VideoPbFragment.this.dnV().getPbData().getThreadId()));
-            String link = VideoPbFragment.this.lGB.getLink();
+            TiebaStatic.log(new aq("c13590").dX("obj_id", VideoPbFragment.this.lGA.getTitle()).dX("obj_name", VideoPbFragment.this.lGA.dwJ()).an("obj_type", 2).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", VideoPbFragment.this.dnW().getPbData().getThreadId()));
+            String link = VideoPbFragment.this.lGA.getLink();
             if (!TextUtils.isEmpty(link)) {
                 if (URLUtil.isHttpUrl(link) || URLUtil.isHttpsUrl(link)) {
-                    be.bwu().b(VideoPbFragment.this.getPageContext(), new String[]{link});
+                    be.bwv().b(VideoPbFragment.this.getPageContext(), new String[]{link});
                     return;
                 }
                 Uri parse = Uri.parse(link);
@@ -293,68 +293,68 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         }
     };
     private boolean mIsLoading = false;
-    private com.baidu.tbadk.baseEditMark.a lNj = null;
+    private com.baidu.tbadk.baseEditMark.a lNi = null;
     private com.baidu.tbadk.coreExtra.model.a fcZ = null;
     private ForumManageModel ggJ = null;
-    private boolean lMQ = false;
-    private View lVe = null;
+    private boolean lMP = false;
+    private View lVd = null;
     private TextView klE = null;
-    private boolean lVa = false;
+    private boolean lUZ = false;
     private String fGe = null;
+    private boolean lNl = false;
     private boolean lNm = false;
     private boolean lNn = false;
-    private boolean lNo = false;
-    private boolean lMS = false;
-    int[] lMZ = new int[2];
-    private int lNb = -1;
-    private int lNc = Integer.MIN_VALUE;
-    private int lNK = 0;
-    private int mfT = Integer.MIN_VALUE;
+    private boolean lMR = false;
+    int[] lMY = new int[2];
+    private int lNa = -1;
+    private int lNb = Integer.MIN_VALUE;
+    private int lNJ = 0;
+    private int mfS = Integer.MIN_VALUE;
     private boolean isPaused = false;
-    private boolean lNg = com.baidu.tbadk.a.d.bmF();
-    private final PbModel.a lOn = new PbModel.a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.12
+    private boolean lNf = com.baidu.tbadk.a.d.bmG();
+    private final PbModel.a lOm = new PbModel.a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.12
         @Override // com.baidu.tieba.pb.pb.main.PbModel.a
         public void a(boolean z, int i, int i2, int i3, f fVar, String str, int i4) {
             com.baidu.tbadk.editortools.h ss;
-            VideoPbFragment.this.dsp();
-            VideoPbFragment.this.dsk();
+            VideoPbFragment.this.dsq();
+            VideoPbFragment.this.dsl();
             if (VideoPbFragment.this.mIsLoading) {
                 VideoPbFragment.this.mIsLoading = false;
             }
             VideoPbFragment.this.vz(false);
             if (z && fVar != null) {
-                bz dmE = fVar.dmE();
+                bz dmF = fVar.dmF();
                 ((VideoPbViewModel) ViewModelProviders.of(VideoPbFragment.this.getActivity()).get(VideoPbViewModel.class)).c(fVar, i2);
                 VideoPbFragment.this.M(fVar);
-                com.baidu.tieba.pb.videopb.c.a dnj = fVar.dnj();
-                if (dnj != null && !dnj.mhU) {
-                    VideoPbFragment.this.a(dnj);
+                com.baidu.tieba.pb.videopb.c.a dnk = fVar.dnk();
+                if (dnk != null && !dnk.mhT) {
+                    VideoPbFragment.this.a(dnk);
                 }
                 VideoPbFragment.this.N(fVar);
                 VideoPbFragment.this.c(z, i, i2, i3, fVar, str, i4);
                 TbadkCoreApplication.getInst().setDefaultBubble(fVar.getUserData().getBimg_url());
                 TbadkCoreApplication.getInst().setDefaultBubbleEndTime(fVar.getUserData().getBimg_end_time());
-                if (VideoPbFragment.this.lNj != null) {
-                    VideoPbFragment.this.lNj.jc(fVar.bnx());
+                if (VideoPbFragment.this.lNi != null) {
+                    VideoPbFragment.this.lNi.jc(fVar.bny());
                 }
                 AntiData anti = fVar.getAnti();
                 if (anti != null) {
                     VideoPbFragment.this.fGe = anti.getVoice_message();
-                    if (!StringUtils.isNull(VideoPbFragment.this.fGe) && VideoPbFragment.this.lNx != null && VideoPbFragment.this.lNx.bEI() != null && (ss = VideoPbFragment.this.lNx.bEI().ss(6)) != null && !TextUtils.isEmpty(VideoPbFragment.this.fGe)) {
+                    if (!StringUtils.isNull(VideoPbFragment.this.fGe) && VideoPbFragment.this.lNw != null && VideoPbFragment.this.lNw.bEJ() != null && (ss = VideoPbFragment.this.lNw.bEJ().ss(6)) != null && !TextUtils.isEmpty(VideoPbFragment.this.fGe)) {
                         ((View) ss).setOnClickListener(VideoPbFragment.this.fGR);
                     }
                 }
-                if (VideoPbFragment.this.kON != null && dmE != null && dmE.brq() != null) {
+                if (VideoPbFragment.this.kON != null && dmF != null && dmF.brr() != null) {
                     AttentionHostData attentionHostData = new AttentionHostData();
-                    attentionHostData.parserWithMetaData(dmE.brq());
+                    attentionHostData.parserWithMetaData(dmF.brr());
                     VideoPbFragment.this.kON.a(attentionHostData);
                 }
             } else {
                 if (i == 4 || i == 350008) {
                     JSONObject jSONObject = new JSONObject();
                     try {
-                        jSONObject.put("tid", VideoPbFragment.this.dnV().dpW());
-                        jSONObject.put("fid", VideoPbFragment.this.dnV().getForumId());
+                        jSONObject.put("tid", VideoPbFragment.this.dnW().dpX());
+                        jSONObject.put("fid", VideoPbFragment.this.dnW().getForumId());
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -365,51 +365,51 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     kVar.setOpType("2");
                     kVar.start();
                 }
-                if ((!com.baidu.tbadk.a.d.bmH() || VideoPbFragment.this.dvM() != null) && VideoPbFragment.this.dvK() != null) {
-                    if (com.baidu.tbadk.a.d.bmH()) {
+                if ((!com.baidu.tbadk.a.d.bmI() || VideoPbFragment.this.dvN() != null) && VideoPbFragment.this.dvL() != null) {
+                    if (com.baidu.tbadk.a.d.bmI()) {
                         if (i != -1) {
                             ArrayList<PostData> arrayList = null;
-                            if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                                arrayList = VideoPbFragment.this.dnV().getPbData().dmG();
+                            if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                                arrayList = VideoPbFragment.this.dnW().getPbData().dmH();
                             }
-                            if (x.getCount(arrayList) == 0 || (x.getCount(arrayList) == 1 && arrayList.get(0) != null && arrayList.get(0).dPd() == 1)) {
-                                if (VideoPbFragment.this.dvM().dpw()) {
-                                    VideoPbFragment.this.dvM().PY(VideoPbFragment.this.getResources().getString(R.string.pb_no_host_reply));
+                            if (x.getCount(arrayList) == 0 || (x.getCount(arrayList) == 1 && arrayList.get(0) != null && arrayList.get(0).dPe() == 1)) {
+                                if (VideoPbFragment.this.dvN().dpx()) {
+                                    VideoPbFragment.this.dvN().PX(VideoPbFragment.this.getResources().getString(R.string.pb_no_host_reply));
                                 } else {
-                                    VideoPbFragment.this.dvM().PY(VideoPbFragment.this.getResources().getString(R.string.pb_no_replay));
+                                    VideoPbFragment.this.dvN().PX(VideoPbFragment.this.getResources().getString(R.string.pb_no_replay));
                                 }
                             } else {
-                                VideoPbFragment.this.dvM().PX(VideoPbFragment.this.getResources().getString(R.string.list_no_more_new));
+                                VideoPbFragment.this.dvN().PW(VideoPbFragment.this.getResources().getString(R.string.list_no_more_new));
                             }
                         } else {
-                            VideoPbFragment.this.dvM().PX("");
+                            VideoPbFragment.this.dvN().PW("");
                         }
-                        VideoPbFragment.this.dvM().endLoadData();
+                        VideoPbFragment.this.dvN().endLoadData();
                     } else {
                         if (i != -1) {
                             ArrayList<PostData> arrayList2 = null;
-                            if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                                arrayList2 = VideoPbFragment.this.dnV().getPbData().dmG();
+                            if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                                arrayList2 = VideoPbFragment.this.dnW().getPbData().dmH();
                             }
-                            if (x.getCount(arrayList2) == 0 || (x.getCount(arrayList2) == 1 && arrayList2.get(0) != null && arrayList2.get(0).dPd() == 1)) {
-                                if (VideoPbFragment.this.dvK().dpw()) {
-                                    VideoPbFragment.this.dvK().PY(VideoPbFragment.this.getResources().getString(R.string.pb_no_host_reply));
+                            if (x.getCount(arrayList2) == 0 || (x.getCount(arrayList2) == 1 && arrayList2.get(0) != null && arrayList2.get(0).dPe() == 1)) {
+                                if (VideoPbFragment.this.dvL().dpx()) {
+                                    VideoPbFragment.this.dvL().PX(VideoPbFragment.this.getResources().getString(R.string.pb_no_host_reply));
                                 } else {
-                                    VideoPbFragment.this.dvK().PY(VideoPbFragment.this.getResources().getString(R.string.pb_no_replay));
+                                    VideoPbFragment.this.dvL().PX(VideoPbFragment.this.getResources().getString(R.string.pb_no_replay));
                                 }
                             } else {
-                                VideoPbFragment.this.dvK().PX(VideoPbFragment.this.getResources().getString(R.string.list_no_more_new));
+                                VideoPbFragment.this.dvL().PW(VideoPbFragment.this.getResources().getString(R.string.list_no_more_new));
                             }
                         } else {
-                            VideoPbFragment.this.dvK().PX("");
+                            VideoPbFragment.this.dvL().PW("");
                         }
-                        VideoPbFragment.this.dvK().endLoadData();
+                        VideoPbFragment.this.dvL().endLoadData();
                     }
                 } else {
                     return;
                 }
             }
-            com.baidu.tieba.s.c.dNX().b(VideoPbFragment.this.getUniqueId(), false);
+            com.baidu.tieba.s.c.dNY().b(VideoPbFragment.this.getUniqueId(), false);
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbModel.a
@@ -420,30 +420,30 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         public void a(int i, boolean z, ResponsedMessage<?> responsedMessage, boolean z2, long j) {
         }
     };
-    private final a.InterfaceC0574a lOp = new a.InterfaceC0574a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.23
+    private final a.InterfaceC0574a lOo = new a.InterfaceC0574a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.23
         @Override // com.baidu.tbadk.baseEditMark.a.InterfaceC0574a
         public void g(boolean z, boolean z2, String str) {
-            VideoPbFragment.this.dsp();
-            if (z && VideoPbFragment.this.dnV() != null) {
-                if (VideoPbFragment.this.lNj != null) {
-                    VideoPbFragment.this.lNj.jc(z2);
+            VideoPbFragment.this.dsq();
+            if (z && VideoPbFragment.this.dnW() != null) {
+                if (VideoPbFragment.this.lNi != null) {
+                    VideoPbFragment.this.lNi.jc(z2);
                 }
-                VideoPbFragment.this.dnV().vd(z2);
-                if (VideoPbFragment.this.dnV().bnx()) {
-                    VideoPbFragment.this.dph();
-                } else if (com.baidu.tbadk.a.d.bmH() && VideoPbFragment.this.dvM() != null) {
-                    VideoPbFragment.this.dvM().dwv();
-                } else if (VideoPbFragment.this.dvK() != null) {
-                    VideoPbFragment.this.dvK().dwv();
+                VideoPbFragment.this.dnW().vd(z2);
+                if (VideoPbFragment.this.dnW().bny()) {
+                    VideoPbFragment.this.dpi();
+                } else if (com.baidu.tbadk.a.d.bmI() && VideoPbFragment.this.dvN() != null) {
+                    VideoPbFragment.this.dvN().dww();
+                } else if (VideoPbFragment.this.dvL() != null) {
+                    VideoPbFragment.this.dvL().dww();
                 }
                 if (z2) {
-                    if (VideoPbFragment.this.lNj != null) {
-                        if (VideoPbFragment.this.lNj.bnA() != null && VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().dmE() != null && VideoPbFragment.this.dnV().getPbData().dmE().brq() != null) {
-                            MarkData bnA = VideoPbFragment.this.lNj.bnA();
-                            MetaData brq = VideoPbFragment.this.dnV().getPbData().dmE().brq();
-                            if (bnA != null && brq != null) {
-                                if (!at.equals(TbadkCoreApplication.getCurrentAccount(), brq.getUserId()) && !brq.hadConcerned()) {
-                                    VideoPbFragment.this.mfR.b(brq);
+                    if (VideoPbFragment.this.lNi != null) {
+                        if (VideoPbFragment.this.lNi.bnB() != null && VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().dmF() != null && VideoPbFragment.this.dnW().getPbData().dmF().brr() != null) {
+                            MarkData bnB = VideoPbFragment.this.lNi.bnB();
+                            MetaData brr = VideoPbFragment.this.dnW().getPbData().dmF().brr();
+                            if (bnB != null && brr != null) {
+                                if (!at.equals(TbadkCoreApplication.getCurrentAccount(), brr.getUserId()) && !brr.hadConcerned()) {
+                                    VideoPbFragment.this.mfQ.b(brr);
                                 } else {
                                     VideoPbFragment.this.showToast(R.string.add_mark_on_pb);
                                 }
@@ -454,7 +454,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                             return;
                         }
                     }
-                    VideoPbFragment.this.dpe();
+                    VideoPbFragment.this.dpf();
                     return;
                 }
                 VideoPbFragment.this.showToast(VideoPbFragment.this.getPageContext().getString(R.string.remove_mark));
@@ -465,32 +465,32 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     };
     private com.baidu.tbadk.editortools.pb.b fGi = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.34
         @Override // com.baidu.tbadk.editortools.pb.b
-        public boolean bFm() {
-            if (VideoPbFragment.this.kSQ == null || VideoPbFragment.this.kSQ.dti() == null || !VideoPbFragment.this.kSQ.dti().dXS()) {
+        public boolean bFn() {
+            if (VideoPbFragment.this.kSQ == null || VideoPbFragment.this.kSQ.dtj() == null || !VideoPbFragment.this.kSQ.dtj().dXT()) {
                 return !VideoPbFragment.this.GV(al.fcU);
             }
-            VideoPbFragment.this.showToast(VideoPbFragment.this.kSQ.dti().dXU());
-            if (VideoPbFragment.this.lNx != null && (VideoPbFragment.this.lNx.bFD() || VideoPbFragment.this.lNx.bFE())) {
-                VideoPbFragment.this.lNx.a(false, VideoPbFragment.this.kSQ.dtl());
+            VideoPbFragment.this.showToast(VideoPbFragment.this.kSQ.dtj().dXV());
+            if (VideoPbFragment.this.lNw != null && (VideoPbFragment.this.lNw.bFE() || VideoPbFragment.this.lNw.bFF())) {
+                VideoPbFragment.this.lNw.a(false, VideoPbFragment.this.kSQ.dtm());
             }
             VideoPbFragment.this.kSQ.vF(true);
             return true;
         }
     };
-    private final CustomMessageListener lNR = new CustomMessageListener(CmdConfigCustom.PB_RESET_EDITOR_TOOL) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.45
+    private final CustomMessageListener lNQ = new CustomMessageListener(CmdConfigCustom.PB_RESET_EDITOR_TOOL) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.45
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (VideoPbFragment.this.dnV() != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                if (VideoPbFragment.this.lNx != null) {
-                    VideoPbFragment.this.vx(VideoPbFragment.this.lNx.bFw());
+            if (VideoPbFragment.this.dnW() != null && customResponsedMessage != null && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Boolean) && !((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                if (VideoPbFragment.this.lNw != null) {
+                    VideoPbFragment.this.vx(VideoPbFragment.this.lNw.bFx());
                 }
-                VideoPbFragment.this.drO();
-                VideoPbFragment.this.mfR.dsG();
+                VideoPbFragment.this.drP();
+                VideoPbFragment.this.mfQ.dsH();
             }
         }
     };
-    private CustomMessageListener lNU = new CustomMessageListener(CmdConfigCustom.UPDATE_PB_SUBPB_CMD) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.56
+    private CustomMessageListener lNT = new CustomMessageListener(CmdConfigCustom.UPDATE_PB_SUBPB_CMD) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.56
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
@@ -522,29 +522,29 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (!VideoPbFragment.this.isPaused) {
-                VideoPbFragment.this.dpz();
+                VideoPbFragment.this.dpA();
             }
         }
     };
-    private CustomMessageListener lOo = new CustomMessageListener(CmdConfigCustom.CMD_WX_SHARE_SUCCESS) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.65
+    private CustomMessageListener lOn = new CustomMessageListener(CmdConfigCustom.CMD_WX_SHARE_SUCCESS) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.65
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if ((customResponsedMessage instanceof CustomResponsedMessage) && ((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                VideoPbFragment.this.doY();
+                VideoPbFragment.this.doZ();
             }
         }
     };
-    private CustomMessageListener lOg = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.66
+    private CustomMessageListener lOf = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_CHECK_RESPONSE) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.66
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             boolean z = false;
-            if (VideoPbFragment.this.mfR != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a) && customResponsedMessage.getOrginalMessage().getTag() == VideoPbFragment.this.mfR.lNF) {
+            if (VideoPbFragment.this.mfQ != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof com.baidu.tieba.usermute.a) && customResponsedMessage.getOrginalMessage().getTag() == VideoPbFragment.this.mfQ.lNE) {
                 com.baidu.tieba.usermute.a aVar = (com.baidu.tieba.usermute.a) customResponsedMessage.getData();
-                VideoPbFragment.this.mfR.cni();
-                SparseArray<Object> sparseArray = (SparseArray) VideoPbFragment.this.mfR.getExtra();
-                DataRes dataRes = aVar.nEU;
+                VideoPbFragment.this.mfQ.cnj();
+                SparseArray<Object> sparseArray = (SparseArray) VideoPbFragment.this.mfQ.getExtra();
+                DataRes dataRes = aVar.nET;
                 if (aVar.error == 0 && dataRes != null) {
                     int i = com.baidu.adp.lib.f.b.toInt(dataRes.is_mute, 0);
                     String str = dataRes.mute_confirm;
@@ -561,75 +561,75 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 }
                 int intValue = ((Integer) sparseArray.get(R.id.tag_from)).intValue();
                 if (intValue == 0) {
-                    VideoPbFragment.this.mfR.a(z, sparseArray);
+                    VideoPbFragment.this.mfQ.a(z, sparseArray);
                 } else if (intValue == 1) {
-                    VideoPbFragment.this.mfR.a(sparseArray, z);
+                    VideoPbFragment.this.mfQ.a(sparseArray, z);
                 }
             }
         }
     };
-    private CustomMessageListener lOe = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_ADD) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.2
+    private CustomMessageListener lOd = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_ADD) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.2
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (VideoPbFragment.this.mfR != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == VideoPbFragment.this.mfR.lNF) {
-                VideoPbFragment.this.mfR.cni();
+            if (VideoPbFragment.this.mfQ != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteAddResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == VideoPbFragment.this.mfQ.lNE) {
+                VideoPbFragment.this.mfQ.cnj();
                 UserMuteAddResponseMessage userMuteAddResponseMessage = (UserMuteAddResponseMessage) customResponsedMessage.getData();
                 String str = (String) userMuteAddResponseMessage.getOrginalMessage().getExtra();
-                f pbData = VideoPbFragment.this.dnV().getPbData();
+                f pbData = VideoPbFragment.this.dnW().getPbData();
                 if (pbData != null) {
                     MuteUser muteUser = new MuteUser();
                     muteUser.setUserId(str);
-                    pbData.dmU().add(muteUser);
+                    pbData.dmV().add(muteUser);
                 }
                 if (userMuteAddResponseMessage.getMuteErrorCode() == 0) {
-                    VideoPbFragment.this.lNE.showSuccessToast(VideoPbFragment.this.getResources().getString(R.string.mute_success));
+                    VideoPbFragment.this.lND.showSuccessToast(VideoPbFragment.this.getResources().getString(R.string.mute_success));
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 220017) {
                     String errorString = userMuteAddResponseMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
                         errorString = VideoPbFragment.this.getResources().getString(R.string.mute_error_beyond_limit);
                     }
-                    VideoPbFragment.this.mfR.DX(errorString);
+                    VideoPbFragment.this.mfQ.DW(errorString);
                 } else if (userMuteAddResponseMessage.getMuteErrorCode() == 1990043) {
-                    VideoPbFragment.this.mfR.dpv();
+                    VideoPbFragment.this.mfQ.dpw();
                 } else {
                     String errorString2 = userMuteAddResponseMessage.getErrorString();
                     if (at.isEmpty(errorString2)) {
                         errorString2 = VideoPbFragment.this.getResources().getString(R.string.mute_fail);
                     }
-                    VideoPbFragment.this.lNE.showFailToast(errorString2);
+                    VideoPbFragment.this.lND.showFailToast(errorString2);
                 }
             }
         }
     };
-    private CustomMessageListener lOf = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_DEL) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.3
+    private CustomMessageListener lOe = new CustomMessageListener(CmdConfigCustom.CMD_USER_MUTE_DEL) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.3
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            if (VideoPbFragment.this.mfR != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == VideoPbFragment.this.mfR.lNF) {
-                VideoPbFragment.this.mfR.cni();
+            if (VideoPbFragment.this.mfQ != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof UserMuteDelResponseMessage) && customResponsedMessage.getOrginalMessage().getTag() == VideoPbFragment.this.mfQ.lNE) {
+                VideoPbFragment.this.mfQ.cnj();
                 UserMuteDelResponseMessage userMuteDelResponseMessage = (UserMuteDelResponseMessage) customResponsedMessage.getData();
                 if (userMuteDelResponseMessage.getMuteErrorCode() == 0) {
-                    VideoPbFragment.this.lNE.showSuccessToast(VideoPbFragment.this.getResources().getString(R.string.un_mute_success));
+                    VideoPbFragment.this.lND.showSuccessToast(VideoPbFragment.this.getResources().getString(R.string.un_mute_success));
                     return;
                 }
                 String muteMessage = userMuteDelResponseMessage.getMuteMessage();
                 if (at.isEmpty(muteMessage)) {
                     muteMessage = VideoPbFragment.this.getResources().getString(R.string.un_mute_fail);
                 }
-                VideoPbFragment.this.lNE.showFailToast(muteMessage);
+                VideoPbFragment.this.lND.showFailToast(muteMessage);
             }
         }
     };
-    private com.baidu.tbadk.editortools.pb.b lNC = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.4
+    private com.baidu.tbadk.editortools.pb.b lNB = new com.baidu.tbadk.editortools.pb.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.4
         @Override // com.baidu.tbadk.editortools.pb.b
-        public boolean bFm() {
-            if (VideoPbFragment.this.kSQ == null || VideoPbFragment.this.kSQ.dtj() == null || !VideoPbFragment.this.kSQ.dtj().dXS()) {
+        public boolean bFn() {
+            if (VideoPbFragment.this.kSQ == null || VideoPbFragment.this.kSQ.dtk() == null || !VideoPbFragment.this.kSQ.dtk().dXT()) {
                 return !VideoPbFragment.this.GV(al.fcV);
             }
-            VideoPbFragment.this.showToast(VideoPbFragment.this.kSQ.dtj().dXU());
-            if (VideoPbFragment.this.lVM != null && VideoPbFragment.this.lVM.doI() != null && VideoPbFragment.this.lVM.doI().bFE()) {
-                VideoPbFragment.this.lVM.doI().a(VideoPbFragment.this.kSQ.dtl());
+            VideoPbFragment.this.showToast(VideoPbFragment.this.kSQ.dtk().dXV());
+            if (VideoPbFragment.this.lVL != null && VideoPbFragment.this.lVL.doJ() != null && VideoPbFragment.this.lVL.doJ().bFF()) {
+                VideoPbFragment.this.lVL.doJ().a(VideoPbFragment.this.kSQ.dtm());
             }
             VideoPbFragment.this.kSQ.vG(true);
             return true;
@@ -643,14 +643,14 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 aq aqVar = new aq("c13268");
                 aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                    aqVar.dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId());
+                if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                    aqVar.dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId());
                 }
-                aqVar.dX("tid", VideoPbFragment.this.dnV().dpW());
+                aqVar.dX("tid", VideoPbFragment.this.dnW().dpX());
                 aqVar.dX("obj_source", TbadkCoreApplication.getInst().getTaskId());
                 TiebaStatic.log(aqVar);
             }
-            VideoPbFragment.this.cFz();
+            VideoPbFragment.this.cFA();
             VideoPbFragment.this.b(z, postWriteCallBackData);
             String str = "";
             int i = -1;
@@ -659,52 +659,52 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 str = postWriteCallBackData.getErrorString();
             }
             if (z) {
-                if (PbReplySwitch.getInOn() && VideoPbFragment.this.dnV() != null && postWriteCallBackData != null && !StringUtils.isNull(postWriteCallBackData.getPostId())) {
-                    VideoPbFragment.this.dnV().PS(postWriteCallBackData.getPostId());
-                    if (com.baidu.tbadk.a.d.bmH() && VideoPbFragment.this.dvM() != null) {
-                        VideoPbFragment.this.lNK = VideoPbFragment.this.dvM().dsr();
-                        VideoPbFragment.this.mfT = VideoPbFragment.this.dvM().dwy();
-                        VideoPbFragment.this.dnV().dc(VideoPbFragment.this.lNK, VideoPbFragment.this.mfT);
-                    } else if (VideoPbFragment.this.dvK() != null) {
-                        VideoPbFragment.this.lNK = VideoPbFragment.this.dvK().dsr();
-                        VideoPbFragment.this.mfT = VideoPbFragment.this.dvK().dwy();
-                        VideoPbFragment.this.dnV().dc(VideoPbFragment.this.lNK, VideoPbFragment.this.mfT);
+                if (PbReplySwitch.getInOn() && VideoPbFragment.this.dnW() != null && postWriteCallBackData != null && !StringUtils.isNull(postWriteCallBackData.getPostId())) {
+                    VideoPbFragment.this.dnW().PR(postWriteCallBackData.getPostId());
+                    if (com.baidu.tbadk.a.d.bmI() && VideoPbFragment.this.dvN() != null) {
+                        VideoPbFragment.this.lNJ = VideoPbFragment.this.dvN().dss();
+                        VideoPbFragment.this.mfS = VideoPbFragment.this.dvN().dwz();
+                        VideoPbFragment.this.dnW().dc(VideoPbFragment.this.lNJ, VideoPbFragment.this.mfS);
+                    } else if (VideoPbFragment.this.dvL() != null) {
+                        VideoPbFragment.this.lNJ = VideoPbFragment.this.dvL().dss();
+                        VideoPbFragment.this.mfS = VideoPbFragment.this.dvL().dwz();
+                        VideoPbFragment.this.dnW().dc(VideoPbFragment.this.lNJ, VideoPbFragment.this.mfS);
                     }
                 }
                 if (VideoPbFragment.this.fbv != null) {
-                    if (com.baidu.tbadk.a.d.bmH()) {
-                        VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfx);
-                    } else {
+                    if (com.baidu.tbadk.a.d.bmI()) {
                         VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfw);
+                    } else {
+                        VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfv);
                     }
                 }
-                VideoPbFragment.this.mfR.dsG();
-                VideoPbFragment.this.kSQ.dth();
-                if (VideoPbFragment.this.lNx != null) {
-                    VideoPbFragment.this.vx(VideoPbFragment.this.lNx.bFw());
+                VideoPbFragment.this.mfQ.dsH();
+                VideoPbFragment.this.kSQ.dti();
+                if (VideoPbFragment.this.lNw != null) {
+                    VideoPbFragment.this.vx(VideoPbFragment.this.lNw.bFx());
                 }
-                VideoPbFragment.this.drK();
+                VideoPbFragment.this.drL();
                 VideoPbFragment.this.vz(true);
-                VideoPbFragment.this.dnV().dqs();
+                VideoPbFragment.this.dnW().dqt();
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_ON_DUI_SEND_SUCCESS_OR_CANCEL));
                 VideoPbFragment.this.a(antiData, postWriteCallBackData);
                 if (writeData != null) {
                     String floor = writeData.getFloor();
                     if (writeData != null && writeData.getType() == 2) {
                         if (floor != null) {
-                            if (com.baidu.tbadk.a.d.bmH() && VideoPbFragment.this.dvM() != null) {
-                                VideoPbFragment.this.dvM().dwv();
-                            } else if (VideoPbFragment.this.dvK() != null) {
-                                VideoPbFragment.this.dvK().dwv();
+                            if (com.baidu.tbadk.a.d.bmI() && VideoPbFragment.this.dvN() != null) {
+                                VideoPbFragment.this.dvN().dww();
+                            } else if (VideoPbFragment.this.dvL() != null) {
+                                VideoPbFragment.this.dvL().dww();
                             }
                         }
-                    } else if (VideoPbFragment.this.dnV().getHostMode()) {
-                        f pbData = VideoPbFragment.this.dnV().getPbData();
-                        if (pbData != null && pbData.dmE() != null && pbData.dmE().brq() != null && (userId = pbData.dmE().brq().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount()) && !PbReplySwitch.getInOn() && VideoPbFragment.this.dnV().dqj()) {
-                            VideoPbFragment.this.dsn();
+                    } else if (VideoPbFragment.this.dnW().getHostMode()) {
+                        f pbData = VideoPbFragment.this.dnW().getPbData();
+                        if (pbData != null && pbData.dmF() != null && pbData.dmF().brr() != null && (userId = pbData.dmF().brr().getUserId()) != null && userId.equals(TbadkCoreApplication.getCurrentAccount()) && !PbReplySwitch.getInOn() && VideoPbFragment.this.dnW().dqk()) {
+                            VideoPbFragment.this.dso();
                         }
-                    } else if (!PbReplySwitch.getInOn() && VideoPbFragment.this.dnV().dqj()) {
-                        VideoPbFragment.this.dsn();
+                    } else if (!PbReplySwitch.getInOn() && VideoPbFragment.this.dnW().dqk()) {
+                        VideoPbFragment.this.dso();
                     }
                     VideoPbFragment videoPbFragment = VideoPbFragment.this;
                     if (writeData == null || writeData.getType() != 2) {
@@ -714,8 +714,8 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 }
             } else if (i == 220015) {
                 VideoPbFragment.this.showToast(str);
-                if (VideoPbFragment.this.lNx.bFD() || VideoPbFragment.this.lNx.bFE()) {
-                    VideoPbFragment.this.lNx.a(false, postWriteCallBackData);
+                if (VideoPbFragment.this.lNw.bFE() || VideoPbFragment.this.lNw.bFF()) {
+                    VideoPbFragment.this.lNw.a(false, postWriteCallBackData);
                 }
                 VideoPbFragment.this.kSQ.h(postWriteCallBackData);
             } else if (i == 238010) {
@@ -731,9 +731,9 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(VideoPbFragment.this.getActivity());
                 if (at.isEmpty(postWriteCallBackData.getErrorString())) {
-                    aVar.Bp(VideoPbFragment.this.getActivity().getString(R.string.open_member_and_add_more_links));
+                    aVar.Bo(VideoPbFragment.this.getActivity().getString(R.string.open_member_and_add_more_links));
                 } else {
-                    aVar.Bp(postWriteCallBackData.getErrorString());
+                    aVar.Bo(postWriteCallBackData.getErrorString());
                 }
                 aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.5.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -749,7 +749,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         TiebaStatic.log(new aq("c13746").an("obj_locate", 1).an("obj_type", 2));
                     }
                 });
-                aVar.b(VideoPbFragment.this.getPageContext()).btX();
+                aVar.b(VideoPbFragment.this.getPageContext()).btY();
                 TiebaStatic.log(new aq("c13745").an("obj_locate", 1).an("obj_type", 2));
             } else if (ahVar == null && i != 227001) {
                 VideoPbFragment.this.a(i, antiData, str);
@@ -762,79 +762,79 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             VideoPbFragment.this.showToast(VideoPbFragment.this.fGe);
         }
     };
-    private CustomMessageListener lNT = new CustomMessageListener(CmdConfigCustom.PB_LOAD_DRAFT) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.7
+    private CustomMessageListener lNS = new CustomMessageListener(CmdConfigCustom.PB_LOAD_DRAFT) { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.7
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             if (customResponsedMessage != null) {
-                if (VideoPbFragment.this.lNx != null) {
-                    VideoPbFragment.this.vx(VideoPbFragment.this.lNx.bFw());
+                if (VideoPbFragment.this.lNw != null) {
+                    VideoPbFragment.this.vx(VideoPbFragment.this.lNw.bFx());
                 }
                 VideoPbFragment.this.vz(false);
             }
         }
     };
-    private int mfU = 0;
-    private boolean mfY = true;
-    private View.OnTouchListener mfZ = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.8
+    private int mfT = 0;
+    private boolean mfX = true;
+    private View.OnTouchListener mfY = new View.OnTouchListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.8
         @Override // android.view.View.OnTouchListener
         public boolean onTouch(View view, MotionEvent motionEvent) {
             if (motionEvent.getAction() != 1 && motionEvent.getAction() != 3) {
                 return VideoPbFragment.this.mGestureDetector != null && VideoPbFragment.this.mGestureDetector.onTouchEvent(motionEvent);
             }
-            if (VideoPbFragment.this.mfU == 1) {
-                if (!VideoPbFragment.this.mfY) {
-                    VideoPbFragment.this.dvP();
-                    UtilHelper.showStatusBar(VideoPbFragment.this.dpD(), VideoPbFragment.this.dpD().getRootView());
-                    VideoPbFragment.this.mfY = true;
-                    com.baidu.adp.lib.f.e.mB().removeCallbacks(VideoPbFragment.this.mga);
-                    com.baidu.adp.lib.f.e.mB().postDelayed(VideoPbFragment.this.mga, IMConnection.RETRY_DELAY_TIMES);
+            if (VideoPbFragment.this.mfT == 1) {
+                if (!VideoPbFragment.this.mfX) {
+                    VideoPbFragment.this.dvQ();
+                    UtilHelper.showStatusBar(VideoPbFragment.this.dpE(), VideoPbFragment.this.dpE().getRootView());
+                    VideoPbFragment.this.mfX = true;
+                    com.baidu.adp.lib.f.e.mB().removeCallbacks(VideoPbFragment.this.mfZ);
+                    com.baidu.adp.lib.f.e.mB().postDelayed(VideoPbFragment.this.mfZ, IMConnection.RETRY_DELAY_TIMES);
                 }
-            } else if (VideoPbFragment.this.mfU == 2 && (VideoPbFragment.this.mfY || VideoPbFragment.this.dvR())) {
-                VideoPbFragment.this.dvQ();
-                UtilHelper.hideStatusBar(VideoPbFragment.this.dpD(), VideoPbFragment.this.dpD().getRootView());
-                VideoPbFragment.this.mfY = false;
-                if (VideoPbFragment.this.mfE != null) {
-                    VideoPbFragment.this.mfE.wb(false);
+            } else if (VideoPbFragment.this.mfT == 2 && (VideoPbFragment.this.mfX || VideoPbFragment.this.dvS())) {
+                VideoPbFragment.this.dvR();
+                UtilHelper.hideStatusBar(VideoPbFragment.this.dpE(), VideoPbFragment.this.dpE().getRootView());
+                VideoPbFragment.this.mfX = false;
+                if (VideoPbFragment.this.mfD != null) {
+                    VideoPbFragment.this.mfD.wb(false);
                 }
             }
-            VideoPbFragment.this.mfU = 0;
+            VideoPbFragment.this.mfT = 0;
             return true;
         }
     };
     private GestureDetector.SimpleOnGestureListener jrz = new GestureDetector.SimpleOnGestureListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.9
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onDown(MotionEvent motionEvent) {
-            VideoPbFragment.this.mfU = 0;
+            VideoPbFragment.this.mfT = 0;
+            VideoPbFragment.this.mfU = 0.0f;
             VideoPbFragment.this.mfV = 0.0f;
-            VideoPbFragment.this.mfW = 0.0f;
             return true;
         }
 
         @Override // android.view.GestureDetector.SimpleOnGestureListener, android.view.GestureDetector.OnGestureListener
         public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-            VideoPbFragment.this.mfV += f;
-            VideoPbFragment.this.mfW += f2;
-            if (VideoPbFragment.this.mfU == 0 && !VideoPbFragment.this.mfX && VideoPbFragment.this.mfE != null && !VideoPbFragment.this.mfE.isFullScreen()) {
+            VideoPbFragment.this.mfU += f;
+            VideoPbFragment.this.mfV += f2;
+            if (VideoPbFragment.this.mfT == 0 && !VideoPbFragment.this.mfW && VideoPbFragment.this.mfD != null && !VideoPbFragment.this.mfD.isFullScreen()) {
                 int height = VideoPbFragment.this.mNavigationBar.getHeight();
-                if (motionEvent.getY() < 0.0f || Math.abs(VideoPbFragment.this.mfW) <= Math.abs(VideoPbFragment.this.mfV) || VideoPbFragment.this.mfW > (-height) / 5) {
-                    if (Math.abs(VideoPbFragment.this.mfW) > Math.abs(VideoPbFragment.this.mfV) && VideoPbFragment.this.mfW > 0.0f && f2 > 0.0f) {
-                        VideoPbFragment.this.mfU = 2;
+                if (motionEvent.getY() < 0.0f || Math.abs(VideoPbFragment.this.mfV) <= Math.abs(VideoPbFragment.this.mfU) || VideoPbFragment.this.mfV > (-height) / 5) {
+                    if (Math.abs(VideoPbFragment.this.mfV) > Math.abs(VideoPbFragment.this.mfU) && VideoPbFragment.this.mfV > 0.0f && f2 > 0.0f) {
+                        VideoPbFragment.this.mfT = 2;
                     }
                 } else {
-                    VideoPbFragment.this.mfU = 1;
+                    VideoPbFragment.this.mfT = 1;
                 }
             }
             return true;
         }
     };
-    private Runnable mga = new Runnable() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.10
+    private Runnable mfZ = new Runnable() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.10
         @Override // java.lang.Runnable
         public void run() {
-            if (VideoPbFragment.this.mfY && !VideoPbFragment.this.dvR()) {
-                VideoPbFragment.this.dvQ();
-                UtilHelper.hideStatusBar(VideoPbFragment.this.dpD(), VideoPbFragment.this.dpD().getRootView());
-                VideoPbFragment.this.mfY = false;
+            if (VideoPbFragment.this.mfX && !VideoPbFragment.this.dvS()) {
+                VideoPbFragment.this.dvR();
+                UtilHelper.hideStatusBar(VideoPbFragment.this.dpE(), VideoPbFragment.this.dpE().getRootView());
+                VideoPbFragment.this.mfX = false;
             }
         }
     };
@@ -842,22 +842,22 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         @Override // com.baidu.adp.base.e
         public void callback(Object obj) {
             boolean z = false;
-            if (obj == null || VideoPbFragment.this.dnV() == null) {
+            if (obj == null || VideoPbFragment.this.dnW() == null) {
                 VideoPbFragment.this.a(VideoPbFragment.this.ggJ.getLoadDataMode(), false, (String) null, false);
                 return;
             }
             switch (VideoPbFragment.this.ggJ.getLoadDataMode()) {
                 case 0:
-                    VideoPbFragment.this.dnV().dqs();
+                    VideoPbFragment.this.dnW().dqt();
                     ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                    if (bVar.mcO != 1002 || bVar.hli) {
+                    if (bVar.mcN != 1002 || bVar.hli) {
                         z = true;
                     }
                     VideoPbFragment.this.a(bVar, z);
                     return;
                 case 1:
                     ForumManageModel.d dVar = (ForumManageModel.d) obj;
-                    VideoPbFragment.this.a(1, dVar.mSuccess, dVar.nuu, true);
+                    VideoPbFragment.this.a(1, dVar.mSuccess, dVar.nut, true);
                     return;
                 case 2:
                 case 3:
@@ -867,8 +867,8 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     return;
                 case 6:
                     ForumManageModel.g gVar = (ForumManageModel.g) obj;
-                    VideoPbFragment.this.a(VideoPbFragment.this.ggJ.getLoadDataMode(), gVar.mSuccess, gVar.nuu, false);
-                    VideoPbFragment.this.mfR.bf(gVar.nux);
+                    VideoPbFragment.this.a(VideoPbFragment.this.ggJ.getLoadDataMode(), gVar.mSuccess, gVar.nut, false);
+                    VideoPbFragment.this.mfQ.bf(gVar.nuw);
                     return;
                 default:
                     return;
@@ -882,24 +882,24 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             return false;
         }
     };
-    public NewWriteModel.d lOl = new NewWriteModel.d() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.16
+    public NewWriteModel.d lOk = new NewWriteModel.d() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.16
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
         public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, ah ahVar, WriteData writeData, AntiData antiData) {
             if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 aq aqVar = new aq("c13268");
                 aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                    aqVar.dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId());
+                if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                    aqVar.dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId());
                 }
-                if (VideoPbFragment.this.dnV() != null) {
-                    aqVar.dX("tid", VideoPbFragment.this.dnV().dpW());
+                if (VideoPbFragment.this.dnW() != null) {
+                    aqVar.dX("tid", VideoPbFragment.this.dnW().dpX());
                 }
                 aqVar.dX("obj_source", TbadkCoreApplication.getInst().getTaskId());
                 TiebaStatic.log(aqVar);
             }
             if (z) {
                 if (VideoPbFragment.this.kSQ != null) {
-                    VideoPbFragment.this.kSQ.dtg();
+                    VideoPbFragment.this.kSQ.dth();
                 }
                 if (postWriteCallBackData != null && postWriteCallBackData.getIconStampData() != null) {
                     com.baidu.tbadk.coreExtra.c.b.a(VideoPbFragment.this.getPageContext(), postWriteCallBackData);
@@ -927,9 +927,9 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(VideoPbFragment.this.getActivity());
                 if (at.isEmpty(postWriteCallBackData.getErrorString())) {
-                    aVar.Bp(VideoPbFragment.this.getActivity().getString(R.string.open_member_and_add_more_links));
+                    aVar.Bo(VideoPbFragment.this.getActivity().getString(R.string.open_member_and_add_more_links));
                 } else {
-                    aVar.Bp(postWriteCallBackData.getErrorString());
+                    aVar.Bo(postWriteCallBackData.getErrorString());
                 }
                 aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.16.1
                     @Override // com.baidu.tbadk.core.dialog.a.b
@@ -945,12 +945,12 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         TiebaStatic.log(new aq("c13746").an("obj_locate", 1).an("obj_type", 2));
                     }
                 });
-                aVar.b(VideoPbFragment.this.getPageContext()).btX();
+                aVar.b(VideoPbFragment.this.getPageContext()).btY();
                 TiebaStatic.log(new aq("c13745").an("obj_locate", 1).an("obj_type", 2));
             }
             if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError() && VideoPbFragment.this.kSQ != null) {
-                if (VideoPbFragment.this.lVM != null && VideoPbFragment.this.lVM.doI() != null && VideoPbFragment.this.lVM.doI().bFE()) {
-                    VideoPbFragment.this.lVM.doI().a(postWriteCallBackData);
+                if (VideoPbFragment.this.lVL != null && VideoPbFragment.this.lVL.doJ() != null && VideoPbFragment.this.lVL.doJ().bFF()) {
+                    VideoPbFragment.this.lVL.doJ().a(postWriteCallBackData);
                 }
                 VideoPbFragment.this.kSQ.i(postWriteCallBackData);
             }
@@ -958,7 +958,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     };
     private com.baidu.tbadk.editortools.pb.c fGh = new com.baidu.tbadk.editortools.pb.c() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.20
         @Override // com.baidu.tbadk.editortools.pb.c
-        public void bFn() {
+        public void bFo() {
             VideoPbFragment.this.showProgressBar();
         }
     };
@@ -975,13 +975,13 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             if (view != null && VideoPbFragment.this.isAdded()) {
                 if ((view instanceof TbListTextView) && (view.getParent() instanceof TbRichTextView)) {
                     aq aqVar = new aq("c13398");
-                    aqVar.dX("tid", VideoPbFragment.this.dnV().dpW());
-                    aqVar.dX("fid", VideoPbFragment.this.dnV().getForumId());
+                    aqVar.dX("tid", VideoPbFragment.this.dnW().dpX());
+                    aqVar.dX("fid", VideoPbFragment.this.dnW().getForumId());
                     aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
                     aqVar.an("obj_locate", 1);
                     TiebaStatic.log(aqVar);
-                    if (VideoPbFragment.this.lMQ) {
-                        VideoPbFragment.this.lMQ = false;
+                    if (VideoPbFragment.this.lMP) {
+                        VideoPbFragment.this.lMP = false;
                         return;
                     }
                     TbRichTextView tbRichTextView = (TbRichTextView) view.getParent();
@@ -989,54 +989,54 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         Object obj = ((SparseArray) tbRichTextView.getTag()).get(R.id.tag_clip_board);
                         if (obj instanceof PostData) {
                             PostData postData = (PostData) obj;
-                            if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.lMz != null && postData.brq() != null && postData.dPd() != 1 && VideoPbFragment.this.checkUpIsLogin()) {
-                                if (VideoPbFragment.this.lVM != null) {
-                                    VideoPbFragment.this.lVM.doE();
+                            if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.lMy != null && postData.brr() != null && postData.dPe() != 1 && VideoPbFragment.this.checkUpIsLogin()) {
+                                if (VideoPbFragment.this.lVL != null) {
+                                    VideoPbFragment.this.lVL.doF();
                                 }
                                 p pVar = new p();
-                                pVar.a(VideoPbFragment.this.dnV().getPbData().getForum());
-                                pVar.setThreadData(VideoPbFragment.this.dnV().getPbData().dmE());
+                                pVar.a(VideoPbFragment.this.dnW().getPbData().getForum());
+                                pVar.setThreadData(VideoPbFragment.this.dnW().getPbData().dmF());
                                 pVar.g(postData);
-                                VideoPbFragment.this.lMz.d(pVar);
-                                VideoPbFragment.this.lMz.setPostId(postData.getId());
-                                VideoPbFragment.this.a(view, postData.brq().getUserId(), "", postData);
+                                VideoPbFragment.this.lMy.d(pVar);
+                                VideoPbFragment.this.lMy.setPostId(postData.getId());
+                                VideoPbFragment.this.a(view, postData.brr().getUserId(), "", postData);
                                 TiebaStatic.log("c11743");
-                                com.baidu.tieba.pb.c.a.a(VideoPbFragment.this.dnV().getPbData(), postData, postData.locate, 8, 1);
-                                if (VideoPbFragment.this.lNx != null) {
-                                    VideoPbFragment.this.vx(VideoPbFragment.this.lNx.bFw());
+                                com.baidu.tieba.pb.c.a.a(VideoPbFragment.this.dnW().getPbData(), postData, postData.locate, 8, 1);
+                                if (VideoPbFragment.this.lNw != null) {
+                                    VideoPbFragment.this.vx(VideoPbFragment.this.lNw.bFx());
                                 }
                             }
                         }
                     }
-                } else if ((VideoPbFragment.this.dvK() != null && VideoPbFragment.this.dvK().dsC() != null && view == VideoPbFragment.this.dvK().dsC()) || ((com.baidu.tbadk.a.d.bmH() && VideoPbFragment.this.dvM() != null && VideoPbFragment.this.dvM().dsC() != null && view == VideoPbFragment.this.dvM().dsC()) || view.getId() == R.id.pb_more)) {
-                    if (!VideoPbFragment.this.mIsLoading && VideoPbFragment.this.dnV().vb(true)) {
+                } else if ((VideoPbFragment.this.dvL() != null && VideoPbFragment.this.dvL().dsD() != null && view == VideoPbFragment.this.dvL().dsD()) || ((com.baidu.tbadk.a.d.bmI() && VideoPbFragment.this.dvN() != null && VideoPbFragment.this.dvN().dsD() != null && view == VideoPbFragment.this.dvN().dsD()) || view.getId() == R.id.pb_more)) {
+                    if (!VideoPbFragment.this.mIsLoading && VideoPbFragment.this.dnW().vb(true)) {
                         VideoPbFragment.this.mIsLoading = true;
-                        if (com.baidu.tbadk.a.d.bmH()) {
-                            VideoPbFragment.this.dvM().dso();
+                        if (com.baidu.tbadk.a.d.bmI()) {
+                            VideoPbFragment.this.dvN().dsp();
                         } else {
-                            VideoPbFragment.this.dvK().dso();
+                            VideoPbFragment.this.dvL().dsp();
                         }
                     }
-                } else if (VideoPbFragment.this.mfR != null && VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().dri()) {
-                    VideoPbFragment.this.mfR.bes();
-                } else if ((VideoPbFragment.this.mfR != null && ((VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drj()) || view.getId() == R.id.owner_reply || view.getId() == R.id.all_reply)) || view.getId() == R.id.floor_owner_reply || view.getId() == R.id.reply_title) {
+                } else if (VideoPbFragment.this.mfQ != null && VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drj()) {
+                    VideoPbFragment.this.mfQ.bet();
+                } else if ((VideoPbFragment.this.mfQ != null && ((VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drk()) || view.getId() == R.id.owner_reply || view.getId() == R.id.all_reply)) || view.getId() == R.id.floor_owner_reply || view.getId() == R.id.reply_title) {
                     if (!j.isNetWorkAvailable()) {
                         VideoPbFragment.this.showToast(R.string.network_not_available);
                         view.setTag(Boolean.FALSE);
                         return;
                     }
-                    VideoPbFragment.this.mfR.dsG();
+                    VideoPbFragment.this.mfQ.dsH();
                     if (!VideoPbFragment.this.mIsLoading) {
-                        VideoPbFragment.this.cFz();
-                        VideoPbFragment.this.dsn();
+                        VideoPbFragment.this.cFA();
+                        VideoPbFragment.this.dso();
                         if (view.getId() == R.id.owner_reply) {
-                            C = VideoPbFragment.this.dnV().C(true, VideoPbFragment.this.dpl());
+                            C = VideoPbFragment.this.dnW().C(true, VideoPbFragment.this.dpm());
                         } else {
-                            C = view.getId() == R.id.all_reply ? VideoPbFragment.this.dnV().C(false, VideoPbFragment.this.dpl()) : VideoPbFragment.this.dnV().PP(VideoPbFragment.this.dpl());
+                            C = view.getId() == R.id.all_reply ? VideoPbFragment.this.dnW().C(false, VideoPbFragment.this.dpm()) : VideoPbFragment.this.dnW().PO(VideoPbFragment.this.dpm());
                         }
                         view.setTag(Boolean.valueOf(C));
                         if (C) {
-                            VideoPbFragment.this.dsj();
+                            VideoPbFragment.this.dsk();
                             VideoPbFragment.this.mIsLoading = true;
                         }
                         TiebaStatic.eventStat(VideoPbFragment.this.getPageContext().getPageActivity(), "pb_set_host", "pbclick", 1, new Object[0]);
@@ -1044,62 +1044,62 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     }
                     view.setTag(Boolean.FALSE);
                 } else if (view == VideoPbFragment.this.fOs) {
-                    if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
+                    if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
                         if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                             aq aqVar2 = new aq("c13266");
                             aqVar2.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                            aqVar2.dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId());
-                            aqVar2.dX("tid", VideoPbFragment.this.dnV().dpW());
+                            aqVar2.dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId());
+                            aqVar2.dX("tid", VideoPbFragment.this.dnW().dpX());
                             aqVar2.dX("obj_source", TbadkCoreApplication.getInst().getTaskId());
                             TiebaStatic.log(aqVar2);
                             TbadkCoreApplication.getInst().setTaskId("");
                         }
-                        l.hideSoftKeyPad(VideoPbFragment.this.lME, VideoPbFragment.this.fOs);
-                        VideoPbFragment.this.lME.finish();
+                        l.hideSoftKeyPad(VideoPbFragment.this.lMD, VideoPbFragment.this.fOs);
+                        VideoPbFragment.this.lMD.finish();
                     }
-                } else if (view == VideoPbFragment.this.jvO && VideoPbFragment.this.mfR != null) {
-                    if (VideoPbFragment.this.dnV() == null || VideoPbFragment.this.dnV().getPbData() == null) {
+                } else if (view == VideoPbFragment.this.jvO && VideoPbFragment.this.mfQ != null) {
+                    if (VideoPbFragment.this.dnW() == null || VideoPbFragment.this.dnW().getPbData() == null) {
                         l.showToast(VideoPbFragment.this.getPageContext().getPageActivity(), VideoPbFragment.this.getPageContext().getString(R.string.pb_no_data_tips));
                         return;
                     }
-                    ArrayList<PostData> dmG = VideoPbFragment.this.dnV().getPbData().dmG();
-                    if ((dmG == null || dmG.size() <= 0) && VideoPbFragment.this.dnV().dpY()) {
+                    ArrayList<PostData> dmH = VideoPbFragment.this.dnW().getPbData().dmH();
+                    if ((dmH == null || dmH.size() <= 0) && VideoPbFragment.this.dnW().dpZ()) {
                         l.showToast(VideoPbFragment.this.getPageContext().getPageActivity(), VideoPbFragment.this.getPageContext().getString(R.string.pb_no_data_tips));
                         return;
                     }
-                    TiebaStatic.log(new aq("c12378").dX("tid", VideoPbFragment.this.dnV().dpW()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("fid", VideoPbFragment.this.dnV().getForumId()));
-                    VideoPbFragment.this.mfR.doZ();
-                } else if (VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drn()) {
-                    if (VideoPbFragment.this.dnV() != null) {
-                        VideoPbFragment.this.mfR.dsG();
+                    TiebaStatic.log(new aq("c12378").dX("tid", VideoPbFragment.this.dnW().dpX()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("fid", VideoPbFragment.this.dnW().getForumId()));
+                    VideoPbFragment.this.mfQ.dpa();
+                } else if (VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().dro()) {
+                    if (VideoPbFragment.this.dnW() != null) {
+                        VideoPbFragment.this.mfQ.dsH();
                         if (j.isNetWorkAvailable()) {
-                            VideoPbFragment.this.cFz();
-                            VideoPbFragment.this.dsn();
-                            VideoPbFragment.this.dnV().Hc(1);
+                            VideoPbFragment.this.cFA();
+                            VideoPbFragment.this.dso();
+                            VideoPbFragment.this.dnW().Hc(1);
                             return;
                         }
                         VideoPbFragment.this.showToast(R.string.network_not_available);
                     }
-                } else if (VideoPbFragment.this.mfR != null && VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drj()) {
-                    VideoPbFragment.this.mfR.bes();
-                } else if (VideoPbFragment.this.mfR != null && ((VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drq()) || view.getId() == R.id.pb_sort_type || view.getId() == R.id.pb_sort)) {
-                    VideoPbFragment.this.mfR.dsG();
+                } else if (VideoPbFragment.this.mfQ != null && VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drk()) {
+                    VideoPbFragment.this.mfQ.bet();
+                } else if (VideoPbFragment.this.mfQ != null && ((VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drr()) || view.getId() == R.id.pb_sort_type || view.getId() == R.id.pb_sort)) {
+                    VideoPbFragment.this.mfQ.dsH();
                     if (j.isNetWorkAvailable()) {
                         if (!VideoPbFragment.this.mIsLoading) {
-                            VideoPbFragment.this.cFz();
-                            VideoPbFragment.this.dsn();
-                            VideoPbFragment.this.mfR.dU(view);
+                            VideoPbFragment.this.cFA();
+                            VideoPbFragment.this.dso();
+                            VideoPbFragment.this.mfQ.dU(view);
                             return;
                         }
-                        view.setTag(Integer.valueOf(VideoPbFragment.this.dnV().dqq()));
+                        view.setTag(Integer.valueOf(VideoPbFragment.this.dnW().dqr()));
                         return;
                     }
                     VideoPbFragment.this.showToast(R.string.network_not_available);
-                } else if (VideoPbFragment.this.mfR != null && VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drh()) {
-                    if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().dmE() != null) {
-                        VideoPbFragment.this.mfR.bes();
+                } else if (VideoPbFragment.this.mfQ != null && VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().dri()) {
+                    if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().dmF() != null) {
+                        VideoPbFragment.this.mfQ.bet();
                         TiebaStatic.log(new aq("c13062"));
-                        VideoPbFragment.this.mfR.PK(VideoPbFragment.this.dnV().getPbData().dmE().brG());
+                        VideoPbFragment.this.mfQ.PJ(VideoPbFragment.this.dnW().getPbData().dmF().brH());
                     }
                 } else if (view.getId() == R.id.pb_floor_feedback) {
                     try {
@@ -1108,10 +1108,10 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         e.printStackTrace();
                         sparseArray = null;
                     }
-                    if (VideoPbFragment.this.mfR != null) {
-                        VideoPbFragment.this.mfR.i(sparseArray);
+                    if (VideoPbFragment.this.mfQ != null) {
+                        VideoPbFragment.this.mfQ.i(sparseArray);
                     }
-                } else if (VideoPbFragment.this.mfR != null && VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drr()) {
+                } else if (VideoPbFragment.this.mfQ != null && VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drs()) {
                     int skinType = TbadkCoreApplication.getInst().getSkinType();
                     if (skinType == 1) {
                         VideoPbFragment.this.onChangeSkinType(skinType);
@@ -1124,93 +1124,93 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         TbadkCoreApplication.getInst().setSkinType(1);
                         TiebaStatic.log(new aq(TbadkCoreStatisticKey.SET_NIGHT_MODE).an("obj_type", 1).an("obj_source", 1));
                     }
-                    VideoPbFragment.this.mfR.dtN();
-                } else if (VideoPbFragment.this.mfR != null && (view == VideoPbFragment.this.mfR.dsl() || (VideoPbFragment.this.mfR.dtO() != null && (view == VideoPbFragment.this.mfR.dtO().drm() || view == VideoPbFragment.this.mfR.dtO().drk())))) {
+                    VideoPbFragment.this.mfQ.dtO();
+                } else if (VideoPbFragment.this.mfQ != null && (view == VideoPbFragment.this.mfQ.dsm() || (VideoPbFragment.this.mfQ.dtP() != null && (view == VideoPbFragment.this.mfQ.dtP().drn() || view == VideoPbFragment.this.mfQ.dtP().drl())))) {
                     if (!j.isNetWorkAvailable()) {
                         VideoPbFragment.this.showToast(R.string.network_not_available);
-                    } else if ((VideoPbFragment.this.dnV() != null || VideoPbFragment.this.dnV().getPbData() != null) && !VideoPbFragment.this.ggJ.dPY()) {
-                        VideoPbFragment.this.mfR.dsG();
-                        if (VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drk()) {
-                            if (VideoPbFragment.this.dnV().getPbData().dmE().brl() == 1) {
+                    } else if ((VideoPbFragment.this.dnW() != null || VideoPbFragment.this.dnW().getPbData() != null) && !VideoPbFragment.this.ggJ.dPZ()) {
+                        VideoPbFragment.this.mfQ.dsH();
+                        if (VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drl()) {
+                            if (VideoPbFragment.this.dnW().getPbData().dmF().brm() == 1) {
                                 i2 = 5;
                             } else {
                                 i2 = 4;
                             }
-                        } else if (VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drm()) {
-                            if (VideoPbFragment.this.dnV().getPbData().dmE().brm() != 1) {
+                        } else if (VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drn()) {
+                            if (VideoPbFragment.this.dnW().getPbData().dmF().brn() != 1) {
                                 i2 = 6;
                             }
                         } else {
-                            i2 = view == VideoPbFragment.this.mfR.dsl() ? 2 : 0;
+                            i2 = view == VideoPbFragment.this.mfQ.dsm() ? 2 : 0;
                         }
-                        ForumData forum = VideoPbFragment.this.dnV().getPbData().getForum();
+                        ForumData forum = VideoPbFragment.this.dnW().getPbData().getForum();
                         String name = forum.getName();
                         String id = forum.getId();
-                        String id2 = VideoPbFragment.this.dnV().getPbData().dmE().getId();
+                        String id2 = VideoPbFragment.this.dnW().getPbData().dmF().getId();
                         VideoPbFragment.this.showProgressBar();
-                        VideoPbFragment.this.ggJ.c(id, name, id2, i2, VideoPbFragment.this.mfR.dsm());
+                        VideoPbFragment.this.ggJ.c(id, name, id2, i2, VideoPbFragment.this.mfQ.dsn());
                     }
-                } else if (VideoPbFragment.this.mfR != null && VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drp()) {
-                    if (VideoPbFragment.this.dnV() != null) {
+                } else if (VideoPbFragment.this.mfQ != null && VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drq()) {
+                    if (VideoPbFragment.this.dnW() != null) {
                         if (!j.isNetWorkAvailable()) {
                             VideoPbFragment.this.showToast(R.string.network_not_available);
                             return;
                         }
-                        VideoPbFragment.this.mfR.dsG();
-                        SparseArray<Object> b2 = VideoPbFragment.this.b(VideoPbFragment.this.dnV().getPbData(), VideoPbFragment.this.dnV().dpY(), 1);
+                        VideoPbFragment.this.mfQ.dsH();
+                        SparseArray<Object> b2 = VideoPbFragment.this.b(VideoPbFragment.this.dnW().getPbData(), VideoPbFragment.this.dnW().dpZ(), 1);
                         if (b2 != null) {
-                            VideoPbFragment.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(VideoPbFragment.this.getPageContext().getPageActivity(), VideoPbFragment.this.dnV().getPbData().getForum().getId(), VideoPbFragment.this.dnV().getPbData().getForum().getName(), VideoPbFragment.this.dnV().getPbData().dmE().getId(), String.valueOf(VideoPbFragment.this.dnV().getPbData().getUserData().getUserId()), (String) b2.get(R.id.tag_forbid_user_name), (String) b2.get(R.id.tag_forbid_user_name_show), (String) b2.get(R.id.tag_forbid_user_post_id), (String) b2.get(R.id.tag_forbid_user_portrait))));
+                            VideoPbFragment.this.sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new ForbidActivityConfig(VideoPbFragment.this.getPageContext().getPageActivity(), VideoPbFragment.this.dnW().getPbData().getForum().getId(), VideoPbFragment.this.dnW().getPbData().getForum().getName(), VideoPbFragment.this.dnW().getPbData().dmF().getId(), String.valueOf(VideoPbFragment.this.dnW().getPbData().getUserData().getUserId()), (String) b2.get(R.id.tag_forbid_user_name), (String) b2.get(R.id.tag_forbid_user_name_show), (String) b2.get(R.id.tag_forbid_user_post_id), (String) b2.get(R.id.tag_forbid_user_portrait))));
                         }
                     }
-                } else if (VideoPbFragment.this.mfR != null && VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().drl()) {
-                    if (VideoPbFragment.this.dnV() != null) {
+                } else if (VideoPbFragment.this.mfQ != null && VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drm()) {
+                    if (VideoPbFragment.this.dnW() != null) {
                         if (!j.isNetWorkAvailable()) {
                             VideoPbFragment.this.showToast(R.string.network_not_available);
                             return;
                         }
-                        SparseArray<Object> b3 = VideoPbFragment.this.b(VideoPbFragment.this.dnV().getPbData(), VideoPbFragment.this.dnV().dpY(), 1);
+                        SparseArray<Object> b3 = VideoPbFragment.this.b(VideoPbFragment.this.dnW().getPbData(), VideoPbFragment.this.dnW().dpZ(), 1);
                         if (b3 != null) {
                             if (StringUtils.isNull((String) b3.get(R.id.tag_del_multi_forum))) {
-                                VideoPbFragment.this.mfR.a(((Integer) b3.get(R.id.tag_del_post_type)).intValue(), (String) b3.get(R.id.tag_del_post_id), ((Integer) b3.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) b3.get(R.id.tag_del_post_is_self)).booleanValue());
+                                VideoPbFragment.this.mfQ.a(((Integer) b3.get(R.id.tag_del_post_type)).intValue(), (String) b3.get(R.id.tag_del_post_id), ((Integer) b3.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) b3.get(R.id.tag_del_post_is_self)).booleanValue());
                             } else {
-                                VideoPbFragment.this.mfR.a(((Integer) b3.get(R.id.tag_del_post_type)).intValue(), (String) b3.get(R.id.tag_del_post_id), ((Integer) b3.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) b3.get(R.id.tag_del_post_is_self)).booleanValue(), (String) b3.get(R.id.tag_del_multi_forum));
+                                VideoPbFragment.this.mfQ.a(((Integer) b3.get(R.id.tag_del_post_type)).intValue(), (String) b3.get(R.id.tag_del_post_id), ((Integer) b3.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) b3.get(R.id.tag_del_post_is_self)).booleanValue(), (String) b3.get(R.id.tag_del_multi_forum));
                             }
                         }
-                        VideoPbFragment.this.mfR.bes();
+                        VideoPbFragment.this.mfQ.bet();
                     }
                 } else if (view.getId() == R.id.sub_pb_more || view.getId() == R.id.sub_pb_item || view.getId() == R.id.pb_floor_reply_more || view.getId() == R.id.new_sub_pb_list_richText || view.getId() == R.id.pb_post_reply_count) {
                     if (view.getId() == R.id.new_sub_pb_list_richText) {
                         aq aqVar3 = new aq("c13398");
-                        aqVar3.dX("tid", VideoPbFragment.this.dnV().dpW());
-                        aqVar3.dX("fid", VideoPbFragment.this.dnV().getForumId());
+                        aqVar3.dX("tid", VideoPbFragment.this.dnW().dpX());
+                        aqVar3.dX("fid", VideoPbFragment.this.dnW().getForumId());
                         aqVar3.dX("uid", TbadkCoreApplication.getCurrentAccount());
                         aqVar3.an("obj_locate", 4);
                         TiebaStatic.log(aqVar3);
                     }
                     if (!VideoPbFragment.this.checkUpIsLogin()) {
-                        TiebaStatic.log(new aq("c10517").an("obj_locate", 3).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()));
-                    } else if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                        if (VideoPbFragment.this.mfR != null) {
-                            VideoPbFragment.this.mfR.dsG();
+                        TiebaStatic.log(new aq("c10517").an("obj_locate", 3).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()));
+                    } else if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                        if (VideoPbFragment.this.mfQ != null) {
+                            VideoPbFragment.this.mfQ.dsH();
                         }
                         SparseArray sparseArray2 = (SparseArray) view.getTag();
                         PostData postData2 = (PostData) sparseArray2.get(R.id.tag_load_sub_data);
                         PostData postData3 = (PostData) sparseArray2.get(R.id.tag_load_sub_reply_data);
                         if (postData2 != null) {
-                            if (postData2.dPp() == 1) {
+                            if (postData2.dPq() == 1) {
                                 TiebaStatic.log(new aq("c12630"));
                             }
-                            if (postData2.nsq != null) {
-                                aq bwm = postData2.nsq.bwm();
-                                bwm.delete("obj_locate");
+                            if (postData2.nsp != null) {
+                                aq bwn = postData2.nsp.bwn();
+                                bwn.delete("obj_locate");
                                 if (view.getId() == R.id.new_sub_pb_list_richText) {
-                                    bwm.an("obj_locate", 6);
+                                    bwn.an("obj_locate", 6);
                                 } else if (view.getId() == R.id.pb_floor_reply_more) {
-                                    bwm.an("obj_locate", 8);
+                                    bwn.an("obj_locate", 8);
                                 }
-                                TiebaStatic.log(bwm);
+                                TiebaStatic.log(bwn);
                             }
-                            VideoPbFragment.this.cFz();
+                            VideoPbFragment.this.cFA();
                             TiebaStatic.log("c11742");
                             if (postData3 != null) {
                                 VideoPbFragment.this.a(postData2, postData3, false, true);
@@ -1220,11 +1220,11 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         }
                     }
                 } else if (view.getId() == R.id.pb_post_reply || view.getId() == R.id.post_info_commont_img || view.getId() == R.id.pb_floor_comment_container) {
-                    if (VideoPbFragment.this.dnV() != null) {
+                    if (VideoPbFragment.this.dnW() != null) {
                         if (view.getId() == R.id.pb_post_reply) {
                             aq aqVar4 = new aq("c13398");
-                            aqVar4.dX("tid", VideoPbFragment.this.dnV().dpW());
-                            aqVar4.dX("fid", VideoPbFragment.this.dnV().getForumId());
+                            aqVar4.dX("tid", VideoPbFragment.this.dnW().dpX());
+                            aqVar4.dX("fid", VideoPbFragment.this.dnW().getForumId());
                             aqVar4.dX("uid", TbadkCoreApplication.getCurrentAccount());
                             aqVar4.an("obj_locate", 6);
                             TiebaStatic.log(aqVar4);
@@ -1233,31 +1233,31 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                             SparseArray sparseArray3 = (SparseArray) view.getTag();
                             if (sparseArray3.get(R.id.tag_load_sub_data) instanceof PostData) {
                                 PostData postData4 = (PostData) sparseArray3.get(R.id.tag_load_sub_data);
-                                if (view.getId() == R.id.pb_post_reply && postData4.nsq != null) {
-                                    aq bwm2 = postData4.nsq.bwm();
-                                    bwm2.delete("obj_locate");
-                                    bwm2.an("obj_locate", 8);
-                                    TiebaStatic.log(bwm2);
+                                if (view.getId() == R.id.pb_post_reply && postData4.nsp != null) {
+                                    aq bwn2 = postData4.nsp.bwn();
+                                    bwn2.delete("obj_locate");
+                                    bwn2.an("obj_locate", 8);
+                                    TiebaStatic.log(bwn2);
                                 } else if (view.getId() == R.id.post_info_commont_img || view.getId() == R.id.pb_floor_comment_container) {
-                                    TiebaStatic.log(new aq("c13700").dX("tid", VideoPbFragment.this.dnV().dpX()).dX("fid", VideoPbFragment.this.dnV().getForumId()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("post_id", postData4.getId()).an("obj_source", 1).an("obj_type", 3));
+                                    TiebaStatic.log(new aq("c13700").dX("tid", VideoPbFragment.this.dnW().dpY()).dX("fid", VideoPbFragment.this.dnW().getForumId()).w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("post_id", postData4.getId()).an("obj_source", 1).an("obj_type", 3));
                                 }
-                                if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.lMz != null && postData4.brq() != null && postData4.dPd() != 1) {
-                                    if (VideoPbFragment.this.lVM != null) {
-                                        VideoPbFragment.this.lVM.doE();
+                                if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.lMy != null && postData4.brr() != null && postData4.dPe() != 1) {
+                                    if (VideoPbFragment.this.lVL != null) {
+                                        VideoPbFragment.this.lVL.doF();
                                     }
-                                    if (VideoPbFragment.this.lNg && postData4.dPa() != null && postData4.dPa().size() != 0) {
+                                    if (VideoPbFragment.this.lNf && postData4.dPb() != null && postData4.dPb().size() != 0) {
                                         VideoPbFragment.this.a(postData4, (PostData) null, true, false);
                                         return;
                                     }
                                     p pVar2 = new p();
-                                    pVar2.a(VideoPbFragment.this.dnV().getPbData().getForum());
-                                    pVar2.setThreadData(VideoPbFragment.this.dnV().getPbData().dmE());
+                                    pVar2.a(VideoPbFragment.this.dnW().getPbData().getForum());
+                                    pVar2.setThreadData(VideoPbFragment.this.dnW().getPbData().dmF());
                                     pVar2.g(postData4);
-                                    VideoPbFragment.this.lMz.d(pVar2);
-                                    VideoPbFragment.this.lMz.setPostId(postData4.getId());
-                                    VideoPbFragment.this.a(view, postData4.brq().getUserId(), "", postData4);
-                                    if (VideoPbFragment.this.lNx != null) {
-                                        VideoPbFragment.this.vx(VideoPbFragment.this.lNx.bFw());
+                                    VideoPbFragment.this.lMy.d(pVar2);
+                                    VideoPbFragment.this.lMy.setPostId(postData4.getId());
+                                    VideoPbFragment.this.a(view, postData4.brr().getUserId(), "", postData4);
+                                    if (VideoPbFragment.this.lNw != null) {
+                                        VideoPbFragment.this.vx(VideoPbFragment.this.lNw.bFx());
                                     }
                                 }
                             }
@@ -1266,28 +1266,28 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 } else if (view.getId() == R.id.pb_editor_tool_collection) {
                     if (!j.isNetWorkAvailable()) {
                         VideoPbFragment.this.showToast(R.string.network_not_available);
-                    } else if (VideoPbFragment.this.mfR != null && VideoPbFragment.this.dnV() != null) {
-                        if (com.baidu.tbadk.a.d.bmH() || VideoPbFragment.this.dvK() != null) {
-                            if (!com.baidu.tbadk.a.d.bmH() || VideoPbFragment.this.dvM() != null) {
-                                VideoPbFragment.this.mfR.dsG();
-                                if (VideoPbFragment.this.GX(RequestResponseCode.REQUEST_LOGIN_PB_MARK) && VideoPbFragment.this.dnV() != null) {
-                                    VideoPbFragment.this.dpg();
-                                    if (VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().dmE() != null && VideoPbFragment.this.dnV().getPbData().dmE().brq() != null) {
-                                        TiebaStatic.log(new aq("c13402").dX("tid", VideoPbFragment.this.dnV().dpW()).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()).an("obj_locate", 3).dX("uid", VideoPbFragment.this.dnV().getPbData().dmE().brq().getUserId()));
+                    } else if (VideoPbFragment.this.mfQ != null && VideoPbFragment.this.dnW() != null) {
+                        if (com.baidu.tbadk.a.d.bmI() || VideoPbFragment.this.dvL() != null) {
+                            if (!com.baidu.tbadk.a.d.bmI() || VideoPbFragment.this.dvN() != null) {
+                                VideoPbFragment.this.mfQ.dsH();
+                                if (VideoPbFragment.this.GX(RequestResponseCode.REQUEST_LOGIN_PB_MARK) && VideoPbFragment.this.dnW() != null) {
+                                    VideoPbFragment.this.dph();
+                                    if (VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().dmF() != null && VideoPbFragment.this.dnW().getPbData().dmF().brr() != null) {
+                                        TiebaStatic.log(new aq("c13402").dX("tid", VideoPbFragment.this.dnW().dpX()).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()).an("obj_locate", 3).dX("uid", VideoPbFragment.this.dnW().getPbData().dmF().brr().getUserId()));
                                     }
-                                    if (VideoPbFragment.this.dnV().getPbData().dmE() != null && VideoPbFragment.this.dnV().getPbData().dmE().brq() != null && VideoPbFragment.this.dnV().getPbData().dmE().brq().getUserId() != null && VideoPbFragment.this.lNj != null) {
-                                        int h = VideoPbFragment.this.mfR.h(VideoPbFragment.this.dnV().getPbData());
-                                        bz dmE = VideoPbFragment.this.dnV().getPbData().dmE();
-                                        if (!dmE.bpX()) {
-                                            if (dmE.bpY()) {
+                                    if (VideoPbFragment.this.dnW().getPbData().dmF() != null && VideoPbFragment.this.dnW().getPbData().dmF().brr() != null && VideoPbFragment.this.dnW().getPbData().dmF().brr().getUserId() != null && VideoPbFragment.this.lNi != null) {
+                                        int h = VideoPbFragment.this.mfQ.h(VideoPbFragment.this.dnW().getPbData());
+                                        bz dmF = VideoPbFragment.this.dnW().getPbData().dmF();
+                                        if (!dmF.bpY()) {
+                                            if (dmF.bpZ()) {
                                                 i = 3;
-                                            } else if (dmE.bto()) {
+                                            } else if (dmF.btp()) {
                                                 i = 4;
                                             } else {
-                                                i = dmE.btp() ? 5 : 1;
+                                                i = dmF.btq() ? 5 : 1;
                                             }
                                         }
-                                        TiebaStatic.log(new aq("c12526").dX("tid", VideoPbFragment.this.dnV().dpW()).an("obj_locate", 1).dX("obj_id", VideoPbFragment.this.dnV().getPbData().dmE().brq().getUserId()).an("obj_type", VideoPbFragment.this.lNj.bnx() ? 0 : 1).an("obj_source", h).an("obj_param1", i));
+                                        TiebaStatic.log(new aq("c12526").dX("tid", VideoPbFragment.this.dnW().dpX()).an("obj_locate", 1).dX("obj_id", VideoPbFragment.this.dnW().getPbData().dmF().brr().getUserId()).an("obj_type", VideoPbFragment.this.lNi.bny() ? 0 : 1).an("obj_source", h).an("obj_param1", i));
                                     }
                                 }
                             }
@@ -1296,57 +1296,57 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 } else if (view.getId() == R.id.pb_editor_tool_share) {
                     VideoPbFragment.this.vZ(true);
                 } else if (view.getId() == R.id.pb_editor_tool_comment_icon) {
-                    if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.mfR != null && VideoPbFragment.this.fbv != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().dmE() != null && VideoPbFragment.this.checkUpIsLogin()) {
-                        f pbData = VideoPbFragment.this.dnV().getPbData();
-                        if (pbData.dmE().brh() != 0) {
+                    if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.mfQ != null && VideoPbFragment.this.fbv != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().dmF() != null && VideoPbFragment.this.checkUpIsLogin()) {
+                        f pbData = VideoPbFragment.this.dnW().getPbData();
+                        if (pbData.dmF().bri() != 0) {
                             int currentItem = VideoPbFragment.this.fbv.getCurrentItem();
-                            if (!com.baidu.tbadk.a.d.bmH() && currentItem == VideoPbFragment.mfv) {
-                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfw);
-                            } else if (com.baidu.tbadk.a.d.bmH() || currentItem == VideoPbFragment.mfw) {
-                                if (!com.baidu.tbadk.a.d.bmH() && VideoPbFragment.this.dvK() == null) {
+                            if (!com.baidu.tbadk.a.d.bmI() && currentItem == VideoPbFragment.mfu) {
+                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfv);
+                            } else if (com.baidu.tbadk.a.d.bmI() || currentItem == VideoPbFragment.mfv) {
+                                if (!com.baidu.tbadk.a.d.bmI() && VideoPbFragment.this.dvL() == null) {
                                     return;
                                 }
-                                if ((!com.baidu.tbadk.a.d.bmH() || VideoPbFragment.this.dvM() != null) && VideoPbFragment.this.cIs() != null) {
-                                    aq dX = new aq("c13403").dX("tid", VideoPbFragment.this.dnV().dpW()).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()).dX("uid", TbadkCoreApplication.getCurrentAccount());
+                                if ((!com.baidu.tbadk.a.d.bmI() || VideoPbFragment.this.dvN() != null) && VideoPbFragment.this.cIt() != null) {
+                                    aq dX = new aq("c13403").dX("tid", VideoPbFragment.this.dnW().dpX()).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()).dX("uid", TbadkCoreApplication.getCurrentAccount());
                                     int equipmentHeight = (int) (l.getEquipmentHeight(VideoPbFragment.this.getContext()) * 0.6d);
-                                    BdTypeRecyclerView cIs = VideoPbFragment.this.cIs();
-                                    if (cIs != null) {
-                                        boolean canScrollVertically = cIs.canScrollVertically(1);
-                                        boolean canScrollVertically2 = cIs.canScrollVertically(-1);
+                                    BdTypeRecyclerView cIt = VideoPbFragment.this.cIt();
+                                    if (cIt != null) {
+                                        boolean canScrollVertically = cIt.canScrollVertically(1);
+                                        boolean canScrollVertically2 = cIt.canScrollVertically(-1);
                                         if (VideoPbFragment.this.ZS != null) {
                                             VideoPbFragment.this.ZS.setExpanded(false, true);
                                         }
-                                        if (cIs.getLayoutManager() != null && (cIs.getLayoutManager() instanceof LinearLayoutManager)) {
-                                            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) cIs.getLayoutManager();
+                                        if (cIt.getLayoutManager() != null && (cIt.getLayoutManager() instanceof LinearLayoutManager)) {
+                                            LinearLayoutManager linearLayoutManager = (LinearLayoutManager) cIt.getLayoutManager();
                                             if (!canScrollVertically2 && canScrollVertically) {
-                                                if (VideoPbFragment.this.lNb != -1 || VideoPbFragment.this.lNc != Integer.MIN_VALUE) {
-                                                    if (VideoPbFragment.this.lNb > 3 || (VideoPbFragment.this.lNb == 3 && VideoPbFragment.this.lNc < (-equipmentHeight))) {
-                                                        linearLayoutManager.scrollToPositionWithOffset(VideoPbFragment.this.lNb, VideoPbFragment.this.lNc + equipmentHeight);
-                                                        cIs.smoothScrollBy(0, equipmentHeight);
-                                                    } else if (VideoPbFragment.this.lNb >= 2) {
-                                                        linearLayoutManager.scrollToPositionWithOffset(VideoPbFragment.this.lNb, VideoPbFragment.this.lNc + (equipmentHeight / 2));
-                                                        cIs.smoothScrollBy(0, equipmentHeight / 2);
-                                                    } else if (VideoPbFragment.this.lNb == 1) {
-                                                        linearLayoutManager.scrollToPositionWithOffset(VideoPbFragment.this.lNb, VideoPbFragment.this.lNc + (equipmentHeight / 4));
-                                                        cIs.smoothScrollBy(0, equipmentHeight / 4);
+                                                if (VideoPbFragment.this.lNa != -1 || VideoPbFragment.this.lNb != Integer.MIN_VALUE) {
+                                                    if (VideoPbFragment.this.lNa > 3 || (VideoPbFragment.this.lNa == 3 && VideoPbFragment.this.lNb < (-equipmentHeight))) {
+                                                        linearLayoutManager.scrollToPositionWithOffset(VideoPbFragment.this.lNa, VideoPbFragment.this.lNb + equipmentHeight);
+                                                        cIt.smoothScrollBy(0, equipmentHeight);
+                                                    } else if (VideoPbFragment.this.lNa >= 2) {
+                                                        linearLayoutManager.scrollToPositionWithOffset(VideoPbFragment.this.lNa, VideoPbFragment.this.lNb + (equipmentHeight / 2));
+                                                        cIt.smoothScrollBy(0, equipmentHeight / 2);
+                                                    } else if (VideoPbFragment.this.lNa == 1) {
+                                                        linearLayoutManager.scrollToPositionWithOffset(VideoPbFragment.this.lNa, VideoPbFragment.this.lNb + (equipmentHeight / 4));
+                                                        cIt.smoothScrollBy(0, equipmentHeight / 4);
                                                     } else {
-                                                        cIs.smoothScrollBy(0, -VideoPbFragment.this.lNc);
+                                                        cIt.smoothScrollBy(0, -VideoPbFragment.this.lNb);
                                                     }
                                                     dX.an("obj_locate", 2);
                                                 } else {
                                                     return;
                                                 }
                                             } else {
-                                                int firstVisiblePosition = cIs.getFirstVisiblePosition();
-                                                View childAt = cIs.getChildAt(0);
+                                                int firstVisiblePosition = cIt.getFirstVisiblePosition();
+                                                View childAt = cIt.getChildAt(0);
                                                 int top = childAt == null ? 0 : childAt.getTop();
-                                                VideoPbFragment.this.lNb = firstVisiblePosition;
-                                                VideoPbFragment.this.lNc = top;
-                                                if (firstVisiblePosition > 6 || (firstVisiblePosition == 6 && top < (-equipmentHeight) && cIs.getCount() >= 6)) {
+                                                VideoPbFragment.this.lNa = firstVisiblePosition;
+                                                VideoPbFragment.this.lNb = top;
+                                                if (firstVisiblePosition > 6 || (firstVisiblePosition == 6 && top < (-equipmentHeight) && cIt.getCount() >= 6)) {
                                                     linearLayoutManager.scrollToPositionWithOffset(6, 0);
-                                                    cIs.smoothScrollToPosition(0);
+                                                    cIt.smoothScrollToPosition(0);
                                                 } else {
-                                                    cIs.smoothScrollToPosition(0);
+                                                    cIt.smoothScrollToPosition(0);
                                                 }
                                                 dX.an("obj_locate", 1);
                                             }
@@ -1355,13 +1355,13 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                                             aq aqVar5 = new aq("c12942");
                                             aqVar5.an("obj_type", 1);
                                             aqVar5.an("obj_locate", 4);
-                                            aqVar5.dX("tid", VideoPbFragment.this.dnV().dpW());
-                                            aqVar5.dX(IntentConfig.NID, pbData.dmE().bpO());
+                                            aqVar5.dX("tid", VideoPbFragment.this.dnW().dpX());
+                                            aqVar5.dX(IntentConfig.NID, pbData.dmF().bpP());
                                             if (bV != null) {
                                                 aqVar5.dX("obj_cur_page", bV.getCurrentPageKey());
                                             }
-                                            if (com.baidu.tbadk.pageExtra.d.bHm() != null) {
-                                                aqVar5.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHm());
+                                            if (com.baidu.tbadk.pageExtra.d.bHn() != null) {
+                                                aqVar5.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHn());
                                             }
                                             TiebaStatic.log(aqVar5);
                                         } else {
@@ -1374,40 +1374,40 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                                     return;
                                 }
                             }
-                            if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().dmE() != null && VideoPbFragment.this.dnV().getPbData().dmE().brq() != null) {
-                                TiebaStatic.log(new aq("c13402").dX("tid", VideoPbFragment.this.dnV().dpW()).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()).an("obj_locate", 2).dX("uid", VideoPbFragment.this.dnV().getPbData().dmE().brq().getUserId()));
+                            if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().dmF() != null && VideoPbFragment.this.dnW().getPbData().dmF().brr() != null) {
+                                TiebaStatic.log(new aq("c13402").dX("tid", VideoPbFragment.this.dnW().dpX()).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()).an("obj_locate", 2).dX("uid", VideoPbFragment.this.dnW().getPbData().dmF().brr().getUserId()));
                                 return;
                             }
                             return;
                         }
                         VideoPbFragment.this.wa(false);
-                        VideoPbFragment.this.doU();
+                        VideoPbFragment.this.doV();
                     }
                 } else if (view.getId() == R.id.tv_pb_reply_more) {
-                    if (VideoPbFragment.this.lNK >= 0) {
-                        if (VideoPbFragment.this.dnV() != null) {
-                            VideoPbFragment.this.dnV().dqI();
+                    if (VideoPbFragment.this.lNJ >= 0) {
+                        if (VideoPbFragment.this.dnW() != null) {
+                            VideoPbFragment.this.dnW().dqJ();
                         }
-                        if (com.baidu.tbadk.a.d.bmH() && VideoPbFragment.this.dvM() != null && VideoPbFragment.this.dvM().dwt() != null) {
-                            VideoPbFragment.this.dvM().dwt().setData(VideoPbFragment.this.dnV().getPbData());
-                        } else if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dvK() != null && VideoPbFragment.this.dvK().dwt() != null) {
-                            VideoPbFragment.this.dvK().dwt().setData(VideoPbFragment.this.dnV().getPbData());
+                        if (com.baidu.tbadk.a.d.bmI() && VideoPbFragment.this.dvN() != null && VideoPbFragment.this.dvN().dwu() != null) {
+                            VideoPbFragment.this.dvN().dwu().setData(VideoPbFragment.this.dnW().getPbData());
+                        } else if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dvL() != null && VideoPbFragment.this.dvL().dwu() != null) {
+                            VideoPbFragment.this.dvL().dwu().setData(VideoPbFragment.this.dnW().getPbData());
                         }
-                        VideoPbFragment.this.lNK = 0;
-                        VideoPbFragment.this.mfT = Integer.MIN_VALUE;
-                        if (com.baidu.tbadk.a.d.bmH() && VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dvM() != null) {
-                            VideoPbFragment.this.dvM().df(VideoPbFragment.this.dnV().dqL(), VideoPbFragment.this.dnV().dqM());
-                            VideoPbFragment.this.dnV().dc(0, 0);
-                        } else if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dvK() != null) {
-                            VideoPbFragment.this.dvK().df(VideoPbFragment.this.dnV().dqL(), VideoPbFragment.this.dnV().dqM());
-                            VideoPbFragment.this.dnV().dc(0, 0);
+                        VideoPbFragment.this.lNJ = 0;
+                        VideoPbFragment.this.mfS = Integer.MIN_VALUE;
+                        if (com.baidu.tbadk.a.d.bmI() && VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dvN() != null) {
+                            VideoPbFragment.this.dvN().df(VideoPbFragment.this.dnW().dqM(), VideoPbFragment.this.dnW().dqN());
+                            VideoPbFragment.this.dnW().dc(0, 0);
+                        } else if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dvL() != null) {
+                            VideoPbFragment.this.dvL().df(VideoPbFragment.this.dnW().dqM(), VideoPbFragment.this.dnW().dqN());
+                            VideoPbFragment.this.dnW().dc(0, 0);
                         }
                     }
                 } else if ((view instanceof PlayVoiceBntNew) && (view.getParent() instanceof TbRichTextView)) {
-                    if (VideoPbFragment.this.dnV() != null) {
+                    if (VideoPbFragment.this.dnW() != null) {
                         aq aqVar6 = new aq("c13398");
-                        aqVar6.dX("tid", VideoPbFragment.this.dnV().dpW());
-                        aqVar6.dX("fid", VideoPbFragment.this.dnV().getForumId());
+                        aqVar6.dX("tid", VideoPbFragment.this.dnW().dpX());
+                        aqVar6.dX("fid", VideoPbFragment.this.dnW().getForumId());
                         aqVar6.dX("uid", TbadkCoreApplication.getCurrentAccount());
                         aqVar6.an("obj_locate", 2);
                         TiebaStatic.log(aqVar6);
@@ -1415,49 +1415,49 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 } else if (view.getId() == R.id.pb_item_tail_content) {
                     if (bg.checkUpIsLogin(VideoPbFragment.this.getPageContext().getPageActivity())) {
                         String string = TbadkCoreApplication.getInst().getString(R.string.tail_web_view_title);
-                        String string2 = com.baidu.tbadk.core.sharedPref.b.bvq().getString("tail_link", "");
+                        String string2 = com.baidu.tbadk.core.sharedPref.b.bvr().getString("tail_link", "");
                         if (!StringUtils.isNull(string2)) {
                             TiebaStatic.log("c10056");
                             com.baidu.tbadk.browser.a.startWebActivity(view.getContext(), string, string2, true, true, true);
                         }
-                        VideoPbFragment.this.drO();
+                        VideoPbFragment.this.drP();
                     }
                 } else if (view.getId() == R.id.keyboard_background_shadow) {
-                    VideoPbFragment.this.drO();
-                } else if (VideoPbFragment.this.mfR.dtO() != null && view == VideoPbFragment.this.mfR.dtO().dro()) {
-                    VideoPbFragment.this.mfR.dsG();
-                    if (VideoPbFragment.this.dnV() != null) {
-                        VideoPbFragment.this.iwL.setThreadId(VideoPbFragment.this.dnV().dpW());
+                    VideoPbFragment.this.drP();
+                } else if (VideoPbFragment.this.mfQ.dtP() != null && view == VideoPbFragment.this.mfQ.dtP().drp()) {
+                    VideoPbFragment.this.mfQ.dsH();
+                    if (VideoPbFragment.this.dnW() != null) {
+                        VideoPbFragment.this.iwL.setThreadId(VideoPbFragment.this.dnW().dpX());
                     }
-                    if (VideoPbFragment.this.dnV() == null || !VideoPbFragment.this.dnV().isPrivacy()) {
-                        VideoPbFragment.this.iwL.cuw();
-                        if (!TbSingleton.getInstance().mCanCallFans && VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().getThreadId() != null && VideoPbFragment.this.dnV().getPbData().getThreadId().equals(TbSingleton.getInstance().mCallFansTid)) {
+                    if (VideoPbFragment.this.dnW() == null || !VideoPbFragment.this.dnW().isPrivacy()) {
+                        VideoPbFragment.this.iwL.cux();
+                        if (!TbSingleton.getInstance().mCanCallFans && VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().getThreadId() != null && VideoPbFragment.this.dnW().getPbData().getThreadId().equals(TbSingleton.getInstance().mCallFansTid)) {
                             i3 = 2;
                         }
-                        if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                            VideoPbFragment.this.iwL.l(3, i3, VideoPbFragment.this.dnV().getPbData().getThreadId());
+                        if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                            VideoPbFragment.this.iwL.l(3, i3, VideoPbFragment.this.dnW().getPbData().getThreadId());
                             return;
                         }
                         return;
                     }
                     VideoPbFragment.this.showToast(R.string.privacy_thread_can_not_use_call_fans);
-                    if (VideoPbFragment.this.dnV().getPbData() != null) {
-                        VideoPbFragment.this.iwL.l(3, 3, VideoPbFragment.this.dnV().getPbData().getThreadId());
+                    if (VideoPbFragment.this.dnW().getPbData() != null) {
+                        VideoPbFragment.this.iwL.l(3, 3, VideoPbFragment.this.dnW().getPbData().getThreadId());
                     }
                 } else if (view.getId() == R.id.pb_floor_right_top_feedback || view.getId() == R.id.pb_post_op_more) {
                     aq aqVar7 = new aq("c13398");
-                    aqVar7.dX("tid", VideoPbFragment.this.dnV().dpW());
-                    aqVar7.dX("fid", VideoPbFragment.this.dnV().getForumId());
+                    aqVar7.dX("tid", VideoPbFragment.this.dnW().dpX());
+                    aqVar7.dX("fid", VideoPbFragment.this.dnW().getForumId());
                     aqVar7.dX("uid", TbadkCoreApplication.getCurrentAccount());
                     aqVar7.an("obj_locate", 7);
                     TiebaStatic.log(aqVar7);
-                    VideoPbFragment.this.mfR.wh(false);
-                    VideoPbFragment.this.mfR.dvB().onLongClick(view);
+                    VideoPbFragment.this.mfQ.wh(false);
+                    VideoPbFragment.this.mfQ.dvC().onLongClick(view);
                 }
             }
         }
     };
-    private View.OnClickListener lJS = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.22
+    private View.OnClickListener lJR = new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.22
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             SparseArray<Object> sparseArray = (SparseArray) view.getTag();
@@ -1465,20 +1465,20 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 boolean booleanValue = sparseArray.get(R.id.tag_should_manage_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_manage_visible)).booleanValue() : false;
                 boolean booleanValue2 = sparseArray.get(R.id.tag_user_mute_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_user_mute_visible)).booleanValue() : false;
                 boolean booleanValue3 = sparseArray.get(R.id.tag_should_delete_visible) instanceof Boolean ? ((Boolean) sparseArray.get(R.id.tag_should_delete_visible)).booleanValue() : false;
-                if (VideoPbFragment.this.mfR != null) {
+                if (VideoPbFragment.this.mfQ != null) {
                     if (booleanValue) {
                         if (booleanValue2) {
                             sparseArray.put(R.id.tag_from, 1);
-                            VideoPbFragment.this.mfR.f(sparseArray);
+                            VideoPbFragment.this.mfQ.f(sparseArray);
                             return;
                         }
-                        VideoPbFragment.this.mfR.dN(view);
+                        VideoPbFragment.this.mfQ.dN(view);
                     } else if (booleanValue2) {
                         sparseArray.put(R.id.tag_from, 0);
                         sparseArray.put(R.id.tag_check_mute_from, 1);
-                        VideoPbFragment.this.mfR.f(sparseArray);
+                        VideoPbFragment.this.mfQ.f(sparseArray);
                     } else if (booleanValue3) {
-                        VideoPbFragment.this.mfR.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
+                        VideoPbFragment.this.mfQ.a(((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray.get(R.id.tag_del_post_id), ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue(), ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue());
                     }
                 }
             }
@@ -1497,28 +1497,28 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     private final View.OnLongClickListener mOnLongClickListener = new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.40
         @Override // android.view.View.OnLongClickListener
         public boolean onLongClick(View view) {
-            VideoPbFragment.this.mfR.wh(true);
-            return VideoPbFragment.this.mfR.dvB().onLongClick(view);
+            VideoPbFragment.this.mfQ.wh(true);
+            return VideoPbFragment.this.mfQ.dvC().onLongClick(view);
         }
     };
-    public SortSwitchButton.a lOj = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.41
+    public SortSwitchButton.a lOi = new SortSwitchButton.a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.41
         @Override // com.baidu.tieba.view.SortSwitchButton.a
         public boolean AL(int i) {
-            if (VideoPbFragment.this.mfR != null) {
-                VideoPbFragment.this.mfR.dsG();
+            if (VideoPbFragment.this.mfQ != null) {
+                VideoPbFragment.this.mfQ.dsH();
             }
             if (!j.isNetWorkAvailable()) {
                 VideoPbFragment.this.showToast(R.string.network_not_available);
                 return false;
-            } else if (VideoPbFragment.this.dnV() == null || VideoPbFragment.this.dnV().isLoading) {
+            } else if (VideoPbFragment.this.dnW() == null || VideoPbFragment.this.dnW().isLoading) {
                 return false;
             } else {
-                VideoPbFragment.this.cFz();
-                VideoPbFragment.this.dsn();
-                if (VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().lFR != null && VideoPbFragment.this.dnV().getPbData().lFR.size() > i) {
-                    int intValue = VideoPbFragment.this.dnV().getPbData().lFR.get(i).sort_type.intValue();
-                    TiebaStatic.log(new aq("c13699").dX("tid", VideoPbFragment.this.dnV().dpX()).dX("fid", VideoPbFragment.this.dnV().getForumId()).w("uid", TbadkCoreApplication.getCurrentAccountId()).an("obj_type", Ha(intValue)));
-                    if (VideoPbFragment.this.dnV().Hh(intValue)) {
+                VideoPbFragment.this.cFA();
+                VideoPbFragment.this.dso();
+                if (VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().lFQ != null && VideoPbFragment.this.dnW().getPbData().lFQ.size() > i) {
+                    int intValue = VideoPbFragment.this.dnW().getPbData().lFQ.get(i).sort_type.intValue();
+                    TiebaStatic.log(new aq("c13699").dX("tid", VideoPbFragment.this.dnW().dpY()).dX("fid", VideoPbFragment.this.dnW().getForumId()).w("uid", TbadkCoreApplication.getCurrentAccountId()).an("obj_type", Ha(intValue)));
+                    if (VideoPbFragment.this.dnW().Hh(intValue)) {
                         VideoPbFragment.this.mIsLoading = true;
                     }
                 }
@@ -1539,21 +1539,21 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             return 0;
         }
     };
-    private a mfS = new a();
+    private a mfR = new a();
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dpe() {
-        if (dnV() != null && dnV().getPbData() != null && dnV().getPbData().dmE() != null) {
-            bz dmE = dnV().getPbData().dmE();
-            dmE.mRecomAbTag = dnV().dqS();
-            dmE.mRecomWeight = dnV().dqQ();
-            dmE.mRecomSource = dnV().dqR();
-            dmE.mRecomExtra = dnV().dqT();
-            dmE.eWD = dnV().dqe();
-            if (dmE.getFid() == 0) {
-                dmE.setFid(com.baidu.adp.lib.f.b.toLong(dnV().getForumId(), 0L));
+    public void dpf() {
+        if (dnW() != null && dnW().getPbData() != null && dnW().getPbData().dmF() != null) {
+            bz dmF = dnW().getPbData().dmF();
+            dmF.mRecomAbTag = dnW().dqT();
+            dmF.mRecomWeight = dnW().dqR();
+            dmF.mRecomSource = dnW().dqS();
+            dmF.mRecomExtra = dnW().dqU();
+            dmF.eWD = dnW().dqf();
+            if (dmF.getFid() == 0) {
+                dmF.setFid(com.baidu.adp.lib.f.b.toLong(dnW().getForumId(), 0L));
             }
-            aq a2 = com.baidu.tbadk.pageInfo.c.a(getContext(), dmE, "c13562");
+            aq a2 = com.baidu.tbadk.pageInfo.c.a(getContext(), dmF, "c13562");
             if (a2 != null) {
                 TiebaStatic.log(a2);
             }
@@ -1562,16 +1562,16 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     /* JADX INFO: Access modifiers changed from: private */
     public void uO(boolean z) {
-        if (dnV() != null && dnV().getPbData() != null && dnV().getPbData().dmE() != null) {
-            bz dmE = dnV().getPbData().dmE();
-            dmE.mRecomAbTag = dnV().dqS();
-            dmE.mRecomWeight = dnV().dqQ();
-            dmE.mRecomSource = dnV().dqR();
-            dmE.mRecomExtra = dnV().dqT();
-            if (dmE.getFid() == 0) {
-                dmE.setFid(com.baidu.adp.lib.f.b.toLong(dnV().getForumId(), 0L));
+        if (dnW() != null && dnW().getPbData() != null && dnW().getPbData().dmF() != null) {
+            bz dmF = dnW().getPbData().dmF();
+            dmF.mRecomAbTag = dnW().dqT();
+            dmF.mRecomWeight = dnW().dqR();
+            dmF.mRecomSource = dnW().dqS();
+            dmF.mRecomExtra = dnW().dqU();
+            if (dmF.getFid() == 0) {
+                dmF.setFid(com.baidu.adp.lib.f.b.toLong(dnW().getForumId(), 0L));
             }
-            aq a2 = com.baidu.tbadk.pageInfo.c.a(getContext(), dmE, "c13563");
+            aq a2 = com.baidu.tbadk.pageInfo.c.a(getContext(), dmF, "c13563");
             TbPageTag fw = com.baidu.tbadk.pageInfo.c.fw(getContext());
             if (a2 != null && fw != null && PageStayDurationConstants.PageName.VIDEO_LIST.equals(fw.locatePage)) {
                 a2.dX("obj_cur_page", PageStayDurationConstants.PageName.PB);
@@ -1588,8 +1588,8 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 if (ft != null) {
                     a2.dX("obj_cur_page", ft.getCurrentPageKey());
                 }
-                if (com.baidu.tbadk.pageExtra.d.bHm() != null) {
-                    a2.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHm());
+                if (com.baidu.tbadk.pageExtra.d.bHn() != null) {
+                    a2.dX("obj_pre_page", com.baidu.tbadk.pageExtra.d.bHn());
                 }
                 TiebaStatic.log(a2);
             }
@@ -1613,11 +1613,11 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         boolean z2;
         int i = 0;
         if (bVar != null) {
-            String string = !TextUtils.isEmpty(bVar.nuu) ? bVar.nuu : getString(R.string.delete_fail);
+            String string = !TextUtils.isEmpty(bVar.nut) ? bVar.nut : getString(R.string.delete_fail);
             if (bVar.mErrCode == 1211066) {
                 hideProgressBar();
                 com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getPageContext().getPageActivity());
-                aVar.Bp(string);
+                aVar.Bo(string);
                 aVar.a(R.string.dialog_known, new a.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.15
                     @Override // com.baidu.tbadk.core.dialog.a.b
                     public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -1628,61 +1628,61 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 });
                 aVar.jH(true);
                 aVar.b(getPageContext());
-                aVar.btX();
+                aVar.btY();
             } else {
-                a(0, bVar.mSuccess, bVar.nuu, z);
+                a(0, bVar.mSuccess, bVar.nut, z);
             }
             if (bVar.mSuccess) {
                 if (bVar.iMd == 1) {
-                    ArrayList<PostData> dmG = dnV().getPbData().dmG();
-                    int size = dmG.size();
+                    ArrayList<PostData> dmH = dnW().getPbData().dmH();
+                    int size = dmH.size();
                     while (true) {
                         if (i >= size) {
                             break;
-                        } else if (!bVar.mPostId.equals(dmG.get(i).getId())) {
+                        } else if (!bVar.mPostId.equals(dmH.get(i).getId())) {
                             i++;
                         } else {
-                            dmG.remove(i);
+                            dmH.remove(i);
                             break;
                         }
                     }
-                    dnV().getPbData().dmE().oN(dnV().getPbData().dmE().brh() - 1);
-                    if (com.baidu.tbadk.a.d.bmH() && dvM() != null) {
-                        dvM().dwv();
-                    } else if (dvK() != null) {
-                        dvK().dwv();
+                    dnW().getPbData().dmF().oN(dnW().getPbData().dmF().bri() - 1);
+                    if (com.baidu.tbadk.a.d.bmI() && dvN() != null) {
+                        dvN().dww();
+                    } else if (dvL() != null) {
+                        dvL().dww();
                     }
                 } else if (bVar.iMd == 0) {
-                    dpf();
+                    dpg();
                 } else if (bVar.iMd == 2) {
-                    ArrayList<PostData> dmG2 = dnV().getPbData().dmG();
-                    int size2 = dmG2.size();
+                    ArrayList<PostData> dmH2 = dnW().getPbData().dmH();
+                    int size2 = dmH2.size();
                     int i2 = 0;
                     boolean z3 = false;
                     while (i2 < size2 && !z3) {
                         int i3 = 0;
                         while (true) {
-                            if (i3 >= dmG2.get(i2).dPa().size()) {
+                            if (i3 >= dmH2.get(i2).dPb().size()) {
                                 z2 = z3;
                                 break;
-                            } else if (!bVar.mPostId.equals(dmG2.get(i2).dPa().get(i3).getId())) {
+                            } else if (!bVar.mPostId.equals(dmH2.get(i2).dPb().get(i3).getId())) {
                                 i3++;
                             } else {
-                                dmG2.get(i2).dPa().remove(i3);
-                                dmG2.get(i2).dPc();
+                                dmH2.get(i2).dPb().remove(i3);
+                                dmH2.get(i2).dPd();
                                 z2 = true;
                                 break;
                             }
                         }
-                        dmG2.get(i2).Tp(bVar.mPostId);
+                        dmH2.get(i2).To(bVar.mPostId);
                         i2++;
                         z3 = z2;
                     }
                     if (z3) {
-                        if (com.baidu.tbadk.a.d.bmH() && dvM() != null) {
-                            dvM().dwv();
-                        } else if (dvK() != null) {
-                            dvK().dwv();
+                        if (com.baidu.tbadk.a.d.bmI() && dvN() != null) {
+                            dvN().dww();
+                        } else if (dvL() != null) {
+                            dvL().dww();
                         }
                     }
                     a(bVar);
@@ -1693,34 +1693,34 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     public void a(ForumManageModel.b bVar) {
         boolean z;
-        List<PostData> list = dnV().getPbData().dmS().lHy;
+        List<PostData> list = dnW().getPbData().dmT().lHx;
         int size = list.size();
         int i = 0;
         boolean z2 = false;
         while (i < size) {
             int i2 = 0;
             while (true) {
-                if (i2 >= list.get(i).dPa().size()) {
+                if (i2 >= list.get(i).dPb().size()) {
                     z = z2;
                     break;
-                } else if (!bVar.mPostId.equals(list.get(i).dPa().get(i2).getId())) {
+                } else if (!bVar.mPostId.equals(list.get(i).dPb().get(i2).getId())) {
                     i2++;
                 } else {
-                    list.get(i).dPa().remove(i2);
-                    list.get(i).dPc();
+                    list.get(i).dPb().remove(i2);
+                    list.get(i).dPd();
                     z = true;
                     break;
                 }
             }
-            list.get(i).Tp(bVar.mPostId);
+            list.get(i).To(bVar.mPostId);
             i++;
             z2 = z;
         }
         if (z2) {
-            if (com.baidu.tbadk.a.d.bmH() && dvM() != null) {
-                dvM().dwv();
-            } else if (dvK() != null) {
-                dvK().dwv();
+            if (com.baidu.tbadk.a.d.bmI() && dvN() != null) {
+                dvN().dww();
+            } else if (dvL() != null) {
+                dvL().dww();
             }
         }
     }
@@ -1728,102 +1728,102 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     /* JADX INFO: Access modifiers changed from: private */
     public void a(int i, ForumManageModel.g gVar) {
         String string;
-        if (gVar != null && dnV() != null && dnV().getPbData() != null && dnV().getPbData().dmE() != null) {
-            a(this.ggJ.getLoadDataMode(), gVar.mSuccess, gVar.nuu, false);
+        if (gVar != null && dnW() != null && dnW().getPbData() != null && dnW().getPbData().dmF() != null) {
+            a(this.ggJ.getLoadDataMode(), gVar.mSuccess, gVar.nut, false);
             if (gVar.mSuccess) {
-                this.lNm = true;
+                this.lNl = true;
                 if (i == 2 || i == 3) {
-                    this.lNn = true;
-                    this.lNo = false;
-                } else if (i == 4 || i == 5) {
+                    this.lNm = true;
                     this.lNn = false;
-                    this.lNo = true;
+                } else if (i == 4 || i == 5) {
+                    this.lNm = false;
+                    this.lNn = true;
                 }
                 if (i == 2) {
-                    dnV().getPbData().dmE().oQ(1);
-                    dnV().setIsGood(1);
+                    dnW().getPbData().dmF().oQ(1);
+                    dnW().setIsGood(1);
                 } else if (i == 3) {
-                    dnV().getPbData().dmE().oQ(0);
-                    dnV().setIsGood(0);
+                    dnW().getPbData().dmF().oQ(0);
+                    dnW().setIsGood(0);
                 } else if (i == 4) {
-                    dnV().getPbData().dmE().oP(1);
-                    dnV().Hb(1);
+                    dnW().getPbData().dmF().oP(1);
+                    dnW().Hb(1);
                 } else if (i == 5) {
-                    dnV().getPbData().dmE().oP(0);
-                    dnV().Hb(0);
+                    dnW().getPbData().dmF().oP(0);
+                    dnW().Hb(0);
                 }
             } else {
-                if (gVar != null && !TextUtils.isEmpty(gVar.nuu)) {
-                    string = gVar.nuu;
+                if (gVar != null && !TextUtils.isEmpty(gVar.nut)) {
+                    string = gVar.nut;
                 } else {
                     string = getString(R.string.operation_failed);
                 }
                 l.showToast(getPageContext().getPageActivity(), string);
             }
-            if (dnV().getPbData().dmE() != null && dvL() != null) {
-                dvL().dwF();
+            if (dnW().getPbData().dmF() != null && dvM() != null) {
+                dvM().dwG();
             }
         }
     }
 
-    private void dpf() {
-        if (dnV().dpZ() || dnV().dqb()) {
+    private void dpg() {
+        if (dnW().dqa() || dnW().dqc()) {
             Intent intent = new Intent();
             intent.putExtra("type", 0);
-            intent.putExtra("tid", dnV().dpW());
-            PbActivity pbActivity = this.lME;
-            PbActivity pbActivity2 = this.lME;
+            intent.putExtra("tid", dnW().dpX());
+            PbActivity pbActivity = this.lMD;
+            PbActivity pbActivity2 = this.lMD;
             pbActivity.setResult(-1, intent);
         }
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_DELETE_THREAD, dnV().dpW()));
-        if (dpi()) {
-            this.lME.finish();
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_DELETE_THREAD, dnW().dpX()));
+        if (dpj()) {
+            this.lMD.finish();
         }
     }
 
-    private boolean dpi() {
-        if (dnV() == null) {
+    private boolean dpj() {
+        if (dnW() == null) {
             return true;
         }
-        if (dnV().getPbData() == null || !dnV().getPbData().dnh()) {
-            if (dnV().bnx()) {
-                final MarkData dqr = dnV().dqr();
-                if (dqr == null || !dnV().getIsFromMark() || cIs() == null) {
+        if (dnW().getPbData() == null || !dnW().getPbData().dni()) {
+            if (dnW().bny()) {
+                final MarkData dqs = dnW().dqs();
+                if (dqs == null || !dnW().getIsFromMark() || cIt() == null) {
                     return true;
                 }
-                final MarkData Hi = dnV().Hi(cIs().getFirstVisiblePosition());
+                final MarkData Hi = dnW().Hi(cIt().getFirstVisiblePosition());
                 if (Hi == null) {
                     Intent intent = new Intent();
-                    intent.putExtra("mark", dqr);
-                    this.lME.setResult(-1, intent);
+                    intent.putExtra("mark", dqs);
+                    this.lMD.setResult(-1, intent);
                     return true;
-                } else if (Hi.getPostId() == null || Hi.getPostId().equals(dqr.getPostId())) {
+                } else if (Hi.getPostId() == null || Hi.getPostId().equals(dqs.getPostId())) {
                     Intent intent2 = new Intent();
-                    intent2.putExtra("mark", dqr);
-                    this.lME.setResult(-1, intent2);
+                    intent2.putExtra("mark", dqs);
+                    this.lMD.setResult(-1, intent2);
                     return true;
                 } else {
                     final com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(getBaseFragmentActivity());
-                    aVar.Bp(getPageContext().getString(R.string.alert_update_mark));
+                    aVar.Bo(getPageContext().getString(R.string.alert_update_mark));
                     aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.17
                         @Override // com.baidu.tbadk.core.dialog.a.b
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
-                            if (VideoPbFragment.this.lNj != null) {
-                                if (VideoPbFragment.this.lNj.bnx()) {
-                                    VideoPbFragment.this.lNj.bny();
-                                    VideoPbFragment.this.lNj.jc(false);
+                            if (VideoPbFragment.this.lNi != null) {
+                                if (VideoPbFragment.this.lNi.bny()) {
+                                    VideoPbFragment.this.lNi.bnz();
+                                    VideoPbFragment.this.lNi.jc(false);
                                 }
-                                VideoPbFragment.this.lNj.a(Hi);
-                                VideoPbFragment.this.lNj.jc(true);
-                                VideoPbFragment.this.lNj.bnz();
+                                VideoPbFragment.this.lNi.a(Hi);
+                                VideoPbFragment.this.lNi.jc(true);
+                                VideoPbFragment.this.lNi.bnA();
                             }
-                            dqr.setPostId(Hi.getPostId());
+                            dqs.setPostId(Hi.getPostId());
                             Intent intent3 = new Intent();
-                            intent3.putExtra("mark", dqr);
-                            VideoPbFragment.this.lME.setResult(-1, intent3);
+                            intent3.putExtra("mark", dqs);
+                            VideoPbFragment.this.lMD.setResult(-1, intent3);
                             aVar.dismiss();
-                            VideoPbFragment.this.doj();
+                            VideoPbFragment.this.dok();
                         }
                     });
                     aVar.b(R.string.cancel, new a.b() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.18
@@ -1831,10 +1831,10 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                             aVar2.dismiss();
                             Intent intent3 = new Intent();
-                            intent3.putExtra("mark", dqr);
-                            VideoPbFragment.this.lME.setResult(-1, intent3);
+                            intent3.putExtra("mark", dqs);
+                            VideoPbFragment.this.lMD.setResult(-1, intent3);
                             aVar.dismiss();
-                            VideoPbFragment.this.doj();
+                            VideoPbFragment.this.dok();
                         }
                     });
                     aVar.d(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.19
@@ -1844,13 +1844,13 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         }
                     });
                     aVar.b(getBaseFragmentActivity().getPageContext());
-                    aVar.btX();
+                    aVar.btY();
                     return false;
                 }
-            } else if (dnV().getPbData() == null || dnV().getPbData().dmG() == null || dnV().getPbData().dmG().size() <= 0 || !dnV().getIsFromMark()) {
+            } else if (dnW().getPbData() == null || dnW().getPbData().dmH() == null || dnW().getPbData().dmH().size() <= 0 || !dnW().getIsFromMark()) {
                 return true;
             } else {
-                this.lME.setResult(1);
+                this.lMD.setResult(1);
                 return true;
             }
         }
@@ -1858,8 +1858,8 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void doj() {
-        this.lME.doj();
+    public void dok() {
+        this.lMD.dok();
     }
 
     /* JADX WARN: Removed duplicated region for block: B:24:0x00a6  */
@@ -1875,26 +1875,26 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     public void vZ(boolean z) {
         com.baidu.tieba.pb.data.f pbData;
         int i;
-        if (dnV() != null && this.mfR != null) {
-            if ((ShareSwitch.isOn() || checkUpIsLogin()) && (pbData = dnV().getPbData()) != null) {
-                bz dmE = pbData.dmE();
-                if (dmE != null && dmE.brq() != null) {
-                    TiebaStatic.log(new aq("c13402").dX("tid", dnV().dpW()).dX("fid", pbData.getForumId()).an("obj_locate", 4).dX("uid", dmE.brq().getUserId()));
+        if (dnW() != null && this.mfQ != null) {
+            if ((ShareSwitch.isOn() || checkUpIsLogin()) && (pbData = dnW().getPbData()) != null) {
+                bz dmF = pbData.dmF();
+                if (dmF != null && dmF.brr() != null) {
+                    TiebaStatic.log(new aq("c13402").dX("tid", dnW().dpX()).dX("fid", pbData.getForumId()).an("obj_locate", 4).dX("uid", dmF.brr().getUserId()));
                 }
-                if (dmE != null) {
-                    if (dmE.bpX()) {
+                if (dmF != null) {
+                    if (dmF.bpY()) {
                         i = 2;
-                    } else if (dmE.bpY()) {
+                    } else if (dmF.bpZ()) {
                         i = 3;
-                    } else if (dmE.bto()) {
+                    } else if (dmF.btp()) {
                         i = 4;
-                    } else if (dmE.btp()) {
+                    } else if (dmF.btq()) {
                         i = 5;
                     }
                     aq aqVar = new aq(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-                    aqVar.dX("tid", dnV().dpW());
+                    aqVar.dX("tid", dnW().dpX());
                     aqVar.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                    aqVar.dX("fid", dnV().getForumId());
+                    aqVar.dX("fid", dnW().getForumId());
                     if (!z) {
                         aqVar.an("obj_locate", 6);
                     } else {
@@ -1902,72 +1902,72 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     }
                     aqVar.an("obj_name", i);
                     aqVar.an("obj_type", 2);
-                    if (dmE != null) {
-                        if (dmE.bpX()) {
+                    if (dmF != null) {
+                        if (dmF.bpY()) {
                             aqVar.an("obj_type", 10);
-                        } else if (dmE.bpY()) {
+                        } else if (dmF.bpZ()) {
                             aqVar.an("obj_type", 9);
-                        } else if (dmE.btp()) {
+                        } else if (dmF.btq()) {
                             aqVar.an("obj_type", 8);
-                        } else if (dmE.bto()) {
+                        } else if (dmF.btp()) {
                             aqVar.an("obj_type", 7);
-                        } else if (dmE.isShareThread) {
+                        } else if (dmF.isShareThread) {
                             aqVar.an("obj_type", 6);
-                        } else if (dmE.threadType == 0) {
+                        } else if (dmF.threadType == 0) {
                             aqVar.an("obj_type", 1);
-                        } else if (dmE.threadType == 40) {
+                        } else if (dmF.threadType == 40) {
                             aqVar.an("obj_type", 2);
-                        } else if (dmE.threadType == 49) {
+                        } else if (dmF.threadType == 49) {
                             aqVar.an("obj_type", 3);
-                        } else if (dmE.threadType == 54) {
+                        } else if (dmF.threadType == 54) {
                             aqVar.an("obj_type", 4);
                         } else {
                             aqVar.an("obj_type", 5);
                         }
-                        aqVar.dX(IntentConfig.NID, dmE.bpO());
-                        aqVar.an(IntentConfig.CARD_TYPE, dmE.bts());
-                        aqVar.dX(IntentConfig.RECOM_SOURCE, dmE.mRecomSource);
-                        aqVar.dX("ab_tag", dmE.mRecomAbTag);
-                        aqVar.dX("weight", dmE.mRecomWeight);
-                        aqVar.dX("extra", dmE.mRecomExtra);
-                        aqVar.dX(IntentConfig.NID, dmE.bpO());
-                        if (dmE.getBaijiahaoData() != null && !at.isEmpty(dmE.getBaijiahaoData().oriUgcVid)) {
-                            aqVar.dX("obj_param6", dmE.getBaijiahaoData().oriUgcVid);
+                        aqVar.dX(IntentConfig.NID, dmF.bpP());
+                        aqVar.an(IntentConfig.CARD_TYPE, dmF.btt());
+                        aqVar.dX(IntentConfig.RECOM_SOURCE, dmF.mRecomSource);
+                        aqVar.dX("ab_tag", dmF.mRecomAbTag);
+                        aqVar.dX("weight", dmF.mRecomWeight);
+                        aqVar.dX("extra", dmF.mRecomExtra);
+                        aqVar.dX(IntentConfig.NID, dmF.bpP());
+                        if (dmF.getBaijiahaoData() != null && !at.isEmpty(dmF.getBaijiahaoData().oriUgcVid)) {
+                            aqVar.dX("obj_param6", dmF.getBaijiahaoData().oriUgcVid);
                         }
                     }
                     if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                         aqVar.dX("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     }
-                    if (dpD() != null) {
-                        com.baidu.tbadk.pageInfo.c.b(dpD(), aqVar);
+                    if (dpE() != null) {
+                        com.baidu.tbadk.pageInfo.c.b(dpE(), aqVar);
                     }
                     TiebaStatic.log(aqVar);
                     if (l.isNetOk()) {
                         showToast(R.string.neterror);
                         return;
-                    } else if (dnV().getPbData() == null) {
+                    } else if (dnW().getPbData() == null) {
                         l.showToast(getPageContext().getPageActivity(), getPageContext().getString(R.string.pb_no_data_tips));
                         return;
                     } else {
-                        ArrayList<PostData> dmG = pbData.dmG();
-                        if ((dmG == null || dmG.size() <= 0) && dnV().dpY()) {
+                        ArrayList<PostData> dmH = pbData.dmH();
+                        if ((dmH == null || dmH.size() <= 0) && dnW().dpZ()) {
                             l.showToast(getPageContext().getPageActivity(), getPageContext().getString(R.string.pb_no_data_tips));
                             return;
                         }
-                        this.mfR.dsG();
-                        cFz();
+                        this.mfQ.dsH();
+                        cFA();
                         TiebaStatic.log(new aq("c11939"));
-                        if (!AntiHelper.d(getContext(), dmE)) {
-                            if (this.lVk != null) {
-                                this.lVk.setEnable(false);
+                        if (!AntiHelper.d(getContext(), dmF)) {
+                            if (this.lVj != null) {
+                                this.lVj.setEnable(false);
                                 x(pbData);
                             }
                             if (ShareSwitch.isOn()) {
                                 GY(z ? 2 : 1);
                                 return;
                             }
-                            this.mfR.showLoadingDialog();
-                            dnV().dqC().B(CheckRealNameModel.TYPE_PB_SHARE, 6);
+                            this.mfQ.showLoadingDialog();
+                            dnW().dqD().B(CheckRealNameModel.TYPE_PB_SHARE, 6);
                             return;
                         }
                         return;
@@ -1975,18 +1975,18 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 }
                 i = 1;
                 aq aqVar2 = new aq(TbadkCoreStatisticKey.KEY_SHARE_CLICK);
-                aqVar2.dX("tid", dnV().dpW());
+                aqVar2.dX("tid", dnW().dpX());
                 aqVar2.dX("uid", TbadkCoreApplication.getCurrentAccount());
-                aqVar2.dX("fid", dnV().getForumId());
+                aqVar2.dX("fid", dnW().getForumId());
                 if (!z) {
                 }
                 aqVar2.an("obj_name", i);
                 aqVar2.an("obj_type", 2);
-                if (dmE != null) {
+                if (dmF != null) {
                 }
                 if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                 }
-                if (dpD() != null) {
+                if (dpE() != null) {
                 }
                 TiebaStatic.log(aqVar2);
                 if (l.isNetOk()) {
@@ -1995,7 +1995,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         }
     }
 
-    public static VideoPbFragment dvr() {
+    public static VideoPbFragment dvs() {
         return new VideoPbFragment();
     }
 
@@ -2004,68 +2004,68 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         super.onActivityCreated(bundle);
         getBaseFragmentActivity().hideLoadingView(getBaseFragmentActivity().findViewById(R.id.container));
         VideoPbViewModel videoPbViewModel = (VideoPbViewModel) ViewModelProviders.of(getActivity()).get(VideoPbViewModel.class);
-        M(videoPbViewModel.dvX());
-        N(videoPbViewModel.dvX());
-        if (dnV() != null && dnV().getPbData() != null) {
-            boolean isFromMark = dnV().getIsFromMark();
-            com.baidu.tieba.pb.data.f pbData = dnV().getPbData();
+        M(videoPbViewModel.dvY());
+        N(videoPbViewModel.dvY());
+        if (dnW() != null && dnW().getPbData() != null) {
+            boolean isFromMark = dnW().getIsFromMark();
+            com.baidu.tieba.pb.data.f pbData = dnW().getPbData();
             if (isFromMark) {
                 PostData L = L(pbData);
-                if (pbData.bnw() != null && !pbData.bnw().equals(L.getId()) && this.fbv != null) {
-                    if (com.baidu.tbadk.a.d.bmH()) {
-                        this.fbv.setCurrentItem(mfx);
-                    } else {
+                if (pbData.bnx() != null && !pbData.bnx().equals(L.getId()) && this.fbv != null) {
+                    if (com.baidu.tbadk.a.d.bmI()) {
                         this.fbv.setCurrentItem(mfw);
+                    } else {
+                        this.fbv.setCurrentItem(mfv);
                     }
                 }
             }
         }
-        videoPbViewModel.dvY().observe(this, new Observer<bz>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.25
+        videoPbViewModel.dvZ().observe(this, new Observer<bz>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.25
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             /* renamed from: aR */
             public void onChanged(@Nullable bz bzVar) {
-                BdTypeRecyclerView cIs;
-                if (bzVar != null && bzVar.brH() != null) {
-                    if (VideoPbFragment.this.mfE.getVideoUrl() == null || !VideoPbFragment.this.mfE.getVideoUrl().equals(bzVar.brH().video_url)) {
-                        if (!at.isEmpty(VideoPbFragment.this.mfE.getVideoUrl())) {
-                            VideoPbFragment.this.lMS = true;
-                            if (com.baidu.tbadk.a.d.bmH()) {
-                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfx);
+                BdTypeRecyclerView cIt;
+                if (bzVar != null && bzVar.brI() != null) {
+                    if (VideoPbFragment.this.mfD.getVideoUrl() == null || !VideoPbFragment.this.mfD.getVideoUrl().equals(bzVar.brI().video_url)) {
+                        if (!at.isEmpty(VideoPbFragment.this.mfD.getVideoUrl())) {
+                            VideoPbFragment.this.lMR = true;
+                            if (com.baidu.tbadk.a.d.bmI()) {
+                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfw);
                             } else {
-                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfv);
+                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfu);
                             }
-                            if (com.baidu.tbadk.a.d.bmH() && (cIs = VideoPbFragment.this.cIs()) != null) {
-                                cIs.scrollToPosition(0);
+                            if (com.baidu.tbadk.a.d.bmI() && (cIt = VideoPbFragment.this.cIt()) != null) {
+                                cIt.scrollToPosition(0);
                             }
                         }
-                        if (VideoPbFragment.this.mfF == null || !VideoPbFragment.this.mfF.isPlaying()) {
-                            VideoPbFragment.this.dvs();
+                        if (VideoPbFragment.this.mfE == null || !VideoPbFragment.this.mfE.isPlaying()) {
+                            VideoPbFragment.this.dvt();
                             VideoPbFragment.this.aQ(bzVar);
                         }
-                        VideoPbFragment.this.dvt();
-                        if (VideoPbFragment.this.mfF.dwl()) {
-                            VideoPbFragment.this.mfF.start();
+                        VideoPbFragment.this.dvu();
+                        if (VideoPbFragment.this.mfE.dwm()) {
+                            VideoPbFragment.this.mfE.start();
                         }
-                        boolean z = !at.equals(VideoPbFragment.this.mfE.getVideoUrl(), bzVar.brH().video_url);
-                        VideoPbFragment.this.mfE.setData(bzVar);
-                        if (com.baidu.tbadk.a.d.bmH()) {
-                            VideoPbFragment.this.mfE.wj(false);
+                        boolean z = !at.equals(VideoPbFragment.this.mfD.getVideoUrl(), bzVar.brI().video_url);
+                        VideoPbFragment.this.mfD.setData(bzVar);
+                        if (com.baidu.tbadk.a.d.bmI()) {
+                            VideoPbFragment.this.mfD.wj(false);
                         } else {
-                            VideoPbFragment.this.mfE.wj(VideoPbFragment.this.fbv.getCurrentItem() == 0);
+                            VideoPbFragment.this.mfD.wj(VideoPbFragment.this.fbv.getCurrentItem() == 0);
                         }
                         if (z) {
-                            VideoPbFragment.this.mfE.startPlay();
-                            VideoPbFragment.this.mfE.dwW();
+                            VideoPbFragment.this.mfD.startPlay();
+                            VideoPbFragment.this.mfD.dwX();
                             return;
                         }
                         return;
                     }
-                    VideoPbFragment.this.mfE.setData(bzVar);
+                    VideoPbFragment.this.mfD.setData(bzVar);
                 }
             }
         });
-        videoPbViewModel.dwh().observe(this, new Observer<Integer>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.26
+        videoPbViewModel.dwi().observe(this, new Observer<Integer>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.26
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             /* renamed from: u */
@@ -2073,31 +2073,31 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 VideoPbFragment.this.fbv.setCurrentItem(num.intValue());
             }
         });
-        videoPbViewModel.dwc().observe(this, new Observer<bz>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.27
+        videoPbViewModel.dwd().observe(this, new Observer<bz>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.27
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             /* renamed from: aR */
             public void onChanged(@Nullable bz bzVar) {
-                VideoPbFragment.this.mfE.aV(bzVar);
+                VideoPbFragment.this.mfD.aV(bzVar);
             }
         });
-        videoPbViewModel.dwd().observe(this, new Observer<bz>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.28
+        videoPbViewModel.dwe().observe(this, new Observer<bz>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.28
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             /* renamed from: aR */
             public void onChanged(@Nullable bz bzVar) {
-                VideoPbFragment.this.mfE.aW(bzVar);
+                VideoPbFragment.this.mfD.aW(bzVar);
             }
         });
-        videoPbViewModel.dwe().observe(this, new Observer<Boolean>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.29
+        videoPbViewModel.dwf().observe(this, new Observer<Boolean>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.29
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             /* renamed from: s */
             public void onChanged(@Nullable Boolean bool) {
-                VideoPbFragment.this.dvD();
+                VideoPbFragment.this.dvE();
             }
         });
-        videoPbViewModel.dwf().observe(this, new Observer<Boolean>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.30
+        videoPbViewModel.dwg().observe(this, new Observer<Boolean>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.30
             /* JADX DEBUG: Method merged with bridge method */
             @Override // androidx.lifecycle.Observer
             /* renamed from: s */
@@ -2108,46 +2108,46 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvs() {
-        ViewGroup.LayoutParams layoutParams = this.mfH.getLayoutParams();
+    public void dvt() {
+        ViewGroup.LayoutParams layoutParams = this.mfG.getLayoutParams();
         layoutParams.height = 0;
-        this.mfH.setLayoutParams(layoutParams);
-        this.mfH.setVisibility(8);
+        this.mfG.setLayoutParams(layoutParams);
+        this.mfG.setVisibility(8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvt() {
-        if (this.mfF == null) {
-            this.mfF = new e(getBaseFragmentActivity(), this.mfD);
-            int statusBarHeight = (TbSingleton.getInstance().isNotchScreen(getActivity()) || TbSingleton.getInstance().isCutoutScreen(getActivity())) ? l.getStatusBarHeight(dpD()) : 0;
-            Rect rect = new Rect(0, statusBarHeight, l.getEquipmentWidth(getContext()), this.mfD.getOriginHeight() + statusBarHeight);
+    public void dvu() {
+        if (this.mfE == null) {
+            this.mfE = new e(getBaseFragmentActivity(), this.mfC);
+            int statusBarHeight = (TbSingleton.getInstance().isNotchScreen(getActivity()) || TbSingleton.getInstance().isCutoutScreen(getActivity())) ? l.getStatusBarHeight(dpE()) : 0;
+            Rect rect = new Rect(0, statusBarHeight, l.getEquipmentWidth(getContext()), this.mfC.getOriginHeight() + statusBarHeight);
             final VideoPbViewModel videoPbViewModel = (VideoPbViewModel) ViewModelProviders.of(getActivity()).get(VideoPbViewModel.class);
-            this.mfF.b(videoPbViewModel.dvZ(), rect);
-            if (this.mfF.dwl()) {
-                this.mfF.c(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.31
+            this.mfE.b(videoPbViewModel.dwa(), rect);
+            if (this.mfE.dwm()) {
+                this.mfE.c(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.31
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationEnd(Animator animator) {
-                        if (com.baidu.tbadk.a.d.bmH()) {
-                            if (videoPbViewModel.dwa() || VideoPbFragment.this.dnV().dqV() == VideoPbFragment.mfx) {
-                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfx);
+                        if (com.baidu.tbadk.a.d.bmI()) {
+                            if (videoPbViewModel.dwb() || VideoPbFragment.this.dnW().dqW() == VideoPbFragment.mfw) {
+                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfw);
                             }
-                        } else if (videoPbViewModel.dwa() || VideoPbFragment.this.dnV().dqV() == VideoPbFragment.mfw) {
-                            VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfw);
+                        } else if (videoPbViewModel.dwb() || VideoPbFragment.this.dnW().dqW() == VideoPbFragment.mfv) {
+                            VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfv);
                         }
                     }
 
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationCancel(Animator animator) {
-                        if (com.baidu.tbadk.a.d.bmH()) {
-                            if (videoPbViewModel.dwa() || VideoPbFragment.this.dnV().dqV() == VideoPbFragment.mfx) {
-                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfx);
+                        if (com.baidu.tbadk.a.d.bmI()) {
+                            if (videoPbViewModel.dwb() || VideoPbFragment.this.dnW().dqW() == VideoPbFragment.mfw) {
+                                VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfw);
                             }
-                        } else if (videoPbViewModel.dwa() || VideoPbFragment.this.dnV().dqV() == VideoPbFragment.mfw) {
-                            VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfw);
+                        } else if (videoPbViewModel.dwb() || VideoPbFragment.this.dnW().dqW() == VideoPbFragment.mfv) {
+                            VideoPbFragment.this.fbv.setCurrentItem(VideoPbFragment.mfv);
                         }
                     }
 
@@ -2155,33 +2155,33 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     public void onAnimationRepeat(Animator animator) {
                     }
                 });
-            } else if (com.baidu.tbadk.a.d.bmH()) {
-                if (videoPbViewModel.dwa() || dnV().dqV() == mfx) {
-                    this.fbv.setCurrentItem(mfx);
+            } else if (com.baidu.tbadk.a.d.bmI()) {
+                if (videoPbViewModel.dwb() || dnW().dqW() == mfw) {
+                    this.fbv.setCurrentItem(mfw);
                 }
-            } else if (videoPbViewModel.dwa() || dnV().dqV() == mfw) {
-                this.fbv.setCurrentItem(mfw);
+            } else if (videoPbViewModel.dwb() || dnW().dqW() == mfv) {
+                this.fbv.setCurrentItem(mfv);
             }
         }
     }
 
     public boolean onKeyDown(int i, KeyEvent keyEvent) {
-        if (!this.mfX && (this.mfY || dvR())) {
-            dvQ();
-            UtilHelper.hideStatusBar(dpD(), dpD().getRootView());
-            this.mfY = false;
-            if (this.mfE != null) {
-                this.mfE.wb(false);
+        if (!this.mfW && (this.mfX || dvS())) {
+            dvR();
+            UtilHelper.hideStatusBar(dpE(), dpE().getRootView());
+            this.mfX = false;
+            if (this.mfD != null) {
+                this.mfD.wb(false);
             }
         }
         if (i == 4) {
-            return this.mfE.dCj();
+            return this.mfD.dCk();
         }
         if (i == 24) {
-            return this.mfE.dwT();
+            return this.mfD.dwU();
         }
         if (i == 25) {
-            return this.mfE.dwU();
+            return this.mfD.dwV();
         }
         return false;
     }
@@ -2203,12 +2203,12 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         int i;
         ViewGroup.LayoutParams layoutParams;
         CoordinatorLayout.LayoutParams layoutParams2;
-        Rect dqU;
+        Rect dqV;
         int equipmentWidth = l.getEquipmentWidth(getContext());
         double equipmentHeight = (2.0d * equipmentWidth) / l.getEquipmentHeight(getContext());
-        if (bzVar != null && bzVar.brH() != null) {
-            int intValue = bzVar.brH().video_width.intValue();
-            int intValue2 = bzVar.brH().video_height.intValue();
+        if (bzVar != null && bzVar.brI() != null) {
+            int intValue = bzVar.brI().video_width.intValue();
+            int intValue2 = bzVar.brI().video_height.intValue();
             if (intValue2 > 0) {
                 d = (intValue * 1.0f) / intValue2;
                 if (d > 1.7777777777777777d) {
@@ -2218,31 +2218,31 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     equipmentHeight = d;
                 }
                 int ceil = (int) Math.ceil(equipmentWidth / equipmentHeight);
-                int height = (dnV() != null || (dqU = dnV().dqU()) == null) ? ceil : dqU.height();
+                int height = (dnW() != null || (dqV = dnW().dqV()) == null) ? ceil : dqV.height();
                 i = 0;
-                layoutParams = this.mfD.getLayoutParams();
+                layoutParams = this.mfC.getLayoutParams();
                 if (layoutParams != null) {
                     layoutParams = new ViewGroup.LayoutParams(-1, height);
                 } else {
                     i = layoutParams.height - height;
                     layoutParams.height = height;
                 }
-                this.mfD.setLayoutParams(layoutParams);
-                this.mfD.setMaxHeight(ceil);
-                this.mfD.setMinHeight((int) Math.ceil(equipmentWidth / 1.7777777777777777d));
-                this.mfD.setOriginHeight(height);
-                if (!com.baidu.tbadk.a.d.bmH()) {
-                    RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.mfz.getLayoutParams();
+                this.mfC.setLayoutParams(layoutParams);
+                this.mfC.setMaxHeight(ceil);
+                this.mfC.setMinHeight((int) Math.ceil(equipmentWidth / 1.7777777777777777d));
+                this.mfC.setOriginHeight(height);
+                if (!com.baidu.tbadk.a.d.bmI()) {
+                    RelativeLayout.LayoutParams layoutParams3 = (RelativeLayout.LayoutParams) this.mfy.getLayoutParams();
                     if (layoutParams3 == null) {
-                        layoutParams3 = new RelativeLayout.LayoutParams(-1, mfy);
+                        layoutParams3 = new RelativeLayout.LayoutParams(-1, mfx);
                     } else {
-                        layoutParams3.height = mfy;
+                        layoutParams3.height = mfx;
                     }
-                    this.mfz.setLayoutParams(layoutParams3);
+                    this.mfy.setLayoutParams(layoutParams3);
                 }
                 layoutParams2 = (CoordinatorLayout.LayoutParams) this.ZS.getLayoutParams();
-                if (!com.baidu.tbadk.a.d.bmH()) {
-                    ceil += mfy;
+                if (!com.baidu.tbadk.a.d.bmI()) {
+                    ceil += mfx;
                 }
                 if (layoutParams2 != null) {
                     layoutParams2 = new CoordinatorLayout.LayoutParams(-1, ceil);
@@ -2266,20 +2266,20 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         if (d >= equipmentHeight) {
         }
         int ceil2 = (int) Math.ceil(equipmentWidth / equipmentHeight);
-        if (dnV() != null) {
+        if (dnW() != null) {
         }
         i = 0;
-        layoutParams = this.mfD.getLayoutParams();
+        layoutParams = this.mfC.getLayoutParams();
         if (layoutParams != null) {
         }
-        this.mfD.setLayoutParams(layoutParams);
-        this.mfD.setMaxHeight(ceil2);
-        this.mfD.setMinHeight((int) Math.ceil(equipmentWidth / 1.7777777777777777d));
-        this.mfD.setOriginHeight(height);
-        if (!com.baidu.tbadk.a.d.bmH()) {
+        this.mfC.setLayoutParams(layoutParams);
+        this.mfC.setMaxHeight(ceil2);
+        this.mfC.setMinHeight((int) Math.ceil(equipmentWidth / 1.7777777777777777d));
+        this.mfC.setOriginHeight(height);
+        if (!com.baidu.tbadk.a.d.bmI()) {
         }
         layoutParams2 = (CoordinatorLayout.LayoutParams) this.ZS.getLayoutParams();
-        if (!com.baidu.tbadk.a.d.bmH()) {
+        if (!com.baidu.tbadk.a.d.bmI()) {
         }
         if (layoutParams2 != null) {
         }
@@ -2290,85 +2290,85 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
-        this.lMM = System.currentTimeMillis();
+        this.lML = System.currentTimeMillis();
         super.onCreate(bundle);
         this.needLogStayDuration = false;
         initData();
         at(bundle);
         getVoiceManager().onCreate(getPageContext());
-        this.lNE = new com.baidu.tbadk.core.view.c();
-        this.lNE.toastTime = 1000L;
-        if (this.mfR != null) {
+        this.lND = new com.baidu.tbadk.core.view.c();
+        this.lND.toastTime = 1000L;
+        if (this.mfQ != null) {
             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_REGISTER_LISTENER);
             userMuteAddAndDelCustomMessage.from = 1;
-            userMuteAddAndDelCustomMessage.mId = this.mfR.lNF;
-            userMuteAddAndDelCustomMessage.setTag(this.mfR.lNF);
+            userMuteAddAndDelCustomMessage.mId = this.mfQ.lNE;
+            userMuteAddAndDelCustomMessage.setTag(this.mfQ.lNE);
             MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
             UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_REGISTER_LISTENER);
-            userMuteCheckCustomMessage.mId = this.mfR.lNF;
-            userMuteCheckCustomMessage.setTag(this.mfR.lNF);
+            userMuteCheckCustomMessage.mId = this.mfQ.lNE;
+            userMuteCheckCustomMessage.setTag(this.mfQ.lNE);
             MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
         }
         this.iwL = new com.baidu.tieba.callfans.a(getPageContext());
-        com.baidu.tieba.s.c.dNX().z(getUniqueId());
+        com.baidu.tieba.s.c.dNY().z(getUniqueId());
     }
 
     private void initData() {
-        this.lNj = com.baidu.tbadk.baseEditMark.a.a(this.lME);
-        if (this.lNj != null) {
-            this.lNj.a(this.lOp);
+        this.lNi = com.baidu.tbadk.baseEditMark.a.a(this.lMD);
+        if (this.lNi != null) {
+            this.lNi.a(this.lOo);
         }
-        this.ggJ = new ForumManageModel(this.lME);
+        this.ggJ = new ForumManageModel(this.lMD);
         this.ggJ.setLoadDataCallBack(this.iwQ);
         this.fcZ = new com.baidu.tbadk.coreExtra.model.a(getPageContext());
-        this.mfR = new com.baidu.tieba.pb.videopb.b.a(this);
+        this.mfQ = new com.baidu.tieba.pb.videopb.b.a(this);
     }
 
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
     /* JADX DEBUG: Multi-variable search result rejected for r1v5, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
     /* JADX WARN: Multi-variable type inference failed */
     private void at(Bundle bundle) {
-        this.lNw = new g();
-        d(this.lNw);
-        this.lNx = (com.baidu.tbadk.editortools.pb.e) this.lNw.fj(getActivity());
-        this.lNx.a(this.lME.getPageContext());
-        this.lNx.a(this.fGo);
-        this.lNx.a(this.fGh);
-        this.lNx.setFrom(1);
-        this.lNx.a(this.lME.getPageContext(), bundle);
-        this.lNx.bEI().c(new com.baidu.tbadk.editortools.k(getActivity()));
-        this.lNx.bEI().kO(true);
+        this.lNv = new g();
+        d(this.lNv);
+        this.lNw = (com.baidu.tbadk.editortools.pb.e) this.lNv.fj(getActivity());
+        this.lNw.a(this.lMD.getPageContext());
+        this.lNw.a(this.fGo);
+        this.lNw.a(this.fGh);
+        this.lNw.setFrom(1);
+        this.lNw.a(this.lMD.getPageContext(), bundle);
+        this.lNw.bEJ().c(new com.baidu.tbadk.editortools.k(getActivity()));
+        this.lNw.bEJ().kO(true);
         uN(true);
-        this.lNx.a(dnV().dqn(), dnV().dpW(), dnV().dqE());
-        registerListener(this.lNU);
-        registerListener(this.lOo);
+        this.lNw.a(dnW().dqo(), dnW().dpX(), dnW().dqF());
         registerListener(this.lNT);
-        registerListener(this.lNR);
+        registerListener(this.lOn);
+        registerListener(this.lNS);
+        registerListener(this.lNQ);
         registerListener(this.jgK);
-        if (!dnV().dqe()) {
-            this.lNx.DS(dnV().dpW());
+        if (!dnW().dqf()) {
+            this.lNw.DR(dnW().dpX());
         }
-        if (dnV().dqF()) {
-            this.lNx.DQ(getPageContext().getString(R.string.pb_reply_hint_from_smart_frs));
+        if (dnW().dqG()) {
+            this.lNw.DP(getPageContext().getString(R.string.pb_reply_hint_from_smart_frs));
         } else {
-            this.lNx.DQ(drQ());
+            this.lNw.DP(drR());
         }
         this.kSQ = new ar();
-        if (this.lNx.bFo() != null) {
-            this.kSQ.f(this.lNx.bFo().getInputView());
+        if (this.lNw.bFp() != null) {
+            this.kSQ.f(this.lNw.bFp().getInputView());
         }
-        this.lNx.a(this.fGi);
+        this.lNw.a(this.fGi);
         this.kON = new al(getPageContext());
         this.kON.a(new al.a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.32
             @Override // com.baidu.tbadk.core.util.al.a
             public void q(boolean z, int i) {
                 if (z) {
                     if (i == al.fcU) {
-                        VideoPbFragment.this.lNx.a((String) null, (WriteData) null);
-                    } else if (i == al.fcV && VideoPbFragment.this.lVM != null && VideoPbFragment.this.lVM.doI() != null) {
-                        VideoPbFragment.this.lVM.doI().bFM();
+                        VideoPbFragment.this.lNw.a((String) null, (WriteData) null);
+                    } else if (i == al.fcV && VideoPbFragment.this.lVL != null && VideoPbFragment.this.lVL.doJ() != null) {
+                        VideoPbFragment.this.lVL.doJ().bFN();
                     } else if (i == al.fcW) {
-                        VideoPbFragment.this.c(VideoPbFragment.this.lNA);
+                        VideoPbFragment.this.c(VideoPbFragment.this.lNz);
                     }
                 }
             }
@@ -2384,31 +2384,31 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     private void initUI() {
         this.jkd = new com.baidu.tieba.f.b(getActivity());
-        this.jkd.a(lOx);
-        this.mfX = TbSingleton.getInstance().isNotchScreen(getActivity()) || TbSingleton.getInstance().isCutoutScreen(getActivity());
-        bIk();
+        this.jkd.a(lOw);
+        this.mfW = TbSingleton.getInstance().isNotchScreen(getActivity()) || TbSingleton.getInstance().isCutoutScreen(getActivity());
+        bIl();
         this.ZS = (AppBarLayout) this.rootView.findViewById(R.id.appbar_layout);
-        this.mfB = this.rootView.findViewById(R.id.pb_video_pager_shadow);
-        this.mfD = (VideoContainerLayout) this.rootView.findViewById(R.id.pb_video_container);
-        this.mfE = new com.baidu.tieba.pb.videopb.videoView.a(getContext(), this.mfD);
-        this.mfE.setStageType("2002");
-        this.mfE.setUniqueId(getUniqueId());
-        this.mfE.af(this);
-        this.mfE.dV(dpD().getRootView());
-        this.mfE.dW(this.mfG);
+        this.mfA = this.rootView.findViewById(R.id.pb_video_pager_shadow);
+        this.mfC = (VideoContainerLayout) this.rootView.findViewById(R.id.pb_video_container);
+        this.mfD = new com.baidu.tieba.pb.videopb.videoView.a(getContext(), this.mfC);
+        this.mfD.setStageType("2002");
+        this.mfD.setUniqueId(getUniqueId());
+        this.mfD.af(this);
+        this.mfD.dV(dpE().getRootView());
+        this.mfD.dW(this.mfF);
         ((RelativeLayout) this.rootView.findViewById(R.id.scroll_container)).setMinimumHeight(((int) Math.ceil((l.getEquipmentWidth(getContext()) * 9) / 16.0d)) + getResources().getDimensionPixelOffset(R.dimen.tbds118));
-        this.mfz = (NewPagerSlidingTabBaseStrip) this.rootView.findViewById(R.id.pb_video_tab_strip);
-        this.mfH = this.rootView.findViewById(R.id.pb_video_mount_layout);
+        this.mfy = (NewPagerSlidingTabBaseStrip) this.rootView.findViewById(R.id.pb_video_tab_strip);
+        this.mfG = this.rootView.findViewById(R.id.pb_video_mount_layout);
         this.fbv = (CustomViewPager) this.rootView.findViewById(R.id.pb_video_view_pager);
-        this.mfC = this.rootView.findViewById(R.id.keyboard_background_shadow);
-        this.mfC.setOnClickListener(this.aHh);
-        dvv();
-        dvu();
+        this.mfB = this.rootView.findViewById(R.id.keyboard_background_shadow);
+        this.mfB.setOnClickListener(this.aHh);
         dvw();
-        this.mfA = new VideoPbFragmentAdapter(getBaseFragmentActivity().getSupportFragmentManager(), this);
-        this.fbv.setAdapter(this.mfA);
-        this.mfz.setViewPager(this.fbv);
-        this.mfz.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.33
+        dvv();
+        dvx();
+        this.mfz = new VideoPbFragmentAdapter(getBaseFragmentActivity().getSupportFragmentManager(), this);
+        this.fbv.setAdapter(this.mfz);
+        this.mfy.setViewPager(this.fbv);
+        this.mfy.setOnPageChangeListener(new ViewPager.OnPageChangeListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.33
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrolled(int i, float f, int i2) {
             }
@@ -2417,124 +2417,124 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             public void onPageSelected(int i) {
                 boolean z = false;
                 if (i == 0) {
-                    if (com.baidu.tbadk.a.d.bmH() && VideoPbFragment.this.dvM() != null) {
-                        VideoPbFragment.this.dvM().wi(false);
-                    } else if (VideoPbFragment.this.dvK() != null) {
-                        VideoPbFragment.this.dvK().wi(false);
-                    }
-                    if (VideoPbFragment.this.dvL() != null) {
-                        VideoPbFragment.this.dvL().wi(true);
-                        VideoPbFragment.this.HI(VideoPbFragment.this.dvL().dwz() != 0 ? 0 : 8);
-                    }
-                    VideoPbViewModel videoPbViewModel = (VideoPbViewModel) ViewModelProviders.of(VideoPbFragment.this.getActivity()).get(VideoPbViewModel.class);
-                    if (videoPbViewModel.dwe() != null && videoPbViewModel.dwe().getValue() != null && videoPbViewModel.dwe().getValue().booleanValue()) {
-                        z = true;
-                    }
-                    VideoPbFragment.this.mfE.wj(z);
-                    VideoPbFragment.this.drO();
-                    if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                        TiebaStatic.log(new aq("c13592").dX("tid", VideoPbFragment.this.dnV().dpW()).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()));
-                    }
-                } else {
-                    if (VideoPbFragment.this.dvL() != null) {
+                    if (com.baidu.tbadk.a.d.bmI() && VideoPbFragment.this.dvN() != null) {
+                        VideoPbFragment.this.dvN().wi(false);
+                    } else if (VideoPbFragment.this.dvL() != null) {
                         VideoPbFragment.this.dvL().wi(false);
                     }
-                    if (com.baidu.tbadk.a.d.bmH() && VideoPbFragment.this.dvM() != null) {
+                    if (VideoPbFragment.this.dvM() != null) {
                         VideoPbFragment.this.dvM().wi(true);
-                        int dwz = VideoPbFragment.this.dvM().dwz();
-                        int dwA = VideoPbFragment.this.dvM().dwA();
-                        if (dwz != 0) {
+                        VideoPbFragment.this.HI(VideoPbFragment.this.dvM().dwA() != 0 ? 0 : 8);
+                    }
+                    VideoPbViewModel videoPbViewModel = (VideoPbViewModel) ViewModelProviders.of(VideoPbFragment.this.getActivity()).get(VideoPbViewModel.class);
+                    if (videoPbViewModel.dwf() != null && videoPbViewModel.dwf().getValue() != null && videoPbViewModel.dwf().getValue().booleanValue()) {
+                        z = true;
+                    }
+                    VideoPbFragment.this.mfD.wj(z);
+                    VideoPbFragment.this.drP();
+                    if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                        TiebaStatic.log(new aq("c13592").dX("tid", VideoPbFragment.this.dnW().dpX()).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()));
+                    }
+                } else {
+                    if (VideoPbFragment.this.dvM() != null) {
+                        VideoPbFragment.this.dvM().wi(false);
+                    }
+                    if (com.baidu.tbadk.a.d.bmI() && VideoPbFragment.this.dvN() != null) {
+                        VideoPbFragment.this.dvN().wi(true);
+                        int dwA = VideoPbFragment.this.dvN().dwA();
+                        int dwB = VideoPbFragment.this.dvN().dwB();
+                        if (dwA != 0) {
                             VideoPbFragment.this.HI(8);
-                            VideoPbFragment.this.dvM().HI(0);
-                        } else if (dwA != 0) {
-                            VideoPbFragment.this.dvM().HI(8);
+                            VideoPbFragment.this.dvN().HI(0);
+                        } else if (dwB != 0) {
+                            VideoPbFragment.this.dvN().HI(8);
                             VideoPbFragment.this.HI(0);
                         } else {
-                            VideoPbFragment.this.dvM().HI(8);
+                            VideoPbFragment.this.dvN().HI(8);
                             VideoPbFragment.this.HI(8);
                         }
-                    } else if (VideoPbFragment.this.dvK() != null) {
-                        VideoPbFragment.this.dvK().wi(true);
-                        int dwz2 = VideoPbFragment.this.dvK().dwz();
-                        int dwA2 = VideoPbFragment.this.dvK().dwA();
-                        if (dwz2 != 0) {
+                    } else if (VideoPbFragment.this.dvL() != null) {
+                        VideoPbFragment.this.dvL().wi(true);
+                        int dwA2 = VideoPbFragment.this.dvL().dwA();
+                        int dwB2 = VideoPbFragment.this.dvL().dwB();
+                        if (dwA2 != 0) {
                             VideoPbFragment.this.HI(8);
-                            VideoPbFragment.this.dvK().HI(0);
-                        } else if (dwA2 != 0) {
-                            VideoPbFragment.this.dvK().HI(8);
+                            VideoPbFragment.this.dvL().HI(0);
+                        } else if (dwB2 != 0) {
+                            VideoPbFragment.this.dvL().HI(8);
                             VideoPbFragment.this.HI(0);
                         } else {
-                            VideoPbFragment.this.dvK().HI(8);
+                            VideoPbFragment.this.dvL().HI(8);
                             VideoPbFragment.this.HI(8);
                         }
                     }
-                    VideoPbFragment.this.mfE.wj(false);
+                    VideoPbFragment.this.mfD.wj(false);
                     VideoPbFragment.this.ZS.setExpanded(false, true);
-                    if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                        TiebaStatic.log(new aq("c13593").dX("tid", VideoPbFragment.this.dnV().dpW()).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()));
+                    if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                        TiebaStatic.log(new aq("c13593").dX("tid", VideoPbFragment.this.dnW().dpX()).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()));
                     }
                 }
-                VideoPbFragment.this.mfA.HK(i);
+                VideoPbFragment.this.mfz.HK(i);
             }
 
             @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
             public void onPageScrollStateChanged(int i) {
             }
         });
-        this.lUL = this.rootView.findViewById(R.id.viewstub_progress);
-        dvx();
-        bZA();
-        if (!this.mfX && this.mfY) {
-            dvQ();
-            UtilHelper.hideStatusBar(dpD(), dpD().getRootView());
-            this.mfY = false;
+        this.lUK = this.rootView.findViewById(R.id.viewstub_progress);
+        dvy();
+        bZB();
+        if (!this.mfW && this.mfX) {
+            dvR();
+            UtilHelper.hideStatusBar(dpE(), dpE().getRootView());
+            this.mfX = false;
         }
-        if (com.baidu.tbadk.a.d.bmH()) {
-            this.mfz.getLayoutParams().height = 0;
+        if (com.baidu.tbadk.a.d.bmI()) {
+            this.mfy.getLayoutParams().height = 0;
         }
     }
 
-    private void dvu() {
-        this.mfJ = (TextView) this.rootView.findViewById(R.id.pb_video_mount_title);
-        this.mfN = (TbImageView) this.rootView.findViewById(R.id.pb_video_mount_pic);
-        this.mfK = (TextView) this.rootView.findViewById(R.id.pb_video_mount_desc);
-        this.mfL = (ImageView) this.rootView.findViewById(R.id.pb_video_mount_close);
-        this.mfM = (TBSpecificationBtn) this.rootView.findViewById(R.id.pb_video_mount_link);
-        this.mfO = this.rootView.findViewById(R.id.ala_live_point);
-        this.mfN.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
-        this.mfN.setConrers(15);
-        this.mfM.setConfig(new com.baidu.tbadk.core.view.commonBtn.c());
-        this.mfL.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.35
+    private void dvv() {
+        this.mfI = (TextView) this.rootView.findViewById(R.id.pb_video_mount_title);
+        this.mfM = (TbImageView) this.rootView.findViewById(R.id.pb_video_mount_pic);
+        this.mfJ = (TextView) this.rootView.findViewById(R.id.pb_video_mount_desc);
+        this.mfK = (ImageView) this.rootView.findViewById(R.id.pb_video_mount_close);
+        this.mfL = (TBSpecificationBtn) this.rootView.findViewById(R.id.pb_video_mount_link);
+        this.mfN = this.rootView.findViewById(R.id.ala_live_point);
+        this.mfM.setRadius(l.getDimens(getContext(), R.dimen.tbds10));
+        this.mfM.setConrers(15);
+        this.mfL.setConfig(new com.baidu.tbadk.core.view.commonBtn.c());
+        this.mfK.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.35
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (VideoPbFragment.this.lGB == null || VideoPbFragment.this.lGB.dwL()) {
-                    if (VideoPbFragment.this.lGB != null) {
-                        TiebaStatic.log(new aq("c13608").dX("tid", VideoPbFragment.this.dnV().getPbData().getThreadId()));
-                        VideoPbFragment.this.lGB.mhU = true;
+                if (VideoPbFragment.this.lGA == null || VideoPbFragment.this.lGA.dwM()) {
+                    if (VideoPbFragment.this.lGA != null) {
+                        TiebaStatic.log(new aq("c13608").dX("tid", VideoPbFragment.this.dnW().getPbData().getThreadId()));
+                        VideoPbFragment.this.lGA.mhT = true;
                     }
                 } else {
                     TiebaStatic.log(new aq("c13591"));
                 }
-                VideoPbFragment.this.dvF();
+                VideoPbFragment.this.dvG();
             }
         });
-        this.mfM.setOnClickListener(this.mfI);
-        this.mfH.setOnClickListener(this.mfI);
+        this.mfL.setOnClickListener(this.mfH);
+        this.mfG.setOnClickListener(this.mfH);
     }
 
-    private void dvv() {
-        this.mfz.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
+    private void dvw() {
+        this.mfy.setDefaultSelectorColorResourceId(R.color.CAM_X0105);
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
         layoutParams.leftMargin = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds4);
-        this.mfz.setContainerLayoutParams(layoutParams);
-        this.mfz.setRectPaintColor(R.color.CAM_X0302);
-        this.mfz.a(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds46), l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds46), l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10), l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds46), true, true);
-        this.mfz.setIndicatorOffset(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds64));
-        this.mfz.setIndicatorOvershot(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8));
-        this.mfz.setIndicatorMarginBottom(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0));
+        this.mfy.setContainerLayoutParams(layoutParams);
+        this.mfy.setRectPaintColor(R.color.CAM_X0302);
+        this.mfy.a(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds46), l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds46), l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds10), l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds46), true, true);
+        this.mfy.setIndicatorOffset(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds64));
+        this.mfy.setIndicatorOvershot(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds8));
+        this.mfy.setIndicatorMarginBottom(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds0));
         LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds170), -1);
         layoutParams2.gravity = 16;
-        this.mfz.setExpandedTabLayoutParams(layoutParams2);
+        this.mfy.setExpandedTabLayoutParams(layoutParams2);
     }
 
     public void wa(boolean z) {
@@ -2543,86 +2543,86 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         }
     }
 
-    private void dvw() {
-        this.lVd = this.rootView.findViewById(R.id.video_view_comment_top_line);
-        this.lVe = this.rootView.findViewById(R.id.pb_editor_tool_comment);
-        this.lVo = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds120);
-        this.lVp = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds242);
-        this.lVg = (HeadImageView) this.rootView.findViewById(R.id.pb_editor_tool_comment_user_image);
-        this.lVg.setVisibility(0);
-        this.lVg.setIsRound(true);
-        this.lVg.setBorderWidth(l.getDimens(getContext(), R.dimen.L_X01));
-        this.lVg.setBorderColor(ao.getColor(R.color.CAM_X0401));
-        this.lVg.setPlaceHolder(0);
-        drU();
+    private void dvx() {
+        this.lVc = this.rootView.findViewById(R.id.video_view_comment_top_line);
+        this.lVd = this.rootView.findViewById(R.id.pb_editor_tool_comment);
+        this.lVn = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds120);
+        this.lVo = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.ds242);
+        this.lVf = (HeadImageView) this.rootView.findViewById(R.id.pb_editor_tool_comment_user_image);
+        this.lVf.setVisibility(0);
+        this.lVf.setIsRound(true);
+        this.lVf.setBorderWidth(l.getDimens(getContext(), R.dimen.L_X01));
+        this.lVf.setBorderColor(ao.getColor(R.color.CAM_X0401));
+        this.lVf.setPlaceHolder(0);
+        drV();
         this.klE = (TextView) this.rootView.findViewById(R.id.pb_editor_tool_comment_reply_text);
-        this.lVf = (LinearLayout) this.rootView.findViewById(R.id.pb_editer_tool_comment_layout);
-        this.lVf.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.36
+        this.lVe = (LinearLayout) this.rootView.findViewById(R.id.pb_editer_tool_comment_layout);
+        this.lVe.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.36
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 VideoPbFragment.this.wa(false);
-                VideoPbFragment.this.doU();
-                if (VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().dmE() != null && VideoPbFragment.this.dnV().getPbData().dmE().brq() != null) {
-                    TiebaStatic.log(new aq("c13701").dX("tid", VideoPbFragment.this.dnV().dpX()).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()).w("uid", TbadkCoreApplication.getCurrentAccountId()));
-                    TiebaStatic.log(new aq("c13402").dX("tid", VideoPbFragment.this.dnV().dpW()).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()).an("obj_locate", 1).dX("uid", VideoPbFragment.this.dnV().getPbData().dmE().brq().getUserId()));
+                VideoPbFragment.this.doV();
+                if (VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().dmF() != null && VideoPbFragment.this.dnW().getPbData().dmF().brr() != null) {
+                    TiebaStatic.log(new aq("c13701").dX("tid", VideoPbFragment.this.dnW().dpY()).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()).w("uid", TbadkCoreApplication.getCurrentAccountId()));
+                    TiebaStatic.log(new aq("c13402").dX("tid", VideoPbFragment.this.dnW().dpX()).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()).an("obj_locate", 1).dX("uid", VideoPbFragment.this.dnW().getPbData().dmF().brr().getUserId()));
                 }
             }
         });
-        this.lVh = (ImageView) this.rootView.findViewById(R.id.pb_editor_tool_comment_icon);
-        this.lVh.setOnClickListener(this.aHh);
+        this.lVg = (ImageView) this.rootView.findViewById(R.id.pb_editor_tool_comment_icon);
+        this.lVg.setOnClickListener(this.aHh);
         boolean booleanExtra = getBaseFragmentActivity().getIntent().getBooleanExtra("key_is_from_dynamic", false);
-        this.lVi = (ImageView) this.rootView.findViewById(R.id.pb_editor_tool_collection);
-        this.lVi.setOnClickListener(this.aHh);
+        this.lVh = (ImageView) this.rootView.findViewById(R.id.pb_editor_tool_collection);
+        this.lVh.setOnClickListener(this.aHh);
         if (booleanExtra) {
-            this.lVi.setVisibility(8);
+            this.lVh.setVisibility(8);
         } else {
-            this.lVi.setVisibility(0);
+            this.lVh.setVisibility(0);
         }
-        this.lVj = (ImageView) this.rootView.findViewById(R.id.pb_editor_tool_share);
-        this.lVj.setOnClickListener(this.aHh);
-        this.lVk = new com.baidu.tieba.pb.view.d(this.lVj);
-        this.lVk.dxf();
-        this.lVl = (TextView) this.rootView.findViewById(R.id.pb_editor_tool_comment_red_dot);
-        this.lVl.setVisibility(0);
+        this.lVi = (ImageView) this.rootView.findViewById(R.id.pb_editor_tool_share);
+        this.lVi.setOnClickListener(this.aHh);
+        this.lVj = new com.baidu.tieba.pb.view.d(this.lVi);
+        this.lVj.dxg();
+        this.lVk = (TextView) this.rootView.findViewById(R.id.pb_editor_tool_comment_red_dot);
+        this.lVk.setVisibility(0);
         vz(false);
     }
 
-    private void drU() {
-        if (this.lVg != null && TbadkCoreApplication.getCurrentAccountInfo() != null) {
-            this.lVg.setImageResource(0);
-            this.lVg.startLoad(TbadkCoreApplication.getCurrentAccountInfo().getAvatar(), 12, false);
+    private void drV() {
+        if (this.lVf != null && TbadkCoreApplication.getCurrentAccountInfo() != null) {
+            this.lVf.setImageResource(0);
+            this.lVf.startLoad(TbadkCoreApplication.getCurrentAccountInfo().getAvatar(), 12, false);
             return;
         }
-        this.lVg.setImageResource(R.drawable.transparent_bg);
+        this.lVf.setImageResource(R.drawable.transparent_bg);
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar = (NavigationBar) this.rootView.findViewById(R.id.video_pb_navigation_bar);
         this.mNavigationBar.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.37
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                VideoPbFragment.this.cFA();
+                VideoPbFragment.this.cFB();
             }
         });
         this.mNavigationBar.hideBottomLine();
         this.mNavigationBar.getTopCoverBgView().setBackgroundResource(R.drawable.bg_pb_header_gradient_top);
         this.mNavigationBar.getTopCoverBgView().setVisibility(0);
         this.mStatusBar = this.rootView.findViewById(R.id.statebar);
-        this.mfG = this.rootView.findViewById(R.id.status_bar_background);
-        if (this.mfX) {
+        this.mfF = this.rootView.findViewById(R.id.status_bar_background);
+        if (this.mfW) {
             ViewGroup.LayoutParams layoutParams = this.mStatusBar.getLayoutParams();
-            layoutParams.height = l.getStatusBarHeight(dpD());
+            layoutParams.height = l.getStatusBarHeight(dpE());
             this.mStatusBar.setLayoutParams(layoutParams);
             this.mStatusBar.setVisibility(0);
         } else {
-            ViewGroup.LayoutParams layoutParams2 = this.mfG.getLayoutParams();
-            layoutParams2.height = l.getStatusBarHeight(dpD());
-            this.mfG.setLayoutParams(layoutParams2);
-            this.mfG.setVisibility(0);
+            ViewGroup.LayoutParams layoutParams2 = this.mfF.getLayoutParams();
+            layoutParams2.height = l.getStatusBarHeight(dpE());
+            this.mfF.setLayoutParams(layoutParams2);
+            this.mfF.setVisibility(0);
         }
         this.fOs = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, this.aHh);
         this.gZY = (ImageView) this.fOs.findViewById(R.id.widget_navi_back_button);
-        SvgManager.bwq().a(this.gZY, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.gZY, R.drawable.ic_icon_pure_topbar_return40_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.jvO = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.nb_item_floor_more, this.aHh);
         this.aiG = (ImageView) this.jvO.findViewById(R.id.navigationBarBtnMore);
         int dimens = l.getDimens(TbadkCoreApplication.getInst(), R.dimen.tbds132);
@@ -2630,37 +2630,37 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         LinearLayout.LayoutParams layoutParams3 = new LinearLayout.LayoutParams(dimens, dimens);
         layoutParams3.rightMargin = dimens2;
         this.jvO.setLayoutParams(layoutParams3);
-        SvgManager.bwq().a(this.aiG, R.drawable.icon_pure_topbar_more44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.aiG, R.drawable.icon_pure_topbar_more44_svg, R.color.white_alpha100, SvgManager.SvgResourceStateType.NORMAL_PRESS);
         this.jvO.setVisibility(TbadkCoreApplication.isLogin() ? 0 : 8);
         this.mGestureDetector = new GestureDetector(getContext(), this.jrz);
-        this.mNavigationBar.setOnTouchListener(this.mfZ);
+        this.mNavigationBar.setOnTouchListener(this.mfY);
     }
 
-    public void dvx() {
-        setEditorTools(this.lNx.bEI());
+    public void dvy() {
+        setEditorTools(this.lNw.bEJ());
     }
 
-    private void bZA() {
-        this.lMz = new PbFakeFloorModel(getPageContext());
-        this.lVM = new r(getPageContext(), this.lMz, this.rootView);
-        this.lVM.V(new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.38
+    private void bZB() {
+        this.lMy = new PbFakeFloorModel(getPageContext());
+        this.lVL = new r(getPageContext(), this.lMy, this.rootView);
+        this.lVL.V(new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.38
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                VideoPbFragment.this.drO();
+                VideoPbFragment.this.drP();
             }
         });
-        this.lVM.a(this.lOl);
-        this.lMz.a(new PbFakeFloorModel.a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.39
+        this.lVL.a(this.lOk);
+        this.lMy.a(new PbFakeFloorModel.a() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.39
             @Override // com.baidu.tieba.pb.pb.main.view.PbFakeFloorModel.a
             public void s(PostData postData) {
-                VideoPbFragment.this.lMz.u(postData);
-                if (com.baidu.tbadk.a.d.bmH() || VideoPbFragment.this.dvM() != null) {
-                    VideoPbFragment.this.dvM().dwv();
-                } else if (VideoPbFragment.this.dvK() != null) {
-                    VideoPbFragment.this.dvK().dwv();
+                VideoPbFragment.this.lMy.u(postData);
+                if (com.baidu.tbadk.a.d.bmI() || VideoPbFragment.this.dvN() != null) {
+                    VideoPbFragment.this.dvN().dww();
+                } else if (VideoPbFragment.this.dvL() != null) {
+                    VideoPbFragment.this.dvL().dww();
                 }
-                VideoPbFragment.this.lVM.doE();
-                VideoPbFragment.this.acZ.bDe();
+                VideoPbFragment.this.lVL.doF();
+                VideoPbFragment.this.acZ.bDf();
                 VideoPbFragment.this.vz(false);
             }
         });
@@ -2668,48 +2668,48 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(PostData postData, PostData postData2, boolean z, boolean z2) {
-        PbActivity.a PN;
-        String dpW = dnV().dpW();
+        PbActivity.a PM;
+        String dpX = dnW().dpX();
         String id = postData.getId();
         String str = "";
         if (postData2 != null) {
             str = postData2.getId();
         }
         int i = 0;
-        if (dnV().getPbData() != null) {
-            i = dnV().getPbData().dmT();
+        if (dnW().getPbData() != null) {
+            i = dnW().getPbData().dmU();
         }
-        if (dvK() != null && dvK().dwx() != null) {
-            PN = dvK().dwx().PN(id);
-        } else if (dvM() != null && dvM().dwx() != null) {
-            PN = dvM().dwx().PN(id);
+        if (dvL() != null && dvL().dwy() != null) {
+            PM = dvL().dwy().PM(id);
+        } else if (dvN() != null && dvN().dwy() != null) {
+            PM = dvN().dwy().PM(id);
         } else {
             return;
         }
-        if (postData != null && dnV() != null && dnV().getPbData() != null && PN != null) {
-            SubPbActivityConfig addBigImageData = new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(dpW, id, "pb", true, null, false, str, i, postData.duO(), dnV().getPbData().getAnti(), false, postData.brq().getIconInfo()).addBigImageData(PN.lJl, PN.eMr, PN.eMp, PN.index);
+        if (postData != null && dnW() != null && dnW().getPbData() != null && PM != null) {
+            SubPbActivityConfig addBigImageData = new SubPbActivityConfig(getPageContext().getPageActivity()).createSubPbActivityConfig(dpX, id, "pb", true, null, false, str, i, postData.duP(), dnW().getPbData().getAnti(), false, postData.brr().getIconInfo()).addBigImageData(PM.lJk, PM.eMr, PM.eMp, PM.index);
             if (z2) {
                 addBigImageData.setHighLightPostId(str);
                 addBigImageData.setKeyIsUseSpid(true);
             }
-            addBigImageData.setKeyFromForumId(dnV().getForumId());
-            addBigImageData.setBjhData(dnV().dqg());
-            addBigImageData.setKeyPageStartFrom(dnV().dqH());
-            addBigImageData.setFromFrsForumId(dnV().getFromForumId());
+            addBigImageData.setKeyFromForumId(dnW().getForumId());
+            addBigImageData.setBjhData(dnW().dqh());
+            addBigImageData.setKeyPageStartFrom(dnW().dqI());
+            addBigImageData.setFromFrsForumId(dnW().getFromForumId());
             addBigImageData.setIsOpenEditor(z);
-            if (dnV().getPbData().dnn() != null) {
-                addBigImageData.setHasForumRule(dnV().getPbData().dnn().has_forum_rule.intValue());
+            if (dnW().getPbData().dno() != null) {
+                addBigImageData.setHasForumRule(dnW().getPbData().dno().has_forum_rule.intValue());
             }
-            if (dnV().getPbData().getUserData() != null) {
-                addBigImageData.setIsManager(dnV().getPbData().getUserData().getIs_manager());
+            if (dnW().getPbData().getUserData() != null) {
+                addBigImageData.setIsManager(dnW().getPbData().getUserData().getIs_manager());
             }
-            if (dnV().getPbData().getForum().getDeletedReasonInfo() != null) {
-                addBigImageData.setDeletedReasonInfoIsGrayCaleForum(dnV().getPbData().getForum().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                addBigImageData.setDeletedReasonInfoIsIsBoomGrow(dnV().getPbData().getForum().getDeletedReasonInfo().is_boomgrow.intValue());
+            if (dnW().getPbData().getForum().getDeletedReasonInfo() != null) {
+                addBigImageData.setDeletedReasonInfoIsGrayCaleForum(dnW().getPbData().getForum().getDeletedReasonInfo().is_grays_cale_forum.intValue());
+                addBigImageData.setDeletedReasonInfoIsIsBoomGrow(dnW().getPbData().getForum().getDeletedReasonInfo().is_boomgrow.intValue());
             }
-            if (dnV().getPbData().getForum() != null) {
-                addBigImageData.setForumHeadUrl(dnV().getPbData().getForum().getImage_url());
-                addBigImageData.setUserLevel(dnV().getPbData().getForum().getUser_level());
+            if (dnW().getPbData().getForum() != null) {
+                addBigImageData.setForumHeadUrl(dnW().getPbData().getForum().getImage_url());
+                addBigImageData.setUserLevel(dnW().getPbData().getForum().getUser_level());
             }
             sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, addBigImageData));
         }
@@ -2718,14 +2718,14 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     @Override // androidx.fragment.app.Fragment
     public void onAttach(Context context) {
         super.onAttach(context);
-        this.lME = (PbActivity) context;
+        this.lMD = (PbActivity) context;
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onSaveInstanceState(@NonNull Bundle bundle) {
         super.onSaveInstanceState(bundle);
-        if (dnV() != null) {
-            dnV().aD(bundle);
+        if (dnW() != null) {
+            dnW().aD(bundle);
         }
         if (getPageContext() != null && getPageContext().getPageActivity() != null) {
             getVoiceManager().onSaveInstanceState(getPageContext().getPageActivity());
@@ -2743,14 +2743,14 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         super.onPause();
         this.isPaused = true;
         getVoiceManager().onPause(getPageContext());
-        this.mfE.sg(true);
-        if (dnV() != null && !dnV().dqe()) {
-            this.lNx.DR(dnV().dpW());
+        this.mfD.sg(true);
+        if (dnW() != null && !dnW().dqf()) {
+            this.lNw.DQ(dnW().dpX());
         }
-        com.baidu.tbadk.BdToken.c.bkT().ble();
+        com.baidu.tbadk.BdToken.c.bkU().blf();
+        MessageManager.getInstance().unRegisterListener(this.lOd);
         MessageManager.getInstance().unRegisterListener(this.lOe);
         MessageManager.getInstance().unRegisterListener(this.lOf);
-        MessageManager.getInstance().unRegisterListener(this.lOg);
         MessageManager.getInstance().unRegisterListener(this.jtD);
     }
 
@@ -2759,19 +2759,19 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         super.onResume();
         this.isPaused = false;
         getVoiceManager().onResume(getPageContext());
-        this.mfE.sg(false);
-        dpz();
+        this.mfD.sg(false);
+        dpA();
+        registerListener(this.lOd);
         registerListener(this.lOe);
         registerListener(this.lOf);
-        registerListener(this.lOg);
         registerListener(this.jtD);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void setPrimary(boolean z) {
         super.setPrimary(z);
-        if (this.mfA != null && this.fbv != null) {
-            this.mfA.HK(z ? this.fbv.getCurrentItem() : -1);
+        if (this.mfz != null && this.fbv != null) {
+            this.mfz.HK(z ? this.fbv.getCurrentItem() : -1);
         }
     }
 
@@ -2779,111 +2779,111 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onUserChanged(boolean z) {
         super.onUserChanged(z);
-        drU();
+        drV();
     }
 
     @Override // androidx.fragment.app.Fragment
     public void onStop() {
         super.onStop();
         getVoiceManager().onStop(getPageContext());
-        com.baidu.tieba.s.c.dNX().b(getUniqueId(), false);
+        com.baidu.tieba.s.c.dNY().b(getUniqueId(), false);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         super.onDestroy();
-        com.baidu.tieba.s.c.dNX().A(getUniqueId());
+        com.baidu.tieba.s.c.dNY().A(getUniqueId());
         getVoiceManager().onDestory(getPageContext());
-        if (this.lVk != null) {
-            this.lVk.onDestroy();
+        if (this.lVj != null) {
+            this.lVj.onDestroy();
         }
         if (this.ggJ != null) {
             this.ggJ.cancelLoadData();
         }
-        if (this.mfE != null) {
-            this.mfE.onDestroy();
+        if (this.mfD != null) {
+            this.mfD.onDestroy();
         }
-        if (this.lMX != null) {
-            this.lMX.cancelLoadData();
+        if (this.lMW != null) {
+            this.lMW.cancelLoadData();
         }
         if (this.kON != null) {
             this.kON.onDestroy();
         }
-        if (dnV() != null) {
-            dnV().cancelLoadData();
-            dnV().destory();
-            if (dnV().dqB() != null) {
-                dnV().dqB().onDestroy();
+        if (dnW() != null) {
+            dnW().cancelLoadData();
+            dnW().destory();
+            if (dnW().dqC() != null) {
+                dnW().dqC().onDestroy();
             }
         }
-        if (this.lNx != null) {
-            this.lNx.onDestroy();
+        if (this.lNw != null) {
+            this.lNw.onDestroy();
         }
-        this.lNE = null;
+        this.lND = null;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         super.onChangeSkinType(i);
-        UtilHelper.changeStatusBarIconAndTextColor(true, this.lME);
+        UtilHelper.changeStatusBarIconAndTextColor(true, this.lMD);
         getBaseFragmentActivity().getLayoutMode().setNightMode(i == 1);
         getBaseFragmentActivity().getLayoutMode().onModeChanged(this.rootView);
         ao.setBackgroundColor(this.mStatusBar, R.color.CAM_X0611);
-        ao.setBackgroundColor(this.mfG, R.color.CAM_X0608);
-        ao.setBackgroundColor(this.mfz, R.color.CAM_X0207);
-        if (this.mfz != null) {
-            this.mfz.onChangeSkinType();
+        ao.setBackgroundColor(this.mfF, R.color.CAM_X0608);
+        ao.setBackgroundColor(this.mfy, R.color.CAM_X0207);
+        if (this.mfy != null) {
+            this.mfy.onChangeSkinType();
         }
         if (this.kSQ != null) {
             this.kSQ.onChangeSkinType();
         }
-        if (this.mfF == null || !this.mfF.isPlaying()) {
+        if (this.mfE == null || !this.mfE.isPlaying()) {
             ao.setBackgroundColor(this.rootView, R.color.CAM_X0201);
         }
         if (this.acZ != null) {
             this.acZ.onChangeSkinType(i);
         }
-        if (this.lVM != null) {
-            this.lVM.onChangeSkinType(i);
-        }
-        if (this.lVg != null) {
-            this.lVg.setBorderColor(ao.getColor(R.color.CAM_X0401));
+        if (this.lVL != null) {
+            this.lVL.onChangeSkinType(i);
         }
         if (this.lVf != null) {
-            this.lVf.setBackgroundDrawable(ao.aO(l.getDimens(getContext(), R.dimen.tbds47), ao.getColor(R.color.CAM_X0209)));
+            this.lVf.setBorderColor(ao.getColor(R.color.CAM_X0401));
         }
-        if (dnV() != null && dnV().bnx()) {
-            WebPManager.a(this.lVi, R.drawable.icon_pure_pb_bottom_collected26_selection, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
+        if (this.lVe != null) {
+            this.lVe.setBackgroundDrawable(ao.aO(l.getDimens(getContext(), R.dimen.tbds47), ao.getColor(R.color.CAM_X0209)));
+        }
+        if (dnW() != null && dnW().bny()) {
+            WebPManager.a(this.lVh, R.drawable.icon_pure_pb_bottom_collected26_selection, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
         } else {
-            WebPManager.a(this.lVi, R.drawable.icon_pure_pb_bottom_collect26, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            WebPManager.a(this.lVh, R.drawable.icon_pure_pb_bottom_collect26, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
-        WebPManager.a(this.lVh, R.drawable.icon_pure_pb_bottom_comment26, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
-        SvgManager.bwq().a(this.mfL, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-        if (dnV() != null) {
-            x(dnV().getPbData());
+        WebPManager.a(this.lVg, R.drawable.icon_pure_pb_bottom_comment26, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+        SvgManager.bwr().a(this.mfK, R.drawable.icon_pure_close16_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL_PRESS);
+        if (dnW() != null) {
+            x(dnW().getPbData());
         }
-        ao.setBackgroundResource(this.mfB, R.drawable.personalize_tab_shadow);
-        ao.setBackgroundColor(this.mfH, R.color.CAM_X0206);
-        ao.setBackgroundColor(this.lVe, R.color.CAM_X0207);
-        ao.setBackgroundColor(this.lVd, R.color.CAM_X0203);
-        ao.setViewTextColor(this.mfK, R.color.CAM_X0109);
-        ao.setViewTextColor(this.mfJ, R.color.CAM_X0105);
+        ao.setBackgroundResource(this.mfA, R.drawable.personalize_tab_shadow);
+        ao.setBackgroundColor(this.mfG, R.color.CAM_X0206);
+        ao.setBackgroundColor(this.lVd, R.color.CAM_X0207);
+        ao.setBackgroundColor(this.lVc, R.color.CAM_X0203);
+        ao.setViewTextColor(this.mfJ, R.color.CAM_X0109);
+        ao.setViewTextColor(this.mfI, R.color.CAM_X0105);
         ao.setViewTextColor(this.klE, R.color.CAM_X0109);
-        ao.setViewTextColor(this.lVm, R.color.CAM_X0105);
-        ao.setViewTextColor(this.lVl, R.color.CAM_X0107);
-        ao.d(this.lVl, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
-        if (com.baidu.tbadk.a.d.bmH() && dvM() != null) {
-            dvM().onChangeSkinType(i);
-        } else if (dvK() != null) {
-            dvK().onChangeSkinType(i);
-        }
-        if (dvL() != null) {
+        ao.setViewTextColor(this.lVl, R.color.CAM_X0105);
+        ao.setViewTextColor(this.lVk, R.color.CAM_X0107);
+        ao.d(this.lVk, l.getDimens(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);
+        if (com.baidu.tbadk.a.d.bmI() && dvN() != null) {
+            dvN().onChangeSkinType(i);
+        } else if (dvL() != null) {
             dvL().onChangeSkinType(i);
         }
-        if (this.mfO != null) {
-            this.mfO.setBackgroundDrawable(ao.aO(l.getDimens(this.mfO.getContext(), R.dimen.tbds32), ao.getColor(R.color.CAM_X0309)));
+        if (dvM() != null) {
+            dvM().onChangeSkinType(i);
         }
-        cFz();
+        if (this.mfN != null) {
+            this.mfN.setBackgroundDrawable(ao.aO(l.getDimens(this.mfN.getContext(), R.dimen.tbds32), ao.getColor(R.color.CAM_X0309)));
+        }
+        cFA();
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.c
@@ -2895,7 +2895,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void cFz() {
+    public void cFA() {
         if (this.jfh != null) {
             this.jfh.stopPlay();
         }
@@ -2907,38 +2907,38 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     @Override // com.baidu.tieba.pb.videopb.b
-    public PbFragment dpB() {
+    public PbFragment dpC() {
         return null;
     }
 
     @Override // com.baidu.tieba.pb.videopb.b
-    public VideoPbFragment dpC() {
+    public VideoPbFragment dpD() {
         return this;
     }
 
     @Override // com.baidu.tieba.pb.videopb.b
-    public PbModel dnV() {
-        return this.lME.dnV();
+    public PbModel dnW() {
+        return this.lMD.dnW();
     }
 
     @Override // com.baidu.tieba.pb.videopb.b
-    public PbActivity dpD() {
-        return this.lME;
+    public PbActivity dpE() {
+        return this.lMD;
     }
 
-    public com.baidu.tbadk.baseEditMark.a dvy() {
-        return this.lNj;
-    }
-
-    public View.OnClickListener dvz() {
-        return this.aHh;
+    public com.baidu.tbadk.baseEditMark.a dvz() {
+        return this.lNi;
     }
 
     public View.OnClickListener dvA() {
-        return this.lJS;
+        return this.aHh;
     }
 
-    public View.OnLongClickListener dvB() {
+    public View.OnClickListener dvB() {
+        return this.lJR;
+    }
+
+    public View.OnLongClickListener dvC() {
         return this.mOnLongClickListener;
     }
 
@@ -2948,7 +2948,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         if (spannableStringBuilder != null && textView != null && tbRichTextView != null && !spannableStringBuilder.toString().contains("#4%2&@#907$12#@96476)w7we9e~@$%&&")) {
             Object[] objArr = (com.baidu.tbadk.widget.richText.f[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), com.baidu.tbadk.widget.richText.f.class);
             for (int i = 0; i < objArr.length; i++) {
-                if (au.Qc(objArr[i].getLink()) && (drawable = ao.getDrawable(R.drawable.icon_pb_wenxue)) != null) {
+                if (au.Qb(objArr[i].getLink()) && (drawable = ao.getDrawable(R.drawable.icon_pb_wenxue)) != null) {
                     drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                     SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder("#4%2&@#907$12#@96476)w7we9e~@$%&&");
                     spannableStringBuilder2.setSpan(new com.baidu.tbadk.widget.d(drawable), 0, "#4%2&@#907$12#@96476)w7we9e~@$%&&".length(), 33);
@@ -2963,8 +2963,8 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         }
     }
 
-    public BdTypeRecyclerView cIs() {
-        Iterator<BaseFragment> it = this.mfA.dvV().iterator();
+    public BdTypeRecyclerView cIt() {
+        Iterator<BaseFragment> it = this.mfz.dvW().iterator();
         while (it.hasNext()) {
             BaseFragment next = it.next();
             if (next instanceof DetailInfoAndReplyFragment) {
@@ -2978,77 +2978,77 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     private void uN(boolean z) {
-        this.lNx.kW(z);
-        this.lNx.kX(z);
-        this.lNx.kY(z);
+        this.lNw.kW(z);
+        this.lNw.kX(z);
+        this.lNw.kY(z);
     }
 
     public void b(boolean z, PostWriteCallBackData postWriteCallBackData) {
         hideProgressBar();
-        if (this.mfR != null) {
+        if (this.mfQ != null) {
             if (z) {
-                this.mfR.dsG();
+                this.mfQ.dsH();
             } else if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
-                this.mfR.dsH();
+                this.mfQ.dsI();
             } else {
-                this.mfR.dsG();
+                this.mfQ.dsH();
             }
         }
     }
 
     public boolean GV(int i) {
-        if (this.kON == null || dnV() == null || dnV().getPbData() == null || dnV().getPbData().getAnti() == null) {
+        if (this.kON == null || dnW() == null || dnW().getPbData() == null || dnW().getPbData().getAnti() == null) {
             return true;
         }
-        return this.kON.aN(dnV().getPbData().getAnti().replyPrivateFlag, i);
+        return this.kON.aN(dnW().getPbData().getAnti().replyPrivateFlag, i);
     }
 
-    public boolean doW() {
-        if ((dnV() != null && dnV().getPbData().dnh()) || this.kON == null || dnV() == null || dnV().getPbData() == null || dnV().getPbData().getAnti() == null) {
+    public boolean doX() {
+        if ((dnW() != null && dnW().getPbData().dni()) || this.kON == null || dnW() == null || dnW().getPbData() == null || dnW().getPbData().getAnti() == null) {
             return true;
         }
-        return this.kON.pZ(dnV().getPbData().getAnti().replyPrivateFlag);
+        return this.kON.pZ(dnW().getPbData().getAnti().replyPrivateFlag);
     }
 
     private void d(g gVar) {
-        if (gVar != null && dnV() != null) {
-            gVar.setForumName(dnV().dnO());
-            if (dnV().getPbData() != null && dnV().getPbData().getForum() != null) {
-                gVar.a(dnV().getPbData().getForum());
+        if (gVar != null && dnW() != null) {
+            gVar.setForumName(dnW().dnP());
+            if (dnW().getPbData() != null && dnW().getPbData().getForum() != null) {
+                gVar.a(dnW().getPbData().getForum());
             }
             gVar.setFrom("pb");
-            gVar.a(dnV());
+            gVar.a(dnW());
         }
     }
 
-    public void dsf() {
+    public void dsg() {
         if (this.acZ != null) {
             this.acZ.rV();
-            if (this.lNx != null) {
-                this.lNx.bFt();
+            if (this.lNw != null) {
+                this.lNw.bFu();
             }
-            dsP();
+            dsQ();
         }
     }
 
-    public com.baidu.tbadk.editortools.pb.e doJ() {
-        return this.lNx;
+    public com.baidu.tbadk.editortools.pb.e doK() {
+        return this.lNw;
     }
 
-    private boolean doT() {
-        PbModel dnV = dnV();
-        if (dnV == null || dnV.getPbData() == null) {
+    private boolean doU() {
+        PbModel dnW = dnW();
+        if (dnW == null || dnW.getPbData() == null) {
             return false;
         }
-        bz dmE = dnV.getPbData().dmE();
-        dnV.getPbData().getAnti();
-        return AntiHelper.b(getPageContext(), dmE);
+        bz dmF = dnW.getPbData().dmF();
+        dnW.getPbData().getAnti();
+        return AntiHelper.b(getPageContext(), dmF);
     }
 
-    public void doU() {
-        if (checkUpIsLogin() && dnV() != null && dnV().getPbData() != null && dnV().getPbData().getForum() != null && !doT()) {
-            if (dnV().getPbData().dnh()) {
-                cUe();
+    public void doV() {
+        if (checkUpIsLogin() && dnW() != null && dnW().getPbData() != null && dnW().getPbData().getForum() != null && !doU()) {
+            if (dnW().getPbData().dni()) {
+                cUf();
                 return;
             }
             if (this.jjD == null) {
@@ -3066,15 +3066,15 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     @Override // com.baidu.tieba.frs.profession.permission.c.a
                     public void qH(boolean z) {
                         if (z) {
-                            if (VideoPbFragment.this.lNx != null && VideoPbFragment.this.lNx.bEI() != null) {
-                                VideoPbFragment.this.lNx.bEI().b(new com.baidu.tbadk.editortools.a(45, 27, null));
+                            if (VideoPbFragment.this.lNw != null && VideoPbFragment.this.lNw.bEJ() != null) {
+                                VideoPbFragment.this.lNw.bEJ().b(new com.baidu.tbadk.editortools.a(45, 27, null));
                             }
-                            VideoPbFragment.this.cUe();
+                            VideoPbFragment.this.cUf();
                         }
                     }
                 });
             }
-            this.jjD.H(dnV().getPbData().getForum().getId(), com.baidu.adp.lib.f.b.toLong(dnV().dpW(), 0L));
+            this.jjD.H(dnW().getPbData().getForum().getId(), com.baidu.adp.lib.f.b.toLong(dnW().dpX(), 0L));
         }
     }
 
@@ -3082,12 +3082,12 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     public void onActivityResult(int i, int i2, Intent intent) {
         EmotionImageData emotionImageData;
         super.onActivityResult(i, i2, intent);
-        this.lNx.onActivityResult(i, i2, intent);
-        if (this.lMX != null) {
-            this.lMX.onActivityResult(i, i2, intent);
+        this.lNw.onActivityResult(i, i2, intent);
+        if (this.lMW != null) {
+            this.lMW.onActivityResult(i, i2, intent);
         }
-        if (this.lVM != null) {
-            this.lVM.onActivityResult(i, i2, intent);
+        if (this.lVL != null) {
+            this.lVL.onActivityResult(i, i2, intent);
         }
         if (i == 25035) {
             d(i2, intent);
@@ -3095,10 +3095,10 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         if (i2 == -1) {
             switch (i) {
                 case RequestResponseCode.REQUEST_LOGIN_PB_MARK /* 11009 */:
-                    dpg();
+                    dph();
                     return;
                 case RequestResponseCode.REQUEST_TRANSMIT_POST_EDIT /* 13011 */:
-                    com.baidu.tieba.o.a.dEA().E(getPageContext());
+                    com.baidu.tieba.o.a.dEB().E(getPageContext());
                     return;
                 case RequestResponseCode.REQUEST_TO_SHARE /* 24007 */:
                 case RequestResponseCode.REQUEST_PB_TO_PUSH_THREAD /* 24008 */:
@@ -3106,7 +3106,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 case RequestResponseCode.REQUEST_EMOTION_EDIT /* 25023 */:
                     Serializable serializableExtra = intent.getSerializableExtra("emotion_data");
                     if (serializableExtra != null && (serializableExtra instanceof EmotionImageData) && (emotionImageData = (EmotionImageData) serializableExtra) != null) {
-                        this.lNA = emotionImageData;
+                        this.lNz = emotionImageData;
                         if (GV(al.fcW)) {
                             c(emotionImageData);
                             return;
@@ -3122,28 +3122,28 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     public void onWindowFocusChanged(boolean z) {
-        if (dpD() != null) {
-            if (this.mfY && !TbSingleton.getInstance().isNotchScreen(dpD()) && !TbSingleton.getInstance().isCutoutScreen(dpD())) {
-                dvQ();
-                UtilHelper.hideStatusBar(dpD(), dpD().getRootView());
-                this.mfY = false;
+        if (dpE() != null) {
+            if (this.mfX && !TbSingleton.getInstance().isNotchScreen(dpE()) && !TbSingleton.getInstance().isCutoutScreen(dpE())) {
+                dvR();
+                UtilHelper.hideStatusBar(dpE(), dpE().getRootView());
+                this.mfX = false;
             }
-            this.mfS.mgn = z;
-            dvC();
+            this.mfR.mgm = z;
             dvD();
+            dvE();
         }
     }
 
     private void d(int i, Intent intent) {
-        PbActivity pbActivity = this.lME;
+        PbActivity pbActivity = this.lMD;
         if (i == 0) {
-            drK();
-            if (this.lVM != null) {
-                this.lVM.doE();
+            drL();
+            if (this.lVL != null) {
+                this.lVL.doF();
             }
             vz(false);
         }
-        drO();
+        drP();
         if (intent != null) {
             Serializable serializableExtra = intent.getSerializableExtra(PbFullScreenEditorActivityConfig.EDITOR_DATA);
             if (serializableExtra instanceof PbEditorData) {
@@ -3154,32 +3154,32 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 writeData.setWriteImagesInfo(pbEditorData.getWriteImagesInfo());
                 switch (pbEditorData.getEditorType()) {
                     case 0:
-                        this.lNx.resetData();
-                        this.lNx.setVoiceModel(pbEditorData.getVoiceModel());
-                        this.lNx.c(writeData);
-                        m sv = this.lNx.bEI().sv(6);
+                        this.lNw.resetData();
+                        this.lNw.setVoiceModel(pbEditorData.getVoiceModel());
+                        this.lNw.c(writeData);
+                        m sv = this.lNw.bEJ().sv(6);
                         if (sv != null && sv.fDH != null) {
                             sv.fDH.a(new com.baidu.tbadk.editortools.a(52, 0, pbEditorData.getVoiceModel()));
                         }
-                        PbActivity pbActivity2 = this.lME;
+                        PbActivity pbActivity2 = this.lMD;
                         if (i == -1) {
-                            this.lNx.a((String) null, (WriteData) null);
+                            this.lNw.a((String) null, (WriteData) null);
                             return;
                         }
                         return;
                     case 1:
-                        if (this.lVM != null && this.lVM.doI() != null) {
-                            com.baidu.tbadk.editortools.pb.h doI = this.lVM.doI();
-                            doI.setThreadData(dnV().getPbData().dmE());
-                            doI.c(writeData);
-                            doI.setVoiceModel(pbEditorData.getVoiceModel());
-                            m sv2 = doI.bEI().sv(6);
+                        if (this.lVL != null && this.lVL.doJ() != null) {
+                            com.baidu.tbadk.editortools.pb.h doJ = this.lVL.doJ();
+                            doJ.setThreadData(dnW().getPbData().dmF());
+                            doJ.c(writeData);
+                            doJ.setVoiceModel(pbEditorData.getVoiceModel());
+                            m sv2 = doJ.bEJ().sv(6);
                             if (sv2 != null && sv2.fDH != null) {
                                 sv2.fDH.a(new com.baidu.tbadk.editortools.a(52, 0, pbEditorData.getVoiceModel()));
                             }
-                            PbActivity pbActivity3 = this.lME;
+                            PbActivity pbActivity3 = this.lMD;
                             if (i == -1) {
-                                doI.bFM();
+                                doJ.bFN();
                                 return;
                             }
                             return;
@@ -3196,11 +3196,11 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     public void a(AntiData antiData, PostWriteCallBackData postWriteCallBackData) {
         if (antiData != null && postWriteCallBackData != null) {
             if (AntiHelper.c(antiData) || AntiHelper.d(antiData) || AntiHelper.e(antiData) || AntiHelper.f(antiData)) {
-                if (dnV() != null && !dnV().dqe()) {
-                    antiData.setBlock_forum_name(dnV().getPbData().getForum().getName());
-                    antiData.setBlock_forum_id(dnV().getPbData().getForum().getId());
-                    antiData.setUser_name(dnV().getPbData().getUserData().getUserName());
-                    antiData.setUser_id(dnV().getPbData().getUserData().getUserId());
+                if (dnW() != null && !dnW().dqf()) {
+                    antiData.setBlock_forum_name(dnW().getPbData().getForum().getName());
+                    antiData.setBlock_forum_id(dnW().getPbData().getForum().getId());
+                    antiData.setUser_name(dnW().getPbData().getUserData().getUserName());
+                    antiData.setUser_id(dnW().getPbData().getUserData().getUserId());
                 }
                 AntiHelper.a(getPageContext().getPageActivity(), antiData, AntiHelper.OperationType.REPLY, PageType.PB);
                 return;
@@ -3233,8 +3233,8 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_ANTI_DIALOG_SHOW).an("obj_locate", ax.a.LOCATE_REPLY));
             }
         } else if (i == 230277) {
-            if (this.mfR != null) {
-                this.mfR.DX(str);
+            if (this.mfQ != null) {
+                this.mfQ.DW(str);
             }
         } else {
             showToast(str);
@@ -3244,25 +3244,25 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     /* JADX DEBUG: Multi-variable search result rejected for r0v9, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
     /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: com.baidu.tieba.pb.pb.main.PbActivity */
     /* JADX WARN: Multi-variable type inference failed */
-    private void dpF() {
-        if (dnV() != null && this.lME != null) {
-            if (this.lNx == null || !this.lNx.isBJH) {
+    private void dpG() {
+        if (dnW() != null && this.lMD != null) {
+            if (this.lNw == null || !this.lNw.isBJH) {
                 com.baidu.tbadk.editortools.pb.d dVar = new com.baidu.tbadk.editortools.pb.d();
                 d(dVar);
-                this.lNx = (com.baidu.tbadk.editortools.pb.e) dVar.fj(getContext());
-                this.lNx.a(this.lME.getPageContext());
-                this.lNx.a(this.fGo);
-                this.lNx.a(this.fGh);
-                this.lNx.a(this.lME.getPageContext(), this.lME.getIntent() == null ? null : this.lME.getIntent().getExtras());
-                this.lNx.bEI().kO(true);
-                setEditorTools(this.lNx.bEI());
-                if (!dnV().dqe()) {
-                    this.lNx.DS(dnV().dpW());
+                this.lNw = (com.baidu.tbadk.editortools.pb.e) dVar.fj(getContext());
+                this.lNw.a(this.lMD.getPageContext());
+                this.lNw.a(this.fGo);
+                this.lNw.a(this.fGh);
+                this.lNw.a(this.lMD.getPageContext(), this.lMD.getIntent() == null ? null : this.lMD.getIntent().getExtras());
+                this.lNw.bEJ().kO(true);
+                setEditorTools(this.lNw.bEJ());
+                if (!dnW().dqf()) {
+                    this.lNw.DR(dnW().dpX());
                 }
-                if (dnV().dqF()) {
-                    this.lNx.DQ(getPageContext().getString(R.string.pb_reply_hint_from_smart_frs));
+                if (dnW().dqG()) {
+                    this.lNw.DP(getPageContext().getString(R.string.pb_reply_hint_from_smart_frs));
                 } else {
-                    this.lNx.DQ(drQ());
+                    this.lNw.DP(drR());
                 }
             }
         }
@@ -3274,7 +3274,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         this.acZ.setOnCancelClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.44
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                VideoPbFragment.this.drO();
+                VideoPbFragment.this.drP();
             }
         });
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
@@ -3287,22 +3287,22 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             @Override // com.baidu.tbadk.editortools.b
             public void a(com.baidu.tbadk.editortools.a aVar) {
                 if (aVar.data instanceof u) {
-                    if (((u) aVar.data).bzW() == EmotionGroupType.BIG_EMOTION || ((u) aVar.data).bzW() == EmotionGroupType.USER_COLLECT) {
+                    if (((u) aVar.data).bzX() == EmotionGroupType.BIG_EMOTION || ((u) aVar.data).bzX() == EmotionGroupType.USER_COLLECT) {
                         if (VideoPbFragment.this.mPermissionJudgePolicy == null) {
                             VideoPbFragment.this.mPermissionJudgePolicy = new PermissionJudgePolicy();
                         }
                         VideoPbFragment.this.mPermissionJudgePolicy.clearRequestPermissionList();
                         VideoPbFragment.this.mPermissionJudgePolicy.appendRequestPermission(VideoPbFragment.this.getBaseFragmentActivity(), "android.permission.WRITE_EXTERNAL_STORAGE");
                         if (!VideoPbFragment.this.mPermissionJudgePolicy.startRequestPermission(VideoPbFragment.this.getBaseFragmentActivity())) {
-                            VideoPbFragment.this.lNx.c((u) aVar.data);
-                            VideoPbFragment.this.lNx.a(false, (PostWriteCallBackData) null);
+                            VideoPbFragment.this.lNw.c((u) aVar.data);
+                            VideoPbFragment.this.lNw.a(false, (PostWriteCallBackData) null);
                         }
                     }
                 }
             }
         });
-        drK();
-        this.lNx.a(new TextWatcher() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.47
+        drL();
+        this.lNw.a(new TextWatcher() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.47
             @Override // android.text.TextWatcher
             public void beforeTextChanged(CharSequence charSequence, int i, int i2, int i3) {
             }
@@ -3315,76 +3315,76 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                if (VideoPbFragment.this.kSQ != null && VideoPbFragment.this.kSQ.dti() != null) {
-                    if (!VideoPbFragment.this.kSQ.dti().dXT()) {
+                if (VideoPbFragment.this.kSQ != null && VideoPbFragment.this.kSQ.dtj() != null) {
+                    if (!VideoPbFragment.this.kSQ.dtj().dXU()) {
                         VideoPbFragment.this.kSQ.vF(false);
                     }
-                    VideoPbFragment.this.kSQ.dti().zc(false);
+                    VideoPbFragment.this.kSQ.dtj().zc(false);
                 }
             }
         });
     }
 
-    public void cUe() {
+    public void cUf() {
         if (!checkUpIsLogin()) {
-            if (dnV() != null) {
-                TiebaStatic.log(new aq("c10517").an("obj_locate", 2).dX("fid", dnV().getForumId()));
+            if (dnW() != null) {
+                TiebaStatic.log(new aq("c10517").an("obj_locate", 2).dX("fid", dnW().getForumId()));
             }
-        } else if (doW()) {
-            if (this.lNx != null && (this.lNx.bFD() || this.lNx.bFE())) {
-                this.lNx.a(false, (PostWriteCallBackData) null);
+        } else if (doX()) {
+            if (this.lNw != null && (this.lNw.bFE() || this.lNw.bFF())) {
+                this.lNw.a(false, (PostWriteCallBackData) null);
                 return;
             }
             if (this.acZ != null) {
-                dsf();
-                this.mfS.mgm = false;
+                dsg();
+                this.mfR.mgl = false;
                 if (this.acZ.sv(2) != null) {
                     com.baidu.tieba.tbadkCore.b.a.a(getPageContext(), (View) this.acZ.sv(2).fDH, false, null);
                 }
             }
-            dsP();
+            dsQ();
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(View view, final String str, final String str2, PostData postData) {
-        if (view != null && str != null && str2 != null && !doT() && doW()) {
+        if (view != null && str != null && str2 != null && !doU() && doX()) {
             if (view.getParent() instanceof View) {
-                ((View) view.getParent()).getLocationOnScreen(this.lMZ);
-                this.lNa = ((View) view.getParent()).getMeasuredHeight();
+                ((View) view.getParent()).getLocationOnScreen(this.lMY);
+                this.lMZ = ((View) view.getParent()).getMeasuredHeight();
             }
-            if (this.lVM != null && postData != null) {
+            if (this.lVL != null && postData != null) {
                 String str3 = "";
-                if (postData.dPf() != null) {
-                    str3 = postData.dPf().toString();
+                if (postData.dPg() != null) {
+                    str3 = postData.dPg().toString();
                 }
-                this.lVM.PH(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.reply_title), postData.brq().getName_show(), str3));
+                this.lVL.PG(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.reply_title), postData.brr().getName_show(), str3));
             }
-            if (dnV() != null && dnV().getPbData() != null && dnV().getPbData().dnh()) {
+            if (dnW() != null && dnW().getPbData() != null && dnW().getPbData().dni()) {
                 com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.48
                     @Override // java.lang.Runnable
                     public void run() {
                         int dimens;
-                        int equipmentHeight = l.getEquipmentHeight(VideoPbFragment.this.lME.getApplicationContext());
+                        int equipmentHeight = l.getEquipmentHeight(VideoPbFragment.this.lMD.getApplicationContext());
                         if (TbadkCoreApplication.getInst().getKeyboardHeight() > 0) {
                             dimens = TbadkCoreApplication.getInst().getKeyboardHeight() + l.getDimens(VideoPbFragment.this.getPageContext().getPageActivity(), R.dimen.tbds256);
                         } else {
                             dimens = (equipmentHeight / 2) + l.getDimens(VideoPbFragment.this.getPageContext().getPageActivity(), R.dimen.tbds256);
                         }
-                        int i = (VideoPbFragment.this.lMZ[1] + VideoPbFragment.this.lNa) - (equipmentHeight - dimens);
-                        if (VideoPbFragment.this.cIs() != null) {
-                            VideoPbFragment.this.cIs().smoothScrollBy(0, i);
+                        int i = (VideoPbFragment.this.lMY[1] + VideoPbFragment.this.lMZ) - (equipmentHeight - dimens);
+                        if (VideoPbFragment.this.cIt() != null) {
+                            VideoPbFragment.this.cIt().smoothScrollBy(0, i);
                         }
-                        if (VideoPbFragment.this.lVM != null) {
-                            VideoPbFragment.this.lNx.bEI().setVisibility(8);
-                            VideoPbFragment.this.lVM.j(str, str2, VideoPbFragment.this.drQ(), (VideoPbFragment.this.dnV() == null || VideoPbFragment.this.dnV().getPbData() == null || VideoPbFragment.this.dnV().getPbData().dmE() == null || !VideoPbFragment.this.dnV().getPbData().dmE().isBjh()) ? false : true);
-                            com.baidu.tbadk.editortools.pb.h doI = VideoPbFragment.this.lVM.doI();
-                            if (doI != null && VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                                doI.a(VideoPbFragment.this.dnV().getPbData().getAnti());
-                                doI.setThreadData(VideoPbFragment.this.dnV().getPbData().dmE());
+                        if (VideoPbFragment.this.lVL != null) {
+                            VideoPbFragment.this.lNw.bEJ().setVisibility(8);
+                            VideoPbFragment.this.lVL.j(str, str2, VideoPbFragment.this.drR(), (VideoPbFragment.this.dnW() == null || VideoPbFragment.this.dnW().getPbData() == null || VideoPbFragment.this.dnW().getPbData().dmF() == null || !VideoPbFragment.this.dnW().getPbData().dmF().isBjh()) ? false : true);
+                            com.baidu.tbadk.editortools.pb.h doJ = VideoPbFragment.this.lVL.doJ();
+                            if (doJ != null && VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                                doJ.a(VideoPbFragment.this.dnW().getPbData().getAnti());
+                                doJ.setThreadData(VideoPbFragment.this.dnW().getPbData().dmF());
                             }
-                            if (VideoPbFragment.this.kSQ.dtk() == null && VideoPbFragment.this.lVM.doI().bFU() != null) {
-                                VideoPbFragment.this.lVM.doI().bFU().b(new TextWatcher() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.48.1
+                            if (VideoPbFragment.this.kSQ.dtl() == null && VideoPbFragment.this.lVL.doJ().bFV() != null) {
+                                VideoPbFragment.this.lVL.doJ().bFV().b(new TextWatcher() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.48.1
                                     @Override // android.text.TextWatcher
                                     public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                                     }
@@ -3395,30 +3395,30 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
                                     @Override // android.text.TextWatcher
                                     public void afterTextChanged(Editable editable) {
-                                        if (VideoPbFragment.this.kSQ != null && VideoPbFragment.this.kSQ.dtj() != null) {
-                                            if (!VideoPbFragment.this.kSQ.dtj().dXT()) {
+                                        if (VideoPbFragment.this.kSQ != null && VideoPbFragment.this.kSQ.dtk() != null) {
+                                            if (!VideoPbFragment.this.kSQ.dtk().dXU()) {
                                                 VideoPbFragment.this.kSQ.vG(false);
                                             }
-                                            VideoPbFragment.this.kSQ.dtj().zc(false);
+                                            VideoPbFragment.this.kSQ.dtk().zc(false);
                                         }
                                     }
                                 });
-                                VideoPbFragment.this.kSQ.g(VideoPbFragment.this.lVM.doI().bFU().getInputView());
-                                VideoPbFragment.this.lVM.doI().a(VideoPbFragment.this.lNC);
+                                VideoPbFragment.this.kSQ.g(VideoPbFragment.this.lVL.doJ().bFV().getInputView());
+                                VideoPbFragment.this.lVL.doJ().a(VideoPbFragment.this.lNB);
                             }
                         }
-                        VideoPbFragment.this.dsP();
+                        VideoPbFragment.this.dsQ();
                     }
                 }, 0L);
                 return;
             }
-            if (this.lNz == null) {
-                this.lNz = new com.baidu.tieba.frs.profession.permission.c(getPageContext());
-                this.lNz.BA(1);
-                this.lNz.a(new AnonymousClass49(str, str2));
+            if (this.lNy == null) {
+                this.lNy = new com.baidu.tieba.frs.profession.permission.c(getPageContext());
+                this.lNy.BA(1);
+                this.lNy.a(new AnonymousClass49(str, str2));
             }
-            if (dnV() != null && dnV().getPbData() != null && dnV().getPbData().getForum() != null) {
-                this.lNz.H(dnV().getPbData().getForum().getId(), com.baidu.adp.lib.f.b.toLong(dnV().dpW(), 0L));
+            if (dnW() != null && dnW().getPbData() != null && dnW().getPbData().getForum() != null) {
+                this.lNy.H(dnW().getPbData().getForum().getId(), com.baidu.adp.lib.f.b.toLong(dnW().dpX(), 0L));
             }
         }
     }
@@ -3427,12 +3427,12 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     /* renamed from: com.baidu.tieba.pb.videopb.VideoPbFragment$49  reason: invalid class name */
     /* loaded from: classes2.dex */
     public class AnonymousClass49 implements c.a {
+        final /* synthetic */ String lOG;
         final /* synthetic */ String lOH;
-        final /* synthetic */ String lOI;
 
         AnonymousClass49(String str, String str2) {
-            this.lOH = str;
-            this.lOI = str2;
+            this.lOG = str;
+            this.lOH = str2;
         }
 
         @Override // com.baidu.tieba.frs.profession.permission.c.a
@@ -3456,20 +3456,20 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                         } else {
                             dimens = (equipmentHeight / 2) + l.getDimens(VideoPbFragment.this.getPageContext().getPageActivity(), R.dimen.tbds256);
                         }
-                        int i = (VideoPbFragment.this.lMZ[1] + VideoPbFragment.this.lNa) - (equipmentHeight - dimens);
-                        if (VideoPbFragment.this.cIs() != null) {
-                            VideoPbFragment.this.cIs().smoothScrollBy(0, i);
+                        int i = (VideoPbFragment.this.lMY[1] + VideoPbFragment.this.lMZ) - (equipmentHeight - dimens);
+                        if (VideoPbFragment.this.cIt() != null) {
+                            VideoPbFragment.this.cIt().smoothScrollBy(0, i);
                         }
-                        if (VideoPbFragment.this.lVM != null) {
-                            VideoPbFragment.this.lNx.bEI().setVisibility(8);
-                            VideoPbFragment.this.lVM.j(AnonymousClass49.this.lOH, AnonymousClass49.this.lOI, VideoPbFragment.this.drQ(), (VideoPbFragment.this.dnV() == null || VideoPbFragment.this.dnV().getPbData() == null || VideoPbFragment.this.dnV().getPbData().dmE() == null || !VideoPbFragment.this.dnV().getPbData().dmE().isBjh()) ? false : true);
-                            com.baidu.tbadk.editortools.pb.h doI = VideoPbFragment.this.lVM.doI();
-                            if (doI != null && VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null) {
-                                doI.a(VideoPbFragment.this.dnV().getPbData().getAnti());
-                                doI.setThreadData(VideoPbFragment.this.dnV().getPbData().dmE());
+                        if (VideoPbFragment.this.lVL != null) {
+                            VideoPbFragment.this.lNw.bEJ().setVisibility(8);
+                            VideoPbFragment.this.lVL.j(AnonymousClass49.this.lOG, AnonymousClass49.this.lOH, VideoPbFragment.this.drR(), (VideoPbFragment.this.dnW() == null || VideoPbFragment.this.dnW().getPbData() == null || VideoPbFragment.this.dnW().getPbData().dmF() == null || !VideoPbFragment.this.dnW().getPbData().dmF().isBjh()) ? false : true);
+                            com.baidu.tbadk.editortools.pb.h doJ = VideoPbFragment.this.lVL.doJ();
+                            if (doJ != null && VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null) {
+                                doJ.a(VideoPbFragment.this.dnW().getPbData().getAnti());
+                                doJ.setThreadData(VideoPbFragment.this.dnW().getPbData().dmF());
                             }
-                            if (VideoPbFragment.this.kSQ.dtk() == null && VideoPbFragment.this.lVM.doI().bFU() != null) {
-                                VideoPbFragment.this.lVM.doI().bFU().b(new TextWatcher() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.49.1.1
+                            if (VideoPbFragment.this.kSQ.dtl() == null && VideoPbFragment.this.lVL.doJ().bFV() != null) {
+                                VideoPbFragment.this.lVL.doJ().bFV().b(new TextWatcher() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.49.1.1
                                     @Override // android.text.TextWatcher
                                     public void beforeTextChanged(CharSequence charSequence, int i2, int i3, int i4) {
                                     }
@@ -3480,19 +3480,19 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
                                     @Override // android.text.TextWatcher
                                     public void afterTextChanged(Editable editable) {
-                                        if (VideoPbFragment.this.kSQ != null && VideoPbFragment.this.kSQ.dtj() != null) {
-                                            if (!VideoPbFragment.this.kSQ.dtj().dXT()) {
+                                        if (VideoPbFragment.this.kSQ != null && VideoPbFragment.this.kSQ.dtk() != null) {
+                                            if (!VideoPbFragment.this.kSQ.dtk().dXU()) {
                                                 VideoPbFragment.this.kSQ.vG(false);
                                             }
-                                            VideoPbFragment.this.kSQ.dtj().zc(false);
+                                            VideoPbFragment.this.kSQ.dtk().zc(false);
                                         }
                                     }
                                 });
-                                VideoPbFragment.this.kSQ.g(VideoPbFragment.this.lVM.doI().bFU().getInputView());
-                                VideoPbFragment.this.lVM.doI().a(VideoPbFragment.this.lNC);
+                                VideoPbFragment.this.kSQ.g(VideoPbFragment.this.lVL.doJ().bFV().getInputView());
+                                VideoPbFragment.this.lVL.doJ().a(VideoPbFragment.this.lNB);
                             }
                         }
-                        VideoPbFragment.this.dsP();
+                        VideoPbFragment.this.dsQ();
                     }
                 }, 0L);
             }
@@ -3504,33 +3504,33 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         ac acVar;
         StringBuilder sb = null;
         if (fVar != null && (L = L(fVar)) != null) {
-            String userId = L.brq().getUserId();
+            String userId = L.brr().getUserId();
             boolean z2 = userId != null && userId.equals(TbadkCoreApplication.getCurrentAccount());
             SparseArray<Object> sparseArray = new SparseArray<>();
             if (i == 0) {
                 sparseArray.put(R.id.tag_del_post_id, L.getId());
                 sparseArray.put(R.id.tag_del_post_type, 0);
                 sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z2));
-                sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(fVar.dmT()));
+                sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(fVar.dmU()));
                 sparseArray.put(R.id.tag_should_manage_visible, false);
             } else if (i == 1) {
-                if (L.brq() != null) {
-                    sparseArray.put(R.id.tag_forbid_user_name, L.brq().getUserName());
-                    sparseArray.put(R.id.tag_forbid_user_name_show, L.brq().getName_show());
-                    sparseArray.put(R.id.tag_forbid_user_portrait, L.brq().getPortrait());
+                if (L.brr() != null) {
+                    sparseArray.put(R.id.tag_forbid_user_name, L.brr().getUserName());
+                    sparseArray.put(R.id.tag_forbid_user_name_show, L.brr().getName_show());
+                    sparseArray.put(R.id.tag_forbid_user_portrait, L.brr().getPortrait());
                     sparseArray.put(R.id.tag_forbid_user_post_id, L.getId());
                 }
                 sparseArray.put(R.id.tag_del_post_id, L.getId());
                 sparseArray.put(R.id.tag_del_post_type, 0);
                 sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z2));
-                sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(fVar.dmT()));
+                sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(fVar.dmU()));
                 sparseArray.put(R.id.tag_should_manage_visible, true);
             }
             if (!z2) {
-                List<bv> dnb = fVar.dnb();
-                if (x.getCount(dnb) > 0) {
+                List<bv> dnc = fVar.dnc();
+                if (x.getCount(dnc) > 0) {
                     sb = new StringBuilder();
-                    for (bv bvVar : dnb) {
+                    for (bv bvVar : dnc) {
                         if (bvVar != null && !StringUtils.isNull(bvVar.getForumName()) && (acVar = bvVar.eSl) != null && acVar.ePV && !acVar.ePW && (acVar.type == 1 || acVar.type == 2)) {
                             sb.append(com.baidu.adp.lib.util.k.cutString(bvVar.getForumName(), 12)).append(TbadkCoreApplication.getInst().getString(R.string.forum)).append("、");
                         }
@@ -3546,30 +3546,30 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dpg() {
+    public void dph() {
         MarkData Hi;
-        if (dnV() != null && dnV().getPbData() != null) {
-            if (com.baidu.tbadk.a.d.bmH() || dvK() != null) {
-                if ((!com.baidu.tbadk.a.d.bmH() || dvM() != null) && this.lNj != null) {
-                    if (dnV().getPbData() != null && dnV().getPbData().dnh()) {
-                        Hi = dnV().Hi(0);
-                    } else if (this.fbv != null && this.fbv.getCurrentItem() == mfv) {
-                        Hi = dnV().o(L(dnV().getPbData()));
-                    } else if (com.baidu.tbadk.a.d.bmH()) {
-                        Hi = dnV().Hi(dvM().dss());
+        if (dnW() != null && dnW().getPbData() != null) {
+            if (com.baidu.tbadk.a.d.bmI() || dvL() != null) {
+                if ((!com.baidu.tbadk.a.d.bmI() || dvN() != null) && this.lNi != null) {
+                    if (dnW().getPbData() != null && dnW().getPbData().dni()) {
+                        Hi = dnW().Hi(0);
+                    } else if (this.fbv != null && this.fbv.getCurrentItem() == mfu) {
+                        Hi = dnW().o(L(dnW().getPbData()));
+                    } else if (com.baidu.tbadk.a.d.bmI()) {
+                        Hi = dnW().Hi(dvN().dst());
                     } else {
-                        Hi = dnV().Hi(dvK().dss());
+                        Hi = dnW().Hi(dvL().dst());
                     }
                     if (Hi != null) {
-                        if (!Hi.isApp() || (Hi = dnV().Hi(dvK().dss() + 1)) != null) {
-                            dsn();
-                            this.lNj.a(Hi);
-                            if (!this.lNj.bnx()) {
-                                this.lNj.bnz();
+                        if (!Hi.isApp() || (Hi = dnW().Hi(dvL().dst() + 1)) != null) {
+                            dso();
+                            this.lNi.a(Hi);
+                            if (!this.lNi.bny()) {
+                                this.lNi.bnA();
                                 TiebaStatic.eventStat(getPageContext().getPageActivity(), "pb_collect", "pbclick", 1, new Object[0]);
                                 return;
                             }
-                            this.lNj.bny();
+                            this.lNi.bnz();
                             TiebaStatic.eventStat(getPageContext().getPageActivity(), "pb_cancel_collect", "pbclick", 1, new Object[0]);
                         }
                     }
@@ -3591,12 +3591,12 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     /* JADX INFO: Access modifiers changed from: private */
     public void c(EmotionImageData emotionImageData) {
         if (emotionImageData != null) {
-            if (this.lMX == null) {
-                this.lMX = new com.baidu.tieba.pb.pb.main.emotion.model.a(this.lME);
-                this.lMX.b(this.fGh);
-                this.lMX.c(this.fGo);
+            if (this.lMW == null) {
+                this.lMW = new com.baidu.tieba.pb.pb.main.emotion.model.a(this.lMD);
+                this.lMW.b(this.fGh);
+                this.lMW.c(this.fGo);
             }
-            this.lMX.a(emotionImageData, dnV(), dnV().getPbData());
+            this.lMW.a(emotionImageData, dnW(), dnW().getPbData());
         }
     }
 
@@ -3605,27 +3605,27 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         if (fVar == null) {
             return null;
         }
-        if (fVar.dmR() != null) {
-            return fVar.dmR();
+        if (fVar.dmS() != null) {
+            return fVar.dmS();
         }
-        if (!x.isEmpty(fVar.dmG())) {
-            Iterator<PostData> it = fVar.dmG().iterator();
+        if (!x.isEmpty(fVar.dmH())) {
+            Iterator<PostData> it = fVar.dmH().iterator();
             while (it.hasNext()) {
                 postData = it.next();
-                if (postData != null && postData.dPd() == 1) {
+                if (postData != null && postData.dPe() == 1) {
                     break;
                 }
             }
         }
         postData = null;
         if (postData == null) {
-            postData = fVar.dmN();
+            postData = fVar.dmO();
         }
         if (postData == null) {
             postData = a(fVar);
         }
-        if (postData != null && postData.brq() != null && postData.brq().getUserTbVipInfoData() != null && postData.brq().getUserTbVipInfoData().getvipIntro() != null) {
-            postData.brq().getGodUserData().setIntro(postData.brq().getUserTbVipInfoData().getvipIntro());
+        if (postData != null && postData.brr() != null && postData.brr().getUserTbVipInfoData() != null && postData.brr().getUserTbVipInfoData().getvipIntro() != null) {
+            postData.brr().getGodUserData().setIntro(postData.brr().getUserTbVipInfoData().getvipIntro());
             return postData;
         }
         return postData;
@@ -3633,69 +3633,69 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     private PostData a(com.baidu.tieba.pb.data.f fVar) {
         MetaData metaData;
-        if (fVar == null || fVar.dmE() == null || fVar.dmE().brq() == null) {
+        if (fVar == null || fVar.dmF() == null || fVar.dmF().brr() == null) {
             return null;
         }
         PostData postData = new PostData();
-        MetaData brq = fVar.dmE().brq();
-        String userId = brq.getUserId();
-        HashMap<String, MetaData> userMap = fVar.dmE().getUserMap();
+        MetaData brr = fVar.dmF().brr();
+        String userId = brr.getUserId();
+        HashMap<String, MetaData> userMap = fVar.dmF().getUserMap();
         if (userMap == null || (metaData = userMap.get(userId)) == null || metaData.getUserId() == null) {
-            metaData = brq;
+            metaData = brr;
         }
         postData.KR(1);
-        postData.setId(fVar.dmE().brG());
-        postData.setTitle(fVar.dmE().getTitle());
-        postData.setTime(fVar.dmE().getCreateTime());
+        postData.setId(fVar.dmF().brH());
+        postData.setTitle(fVar.dmF().getTitle());
+        postData.setTime(fVar.dmF().getCreateTime());
         postData.a(metaData);
         return postData;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public String dpl() {
-        ArrayList<PostData> dmG;
+    public String dpm() {
+        ArrayList<PostData> dmH;
         int count;
         int i;
-        if (dnV() == null || dnV().getPbData() == null || dnV().getPbData().dmG() == null || (count = x.getCount((dmG = dnV().getPbData().dmG()))) == 0) {
+        if (dnW() == null || dnW().getPbData() == null || dnW().getPbData().dmH() == null || (count = x.getCount((dmH = dnW().getPbData().dmH()))) == 0) {
             return "";
         }
-        if (dnV().dqp()) {
-            Iterator<PostData> it = dmG.iterator();
+        if (dnW().dqq()) {
+            Iterator<PostData> it = dmH.iterator();
             while (it.hasNext()) {
                 PostData next = it.next();
-                if (next != null && next.dPd() == 1) {
+                if (next != null && next.dPe() == 1) {
                     return next.getId();
                 }
             }
         }
-        if (cIs() == null) {
+        if (cIt() == null) {
             i = 0;
-        } else if (com.baidu.tbadk.a.d.bmH()) {
-            i = dvM().dsr();
+        } else if (com.baidu.tbadk.a.d.bmI()) {
+            i = dvN().dss();
         } else {
-            i = dvK().dsr();
+            i = dvL().dss();
         }
-        PostData postData = (PostData) x.getItem(dmG, i);
-        if (postData == null || postData.brq() == null) {
+        PostData postData = (PostData) x.getItem(dmH, i);
+        if (postData == null || postData.brr() == null) {
             return "";
         }
-        if (dnV().PQ(postData.brq().getUserId())) {
+        if (dnW().PP(postData.brr().getUserId())) {
             return postData.getId();
         }
         for (int i2 = i - 1; i2 != 0; i2--) {
-            PostData postData2 = (PostData) x.getItem(dmG, i2);
-            if (postData2 == null || postData2.brq() == null || postData2.brq().getUserId() == null) {
+            PostData postData2 = (PostData) x.getItem(dmH, i2);
+            if (postData2 == null || postData2.brr() == null || postData2.brr().getUserId() == null) {
                 break;
-            } else if (dnV().PQ(postData2.brq().getUserId())) {
+            } else if (dnW().PP(postData2.brr().getUserId())) {
                 return postData2.getId();
             }
         }
         for (int i3 = i + 1; i3 < count; i3++) {
-            PostData postData3 = (PostData) x.getItem(dmG, i3);
-            if (postData3 == null || postData3.brq() == null || postData3.brq().getUserId() == null) {
+            PostData postData3 = (PostData) x.getItem(dmH, i3);
+            if (postData3 == null || postData3.brr() == null || postData3.brr().getUserId() == null) {
                 return "";
             }
-            if (dnV().PQ(postData3.brq().getUserId())) {
+            if (dnW().PP(postData3.brr().getUserId())) {
                 return postData3.getId();
             }
         }
@@ -3703,37 +3703,37 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dph() {
-        if (dnV() != null) {
-            com.baidu.tieba.pb.data.f pbData = dnV().getPbData();
-            dnV().vd(true);
-            if (this.lNj != null) {
-                pbData.PB(this.lNj.bnw());
+    public void dpi() {
+        if (dnW() != null) {
+            com.baidu.tieba.pb.data.f pbData = dnW().getPbData();
+            dnW().vd(true);
+            if (this.lNi != null) {
+                pbData.PA(this.lNi.bnx());
             }
-            if (com.baidu.tbadk.a.d.bmH() && dvM() != null) {
-                dvM().dwv();
-            } else if (dvK() != null) {
-                dvK().dwv();
+            if (com.baidu.tbadk.a.d.bmI() && dvN() != null) {
+                dvN().dww();
+            } else if (dvL() != null) {
+                dvL().dww();
             }
         }
     }
 
     public void a(boolean z, MarkData markData) {
-        if (dnV() != null) {
-            dsp();
-            dnV().vd(z);
-            if (this.lNj != null) {
-                this.lNj.jc(z);
+        if (dnW() != null) {
+            dsq();
+            dnW().vd(z);
+            if (this.lNi != null) {
+                this.lNi.jc(z);
                 if (markData != null) {
-                    this.lNj.a(markData);
+                    this.lNi.a(markData);
                 }
             }
-            if (dnV().bnx()) {
-                dph();
-            } else if (com.baidu.tbadk.a.d.bmH() && dvM() != null) {
-                dvM().dwv();
-            } else if (dvK() != null) {
-                dvK().dwv();
+            if (dnW().bny()) {
+                dpi();
+            } else if (com.baidu.tbadk.a.d.bmI() && dvN() != null) {
+                dvN().dww();
+            } else if (dvL() != null) {
+                dvL().dww();
             }
         }
     }
@@ -3741,59 +3741,59 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     public void b(p pVar) {
         boolean z;
         MetaData metaData;
-        if (dnV() != null && dnV().getPbData() != null && pVar.dnx() != null) {
-            String id = pVar.dnx().getId();
-            ArrayList<PostData> dmG = dnV().getPbData().dmG();
+        if (dnW() != null && dnW().getPbData() != null && pVar.dny() != null) {
+            String id = pVar.dny().getId();
+            ArrayList<PostData> dmH = dnW().getPbData().dmH();
             int i = 0;
             while (true) {
-                if (i >= dmG.size()) {
+                if (i >= dmH.size()) {
                     z = true;
                     break;
                 }
-                PostData postData = dmG.get(i);
+                PostData postData = dmH.get(i);
                 if (postData.getId() == null || !postData.getId().equals(id)) {
                     i++;
                 } else {
-                    ArrayList<PostData> dnF = pVar.dnF();
+                    ArrayList<PostData> dnG = pVar.dnG();
                     postData.KQ(pVar.getTotalCount());
-                    if (postData.dPa() == null || dnF == null) {
+                    if (postData.dPb() == null || dnG == null) {
                         z = true;
                     } else {
-                        Iterator<PostData> it = dnF.iterator();
+                        Iterator<PostData> it = dnG.iterator();
                         while (it.hasNext()) {
                             PostData next = it.next();
-                            if (postData.getUserMap() != null && next != null && next.brq() != null && (metaData = postData.getUserMap().get(next.brq().getUserId())) != null) {
+                            if (postData.getUserMap() != null && next != null && next.brr() != null && (metaData = postData.getUserMap().get(next.brr().getUserId())) != null) {
                                 next.a(metaData);
                                 next.yh(true);
-                                next.a(getPageContext(), dnV().PQ(metaData.getUserId()));
+                                next.a(getPageContext(), dnW().PP(metaData.getUserId()));
                             }
                         }
-                        z = dnF.size() != postData.dPa().size();
-                        if (postData.dPa() != null && postData.dPa().size() < 2) {
-                            postData.dPa().clear();
-                            postData.dPa().addAll(dnF);
+                        z = dnG.size() != postData.dPb().size();
+                        if (postData.dPb() != null && postData.dPb().size() < 2) {
+                            postData.dPb().clear();
+                            postData.dPb().addAll(dnG);
                         }
                     }
-                    if (postData.dOW() != null) {
-                        postData.dOX();
+                    if (postData.dOX() != null) {
+                        postData.dOY();
                     }
                 }
             }
-            if (!dnV().getIsFromMark() && z) {
-                if (com.baidu.tbadk.a.d.bmH() && dvM() != null) {
-                    dvM().dwv();
-                } else if (dvK() != null) {
-                    dvK().dwv();
+            if (!dnW().getIsFromMark() && z) {
+                if (com.baidu.tbadk.a.d.bmI() && dvN() != null) {
+                    dvN().dww();
+                } else if (dvL() != null) {
+                    dvL().dww();
                 }
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void doY() {
-        if (dnV() != null && TbadkCoreApplication.isLogin() && AddExperiencedModel.Sz(dnV().getForumId()) && dnV().getPbData() != null && dnV().getPbData().getForum() != null) {
-            if (dnV().getPbData().getForum().isLike() == 1) {
-                dnV().dqD().gk(dnV().getForumId(), dnV().dpW());
+    public void doZ() {
+        if (dnW() != null && TbadkCoreApplication.isLogin() && AddExperiencedModel.Sy(dnW().getForumId()) && dnW().getPbData() != null && dnW().getPbData().getForum() != null) {
+            if (dnW().getPbData().getForum().isLike() == 1) {
+                dnW().dqE().gk(dnW().getForumId(), dnW().dpX());
             }
         }
     }
@@ -3801,44 +3801,44 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     /* JADX INFO: Access modifiers changed from: private */
     public void M(com.baidu.tieba.pb.data.f fVar) {
         if (fVar != null) {
-            bz dmE = fVar.dmE();
-            if (dmE != null && dmE.bpZ()) {
-                dpF();
+            bz dmF = fVar.dmF();
+            if (dmF != null && dmF.bqa()) {
+                dpG();
             } else {
-                d(this.lNw);
+                d(this.lNv);
             }
-            if (this.lNx != null) {
-                vx(this.lNx.bFw());
-                this.lNx.a(fVar.getAnti());
-                this.lNx.a(fVar.getForum(), fVar.getUserData());
-                this.lNx.setThreadData(dmE);
-                if (dnV() != null) {
-                    this.lNx.a(dnV().dqn(), dnV().dpW(), dnV().dqE());
+            if (this.lNw != null) {
+                vx(this.lNw.bFx());
+                this.lNw.a(fVar.getAnti());
+                this.lNw.a(fVar.getForum(), fVar.getUserData());
+                this.lNw.setThreadData(dmF);
+                if (dnW() != null) {
+                    this.lNw.a(dnW().dqo(), dnW().dpX(), dnW().dqF());
                 }
-                if (dmE != null) {
-                    this.lNx.kZ(dmE.bsQ());
+                if (dmF != null) {
+                    this.lNw.kZ(dmF.bsR());
                 }
             }
         }
     }
 
-    public void drO() {
+    public void drP() {
         reset();
-        drK();
-        this.lVM.doE();
+        drL();
+        this.lVL.doF();
         vz(false);
     }
 
     private void reset() {
-        if (this.lNx != null && this.acZ != null) {
-            com.baidu.tbadk.editortools.pb.a.bFl().setStatus(0);
-            this.lNx.bFG();
-            this.lNx.bEV();
-            if (this.lNx.getWriteImagesInfo() != null) {
-                this.lNx.getWriteImagesInfo().setMaxImagesAllowed(this.lNx.isBJH ? 1 : 9);
+        if (this.lNw != null && this.acZ != null) {
+            com.baidu.tbadk.editortools.pb.a.bFm().setStatus(0);
+            this.lNw.bFH();
+            this.lNw.bEW();
+            if (this.lNw.getWriteImagesInfo() != null) {
+                this.lNw.getWriteImagesInfo().setMaxImagesAllowed(this.lNw.isBJH ? 1 : 9);
             }
-            this.lNx.sF(SendView.ALL);
-            this.lNx.sG(SendView.ALL);
+            this.lNw.sF(SendView.ALL);
+            this.lNw.sG(SendView.ALL);
             com.baidu.tbadk.editortools.h ss = this.acZ.ss(23);
             com.baidu.tbadk.editortools.h ss2 = this.acZ.ss(2);
             com.baidu.tbadk.editortools.h ss3 = this.acZ.ss(5);
@@ -3856,42 +3856,42 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     public void u(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar != null && fVar.dmE() != null) {
+        if (fVar != null && fVar.dmF() != null) {
             x(fVar);
-            this.lVi.setVisibility(fVar.dnh() ? 8 : 0);
-            if (fVar.bnx()) {
-                WebPManager.a(this.lVi, R.drawable.icon_pure_pb_bottom_collected26_selection, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
+            this.lVh.setVisibility(fVar.dni() ? 8 : 0);
+            if (fVar.bny()) {
+                WebPManager.a(this.lVh, R.drawable.icon_pure_pb_bottom_collected26_selection, R.color.CAM_X0305, WebPManager.ResourceStateType.NORMAL_PRESS);
             } else {
-                WebPManager.a(this.lVi, R.drawable.icon_pure_pb_bottom_collect26, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+                WebPManager.a(this.lVh, R.drawable.icon_pure_pb_bottom_collect26, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
             }
-            String Hq = Hq(fVar.dmE().brh());
+            String Hq = Hq(fVar.dmF().bri());
+            if (this.lVk != null) {
+                this.lVk.setText(Hq);
+            }
             if (this.lVl != null) {
                 this.lVl.setText(Hq);
             }
-            if (this.lVm != null) {
-                this.lVm.setText(Hq);
-            }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921416, fVar.dmE()));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921416, fVar.dmF()));
         }
     }
 
     public void x(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar != null && AntiHelper.bc(fVar.dmE())) {
-            if (this.lVk != null) {
-                this.lVk.setEnable(false);
-                this.lVk.onDestroy();
+        if (fVar != null && AntiHelper.bc(fVar.dmF())) {
+            if (this.lVj != null) {
+                this.lVj.setEnable(false);
+                this.lVj.onDestroy();
             }
-            ViewGroup.LayoutParams layoutParams = this.lVj.getLayoutParams();
+            ViewGroup.LayoutParams layoutParams = this.lVi.getLayoutParams();
             layoutParams.height = -2;
             layoutParams.width = -2;
-            this.lVj.setLayoutParams(layoutParams);
-            WebPManager.a(this.lVj, R.drawable.icon_pure_pb_bottom_share26, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL_PRESS);
-        } else if (this.lVk == null || !this.lVk.isEnable()) {
-            ViewGroup.LayoutParams layoutParams2 = this.lVj.getLayoutParams();
+            this.lVi.setLayoutParams(layoutParams);
+            WebPManager.a(this.lVi, R.drawable.icon_pure_pb_bottom_share26, R.color.CAM_X0110, WebPManager.ResourceStateType.NORMAL_PRESS);
+        } else if (this.lVj == null || !this.lVj.isEnable()) {
+            ViewGroup.LayoutParams layoutParams2 = this.lVi.getLayoutParams();
             layoutParams2.height = -2;
             layoutParams2.width = -2;
-            this.lVj.setLayoutParams(layoutParams2);
-            WebPManager.a(this.lVj, R.drawable.icon_pure_pb_bottom_share26, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
+            this.lVi.setLayoutParams(layoutParams2);
+            WebPManager.a(this.lVi, R.drawable.icon_pure_pb_bottom_share26, R.color.CAM_X0107, WebPManager.ResourceStateType.NORMAL_PRESS);
         }
     }
 
@@ -3916,164 +3916,164 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     public void vz(boolean z) {
-        if (this.lVe != null) {
-            vx(this.lNx.bFw());
-            if (this.lVa) {
+        if (this.lVd != null) {
+            vx(this.lNw.bFx());
+            if (this.lUZ) {
                 vo(z);
             } else {
                 vp(z);
             }
-            dvC();
             dvD();
+            dvE();
         }
     }
 
-    public void dsP() {
-        if (this.lVe != null) {
+    public void dsQ() {
+        if (this.lVd != null) {
+            this.lVc.setVisibility(8);
             this.lVd.setVisibility(8);
-            this.lVe.setVisibility(8);
-            this.mfS.mgm = false;
-            dvC();
+            this.mfR.mgl = false;
             dvD();
+            dvE();
         }
     }
 
-    private void dvC() {
-        if (this.mfE != null) {
-            if (this.mfS.dvU()) {
-                this.mfE.xb(false);
+    private void dvD() {
+        if (this.mfD != null) {
+            if (this.mfR.dvV()) {
+                this.mfD.xb(false);
             } else {
-                this.mfE.xb(this.mfE.isVertical() ? false : true);
+                this.mfD.xb(this.mfD.isVertical() ? false : true);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvD() {
-        if (this.mfE != null && this.fbv != null) {
-            if (com.baidu.tbadk.a.d.bmH()) {
-                this.mfE.wj(false);
+    public void dvE() {
+        if (this.mfD != null && this.fbv != null) {
+            if (com.baidu.tbadk.a.d.bmI()) {
+                this.mfD.wj(false);
             } else if (this.fbv.getCurrentItem() != 0) {
-                this.mfE.wj(false);
-            } else if (this.mfS.dvU()) {
-                this.mfE.wj(false);
+                this.mfD.wj(false);
+            } else if (this.mfR.dvV()) {
+                this.mfD.wj(false);
             } else {
                 VideoPbViewModel videoPbViewModel = (VideoPbViewModel) ViewModelProviders.of(getActivity()).get(VideoPbViewModel.class);
                 if (videoPbViewModel != null) {
-                    this.mfE.wj(videoPbViewModel.dwe() == null || videoPbViewModel.dwe().getValue() == null || videoPbViewModel.dwe().getValue().booleanValue());
+                    this.mfD.wj(videoPbViewModel.dwf() == null || videoPbViewModel.dwf().getValue() == null || videoPbViewModel.dwf().getValue().booleanValue());
                 }
             }
         }
     }
 
     private void GY(int i) {
-        com.baidu.tieba.pb.videopb.d.a.a(dpD(), doX(), i);
+        com.baidu.tieba.pb.videopb.d.a.a(dpE(), doY(), i);
     }
 
-    private int doX() {
-        if (dnV() == null || dnV().getPbData() == null || dnV().getPbData().dmE() == null) {
+    private int doY() {
+        if (dnW() == null || dnW().getPbData() == null || dnW().getPbData().dmF() == null) {
             return -1;
         }
-        return dnV().getPbData().dmE().bsd();
+        return dnW().getPbData().dmF().bse();
     }
 
     public void vx(boolean z) {
-        this.lVa = z;
+        this.lUZ = z;
     }
 
     public void vo(boolean z) {
-        if (this.lVe != null && this.klE != null) {
+        if (this.lVd != null && this.klE != null) {
             this.klE.setText(R.string.draft_to_send);
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setDuration(400L);
-                this.lVe.startAnimation(alphaAnimation);
+                this.lVd.startAnimation(alphaAnimation);
             }
+            this.lVc.setVisibility(0);
             this.lVd.setVisibility(0);
-            this.lVe.setVisibility(0);
-            this.mfS.mgm = true;
+            this.mfR.mgl = true;
         }
     }
 
     public void vp(boolean z) {
-        if (this.lVe != null && this.klE != null) {
-            this.klE.setText(drQ());
+        if (this.lVd != null && this.klE != null) {
+            this.klE.setText(drR());
             if (z) {
                 AlphaAnimation alphaAnimation = new AlphaAnimation(0.0f, 1.0f);
                 alphaAnimation.setDuration(400L);
-                this.lVe.startAnimation(alphaAnimation);
+                this.lVd.startAnimation(alphaAnimation);
             }
+            this.lVc.setVisibility(0);
             this.lVd.setVisibility(0);
-            this.lVe.setVisibility(0);
-            this.mfS.mgm = true;
+            this.mfR.mgl = true;
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(com.baidu.tieba.pb.videopb.c.a aVar) {
-        if (aVar != null && this.lGB == null) {
-            this.lGB = aVar;
-            this.mfJ.setText(aVar.getTitle());
-            this.mfK.setText(aVar.dwI());
-            String dwJ = aVar.dwJ();
-            TBSpecificationBtn tBSpecificationBtn = this.mfM;
-            if (TextUtils.isEmpty(dwJ)) {
-                dwJ = getPageContext().getString(R.string.pb_video_promotion_mount_open);
+        if (aVar != null && this.lGA == null) {
+            this.lGA = aVar;
+            this.mfI.setText(aVar.getTitle());
+            this.mfJ.setText(aVar.dwJ());
+            String dwK = aVar.dwK();
+            TBSpecificationBtn tBSpecificationBtn = this.mfL;
+            if (TextUtils.isEmpty(dwK)) {
+                dwK = getPageContext().getString(R.string.pb_video_promotion_mount_open);
             }
-            tBSpecificationBtn.setText(dwJ);
-            this.mfN.startLoad(aVar.getImage(), 10, false);
-            this.mfO.setVisibility(aVar.dwL() ? 0 : 8);
+            tBSpecificationBtn.setText(dwK);
+            this.mfM.startLoad(aVar.getImage(), 10, false);
+            this.mfN.setVisibility(aVar.dwM() ? 0 : 8);
             com.baidu.adp.lib.f.e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.50
                 @Override // java.lang.Runnable
                 public void run() {
-                    if (VideoPbFragment.this.lGB == null || VideoPbFragment.this.lGB.dwL()) {
-                        if (VideoPbFragment.this.lGB != null && VideoPbFragment.this.dnV() != null && VideoPbFragment.this.dnV().getPbData() != null && VideoPbFragment.this.dnV().getPbData().getForum() != null) {
-                            TiebaStatic.log(new aq("c13712").dX("fid", VideoPbFragment.this.dnV().getPbData().getForum().getId()).dX("fname", VideoPbFragment.this.dnV().getPbData().getForum().getName()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", VideoPbFragment.this.dnV().getPbData().getThreadId()).w("obj_param1", VideoPbFragment.this.lGB.userId));
+                    if (VideoPbFragment.this.lGA == null || VideoPbFragment.this.lGA.dwM()) {
+                        if (VideoPbFragment.this.lGA != null && VideoPbFragment.this.dnW() != null && VideoPbFragment.this.dnW().getPbData() != null && VideoPbFragment.this.dnW().getPbData().getForum() != null) {
+                            TiebaStatic.log(new aq("c13712").dX("fid", VideoPbFragment.this.dnW().getPbData().getForum().getId()).dX("fname", VideoPbFragment.this.dnW().getPbData().getForum().getName()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", VideoPbFragment.this.dnW().getPbData().getThreadId()).w("obj_param1", VideoPbFragment.this.lGA.userId));
                         }
                     } else {
-                        TiebaStatic.log(new aq("c13608").dX("obj_id", VideoPbFragment.this.lGB.getTitle()).dX("obj_name", VideoPbFragment.this.lGB.dwI()).an("obj_type", 2).dX("fid", VideoPbFragment.this.dnV().getPbData().getForumId()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", VideoPbFragment.this.dnV().getPbData().getThreadId()));
+                        TiebaStatic.log(new aq("c13608").dX("obj_id", VideoPbFragment.this.lGA.getTitle()).dX("obj_name", VideoPbFragment.this.lGA.dwJ()).an("obj_type", 2).dX("fid", VideoPbFragment.this.dnW().getPbData().getForumId()).dX("uid", TbadkCoreApplication.getCurrentAccount()).dX("tid", VideoPbFragment.this.dnW().getPbData().getThreadId()));
                     }
-                    VideoPbFragment.this.dvE();
+                    VideoPbFragment.this.dvF();
                 }
-            }, aVar.dwK().longValue() * 1000);
+            }, aVar.dwL().longValue() * 1000);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvE() {
-        ViewGroup.LayoutParams layoutParams = this.mfH.getLayoutParams();
+    public void dvF() {
+        ViewGroup.LayoutParams layoutParams = this.mfG.getLayoutParams();
         if (layoutParams != null) {
-            if (this.mfP == null || !this.mfP.isRunning()) {
-                this.mfH.setAlpha(0.0f);
-                this.mfH.setVisibility(0);
+            if (this.mfO == null || !this.mfO.isRunning()) {
+                this.mfG.setAlpha(0.0f);
+                this.mfG.setVisibility(0);
                 f(layoutParams);
             }
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvF() {
-        if (this.mfH.getLayoutParams() != null) {
-            if (this.mfP == null || !this.mfP.isRunning()) {
-                dvG();
+    public void dvG() {
+        if (this.mfG.getLayoutParams() != null) {
+            if (this.mfO == null || !this.mfO.isRunning()) {
+                dvH();
             }
         }
     }
 
-    private void dvG() {
-        final ViewGroup.LayoutParams layoutParams = this.mfH.getLayoutParams();
+    private void dvH() {
+        final ViewGroup.LayoutParams layoutParams = this.mfG.getLayoutParams();
         if (layoutParams != null) {
-            if (this.mfQ == null || !this.mfQ.isRunning()) {
-                this.mfQ = ValueAnimator.ofFloat(1.0f, 0.0f);
-                this.mfQ.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.51
+            if (this.mfP == null || !this.mfP.isRunning()) {
+                this.mfP = ValueAnimator.ofFloat(1.0f, 0.0f);
+                this.mfP.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.51
                     @Override // android.animation.ValueAnimator.AnimatorUpdateListener
                     public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                        VideoPbFragment.this.mfH.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                        VideoPbFragment.this.mfG.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
                     }
                 });
-                this.mfQ.setDuration(200L);
-                this.mfQ.start();
-                this.mfQ.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.52
+                this.mfP.setDuration(200L);
+                this.mfP.start();
+                this.mfP.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.52
                     @Override // android.animation.Animator.AnimatorListener
                     public void onAnimationStart(Animator animator) {
                     }
@@ -4099,27 +4099,27 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     public void e(final ViewGroup.LayoutParams layoutParams) {
         final ViewGroup.LayoutParams layoutParams2 = this.ZS.getLayoutParams();
         final int i = layoutParams2.height;
-        this.mfP = ValueAnimator.ofFloat(1.0f, 0.0f);
-        this.mfP.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.53
+        this.mfO = ValueAnimator.ofFloat(1.0f, 0.0f);
+        this.mfO.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.53
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int floatValue = (int) (((Float) valueAnimator.getAnimatedValue()).floatValue() * VideoPbFragment.kin);
                 layoutParams.height = floatValue;
                 layoutParams2.height = floatValue + (i - VideoPbFragment.kin);
-                VideoPbFragment.this.mfH.setLayoutParams(layoutParams);
+                VideoPbFragment.this.mfG.setLayoutParams(layoutParams);
                 VideoPbFragment.this.ZS.setLayoutParams(layoutParams2);
             }
         });
-        this.mfP.setDuration(300L);
-        this.mfP.start();
-        this.mfP.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.54
+        this.mfO.setDuration(300L);
+        this.mfO.start();
+        this.mfO.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.54
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                VideoPbFragment.this.mfH.setVisibility(8);
+                VideoPbFragment.this.mfG.setVisibility(8);
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -4135,27 +4135,27 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     private void f(final ViewGroup.LayoutParams layoutParams) {
         final ViewGroup.LayoutParams layoutParams2 = this.ZS.getLayoutParams();
         final int i = layoutParams2.height;
-        this.mfP = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.mfP.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.55
+        this.mfO = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.mfO.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.55
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 int floatValue = (int) (((Float) valueAnimator.getAnimatedValue()).floatValue() * VideoPbFragment.kin);
                 layoutParams.height = floatValue;
                 layoutParams2.height = floatValue + i;
-                VideoPbFragment.this.mfH.setLayoutParams(layoutParams);
+                VideoPbFragment.this.mfG.setLayoutParams(layoutParams);
                 VideoPbFragment.this.ZS.setLayoutParams(layoutParams2);
             }
         });
-        this.mfP.setDuration(300L);
-        this.mfP.start();
-        this.mfP.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.57
+        this.mfO.setDuration(300L);
+        this.mfO.start();
+        this.mfO.addListener(new Animator.AnimatorListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.57
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationStart(Animator animator) {
             }
 
             @Override // android.animation.Animator.AnimatorListener
             public void onAnimationEnd(Animator animator) {
-                VideoPbFragment.this.dvH();
+                VideoPbFragment.this.dvI();
             }
 
             @Override // android.animation.Animator.AnimatorListener
@@ -4169,34 +4169,34 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvH() {
-        this.mfP = ValueAnimator.ofFloat(0.0f, 1.0f);
-        this.mfP.setDuration(300L);
-        this.mfP.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.58
+    public void dvI() {
+        this.mfO = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.mfO.setDuration(300L);
+        this.mfO.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.58
             @Override // android.animation.ValueAnimator.AnimatorUpdateListener
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
-                VideoPbFragment.this.mfH.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
+                VideoPbFragment.this.mfG.setAlpha(((Float) valueAnimator.getAnimatedValue()).floatValue());
             }
         });
-        this.mfP.start();
+        this.mfO.start();
     }
 
-    public String drQ() {
-        if (!at.isEmpty(this.lWe)) {
-            return this.lWe;
+    public String drR() {
+        if (!at.isEmpty(this.lWd)) {
+            return this.lWd;
         }
-        this.lWe = TbadkCoreApplication.getInst().getResources().getString(com.baidu.tieba.pb.pb.main.ao.drG());
-        return this.lWe;
+        this.lWd = TbadkCoreApplication.getInst().getResources().getString(com.baidu.tieba.pb.pb.main.ao.drH());
+        return this.lWd;
     }
 
-    public void dsp() {
+    public void dsq() {
         hideProgressBar();
-        if (com.baidu.tbadk.a.d.bmH() && dvM() != null) {
-            dvM().endLoadData();
-            dvM().dsq();
-        } else if (dvK() != null) {
-            dvK().endLoadData();
-            dvK().dsq();
+        if (com.baidu.tbadk.a.d.bmI() && dvN() != null) {
+            dvN().endLoadData();
+            dvN().dsr();
+        } else if (dvL() != null) {
+            dvL().endLoadData();
+            dvL().dsr();
         }
     }
 
@@ -4205,26 +4205,26 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
             Object obj = ((SparseArray) view.getTag()).get(R.id.tag_clip_board);
             if (obj instanceof PostData) {
                 PostData postData = (PostData) obj;
-                if (!TextUtils.isEmpty(postData.getBimg_url()) && com.baidu.tbadk.core.k.bou().isShowImages()) {
-                    return PM(postData.getId());
+                if (!TextUtils.isEmpty(postData.getBimg_url()) && com.baidu.tbadk.core.k.bov().isShowImages()) {
+                    return PL(postData.getId());
                 }
                 if (checkUpIsLogin()) {
-                    if (dnV() == null || dnV().getPbData() == null) {
+                    if (dnW() == null || dnW().getPbData() == null) {
                         return true;
                     }
-                    if (this.lVM != null) {
-                        this.lVM.doE();
+                    if (this.lVL != null) {
+                        this.lVL.doF();
                     }
                     p pVar = new p();
-                    pVar.a(dnV().getPbData().getForum());
-                    pVar.setThreadData(dnV().getPbData().dmE());
+                    pVar.a(dnW().getPbData().getForum());
+                    pVar.setThreadData(dnW().getPbData().dmF());
                     pVar.g(postData);
-                    this.lMz.d(pVar);
-                    this.lMz.setPostId(postData.getId());
-                    a(view, postData.brq().getUserId(), "", postData);
+                    this.lMy.d(pVar);
+                    this.lMy.setPostId(postData.getId());
+                    a(view, postData.brr().getUserId(), "", postData);
                     TiebaStatic.log("c11743");
-                    if (this.lNx != null) {
-                        vx(this.lNx.bFw());
+                    if (this.lNw != null) {
+                        vx(this.lNw.bFx());
                     }
                     return true;
                 }
@@ -4235,17 +4235,17 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         return false;
     }
 
-    public void dvI() {
-        if (this.lNx != null) {
-            vx(this.lNx.bFw());
+    public void dvJ() {
+        if (this.lNw != null) {
+            vx(this.lNw.bFx());
         }
-        drO();
-        this.mfR.dsG();
+        drP();
+        this.mfQ.dsH();
     }
 
-    private boolean PM(String str) {
+    private boolean PL(String str) {
         if (!StringUtils.isNull(str) && bg.checkUpIsLogin(getPageContext().getPageActivity())) {
-            String string = com.baidu.tbadk.core.sharedPref.b.bvq().getString("bubble_link", "");
+            String string = com.baidu.tbadk.core.sharedPref.b.bvr().getString("bubble_link", "");
             if (StringUtils.isNull(string)) {
                 return false;
             }
@@ -4260,57 +4260,57 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         return false;
     }
 
-    public void dsj() {
-        if (this.lUL != null) {
-            this.lUL.setVisibility(0);
+    public void dsk() {
+        if (this.lUK != null) {
+            this.lUK.setVisibility(0);
         }
     }
 
-    public void dsk() {
-        if (this.lUL != null) {
-            this.lUL.setVisibility(8);
+    public void dsl() {
+        if (this.lUK != null) {
+            this.lUK.setVisibility(8);
         }
     }
 
     public void HI(int i) {
-        if (this.mfB != null) {
-            this.mfB.setVisibility(i);
+        if (this.mfA != null) {
+            this.mfA.setVisibility(i);
         }
     }
 
-    public void dsn() {
+    public void dso() {
         l.hideSoftKeyPad(getPageContext().getPageActivity(), getBaseFragmentActivity().getCurrentFocus());
     }
 
     @Override // com.baidu.tieba.pb.videopb.b
-    public PbModel.a dpb() {
-        return this.lOn;
+    public PbModel.a dpc() {
+        return this.lOm;
     }
 
-    public void drK() {
+    public void drL() {
         if (this.acZ != null) {
             this.acZ.hide();
         }
     }
 
-    public void cFA() {
-        if (this.lME.getCurrentFocus() != null) {
-            l.hideSoftKeyPad(getPageContext().getPageActivity(), this.lME.getCurrentFocus());
+    public void cFB() {
+        if (this.lMD.getCurrentFocus() != null) {
+            l.hideSoftKeyPad(getPageContext().getPageActivity(), this.lMD.getCurrentFocus());
         }
     }
 
     public void N(com.baidu.tieba.pb.data.f fVar) {
-        if (fVar != null && fVar.dmE() != null) {
-            String valueOf = String.valueOf(fVar.dmE().brh());
-            if (fVar.dmE().brh() == 0) {
+        if (fVar != null && fVar.dmF() != null) {
+            String valueOf = String.valueOf(fVar.dmF().bri());
+            if (fVar.dmF().bri() == 0) {
                 valueOf = "";
             }
-            this.mfz.EX(valueOf);
+            this.mfy.EW(valueOf);
         }
     }
 
     public void c(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
-        for (BaseFragment baseFragment : this.mfA.dvV()) {
+        for (BaseFragment baseFragment : this.mfz.dvW()) {
             if (baseFragment instanceof com.baidu.tieba.pb.videopb.a) {
                 ((com.baidu.tieba.pb.videopb.a) baseFragment).b(z, i, i2, i3, fVar, str, i4);
             }
@@ -4320,31 +4320,31 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     public void a(com.baidu.tbadk.core.dialog.a aVar, JSONArray jSONArray) {
         aVar.dismiss();
-        if (dnV() != null && dnV().getPbData() != null && dnV().getPbData().dmE() != null && dnV().getPbData().getForum() != null) {
+        if (dnW() != null && dnW().getPbData() != null && dnW().getPbData().dmF() != null && dnW().getPbData().getForum() != null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount == null || currentAccount.length() <= 0) {
                 TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>((int) CmdConfigCustom.START_GO_ACTION, new LoginActivityConfig(getPageContext().getPageActivity(), true, RequestResponseCode.REQUEST_LOGIN_PB_DEL_POST)));
             } else if (aVar.getYesButtonTag() instanceof SparseArray) {
                 SparseArray sparseArray = (SparseArray) aVar.getYesButtonTag();
-                int intValue = ((Integer) sparseArray.get(lVF)).intValue();
-                if (intValue == lVG) {
-                    if (!this.ggJ.dPY()) {
+                int intValue = ((Integer) sparseArray.get(lVE)).intValue();
+                if (intValue == lVF) {
+                    if (!this.ggJ.dPZ()) {
                         showProgressBar();
                         String str = (String) sparseArray.get(R.id.tag_del_post_id);
                         int intValue2 = ((Integer) sparseArray.get(R.id.tag_manage_user_identity)).intValue();
                         boolean booleanValue = ((Boolean) sparseArray.get(R.id.tag_del_post_is_self)).booleanValue();
                         int intValue3 = ((Integer) sparseArray.get(R.id.tag_del_post_type)).intValue();
                         if (jSONArray != null) {
-                            this.ggJ.TD(at.S(jSONArray));
+                            this.ggJ.TC(at.S(jSONArray));
                         }
-                        this.ggJ.a(dnV().getPbData().getForum().getId(), dnV().getPbData().getForum().getName(), dnV().getPbData().dmE().getId(), str, intValue3, intValue2, booleanValue, dnV().getPbData().dmE().getBaijiahaoData());
+                        this.ggJ.a(dnW().getPbData().getForum().getId(), dnW().getPbData().getForum().getName(), dnW().getPbData().dmF().getId(), str, intValue3, intValue2, booleanValue, dnW().getPbData().dmF().getBaijiahaoData());
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_DEL_THREAD_SUCCESS, true));
                     }
-                } else if (intValue == lVH || intValue == lVJ) {
-                    if (dnV().dqA() != null) {
-                        dnV().dqA().GQ(PbModel.UPGRADE_TO_PHOTO_LIVE);
+                } else if (intValue == lVG || intValue == lVI) {
+                    if (dnW().dqB() != null) {
+                        dnW().dqB().GQ(PbModel.UPGRADE_TO_PHOTO_LIVE);
                     }
-                    if (intValue == lVH) {
+                    if (intValue == lVG) {
                         TiebaStatic.log("c10499");
                     }
                 }
@@ -4354,7 +4354,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
 
     /* JADX INFO: Access modifiers changed from: private */
     public void eI(String str, String str2) {
-        be.bwu().b(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
+        be.bwv().b(getPageContext(), new String[]{"tiebachushou://liveroom?roomid=" + str + "&livetype=" + str2});
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
@@ -4363,20 +4363,20 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public int bLE() {
+    public int bLF() {
         return 0;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<ImageView> bLF() {
+    public com.baidu.adp.lib.d.b<ImageView> bLG() {
         if (this.fWD == null) {
             this.fWD = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<ImageView>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.59
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: bLR */
+                /* renamed from: bLS */
                 public ImageView makeObject() {
                     ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(VideoPbFragment.this.getPageContext().getPageActivity());
-                    boolean isShowImages = com.baidu.tbadk.core.k.bou().isShowImages();
+                    boolean isShowImages = com.baidu.tbadk.core.k.bov().isShowImages();
                     foreDrawableImageView.setDefaultBg(ao.getDrawable(R.color.common_color_10220));
                     if (isShowImages) {
                         foreDrawableImageView.setAdjustViewBounds(false);
@@ -4412,7 +4412,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     if (imageView instanceof TbImageView) {
                         TbImageView tbImageView = (TbImageView) imageView;
                         tbImageView.setTag(null);
-                        if (com.baidu.tbadk.core.k.bou().isShowImages()) {
+                        if (com.baidu.tbadk.core.k.bov().isShowImages()) {
                             tbImageView.setAdjustViewBounds(false);
                             tbImageView.setInterceptOnClick(false);
                         } else {
@@ -4447,7 +4447,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<TextView> bLG() {
+    public com.baidu.adp.lib.d.b<TextView> bLH() {
         if (this.fZS == null) {
             this.fZS = TbRichTextView.K(getPageContext().getPageActivity(), 8);
         }
@@ -4455,15 +4455,15 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<GifView> bLH() {
+    public com.baidu.adp.lib.d.b<GifView> bLI() {
         if (this.fWE == null) {
             this.fWE = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<GifView>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.60
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: czE */
+                /* renamed from: czF */
                 public GifView makeObject() {
                     GifView gifView = new GifView(VideoPbFragment.this.getPageContext().getPageActivity());
-                    boolean isShowImages = com.baidu.tbadk.core.k.bou().isShowImages();
+                    boolean isShowImages = com.baidu.tbadk.core.k.bov().isShowImages();
                     gifView.setDefaultBg(ao.getDrawable(R.color.common_color_10220));
                     if (isShowImages) {
                         gifView.setAdjustViewBounds(false);
@@ -4493,7 +4493,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 /* renamed from: h */
                 public GifView activateObject(GifView gifView) {
                     gifView.setTag(null);
-                    if (com.baidu.tbadk.core.k.bou().isShowImages()) {
+                    if (com.baidu.tbadk.core.k.bov().isShowImages()) {
                         gifView.setAdjustViewBounds(false);
                         gifView.setInterceptOnClick(false);
                     } else {
@@ -4511,7 +4511,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                     gifView.release();
                     gifView.onDestroy();
                     gifView.setImageDrawable(null);
-                    gifView.bGn();
+                    gifView.bGo();
                     gifView.setBackgroundDrawable(null);
                     gifView.setTag(null);
                     gifView.setOnClickListener(null);
@@ -4524,12 +4524,12 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<View> bLI() {
+    public com.baidu.adp.lib.d.b<View> bLJ() {
         if (this.fZT == null) {
             this.fZT = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<View>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.61
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: dpG */
+                /* renamed from: dpH */
                 public View makeObject() {
                     PlayVoiceBntNew playVoiceBntNew = new PlayVoiceBntNew(VideoPbFragment.this.getPageContext().getPageActivity(), PlayVoiceBntNew.PLAY_TYPE.NORMAL);
                     playVoiceBntNew.setVoiceManager(VideoPbFragment.this.getVoiceManager());
@@ -4548,7 +4548,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 @Override // com.baidu.adp.lib.d.c
                 /* renamed from: dK */
                 public View activateObject(View view) {
-                    ((PlayVoiceBntNew) view).cfq();
+                    ((PlayVoiceBntNew) view).cfr();
                     return view;
                 }
 
@@ -4565,12 +4565,12 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<LinearLayout> bLJ() {
+    public com.baidu.adp.lib.d.b<LinearLayout> bLK() {
         if (this.fZU == null) {
             this.fZU = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<LinearLayout>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.62
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.lib.d.c
-                /* renamed from: dpI */
+                /* renamed from: dpJ */
                 public LinearLayout makeObject() {
                     LinearLayout linearLayout = new LinearLayout(VideoPbFragment.this.getPageContext().getPageActivity());
                     linearLayout.setId(R.id.pb_text_voice_layout);
@@ -4610,11 +4610,11 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
-    public com.baidu.adp.lib.d.b<RelativeLayout> bLK() {
+    public com.baidu.adp.lib.d.b<RelativeLayout> bLL() {
         this.fZV = new com.baidu.adp.lib.d.b<>(new com.baidu.adp.lib.d.c<RelativeLayout>() { // from class: com.baidu.tieba.pb.videopb.VideoPbFragment.63
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.lib.d.c
-            /* renamed from: dpH */
+            /* renamed from: dpI */
             public RelativeLayout makeObject() {
                 return new RelativeLayout(VideoPbFragment.this.getPageContext().getPageActivity());
             }
@@ -4645,13 +4645,13 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     @Override // com.baidu.tbadk.widget.richText.h
     public void aF(Context context, String str) {
         MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(getPageContext().getPageActivity(), str, null)));
-        this.lMQ = true;
+        this.lMP = true;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
     public void g(Context context, String str, boolean z) {
-        if (au.Qc(str) && dnV() != null && dnV().dpW() != null) {
-            TiebaStatic.log(new aq("c11664").an("obj_param1", 1).dX("post_id", dnV().dpW()));
+        if (au.Qb(str) && dnW() != null && dnW().dpX() != null) {
+            TiebaStatic.log(new aq("c11664").an("obj_param1", 1).dX("post_id", dnW().dpX()));
         }
         if (z) {
             if (!TextUtils.isEmpty(str)) {
@@ -4662,16 +4662,16 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_START_HOT_TOPIC_ACTIVITY, mVar));
             }
         } else {
-            au.dtm().f(getPageContext(), str);
+            au.dtn().f(getPageContext(), str);
         }
-        this.lMQ = true;
+        this.lMP = true;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
     public void aG(Context context, String str) {
-        au.dtm().f(getPageContext(), str);
+        au.dtn().f(getPageContext(), str);
         TiebaStatic.eventStat(getPageContext().getPageActivity(), "pb_video", "pbclick", 1, new Object[0]);
-        this.lMQ = true;
+        this.lMP = true;
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
@@ -4685,27 +4685,27 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     @Override // com.baidu.tbadk.widget.richText.h
     public void u(Context context, String str, String str2) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-            this.mfR.setPhoneNumber(str);
-            com.baidu.tbadk.core.dialog.b dwr = this.mfR.dwr();
-            if (dwr == null) {
-                this.mfR.doS();
+            this.mfQ.setPhoneNumber(str);
+            com.baidu.tbadk.core.dialog.b dws = this.mfQ.dws();
+            if (dws == null) {
+                this.mfQ.doT();
             }
             TiebaStatic.log("pb_show_phonedialog");
             if (str2.equals("2")) {
-                dwr.getItemView(1).setVisibility(8);
+                dws.getItemView(1).setVisibility(8);
             } else {
-                dwr.getItemView(1).setVisibility(0);
+                dws.getItemView(1).setVisibility(0);
             }
-            dwr.btZ();
-            this.lMQ = true;
+            dws.bua();
+            this.lMP = true;
         }
     }
 
     @Override // com.baidu.tbadk.widget.richText.h
     public void aJ(Context context, String str) {
         if (!TextUtils.isEmpty(str)) {
-            be.bwu().b(getPageContext(), new String[]{str});
-            this.lMQ = true;
+            be.bwv().b(getPageContext(), new String[]{str});
+            this.lMP = true;
         }
     }
 
@@ -4713,7 +4713,7 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
     public void b(boolean z, int i, int i2, int i3, com.baidu.tieba.pb.data.f fVar, String str, int i4) {
     }
 
-    public com.baidu.tbadk.coreExtra.model.a dvJ() {
+    public com.baidu.tbadk.coreExtra.model.a dvK() {
         return this.fcZ;
     }
 
@@ -4721,213 +4721,213 @@ public class VideoPbFragment extends BaseFragment implements VoiceManager.c, TbR
         this.mIsLoading = z;
     }
 
-    public View.OnTouchListener bJe() {
+    public View.OnTouchListener bJf() {
         return this.bTP;
     }
 
-    public ReplyFragment dvK() {
-        if (this.mfA == null || !(this.mfA.HJ(mfw) instanceof ReplyFragment)) {
+    public ReplyFragment dvL() {
+        if (this.mfz == null || !(this.mfz.HJ(mfv) instanceof ReplyFragment)) {
             return null;
         }
-        return (ReplyFragment) this.mfA.HJ(mfw);
+        return (ReplyFragment) this.mfz.HJ(mfv);
     }
 
-    public DetailInfoFragment dvL() {
-        if (this.mfA == null || !(this.mfA.HJ(mfv) instanceof DetailInfoFragment)) {
+    public DetailInfoFragment dvM() {
+        if (this.mfz == null || !(this.mfz.HJ(mfu) instanceof DetailInfoFragment)) {
             return null;
         }
-        return (DetailInfoFragment) this.mfA.HJ(mfv);
+        return (DetailInfoFragment) this.mfz.HJ(mfu);
     }
 
-    public DetailInfoAndReplyFragment dvM() {
-        if (this.mfA == null || !(this.mfA.HJ(mfx) instanceof DetailInfoAndReplyFragment)) {
+    public DetailInfoAndReplyFragment dvN() {
+        if (this.mfz == null || !(this.mfz.HJ(mfw) instanceof DetailInfoAndReplyFragment)) {
             return null;
         }
-        return (DetailInfoAndReplyFragment) this.mfA.HJ(mfx);
+        return (DetailInfoAndReplyFragment) this.mfz.HJ(mfw);
     }
 
-    public boolean dnN() {
-        PbModel dnV = this.lME.dnV();
-        if (dnV == null) {
+    public boolean dnO() {
+        PbModel dnW = this.lMD.dnW();
+        if (dnW == null) {
             return false;
         }
-        return dnV.dnN();
+        return dnW.dnO();
     }
 
     @Override // com.baidu.tieba.pb.videopb.b
     public void finish() {
-        CardHListViewData dmQ;
-        PbModel dnV = this.lME.dnV();
-        if (dnV != null && dnV.getPbData() != null && !dnV.getPbData().dnh()) {
+        CardHListViewData dmR;
+        PbModel dnW = this.lMD.dnW();
+        if (dnW != null && dnW.getPbData() != null && !dnW.getPbData().dni()) {
             HistoryMessage historyMessage = new HistoryMessage();
             historyMessage.Activity = getPageContext();
-            historyMessage.threadId = dnV.getPbData().dmE().getId();
-            if (dnV.isShareThread() && dnV.getPbData().dmE().eVB != null) {
-                historyMessage.threadName = dnV.getPbData().dmE().eVB.showText;
+            historyMessage.threadId = dnW.getPbData().dmF().getId();
+            if (dnW.isShareThread() && dnW.getPbData().dmF().eVB != null) {
+                historyMessage.threadName = dnW.getPbData().dmF().eVB.showText;
             } else {
-                historyMessage.threadName = dnV.getPbData().dmE().getTitle();
+                historyMessage.threadName = dnW.getPbData().dmF().getTitle();
             }
-            if (dnV.isShareThread() && !dnN()) {
+            if (dnW.isShareThread() && !dnO()) {
                 historyMessage.forumName = "";
             } else {
-                historyMessage.forumName = dnV.getPbData().getForum().getName();
+                historyMessage.forumName = dnW.getPbData().getForum().getName();
             }
-            ArrayList<PostData> dmG = dnV.getPbData().dmG();
-            int dsr = dvK() != null ? dvK().dsr() : 0;
-            if (dmG != null && dsr >= 0 && dsr < dmG.size()) {
-                historyMessage.postID = dmG.get(dsr).getId();
+            ArrayList<PostData> dmH = dnW.getPbData().dmH();
+            int dss = dvL() != null ? dvL().dss() : 0;
+            if (dmH != null && dss >= 0 && dss < dmH.size()) {
+                historyMessage.postID = dmH.get(dss).getId();
             }
-            historyMessage.isHostOnly = dnV.getHostMode();
-            historyMessage.isSquence = dnV.dpY();
-            historyMessage.isShareThread = dnV.isShareThread();
+            historyMessage.isHostOnly = dnW.getHostMode();
+            historyMessage.isSquence = dnW.dpZ();
+            historyMessage.isShareThread = dnW.isShareThread();
             MessageManager.getInstance().dispatchResponsedMessage(historyMessage);
         }
-        if (this.lNx != null) {
-            this.lNx.onDestroy();
+        if (this.lNw != null) {
+            this.lNw.onDestroy();
         }
-        if (dnV != null && (dnV.dpZ() || dnV.dqb())) {
+        if (dnW != null && (dnW.dqa() || dnW.dqc())) {
             Intent intent = new Intent();
-            intent.putExtra("tid", dnV.dpW());
-            if (this.lNm) {
-                if (this.lNo) {
-                    intent.putExtra("type", 4);
-                    intent.putExtra("top_data", dnV.cxN());
-                }
+            intent.putExtra("tid", dnW.dpX());
+            if (this.lNl) {
                 if (this.lNn) {
+                    intent.putExtra("type", 4);
+                    intent.putExtra("top_data", dnW.cxO());
+                }
+                if (this.lNm) {
                     intent.putExtra("type", 2);
-                    intent.putExtra("good_data", dnV.getIsGood());
+                    intent.putExtra("good_data", dnW.getIsGood());
                 }
             }
-            if (dnV.getPbData() != null && System.currentTimeMillis() - this.lMM >= 40000 && (dmQ = dnV.getPbData().dmQ()) != null && !x.isEmpty(dmQ.getDataList())) {
-                intent.putExtra("guess_like_data", dmQ);
+            if (dnW.getPbData() != null && System.currentTimeMillis() - this.lML >= 40000 && (dmR = dnW.getPbData().dmR()) != null && !x.isEmpty(dmR.getDataList())) {
+                intent.putExtra("guess_like_data", dmR);
             }
-            PbActivity pbActivity = this.lME;
-            PbActivity pbActivity2 = this.lME;
+            PbActivity pbActivity = this.lMD;
+            PbActivity pbActivity2 = this.lMD;
             pbActivity.setResult(-1, intent);
         }
-        if (dpi()) {
-            if (dnV != null) {
-                com.baidu.tieba.pb.data.f pbData = dnV.getPbData();
+        if (dpj()) {
+            if (dnW != null) {
+                com.baidu.tieba.pb.data.f pbData = dnW.getPbData();
                 if (pbData != null) {
                     if (pbData.getUserData() != null) {
                         pbData.getUserData().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
                     }
-                    if (!this.lMS) {
-                        if (this.mfD != null) {
+                    if (!this.lMR) {
+                        if (this.mfC != null) {
                             Rect rect = new Rect();
-                            this.mfD.getGlobalVisibleRect(rect);
-                            aj.drv().g(rect);
+                            this.mfC.getGlobalVisibleRect(rect);
+                            aj.drw().g(rect);
                         }
-                        aj.drv().Hm(this.fbv.getCurrentItem());
-                        BdTypeRecyclerView cIs = cIs();
+                        aj.drw().Hm(this.fbv.getCurrentItem());
+                        BdTypeRecyclerView cIt = cIt();
                         Parcelable parcelable = null;
-                        if (cIs != null) {
-                            parcelable = cIs.onSaveInstanceState();
+                        if (cIt != null) {
+                            parcelable = cIt.onSaveInstanceState();
                         }
-                        aj.drv().a(dnV.dqh(), parcelable, dnV.dpY(), dnV.getHostMode(), false);
+                        aj.drw().a(dnW.dqi(), parcelable, dnW.dpZ(), dnW.getHostMode(), false);
                     }
                 }
             } else {
-                aj.drv().reset();
+                aj.drw().reset();
             }
-            doj();
+            dok();
         }
     }
 
     @Override // androidx.fragment.app.Fragment, android.content.ComponentCallbacks
     public void onConfigurationChanged(Configuration configuration) {
         super.onConfigurationChanged(configuration);
-        if (this.mfE != null && !this.mfE.isVertical()) {
-            if ((this.mfE.isFullScreen() && configuration.orientation == 1) || (!this.mfE.isFullScreen() && configuration.orientation == 2)) {
-                this.mfE.wk(false);
+        if (this.mfD != null && !this.mfD.isVertical()) {
+            if ((this.mfD.isFullScreen() && configuration.orientation == 1) || (!this.mfD.isFullScreen() && configuration.orientation == 2)) {
+                this.mfD.wk(false);
             }
         }
     }
 
-    public boolean dvN() {
-        if (this.mfE == null) {
+    public boolean dvO() {
+        if (this.mfD == null) {
             return false;
         }
-        return this.mfE.isVertical();
+        return this.mfD.isVertical();
     }
 
     public void onScrollStateChanged(int i) {
         if (i == 0) {
-            com.baidu.tieba.s.c.dNX().b(getUniqueId(), false);
+            com.baidu.tieba.s.c.dNY().b(getUniqueId(), false);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes2.dex */
     public class a {
+        public boolean mgl;
         public boolean mgm;
-        public boolean mgn;
 
         private a() {
-            this.mgn = true;
+            this.mgm = true;
         }
 
-        public boolean dvU() {
-            return (this.mgm && this.mgn) ? false : true;
+        public boolean dvV() {
+            return (this.mgl && this.mgm) ? false : true;
         }
     }
 
-    public void dvO() {
-        this.lNb = -1;
-        this.lNc = Integer.MIN_VALUE;
+    public void dvP() {
+        this.lNa = -1;
+        this.lNb = Integer.MIN_VALUE;
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dpz() {
-        if (dnV() != null && !at.isEmpty(dnV().dpW())) {
-            com.baidu.tbadk.BdToken.c.bkT().p(com.baidu.tbadk.BdToken.b.eEL, com.baidu.adp.lib.f.b.toLong(dnV().dpW(), 0L));
+    public void dpA() {
+        if (dnW() != null && !at.isEmpty(dnW().dpX())) {
+            com.baidu.tbadk.BdToken.c.bkU().p(com.baidu.tbadk.BdToken.b.eEL, com.baidu.adp.lib.f.b.toLong(dnW().dpX(), 0L));
         }
     }
 
     public void onKeyboardVisibilityChanged(boolean z) {
-        this.mfC.setVisibility(z ? 0 : 8);
+        this.mfB.setVisibility(z ? 0 : 8);
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvP() {
+    public void dvQ() {
+        if (this.mga == null) {
+            this.mga = ObjectAnimator.ofFloat(this.mfF, "alpha", 0.0f, 1.0f);
+            this.mga.setDuration(200L);
+        }
+        this.mga.start();
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public void dvR() {
         if (this.mgb == null) {
-            this.mgb = ObjectAnimator.ofFloat(this.mfG, "alpha", 0.0f, 1.0f);
+            this.mgb = ObjectAnimator.ofFloat(this.mfF, "alpha", 1.0f, 0.0f);
             this.mgb.setDuration(200L);
         }
         this.mgb.start();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void dvQ() {
-        if (this.mgc == null) {
-            this.mgc = ObjectAnimator.ofFloat(this.mfG, "alpha", 1.0f, 0.0f);
-            this.mgc.setDuration(200L);
-        }
-        this.mgc.start();
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public boolean dvR() {
-        return this.mfE != null && this.mfE.dvS();
-    }
-
     public boolean dvS() {
-        return this.mfY;
+        return this.mfD != null && this.mfD.dvT();
+    }
+
+    public boolean dvT() {
+        return this.mfX;
     }
 
     public void wb(boolean z) {
-        this.mfY = z;
+        this.mfX = z;
     }
 
     public void uU(boolean z) {
-        this.lMT = z;
+        this.lMS = z;
     }
 
-    public boolean dpx() {
-        return this.lMT;
+    public boolean dpy() {
+        return this.lMS;
     }
 
-    public LinearLayout dtf() {
-        return this.lVf;
+    public LinearLayout dtg() {
+        return this.lVe;
     }
 }

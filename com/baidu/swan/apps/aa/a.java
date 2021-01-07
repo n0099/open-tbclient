@@ -21,7 +21,7 @@ public class a {
     private a() {
     }
 
-    public static a aGZ() {
+    public static a aHa() {
         if (dsB == null) {
             synchronized (a.class) {
                 if (dsB == null) {
@@ -38,8 +38,8 @@ public class a {
             com.baidu.swan.apps.console.c.i("SwanAppPayLaunchMsg", "wxPay: url is empty");
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
             return false;
-        } else if (!com.baidu.m.b.afh().bI(context)) {
-            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).aLS();
+        } else if (!com.baidu.m.b.afi().bI(context)) {
+            com.baidu.swan.apps.res.widget.b.d.a(context, context.getText(a.h.aiapps_wx_not_install_toast_msg)).aLT();
             unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1002, "had not installed WeChat");
             return false;
         } else if (!i.b("wxPay", com.baidu.swan.apps.model.b.cg(a2, a2))) {

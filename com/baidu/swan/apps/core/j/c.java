@@ -6,7 +6,7 @@ public class c extends com.baidu.swan.pms.model.f {
     public String cYT;
 
     @Override // com.baidu.swan.pms.model.e
-    public boolean auV() {
-        return super.auV() && !TextUtils.isEmpty(this.cYT);
+    public boolean auW() {
+        return super.auW() && !TextUtils.isEmpty(this.cYT);
     }
 }

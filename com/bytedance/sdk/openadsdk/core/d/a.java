@@ -9,29 +9,29 @@ import java.util.Map;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f6782a;
+    private String f6783a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f6783b;
+    private int f6784b;
     private String c;
     private List<l> d = new ArrayList();
     private String e;
     private long f;
 
     public String a() {
-        return this.f6782a;
+        return this.f6783a;
     }
 
     public void a(String str) {
-        this.f6782a = str;
+        this.f6783a = str;
     }
 
     public int b() {
-        return this.f6783b;
+        return this.f6784b;
     }
 
     public void a(int i) {
-        this.f6783b = i;
+        this.f6784b = i;
     }
 
     public void b(String str) {

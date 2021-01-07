@@ -14,12 +14,12 @@ public class a implements h {
     public long thread_id;
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, Object> bGK() {
+    public HashMap<String, Object> bGL() {
         return null;
     }
 
     @Override // com.baidu.tbadk.mvc.b.g
-    public HashMap<String, String> bGL() {
+    public HashMap<String, String> bGM() {
         return null;
     }
 

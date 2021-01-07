@@ -150,7 +150,7 @@ public class OpenFlutter {
         if (ACTIVITY_PERSON_CENTER.equals(str)) {
             String uri2 = uri.toString();
             if (f.r(uri)) {
-                f.bln().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
+                f.blo().d(uri, new f.a() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.1
                     @Override // com.baidu.tbadk.BdToken.f.a
                     public void onCallBack(HashMap<String, Object> hashMap2) {
                         if (hashMap2 != null && (hashMap2.get(f.eGx) instanceof String)) {
@@ -237,7 +237,7 @@ public class OpenFlutter {
             e.mB().postDelayed(new Runnable() { // from class: com.baidu.tieba.flutter.util.OpenFlutter.2
                 @Override // java.lang.Runnable
                 public void run() {
-                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, d.bHm()));
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921521, d.bHn()));
                 }
             }, 100L);
         } else {

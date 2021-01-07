@@ -8,53 +8,53 @@ import com.fun.ad.sdk.FunRippedAd;
 public class aa implements ah {
 
     /* renamed from: b  reason: collision with root package name */
-    public final /* synthetic */ String f8041b;
-    public final /* synthetic */ FunAdInteractionListener pHN;
-    public final /* synthetic */ au.a pHO;
-    public final /* synthetic */ p pHP;
+    public final /* synthetic */ String f8042b;
+    public final /* synthetic */ FunAdInteractionListener pJv;
+    public final /* synthetic */ au.a pJw;
+    public final /* synthetic */ p pJx;
 
     public aa(p pVar, FunAdInteractionListener funAdInteractionListener, String str, au.a aVar) {
-        this.pHP = pVar;
-        this.pHN = funAdInteractionListener;
-        this.f8041b = str;
-        this.pHO = aVar;
+        this.pJx = pVar;
+        this.pJv = funAdInteractionListener;
+        this.f8042b = str;
+        this.pJw = aVar;
     }
 
     public void a(String str) {
         m.a("FunAdLoader 优量汇广告 onADClosed，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pHN;
+        FunAdInteractionListener funAdInteractionListener = this.pJv;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdClose(this.pHP.pHx.f8057a);
+            funAdInteractionListener.onAdClose(this.pJx.pJf.f8058a);
         }
-        ((d.a) d.pHm).a(this.f8041b, this.pHO.f8060b, str);
+        ((d.a) d.pIU).a(this.f8042b, this.pJw.f8061b, str);
     }
 
     public void b(String str) {
         m.a("FunAdLoader 优量汇广告 onADExposure，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pHN;
+        FunAdInteractionListener funAdInteractionListener = this.pJv;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdShow(this.pHP.pHx.f8057a);
+            funAdInteractionListener.onAdShow(this.pJx.pJf.f8058a);
         }
-        ((d.a) d.pHm).d(this.f8041b, this.pHO.f8060b, str);
+        ((d.a) d.pIU).d(this.f8042b, this.pJw.f8061b, str);
     }
 
     public void c(String str) {
         m.a("FunAdLoader 优量汇广告 onAdClicked，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pHN;
+        FunAdInteractionListener funAdInteractionListener = this.pJv;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdClicked(this.pHP.pHx.f8057a);
+            funAdInteractionListener.onAdClicked(this.pJx.pJf.f8058a);
         }
-        aq aqVar = this.pHP.pHA;
-        String str2 = this.f8041b;
-        au.a aVar = this.pHO;
+        aq aqVar = this.pJx.pJi;
+        String str2 = this.f8042b;
+        au.a aVar = this.pJw;
         if (aqVar != null) {
-            an anVar = aqVar.f8053a.get(aqVar.a(str2, aVar.f8059a));
-            FunRippedAd eBl = anVar != null ? anVar.eBl() : null;
-            if (eBl != null) {
-                ((d.a) d.pHm).a(this.f8041b, this.pHO.f8060b, str, eBl.appPackageName, eBl.appLinkUrl);
+            an anVar = aqVar.f8054a.get(aqVar.a(str2, aVar.f8060a));
+            FunRippedAd eBP = anVar != null ? anVar.eBP() : null;
+            if (eBP != null) {
+                ((d.a) d.pIU).a(this.f8042b, this.pJw.f8061b, str, eBP.appPackageName, eBP.appLinkUrl);
                 return;
             } else {
-                ((d.a) d.pHm).a(this.f8041b, this.pHO.f8060b, str, (String) null, (String) null);
+                ((d.a) d.pIU).a(this.f8042b, this.pJw.f8061b, str, (String) null, (String) null);
                 return;
             }
         }
@@ -63,19 +63,19 @@ public class aa implements ah {
 
     public void d(String str) {
         m.a("FunAdLoader 优量汇广告 onAdShow，广告ID：" + str);
-        FunAdInteractionListener funAdInteractionListener = this.pHN;
+        FunAdInteractionListener funAdInteractionListener = this.pJv;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdShow(this.pHP.pHx.f8057a);
+            funAdInteractionListener.onAdShow(this.pJx.pJf.f8058a);
         }
-        ((d.a) d.pHm).d(this.f8041b, this.pHO.f8060b, str);
+        ((d.a) d.pIU).d(this.f8042b, this.pJw.f8061b, str);
     }
 
     public void a(String str, int i, String str2) {
         m.a("FunAdLoader 优量汇广告 onADError，广告ID：" + str + "，code：" + i + "，message：" + str2);
-        FunAdInteractionListener funAdInteractionListener = this.pHN;
+        FunAdInteractionListener funAdInteractionListener = this.pJv;
         if (funAdInteractionListener != null) {
-            funAdInteractionListener.onAdError(this.pHP.pHx.f8057a);
+            funAdInteractionListener.onAdError(this.pJx.pJf.f8058a);
         }
-        ((d.a) d.pHm).e(this.f8041b, this.pHO.f8060b, str, i, str2);
+        ((d.a) d.pIU).e(this.f8042b, this.pJw.f8061b, str, i, str2);
     }
 }

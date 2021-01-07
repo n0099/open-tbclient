@@ -9,14 +9,14 @@ public enum ag {
     
 
     /* renamed from: java  reason: collision with other field name */
-    private String f16java;
+    private String f17java;
 
     ag(String str) {
-        this.f16java = str;
+        this.f17java = str;
     }
 
     @Override // java.lang.Enum
     public final String toString() {
-        return this.f16java;
+        return this.f17java;
     }
 }

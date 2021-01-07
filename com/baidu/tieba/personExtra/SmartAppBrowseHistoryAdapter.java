@@ -19,7 +19,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     private Context mContext;
     private List<SmartApp> mDataList;
     private View.OnClickListener mOnItemClickListener;
-    private View.OnLongClickListener mus;
+    private View.OnLongClickListener mur;
 
     public SmartAppBrowseHistoryAdapter(Context context) {
         this.mContext = context;
@@ -29,7 +29,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         this.mDataList = list;
     }
 
-    public SmartApp QM(String str) {
+    public SmartApp QL(String str) {
         if (x.isEmpty(this.mDataList)) {
             return null;
         }
@@ -49,7 +49,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     }
 
     public void d(View.OnLongClickListener onLongClickListener) {
-        this.mus = onLongClickListener;
+        this.mur = onLongClickListener;
     }
 
     private SmartApp Ij(int i) {
@@ -57,9 +57,9 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
     }
 
     public void a(SmartApp smartApp) {
-        SmartApp QM = QM(smartApp.id);
-        if (QM != null && this.mDataList != null) {
-            x.add(this.mDataList, 0, QM);
+        SmartApp QL = QL(smartApp.id);
+        if (QL != null && this.mDataList != null) {
+            x.add(this.mDataList, 0, QL);
         }
     }
 
@@ -78,7 +78,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         if (historyRecordViewHolder != null && (Ij = Ij(i)) != null) {
             historyRecordViewHolder.b(Ij);
             historyRecordViewHolder.setOnClickListener(this.mOnItemClickListener);
-            historyRecordViewHolder.setOnLongClickListener(this.mus);
+            historyRecordViewHolder.setOnLongClickListener(this.mur);
             historyRecordViewHolder.onChangeSkinType();
         }
     }
@@ -93,7 +93,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         private HeadImageView kQb;
         private TextView mName;
         private View mRootView;
-        private SmartApp mut;
+        private SmartApp mus;
 
         public HistoryRecordViewHolder(View view) {
             super(view);
@@ -105,7 +105,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         }
 
         public void b(SmartApp smartApp) {
-            this.mut = smartApp;
+            this.mus = smartApp;
             this.mRootView.setTag(smartApp);
             if (!at.isEmpty(smartApp.avatar)) {
                 this.kQb.setPlaceHolder(1);

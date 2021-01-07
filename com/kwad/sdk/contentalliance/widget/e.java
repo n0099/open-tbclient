@@ -13,33 +13,33 @@ import androidx.annotation.NonNull;
 public class e extends GradientDrawable {
 
     /* renamed from: a  reason: collision with root package name */
-    private TextPaint f9324a = new TextPaint(1);
+    private TextPaint f9325a = new TextPaint(1);
 
     /* renamed from: b  reason: collision with root package name */
-    private CharSequence f9325b;
+    private CharSequence f9326b;
     private float c;
     private StaticLayout d;
     private int e;
 
     public e() {
-        this.f9324a.setColor(-1);
-        this.f9324a.setTextAlign(Paint.Align.CENTER);
+        this.f9325a.setColor(-1);
+        this.f9325a.setTextAlign(Paint.Align.CENTER);
     }
 
     public void a(float f) {
-        this.f9324a.setTextSize(f);
+        this.f9325a.setTextSize(f);
     }
 
     public void a(int i) {
-        this.f9324a.setColor(i);
+        this.f9325a.setColor(i);
     }
 
     public void a(CharSequence charSequence) {
-        this.f9325b = charSequence;
-        if (!TextUtils.isEmpty(this.f9325b)) {
-            this.c = this.f9324a.measureText((String) this.f9325b);
+        this.f9326b = charSequence;
+        if (!TextUtils.isEmpty(this.f9326b)) {
+            this.c = this.f9325a.measureText((String) this.f9326b);
         }
-        this.d = new StaticLayout(this.f9325b, this.f9324a, 200, Layout.Alignment.ALIGN_NORMAL, 1.0f, 1.0f, true);
+        this.d = new StaticLayout(this.f9326b, this.f9325a, 200, Layout.Alignment.ALIGN_NORMAL, 1.0f, 1.0f, true);
     }
 
     public void b(int i) {

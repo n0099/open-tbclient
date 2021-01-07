@@ -209,7 +209,7 @@ class e {
                     @Override // android.view.View.OnClickListener
                     public void onClick(View view) {
                         if (d.a.this != null) {
-                            d.a.this.ajM();
+                            d.a.this.ajN();
                         }
                         e.cancel();
                     }
@@ -288,7 +288,7 @@ class e {
                 @Override // android.view.View.OnClickListener
                 public void onClick(View view) {
                     if (d.a.this != null) {
-                        d.a.this.ajM();
+                        d.a.this.ajN();
                     }
                     e.cancel();
                 }
@@ -298,7 +298,7 @@ class e {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.t.a.aAN().alD() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.t.a.aAO().alE() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:

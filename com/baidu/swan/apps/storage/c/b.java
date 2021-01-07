@@ -23,16 +23,16 @@ public class b extends g {
         super(str);
         this.dOH = new a();
         this.mFileName = str;
-        this.dOI = ProcessUtils.isMainProcess() || aPF();
+        this.dOI = ProcessUtils.isMainProcess() || aPG();
     }
 
-    public boolean aPE() {
+    public boolean aPF() {
         return this.dOI;
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, com.baidu.swan.c.b, android.content.SharedPreferences
     public Map<String, ?> getAll() {
-        return aPE() ? super.getAll() : new HashMap(super.getAll());
+        return aPF() ? super.getAll() : new HashMap(super.getAll());
     }
 
     @Override // com.baidu.swan.apps.storage.c.g, android.content.SharedPreferences

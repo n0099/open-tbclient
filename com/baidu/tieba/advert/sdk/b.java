@@ -33,7 +33,7 @@ public class b {
     private int gmB = -1;
     private com.baidu.tbadk.g.b gmE = new com.baidu.tbadk.g.b() { // from class: com.baidu.tieba.advert.sdk.b.1
         @Override // com.baidu.tbadk.g.b
-        public void bnO() {
+        public void bnP() {
             if (b.this.gmD != null && ((ViewGroup) b.this.gmD.get()).getParent() != null) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) ((ViewGroup) b.this.gmD.get()).getLayoutParams();
                 if (1 != b.this.mPattern) {
@@ -58,10 +58,10 @@ public class b {
     });
 
     public b() {
-        bPL();
+        bPM();
     }
 
-    private void bPL() {
+    private void bPM() {
         XAdManager.getInstance(TbadkCoreApplication.getInst()).newAdContext().setAdServerRequestingTimeout(1000);
     }
 
@@ -72,12 +72,12 @@ public class b {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(e eVar) {
-        if (eVar != null && eVar.bnQ() != null && eVar.bnQ().getContext() != null) {
+        if (eVar != null && eVar.bnR() != null && eVar.bnR().getContext() != null) {
             eVar.eJM = this.gmE;
-            final com.baidu.tbadk.g.a bnS = eVar.bnS();
-            this.gmD = new WeakReference<>(eVar.bnQ());
+            final com.baidu.tbadk.g.a bnT = eVar.bnT();
+            this.gmD = new WeakReference<>(eVar.bnR());
             try {
-                new SplashAd(eVar.bnQ().getContext(), eVar.bnQ(), new SplashAdListener() { // from class: com.baidu.tieba.advert.sdk.b.3
+                new SplashAd(eVar.bnR().getContext(), eVar.bnR(), new SplashAdListener() { // from class: com.baidu.tieba.advert.sdk.b.3
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdPresent() {
                         int i;
@@ -138,29 +138,29 @@ public class b {
                                 ((ViewGroup) b.this.gmD.get()).addView(imageView, layoutParams2);
                             }
                         }
-                        if (bnS != null) {
-                            bnS.v(b.this.gmC == RsplashType.VIDEO, 1 == b.this.mPattern);
+                        if (bnT != null) {
+                            bnT.v(b.this.gmC == RsplashType.VIDEO, 1 == b.this.mPattern);
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdDismissed() {
-                        if (bnS != null) {
-                            bnS.onAdDismiss();
+                        if (bnT != null) {
+                            bnT.onAdDismiss();
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdFailed(String str) {
-                        if (bnS != null) {
-                            bnS.Ao(str);
+                        if (bnT != null) {
+                            bnT.Ao(str);
                         }
                     }
 
                     @Override // com.baidu.mobads.SplashAdListener
                     public void onAdClick() {
-                        if (bnS != null) {
-                            bnS.w(b.this.gmC == RsplashType.VIDEO, 1 == b.this.mPattern);
+                        if (bnT != null) {
+                            bnT.w(b.this.gmC == RsplashType.VIDEO, 1 == b.this.mPattern);
                         }
                     }
 
@@ -194,7 +194,7 @@ public class b {
                 }, "4776976", true);
             } catch (OutOfMemoryError e) {
                 TbadkCoreApplication.getInst().onLowMemory();
-                bnS.Ao("oom");
+                bnT.Ao("oom");
             }
         }
     }

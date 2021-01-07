@@ -24,7 +24,7 @@ public class AlaUpdateWishListResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public m coK() {
+    public m coL() {
         return this.hTH;
     }
 }

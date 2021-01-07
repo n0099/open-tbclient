@@ -5,18 +5,18 @@ import java.util.List;
 final class i implements b {
 
     /* renamed from: a  reason: collision with root package name */
-    protected e f7725a;
+    protected e f7726a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int f7726b;
+    private int f7727b;
     private List<h> c;
     private d d;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public i(List<h> list, int i, e eVar, d dVar) {
         this.c = list;
-        this.f7726b = i;
-        this.f7725a = eVar;
+        this.f7727b = i;
+        this.f7726a = eVar;
         this.d = dVar;
     }
 
@@ -29,15 +29,15 @@ final class i implements b {
             this.d.f();
         }
         Object obj2 = obj;
-        if (this.f7726b < this.c.size()) {
-            h hVar = this.c.get(this.f7726b);
+        if (this.f7727b < this.c.size()) {
+            h hVar = this.c.get(this.f7727b);
             Class<? extends d> a2 = hVar.a();
-            d dVar = (d) this.f7725a.a(a2);
+            d dVar = (d) this.f7726a.a(a2);
             if (dVar == null) {
                 throw new IllegalArgumentException("interceptor == null , index = " + obj + " , class: " + a2);
             }
             com.bytedance.sdk.openadsdk.preload.a.b.a b2 = hVar.b();
-            i iVar = new i(this.c, this.f7726b + 1, this.f7725a, dVar);
+            i iVar = new i(this.c, this.f7727b + 1, this.f7726a, dVar);
             dVar.a(iVar, this.d, obj, b2, hVar.c());
             dVar.d();
             try {
@@ -61,7 +61,7 @@ final class i implements b {
         if (c == null) {
             throw new IllegalArgumentException("can not find pre Interceptor , class:" + cls);
         }
-        return c.f7718b;
+        return c.f7719b;
     }
 
     @Override // com.bytedance.sdk.openadsdk.preload.a.b
@@ -76,7 +76,7 @@ final class i implements b {
     private d c(Class cls) {
         d dVar = this.d;
         while (dVar != null && dVar.getClass() != cls) {
-            dVar = dVar.f7717a;
+            dVar = dVar.f7718a;
         }
         return dVar;
     }

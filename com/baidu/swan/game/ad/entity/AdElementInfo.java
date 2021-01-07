@@ -343,7 +343,7 @@ public class AdElementInfo implements Parcelable {
         return this.mDescription;
     }
 
-    public String aVq() {
+    public String aVr() {
         return this.mPictureUrl;
     }
 
@@ -359,23 +359,23 @@ public class AdElementInfo implements Parcelable {
         return this.mDuration;
     }
 
-    public int aVr() {
-        return aVu() == 6 ? this.mRewardTime : this.mRewardTimeDefault;
-    }
-
     public int aVs() {
-        return aVu() == 6 ? this.mSkipTime : this.mSkipTimeDefault;
+        return aVv() == 6 ? this.mRewardTime : this.mRewardTimeDefault;
     }
 
-    public String aVt() {
+    public int aVt() {
+        return aVv() == 6 ? this.mSkipTime : this.mSkipTimeDefault;
+    }
+
+    public String aVu() {
         return this.mEndFrameUrl;
     }
 
-    public int aVu() {
+    public int aVv() {
         return this.mCloseType;
     }
 
-    public String aVv() {
+    public String aVw() {
         return this.mClickUrl;
     }
 
@@ -400,7 +400,7 @@ public class AdElementInfo implements Parcelable {
         return 0;
     }
 
-    public int aVw() {
+    public int aVx() {
         return this.mExpire;
     }
 
@@ -412,23 +412,23 @@ public class AdElementInfo implements Parcelable {
         return this.mVideoHeight;
     }
 
-    public String aVx() {
+    public String aVy() {
         return this.mBannerHtml;
     }
 
-    public String aVy() {
+    public String aVz() {
         return this.mLandBannerHtml;
     }
 
-    public String aVz() {
+    public String aVA() {
         return this.mEndFrameHtml;
     }
 
-    public List<String> aVA() {
+    public List<String> aVB() {
         return new ArrayList(this.mImpressionUrls);
     }
 
-    public JSONObject aVB() {
+    public JSONObject aVC() {
         return this.mAdMonitors;
     }
 
@@ -452,7 +452,7 @@ public class AdElementInfo implements Parcelable {
         return new ArrayList(this.mCloseTrackers);
     }
 
-    public List<String> aVC() {
+    public List<String> aVD() {
         return new ArrayList(this.mConversionUrls);
     }
 
@@ -498,7 +498,7 @@ public class AdElementInfo implements Parcelable {
         }
     }
 
-    public boolean aVD() {
+    public boolean aVE() {
         return this.mGdtAd;
     }
 }

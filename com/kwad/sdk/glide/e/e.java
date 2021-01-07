@@ -9,43 +9,43 @@ import java.util.Map;
 public class e {
 
     /* renamed from: a  reason: collision with root package name */
-    private final List<String> f10270a = new ArrayList();
+    private final List<String> f10271a = new ArrayList();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Map<String, List<a<?, ?>>> f10271b = new HashMap();
+    private final Map<String, List<a<?, ?>>> f10272b = new HashMap();
 
     /* JADX INFO: Access modifiers changed from: private */
     /* loaded from: classes5.dex */
     public static class a<T, R> {
 
         /* renamed from: a  reason: collision with root package name */
-        final Class<R> f10272a;
+        final Class<R> f10273a;
 
         /* renamed from: b  reason: collision with root package name */
-        final com.kwad.sdk.glide.load.f<T, R> f10273b;
+        final com.kwad.sdk.glide.load.f<T, R> f10274b;
         private final Class<T> c;
 
         public a(@NonNull Class<T> cls, @NonNull Class<R> cls2, com.kwad.sdk.glide.load.f<T, R> fVar) {
             this.c = cls;
-            this.f10272a = cls2;
-            this.f10273b = fVar;
+            this.f10273a = cls2;
+            this.f10274b = fVar;
         }
 
         public boolean a(@NonNull Class<?> cls, @NonNull Class<?> cls2) {
-            return this.c.isAssignableFrom(cls) && cls2.isAssignableFrom(this.f10272a);
+            return this.c.isAssignableFrom(cls) && cls2.isAssignableFrom(this.f10273a);
         }
     }
 
     @NonNull
     private synchronized List<a<?, ?>> a(@NonNull String str) {
         List<a<?, ?>> list;
-        if (!this.f10270a.contains(str)) {
-            this.f10270a.add(str);
+        if (!this.f10271a.contains(str)) {
+            this.f10271a.add(str);
         }
-        list = this.f10271b.get(str);
+        list = this.f10272b.get(str);
         if (list == null) {
             list = new ArrayList<>();
-            this.f10271b.put(str, list);
+            this.f10272b.put(str, list);
         }
         return list;
     }
@@ -54,12 +54,12 @@ public class e {
     public synchronized <T, R> List<com.kwad.sdk.glide.load.f<T, R>> a(@NonNull Class<T> cls, @NonNull Class<R> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (String str : this.f10270a) {
-            List<a<?, ?>> list = this.f10271b.get(str);
+        for (String str : this.f10271a) {
+            List<a<?, ?>> list = this.f10272b.get(str);
             if (list != null) {
                 for (a<?, ?> aVar : list) {
                     if (aVar.a(cls, cls2)) {
-                        arrayList.add(aVar.f10273b);
+                        arrayList.add(aVar.f10274b);
                     }
                 }
             }
@@ -72,12 +72,12 @@ public class e {
     }
 
     public synchronized void a(@NonNull List<String> list) {
-        ArrayList<String> arrayList = new ArrayList(this.f10270a);
-        this.f10270a.clear();
-        this.f10270a.addAll(list);
+        ArrayList<String> arrayList = new ArrayList(this.f10271a);
+        this.f10271a.clear();
+        this.f10271a.addAll(list);
         for (String str : arrayList) {
             if (!list.contains(str)) {
-                this.f10270a.add(str);
+                this.f10271a.add(str);
             }
         }
     }
@@ -86,12 +86,12 @@ public class e {
     public synchronized <T, R> List<Class<R>> b(@NonNull Class<T> cls, @NonNull Class<R> cls2) {
         ArrayList arrayList;
         arrayList = new ArrayList();
-        for (String str : this.f10270a) {
-            List<a<?, ?>> list = this.f10271b.get(str);
+        for (String str : this.f10271a) {
+            List<a<?, ?>> list = this.f10272b.get(str);
             if (list != null) {
                 for (a<?, ?> aVar : list) {
-                    if (aVar.a(cls, cls2) && !arrayList.contains(aVar.f10272a)) {
-                        arrayList.add(aVar.f10272a);
+                    if (aVar.a(cls, cls2) && !arrayList.contains(aVar.f10273a)) {
+                        arrayList.add(aVar.f10273a);
                     }
                 }
             }

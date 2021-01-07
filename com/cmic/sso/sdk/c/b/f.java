@@ -21,10 +21,10 @@ public class f extends g {
     public static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        private String f8010a;
+        private String f8011a;
 
         /* renamed from: b  reason: collision with root package name */
-        private String f8011b;
+        private String f8012b;
         private String c;
         private String d;
         private String e;
@@ -46,19 +46,19 @@ public class f extends g {
         }
 
         public String c() {
-            return this.f8010a;
+            return this.f8011a;
         }
 
         public void c(String str) {
-            this.f8010a = str;
+            this.f8011a = str;
         }
 
         public String d() {
-            return this.f8011b;
+            return this.f8012b;
         }
 
         public void d(String str) {
-            this.f8011b = str;
+            this.f8012b = str;
         }
 
         public String e() {
@@ -70,7 +70,7 @@ public class f extends g {
         }
 
         public String f() {
-            return com.cmic.sso.sdk.e.d.a(this.e + this.d + this.c + this.f8011b + "@Fdiwmxy7CBDDQNUI");
+            return com.cmic.sso.sdk.e.d.a(this.e + this.d + this.c + this.f8012b + "@Fdiwmxy7CBDDQNUI");
         }
     }
 
@@ -78,14 +78,14 @@ public class f extends g {
     public static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private JSONObject f8009a;
+        private JSONObject f8010a;
 
         public JSONObject a() {
-            return this.f8009a;
+            return this.f8010a;
         }
 
         public void a(JSONObject jSONObject) {
-            this.f8009a = jSONObject;
+            this.f8010a = jSONObject;
         }
     }
 

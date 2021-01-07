@@ -57,7 +57,7 @@ public class TabTextView extends TextView {
         invalidate();
     }
 
-    private boolean Wr() {
+    private boolean Ws() {
         return (this.bLM == -1 || this.bLN == -1) ? false : true;
     }
 
@@ -85,7 +85,7 @@ public class TabTextView extends TextView {
     }
 
     private void dh(boolean z) {
-        if (z && Wr()) {
+        if (z && Ws()) {
             if (this.bLY == null) {
                 if (getMeasuredWidth() == 0) {
                     int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 0);

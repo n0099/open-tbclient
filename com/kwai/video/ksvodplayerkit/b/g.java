@@ -11,7 +11,7 @@ public final class g {
             return null;
         }
         f fVar = new f();
-        fVar.f11345a = jSONObject.optString("url", fVar.f11345a);
+        fVar.f11346a = jSONObject.optString("url", fVar.f11346a);
         JSONArray optJSONArray = jSONObject.optJSONArray("backupUrl");
         if (optJSONArray != null) {
             ArrayList arrayList = new ArrayList();
@@ -24,7 +24,7 @@ public final class g {
                 arrayList.add((String) optJSONArray.opt(i2));
                 i = i2 + 1;
             }
-            fVar.f11346b = arrayList;
+            fVar.f11347b = arrayList;
         }
         fVar.c = jSONObject.optString("m3u8", fVar.c);
         fVar.d = jSONObject.optString("baseUrl", fVar.d);
@@ -42,11 +42,11 @@ public final class g {
     public static String a(f fVar) {
         JSONObject jSONObject = new JSONObject();
         try {
-            jSONObject.put("url", fVar.f11345a);
+            jSONObject.put("url", fVar.f11346a);
         } catch (Exception e) {
         }
         try {
-            jSONObject.put("backupUrl", new JSONArray((Collection) fVar.f11346b));
+            jSONObject.put("backupUrl", new JSONArray((Collection) fVar.f11347b));
         } catch (Exception e2) {
         }
         try {

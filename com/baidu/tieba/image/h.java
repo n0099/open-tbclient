@@ -63,7 +63,7 @@ public class h {
                     str = imageUrlData.threadId + "";
                     str2 = imageUrlData.forumId + "";
                     str3 = imageUrlData.postId + "";
-                    i2 = NQ(imageUrlData.from);
+                    i2 = NP(imageUrlData.from);
                 }
                 TiebaStatic.log(new aq("c14045").dX("post_id", str3).dX("tid", str).dX("fid", str2).an("obj_source", i2));
             }
@@ -75,7 +75,7 @@ public class h {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int NQ(String str) {
+    public int NP(String str) {
         if ("index".equals(str)) {
             return 1;
         }
@@ -123,11 +123,11 @@ public class h {
             setTouchable(true);
             setOutsideTouchable(true);
             setBackgroundDrawable(new ColorDrawable(0));
-            abn();
+            abo();
             onChangeSkinType();
         }
 
-        private void abn() {
+        private void abo() {
             this.contentView = LayoutInflater.from(this.activity).inflate(R.layout.image_viewer_download_dialog, (ViewGroup) null);
             this.eYh = (EMTextView) this.contentView.findViewById(R.id.title);
             this.kRX = (ImageView) this.contentView.findViewById(R.id.qq_friend);
@@ -150,47 +150,47 @@ public class h {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
-            ShareItem dce = dce();
-            if (dce != null) {
+            ShareItem dcf = dcf();
+            if (dcf != null) {
                 if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
                     l.showToast(TbadkCoreApplication.getInst().getContext(), R.string.share_on_no_network);
                 } else if (view == this.kRX) {
                     if (z.isInstalledPackage(this.activity, "com.tencent.mobileqq")) {
-                        if (l(dce) && dce.getCommandChannelArray() != null && dce.getCommandChannelArray().contains(4)) {
-                            com.baidu.tbadk.coreExtra.share.a.a(dce, this.activity, 8, null);
+                        if (l(dcf) && dcf.getCommandChannelArray() != null && dcf.getCommandChannelArray().contains(4)) {
+                            com.baidu.tbadk.coreExtra.share.a.a(dcf, this.activity, 8, null);
                             return;
                         } else {
-                            this.kSc.g(dce);
+                            this.kSc.g(dcf);
                             return;
                         }
                     }
-                    BdToast.b(this.activity, this.activity.getText(R.string.share_qq_not_install)).bud();
+                    BdToast.b(this.activity, this.activity.getText(R.string.share_qq_not_install)).bue();
                 } else if (view == this.kRY) {
                     if (z.isInstalledPackage(this.activity, "com.tencent.mobileqq")) {
-                        if (l(dce) && dce.getCommandChannelArray() != null && dce.getCommandChannelArray().contains(4)) {
-                            com.baidu.tbadk.coreExtra.share.a.a(dce, this.activity, 4, null);
+                        if (l(dcf) && dcf.getCommandChannelArray() != null && dcf.getCommandChannelArray().contains(4)) {
+                            com.baidu.tbadk.coreExtra.share.a.a(dcf, this.activity, 4, null);
                             return;
                         } else {
-                            this.kSc.h(dce);
+                            this.kSc.h(dcf);
                             return;
                         }
                     }
-                    BdToast.b(this.activity, this.activity.getText(R.string.share_qq_not_install)).bud();
+                    BdToast.b(this.activity, this.activity.getText(R.string.share_qq_not_install)).bue();
                 } else if (view == this.kRZ) {
-                    if (l(dce) && dce.getCommandChannelArray() != null && dce.getCommandChannelArray().contains(3)) {
-                        com.baidu.tbadk.coreExtra.share.a.a(dce, this.activity, 3, null);
-                    } else if (dce.fxC != 1) {
-                        this.kSc.e(dce);
+                    if (l(dcf) && dcf.getCommandChannelArray() != null && dcf.getCommandChannelArray().contains(3)) {
+                        com.baidu.tbadk.coreExtra.share.a.a(dcf, this.activity, 3, null);
+                    } else if (dcf.fxC != 1) {
+                        this.kSc.e(dcf);
                     }
-                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).an("obj_source", 22).dX("tid", dce.tid).dX("fid", dce.fid));
+                    TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD).an("obj_source", 22).dX("tid", dcf.tid).dX("fid", dcf.fid));
                 } else if (view == this.kSa) {
-                    if (l(dce) && dce.getCommandChannelArray() != null && dce.getCommandChannelArray().contains(2)) {
-                        com.baidu.tbadk.coreExtra.share.a.a(dce, this.activity, 2, null);
-                    } else if (dce.fxC != 1) {
-                        if (dce.fwX) {
-                            dce.content = "【" + dce.title + "】 " + dce.content;
+                    if (l(dcf) && dcf.getCommandChannelArray() != null && dcf.getCommandChannelArray().contains(2)) {
+                        com.baidu.tbadk.coreExtra.share.a.a(dcf, this.activity, 2, null);
+                    } else if (dcf.fxC != 1) {
+                        if (dcf.fwX) {
+                            dcf.content = "【" + dcf.title + "】 " + dcf.content;
                         }
-                        this.kSc.f(dce);
+                        this.kSc.f(dcf);
                     }
                 } else if (view == this.kSb && h.this.kRU != null) {
                     h.this.kRU.onClick(view);
@@ -202,7 +202,7 @@ public class h {
             this.kRj = multiImageView;
         }
 
-        private ShareItem dce() {
+        private ShareItem dcf() {
             UrlDragImageView currentUrlDragImageView;
             if (this.kRj == null || (currentUrlDragImageView = this.kRj.getCurrentUrlDragImageView()) == null) {
                 return null;
@@ -227,7 +227,7 @@ public class h {
                 }
                 shareItem.tid = j + "";
                 shareItem.fid = imageUrlData.forumId;
-                i = h.this.NQ(imageUrlData.from);
+                i = h.this.NP(imageUrlData.from);
             }
             if (!at.isEmpty(str)) {
                 shareItem.imageUri = Uri.parse(str);

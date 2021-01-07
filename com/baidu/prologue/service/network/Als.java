@@ -7,12 +7,12 @@ import com.baidu.prologue.service.network.Request;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class Als {
     private static final boolean DEBUG;
 
     static {
-        DEBUG = com.baidu.prologue.a.b.a.ctd.get() != null && com.baidu.prologue.a.b.a.ctd.get().ago();
+        DEBUG = com.baidu.prologue.a.b.a.ctd.get() != null && com.baidu.prologue.a.b.a.ctd.get().agp();
     }
 
     public static void a(@NonNull a aVar) {
@@ -23,12 +23,12 @@ public class Als {
             }
             return;
         }
-        Request.a aVar3 = new Request.a(aVar2.age(), "https://als.baidu.com/clog/clog");
+        Request.a aVar3 = new Request.a(aVar2.agf(), "https://als.baidu.com/clog/clog");
         a(aVar3, aVar2);
         JSONArray jSONArray = new JSONArray();
         jSONArray.put(aVar.cvk);
         aVar3.bi(MapBundleKey.MapObjKey.OBJ_AD, jSONArray.toString());
-        aVar3.ahx().ahv().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
+        aVar3.ahy().ahw().a(new m() { // from class: com.baidu.prologue.service.network.Als.1
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
             /* renamed from: fu */
@@ -55,11 +55,11 @@ public class Als {
             }
             return;
         }
-        Request.a aVar2 = new Request.a(aVar.age(), "http://als.baidu.com/elog/plog");
+        Request.a aVar2 = new Request.a(aVar.agf(), "http://als.baidu.com/elog/plog");
         a(aVar2, aVar);
         a(aVar2);
         a(aVar2, str, str2, str3, j, str4);
-        aVar2.ahx().ahv().a(new m() { // from class: com.baidu.prologue.service.network.Als.2
+        aVar2.ahy().ahw().a(new m() { // from class: com.baidu.prologue.service.network.Als.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.prologue.service.network.j
             /* renamed from: fu */
@@ -81,12 +81,12 @@ public class Als {
     private static void a(Request.a aVar, com.baidu.prologue.a.b.a aVar2) {
         aVar.bi("_client_type", "2");
         aVar.bi("_os_type", "2");
-        aVar.bi("_client_version", aVar2.agf());
-        aVar.bi("_os_version", aVar2.agg());
-        aVar.bi("model", aVar2.agi());
-        aVar.bi("cuid", aVar2.agh());
-        aVar.bi("productId", aVar2.agp());
-        aVar.bi("net_type", String.valueOf(new g(aVar2.age()).aht()));
+        aVar.bi("_client_version", aVar2.agg());
+        aVar.bi("_os_version", aVar2.agh());
+        aVar.bi("model", aVar2.agj());
+        aVar.bi("cuid", aVar2.agi());
+        aVar.bi("productId", aVar2.agq());
+        aVar.bi("net_type", String.valueOf(new g(aVar2.agf()).ahu()));
     }
 
     private static void a(Request.a aVar) {
@@ -102,7 +102,7 @@ public class Als {
         aVar.bi("f5", str4);
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static final class a {
         private final JSONObject cvk = new JSONObject();
 
@@ -158,7 +158,7 @@ public class Als {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Type {
         CLICK("2"),
         SHOW("3"),
@@ -173,7 +173,7 @@ public class Als {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum CloseType {
         COUNTDOWN_TIME_FINISH("0"),
         CLICK_SKIP_BUTTON("1"),
@@ -186,7 +186,7 @@ public class Als {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Page {
         NA_SPLASH("NA_SPLASH"),
         NA_DEEPLINK("DEEPLINK");
@@ -198,7 +198,7 @@ public class Als {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public enum Area {
         SKIP_BUTTON("skip_button"),
         IMAGE("image"),

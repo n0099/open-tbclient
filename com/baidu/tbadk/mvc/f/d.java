@@ -33,9 +33,9 @@ public class d<D, S extends com.baidu.tbadk.mvc.d.b, H extends a<D, S>> extends 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
         if (this.fKN && isDataEmpty()) {
-            return bHh();
+            return bHi();
         }
-        bHg();
+        bHh();
         return a(view, i, (Class<?>) this.fKU, this.fKV);
     }
 }

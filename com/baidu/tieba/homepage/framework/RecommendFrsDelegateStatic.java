@@ -62,15 +62,15 @@ public class RecommendFrsDelegateStatic extends com.baidu.tbadk.mainTab.b {
             public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
                 if (customResponsedMessage != null && customResponsedMessage.getCmd() == 2016325 && customResponsedMessage.getData() != null && (customResponsedMessage.getData() instanceof Integer)) {
                     int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-                    TbFragmentTabIndicator.a Ei = RecommendFrsDelegateStatic.this.mIndicator.Ei("godFeed");
-                    if (Ei != null) {
+                    TbFragmentTabIndicator.a Eh = RecommendFrsDelegateStatic.this.mIndicator.Eh("godFeed");
+                    if (Eh != null) {
                         if (intValue <= 0) {
                             RecommendFrsDelegateStatic.this.kai.setVisibility(8);
                             return;
                         }
                         RecommendFrsDelegateStatic.this.kai.refresh(0);
                         RecommendFrsDelegateStatic.this.kai.setVisibility(0);
-                        Ei.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
+                        Eh.onChangeSkin(TbadkCoreApplication.getInst().getSkinType());
                     }
                 }
             }

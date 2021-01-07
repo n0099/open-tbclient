@@ -10,10 +10,10 @@ public class CrabSdkStatic {
     public static String Tag = "tag";
 
     static {
-        CustomMessageTask customMessageTask = new CustomMessageTask(2016565, new CustomMessageTask.CustomRunnable<a.InterfaceC0850a>() { // from class: com.baidu.tieba.CrabSdkStatic.1
+        CustomMessageTask customMessageTask = new CustomMessageTask(2016565, new CustomMessageTask.CustomRunnable<a.InterfaceC0883a>() { // from class: com.baidu.tieba.CrabSdkStatic.1
             /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
             @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-            public CustomResponsedMessage<a.InterfaceC0850a> run(CustomMessage<a.InterfaceC0850a> customMessage) {
+            public CustomResponsedMessage<a.InterfaceC0883a> run(CustomMessage<a.InterfaceC0883a> customMessage) {
                 return new CustomResponsedMessage<>(2016565, new com.baidu.tieba.d.a());
             }
         });

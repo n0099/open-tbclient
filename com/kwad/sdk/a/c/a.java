@@ -18,10 +18,10 @@ import com.kwad.sdk.core.view.g;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private AdTemplate f8467a;
+    private AdTemplate f8468a;
 
     /* renamed from: b  reason: collision with root package name */
-    private long f8468b;
+    private long f8469b;
     private g c;
     private com.kwad.sdk.contentalliance.detail.video.a d;
     private boolean e;
@@ -41,8 +41,8 @@ public class a {
 
     public a(@NonNull final AdTemplate adTemplate, @NonNull g gVar, @NonNull DetailVideoView detailVideoView, @Nullable KsAdVideoPlayConfig ksAdVideoPlayConfig) {
         boolean z = true;
-        this.f8467a = adTemplate;
-        this.f8468b = com.kwad.sdk.core.response.b.a.k(c.j(adTemplate));
+        this.f8468a = adTemplate;
+        this.f8469b = com.kwad.sdk.core.response.b.a.k(c.j(adTemplate));
         this.c = gVar;
         this.e = ksAdVideoPlayConfig != null && ksAdVideoPlayConfig.isVideoSoundEnable();
         this.f = (ksAdVideoPlayConfig == null || !ksAdVideoPlayConfig.isDataFlowAutoStart()) ? false : z;
@@ -61,7 +61,7 @@ public class a {
             @Override // com.kwad.sdk.core.video.a.c.e
             public void a(com.kwad.sdk.core.video.a.c cVar) {
                 if (a.this.h() && a.this.c.d()) {
-                    a.this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(a.this.f8468b, System.currentTimeMillis()));
+                    a.this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(a.this.f8469b, System.currentTimeMillis()));
                     a.this.d.f();
                 }
             }
@@ -77,7 +77,7 @@ public class a {
     }
 
     private void g() {
-        this.d.a(new d.a().a(com.kwad.sdk.core.response.b.c.l(this.f8467a)).a(this.f8467a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.c.a(this.f8467a)).a());
+        this.d.a(new d.a().a(com.kwad.sdk.core.response.b.c.l(this.f8468a)).a(this.f8468a.mVideoPlayerStatus).a(com.kwad.sdk.contentalliance.detail.video.c.a(this.f8468a)).a());
         a(this.e);
         if (h()) {
             this.d.e();
@@ -98,7 +98,7 @@ public class a {
             g();
         }
         if (h() && this.c.d()) {
-            this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f8468b, currentTimeMillis));
+            this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f8469b, currentTimeMillis));
             this.d.f();
         }
         this.c.a(this.i);
@@ -153,7 +153,7 @@ public class a {
     public void f() {
         this.f = true;
         if (this.c.d()) {
-            this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f8468b, System.currentTimeMillis()));
+            this.d.a(new com.kwad.sdk.contentalliance.detail.video.c(this.f8469b, System.currentTimeMillis()));
             this.d.f();
         }
     }

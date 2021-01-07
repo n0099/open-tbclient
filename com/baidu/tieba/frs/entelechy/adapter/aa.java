@@ -39,18 +39,18 @@ public class aa extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> impl
                         TiebaStatic.log(new aq("c13010").an("obj_type", 1).w("fid", bzVar.getFid()).dX("tid", bzVar.getTid()));
                     }
                     com.baidu.tieba.frs.b.a.a(bzVar, 1, aa.this.mPageId, com.baidu.tieba.frs.b.d.jpq, aa.this.getTbPageTag());
-                    if (view.getId() == R.id.thread_card_root && bzVar.bpV()) {
+                    if (view.getId() == R.id.thread_card_root && bzVar.bpW()) {
                         aa.this.as(bzVar);
                     }
                     if ((view instanceof ThreadSmartAppLayout) || view.getId() == R.id.iv_thread_smart_app_head || view.getId() == R.id.tv_thread_smart_app_title || view.getId() == R.id.tv_thread_smart_app_abstract) {
-                        com.baidu.tieba.card.m.Jo(bzVar.getTid());
-                        if (bzVar.bsf() != null) {
-                            TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).w("fid", bzVar.getFid()).dX("obj_source", "frs_card").w("obj_id", bzVar.bsf().swan_app_id.longValue()).dX("obj_name", bzVar.bsf().name).dX("tid", bzVar.getTid()).an("obj_param1", bzVar.bsf().is_game.intValue()));
+                        com.baidu.tieba.card.m.Jn(bzVar.getTid());
+                        if (bzVar.bsg() != null) {
+                            TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).w("fid", bzVar.getFid()).dX("obj_source", "frs_card").w("obj_id", bzVar.bsg().swan_app_id.longValue()).dX("obj_name", bzVar.bsg().name).dX("tid", bzVar.getTid()).an("obj_param1", bzVar.bsg().is_game.intValue()));
                             return;
                         }
                         return;
                     }
-                    com.baidu.tieba.frs.b.c.cMI().a(com.baidu.tieba.frs.b.d.jpq, bzVar, 1);
+                    com.baidu.tieba.frs.b.c.cMJ().a(com.baidu.tieba.frs.b.d.jpq, bzVar, 1);
                 }
             }
         };
@@ -86,12 +86,12 @@ public class aa extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> impl
         threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eMv);
         threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         threadCardViewHolder.ty().a(this.hni);
-        byVar.eMv.bsE();
+        byVar.eMv.bsF();
         return threadCardViewHolder.getView();
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 
@@ -129,6 +129,6 @@ public class aa extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> impl
 
     /* JADX INFO: Access modifiers changed from: private */
     public void as(bz bzVar) {
-        TiebaStatic.log(new aq("c12126").dX("tid", bzVar.getId()).an("obj_locate", cEM() ? 2 : 1).w("obj_id", bzVar.brJ() == null ? -1L : bzVar.brJ().live_id).an("obj_type", 1));
+        TiebaStatic.log(new aq("c12126").dX("tid", bzVar.getId()).an("obj_locate", cEN() ? 2 : 1).w("obj_id", bzVar.brK() == null ? -1L : bzVar.brK().live_id).an("obj_type", 1));
     }
 }

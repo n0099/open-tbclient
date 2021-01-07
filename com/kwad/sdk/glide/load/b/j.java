@@ -16,20 +16,20 @@ public final class j implements h {
     public static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f10388a = b();
+        private static final String f10389a = b();
 
         /* renamed from: b  reason: collision with root package name */
-        private static final Map<String, List<i>> f10389b;
+        private static final Map<String, List<i>> f10390b;
         private boolean c = true;
-        private Map<String, List<i>> d = f10389b;
+        private Map<String, List<i>> d = f10390b;
         private boolean e = true;
 
         static {
             HashMap hashMap = new HashMap(2);
-            if (!TextUtils.isEmpty(f10388a)) {
-                hashMap.put("User-Agent", Collections.singletonList(new b(f10388a)));
+            if (!TextUtils.isEmpty(f10389a)) {
+                hashMap.put("User-Agent", Collections.singletonList(new b(f10389a)));
             }
-            f10389b = Collections.unmodifiableMap(hashMap);
+            f10390b = Collections.unmodifiableMap(hashMap);
         }
 
         @VisibleForTesting
@@ -62,30 +62,30 @@ public final class j implements h {
         @NonNull
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f10390a;
+        private final String f10391a;
 
         b(@NonNull String str) {
-            this.f10390a = str;
+            this.f10391a = str;
         }
 
         @Override // com.kwad.sdk.glide.load.b.i
         public String a() {
-            return this.f10390a;
+            return this.f10391a;
         }
 
         public boolean equals(Object obj) {
             if (obj instanceof b) {
-                return this.f10390a.equals(((b) obj).f10390a);
+                return this.f10391a.equals(((b) obj).f10391a);
             }
             return false;
         }
 
         public int hashCode() {
-            return this.f10390a.hashCode();
+            return this.f10391a.hashCode();
         }
 
         public String toString() {
-            return "StringHeaderFactory{value='" + this.f10390a + "'}";
+            return "StringHeaderFactory{value='" + this.f10391a + "'}";
         }
     }
 

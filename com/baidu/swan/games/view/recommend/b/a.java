@@ -21,7 +21,7 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
     }
 
     @Override // com.baidu.swan.games.view.recommend.a.a
-    protected View bdv() {
+    protected View bdw() {
         FrameLayout frameLayout = new FrameLayout(this.mContext);
         this.epT = new b(this.mContext);
         this.epT.epV.setAlpha(0.0f);
@@ -36,7 +36,7 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
             public void onClick(View view) {
                 if (a.this.epH != null && a.this.mPosition >= -1) {
                     if (a.this.mPosition == -1) {
-                        a.this.epH.bdB();
+                        a.this.epH.bdC();
                     } else {
                         a.this.epH.mT(a.this.mPosition);
                     }
@@ -58,12 +58,12 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.swan.games.view.recommend.a.a
-    public void bdw() {
+    public void bdx() {
         if (c(this.epG)) {
             this.epS.epV.setAlpha(1.0f);
             this.epS.epW.setActualImageResource(a.e.swangame_recommend_gamecenter);
             this.epS.epX.setText(a.h.swangame_recommend_button_goto_game_center);
-            super.bdw();
+            super.bdx();
             return;
         }
         this.mPosition = mV(this.mPosition);
@@ -79,7 +79,7 @@ public class a extends com.baidu.swan.games.view.recommend.a.a {
                 a.this.epT.epW.setImageURI(mW2.iconUrl);
                 a.this.epT.epX.setText(mW2.appName);
                 a.this.epT.epV.setAlpha(0.0f);
-                a.super.bdw();
+                a.super.bdx();
             }
         });
     }

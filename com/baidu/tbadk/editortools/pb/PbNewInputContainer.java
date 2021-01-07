@@ -88,7 +88,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         setOrientation(1);
         setGravity(48);
         setMinimumHeight(context.getResources().getDimensionPixelSize(R.dimen.ds90));
-        bFJ();
+        bFK();
         fo(context);
         this.fGv = new LinearLayout(getContext());
         this.fGv.setOrientation(0);
@@ -101,7 +101,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         addView(this.mBottomLine);
     }
 
-    private void bFJ() {
+    private void bFK() {
         this.eKc = new EMTextView(getContext());
         this.eKc.setId(R.id.comment_content);
         this.eKc.setVisibility(8);
@@ -242,16 +242,16 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
         }
     }
 
-    private void DN(String str) {
+    private void DM(String str) {
         if (!StringUtils.isNull(str)) {
             this.fGs.getText().insert(this.fGs.getSelectionStart(), HotSelectActivityConfig.HOT_TOPIC_SING + str);
         }
     }
 
     private void d(com.baidu.tbadk.editortools.a aVar) {
-        if (aVar != null && aVar.data != null && (aVar.data instanceof u) && ((u) aVar.data).bzW() != EmotionGroupType.BIG_EMOTION && ((u) aVar.data).bzW() != EmotionGroupType.USER_COLLECT) {
+        if (aVar != null && aVar.data != null && (aVar.data instanceof u) && ((u) aVar.data).bzX() != EmotionGroupType.BIG_EMOTION && ((u) aVar.data).bzX() != EmotionGroupType.USER_COLLECT) {
             u uVar = (u) aVar.data;
-            if (uVar.bzW() == EmotionGroupType.NET_SUG) {
+            if (uVar.bzX() == EmotionGroupType.NET_SUG) {
                 a(uVar);
             } else {
                 b(uVar);
@@ -262,8 +262,8 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     private void a(u uVar) {
         if (uVar != null && !TextUtils.isEmpty(uVar.getName()) && !TextUtils.isEmpty(uVar.getUrl())) {
             String obj = this.fGs.getText().toString();
-            if (this.fFo && com.baidu.tieba.face.a.JT(obj) >= 10 && getContext() != null) {
-                com.baidu.tbadk.core.util.e.bvy().showToast(R.string.too_many_face);
+            if (this.fFo && com.baidu.tieba.face.a.JS(obj) >= 10 && getContext() != null) {
+                com.baidu.tbadk.core.util.e.bvz().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.a(getContext(), uVar, this.fGs);
             }
@@ -271,10 +271,10 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     }
 
     private void b(u uVar) {
-        if (!this.fFn || uVar.bzW() == EmotionGroupType.LOCAL) {
+        if (!this.fFn || uVar.bzX() == EmotionGroupType.LOCAL) {
             String obj = this.fGs.getText().toString();
-            if (this.fFo && com.baidu.tieba.face.a.JT(obj) >= 10 && getContext() != null) {
-                com.baidu.tbadk.core.util.e.bvy().showToast(R.string.too_many_face);
+            if (this.fFo && com.baidu.tieba.face.a.JS(obj) >= 10 && getContext() != null) {
+                com.baidu.tbadk.core.util.e.bvz().showToast(R.string.too_many_face);
             } else {
                 com.baidu.tieba.face.b.b(getContext(), uVar, this.fGs);
             }
@@ -331,7 +331,7 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
     public void onChangeSkinType(int i) {
         this.fGs.setTextColor(ao.getColor(R.color.CAM_X0105));
         ao.setViewTextColor(this.fGs, R.color.CAM_X0105, 2, i);
-        com.baidu.tbadk.core.util.f.a.bwU().aQ(R.color.CAM_X0209, i).qq(0).ae(l.getDimens(getContext(), R.dimen.tbds21)).bz(this.fGs);
+        com.baidu.tbadk.core.util.f.a.bwV().aQ(R.color.CAM_X0209, i).qq(0).ae(l.getDimens(getContext(), R.dimen.tbds21)).bz(this.fGs);
         ao.setBackgroundColor(this.mBottomLine, R.color.CAM_X0207, i);
         ao.setBackgroundColor(this, R.color.CAM_X0207, i);
         if (i == 0) {
@@ -516,10 +516,10 @@ public class PbNewInputContainer extends LinearLayout implements View.OnClickLis
                 case 44:
                     if (aVar.data != null) {
                         if (aVar.data instanceof String) {
-                            DN((String) aVar.data);
+                            DM((String) aVar.data);
                             break;
                         } else if ((aVar.data instanceof j) && ((j) aVar.data).mContent != null) {
-                            DN(((j) aVar.data).mContent);
+                            DM(((j) aVar.data).mContent);
                             break;
                         }
                     }

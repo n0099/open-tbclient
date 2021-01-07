@@ -15,14 +15,14 @@ import com.xiaomi.mipush.sdk.Constants;
 public class MyService extends Service {
 
     /* renamed from: b  reason: collision with root package name */
-    private static long f5464b = 0;
+    private static long f5465b = 0;
 
     /* renamed from: a  reason: collision with root package name */
-    private volatile int f5465a = 0;
+    private volatile int f5466a = 0;
 
     static /* synthetic */ int a(MyService myService) {
-        int i = myService.f5465a;
-        myService.f5465a = i + 1;
+        int i = myService.f5466a;
+        myService.f5466a = i + 1;
         return i;
     }
 
@@ -49,14 +49,14 @@ public class MyService extends Service {
         if (TextUtils.isEmpty(stringExtra) && TextUtils.isEmpty(intent.getAction())) {
             a();
         } else {
-            long j = f5464b;
+            long j = f5465b;
             if ("teac".equals(intent.getAction())) {
-                f5464b = System.currentTimeMillis();
+                f5465b = System.currentTimeMillis();
                 if (System.currentTimeMillis() - j < IMConnection.RETRY_DELAY_TIMES) {
                     return super.onStartCommand(intent, i, i2);
                 }
-                if (com.baidu.sofire.i.e.j != 0 && f5464b - com.baidu.sofire.i.e.j > 5000) {
-                    new StringBuilder("persist process alive now:").append(f5464b).append("init:").append(com.baidu.sofire.i.e.j);
+                if (com.baidu.sofire.i.e.j != 0 && f5465b - com.baidu.sofire.i.e.j > 5000) {
+                    new StringBuilder("persist process alive now:").append(f5465b).append("init:").append(com.baidu.sofire.i.e.j);
                     b.b();
                     return super.onStartCommand(intent, i, i2);
                 }
@@ -111,9 +111,9 @@ public class MyService extends Service {
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
         try {
-            this.f5465a--;
-            if (this.f5465a <= 0) {
-                this.f5465a = 0;
+            this.f5466a--;
+            if (this.f5466a <= 0) {
+                this.f5466a = 0;
                 b.a();
                 stopSelf();
             }

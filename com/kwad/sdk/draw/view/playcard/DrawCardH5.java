@@ -23,10 +23,10 @@ import com.kwad.sdk.widget.KsLogoView;
 public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
 
     /* renamed from: a  reason: collision with root package name */
-    private Context f10019a;
+    private Context f10020a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdTemplate f10020b;
+    private AdTemplate f10021b;
     private a c;
     private int d;
     private ImageView e;
@@ -66,7 +66,7 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     }
 
     private void a(Context context) {
-        this.f10019a = context;
+        this.f10020a = context;
         inflate(context, R.layout.ksad_draw_card_h5, this);
         this.e = (ImageView) findViewById(R.id.ksad_card_close);
         this.f = (TextView) findViewById(R.id.ksad_card_ad_desc);
@@ -86,8 +86,8 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     }
 
     public void a(@NonNull AdTemplate adTemplate, a aVar) {
-        this.f10020b = adTemplate;
-        AdInfo j = c.j(this.f10020b);
+        this.f10021b = adTemplate;
+        AdInfo j = c.j(this.f10021b);
         this.c = aVar;
         this.f.setText(com.kwad.sdk.core.response.b.a.n(j));
         this.g.setText(com.kwad.sdk.core.response.b.a.w(j));
@@ -95,8 +95,8 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
         this.g.setOnClickListener(this);
         this.h.a(adTemplate);
         setOnClickListener(this);
-        this.f.measure(View.MeasureSpec.makeMeasureSpec((ah.g(this.f10019a) - (ao.a(this.f10019a, 16.0f) * 2)) - (ao.a(this.f10019a, 10.0f) * 2), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
-        this.d = ao.a(this.f10019a, 100.0f) + this.f.getMeasuredHeight();
+        this.f.measure(View.MeasureSpec.makeMeasureSpec((ah.g(this.f10020a) - (ao.a(this.f10020a, 16.0f) * 2)) - (ao.a(this.f10020a, 10.0f) * 2), Integer.MIN_VALUE), View.MeasureSpec.makeMeasureSpec(0, 0));
+        this.d = ao.a(this.f10020a, 100.0f) + this.f.getMeasuredHeight();
     }
 
     public void b() {
@@ -110,8 +110,8 @@ public class DrawCardH5 extends FrameLayout implements View.OnClickListener {
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
         if (view != this.e) {
-            com.kwad.sdk.core.download.b.a.a(getContext(), this.f10020b, new a.InterfaceC1064a() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
-                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1064a
+            com.kwad.sdk.core.download.b.a.a(getContext(), this.f10021b, new a.InterfaceC1105a() { // from class: com.kwad.sdk.draw.view.playcard.DrawCardH5.1
+                @Override // com.kwad.sdk.core.download.b.a.InterfaceC1105a
                 public void a() {
                     if (DrawCardH5.this.c != null) {
                         DrawCardH5.this.c.b();

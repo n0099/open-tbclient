@@ -27,7 +27,7 @@ public class HotTopicDetailModel extends BdBaseModel {
     private String eRS;
     private String from;
     private int height;
-    private a.InterfaceC0798a luq;
+    private a.InterfaceC0817a luq;
     private boolean lur;
     private double lus;
     private boolean mIsLoading;
@@ -35,13 +35,13 @@ public class HotTopicDetailModel extends BdBaseModel {
     private int width;
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public HotTopicDetailModel(TbPageContext<?> tbPageContext, a.InterfaceC0798a interfaceC0798a) {
+    public HotTopicDetailModel(TbPageContext<?> tbPageContext, a.InterfaceC0817a interfaceC0817a) {
         super(tbPageContext);
         this.lus = TbadkCoreApplication.getInst().getApp().getResources().getDisplayMetrics().density;
         this.width = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         this.height = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
-        cSA();
-        this.luq = interfaceC0798a;
+        cSB();
+        this.luq = interfaceC0817a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -55,7 +55,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         this.from = str;
     }
 
-    private void cSA() {
+    private void cSB() {
         registerListener(new com.baidu.adp.framework.listener.a(1003041, CmdConfigSocket.CMD_HOT_TOPIC) { // from class: com.baidu.tieba.newdetail.HotTopicDetailModel.1
             @Override // com.baidu.adp.framework.listener.a
             public void onMessage(ResponsedMessage<?> responsedMessage) {
@@ -201,7 +201,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
         requestHotTopicMessage.setTopicId(Long.valueOf(this.topicId));
         requestHotTopicMessage.setTopicName(this.eRS);
-        requestHotTopicMessage.setCall_from(MD(this.from));
+        requestHotTopicMessage.setCall_from(MC(this.from));
         requestHotTopicMessage.setSort_type(Integer.valueOf(i));
         requestHotTopicMessage.setScrH(Integer.valueOf(this.height));
         requestHotTopicMessage.setScrW(Integer.valueOf(this.width));
@@ -219,12 +219,12 @@ public class HotTopicDetailModel extends BdBaseModel {
         return this.mIsLoading;
     }
 
-    public void djP() {
+    public void djQ() {
         if (j.isNetworkAvailableForImmediately()) {
             RequestHotTopicMessage requestHotTopicMessage = new RequestHotTopicMessage();
             requestHotTopicMessage.setTopicId(Long.valueOf(this.topicId));
             requestHotTopicMessage.setTopicName(this.eRS);
-            requestHotTopicMessage.setCall_from(MD(this.from));
+            requestHotTopicMessage.setCall_from(MC(this.from));
             requestHotTopicMessage.setSort_type(1);
             requestHotTopicMessage.setScrH(Integer.valueOf(this.height));
             requestHotTopicMessage.setScrW(Integer.valueOf(this.width));
@@ -279,7 +279,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         requestGetTopicRelateThreadMessage.setTopicId(Long.valueOf(this.topicId));
         requestGetTopicRelateThreadMessage.setTopicName(this.eRS);
         requestGetTopicRelateThreadMessage.setRn(10);
-        requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(axVar.bqd() + 1));
+        requestGetTopicRelateThreadMessage.setPageNo(Integer.valueOf(axVar.bqe() + 1));
         requestGetTopicRelateThreadMessage.setLastId(Long.valueOf(j));
         requestGetTopicRelateThreadMessage.setSort_type(Integer.valueOf(i));
         requestGetTopicRelateThreadMessage.setScrH(Integer.valueOf(this.height));
@@ -309,7 +309,7 @@ public class HotTopicDetailModel extends BdBaseModel {
         return false;
     }
 
-    private int MD(String str) {
+    private int MC(String str) {
         if ("1".equals(str)) {
             return 1;
         }

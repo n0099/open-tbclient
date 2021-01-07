@@ -15,12 +15,12 @@ public class b {
     private final HashMap<String, a> mSwitchs = new HashMap<>();
 
     public b() {
-        HashMap<String, a> bmo = bmo();
+        HashMap<String, a> bmp = bmp();
         this.mSwitchs.clear();
-        this.mSwitchs.putAll(bmo);
+        this.mSwitchs.putAll(bmp);
     }
 
-    public static b bmm() {
+    public static b bmn() {
         if (eIJ == null) {
             synchronized (b.class) {
                 if (eIJ == null) {
@@ -31,12 +31,12 @@ public class b {
         return eIJ;
     }
 
-    private static String bmn() {
+    private static String bmo() {
         return "pref_name_abtest_" + TbadkCoreApplication.getCurrentAccount();
     }
 
     private static SharedPreferences getSharedPreferences() {
-        return TbadkCoreApplication.getInst().getSharedPreferences(bmn(), 0);
+        return TbadkCoreApplication.getInst().getSharedPreferences(bmo(), 0);
     }
 
     public synchronized a Ah(String str) {
@@ -87,13 +87,13 @@ public class b {
                 this.mSwitchs.putAll(hashMap);
             }
             EditorHelper.putString(getSharedPreferences(), "pref_key_abtest_switchs", jSONArray.toString());
-            com.baidu.tbadk.core.sharedPref.b.bvq().putInt("perf_start_open", Ai("performance_start_small_flow") ? 1 : 0);
+            com.baidu.tbadk.core.sharedPref.b.bvr().putInt("perf_start_open", Ai("performance_start_small_flow") ? 1 : 0);
         } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    private HashMap<String, a> bmo() {
+    private HashMap<String, a> bmp() {
         HashMap<String, a> hashMap = new HashMap<>();
         try {
             JSONArray jSONArray = new JSONArray(getSharedPreferences().getString("pref_key_abtest_switchs", "[]"));
@@ -111,6 +111,6 @@ public class b {
     }
 
     public static boolean Ai(String str) {
-        return "a".equalsIgnoreCase(bmm().dH(str, ""));
+        return "a".equalsIgnoreCase(bmn().dH(str, ""));
     }
 }

@@ -58,20 +58,20 @@ public class a extends j {
                 }
             }
         };
-        this.jfK = this.jDI.cES();
+        this.jfK = this.jDI.cET();
         this.jDz.setTag(this.jDI.getPageContext().getUniqueId());
         this.jDz.setSelfListener(true);
         this.jDI.registerListener(this.jDz);
     }
 
-    private void cLU() {
+    private void cLV() {
         if (this.jfK == null) {
-            this.jfK = this.jDI.cES();
+            this.jfK = this.jDI.cET();
         }
     }
 
     public void onActivityResult(int i, int i2, Intent intent) {
-        cLU();
+        cLV();
         if (i2 == -1) {
             c(i, intent);
         } else if (i2 == 0) {
@@ -93,7 +93,7 @@ public class a extends j {
     private void c(int i, Intent intent) {
         ShareItem shareItem;
         bz threadDataById;
-        FrsViewData cFE = this.jDI.cFE();
+        FrsViewData cFF = this.jDI.cFF();
         switch (i) {
             case RequestResponseCode.REQUEST_LOGIN_WRITE /* 11001 */:
                 this.jDI.zV(0);
@@ -102,16 +102,16 @@ public class a extends j {
                 this.jfB.ru(true);
                 return;
             case RequestResponseCode.REQUEST_LOGIN_FRS_HOST /* 11011 */:
-                com.baidu.tieba.frs.d.l.a(this.jDI, this.jDI.getThreadId(), this.jDI.alW, this.jDI.cFb());
+                com.baidu.tieba.frs.d.l.a(this.jDI, this.jDI.getThreadId(), this.jDI.alW, this.jDI.cFc());
                 return;
             case RequestResponseCode.REQUEST_LOGIN_FRS_REVERSE /* 11012 */:
-                com.baidu.tieba.frs.d.l.b(this.jDI, this.jDI.getThreadId(), this.jDI.alW, this.jDI.cFb());
+                com.baidu.tieba.frs.d.l.b(this.jDI, this.jDI.getThreadId(), this.jDI.alW, this.jDI.cFc());
                 return;
             case RequestResponseCode.REQUEST_LOGIN_SIGN /* 11014 */:
-                this.jfB.cNU();
+                this.jfB.cNV();
                 return;
             case RequestResponseCode.REQUEST_LOGIN_CAMERA_OR_IMAGE /* 11016 */:
-                this.jfi.cGo();
+                this.jfi.cGp();
                 return;
             case RequestResponseCode.REQUEST_LOGIN_FRS_SHAKE /* 11033 */:
             case RequestResponseCode.REQUEST_WRITE_NEW /* 13003 */:
@@ -121,13 +121,13 @@ public class a extends j {
             default:
                 return;
             case RequestResponseCode.REQUEST_LOGIN_UNLIKE /* 11036 */:
-                this.jfB.cND();
+                this.jfB.cNE();
                 return;
             case RequestResponseCode.REQUEST_FRS_TO_PB /* 18003 */:
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921462, 0));
-                this.jfi.cGz().notifyDataSetChanged();
+                this.jfi.cGA().notifyDataSetChanged();
                 if (this.jfB != null) {
-                    this.jfB.cII();
+                    this.jfB.cIJ();
                 }
                 int intExtra = intent.getIntExtra("type", -1);
                 if (intExtra == 4) {
@@ -135,21 +135,21 @@ public class a extends j {
                     return;
                 }
                 String stringExtra = intent.getStringExtra("tid");
-                if (stringExtra != null && (threadDataById = cFE.getThreadDataById(stringExtra)) != null) {
+                if (stringExtra != null && (threadDataById = cFF.getThreadDataById(stringExtra)) != null) {
                     if (intExtra == 2) {
                         threadDataById.oQ(intent.getIntExtra("good_data", 0));
-                        threadDataById.bsq();
+                        threadDataById.bsr();
                     }
-                    a(cFE, intent, stringExtra);
+                    a(cFF, intent, stringExtra);
                     return;
                 }
                 return;
             case RequestResponseCode.REQUEST_FRS_FO_WEBVIEW /* 18004 */:
-                com.baidu.tieba.frs.d.l.c(this.jDI.getPageContext(), cFE);
+                com.baidu.tieba.frs.d.l.c(this.jDI.getPageContext(), cFF);
                 return;
             case RequestResponseCode.REQUEST_SELECT_IM_CHAT_GROUP_CODE /* 23003 */:
-                if (intent != null && cFE != null) {
-                    com.baidu.tieba.frs.d.h.a(this.jDI, cFE, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
+                if (intent != null && cFF != null) {
+                    com.baidu.tieba.frs.d.h.a(this.jDI, cFF, intent.getLongExtra("group_id", 0L), intent.getStringExtra("group_name"), intent.getLongExtra(GroupChatActivityConfig.GROUP_AUTHOR_ID, 0L));
                     return;
                 }
                 return;
@@ -179,7 +179,7 @@ public class a extends j {
                     TiebaStatic.log(aqVar);
                 }
                 if (intExtra6 == 1) {
-                    this.jDI.KH(intent.getStringExtra("tid"));
+                    this.jDI.KG(intent.getStringExtra("tid"));
                     return;
                 }
                 return;
@@ -192,9 +192,9 @@ public class a extends j {
             case RequestResponseCode.REQUEST_MOBILE_MODIFY_NICKNAME_DIALOG /* 25052 */:
                 String stringExtra2 = intent.getStringExtra("group_name");
                 boolean booleanExtra = intent.getBooleanExtra("from", true);
-                this.jDI.KG(stringExtra2);
+                this.jDI.KF(stringExtra2);
                 if (!booleanExtra && this.jfB != null) {
-                    this.jfB.cIQ();
+                    this.jfB.cIR();
                     return;
                 }
                 return;
@@ -202,18 +202,18 @@ public class a extends j {
     }
 
     public void Bw(int i) {
-        if (this.jDI != null && this.jDI.cEX() != null) {
+        if (this.jDI != null && this.jDI.cEY() != null) {
             if (i > 0) {
-                FrsTabViewController.b Cc = this.jDI.cEX().Cc(i);
+                FrsTabViewController.b Cc = this.jDI.cEY().Cc(i);
                 if (Cc != null && (Cc.fragment instanceof FrsCommonTabFragment)) {
                     this.jER.uu(i);
                     return;
                 }
                 return;
             }
-            int cOm = this.jDI.cEX().cOm();
-            if (this.jDI.cEX().Cc(cOm) != null) {
-                this.jER.uu(cOm);
+            int cOn = this.jDI.cEY().cOn();
+            if (this.jDI.cEY().Cc(cOn) != null) {
+                this.jER.uu(cOn);
             }
         }
     }
@@ -222,7 +222,7 @@ public class a extends j {
         ArrayList<com.baidu.adp.widget.ListView.n> dataList;
         if (frsViewData != null && intent != null && !TextUtils.isEmpty(str) && this.jfA != null) {
             int intExtra = intent.getIntExtra("KEY_SMART_FRS_POSITION", -1);
-            if (this.jfA.cMo()) {
+            if (this.jfA.cMp()) {
                 Serializable serializableExtra = intent.getSerializableExtra("guess_like_data");
                 if ((serializableExtra instanceof CardHListViewData) && (dataList = this.jET.getDataList()) != null) {
                     CardHListViewData cardHListViewData = (CardHListViewData) serializableExtra;
@@ -247,7 +247,7 @@ public class a extends j {
         }
     }
 
-    private ShareFromPBMsgData cLV() {
+    private ShareFromPBMsgData cLW() {
         ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
         if (shareItem == null) {
             return null;
@@ -266,7 +266,7 @@ public class a extends j {
         long longExtra = intent.getLongExtra(PersonalChatActivityConfig.KEY_USER_ID, -1L);
         String stringExtra = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_NAME);
         String stringExtra2 = intent.getStringExtra(PersonalChatActivityConfig.KEY_USER_PORTAIT);
-        a(cLV(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
+        a(cLW(), longExtra, stringExtra, intent.getStringExtra("name_show"), stringExtra2);
     }
 
     private void a(final ShareFromPBMsgData shareFromPBMsgData, final long j, final String str, final String str2, final String str3) {
@@ -284,9 +284,9 @@ public class a extends j {
                     MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSONAL_CHAT, new PersonalChatActivityConfig(a.this.jDI.getActivity(), j, str, str2, str3, 0, thread2GroupShareView.getLeaveMsg(), shareFromPBMsgData.toChatMessageContent())));
                     aVar2.dismiss();
                     ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
-                    if (shareItem != null && shareItem.bCD() != null) {
-                        Bundle bCD = shareItem.bCD();
-                        TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).an("obj_source", 1).an("obj_type", bCD.getInt("obj_type")).an("obj_param1", 3).dX("fid", bCD.getString("fid")).dX("tid", bCD.getString("tid")));
+                    if (shareItem != null && shareItem.bCE() != null) {
+                        Bundle bCE = shareItem.bCE();
+                        TiebaStatic.log(new aq(TbadkCoreStatisticKey.KEY_SHARE_SUCCESS).an("obj_source", 1).an("obj_type", bCE.getInt("obj_type")).an("obj_param1", 3).dX("fid", bCE.getString("fid")).dX("tid", bCE.getString("tid")));
                     }
                 }
             });
@@ -298,7 +298,7 @@ public class a extends j {
                 }
             });
             aVar.jI(true);
-            aVar.b(this.jDI.getPageContext()).btX();
+            aVar.b(this.jDI.getPageContext()).btY();
             if (!com.baidu.adp.lib.util.k.isEmpty(shareFromPBMsgData.getImageUrl())) {
                 thread2GroupShareView.aQ(shareFromPBMsgData.getImageUrl(), false);
             }
@@ -310,7 +310,7 @@ public class a extends j {
         if (postWriteCallBackData == null || postWriteCallBackData.getVideoEasterEggData() == null || at.isEmpty(postWriteCallBackData.getVideoEasterEggData().getVideoUrl())) {
             return false;
         }
-        if (com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
+        if (com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean(com.baidu.tbadk.core.sharedPref.b.getSharedPrefKeyWithAccount(postWriteCallBackData.getVideoEasterEggData().getActivityID()), true)) {
             MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_GO_ACTION, new VideoEasterEggActivityConfig(this.jDI.getActivity()).createNormalConfig("from_frs", postWriteCallBackData.getVideoEasterEggData())));
             return true;
         }

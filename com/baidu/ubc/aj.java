@@ -24,7 +24,7 @@ class aj {
         this.dxx.put(jSONObject);
     }
 
-    public final SparseArray<Integer> biX() {
+    public final SparseArray<Integer> biY() {
         return this.eBY;
     }
 
@@ -32,7 +32,7 @@ class aj {
         this.eBY.put(i, Integer.valueOf(i2));
     }
 
-    public final ArrayList biY() {
+    public final ArrayList biZ() {
         return this.eBZ;
     }
 
@@ -63,7 +63,7 @@ class aj {
         }
     }
 
-    public boolean eju() {
+    public boolean ejv() {
         return this.oNQ >= this.oNR;
     }
 
@@ -75,7 +75,7 @@ class aj {
         return this.dxx.length() == 0;
     }
 
-    public JSONObject ejv() {
+    public JSONObject ejw() {
         JSONObject jSONObject = new JSONObject();
         JSONObject jSONObject2 = new JSONObject();
         try {
@@ -109,7 +109,7 @@ class aj {
         this.eBe = str;
     }
 
-    public long bjb() {
+    public long bjc() {
         return this.eCa;
     }
 
@@ -117,11 +117,11 @@ class aj {
         return this.eCb;
     }
 
-    public JSONArray bjc() {
+    public JSONArray bjd() {
         return this.dxx;
     }
 
-    public boolean bjd() {
+    public boolean bje() {
         return this.eCc;
     }
 

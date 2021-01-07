@@ -4,56 +4,56 @@ import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes.dex */
 public class c {
-    private static c mLK;
-    private HashMap<String, com.baidu.tieba.quickWebView.data.a> mLH = new HashMap<>();
-    private com.baidu.tieba.quickWebView.data.b mLI = null;
-    private boolean mLJ = false;
+    private static c mLJ;
+    private HashMap<String, com.baidu.tieba.quickWebView.data.a> mLG = new HashMap<>();
+    private com.baidu.tieba.quickWebView.data.b mLH = null;
+    private boolean mLI = false;
 
-    public static c dEx() {
-        if (mLK == null) {
+    public static c dEy() {
+        if (mLJ == null) {
             synchronized (c.class) {
-                if (mLK == null) {
-                    mLK = new c();
+                if (mLJ == null) {
+                    mLJ = new c();
                 }
             }
         }
-        return mLK;
+        return mLJ;
     }
 
     private c() {
     }
 
-    public com.baidu.tieba.quickWebView.data.a Ru(String str) {
-        if (this.mLH == null || !this.mLJ) {
+    public com.baidu.tieba.quickWebView.data.a Rt(String str) {
+        if (this.mLG == null || !this.mLI) {
             return null;
         }
-        return this.mLH.get(str);
+        return this.mLG.get(str);
     }
 
-    public List<String> Rv(String str) {
-        if (this.mLI == null || this.mLI.mLO == null || !this.mLJ) {
+    public List<String> Ru(String str) {
+        if (this.mLH == null || this.mLH.mLN == null || !this.mLI) {
             return null;
         }
-        return this.mLI.mLO.get(str);
+        return this.mLH.mLN.get(str);
     }
 
     public void F(HashMap<String, com.baidu.tieba.quickWebView.data.a> hashMap) {
-        this.mLH = hashMap;
+        this.mLG = hashMap;
     }
 
-    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dEy() {
-        return this.mLH;
+    public HashMap<String, com.baidu.tieba.quickWebView.data.a> dEz() {
+        return this.mLG;
     }
 
     public void a(com.baidu.tieba.quickWebView.data.b bVar) {
-        this.mLI = bVar;
+        this.mLH = bVar;
     }
 
-    public boolean dEz() {
-        return this.mLJ;
+    public boolean dEA() {
+        return this.mLI;
     }
 
     public void xk(boolean z) {
-        this.mLJ = z;
+        this.mLI = z;
     }
 }

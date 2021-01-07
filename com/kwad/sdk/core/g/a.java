@@ -12,7 +12,7 @@ import org.json.JSONArray;
 public class a extends com.kwad.sdk.core.network.d {
 
     /* renamed from: b  reason: collision with root package name */
-    com.kwad.sdk.core.g.a.f f9453b;
+    com.kwad.sdk.core.g.a.f f9454b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(com.kwad.sdk.core.g.a.f fVar, com.kwad.sdk.core.g.a.l lVar) {
@@ -22,7 +22,7 @@ public class a extends com.kwad.sdk.core.network.d {
     /* JADX INFO: Access modifiers changed from: package-private */
     public a(com.kwad.sdk.core.g.a.f fVar, @Nullable List<String> list, boolean z, com.kwad.sdk.core.g.a.l lVar) {
         DevelopMangerPlugin.DevelopValue a2;
-        this.f9453b = fVar;
+        this.f9454b = fVar;
         JSONArray jSONArray = new JSONArray();
         com.kwad.sdk.utils.o.a(jSONArray, fVar.toJson());
         a("impInfo", jSONArray);

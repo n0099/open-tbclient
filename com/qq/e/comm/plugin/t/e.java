@@ -8,10 +8,10 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class a extends Exception {
         public a(String str) {
             super(str);
@@ -22,7 +22,7 @@ public class e {
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     public static class b extends Exception {
         public b(String str, Throwable th) {
             super(str, th);
@@ -32,7 +32,7 @@ public class e {
     /* JADX WARN: Classes with same name are omitted:
       assets/yaqgdtadv0.sec
      */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static class c {
         static byte a() {
             return gdtadv.getBresult(GDiffPatcher.COPY_INT_USHORT, 1, new Object[0]);

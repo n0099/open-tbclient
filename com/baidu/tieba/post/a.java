@@ -19,52 +19,52 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes8.dex */
 public class a implements View.OnClickListener {
-    private static com.baidu.adp.widget.ImageView.a myA;
-    private static String myB;
+    private static String myA;
+    private static com.baidu.adp.widget.ImageView.a myz;
     public TextView ala;
     public TextView fmn;
     public TextView fni;
     private final LinearLayout kLr;
     private final LinearLayout ltu;
-    private InterfaceC0830a mGU;
+    private InterfaceC0863a mGT;
     private TbPageContext<?> mPageContext;
-    private int myC;
-    public LinearLayout myD;
-    public HeadImageView myE;
-    public TextView myF;
-    protected final LinearLayout myx;
+    private int myB;
+    public LinearLayout myC;
+    public HeadImageView myD;
+    public TextView myE;
+    protected final LinearLayout myw;
+    protected final ColumnLayout myx;
     protected final ColumnLayout myy;
-    protected final ColumnLayout myz;
 
     /* renamed from: com.baidu.tieba.post.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0830a {
+    public interface InterfaceC0863a {
         void ea(View view);
     }
 
     public a(View view, TbPageContext<?> tbPageContext) {
         this.mPageContext = tbPageContext;
-        this.myD = (LinearLayout) view.findViewById(R.id.top_line);
-        this.myE = (HeadImageView) view.findViewById(R.id.portrait);
+        this.myC = (LinearLayout) view.findViewById(R.id.top_line);
+        this.myD = (HeadImageView) view.findViewById(R.id.portrait);
         this.ala = (TextView) view.findViewById(R.id.username);
         this.fmn = (TextView) view.findViewById(R.id.reply_time);
         this.fni = (TextView) view.findViewById(R.id.forum_name);
-        this.myF = (TextView) view.findViewById(R.id.reply_count);
+        this.myE = (TextView) view.findViewById(R.id.reply_count);
         this.ltu = (LinearLayout) view.findViewById(R.id.item_content);
-        this.myy = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.myz = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.myx = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.myy = (ColumnLayout) view.findViewById(R.id.item_footer);
         this.kLr = (LinearLayout) view.findViewById(R.id.person_thread);
-        this.myx = (LinearLayout) view.findViewById(R.id.person_child);
-        this.myC = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
+        this.myw = (LinearLayout) view.findViewById(R.id.person_child);
+        this.myB = com.baidu.adp.lib.util.l.dip2px(view.getContext(), 42.0f);
         if (this.ltu != null) {
             this.ltu.setOnClickListener(this);
         }
-        this.myE.setOnClickListener(this);
+        this.myD.setOnClickListener(this);
         this.ala.setOnClickListener(this);
         this.fni.setOnClickListener(this);
-        this.myF.setOnClickListener(this);
+        this.myE.setOnClickListener(this);
+        this.myx.setOnClickListener(this);
         this.myy.setOnClickListener(this);
-        this.myz.setOnClickListener(this);
     }
 
     @Override // android.view.View.OnClickListener
@@ -73,13 +73,13 @@ public class a implements View.OnClickListener {
             if (this.mPageContext != null) {
                 this.mPageContext.sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (this.mGU != null) {
-            this.mGU.ea(view);
+        } else if (this.mGT != null) {
+            this.mGT.ea(view);
         }
     }
 
-    public void a(InterfaceC0830a interfaceC0830a) {
-        this.mGU = interfaceC0830a;
+    public void a(InterfaceC0863a interfaceC0863a) {
+        this.mGT = interfaceC0863a;
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0041 A[ORIG_RETURN, RETURN] */
@@ -146,32 +146,32 @@ public class a implements View.OnClickListener {
             this.fmn.setText(str4);
             this.fni.setText(str3);
             this.fni.setTag(str3);
-            this.myF.setText(str2);
-            this.myF.setTag(strArr);
+            this.myE.setText(str2);
+            this.myE.setTag(strArr);
             this.fni.setOnClickListener(this);
             if (postInfoList.mBaijiahaoInfo != null && !StringUtils.isNull(postInfoList.mBaijiahaoInfo.avatar)) {
-                QR(postInfoList.mBaijiahaoInfo.avatar);
+                QQ(postInfoList.mBaijiahaoInfo.avatar);
             } else {
-                QR(str);
+                QQ(str);
             }
             if (this.ltu != null) {
                 this.ltu.setTag(strArr);
             }
+            this.myx.setTag(strArr);
             this.myy.setTag(strArr);
-            this.myz.setTag(strArr);
         }
     }
 
-    private void QR(String str) {
-        if (myB != null && !myB.equals(str)) {
-            myA = null;
+    private void QQ(String str) {
+        if (myA != null && !myA.equals(str)) {
+            myz = null;
         }
-        if (myA != null) {
-            this.myE.setImageBitmap(myA.getRawBitmap());
-            myB = str;
+        if (myz != null) {
+            this.myD.setImageBitmap(myz.getRawBitmap());
+            myA = str;
             return;
         }
-        this.myE.a(str, 12, this.myC, this.myC, false);
+        this.myD.a(str, 12, this.myB, this.myB, false);
     }
 
     public void changeSkin(int i) {
@@ -179,10 +179,10 @@ public class a implements View.OnClickListener {
         ao.setViewTextColor(this.fmn, R.color.CAM_X0109, 1);
         ao.setViewTextColor(this.ala, R.color.CAM_X0106, 1);
         ao.setBackgroundResource(this.kLr, R.color.CAM_X0204);
-        ao.setBackgroundResource(this.myx, R.color.CAM_X0201);
+        ao.setBackgroundResource(this.myw, R.color.CAM_X0201);
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
         }
-        this.myF.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
-        ao.setViewTextColor(this.myF, R.color.CAM_X0304, 1);
+        this.myE.setCompoundDrawablesWithIntrinsicBounds(ao.getDrawable(R.drawable.icon_comment_s), (Drawable) null, (Drawable) null, (Drawable) null);
+        ao.setViewTextColor(this.myE, R.color.CAM_X0304, 1);
     }
 }

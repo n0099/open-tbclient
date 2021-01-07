@@ -10,10 +10,10 @@ import java.util.TreeMap;
 public class a extends com.sdk.base.framework.f.a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f13161a = a.class.getName();
+    private static final String f13162a = a.class.getName();
 
     /* renamed from: b  reason: collision with root package name */
-    private static boolean f13162b = f.f13118b;
+    private static boolean f13163b = f.f13119b;
 
     /* JADX DEBUG: TODO: convert one arg to string using `String.valueOf()`, args: [(wrap: java.lang.Object : 0x0034: INVOKE  (r6v0 java.lang.Object A[REMOVE]) = (r0v15 java.util.Map$Entry<java.lang.String, java.lang.Object>) type: INTERFACE call: java.util.Map.Entry.getValue():java.lang.Object)] */
     public static String a(String str, String str2, TreeMap<String, Object> treeMap) {
@@ -32,7 +32,7 @@ public class a extends com.sdk.base.framework.f.a {
             }
             return e.a(stringBuffer.toString());
         } catch (Exception e) {
-            c.b(f13161a, e.getMessage(), Boolean.valueOf(f13162b));
+            c.b(f13162a, e.getMessage(), Boolean.valueOf(f13163b));
             return null;
         }
     }

@@ -11,7 +11,7 @@ import com.ksad.lottie.a.b.a;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class f implements d, j, a.InterfaceC1037a {
+public class f implements d, j, a.InterfaceC1078a {
     private final com.ksad.lottie.model.layer.a c;
     private final String d;
     private final com.ksad.lottie.a.b.a<Integer, Integer> f;
@@ -21,10 +21,10 @@ public class f implements d, j, a.InterfaceC1037a {
     private final com.ksad.lottie.f i;
 
     /* renamed from: a  reason: collision with root package name */
-    private final Path f8236a = new Path();
+    private final Path f8237a = new Path();
 
     /* renamed from: b  reason: collision with root package name */
-    private final Paint f8237b = new Paint(1);
+    private final Paint f8238b = new Paint(1);
     private final List<l> e = new ArrayList();
 
     public f(com.ksad.lottie.f fVar, com.ksad.lottie.model.layer.a aVar, com.ksad.lottie.model.content.i iVar) {
@@ -36,7 +36,7 @@ public class f implements d, j, a.InterfaceC1037a {
             this.g = null;
             return;
         }
-        this.f8236a.setFillType(iVar.d());
+        this.f8237a.setFillType(iVar.d());
         this.f = iVar.b().a();
         this.f.a(this);
         aVar.a(this.f);
@@ -45,7 +45,7 @@ public class f implements d, j, a.InterfaceC1037a {
         aVar.a(this.g);
     }
 
-    @Override // com.ksad.lottie.a.b.a.InterfaceC1037a
+    @Override // com.ksad.lottie.a.b.a.InterfaceC1078a
     public void a() {
         this.i.invalidateSelf();
     }
@@ -53,26 +53,26 @@ public class f implements d, j, a.InterfaceC1037a {
     @Override // com.ksad.lottie.a.a.d
     public void a(Canvas canvas, Matrix matrix, int i) {
         com.ksad.lottie.c.c("FillContent#draw");
-        this.f8237b.setColor(this.f.e().intValue());
-        this.f8237b.setAlpha(com.ksad.lottie.d.e.a((int) (((this.g.e().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
+        this.f8238b.setColor(this.f.e().intValue());
+        this.f8238b.setAlpha(com.ksad.lottie.d.e.a((int) (((this.g.e().intValue() * (i / 255.0f)) / 100.0f) * 255.0f), 0, 255));
         if (this.h != null) {
-            this.f8237b.setColorFilter(this.h.e());
+            this.f8238b.setColorFilter(this.h.e());
         }
-        this.f8236a.reset();
+        this.f8237a.reset();
         for (int i2 = 0; i2 < this.e.size(); i2++) {
-            this.f8236a.addPath(this.e.get(i2).d(), matrix);
+            this.f8237a.addPath(this.e.get(i2).d(), matrix);
         }
-        canvas.drawPath(this.f8236a, this.f8237b);
+        canvas.drawPath(this.f8237a, this.f8238b);
         com.ksad.lottie.c.d("FillContent#draw");
     }
 
     @Override // com.ksad.lottie.a.a.d
     public void a(RectF rectF, Matrix matrix) {
-        this.f8236a.reset();
+        this.f8237a.reset();
         for (int i = 0; i < this.e.size(); i++) {
-            this.f8236a.addPath(this.e.get(i).d(), matrix);
+            this.f8237a.addPath(this.e.get(i).d(), matrix);
         }
-        this.f8236a.computeBounds(rectF, false);
+        this.f8237a.computeBounds(rectF, false);
         rectF.set(rectF.left - 1.0f, rectF.top - 1.0f, rectF.right + 1.0f, rectF.bottom + 1.0f);
     }
 

@@ -69,9 +69,9 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
         SpecialColumnListData specialColumnListData = (SpecialColumnListData) getIntent().getParcelableExtra("data");
         if (specialColumnListData != null) {
             this.mNavigationBar.setCenterTextTitle(specialColumnListData.getTitle());
-            final List<SpecialColumnItemData> bUU = specialColumnListData.bUU();
-            if (bUU != null && bUU.size() > 0) {
-                SpecialColumnItemData specialColumnItemData = bUU.get(0);
+            final List<SpecialColumnItemData> bUV = specialColumnListData.bUV();
+            if (bUV != null && bUV.size() > 0) {
+                SpecialColumnItemData specialColumnItemData = bUV.get(0);
                 if (specialColumnItemData.specialType == 1 || specialColumnItemData.specialType == 2) {
                     this.kjK.setLayoutManager(new LinearLayoutManager(this));
                 } else if (specialColumnItemData.specialType == 3 || specialColumnItemData.specialType == 4) {
@@ -79,7 +79,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     gridLayoutManager.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() { // from class: com.baidu.tieba.homepage.tabfeed.college.HomePageTabFeedCollegeSecondActivity.1
                         @Override // androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
                         public int getSpanSize(int i) {
-                            return i == bUU.size() ? 2 : 1;
+                            return i == bUV.size() ? 2 : 1;
                         }
                     });
                     this.kjK.setLayoutManager(gridLayoutManager);
@@ -88,7 +88,7 @@ public class HomePageTabFeedCollegeSecondActivity extends BaseActivity {
                     this.kjK.addItemDecoration(new GridSpaceItemDecoration(dimens, l.getDimens(this, R.dimen.tbds11), dimens2));
                 }
             }
-            this.kjL = new HomePageTabFeedCollegeSecondListAdapter(this, bUU);
+            this.kjL = new HomePageTabFeedCollegeSecondListAdapter(this, bUV);
         }
         this.kjL.a(this.kdd);
         this.kjK.setAdapter(this.kjL);

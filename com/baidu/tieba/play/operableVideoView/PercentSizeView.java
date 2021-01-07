@@ -6,36 +6,36 @@ import android.view.View;
 import androidx.annotation.Nullable;
 /* loaded from: classes.dex */
 public class PercentSizeView extends View {
+    private float mGd;
     private float mGe;
-    private float mGf;
 
     public PercentSizeView(Context context) {
         super(context);
+        this.mGd = 1.0f;
         this.mGe = 1.0f;
-        this.mGf = 1.0f;
     }
 
     public PercentSizeView(Context context, @Nullable AttributeSet attributeSet) {
         super(context, attributeSet);
+        this.mGd = 1.0f;
         this.mGe = 1.0f;
-        this.mGf = 1.0f;
     }
 
     public PercentSizeView(Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
+        this.mGd = 1.0f;
         this.mGe = 1.0f;
-        this.mGf = 1.0f;
     }
 
     public void setHeightPercent(float f) {
         if (f > 0.0f) {
-            this.mGe = f;
+            this.mGd = f;
         }
     }
 
     public void setWidthPercent(float f) {
         if (f > 0.0f) {
-            this.mGf = f;
+            this.mGe = f;
         }
     }
 
@@ -47,12 +47,12 @@ public class PercentSizeView extends View {
         if (View.MeasureSpec.getMode(i) == 1073741824) {
             measuredWidth = View.MeasureSpec.getSize(i);
         } else {
-            measuredWidth = (int) (getMeasuredWidth() * this.mGf);
+            measuredWidth = (int) (getMeasuredWidth() * this.mGe);
         }
         if (View.MeasureSpec.getMode(i2) == 1073741824) {
             measuredHeight = View.MeasureSpec.getSize(i2);
         } else {
-            measuredHeight = (int) (getMeasuredHeight() * this.mGe);
+            measuredHeight = (int) (getMeasuredHeight() * this.mGd);
         }
         setMeasuredDimension(measuredWidth, measuredHeight);
     }

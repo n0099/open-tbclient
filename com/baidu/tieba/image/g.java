@@ -47,11 +47,11 @@ public class g {
         }
     }
 
-    public LinkedList<e> dbN() {
+    public LinkedList<e> dbO() {
         return this.kQW;
     }
 
-    public LinkedList<AlaInfoData> dbO() {
+    public LinkedList<AlaInfoData> dbP() {
         return this.kRa;
     }
 
@@ -59,19 +59,19 @@ public class g {
         return this.kQV;
     }
 
-    public String btb() {
+    public String btc() {
         return this.kQY;
     }
 
-    public String btc() {
+    public String btd() {
         return this.kQZ;
     }
 
-    public int dbP() {
+    public int dbQ() {
         return this.replyPrivateFlag;
     }
 
-    public ForumData bFK() {
+    public ForumData bFL() {
         return this.jPU;
     }
 
@@ -233,7 +233,7 @@ public class g {
         return builder.build(true);
     }
 
-    public AdvertAppInfo bpi() {
+    public AdvertAppInfo bpj() {
         return this.kQX;
     }
 }

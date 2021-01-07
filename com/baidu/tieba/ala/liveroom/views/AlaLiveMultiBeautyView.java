@@ -346,7 +346,7 @@ public class AlaLiveMultiBeautyView extends ILiveMultiBeautyView implements View
             this.hQW.setProgress(fVar.aFQ);
             this.hQX.setProgress(fVar.aFS);
             this.hQY.setProgress(fVar.aFR);
-            this.hQK.Io(fVar.mFilterName);
+            this.hQK.In(fVar.mFilterName);
             this.hQK.notifyDataSetChanged();
             this.hQT = fVar;
             if (alaLiveVideoConfig.isSupportFaceStyle()) {

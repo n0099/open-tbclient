@@ -4,19 +4,19 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class am {
 
     /* renamed from: a  reason: collision with root package name */
-    public static Map<String, Set<String>> f13772a = new HashMap();
+    public static Map<String, Set<String>> f13773a = new HashMap();
 
     /* renamed from: b  reason: collision with root package name */
-    public static Map<String, Integer> f13773b = new HashMap();
+    public static Map<String, Integer> f13774b = new HashMap();
 
     static {
         HashSet hashSet = new HashSet();
         hashSet.add("18C867F0717AA67B2AB7347505BA07ED");
-        f13772a.put(y.a(y.J), hashSet);
+        f13773a.put(y.a(y.J), hashSet);
         HashSet hashSet2 = new HashSet();
         hashSet2.add("31223B0BDF1DEF1FE8252971ADA3B577");
         hashSet2.add("CCD4AD38DC6669F875BC37E3F8840648");
@@ -24,9 +24,9 @@ public class am {
         hashSet2.add("775E696D09856872FDD8AB4F3F06B1E0");
         hashSet2.add("A6B745BF24A2C277527716F6F36EB68D");
         hashSet2.add("A01EECAB85E9E3BA2B0F6A158C855C29");
-        f13772a.put(y.a(y.K), hashSet2);
-        f13773b.put(y.a(y.J), 105118);
-        f13773b.put(y.a(y.K), 105178);
+        f13773a.put(y.a(y.K), hashSet2);
+        f13774b.put(y.a(y.J), 105118);
+        f13774b.put(y.a(y.K), 105178);
     }
 
     /*  JADX ERROR: JadxRuntimeException in pass: BlockProcessor
@@ -76,12 +76,12 @@ public class am {
             r1.<init>()
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             r2.<init>()
-            java.lang.String r5 = com.tencent.turingfd.sdk.ams.au.ax.f13797a
+            java.lang.String r5 = com.tencent.turingfd.sdk.ams.au.ax.f13798a
             java.lang.StringBuilder r2 = r2.append(r5)
-            java.lang.String r5 = com.tencent.turingfd.sdk.ams.au.ax.f13798b
+            java.lang.String r5 = com.tencent.turingfd.sdk.ams.au.ax.f13799b
             java.lang.StringBuilder r2 = r2.append(r5)
             java.lang.String r2 = r2.toString()
-            r1.f13791a = r2
+            r1.f13792a = r2
             java.lang.StringBuilder r2 = new java.lang.StringBuilder
             r2.<init>()
             java.lang.StringBuilder r2 = r2.append(r4)
@@ -89,7 +89,7 @@ public class am {
             java.lang.StringBuilder r2 = r2.append(r4)
             java.lang.StringBuilder r0 = r2.append(r0)
             java.lang.String r0 = r0.toString()
-            r1.f13792b = r0
+            r1.f13793b = r0
             r3.add(r1)
             goto L10
         L8d:

@@ -82,7 +82,7 @@ public class j extends g {
                     }
                     return;
                 }
-                j.this.hxb.cgw();
+                j.this.hxb.cgx();
             }
         };
         this.hxz = new TextWatcher() { // from class: com.baidu.tieba.ala.liveroom.challenge.panel.j.5
@@ -185,20 +185,20 @@ public class j extends g {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
     public boolean onBackKeyDown() {
-        this.hxb.cgw();
+        this.hxb.cgx();
         return true;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public int cgi() {
+    public int cgj() {
         return this.mContext.getResources().getDimensionPixelSize(a.d.sdk_ds560) * 2;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tieba.ala.liveroom.challenge.panel.g
-    public void cgA() {
-        super.cgA();
+    public void cgB() {
+        super.cgB();
         BdUtilHelper.hideSoftKeyPad(this.mContext, this.hxu);
     }
 
@@ -209,10 +209,10 @@ public class j extends g {
         if (this.hxx != null) {
             this.mListView.setSelection(0);
             this.mListView.removeFooterView(this.bSb);
-            this.hxx.cgD();
+            this.hxx.cgE();
         }
         this.hxu.setText("");
-        Zi();
+        Zj();
     }
 
     public void j(com.baidu.live.challenge.d dVar) {
@@ -221,7 +221,7 @@ public class j extends g {
         }
     }
 
-    public void cgp() {
+    public void cgq() {
         if (this.hxx != null) {
             this.hxx.notifyDataSetChanged();
         }
@@ -246,7 +246,7 @@ public class j extends g {
         }
     }
 
-    public void Zi() {
+    public void Zj() {
         if (this.bxT != null) {
             this.bxT.setVisibility(8);
         }
@@ -270,7 +270,7 @@ public class j extends g {
                 }
             }
             this.mListView.setVisibility(0);
-            Zi();
+            Zj();
             if (bVar.pn == 1) {
                 this.hxx.setDatas(list);
             } else {
@@ -279,20 +279,20 @@ public class j extends g {
             this.pn = bVar.pn + 1;
             this.mHasMore = bVar.hasMore;
             if (bVar.hasMore) {
-                Zg();
-            } else {
                 Zh();
+            } else {
+                Zi();
             }
         }
     }
 
-    private void Zg() {
+    private void Zh() {
         this.bSb.setText(this.mContext.getString(a.h.sdk_loading_text_with_ellipsis));
         this.mListView.removeFooterView(this.bSb);
         this.mListView.addFooterView(this.bSb);
     }
 
-    private void Zh() {
+    private void Zi() {
         this.bSb.setText(this.mContext.getString(a.h.sdk_list_no_more));
         this.mListView.removeFooterView(this.bSb);
         this.mListView.addFooterView(this.bSb);

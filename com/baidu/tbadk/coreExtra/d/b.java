@@ -7,26 +7,26 @@ public class b {
         private static b fBy = new b();
     }
 
-    public static b bDE() {
+    public static b bDF() {
         return a.fBy;
     }
 
     private b() {
     }
 
-    public void bDF() {
-        Dt("kLCSError=1");
+    public void bDG() {
+        Ds("kLCSError=1");
     }
 
     public void sl(int i) {
-        Dt("kNetStatus=" + i);
+        Ds("kNetStatus=" + i);
     }
 
-    public void Ds(String str) {
-        Dt("kNewIpResult=" + str);
+    public void Dr(String str) {
+        Ds("kNewIpResult=" + str);
     }
 
-    private void Dt(String str) {
+    private void Ds(String str) {
         com.baidu.adp.framework.client.socket.i.debug("IpReconnLogHelper", 0, 0, null, com.baidu.tbadk.core.h.RETRY_IPLIST, str);
     }
 }

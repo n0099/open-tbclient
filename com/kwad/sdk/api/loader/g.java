@@ -9,13 +9,13 @@ import java.io.File;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static File f8500a;
+    private static File f8501a;
 
     private static File a(Context context) {
-        if (f8500a == null) {
-            f8500a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
+        if (f8501a == null) {
+            f8501a = c(new File(context.getApplicationInfo().dataDir, "ksad_dynamic"));
         }
-        return f8500a;
+        return f8501a;
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */

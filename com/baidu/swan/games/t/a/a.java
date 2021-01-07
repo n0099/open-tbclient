@@ -72,11 +72,11 @@ public final class a {
         /* JADX INFO: Access modifiers changed from: private */
         public static b cG(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return bbx();
+                return bby();
             }
             JSONArray optJSONArray = jSONObject.optJSONArray("subpackages");
             if (optJSONArray == null || optJSONArray.length() <= 0) {
-                return bbx();
+                return bby();
             }
             b bVar = new b();
             bVar.emJ = new ArrayList();
@@ -90,7 +90,7 @@ public final class a {
             return bVar;
         }
 
-        private static b bbx() {
+        private static b bby() {
             b bVar = new b();
             bVar.emJ = new ArrayList();
             bVar.emK = new HashMap<>();
@@ -109,18 +109,18 @@ public final class a {
         /* JADX INFO: Access modifiers changed from: private */
         public static C0548a cE(JSONObject jSONObject) {
             if (jSONObject == null) {
-                return bbw();
+                return bbx();
             }
             C0548a c0548a = new C0548a();
             c0548a.emH = jSONObject.optString("root");
             c0548a.name = jSONObject.optString("name");
             if (TextUtils.isEmpty(c0548a.emH) || TextUtils.isEmpty(c0548a.name)) {
-                return bbw();
+                return bbx();
             }
             if (c0548a.emH.endsWith(".js")) {
                 String[] split = c0548a.emH.split(File.separator);
                 if (split.length < 1) {
-                    return bbw();
+                    return bbx();
                 }
                 c0548a.emI = split[split.length - 1];
                 c0548a.path = "";
@@ -137,7 +137,7 @@ public final class a {
             return c0548a;
         }
 
-        private static C0548a bbw() {
+        private static C0548a bbx() {
             return new C0548a();
         }
     }
@@ -149,11 +149,11 @@ public final class a {
         /* JADX INFO: Access modifiers changed from: private */
         public static c a(JSONObject jSONObject, b bVar) {
             if (jSONObject == null || bVar == null || bVar.emJ == null || bVar.emJ.size() <= 0) {
-                return bby();
+                return bbz();
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("_sub_swan");
             if (optJSONObject == null) {
-                return bby();
+                return bbz();
             }
             c cVar = new c();
             cVar.emL = new HashMap<>();
@@ -165,7 +165,7 @@ public final class a {
             return cVar;
         }
 
-        private static c bby() {
+        private static c bbz() {
             c cVar = new c();
             cVar.emL = new HashMap<>();
             return cVar;

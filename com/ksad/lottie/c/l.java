@@ -11,10 +11,10 @@ import java.util.List;
 public class l implements aj<com.ksad.lottie.model.content.c> {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f8273a;
+    private int f8274a;
 
     public l(int i) {
-        this.f8273a = i;
+        this.f8274a = i;
     }
 
     @IntRange(from = 0, to = KsMediaMeta.AV_CH_LAYOUT_7POINT1_WIDE_BACK)
@@ -36,7 +36,7 @@ public class l implements aj<com.ksad.lottie.model.content.c> {
 
     private void a(com.ksad.lottie.model.content.c cVar, List<Float> list) {
         int i;
-        int i2 = this.f8273a * 4;
+        int i2 = this.f8274a * 4;
         if (list.size() <= i2) {
             return;
         }
@@ -77,14 +77,14 @@ public class l implements aj<com.ksad.lottie.model.content.c> {
         if (z) {
             jsonReader.endArray();
         }
-        if (this.f8273a == -1) {
-            this.f8273a = arrayList.size() / 4;
+        if (this.f8274a == -1) {
+            this.f8274a = arrayList.size() / 4;
         }
-        float[] fArr = new float[this.f8273a];
-        int[] iArr = new int[this.f8273a];
+        float[] fArr = new float[this.f8274a];
+        int[] iArr = new int[this.f8274a];
         int i = 0;
         int i2 = 0;
-        for (int i3 = 0; i3 < this.f8273a * 4; i3++) {
+        for (int i3 = 0; i3 < this.f8274a * 4; i3++) {
             int i4 = i3 / 4;
             double floatValue = arrayList.get(i3).floatValue();
             switch (i3 % 4) {

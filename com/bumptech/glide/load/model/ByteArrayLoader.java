@@ -10,11 +10,11 @@ import com.bumptech.glide.signature.ObjectKey;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.nio.ByteBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
     private final Converter<Data> converter;
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public interface Converter<Data> {
         Data convert(byte[] bArr);
 
@@ -38,7 +38,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class Fetcher<Data> implements DataFetcher<Data> {
         private final Converter<Data> converter;
         private final byte[] model;
@@ -75,7 +75,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class ByteBufferFactory implements ModelLoaderFactory<byte[], ByteBuffer> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull
@@ -99,7 +99,7 @@ public class ByteArrayLoader<Data> implements ModelLoader<byte[], Data> {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class StreamFactory implements ModelLoaderFactory<byte[], InputStream> {
         @Override // com.bumptech.glide.load.model.ModelLoaderFactory
         @NonNull

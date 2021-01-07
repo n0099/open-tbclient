@@ -16,8 +16,8 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class a {
     private static final int fYY = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
-    private static final int mzk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
-    private static final int mzl = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
+    private static final int mzj = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds36);
+    private static final int mzk = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds58);
 
     public static List<n> fC(List<n> list) {
         bz bzVar;
@@ -60,9 +60,9 @@ public class a {
 
     public static bz i(n nVar) {
         if (nVar != null && (nVar instanceof com.baidu.tbadk.core.data.a)) {
-            bz boO = ((com.baidu.tbadk.core.data.a) nVar).boO();
-            com.baidu.tbadk.a.a.a.a(boO);
-            return boO;
+            bz boP = ((com.baidu.tbadk.core.data.a) nVar).boP();
+            com.baidu.tbadk.a.a.a.a(boP);
+            return boP;
         }
         return null;
     }
@@ -73,7 +73,7 @@ public class a {
         kVar = null;
         if (bzVar != null) {
             bzVar.eWg = true;
-            bzVar.bqS();
+            bzVar.bqT();
             if (bzVar.isShareThread) {
                 k kVar2 = new k();
                 kVar2.eMv = bzVar;
@@ -86,11 +86,11 @@ public class a {
                 k kVar3 = new k();
                 if (bzVar.isLinkThread()) {
                     kVar3.isLinkThread = true;
-                } else if (bzVar.bsv()) {
+                } else if (bzVar.bsw()) {
                     kVar3.eSB = true;
                 } else {
                     kVar3.isLinkThread = false;
-                    if (bzVar.brt()) {
+                    if (bzVar.bru()) {
                         kVar3.izS = true;
                     } else {
                         kVar3.izS = false;
@@ -113,8 +113,8 @@ public class a {
         ArrayList arrayList = new ArrayList();
         if (!x.isEmpty(list)) {
             com.baidu.tieba.personPolymeric.c.k kVar = new com.baidu.tieba.personPolymeric.c.k();
-            kVar.paddingBottom = mzl;
-            kVar.paddingTop = mzk;
+            kVar.paddingBottom = mzk;
+            kVar.paddingTop = mzj;
             kVar.paddingLeft = fYY;
             kVar.titleId = R.string.person_center_tab_main_list_title;
             arrayList.add(kVar);

@@ -1,7 +1,7 @@
 package com.qq.e.comm.plugin.j.b;
 
 import com.qq.e.comm.plugin.j.b.l;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 class b implements l {
     @Override // com.qq.e.comm.plugin.j.b.l
     public l.a[] a(long j, int i) {

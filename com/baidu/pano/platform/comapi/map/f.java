@@ -3,27 +3,27 @@ package com.baidu.pano.platform.comapi.map;
 import android.os.Handler;
 import android.os.Message;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class f extends Handler {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ e f3965a;
+    final /* synthetic */ e f3966a;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public f(e eVar) {
-        this.f3965a = eVar;
+        this.f3966a = eVar;
     }
 
     @Override // android.os.Handler
     public void handleMessage(Message message) {
         if (message.what == 1001) {
-            this.f3965a.a(-message.arg1, -message.arg2);
+            this.f3966a.a(-message.arg1, -message.arg2);
         } else if (message.what == 1002) {
             float f = message.arg1;
             if (f > 60.0f || f < 20.0f) {
-                this.f3965a.k();
+                this.f3966a.k();
             } else {
-                this.f3965a.a(message.arg1);
+                this.f3966a.a(message.arg1);
             }
         }
     }

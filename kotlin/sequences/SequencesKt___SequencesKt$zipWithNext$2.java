@@ -40,7 +40,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
     public final Object invoke(kotlin.coroutines.experimental.f<? super R> fVar, kotlin.coroutines.experimental.b<? super h> bVar) {
         p.o(fVar, "$receiver");
         p.o(bVar, "continuation");
-        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qlD, null);
+        return ((SequencesKt___SequencesKt$zipWithNext$2) create((kotlin.coroutines.experimental.f) fVar, bVar)).doResume(h.qnl, null);
     }
 
     /* JADX WARN: Removed duplicated region for block: B:15:0x0031  */
@@ -56,7 +56,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
         kotlin.coroutines.experimental.f fVar;
         Object obj3;
         Iterator it2;
-        Object eMe = kotlin.coroutines.experimental.a.a.eMe();
+        Object eMI = kotlin.coroutines.experimental.a.a.eMI();
         switch (this.label) {
             case 0:
                 if (th == null) {
@@ -67,7 +67,7 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
                         fVar = fVar2;
                         break;
                     } else {
-                        return h.qlD;
+                        return h.qnl;
                     }
                 } else {
                     throw th;
@@ -97,14 +97,14 @@ final class SequencesKt___SequencesKt$zipWithNext$2 extends CoroutineImpl implem
             this.L$2 = obj3;
             this.L$3 = obj2;
             this.label = 1;
-            if (fVar.a(invoke, this) == eMe) {
-                return eMe;
+            if (fVar.a(invoke, this) == eMI) {
+                return eMI;
             }
             it = it2;
             obj3 = obj2;
             it2 = it;
             if (!it2.hasNext()) {
-                return h.qlD;
+                return h.qnl;
             }
         }
     }

@@ -3,7 +3,7 @@ package io.reactivex.internal.operators.flowable;
 import io.reactivex.b.h;
 import io.reactivex.g;
 import io.reactivex.j;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T, U> {
     final h<? super T, ? extends U> mapper;
 
@@ -16,19 +16,19 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
     @Override // io.reactivex.g
     public void a(org.a.c<? super U> cVar) {
         if (cVar instanceof io.reactivex.internal.a.a) {
-            this.qgK.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
+            this.qit.a((j) new a((io.reactivex.internal.a.a) cVar, this.mapper));
         } else {
-            this.qgK.a((j) new C1266b(cVar, this.mapper));
+            this.qit.a((j) new C1307b(cVar, this.mapper));
         }
     }
 
     /* renamed from: io.reactivex.internal.operators.flowable.b$b  reason: collision with other inner class name */
-    /* loaded from: classes3.dex */
-    static final class C1266b<T, U> extends io.reactivex.internal.subscribers.b<T, U> {
+    /* loaded from: classes5.dex */
+    static final class C1307b<T, U> extends io.reactivex.internal.subscribers.b<T, U> {
         final h<? super T, ? extends U> mapper;
 
         /* JADX INFO: Access modifiers changed from: package-private */
-        public C1266b(org.a.c<? super U> cVar, h<? super T, ? extends U> hVar) {
+        public C1307b(org.a.c<? super U> cVar, h<? super T, ? extends U> hVar) {
             super(cVar);
             this.mapper = hVar;
         }
@@ -50,7 +50,7 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Tf(i);
+            return Tv(i);
         }
 
         @Override // io.reactivex.internal.a.f
@@ -63,7 +63,7 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
         }
     }
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes5.dex */
     static final class a<T, U> extends io.reactivex.internal.subscribers.a<T, U> {
         final h<? super T, ? extends U> mapper;
 
@@ -102,7 +102,7 @@ public final class b<T, U> extends io.reactivex.internal.operators.flowable.a<T,
 
         @Override // io.reactivex.internal.a.c
         public int requestFusion(int i) {
-            return Tf(i);
+            return Tv(i);
         }
 
         @Override // io.reactivex.internal.a.f

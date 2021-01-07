@@ -7,7 +7,7 @@ import android.widget.RelativeLayout;
 import com.baidu.prologue.a.c.m;
 import com.baidu.prologue.business.data.SplashStyleRecorder;
 import org.json.JSONObject;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class e {
     public static final boolean DEBUG = com.baidu.prologue.a.a.a.ctc;
 
@@ -30,8 +30,8 @@ public final class e {
 
     private static void a(ViewGroup.MarginLayoutParams marginLayoutParams, int[] iArr) {
         if (iArr != null && iArr.length == 4) {
-            Context age = com.baidu.prologue.a.b.a.ctd.get().age();
-            marginLayoutParams.setMargins(m.dip2px(age, iArr[0]), m.dip2px(age, iArr[1]), m.dip2px(age, iArr[2]), m.dip2px(age, iArr[3]));
+            Context agf = com.baidu.prologue.a.b.a.ctd.get().agf();
+            marginLayoutParams.setMargins(m.dip2px(agf, iArr[0]), m.dip2px(agf, iArr[1]), m.dip2px(agf, iArr[2]), m.dip2px(agf, iArr[3]));
         }
     }
 

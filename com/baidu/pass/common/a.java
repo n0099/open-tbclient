@@ -15,17 +15,17 @@ class a {
     static class C0282a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static final String f4094a = "UTF-8";
+        private static final String f4095a = "UTF-8";
 
         /* renamed from: b  reason: collision with root package name */
-        private static final String f4095b = "AES/CBC/NoPadding";
+        private static final String f4096b = "AES/CBC/NoPadding";
         private static final String c = "AES";
         private String d;
         private String e;
         private String f;
 
         public C0282a() {
-            this("AES", f4095b, "UTF-8");
+            this("AES", f4096b, "UTF-8");
         }
 
         public byte[] a(String str, String str2, String str3) throws Exception {
@@ -49,7 +49,7 @@ class a {
 
         public C0282a(String str, String str2, String str3) {
             this.d = "UTF-8";
-            this.e = f4095b;
+            this.e = f4096b;
             this.f = "AES";
             this.f = str;
             this.e = str2;

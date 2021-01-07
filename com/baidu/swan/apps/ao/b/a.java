@@ -90,10 +90,10 @@ public class a {
         synchronized (this) {
             ve("start");
             long currentTimeMillis = System.currentTimeMillis();
-            List<RunnableC0385a> aSg = aSg();
-            CountDownLatch countDownLatch = new CountDownLatch(aSg.size());
-            ExecutorService a2 = a(aSg, countDownLatch);
-            a(readableByteChannel, aSg);
+            List<RunnableC0385a> aSh = aSh();
+            CountDownLatch countDownLatch = new CountDownLatch(aSh.size());
+            ExecutorService a2 = a(aSh, countDownLatch);
+            a(readableByteChannel, aSh);
             ve("pump_finish");
             if (DEBUG) {
                 log("pumping: cost=" + (System.currentTimeMillis() - currentTimeMillis));
@@ -128,7 +128,7 @@ public class a {
         }
     }
 
-    private List<RunnableC0385a> aSg() {
+    private List<RunnableC0385a> aSh() {
         final ArrayList arrayList = new ArrayList();
         com.baidu.swan.apps.ao.e.a.a(new com.baidu.swan.apps.ao.e.b<com.baidu.swan.apps.ao.e.b<Pipe.SourceChannel>>() { // from class: com.baidu.swan.apps.ao.b.a.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -165,7 +165,7 @@ public class a {
         return newCachedThreadPool;
     }
 
-    private float aSh() {
+    private float aSi() {
         float f = this.dSq.getFloat("progress_granularity", 0.01f);
         float f2 = f >= 0.0f ? f : 0.0f;
         if (f2 > 1.0f) {
@@ -176,7 +176,7 @@ public class a {
 
     private void a(@NonNull ReadableByteChannel readableByteChannel, @NonNull List<RunnableC0385a> list) {
         R(0.0f);
-        float aSh = aSh();
+        float aSi = aSi();
         int i = 0;
         long j = this.dSq.getLong("length");
         final ByteBuffer allocate = ByteBuffer.allocate(this.dSn);
@@ -225,10 +225,10 @@ public class a {
                     if (DEBUG) {
                         log(String.format("pumping: %4s [%s] read/at:[%7d/%-7d]", NumberFormat.getPercentInstance().format(f2), sb, Long.valueOf(read), Long.valueOf(j2)));
                     }
-                    if (f3 > aSh) {
+                    if (f3 > aSi) {
                         if (DEBUG) {
                             NumberFormat percentInstance = NumberFormat.getPercentInstance();
-                            log("pumping: updateProgress granularity:" + percentInstance.format(aSh) + " step:" + percentInstance.format(f3));
+                            log("pumping: updateProgress granularity:" + percentInstance.format(aSi) + " step:" + percentInstance.format(f3));
                         }
                         R(f2);
                     }
@@ -298,7 +298,7 @@ public class a {
             this.dSz = countDownLatch;
         }
 
-        private void aSi() {
+        private void aSj() {
             if (this.dSz != null) {
                 this.dSz.countDown();
             }
@@ -323,7 +323,7 @@ public class a {
             if (a.DEBUG) {
                 a.log("countdown by end -> " + toString());
             }
-            aSi();
+            aSj();
         }
 
         private void close() {

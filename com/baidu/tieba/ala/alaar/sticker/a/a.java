@@ -5,14 +5,14 @@ import java.io.File;
 public class a {
     private static a gva;
 
-    public static a bTa() {
+    public static a bTb() {
         if (gva == null) {
-            gva = bTb();
+            gva = bTc();
         }
         return gva;
     }
 
-    private static synchronized a bTb() {
+    private static synchronized a bTc() {
         a aVar;
         synchronized (a.class) {
             if (gva == null) {
@@ -26,11 +26,11 @@ public class a {
     private a() {
     }
 
-    public File bTc() {
+    public File bTd() {
         return i.getPrivateCaptureRootChildDir("duModel");
     }
 
-    public File bTd() {
+    public File bTe() {
         return i.getPrivateCaptureRootChildDir("duSo");
     }
 }

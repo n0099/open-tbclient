@@ -43,9 +43,9 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b
-    public void emx() {
-        if (emM()) {
-            emL();
+    public void emy() {
+        if (emN()) {
+            emM();
         }
     }
 
@@ -103,16 +103,16 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
                     } else {
                         textView.setVisibility(8);
                     }
-                    final int enj = aVar.enj();
+                    final int enk = aVar.enk();
                     final int i4 = this.oYc;
                     inflate.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b.1
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             if (b.this.oYf != null) {
-                                b.this.oYf.a(b.this, i4, enj);
+                                b.this.oYf.a(b.this, i4, enk);
                             }
                             if (!b.this.OW(i4).isSticky()) {
-                                b.this.emL();
+                                b.this.emM();
                             }
                         }
                     });
@@ -130,7 +130,7 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void emK() {
+    public void emL() {
         if (this.oYa) {
             try {
                 if (this.mWM != null && this.mParentView != null) {
@@ -144,7 +144,7 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
         this.oYb = false;
     }
 
-    public boolean emL() {
+    public boolean emM() {
         if (this.oYb) {
             return this.oYa;
         }
@@ -155,10 +155,10 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
         handler.postDelayed(new Runnable() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b.2
             @Override // java.lang.Runnable
             public void run() {
-                b.this.emK();
+                b.this.emL();
             }
         }, 100L);
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emC().b(null);
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emD().b(null);
         return z;
     }
 
@@ -202,7 +202,7 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
         this.mParentView.addView(this.mRootView);
         this.mParentView.setOnTouchListener(this);
         this.mRootView.startAnimation(AnimationUtils.loadAnimation(this.mContext, a.C0203a.grow_from_bottom));
-        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emC().b(this);
+        com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emD().b(this);
     }
 
     private void dR(int i, int i2) {
@@ -227,7 +227,7 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
     @SuppressLint({"ClickableViewAccessibility"})
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (motionEvent.getAction() == 4) {
-            emL();
+            emM();
             return false;
         }
         return false;
@@ -241,7 +241,7 @@ public class b implements View.OnTouchListener, com.baidu.yuyinala.privatemessag
         this.oYf = aVar;
     }
 
-    public boolean emM() {
+    public boolean emN() {
         return this.oYa;
     }
 }

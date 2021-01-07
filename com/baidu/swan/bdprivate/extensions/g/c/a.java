@@ -42,7 +42,7 @@ public class a {
         return 0;
     }
 
-    public static int aTy() {
+    public static int aTz() {
         String networkClass = SwanAppNetworkUtils.getNetworkClass();
         if ("wifi".equals(networkClass)) {
             return 1;
@@ -147,7 +147,7 @@ public class a {
             if (DEBUG) {
                 Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
             }
-            new c.a(10003).tw(str).tv(com.baidu.swan.apps.runtime.e.aMm()).axJ();
+            new c.a(10003).tw(str).tv(com.baidu.swan.apps.runtime.e.aMn()).axK();
         }
     }
 }

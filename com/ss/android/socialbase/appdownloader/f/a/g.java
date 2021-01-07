@@ -6,10 +6,10 @@ import java.io.IOException;
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private int[] f13345a;
+    private int[] f13346a;
 
     /* renamed from: b  reason: collision with root package name */
-    private int[] f13346b;
+    private int[] f13347b;
 
     public static g a(d dVar) throws IOException {
         b.a(dVar, 1835009);
@@ -20,7 +20,7 @@ public class g {
         int b5 = dVar.b();
         int b6 = dVar.b();
         g gVar = new g();
-        gVar.f13345a = dVar.b(b3);
+        gVar.f13346a = dVar.b(b3);
         if (b4 != 0) {
             dVar.b(b4);
         }
@@ -28,7 +28,7 @@ public class g {
         if (i % 4 != 0) {
             throw new IOException("String data size is not multiple of 4 (" + i + ").");
         }
-        gVar.f13346b = dVar.b(i / 4);
+        gVar.f13347b = dVar.b(i / 4);
         if (b6 != 0) {
             int i2 = b2 - b6;
             if (i2 % 4 != 0) {
@@ -40,15 +40,15 @@ public class g {
     }
 
     public String a(int i) {
-        if (i < 0 || this.f13345a == null || i >= this.f13345a.length) {
+        if (i < 0 || this.f13346a == null || i >= this.f13346a.length) {
             return null;
         }
-        int i2 = this.f13345a[i];
-        int c = c(this.f13346b, i2);
+        int i2 = this.f13346a[i];
+        int c = c(this.f13347b, i2);
         StringBuilder sb = new StringBuilder(c);
         while (c != 0) {
             i2 += 2;
-            sb.append((char) c(this.f13346b, i2));
+            sb.append((char) c(this.f13347b, i2));
             c--;
         }
         return sb.toString();

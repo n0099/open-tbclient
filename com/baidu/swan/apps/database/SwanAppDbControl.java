@@ -176,7 +176,7 @@ public class SwanAppDbControl {
 
         private void c(SQLiteDatabase sQLiteDatabase) {
             try {
-                sQLiteDatabase.execSQL(SwanAppDbControl.awu());
+                sQLiteDatabase.execSQL(SwanAppDbControl.awv());
             } catch (Exception e) {
                 e.getStackTrace();
             }
@@ -326,17 +326,17 @@ public class SwanAppDbControl {
         private void v(SQLiteDatabase sQLiteDatabase) {
             boolean z = false;
             long currentTimeMillis = System.currentTimeMillis();
-            List<ContentValues> ali = com.baidu.swan.apps.t.a.aAM().ali();
+            List<ContentValues> alj = com.baidu.swan.apps.t.a.aAN().alj();
             long currentTimeMillis2 = System.currentTimeMillis();
             if (SwanAppDbControl.DEBUG) {
-                Log.d("SwanAppDbControl", "read old history cost" + (currentTimeMillis2 - currentTimeMillis) + "  count:" + (ali == null ? 0 : ali.size()));
+                Log.d("SwanAppDbControl", "read old history cost" + (currentTimeMillis2 - currentTimeMillis) + "  count:" + (alj == null ? 0 : alj.size()));
             }
-            if (ali != null) {
+            if (alj != null) {
                 try {
-                    if (ali.size() != 0) {
+                    if (alj.size() != 0) {
                         try {
                             sQLiteDatabase.beginTransaction();
-                            Iterator<ContentValues> it = ali.iterator();
+                            Iterator<ContentValues> it = alj.iterator();
                             while (true) {
                                 if (!it.hasNext()) {
                                     z = true;
@@ -385,7 +385,7 @@ public class SwanAppDbControl {
         }
     }
 
-    public SQLiteOpenHelper awt() {
+    public SQLiteOpenHelper awu() {
         return daZ;
     }
 
@@ -498,7 +498,7 @@ public class SwanAppDbControl {
         }
     }
 
-    public static String awu() {
+    public static String awv() {
         return "CREATE TABLE ai_apps_aps_data (" + SwanAppTable._id + " INTEGER PRIMARY KEY AUTOINCREMENT," + SwanAppTable.app_id + " TEXT UNIQUE," + SwanAppTable.app_key + " TEXT," + SwanAppTable.version + " TEXT," + SwanAppTable.description + " TEXT," + SwanAppTable.error_code + " INTEGER," + SwanAppTable.error_detail + " TEXT," + SwanAppTable.error_msg + " TEXT," + SwanAppTable.resume_date + " TEXT," + SwanAppTable.icon + " TEXT," + SwanAppTable.icon_url + " TEXT," + SwanAppTable.max_swan_version + " TEXT," + SwanAppTable.min_swan_version + " TEXT," + SwanAppTable.name + " TEXT," + SwanAppTable.service_category + " TEXT," + SwanAppTable.subject_info + " TEXT," + SwanAppTable.bear_info + " TEXT," + SwanAppTable.sign + " TEXT," + SwanAppTable.type + " INTEGER," + SwanAppTable.is_have_zip + " INTEGER," + SwanAppTable.app_open_url + " TEXT," + SwanAppTable.app_download_url + " TEXT," + SwanAppTable.target_swan_version + " TEXT," + SwanAppTable.app_zip_size + " LONG," + SwanAppTable.pending_aps_errcode + " INTEGER," + SwanAppTable.version_code + " TEXT," + SwanAppTable.app_category + " INTEGER," + SwanAppTable.orientation + " INTEGER," + SwanAppTable.max_age + " LONG," + SwanAppTable.create_time + " LONG," + SwanAppTable.force_fetch_meta_info + " INTEGER," + SwanAppTable.pay_protected + " INTEGER," + SwanAppTable.quick_app_key + " TEXT);";
     }
 
@@ -542,7 +542,7 @@ public class SwanAppDbControl {
         return daZ.getWritableDatabase().update("ai_apps_history", contentValues, str, strArr);
     }
 
-    public SQLiteDatabase awv() {
+    public SQLiteDatabase aww() {
         return daZ.getWritableDatabase();
     }
 

@@ -40,7 +40,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
     private View bVM;
     private String mKey;
     private LinearLayout mRootLayout;
-    private RelativeLayout mXM;
+    private RelativeLayout mXL;
     private ActivityChat oRx;
     private c oWu;
     private int oXf;
@@ -74,15 +74,15 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
         this.mKey = "";
         this.oXy = cVar;
         this.mKey = str;
-        d.emC().a(this);
+        d.emD().a(this);
         this.oRx = activityChat;
         this.oXf = (int) this.oRx.getResources().getDimension(a.d.bd_im_chat_bottom_bar);
         com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.a(this);
         this.bVM = view.getRootView();
-        o(this.bVM, emv());
+        o(this.bVM, emw());
         ap(this.bVM);
         this.oXj.addTextChangedListener(this);
-        emy();
+        emz();
         ew(this.bVM);
     }
 
@@ -126,7 +126,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
         this.oXj.clearFocus();
         this.oXj.setOnTouchListener(this);
         this.oXj.setBackgroundResource(a.e.bd_im_input_edit_bg);
-        this.mXM = (RelativeLayout) view.findViewById(a.f.bd_im_chat_input_background);
+        this.mXL = (RelativeLayout) view.findViewById(a.f.bd_im_chat_input_background);
         this.oXh = view.findViewById(a.f.bd_im_chat_showemoji_layout);
         this.oXi = view.findViewById(a.f.bd_im_chat_keyborad_layout);
         this.oXp = (LinearLayout) view.findViewById(a.f.bd_im_chat_input_layout);
@@ -139,26 +139,26 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
             this.oXw = EmojiconsFragment.f(this.oRx, this.oXn);
         } catch (Exception e) {
             LogUtils.e("InputFragment", e.getMessage());
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ell().c(this.oRx.getActivity(), e);
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elm().c(this.oRx.getActivity(), e);
         }
-        emt();
+        emu();
     }
 
-    private void emt() {
+    private void emu() {
         this.oXm.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (com.baidu.yuyinala.privatemessage.implugin.d.b.ell().isCuidLogin(b.this.oRx.getActivity()) || com.baidu.yuyinala.privatemessage.implugin.d.b.ell().elm()) {
+                if (com.baidu.yuyinala.privatemessage.implugin.d.b.elm().isCuidLogin(b.this.oRx.getActivity()) || com.baidu.yuyinala.privatemessage.implugin.d.b.elm().eln()) {
                     b.this.login();
                     return;
                 }
-                f.emB();
+                f.emC();
                 if (b.mMode != 4) {
                     int unused = b.mMode = 4;
                 } else {
                     int unused2 = b.mMode = 0;
                 }
-                b.this.emy();
+                b.this.emz();
             }
         });
         this.oXl.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.3
@@ -169,7 +169,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                     com.baidu.yuyinala.privatemessage.implugin.util.c.b.j((Context) b.this.oRx.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.pbZ, true);
                     b.this.oXl.setTipOn(false);
                 }
-                f.emB();
+                f.emC();
                 String obj = b.this.oXj.getEditableText().toString();
                 if (!TextUtils.isEmpty(obj.trim())) {
                     b.this.oXj.setText("");
@@ -178,8 +178,8 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                     textMsg.setFromUser(ChatInfo.oTJ);
                     textMsg.setText(obj);
                     textMsg.setStatus(1);
-                    if (com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(b.this.oRx.getActivity()) != null) {
-                        str = com.baidu.yuyinala.privatemessage.implugin.d.b.ell().getUserId(b.this.oRx.getActivity());
+                    if (com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getUserId(b.this.oRx.getActivity()) != null) {
+                        str = com.baidu.yuyinala.privatemessage.implugin.d.b.elm().getUserId(b.this.oRx.getActivity());
                     } else {
                         str = "0";
                     }
@@ -198,15 +198,15 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                         textMsg.setContacterBduid(ChatInfo.mUid + "");
                     }
                     textMsg.setMsgTime(System.currentTimeMillis() / 1000);
-                    com.baidu.yuyinala.privatemessage.model.message.a.eoe().c(b.this.oRx.getActivity(), textMsg);
-                    b.this.oWu = d.emC().Yu(b.this.mKey);
+                    com.baidu.yuyinala.privatemessage.model.message.a.eog().c(b.this.oRx.getActivity(), textMsg);
+                    b.this.oWu = d.emD().Yt(b.this.mKey);
                     if (b.this.oWu != null) {
                         b.this.oWu.h(textMsg);
                         return;
                     }
                     return;
                 }
-                b.this.emy();
+                b.this.emz();
             }
         });
     }
@@ -214,34 +214,34 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
     public void onResume() {
         LogUtils.d("InputFragment", "onResume " + this.oXq);
         this.oXj.addTextChangedListener(this);
-        emy();
+        emz();
     }
 
     public void onPause() {
         this.oXj.removeTextChangedListener(this);
-        emu();
+        emv();
     }
 
     public void onStop() {
-        emu();
+        emv();
     }
 
     public void onStart() {
-        emu();
+        emv();
     }
 
     public void onDestroy() {
-        com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.emT();
+        com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.emU();
     }
 
-    public void emu() {
+    public void emv() {
         try {
             if (this.oXj != null) {
                 this.oXj.clearFocus();
             }
             mMode = 3;
             LogUtils.e("InputFragment", "mMode : " + mMode);
-            emy();
+            emz();
         } catch (Exception e) {
             LogUtils.e("InputFragment", e.getMessage());
         }
@@ -270,7 +270,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                         LogUtils.d("InputFragment", "difference write to xml:" + i);
                         if (b.this.oXt > 100) {
                             LogUtils.d("InputFragment", "resize of Keyboard");
-                            b.this.emw();
+                            b.this.emx();
                         }
                     } else {
                         return;
@@ -280,7 +280,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                 if (b.mMode == 0 || b.mMode == 3) {
                     b.this.cOr = com.baidu.yuyinala.privatemessage.implugin.util.c.b.k(b.this.oRx.getActivity(), com.baidu.yuyinala.privatemessage.implugin.util.c.a.pbX, 0);
                     b.this.oXx = i <= 100;
-                    e.emQ().OX((i > 100 ? i : b.this.cOr) + b.this.oXf);
+                    e.emR().OX((i > 100 ? i : b.this.cOr) + b.this.oXf);
                     if (b.this.oXx && b.this.oXu && b.mMode == 0) {
                         if (!b.this.oXz.hasMessages(1)) {
                             b.this.oXz.sendEmptyMessageDelayed(1, b.oXv);
@@ -294,7 +294,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
         });
     }
 
-    private boolean emv() {
+    private boolean emw() {
         if (this.bVM != null) {
             Rect rect = new Rect();
             this.bVM.getWindowVisibleDisplayFrame(rect);
@@ -306,8 +306,8 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void emw() {
-        this.oXw.abI();
+    public void emx() {
+        this.oXw.abJ();
     }
 
     private void Az(boolean z) {
@@ -351,21 +351,21 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.b
-    public void emx() {
-        emu();
+    public void emy() {
+        emv();
     }
 
     @Override // android.view.View.OnTouchListener
     @SuppressLint({"ClickableViewAccessibility", "NewApi"})
     public boolean onTouch(View view, MotionEvent motionEvent) {
         if (view.getId() == a.f.bd_im_chat_input_txt && motionEvent.getAction() == 1) {
-            if (com.baidu.yuyinala.privatemessage.implugin.d.b.ell().isCuidLogin(this.oRx) || com.baidu.yuyinala.privatemessage.implugin.d.b.ell().elm()) {
+            if (com.baidu.yuyinala.privatemessage.implugin.d.b.elm().isCuidLogin(this.oRx) || com.baidu.yuyinala.privatemessage.implugin.d.b.elm().eln()) {
                 login();
                 return true;
             }
-            f.emB();
+            f.emC();
             mMode = 0;
-            emy();
+            emz();
         }
         return false;
     }
@@ -384,13 +384,13 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void emy() {
+    public void emz() {
         switch (mMode) {
             case 0:
                 AA(true);
-                this.oWu = d.emC().Yu(this.mKey);
+                this.oWu = d.emD().Yt(this.mKey);
                 if (this.oWu != null) {
-                    this.oWu.eme();
+                    this.oWu.emf();
                     break;
                 }
                 break;
@@ -403,10 +403,10 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                 AA(false);
                 break;
             case 4:
-                emz();
-                this.oWu = d.emC().Yu(this.mKey);
+                emA();
+                this.oWu = d.emD().Yt(this.mKey);
                 if (this.oWu != null) {
-                    this.oWu.eme();
+                    this.oWu.emf();
                     break;
                 }
                 break;
@@ -426,19 +426,19 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
             Az(false);
         }
         aH(false, false);
-        if (this.mXM != null) {
-            this.mXM.setVisibility(0);
+        if (this.mXL != null) {
+            this.mXL.setVisibility(0);
         }
         this.oXx = z;
     }
 
-    private void emz() {
+    private void emA() {
         f.g(this.oRx.getActivity(), this.oXj);
         Az(false);
         aH(true, false);
-        this.mXM.setVisibility(0);
+        this.mXL.setVisibility(0);
         this.oXk.setImageResource(ThemeManager.U(this.oRx.getActivity(), a.e.bd_im_input_icon_status));
-        e.emQ().OX(this.oXg + this.oXf);
+        e.emR().OX(this.oXg + this.oXf);
     }
 
     private void y(CharSequence charSequence) {
@@ -488,7 +488,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
                     case 3:
                         String str = (String) message.obj;
                         if (!TextUtils.isEmpty(str)) {
-                            e.emQ().bw(this.oXD.get().oRx, str);
+                            e.emR().bw(this.oXD.get().oRx, str);
                             return;
                         }
                         return;
@@ -501,7 +501,7 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
         }
     }
 
-    public void emo() {
+    public void emp() {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.widget.emojicon.a.b
@@ -515,15 +515,15 @@ public class b implements TextWatcher, View.OnTouchListener, com.baidu.yuyinala.
     }
 
     public void login() {
-        if (com.baidu.yuyinala.privatemessage.implugin.d.b.ell().elm()) {
+        if (com.baidu.yuyinala.privatemessage.implugin.d.b.elm().eln()) {
             LogUtils.d("InputFragment", "will do bindPhone ");
-            com.baidu.yuyinala.privatemessage.implugin.d.b.ell().a(new b.d() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.5
+            com.baidu.yuyinala.privatemessage.implugin.d.b.elm().a(new b.d() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.5
                 @Override // com.baidu.yuyinala.privatemessage.implugin.ma.a
                 public void onResult(int i) {
                     LogUtils.d("InputFragment", "bindPhone result code = " + i);
                 }
             });
-        } else if (com.baidu.yuyinala.privatemessage.implugin.d.b.ell().isCuidLogin(this.oRx)) {
+        } else if (com.baidu.yuyinala.privatemessage.implugin.d.b.elm().isCuidLogin(this.oRx)) {
             LogUtils.d("InputFragment", "will do bindPhone ");
             f.b(new b.d() { // from class: com.baidu.yuyinala.privatemessage.implugin.ui.fragment.b.6
                 @Override // com.baidu.yuyinala.privatemessage.implugin.ma.a

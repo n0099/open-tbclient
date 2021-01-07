@@ -30,7 +30,7 @@ public class Static {
                 }
             }
         });
-        bIc();
+        bId();
         MessageManager.getInstance().registerListener(new CustomMessageListener(CmdConfigCustom.UEXCEPTION_MESSAGE) { // from class: com.baidu.tbadk.plugins.Static.2
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.listener.MessageListener
@@ -65,7 +65,7 @@ public class Static {
                                         for (StackTraceElement stackTraceElement : stackTrace) {
                                             try {
                                                 plugin2.getDexClassLoader().loadClass(stackTraceElement.getClassName());
-                                                com.baidu.tbadk.core.sharedPref.b.bvq().putInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, com.baidu.tbadk.core.sharedPref.b.bvq().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0) + 1);
+                                                com.baidu.tbadk.core.sharedPref.b.bvr().putInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, com.baidu.tbadk.core.sharedPref.b.bvr().getInt(SharedPrefConfig.PATCH_FATAL_ERROR_COUNT, 0) + 1);
                                                 break;
                                             } catch (ClassNotFoundException e) {
                                             }
@@ -82,7 +82,7 @@ public class Static {
         });
     }
 
-    private static void bIc() {
+    private static void bId() {
         MessageManager.getInstance().addMessageRule(new com.baidu.adp.framework.b.b(0) { // from class: com.baidu.tbadk.plugins.Static.3
             /* JADX DEBUG: Method merged with bridge method */
             @Override // com.baidu.adp.framework.b.f

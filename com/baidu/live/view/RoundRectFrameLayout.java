@@ -121,7 +121,7 @@ public class RoundRectFrameLayout extends FrameLayout {
         }
     }
 
-    private Path ZE() {
+    private Path ZF() {
         this.mPath.reset();
         this.mPath.addRoundRect(this.mRectF, this.bUC, Path.Direction.CW);
         return this.mPath;
@@ -129,7 +129,7 @@ public class RoundRectFrameLayout extends FrameLayout {
 
     private void i(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(ZE());
+        canvas.clipPath(ZF());
         super.dispatchDraw(canvas);
         canvas.restore();
     }
@@ -137,13 +137,13 @@ public class RoundRectFrameLayout extends FrameLayout {
     private void j(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.dispatchDraw(canvas);
-        canvas.drawPath(ZE(), this.mPaint);
+        canvas.drawPath(ZF(), this.mPaint);
         canvas.restore();
     }
 
     private void k(Canvas canvas) {
         canvas.save();
-        canvas.clipPath(ZE());
+        canvas.clipPath(ZF());
         super.draw(canvas);
         canvas.restore();
     }
@@ -151,7 +151,7 @@ public class RoundRectFrameLayout extends FrameLayout {
     private void l(Canvas canvas) {
         canvas.saveLayer(this.mRectF, null, 31);
         super.draw(canvas);
-        canvas.drawPath(ZE(), this.mPaint);
+        canvas.drawPath(ZF(), this.mPaint);
         canvas.restore();
     }
 }

@@ -22,6 +22,6 @@ public class AlaLiveRoomCoverLayout extends FrameLayout {
     private void init() {
         LayoutInflater.from(getContext()).inflate(a.g.ala_liveroom_cover_layout, (ViewGroup) this, true);
         this.hRk = (SimpleDraweeView) findViewById(a.f.ala_liveroom_background_img);
-        this.hRk.getHierarchy().a(a.e.bg_live_cover_default, p.b.pxH);
+        this.hRk.getHierarchy().a(a.e.bg_live_cover_default, p.b.pxO);
     }
 }

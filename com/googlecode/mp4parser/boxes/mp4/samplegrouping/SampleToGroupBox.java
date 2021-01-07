@@ -13,15 +13,15 @@ import java.util.LinkedList;
 import java.util.List;
 import org.aspectj.a.b.b;
 import org.aspectj.lang.a;
-/* loaded from: classes6.dex */
+/* loaded from: classes4.dex */
 public class SampleToGroupBox extends AbstractFullBox {
     public static final String TYPE = "sbgp";
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_0 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_1 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_2 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_3 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_4 = null;
-    private static final /* synthetic */ a.InterfaceC1274a ajc$tjp_5 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_0 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_1 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_2 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_3 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_4 = null;
+    private static final /* synthetic */ a.InterfaceC1315a ajc$tjp_5 = null;
     List<Entry> entries;
     private String groupingType;
     private String groupingTypeParameter;
@@ -83,7 +83,7 @@ public class SampleToGroupBox extends AbstractFullBox {
         }
     }
 
-    /* loaded from: classes6.dex */
+    /* loaded from: classes4.dex */
     public static class Entry {
         private int groupDescriptionIndex;
         private long sampleCount;

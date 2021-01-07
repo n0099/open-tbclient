@@ -16,7 +16,7 @@ import com.kwad.sdk.collector.AppStatusRules;
 import com.tencent.map.geoloclite.tsa.TencentLiteLocationListener;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class p implements y, Runnable {
     private static SparseArray Au;
     private final w AA;
@@ -44,7 +44,7 @@ public final class p implements y, Runnable {
     private long x = 5000;
 
     /* renamed from: b  reason: collision with root package name */
-    public final byte[] f1070b = new byte[0];
+    public final byte[] f1071b = new byte[0];
     private int z = 404;
     private BroadcastReceiver Av = new r(this);
 
@@ -142,7 +142,7 @@ public final class p implements y, Runnable {
     }
 
     private static void a(ah ahVar) {
-        if (ahVar == null || !ahVar.f1054b) {
+        if (ahVar == null || !ahVar.f1055b) {
             return;
         }
         try {
@@ -153,7 +153,7 @@ public final class p implements y, Runnable {
     }
 
     private static void a(ah ahVar, Handler handler) {
-        if (ahVar == null || ahVar.f1054b) {
+        if (ahVar == null || ahVar.f1055b) {
             return;
         }
         try {
@@ -207,7 +207,7 @@ public final class p implements y, Runnable {
             return;
         }
         this.AH.a(this.AJ, null, this.s);
-        this.AO = new Location(this.AJ.f1049b);
+        this.AO = new Location(this.AJ.f1050b);
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
@@ -219,7 +219,7 @@ public final class p implements y, Runnable {
         aa aaVar2 = (aaVar == null || pVar.f()) ? aaVar : null;
         if (zVar2 == null) {
             w wVar = pVar.AA;
-            z a2 = z.a(wVar.e, c.F(wVar.f1081a), null);
+            z a2 = z.a(wVar.e, c.F(wVar.f1082a), null);
             zVar = c.a(a2) ? a2 : null;
         } else {
             zVar = zVar2;
@@ -242,7 +242,7 @@ public final class p implements y, Runnable {
         b();
         this.z = 404;
         this.AQ = null;
-        synchronized (this.f1070b) {
+        synchronized (this.f1071b) {
             this.Aw = tencentLiteLocationListener;
         }
         if (this.AB != null && x.g().equals(this.AB.f())) {
@@ -286,7 +286,7 @@ public final class p implements y, Runnable {
         a(this.AH);
         al.hO().c();
         try {
-            this.AA.f1081a.unregisterReceiver(this.Av);
+            this.AA.f1082a.unregisterReceiver(this.Av);
         } catch (Throwable th) {
         }
         if (this.AI != null) {
@@ -351,7 +351,7 @@ public final class p implements y, Runnable {
     }
 
     /* JADX WARN: Code restructure failed: missing block: B:33:0x0088, code lost:
-        if ((b.a.a.a.a.af.a(r9.f1053b, r8.AN.f1053b) ? false : true) == false) goto L47;
+        if ((b.a.a.a.a.af.a(r9.f1054b, r8.AN.f1054b) ? false : true) == false) goto L47;
      */
     @Override // b.a.a.a.a.y
     /*
@@ -362,18 +362,18 @@ public final class p implements y, Runnable {
             try {
                 if (acVar instanceof aa) {
                     aa aaVar = (aa) acVar;
-                    if (aaVar != null && aaVar.f1049b != aa.f1048a) {
+                    if (aaVar != null && aaVar.f1050b != aa.f1049a) {
                         this.AJ = aaVar;
                         ad adVar = this.AP;
                         ae aeVar = new ae();
                         aeVar.Bh = adVar;
                         aeVar.c = "gps";
-                        ad hM = aeVar.g(new Location(aaVar.f1049b)).hM();
-                        hM.a(aaVar.f1049b);
+                        ad hM = aeVar.g(new Location(aaVar.f1050b)).hM();
+                        hM.a(aaVar.f1050b);
                         a(0, hM);
                     }
                     a(this.AH, this.Ay);
-                    if (this.AO == null || (this.AJ != null && this.AJ.f1049b.distanceTo(this.AO) >= 50.0f)) {
+                    if (this.AO == null || (this.AJ != null && this.AJ.f1050b.distanceTo(this.AO) >= 50.0f)) {
                         g();
                     }
                 } else if (acVar instanceof af) {
@@ -416,7 +416,7 @@ public final class p implements y, Runnable {
         this.AK = null;
         this.AN = null;
         this.v = 0L;
-        ab.f1050a = 0;
+        ab.f1051a = 0;
     }
 
     @Override // java.lang.Runnable
@@ -425,9 +425,9 @@ public final class p implements y, Runnable {
         if (sVar != null) {
             if (this.AI != null) {
                 u uVar = this.AI;
-                if (!uVar.f1077a) {
-                    uVar.f1077a = true;
-                    uVar.f1078b.clear();
+                if (!uVar.f1078a) {
+                    uVar.f1078a = true;
+                    uVar.f1079b.clear();
                     uVar.d = sVar;
                     uVar.AU.c.execute(uVar);
                     uVar.e = SystemClock.elapsedRealtime();
@@ -442,7 +442,7 @@ public final class p implements y, Runnable {
                 this.AF.c = this.AB.e;
             }
             try {
-                this.AA.f1081a.registerReceiver(this.Av, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"), null, sVar);
+                this.AA.f1082a.registerReceiver(this.Av, new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE"), null, sVar);
             } catch (Throwable th) {
             }
         }

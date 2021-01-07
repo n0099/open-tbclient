@@ -47,7 +47,7 @@ public class b extends aa {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            d.aQd().a(optString2, new d.a() { // from class: com.baidu.swan.apps.ak.b.b.1
+            d.aQe().a(optString2, new d.a() { // from class: com.baidu.swan.apps.ak.b.b.1
                 @Override // com.baidu.swan.apps.ak.b.d.a
                 public void lA(int i) {
                     b.this.a(i, callbackHandler, unitedSchemeEntity, optString);
@@ -61,11 +61,11 @@ public class b extends aa {
     /* JADX INFO: Access modifiers changed from: private */
     public void a(double d, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
         JSONObject jSONObject = new JSONObject();
-        int aQe = (int) ((d / d.aQd().aQe()) * 100.0d);
-        if (aQe < 0) {
-            aQe = 0;
+        int aQf = (int) ((d / d.aQe().aQf()) * 100.0d);
+        if (aQf < 0) {
+            aQf = 0;
         }
-        int i = aQe <= 100 ? aQe : 100;
+        int i = aQf <= 100 ? aQf : 100;
         try {
             jSONObject.put("volume", i);
             if (DEBUG) {

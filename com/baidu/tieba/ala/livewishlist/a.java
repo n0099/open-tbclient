@@ -39,11 +39,11 @@ public class a implements com.baidu.live.m.a, ScrollTextView.c {
             reset(true);
             this.bRX = viewGroup;
             this.hul = layoutParams;
-            bRi();
+            bRj();
         }
     }
 
-    private void bRi() {
+    private void bRj() {
         this.hSS = new FrameLayout(this.bRX.getContext());
         this.hSS.setBackgroundColor(0);
         this.hSS.setId(a.f.wish_layout_id);
@@ -55,7 +55,7 @@ public class a implements com.baidu.live.m.a, ScrollTextView.c {
         if (xVar != null && xVar.mLiveInfo != null) {
             this.aGe = xVar;
             if (this.hSS == null || this.bRX.indexOfChild(this.hSS) < 0) {
-                bRi();
+                bRj();
                 this.hSS.setVisibility(this.gPZ ? 0 : 8);
             }
             if (this.hST == null) {

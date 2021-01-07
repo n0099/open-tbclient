@@ -3,14 +3,14 @@ package com.qq.e.comm.plugin.r.b;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private String f12678a;
+    private String f12679a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f12679b;
+    private String f12680b;
     private int c;
     private int d;
     private String e;
@@ -32,8 +32,8 @@ public class c {
         this.k = -1;
         this.m = false;
         this.n = false;
-        this.f12678a = jSONObject.optString("name");
-        this.f12679b = jSONObject.optString("identity");
+        this.f12679a = jSONObject.optString("name");
+        this.f12680b = jSONObject.optString("identity");
         this.c = jSONObject.optInt(MapBundleKey.MapObjKey.OBJ_BID);
         this.d = jSONObject.optInt("priority");
         this.k = jSONObject.optInt("c_priority");
@@ -46,7 +46,7 @@ public class c {
     }
 
     public String a() {
-        return this.f12678a;
+        return this.f12679a;
     }
 
     public void a(int i) {
@@ -58,7 +58,7 @@ public class c {
     }
 
     public String b() {
-        return this.f12679b;
+        return this.f12680b;
     }
 
     public void b(int i) {

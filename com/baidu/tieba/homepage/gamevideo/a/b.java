@@ -28,7 +28,7 @@ public class b extends BaseAdapter {
         this.mTbPageContext = tbPageContext;
         this.mBdUniqueId = bdUniqueId;
         this.kbO = i;
-        this.kbN = com.baidu.tbadk.core.sharedPref.b.bvq().getInt("key_game_video_tab_has_choosed_sub_class_id", -1);
+        this.kbN = com.baidu.tbadk.core.sharedPref.b.bvr().getInt("key_game_video_tab_has_choosed_sub_class_id", -1);
     }
 
     public void setData(List<com.baidu.tieba.homepage.gamevideo.c.a> list) {

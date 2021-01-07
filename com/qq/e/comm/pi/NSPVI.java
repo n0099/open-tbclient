@@ -6,7 +6,7 @@ import com.qq.e.comm.adevent.ADListener;
 import com.qq.e.comm.constants.LoadAdParams;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public interface NSPVI {
     public static final Map<String, String> ext = new HashMap();
 

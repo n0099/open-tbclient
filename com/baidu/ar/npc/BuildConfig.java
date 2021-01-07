@@ -1,5 +1,5 @@
 package com.baidu.ar.npc;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class BuildConfig {
     public static final String APPLICATION_ID = "com.baidu.ar.npc";
     public static final String BUILD_TYPE = "release";

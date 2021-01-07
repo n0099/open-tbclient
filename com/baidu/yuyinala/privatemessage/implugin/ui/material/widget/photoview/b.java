@@ -22,17 +22,17 @@ public class b implements GestureDetector.OnDoubleTapListener {
         if (this.oZz == null) {
             return false;
         }
-        ImageView emZ = this.oZz.emZ();
+        ImageView ena = this.oZz.ena();
         if (this.oZz.getOnPhotoTapListener() != null && (displayRect = this.oZz.getDisplayRect()) != null) {
             float x = motionEvent.getX();
             float y = motionEvent.getY();
             if (displayRect.width() > 0.0f && displayRect.height() > 0.0f && displayRect.contains(x, y)) {
-                this.oZz.getOnPhotoTapListener().d(emZ, (x - displayRect.left) / displayRect.width(), (y - displayRect.top) / displayRect.height());
+                this.oZz.getOnPhotoTapListener().d(ena, (x - displayRect.left) / displayRect.width(), (y - displayRect.top) / displayRect.height());
                 return true;
             }
         }
         if (this.oZz.getOnViewTapListener() != null) {
-            this.oZz.getOnViewTapListener().e(emZ, motionEvent.getX(), motionEvent.getY());
+            this.oZz.getOnViewTapListener().e(ena, motionEvent.getX(), motionEvent.getY());
             return false;
         }
         return false;

@@ -75,10 +75,10 @@ public class FrsAlaShareItemAdapter extends k<bz, FrsPageAlaShareHolder> impleme
                 frsPageAlaShareHolder.hnn.setPage(this.aji);
             }
             frsPageAlaShareHolder.hnn.setForumName(this.mForumName);
-            j.a(frsPageAlaShareHolder.hnn.cbJ(), this.jeH);
             j.a(frsPageAlaShareHolder.hnn.cbK(), this.jeH);
+            j.a(frsPageAlaShareHolder.hnn.cbL(), this.jeH);
             frsPageAlaShareHolder.hnn.a(bzVar);
-            bzVar.bsE();
+            bzVar.bsF();
         }
         return frsPageAlaShareHolder.getView();
     }
@@ -93,7 +93,7 @@ public class FrsAlaShareItemAdapter extends k<bz, FrsPageAlaShareHolder> impleme
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 

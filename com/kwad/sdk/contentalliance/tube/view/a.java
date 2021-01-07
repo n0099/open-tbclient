@@ -7,15 +7,15 @@ import androidx.recyclerview.widget.RecyclerView;
 public class a extends RecyclerView.ItemDecoration {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f9309a;
+    private int f9310a;
 
     public a(int i) {
-        this.f9309a = i;
+        this.f9310a = i;
     }
 
     @Override // androidx.recyclerview.widget.RecyclerView.ItemDecoration
     public void getItemOffsets(Rect rect, View view, RecyclerView recyclerView, RecyclerView.State state) {
-        rect.left = this.f9309a;
-        rect.bottom = this.f9309a;
+        rect.left = this.f9310a;
+        rect.bottom = this.f9310a;
     }
 }

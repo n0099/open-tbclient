@@ -120,7 +120,7 @@ public class c extends com.baidu.mobads.production.b {
             stringBuffer.append("_&_");
             stringBuffer.append(iXAdInstanceInfo.getTitle());
             stringBuffer.append("_&_");
-            q.f3384a = stringBuffer.toString();
+            q.f3385a = stringBuffer.toString();
         } catch (Exception e) {
         }
         try {

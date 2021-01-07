@@ -1,12 +1,12 @@
 package com.baidu.pano.platform.c;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class i {
 
     /* renamed from: a  reason: collision with root package name */
-    public static String f3954a = "https://sv.map.baidu.com/scape/?qt=idata";
+    public static String f3955a = "https://sv.map.baidu.com/scape/?qt=idata";
 
     /* renamed from: b  reason: collision with root package name */
-    public static String f3955b = "https://sv.map.baidu.com/?qt=guide";
+    public static String f3956b = "https://sv.map.baidu.com/?qt=guide";
     public static String c = "https://sv.map.baidu.com/?qt=sdata";
     public static String d = "https://sv.map.baidu.com/?qt=qsdata";
     public static String e = "https://sv.map.baidu.com/?qt=poi";

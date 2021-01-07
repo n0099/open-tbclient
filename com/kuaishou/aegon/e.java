@@ -2,10 +2,10 @@ package com.kuaishou.aegon;
 /* JADX INFO: Access modifiers changed from: package-private */
 /* loaded from: classes5.dex */
 public final /* synthetic */ class e implements Runnable {
-    private final boolean pQB;
+    private final boolean pSj;
 
     private e(boolean z) {
-        this.pQB = z;
+        this.pSj = z;
     }
 
     public static Runnable Bq(boolean z) {
@@ -14,6 +14,6 @@ public final /* synthetic */ class e implements Runnable {
 
     @Override // java.lang.Runnable
     public void run() {
-        Aegon.nativeSetDebug(this.pQB);
+        Aegon.nativeSetDebug(this.pSj);
     }
 }

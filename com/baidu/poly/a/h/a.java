@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.baidu.android.util.io.BaseJsonData;
 import kotlin.jvm.internal.p;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public final class a {
     private static Long cow = 0L;
     private static Long cox = 0L;
@@ -13,14 +13,14 @@ public final class a {
         Long l = cox;
         if (l != null) {
             if (l == null) {
-                p.eMi();
+                p.eMM();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     Long l2 = cox;
                     if (l2 == null) {
-                        p.eMi();
+                        p.eMM();
                     }
                     jSONObject.put("3", l2.longValue());
                     jSONObject.put("4", System.currentTimeMillis());
@@ -36,14 +36,14 @@ public final class a {
         Long l = cow;
         if (l != null) {
             if (l == null) {
-                p.eMi();
+                p.eMM();
             }
             if (l.longValue() > 0) {
                 JSONObject jSONObject = new JSONObject();
                 try {
                     Long l2 = cow;
                     if (l2 == null) {
-                        p.eMi();
+                        p.eMM();
                     }
                     jSONObject.put("1", l2.longValue());
                     jSONObject.put("2", System.currentTimeMillis());

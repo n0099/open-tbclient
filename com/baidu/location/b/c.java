@@ -1,23 +1,23 @@
 package com.baidu.location.b;
 
 import android.os.Bundle;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class c {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Object f2603a = new Object();
+    private static Object f2604a = new Object();
 
     /* renamed from: b  reason: collision with root package name */
-    private static c f2604b = null;
+    private static c f2605b = null;
     private int c = -1;
 
     public static c a() {
         c cVar;
-        synchronized (f2603a) {
-            if (f2604b == null) {
-                f2604b = new c();
+        synchronized (f2604a) {
+            if (f2605b == null) {
+                f2605b = new c();
             }
-            cVar = f2604b;
+            cVar = f2605b;
         }
         return cVar;
     }

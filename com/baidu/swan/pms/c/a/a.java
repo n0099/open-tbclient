@@ -19,10 +19,10 @@ public class a {
         i a2 = com.baidu.swan.pms.c.a.a.a.a(aVar, gVar);
         if (list != null && !list.isEmpty()) {
             for (f<com.baidu.swan.pms.model.g> fVar : h.b(list, gVar)) {
-                a2.a(d.bgC().i(fVar));
+                a2.a(d.bgD().i(fVar));
             }
         }
-        a2.bgN();
+        a2.bgO();
     }
 
     public static void a(com.baidu.swan.pms.node.d.a aVar, g gVar) {

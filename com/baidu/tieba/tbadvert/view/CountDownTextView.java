@@ -11,7 +11,7 @@ public class CountDownTextView extends TextView {
     private final Runnable gng;
     private Handler mHandler;
     private String mText;
-    private b nwt;
+    private b nws;
 
     /* loaded from: classes8.dex */
     public interface b {
@@ -39,13 +39,13 @@ public class CountDownTextView extends TextView {
         super(context);
         this.cUw = 0;
         this.mText = "";
-        this.nwt = null;
+        this.nws = null;
         this.mHandler = new Handler();
         this.gng = new a();
     }
 
     public void setTimeoutListener(b bVar) {
-        this.nwt = bVar;
+        this.nws = bVar;
     }
 
     @Override // android.widget.TextView, android.view.View
@@ -57,7 +57,7 @@ public class CountDownTextView extends TextView {
     @Override // android.view.View
     protected void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        bPX();
+        bPY();
     }
 
     @Override // android.view.View
@@ -66,7 +66,7 @@ public class CountDownTextView extends TextView {
         if (i == 0) {
             uH(0);
         } else {
-            bPX();
+            bPY();
         }
     }
 
@@ -77,7 +77,7 @@ public class CountDownTextView extends TextView {
         }
     }
 
-    private void bPX() {
+    private void bPY() {
         this.mHandler.removeCallbacksAndMessages(null);
     }
 
@@ -85,8 +85,8 @@ public class CountDownTextView extends TextView {
     public void uH(int i) {
         this.cUw -= i;
         if (this.cUw == 0) {
-            if (this.nwt != null) {
-                this.nwt.cj(this);
+            if (this.nws != null) {
+                this.nws.cj(this);
             }
             this.mHandler.removeCallbacksAndMessages(null);
             return;

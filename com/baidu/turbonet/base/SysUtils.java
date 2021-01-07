@@ -19,7 +19,7 @@ public class SysUtils {
     private SysUtils() {
     }
 
-    private static int ehw() {
+    private static int ehx() {
         FileReader fileReader;
         Pattern compile = Pattern.compile("^MemTotal:\\s+([0-9]+) kB$");
         StrictMode.ThreadPolicy allowThreadDiskReads = StrictMode.allowThreadDiskReads();
@@ -59,21 +59,21 @@ public class SysUtils {
     @CalledByNative
     public static boolean isLowEndDevice() {
         if (oJc == null) {
-            oJc = Boolean.valueOf(ehx());
+            oJc = Boolean.valueOf(ehy());
         }
         return oJc.booleanValue();
     }
 
-    private static boolean ehx() {
+    private static boolean ehy() {
         if ($assertionsDisabled || CommandLine.isInitialized()) {
-            if (CommandLine.ehp().hasSwitch("enable-low-end-device-mode")) {
+            if (CommandLine.ehq().hasSwitch("enable-low-end-device-mode")) {
                 return true;
             }
-            if (CommandLine.ehp().hasSwitch("disable-low-end-device-mode")) {
+            if (CommandLine.ehq().hasSwitch("disable-low-end-device-mode")) {
                 return false;
             }
-            int ehw = ehw();
-            return ehw > 0 && ehw / 1024 <= 512;
+            int ehx = ehx();
+            return ehx > 0 && ehx / 1024 <= 512;
         }
         throw new AssertionError();
     }

@@ -7,13 +7,13 @@ public class g {
     private static boolean enabled = true;
     private static HashMap<String, Integer> kfJ = new HashMap<>();
 
-    public static void Mz(String str) {
+    public static void My(String str) {
         if (!TextUtils.isEmpty(str)) {
             kfJ.put(str, 0);
         }
     }
 
-    public static int cTj() {
+    public static int cTk() {
         return kfJ.size();
     }
 
@@ -28,7 +28,7 @@ public class g {
         }
     }
 
-    public static void cTk() {
+    public static void cTl() {
         kfJ.clear();
     }
 }

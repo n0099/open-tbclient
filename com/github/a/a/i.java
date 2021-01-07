@@ -2,11 +2,11 @@ package com.github.a.a;
 
 import java.util.ArrayList;
 import java.util.LinkedHashMap;
-/* loaded from: classes15.dex */
+/* loaded from: classes6.dex */
 public class i extends a {
-    private static final LinkedHashMap<Long, String> pJE = new LinkedHashMap<>();
+    private static final LinkedHashMap<Long, String> pLm = new LinkedHashMap<>();
     private Thread mCurrentThread;
-    private int pJF;
+    private int pLn;
 
     @Override // com.github.a.a.a
     public /* bridge */ /* synthetic */ void start() {
@@ -24,17 +24,17 @@ public class i extends a {
 
     public i(Thread thread, int i, long j) {
         super(j);
-        this.pJF = 100;
+        this.pLn = 100;
         this.mCurrentThread = thread;
-        this.pJF = i;
+        this.pLn = i;
     }
 
-    public ArrayList<String> O(long j, long j2) {
+    public ArrayList<String> P(long j, long j2) {
         ArrayList<String> arrayList = new ArrayList<>();
-        synchronized (pJE) {
-            for (Long l : pJE.keySet()) {
+        synchronized (pLm) {
+            for (Long l : pLm.keySet()) {
                 if (j < l.longValue() && l.longValue() < j2) {
-                    arrayList.add(com.github.a.a.a.a.pJs.format(l) + "\r\n\r\n" + pJE.get(l));
+                    arrayList.add(com.github.a.a.a.a.pLa.format(l) + "\r\n\r\n" + pLm.get(l));
                 }
             }
         }
@@ -42,16 +42,16 @@ public class i extends a {
     }
 
     @Override // com.github.a.a.a
-    protected void eBq() {
+    protected void eBU() {
         StringBuilder sb = new StringBuilder();
         for (StackTraceElement stackTraceElement : this.mCurrentThread.getStackTrace()) {
             sb.append(stackTraceElement.toString()).append("\r\n");
         }
-        synchronized (pJE) {
-            if (pJE.size() == this.pJF && this.pJF > 0) {
-                pJE.remove(pJE.keySet().iterator().next());
+        synchronized (pLm) {
+            if (pLm.size() == this.pLn && this.pLn > 0) {
+                pLm.remove(pLm.keySet().iterator().next());
             }
-            pJE.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            pLm.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
         }
     }
 }

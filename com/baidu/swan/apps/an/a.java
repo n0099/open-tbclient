@@ -10,18 +10,18 @@ public class a {
     private static int dRf = 0;
 
     public static void ar(int i, int i2) {
-        com.baidu.swan.apps.extcore.cores.a.axU().aj(i, i2);
-        i.aRk();
+        com.baidu.swan.apps.extcore.cores.a.axV().aj(i, i2);
+        i.aRl();
         if (i == 0) {
             dRf = 2;
         } else if (i2 > i) {
             dRf = 1;
-            k.bac();
-            e.a.bcN();
+            k.bad();
+            e.a.bcO();
         }
     }
 
-    public static int aQO() {
+    public static int aQP() {
         return dRf;
     }
 }

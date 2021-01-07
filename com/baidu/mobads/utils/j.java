@@ -8,22 +8,22 @@ import java.util.Arrays;
 public class j implements Runnable {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ String f3540a;
+    final /* synthetic */ String f3541a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ i f3541b;
+    final /* synthetic */ i f3542b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(i iVar, String str) {
-        this.f3541b = iVar;
-        this.f3540a = str;
+        this.f3542b = iVar;
+        this.f3541a = str;
     }
 
     @Override // java.lang.Runnable
     public void run() {
         long j;
         try {
-            File file = new File(this.f3540a);
+            File file = new File(this.f3541a);
             if (!file.exists()) {
                 file.mkdirs();
             }
@@ -35,7 +35,7 @@ public class j implements Runnable {
                     File file2 = listFiles[length];
                     if (file2.exists()) {
                         if (System.currentTimeMillis() - file2.lastModified() <= BdKVCache.MILLS_30Days) {
-                            j = i.f3536a;
+                            j = i.f3537a;
                             if (file2.length() + j2 > j) {
                                 file2.delete();
                             } else {

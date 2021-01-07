@@ -13,10 +13,10 @@ import java.util.ArrayList;
 public class TTDislikeListView extends ListView {
 
     /* renamed from: a  reason: collision with root package name */
-    private l f7327a;
+    private l f7328a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AdapterView.OnItemClickListener f7328b;
+    private AdapterView.OnItemClickListener f7329b;
     private AdapterView.OnItemClickListener c;
 
     public TTDislikeListView(Context context) {
@@ -29,11 +29,11 @@ public class TTDislikeListView extends ListView {
                     if (!filterWord.hasSecondOptions()) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(filterWord);
-                        if (TTDislikeListView.this.f7327a != null) {
-                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7327a, arrayList);
+                        if (TTDislikeListView.this.f7328a != null) {
+                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7328a, arrayList);
                         }
-                        if (TTDislikeListView.this.f7328b != null) {
-                            TTDislikeListView.this.f7328b.onItemClick(adapterView, view, i, j);
+                        if (TTDislikeListView.this.f7329b != null) {
+                            TTDislikeListView.this.f7329b.onItemClick(adapterView, view, i, j);
                             return;
                         }
                         return;
@@ -56,11 +56,11 @@ public class TTDislikeListView extends ListView {
                     if (!filterWord.hasSecondOptions()) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(filterWord);
-                        if (TTDislikeListView.this.f7327a != null) {
-                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7327a, arrayList);
+                        if (TTDislikeListView.this.f7328a != null) {
+                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7328a, arrayList);
                         }
-                        if (TTDislikeListView.this.f7328b != null) {
-                            TTDislikeListView.this.f7328b.onItemClick(adapterView, view, i, j);
+                        if (TTDislikeListView.this.f7329b != null) {
+                            TTDislikeListView.this.f7329b.onItemClick(adapterView, view, i, j);
                             return;
                         }
                         return;
@@ -83,11 +83,11 @@ public class TTDislikeListView extends ListView {
                     if (!filterWord.hasSecondOptions()) {
                         ArrayList arrayList = new ArrayList();
                         arrayList.add(filterWord);
-                        if (TTDislikeListView.this.f7327a != null) {
-                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7327a, arrayList);
+                        if (TTDislikeListView.this.f7328a != null) {
+                            com.bytedance.sdk.openadsdk.c.d.a(TTDislikeListView.this.f7328a, arrayList);
                         }
-                        if (TTDislikeListView.this.f7328b != null) {
-                            TTDislikeListView.this.f7328b.onItemClick(adapterView, view, i2, j);
+                        if (TTDislikeListView.this.f7329b != null) {
+                            TTDislikeListView.this.f7329b.onItemClick(adapterView, view, i2, j);
                             return;
                         }
                         return;
@@ -101,7 +101,7 @@ public class TTDislikeListView extends ListView {
     }
 
     public void setMaterialMeta(l lVar) {
-        this.f7327a = lVar;
+        this.f7328a = lVar;
     }
 
     private void a() {
@@ -110,6 +110,6 @@ public class TTDislikeListView extends ListView {
 
     @Override // android.widget.AdapterView
     public void setOnItemClickListener(@Nullable AdapterView.OnItemClickListener onItemClickListener) {
-        this.f7328b = onItemClickListener;
+        this.f7329b = onItemClickListener;
     }
 }

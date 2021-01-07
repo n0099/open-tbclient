@@ -6,12 +6,12 @@ public final class a {
     private static String dQV;
 
     public static String uA(String str) {
-        return String.format("%s %s", str, aQL());
+        return String.format("%s %s", str, aQM());
     }
 
-    public static String aQL() {
+    public static String aQM() {
         if (TextUtils.isEmpty(dQV)) {
-            dQV = b.aQL();
+            dQV = b.aQM();
         }
         return dQV;
     }

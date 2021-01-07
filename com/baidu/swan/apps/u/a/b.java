@@ -17,7 +17,7 @@ public final class b {
         this.dip = new LruCache<>(10);
     }
 
-    public static b aCc() {
+    public static b aCd() {
         return a.diq;
     }
 

@@ -2,7 +2,7 @@ package io.reactivex.internal.observers;
 
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class DeferredScalarObserver<T, R> extends DeferredScalarDisposable<R> implements u<T> {
     private static final long serialVersionUID = -266195175408988651L;
     protected io.reactivex.disposables.b s;

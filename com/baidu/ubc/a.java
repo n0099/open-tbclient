@@ -25,20 +25,20 @@ public abstract class a implements u {
 
     public boolean b(String str, JSONObject jSONObject, boolean z) {
         String str2;
-        boolean ejn = this.oMy.ejn();
-        if (ejn) {
+        boolean ejo = this.oMy.ejo();
+        if (ejo) {
             str2 = "http://bjyz-mco-searchbox201609-m12xi3-044.bjyz.baidu.com:8080/ztbox?action=zubc";
         } else {
             str2 = str + "/ztbox?action=zubc";
         }
         String processUrl = com.baidu.e.c.b.uq().processUrl(str2);
-        if (ejn && !TextUtils.isEmpty(processUrl)) {
+        if (ejo && !TextUtils.isEmpty(processUrl)) {
             processUrl = UrlUtil.addParam(processUrl, "debug", "1");
         }
         if (z) {
             processUrl = UrlUtil.addParam(processUrl, "reallog", "1");
         }
-        if (g.eiW().isBeta()) {
+        if (g.eiX().isBeta()) {
             processUrl = UrlUtil.addParam(processUrl, "beta", "1");
         }
         HashMap hashMap = new HashMap(2);
@@ -56,7 +56,7 @@ public abstract class a implements u {
                 if (DEBUG) {
                     Log.d("UploadManager", "postByteRequest, fail: " + a2.getMessage());
                 } else {
-                    ac.ejo().gW(a2.getMessage(), null);
+                    ac.ejp().gW(a2.getMessage(), null);
                 }
                 a2.close();
                 return false;
@@ -68,14 +68,14 @@ public abstract class a implements u {
                         Log.d("UploadManager", "server error");
                     }
                     if (!DEBUG) {
-                        ac.ejo().Ow(i);
+                        ac.ejp().Ow(i);
                     }
                 }
             } catch (Exception e) {
                 if (DEBUG) {
                     Log.d("UploadManager", "body tostring fail:" + e.getMessage());
                 } else {
-                    ac.ejo().XC(Log.getStackTraceString(e));
+                    ac.ejp().XB(Log.getStackTraceString(e));
                 }
             }
             a2.close();
@@ -84,7 +84,7 @@ public abstract class a implements u {
             if (DEBUG) {
                 Log.d("UploadManager", "postByteRequest, Exception: ", e2);
             } else {
-                ac.ejo().gW(null, Log.getStackTraceString(e2));
+                ac.ejp().gW(null, Log.getStackTraceString(e2));
             }
             return false;
         }

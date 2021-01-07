@@ -18,10 +18,10 @@ public abstract class a implements k {
     private static final AtomicLong m = new AtomicLong();
 
     /* renamed from: a  reason: collision with root package name */
-    protected volatile com.bytedance.sdk.openadsdk.j.a.a f7516a;
+    protected volatile com.bytedance.sdk.openadsdk.j.a.a f7517a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected final com.bytedance.sdk.openadsdk.j.b.c f7517b;
+    protected final com.bytedance.sdk.openadsdk.j.b.c f7518b;
     protected com.bytedance.sdk.openadsdk.j.d.a e;
     protected volatile List<i.b> f;
     protected volatile String g;
@@ -36,8 +36,8 @@ public abstract class a implements k {
     private int o = -1;
 
     public a(com.bytedance.sdk.openadsdk.j.a.a aVar, com.bytedance.sdk.openadsdk.j.b.c cVar) {
-        this.f7516a = aVar;
-        this.f7517b = cVar;
+        this.f7517a = aVar;
+        this.f7518b = cVar;
     }
 
     public void a() {
@@ -69,16 +69,16 @@ public abstract class a implements k {
         com.bytedance.sdk.openadsdk.j.e.b b2 = com.bytedance.sdk.openadsdk.j.e.c.a().b();
         com.bytedance.sdk.openadsdk.j.e.f fVar = new com.bytedance.sdk.openadsdk.j.e.f();
         HashMap hashMap = new HashMap();
-        fVar.f7562b = aVar.f7608a;
-        fVar.f7561a = 0;
+        fVar.f7563b = aVar.f7609a;
+        fVar.f7562a = 0;
         if (HttpHead.METHOD_NAME.equalsIgnoreCase(str)) {
-            fVar.f7561a = 4;
+            fVar.f7562a = 4;
         }
         List<i.b> list = this.f;
         if (list != null && !list.isEmpty()) {
             for (i.b bVar : list) {
-                if (!Headers.RANGE.equalsIgnoreCase(bVar.f7600a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f7600a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f7600a) && !"Host".equalsIgnoreCase(bVar.f7600a)) {
-                    hashMap.put(bVar.f7600a, bVar.f7601b);
+                if (!Headers.RANGE.equalsIgnoreCase(bVar.f7601a) && !HTTP.CONN_DIRECTIVE.equalsIgnoreCase(bVar.f7601a) && !"Proxy-Connection".equalsIgnoreCase(bVar.f7601a) && !"Host".equalsIgnoreCase(bVar.f7601a)) {
+                    hashMap.put(bVar.f7601a, bVar.f7602b);
                 }
             }
         }
@@ -96,10 +96,10 @@ public abstract class a implements k {
         c b3 = z ? c.b() : a3.c();
         if (a4 != null || b3 != null) {
             if (a4 != null) {
-                fVar.c = a4.a(aVar.f7609b);
+                fVar.c = a4.a(aVar.f7610b);
             }
             if (b3 != null) {
-                fVar.d = b3.a(aVar.f7609b);
+                fVar.d = b3.a(aVar.f7610b);
             }
         }
         fVar.e = hashMap;
@@ -113,9 +113,9 @@ public abstract class a implements k {
     /* JADX INFO: Access modifiers changed from: protected */
     public int f() {
         if (this.i != null) {
-            return this.i.c.f7598a;
+            return this.i.c.f7599a;
         }
-        return this.f7516a instanceof com.bytedance.sdk.openadsdk.j.a.b ? 1 : 0;
+        return this.f7517a instanceof com.bytedance.sdk.openadsdk.j.a.b ? 1 : 0;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -45,7 +45,7 @@ public class m extends com.baidu.adp.widget.ListView.a<bt, CardViewHolder<a>> {
         a(new w() { // from class: com.baidu.tieba.enterForum.tabfeed.a.m.1
             @Override // com.baidu.adp.widget.ListView.w
             public void a(View view, n nVar, BdUniqueId bdUniqueId, ViewGroup viewGroup2, int i, long j) {
-                aVar.czF();
+                aVar.czG();
                 aq aqVar = new aq("c13647");
                 aqVar.w("uid", TbadkApplication.getCurrentAccountId());
                 aqVar.an("obj_id", m.this.getPositionByType(i) + 1);
@@ -60,16 +60,16 @@ public class m extends com.baidu.adp.widget.ListView.a<bt, CardViewHolder<a>> {
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.adp.widget.ListView.a
     public View a(int i, View view, ViewGroup viewGroup, bt btVar, CardViewHolder<a> cardViewHolder) {
-        if (btVar == null || cardViewHolder == null || cardViewHolder.cvG() == null) {
+        if (btVar == null || cardViewHolder == null || cardViewHolder.cvH() == null) {
             return null;
         }
-        cardViewHolder.cvG().a(btVar);
+        cardViewHolder.cvH().a(btVar);
         aq aqVar = new aq("c13646");
         aqVar.w("uid", TbadkApplication.getCurrentAccountId());
         aqVar.an("obj_id", getPositionByType(i) + 1);
         aqVar.dX("resource_id", this.mTabName);
         TiebaStatic.log(aqVar);
-        return cardViewHolder.cvG().getView();
+        return cardViewHolder.cvH().getView();
     }
 
     /* loaded from: classes2.dex */
@@ -112,16 +112,16 @@ public class m extends com.baidu.adp.widget.ListView.a<bt, CardViewHolder<a>> {
             onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         }
 
-        public void czF() {
+        public void czG() {
             if (!TextUtils.isEmpty(this.iNE)) {
-                be.bwu().b(this.mPageContext, new String[]{this.iNE});
+                be.bwv().b(this.mPageContext, new String[]{this.iNE});
             }
         }
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (view == this.iND) {
-                czF();
+                czG();
             }
         }
     }

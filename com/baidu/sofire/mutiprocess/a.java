@@ -87,18 +87,18 @@ public interface a extends IInterface {
         public static class C0367a implements a {
 
             /* renamed from: a  reason: collision with root package name */
-            public static a f5590a;
+            public static a f5591a;
 
             /* renamed from: b  reason: collision with root package name */
-            private IBinder f5591b;
+            private IBinder f5592b;
 
             C0367a(IBinder iBinder) {
-                this.f5591b = iBinder;
+                this.f5592b = iBinder;
             }
 
             @Override // android.os.IInterface
             public final IBinder asBinder() {
-                return this.f5591b;
+                return this.f5592b;
             }
 
             @Override // com.baidu.sofire.mutiprocess.a
@@ -114,7 +114,7 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f5591b.transact(1, obtain, obtain2, 0) && AbstractBinderC0366a.a() != null) {
+                    if (!this.f5592b.transact(1, obtain, obtain2, 0) && AbstractBinderC0366a.a() != null) {
                         bundle2 = AbstractBinderC0366a.a().a(bundle);
                     } else {
                         obtain2.readException();
@@ -144,7 +144,7 @@ public interface a extends IInterface {
                     } else {
                         obtain.writeInt(0);
                     }
-                    if (!this.f5591b.transact(2, obtain, obtain2, 0) && AbstractBinderC0366a.a() != null) {
+                    if (!this.f5592b.transact(2, obtain, obtain2, 0) && AbstractBinderC0366a.a() != null) {
                         bundle2 = AbstractBinderC0366a.a().b(bundle);
                     } else {
                         obtain2.readException();
@@ -169,7 +169,7 @@ public interface a extends IInterface {
                 try {
                     obtain.writeInterfaceToken("com.baidu.sofire.mutiprocess.IMutiProcessHandler");
                     obtain.writeString(str);
-                    if (!this.f5591b.transact(3, obtain, obtain2, 0) && AbstractBinderC0366a.a() != null) {
+                    if (!this.f5592b.transact(3, obtain, obtain2, 0) && AbstractBinderC0366a.a() != null) {
                         bundle = AbstractBinderC0366a.a().a(str);
                     } else {
                         obtain2.readException();
@@ -188,7 +188,7 @@ public interface a extends IInterface {
         }
 
         public static a a() {
-            return C0367a.f5590a;
+            return C0367a.f5591a;
         }
     }
 }

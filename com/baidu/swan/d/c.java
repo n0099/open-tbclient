@@ -25,7 +25,7 @@ public final class c implements com.baidu.swan.pms.e.b {
                     public void onInstallFinish(int i, String str2) {
                         synchronized (c.eEs) {
                             a.iU(true);
-                            c.this.iV(new b(AppRuntime.getAppContext()).bkg());
+                            c.this.iV(new b(AppRuntime.getAppContext()).bkh());
                             boolean unused = c.eEr = false;
                         }
                     }

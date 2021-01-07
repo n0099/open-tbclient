@@ -76,12 +76,12 @@ public class a {
         this.ahE = bdUniqueId;
         this.eFZ.setTag(this.ahE);
         MessageManager.getInstance().registerListener(this.eFZ);
-        buF();
         buG();
+        buH();
         this.iKl = new c();
     }
 
-    public void JN(String str) {
+    public void JM(String str) {
         HotUserRankReqMsg hotUserRankReqMsg = new HotUserRankReqMsg();
         hotUserRankReqMsg.category = str;
         hotUserRankReqMsg.pageSize = 20;
@@ -103,7 +103,7 @@ public class a {
         return this.iKl;
     }
 
-    public int czc() {
+    public int czd() {
         return this.mPageNum;
     }
 
@@ -111,7 +111,7 @@ public class a {
         return this.iKl.hasMore;
     }
 
-    private void buF() {
+    private void buG() {
         b bVar = new b(309652);
         bVar.setResponsedClass(HotUserRankSocketResMsg.class);
         bVar.setNeedAck(true);
@@ -119,7 +119,7 @@ public class a {
         MessageManager.getInstance().registerTask(bVar);
     }
 
-    private void buG() {
+    private void buH() {
         TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_HOT_USER_RANK, com.baidu.tieba.tbadkCore.a.a.bU(TbConfig.HOT_USER_RANK_URL, 309652));
         tbHttpMessageTask.setIsNeedAddCommenParam(false);
         tbHttpMessageTask.setResponsedClass(HotUserRankHttpResMsg.class);

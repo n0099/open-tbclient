@@ -1,5 +1,5 @@
 package com.qq.e.comm.plugin.y;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class u {
     public static void a(int i, int i2, c cVar) {
         a(i, i2, cVar, null);

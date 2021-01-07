@@ -13,30 +13,30 @@ import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public class a {
     private com.baidu.tieba.pb.a.c fyb;
-    private PbFragment lUh;
+    private PbFragment lUg;
+    private View lXp = null;
     private View lXq = null;
-    private View lXr = null;
-    private TextView lXs = null;
+    private TextView lXr = null;
+    private View lXs = null;
     private View lXt = null;
     private View lXu = null;
-    private View lXv = null;
-    private Button lVc = null;
+    private Button lVb = null;
 
     public a(PbFragment pbFragment, com.baidu.tieba.pb.a.c cVar) {
-        this.lUh = pbFragment;
+        this.lUg = pbFragment;
         this.fyb = cVar;
         initView();
     }
 
     private void initView() {
-        this.lXq = LayoutInflater.from(this.lUh.getPageContext().getPageActivity()).inflate(R.layout.new_pb_header_item, (ViewGroup) null);
-        this.lXq.setOnTouchListener(this.fyb);
-        this.lXr = this.lXq.findViewById(R.id.pb_head_activity_join_number_container);
-        this.lXr.setVisibility(8);
-        this.lXs = (TextView) this.lXq.findViewById(R.id.pb_head_activity_join_number);
-        this.lXt = this.lXq.findViewById(R.id.new_pb_header_item_line_above_livepost);
-        this.lXu = this.lXq.findViewById(R.id.new_pb_header_item_line_below_livepost);
-        this.lXq.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.1
+        this.lXp = LayoutInflater.from(this.lUg.getPageContext().getPageActivity()).inflate(R.layout.new_pb_header_item, (ViewGroup) null);
+        this.lXp.setOnTouchListener(this.fyb);
+        this.lXq = this.lXp.findViewById(R.id.pb_head_activity_join_number_container);
+        this.lXq.setVisibility(8);
+        this.lXr = (TextView) this.lXp.findViewById(R.id.pb_head_activity_join_number);
+        this.lXs = this.lXp.findViewById(R.id.new_pb_header_item_line_above_livepost);
+        this.lXt = this.lXp.findViewById(R.id.new_pb_header_item_line_below_livepost);
+        this.lXp.setOnLongClickListener(new View.OnLongClickListener() { // from class: com.baidu.tieba.pb.pb.main.a.a.1
             @Override // android.view.View.OnLongClickListener
             public boolean onLongClick(View view) {
                 return false;
@@ -46,68 +46,68 @@ public class a {
 
     public boolean vH(boolean z) {
         boolean z2;
-        if (this.lVc != null && this.lVc.getVisibility() == 0) {
-            if (this.lXt != null) {
-                this.lXt.setVisibility(0);
+        if (this.lVb != null && this.lVb.getVisibility() == 0) {
+            if (this.lXs != null) {
+                this.lXs.setVisibility(0);
                 z2 = true;
             } else {
                 z2 = true;
             }
         } else {
-            if (this.lXt != null) {
-                this.lXt.setVisibility(8);
+            if (this.lXs != null) {
+                this.lXs.setVisibility(8);
             }
             z2 = false;
         }
-        if ((this.lXv == null || this.lXv.getVisibility() == 8) && z2 && z) {
-            this.lXu.setVisibility(0);
+        if ((this.lXu == null || this.lXu.getVisibility() == 8) && z2 && z) {
+            this.lXt.setVisibility(0);
         } else {
-            this.lXu.setVisibility(8);
+            this.lXt.setVisibility(8);
         }
         return z2;
     }
 
     public void e(com.baidu.tieba.pb.data.f fVar, boolean z) {
         boolean vH = vH(z);
-        if (fVar != null && fVar.getPage() != null && fVar.getPage().bqg() == 0 && z) {
+        if (fVar != null && fVar.getPage() != null && fVar.getPage().bqh() == 0 && z) {
             if (vH) {
-                this.lXu.setVisibility(0);
+                this.lXt.setVisibility(0);
                 return;
             } else {
-                this.lXu.setVisibility(8);
+                this.lXt.setVisibility(8);
                 return;
             }
         }
-        this.lXu.setVisibility(8);
+        this.lXt.setVisibility(8);
     }
 
     public void B(com.baidu.tieba.pb.data.f fVar) {
-        ArrayList<com.baidu.tbadk.core.data.b> brA = fVar.dmE().brA();
-        if (brA != null && brA.size() > 0) {
-            this.lXs.setText(String.valueOf(brA.get(0).bpc()));
-            this.lXr.setVisibility(0);
+        ArrayList<com.baidu.tbadk.core.data.b> brB = fVar.dmF().brB();
+        if (brB != null && brB.size() > 0) {
+            this.lXr.setText(String.valueOf(brB.get(0).bpd()));
+            this.lXq.setVisibility(0);
         } else {
-            this.lXr.setVisibility(8);
+            this.lXq.setVisibility(8);
         }
-        ao.setBackgroundResource(this.lXr, R.drawable.activity_join_num_bg);
-        ao.setViewTextColor(this.lXs, R.color.CAM_X0305, 1);
+        ao.setBackgroundResource(this.lXq, R.drawable.activity_join_num_bg);
+        ao.setViewTextColor(this.lXr, R.color.CAM_X0305, 1);
     }
 
     public void b(BdTypeListView bdTypeListView) {
-        bdTypeListView.addHeaderView(this.lXq);
+        bdTypeListView.addHeaderView(this.lXp);
     }
 
     public void c(BdTypeListView bdTypeListView) {
         if (bdTypeListView != null) {
-            bdTypeListView.removeHeaderView(this.lXq);
+            bdTypeListView.removeHeaderView(this.lXp);
         }
     }
 
     public void onChangeSkinType(int i) {
-        this.lUh.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.lXq);
+        this.lUg.getBaseFragmentActivity().getLayoutMode().onModeChanged(this.lXp);
     }
 
-    public View dts() {
-        return this.lXq;
+    public View dtt() {
+        return this.lXp;
     }
 }

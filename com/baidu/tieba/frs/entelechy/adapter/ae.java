@@ -40,13 +40,13 @@ public class ae extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> impl
                         TiebaStatic.log(new aq("c13010").an("obj_type", 1).w("fid", bzVar.getFid()).dX("tid", bzVar.getTid()));
                     }
                     com.baidu.tieba.frs.b.a.a(bzVar, 1, ae.this.mPageId, com.baidu.tieba.frs.b.d.jpq, ae.this.getTbPageTag());
-                    if (view.getId() == R.id.thread_card_root && bzVar.bpV()) {
+                    if (view.getId() == R.id.thread_card_root && bzVar.bpW()) {
                         ae.this.as(bzVar);
                     }
                     if (view instanceof VoteView) {
-                        com.baidu.tieba.card.m.Jo(bzVar.getTid());
+                        com.baidu.tieba.card.m.Jn(bzVar.getTid());
                     } else {
-                        com.baidu.tieba.frs.b.c.cMI().a(com.baidu.tieba.frs.b.d.jpq, bzVar, 1);
+                        com.baidu.tieba.frs.b.c.cMJ().a(com.baidu.tieba.frs.b.d.jpq, bzVar, 1);
                     }
                 }
             }
@@ -87,7 +87,7 @@ public class ae extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> impl
         threadCardViewHolder.b((ThreadCardViewHolder<bz>) byVar.eMv);
         threadCardViewHolder.ty().onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
         threadCardViewHolder.ty().a(this.hni);
-        byVar.eMv.bsE();
+        byVar.eMv.bsF();
         return threadCardViewHolder.getView();
     }
 
@@ -106,7 +106,7 @@ public class ae extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> impl
     }
 
     @Override // com.baidu.tieba.a.f
-    public void Fm(String str) {
+    public void Fl(String str) {
         this.aji = str;
     }
 
@@ -130,6 +130,6 @@ public class ae extends com.baidu.tieba.frs.k<by, ThreadCardViewHolder<bz>> impl
 
     /* JADX INFO: Access modifiers changed from: private */
     public void as(bz bzVar) {
-        TiebaStatic.log(new aq("c12126").dX("tid", bzVar.getId()).an("obj_locate", cEM() ? 2 : 1).w("obj_id", bzVar.brJ() == null ? -1L : bzVar.brJ().live_id).an("obj_type", 1));
+        TiebaStatic.log(new aq("c12126").dX("tid", bzVar.getId()).an("obj_locate", cEN() ? 2 : 1).w("obj_id", bzVar.brK() == null ? -1L : bzVar.brK().live_id).an("obj_type", 1));
     }
 }

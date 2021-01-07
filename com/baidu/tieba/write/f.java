@@ -8,15 +8,15 @@ import com.baidu.tieba.write.a;
 /* loaded from: classes.dex */
 public class f extends h {
     private Animation nXA;
-    private Animation nXB;
-    private a.C0872a nXz;
+    private a.C0910a nXy;
+    private Animation nXz;
 
-    public f(Context context, a.C0872a c0872a) {
-        super(context, c0872a);
-        this.nXz = c0872a;
-        this.nXA = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_in_anim);
-        this.nXB = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_out_anim);
-        this.nXA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.1
+    public f(Context context, a.C0910a c0910a) {
+        super(context, c0910a);
+        this.nXy = c0910a;
+        this.nXz = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_in_anim);
+        this.nXA = AnimationUtils.loadAnimation(this.mContext, R.anim.ubs_test_out_anim);
+        this.nXz.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.1
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -30,7 +30,7 @@ public class f extends h {
             public void onAnimationRepeat(Animation animation) {
             }
         });
-        this.nXB.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.2
+        this.nXA.setAnimationListener(new Animation.AnimationListener() { // from class: com.baidu.tieba.write.f.2
             @Override // android.view.animation.Animation.AnimationListener
             public void onAnimationStart(Animation animation) {
             }
@@ -47,31 +47,31 @@ public class f extends h {
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dXW() {
+    public void dXX() {
         if (this.mState == 4) {
             this.mState = 1;
-            if (this.nXI != null) {
-                this.nXI.Mt(this.mState);
+            if (this.nXH != null) {
+                this.nXH.Mt(this.mState);
             }
             clearAnimation();
-            this.nXz.nVJ.startAnimation(this.nXA);
+            this.nXy.nVI.startAnimation(this.nXz);
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void aEu() {
+    public void aEv() {
         if (this.mState == 2) {
             this.mState = 3;
-            if (this.nXI != null) {
-                this.nXI.Mt(this.mState);
+            if (this.nXH != null) {
+                this.nXH.Mt(this.mState);
             }
             clearAnimation();
-            this.nXz.nVJ.startAnimation(this.nXB);
+            this.nXy.nVI.startAnimation(this.nXA);
         }
     }
 
     @Override // com.baidu.tieba.write.h
-    public void dXX() {
+    public void dXY() {
         Uq();
     }
 
@@ -82,25 +82,25 @@ public class f extends h {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Up() {
-        this.nXz.eqn.setClickable(true);
+        this.nXy.eqn.setClickable(true);
         this.mState = 2;
-        if (this.nXI != null) {
-            this.nXI.Mt(this.mState);
+        if (this.nXH != null) {
+            this.nXH.Mt(this.mState);
         }
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void Uq() {
-        this.nXz.eqn.setClickable(false);
+        this.nXy.eqn.setClickable(false);
         this.mState = 4;
-        if (this.nXI != null) {
-            this.nXI.Mt(this.mState);
+        if (this.nXH != null) {
+            this.nXH.Mt(this.mState);
         }
     }
 
     private void clearAnimation() {
+        this.nXz.cancel();
         this.nXA.cancel();
-        this.nXB.cancel();
-        this.nXz.nVJ.clearAnimation();
+        this.nXy.nVI.clearAnimation();
     }
 }

@@ -5,10 +5,10 @@ import java.io.Serializable;
 public final class b implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public int f5488a;
+    public int f5489a;
 
     /* renamed from: b  reason: collision with root package name */
-    public int f5489b;
+    public int f5490b;
     public String c;
     public String d;
     public String e;

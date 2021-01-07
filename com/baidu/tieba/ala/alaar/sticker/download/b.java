@@ -20,7 +20,7 @@ public class b implements f.a {
     private Handler mHandler = new Handler(Looper.getMainLooper());
     private Map<String, f> mDownloaderMap = new LinkedHashMap();
 
-    public static b bSW() {
+    public static b bSX() {
         if (guJ == null) {
             synchronized (b.class) {
                 if (guJ == null) {
@@ -66,11 +66,11 @@ public class b implements f.a {
     }
 
     public void a(String str, String str2, String str3, com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
-        a(new c.a().Gm(str).aa(new File(str2)).s(str3).bSX(), str, aVar);
+        a(new c.a().Gl(str).aa(new File(str2)).s(str3).bSY(), str, aVar);
     }
 
     public void a(String str, File file, String str2, com.baidu.tieba.ala.alaar.sticker.download.a.a aVar) {
-        a(new c.a().Gm(str).aa(file).s(str2).bSX(), str, aVar);
+        a(new c.a().Gl(str).aa(file).s(str2).bSY(), str, aVar);
     }
 
     public void pause(String str) {

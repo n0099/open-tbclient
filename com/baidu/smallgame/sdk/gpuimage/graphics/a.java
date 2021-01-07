@@ -4,7 +4,7 @@ import android.opengl.Matrix;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a {
     public static final float[] IDENTITY_MATRIX = new float[16];
     public static final float[] VERT_FLIP_MATRIX;

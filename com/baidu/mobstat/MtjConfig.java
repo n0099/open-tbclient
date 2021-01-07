@@ -28,22 +28,22 @@ public class MtjConfig {
         
 
         /* renamed from: a  reason: collision with root package name */
-        private String f3659a;
+        private String f3660a;
 
         /* renamed from: b  reason: collision with root package name */
-        private int f3660b;
+        private int f3661b;
 
         PushPlatform(String str, int i) {
-            this.f3659a = str;
-            this.f3660b = i;
+            this.f3660a = str;
+            this.f3661b = i;
         }
 
         public String value() {
-            return "p" + this.f3660b;
+            return "p" + this.f3661b;
         }
 
         public String showName() {
-            return this.f3659a;
+            return this.f3660a;
         }
     }
 }

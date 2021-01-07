@@ -6,9 +6,7 @@ import com.baidu.searchbox.http.request.HttpRequest;
 import java.util.Map;
 /* loaded from: classes9.dex */
 public interface r {
-    boolean akL();
-
-    String akM();
+    boolean akM();
 
     String akN();
 
@@ -36,19 +34,17 @@ public interface r {
 
     String akZ();
 
-    void alI();
-
     void alJ();
 
-    String alK();
+    void alK();
 
     String alL();
 
-    boolean alM();
+    String alM();
 
-    int alN();
+    boolean alN();
 
-    String alO();
+    int alO();
 
     String alP();
 
@@ -58,22 +54,26 @@ public interface r {
 
     String alS();
 
+    String alT();
+
     String ala();
 
     String alb();
 
     String alc();
 
-    @Nullable
     String ald();
 
-    long ale();
+    @Nullable
+    String ale();
 
-    String alf();
+    long alf();
 
     String alg();
 
     String alh();
+
+    String ali();
 
     String cf(Context context);
 

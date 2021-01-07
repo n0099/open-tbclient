@@ -13,17 +13,17 @@ import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes11.dex */
 public class b extends BaseAdapter {
-    private ArrayList<a.C0888a> eYq = new ArrayList<>();
+    private ArrayList<a.C0926a> eYq = new ArrayList<>();
     private String mGroupId;
     private String mLiveId;
     private TbPageContext mPageContext;
     private String mRoomId;
     private int mType;
-    private a oko;
+    private a okn;
 
     /* loaded from: classes11.dex */
     public interface a {
-        void bUL();
+        void bUM();
     }
 
     public b(TbPageContext tbPageContext, String str, String str2, String str3, int i) {
@@ -34,7 +34,7 @@ public class b extends BaseAdapter {
         this.mGroupId = str2;
     }
 
-    public void setData(List<a.C0888a> list) {
+    public void setData(List<a.C0926a> list) {
         if (list != null) {
             this.eYq.clear();
             this.eYq.addAll(list);
@@ -53,7 +53,7 @@ public class b extends BaseAdapter {
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter
     /* renamed from: MW */
-    public a.C0888a getItem(int i) {
+    public a.C0926a getItem(int i) {
         if (this.eYq == null) {
             return null;
         }
@@ -67,32 +67,32 @@ public class b extends BaseAdapter {
 
     @Override // android.widget.Adapter
     public View getView(int i, View view, ViewGroup viewGroup) {
-        C0889b c0889b;
-        a.C0888a item;
+        C0927b c0927b;
+        a.C0926a item;
         if (view == null) {
             view = LayoutInflater.from(viewGroup.getContext()).inflate(a.g.yuyin_sdk_banned_post_list_item, viewGroup, false);
-            C0889b c0889b2 = new C0889b();
-            c0889b2.okq = (BannedPostItemView) view.findViewById(a.f.item);
-            view.setTag(c0889b2);
-            c0889b = c0889b2;
+            C0927b c0927b2 = new C0927b();
+            c0927b2.okp = (BannedPostItemView) view.findViewById(a.f.item);
+            view.setTag(c0927b2);
+            c0927b = c0927b2;
         } else {
-            c0889b = (C0889b) view.getTag();
+            c0927b = (C0927b) view.getTag();
         }
-        if (c0889b != null && getItem(i) != null && (item = getItem(i)) != null) {
-            c0889b.okq.setData(item, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
-            c0889b.okq.setCallBack(new BannedPostItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.b.1
+        if (c0927b != null && getItem(i) != null && (item = getItem(i)) != null) {
+            c0927b.okp.setData(item, this.mLiveId, this.mGroupId, this.mRoomId, this.mType);
+            c0927b.okp.setCallBack(new BannedPostItemView.a() { // from class: com.baidu.tieba.yuyinala.charm.bannedpost.b.1
                 @Override // com.baidu.tieba.yuyinala.charm.bannedpost.BannedPostItemView.a
-                public void VM(String str) {
+                public void VL(String str) {
                     Iterator it = b.this.eYq.iterator();
                     while (it.hasNext()) {
-                        a.C0888a c0888a = (a.C0888a) it.next();
-                        if (str.equals(c0888a.uk)) {
-                            b.this.eYq.remove(c0888a);
+                        a.C0926a c0926a = (a.C0926a) it.next();
+                        if (str.equals(c0926a.uk)) {
+                            b.this.eYq.remove(c0926a);
                         }
                     }
                     b.this.notifyDataSetChanged();
-                    if ((b.this.eYq == null || b.this.eYq.size() == 0) && b.this.oko != null) {
-                        b.this.oko.bUL();
+                    if ((b.this.eYq == null || b.this.eYq.size() == 0) && b.this.okn != null) {
+                        b.this.okn.bUM();
                     }
                 }
             });
@@ -103,14 +103,14 @@ public class b extends BaseAdapter {
 
     /* renamed from: com.baidu.tieba.yuyinala.charm.bannedpost.b$b  reason: collision with other inner class name */
     /* loaded from: classes11.dex */
-    private class C0889b {
-        private BannedPostItemView okq;
+    private class C0927b {
+        private BannedPostItemView okp;
 
-        private C0889b() {
+        private C0927b() {
         }
     }
 
     public void a(a aVar) {
-        this.oko = aVar;
+        this.okn = aVar;
     }
 }

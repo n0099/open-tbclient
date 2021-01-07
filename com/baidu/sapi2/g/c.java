@@ -19,10 +19,10 @@ public class c extends FingerprintManager.AuthenticationCallback {
     private static final int n = 5;
 
     /* renamed from: a  reason: collision with root package name */
-    private int f5241a;
+    private int f5242a;
 
     /* renamed from: b  reason: collision with root package name */
-    private char f5242b = 5;
+    private char f5243b = 5;
     private Context c;
     private FingerprintManager d;
     private FingerprintManager.CryptoObject e;
@@ -115,7 +115,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
         super.onAuthenticationError(i2, charSequence);
         Log.i(m, "Authentication error:" + i2 + ((Object) charSequence));
         a();
-        this.f5242b = (char) 5;
+        this.f5243b = (char) 5;
         if (i2 == 7) {
             com.baidu.sapi2.g.a aVar = this.g;
             if (aVar != null) {
@@ -134,10 +134,10 @@ public class c extends FingerprintManager.AuthenticationCallback {
     public void onAuthenticationFailed() {
         super.onAuthenticationFailed();
         Log.i(m, "Authentication failed ");
-        char c = (char) (this.f5242b - 1);
-        this.f5242b = c;
+        char c = (char) (this.f5243b - 1);
+        this.f5243b = c;
         if (c > 0) {
-            if (this.f5241a == 3) {
+            if (this.f5242a == 3) {
                 c();
                 return;
             } else {
@@ -146,7 +146,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
             }
         }
         a();
-        this.f5242b = (char) 5;
+        this.f5243b = (char) 5;
     }
 
     @Override // android.hardware.fingerprint.FingerprintManager.AuthenticationCallback
@@ -168,7 +168,7 @@ public class c extends FingerprintManager.AuthenticationCallback {
 
     public void a(int i2, com.baidu.sapi2.g.a aVar) {
         Log.i(m, "startAuthenticate");
-        this.f5241a = i2;
+        this.f5242a = i2;
         this.g = aVar;
         if (Build.VERSION.SDK_INT >= 16 && this.f.isCanceled()) {
             this.f = new CancellationSignal();

@@ -9,7 +9,7 @@ public class f implements e {
     private volatile d dtV;
     private volatile com.baidu.swan.apps.performance.d.a dtW;
 
-    public static f aHI() {
+    public static f aHJ() {
         if (dtU == null) {
             synchronized (f.class) {
                 if (dtU == null) {
@@ -33,7 +33,7 @@ public class f implements e {
         }
     }
 
-    public com.baidu.swan.apps.performance.d.a aHJ() {
+    public com.baidu.swan.apps.performance.d.a aHK() {
         return this.dtW;
     }
 
@@ -65,18 +65,18 @@ public class f implements e {
     }
 
     public boolean isOn() {
-        return aHK();
+        return aHL();
     }
 
-    private boolean aHK() {
+    private boolean aHL() {
         if (DEBUG) {
             return true;
         }
-        com.baidu.swan.apps.runtime.e aMl = com.baidu.swan.apps.runtime.e.aMl();
-        if (aMl == null) {
+        com.baidu.swan.apps.runtime.e aMm = com.baidu.swan.apps.runtime.e.aMm();
+        if (aMm == null) {
             return false;
         }
-        String appId = aMl.getAppId();
+        String appId = aMm.getAppId();
         return (TextUtils.isEmpty(appId) || com.baidu.swan.apps.f.a.mu(appId) == 0) ? false : true;
     }
 }

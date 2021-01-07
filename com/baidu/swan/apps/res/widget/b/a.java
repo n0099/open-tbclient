@@ -224,7 +224,7 @@ final class a {
                         @Override // android.view.View.OnClickListener
                         public void onClick(View view) {
                             if (aVar != null) {
-                                aVar.ajM();
+                                aVar.ajN();
                             }
                         }
                     });
@@ -259,7 +259,7 @@ final class a {
         }
         b bVar = new b(applicationContext);
         a(bVar);
-        if (c.aLP()) {
+        if (c.aLQ()) {
             bVar.kH(2003);
             if (sDebug) {
                 Log.d("SingleToast", "Oppo WindowManager has set to TYPE_SYSTEM_ALERT");
@@ -340,7 +340,7 @@ final class a {
                 public boolean onTouch(View view, MotionEvent motionEvent) {
                     switch (motionEvent.getAction()) {
                         case 0:
-                            textView.setAlpha(com.baidu.swan.apps.t.a.aAN().alD() ? 0.5f : 0.2f);
+                            textView.setAlpha(com.baidu.swan.apps.t.a.aAO().alE() ? 0.5f : 0.2f);
                             return false;
                         case 1:
                         default:
@@ -370,7 +370,7 @@ final class a {
         }
         b bVar = new b(applicationContext);
         a(bVar);
-        if (c.aLP()) {
+        if (c.aLQ()) {
             bVar.kH(2003);
             if (sDebug) {
                 Log.d("SingleToast", "Oppo WindowManager has set to TYPE_SYSTEM_ALERT");

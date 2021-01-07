@@ -16,43 +16,43 @@ import java.util.List;
 /* loaded from: classes8.dex */
 public class b {
     private TbPageContext mPageContext;
-    private c moA;
-    private List<n> moB;
-    private PersonMoreData moC;
+    private List<n> moA;
+    private PersonMoreData moB;
+    private c moz;
 
     public b(TbPageContext tbPageContext, Bundle bundle, aa<h> aaVar) {
         this.mPageContext = tbPageContext;
-        this.moA = new c(tbPageContext);
-        this.moA.c(aaVar);
+        this.moz = new c(tbPageContext);
+        this.moz.c(aaVar);
         if (bundle != null && (OrmObject.objectWithBundle(bundle, PersonMoreData.class) instanceof PersonMoreData)) {
-            this.moC = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
+            this.moB = (PersonMoreData) OrmObject.objectWithBundle(bundle, PersonMoreData.class);
         }
     }
 
     public void initView() {
         this.mPageContext.getPageActivity().setContentView(R.layout.person_center_more_layout);
-        this.moA.ap(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
-        dxZ();
-        this.moA.setData(this.moB);
+        this.moz.ap(this.mPageContext.getPageActivity().findViewById(R.id.person_more_layout));
+        dya();
+        this.moz.setData(this.moA);
     }
 
     public void onChangeSkinType() {
-        if (this.moA != null) {
-            this.moA.onChangeSkinType();
+        if (this.moz != null) {
+            this.moz.onChangeSkinType();
         }
     }
 
-    private void dxZ() {
-        this.moB = new ArrayList();
-        if (this.moC != null && !x.isEmpty(this.moC.mUrlMaps)) {
-            for (PersonMoreItemData personMoreItemData : this.moC.mUrlMaps) {
+    private void dya() {
+        this.moA = new ArrayList();
+        if (this.moB != null && !x.isEmpty(this.moB.mUrlMaps)) {
+            for (PersonMoreItemData personMoreItemData : this.moB.mUrlMaps) {
                 if (personMoreItemData != null && !StringUtils.isNull(personMoreItemData.mUrl)) {
                     h hVar = new h();
                     hVar.title = personMoreItemData.mName;
                     hVar.type = 36;
                     hVar.aJH = personMoreItemData.mUrl;
                     hVar.itemId = personMoreItemData.mId;
-                    this.moB.add(hVar);
+                    this.moA.add(hVar);
                 }
             }
         }

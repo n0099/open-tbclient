@@ -10,7 +10,7 @@ public class f {
     private boolean fBJ = false;
     private int fBK = 0;
 
-    public void Du(String str) {
+    public void Dt(String str) {
         int lastIndexOf;
         String str2;
         String str3 = null;
@@ -79,7 +79,7 @@ public class f {
         return this.fBJ;
     }
 
-    public int bDK() {
+    public int bDL() {
         return this.fBK;
     }
 

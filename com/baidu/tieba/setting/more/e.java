@@ -28,36 +28,37 @@ public class e extends com.baidu.adp.base.d<MoreActivity> {
     private TbSettingTextTipView nbA;
     private TbSettingTextTipView nbB;
     private TbSettingTextTipView nbC;
-    private TbSettingTextTipView nbD;
-    private SettingTextVersionView nbE;
+    private SettingTextVersionView nbD;
+    private TbSettingTextTipView nbE;
     private TbSettingTextTipView nbF;
-    private TbSettingTextTipView nbG;
-    private TbSettingTextNewDotView nbH;
-    private TextView nbI;
-    private RelativeLayout nbJ;
+    private TbSettingTextNewDotView nbG;
+    private TextView nbH;
+    private RelativeLayout nbI;
+    private View nbJ;
     private View nbK;
     private View nbL;
     private View nbM;
     private View nbN;
     private View nbO;
     private View nbP;
-    private View nbQ;
-    private RelativeLayout nbR;
-    private BdSwitchView nbS;
-    private RelativeLayout nbT;
-    private BdSwitchView nbU;
-    private MoreActivity nbr;
-    private d nbs;
-    private com.baidu.tbadk.core.dialog.i nbt;
-    private k nbu;
-    private SettingTextNormalImageView nbv;
-    private SettingTextImageView nbw;
+    private RelativeLayout nbQ;
+    private BdSwitchView nbR;
+    private RelativeLayout nbS;
+    private BdSwitchView nbT;
+    private MoreActivity nbq;
+    private d nbr;
+    private com.baidu.tbadk.core.dialog.i nbs;
+    private k nbt;
+    private SettingTextNormalImageView nbu;
+    private SettingTextImageView nbv;
+    private TbSettingTextTipView nbw;
     private TbSettingTextTipView nbx;
     private TbSettingTextTipView nby;
     private TbSettingTextTipView nbz;
 
     public e(MoreActivity moreActivity, d dVar) {
         super(moreActivity.getPageContext());
+        this.nbL = null;
         this.nbM = null;
         this.nbN = null;
         this.nbO = null;
@@ -66,49 +67,48 @@ public class e extends com.baidu.adp.base.d<MoreActivity> {
         this.nbR = null;
         this.nbS = null;
         this.nbT = null;
-        this.nbU = null;
-        this.nbr = moreActivity;
-        this.nbs = dVar;
-        this.nbr.setContentView(R.layout.more_activity);
-        bDf();
-        dIW();
+        this.nbq = moreActivity;
+        this.nbr = dVar;
+        this.nbq.setContentView(R.layout.more_activity);
+        bDg();
+        dIX();
     }
 
-    public void dIU() {
+    public void dIV() {
         String currentAccount = TbadkCoreApplication.getCurrentAccount();
         if (currentAccount == null || currentAccount.length() <= 0) {
-            this.nbw.setVisibility(8);
+            this.nbv.setVisibility(8);
         } else {
-            this.nbw.setVisibility(0);
+            this.nbv.setVisibility(0);
         }
     }
 
     public void bc(String str, boolean z) {
         if (str == null || str.length() <= 0) {
-            if (this.nbw != null) {
-                this.nbw.dKd();
+            if (this.nbv != null) {
+                this.nbv.dKe();
                 return;
             }
             return;
         }
-        this.nbw.dKe();
-        this.nbw.setIcon(str, z);
-    }
-
-    public void dIV() {
-        if (this.nbE != null) {
-            this.nbE.refresh();
-        }
-        if (this.nbH != null) {
-            this.nbH.refresh();
-        }
+        this.nbv.dKf();
+        this.nbv.setIcon(str, z);
     }
 
     public void dIW() {
+        if (this.nbD != null) {
+            this.nbD.refresh();
+        }
+        if (this.nbG != null) {
+            this.nbG.refresh();
+        }
+    }
+
+    public void dIX() {
         if (TbadkCoreApplication.getInst().getSkinType() == 1) {
-            this.nbS.turnOn();
+            this.nbR.turnOn();
         } else {
-            this.nbS.turnOff();
+            this.nbR.turnOff();
         }
     }
 
@@ -128,49 +128,50 @@ public class e extends com.baidu.adp.base.d<MoreActivity> {
         }
     }
 
-    public void dHV() {
+    public void dHW() {
+        this.nbv.recycle();
         this.nbw.recycle();
         this.nbx.recycle();
         this.nby.recycle();
         this.nbz.recycle();
-        this.nbA.recycle();
+        this.nbB.recycle();
         this.nbC.recycle();
         this.nbD.recycle();
         this.nbE.recycle();
         this.nbF.recycle();
-        this.nbG.recycle();
     }
 
     public void onChangeSkinType(int i) {
         sk(i);
-        if (this.nbu != null) {
-            this.nbr.getLayoutMode().setNightMode(i == 1);
-            this.nbr.getLayoutMode().onModeChanged(this.nbu.getView());
+        if (this.nbt != null) {
+            this.nbq.getLayoutMode().setNightMode(i == 1);
+            this.nbq.getLayoutMode().onModeChanged(this.nbt.getView());
         }
         if (i == 1) {
-            this.nbS.turnOnNoCallback();
+            this.nbR.turnOnNoCallback();
         } else {
-            this.nbS.turnOffNoCallback();
+            this.nbR.turnOffNoCallback();
         }
     }
 
     public void sk(int i) {
-        ao.setBackgroundColor(this.nbJ, R.color.CAM_X0201);
+        ao.setBackgroundColor(this.nbI, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        this.nbw.sk(i);
-        this.nbr.getLayoutMode().setNightMode(i == 1);
-        this.nbr.getLayoutMode().onModeChanged(this.nbJ);
-        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
-        dIV();
-        this.nbS.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
-        this.nbU.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
-        ao.setBackgroundColor(this.nbK, R.color.CAM_X0201);
-        this.nbv.setLocalIcon(ao.qc(R.drawable.icon_mine_list_baidu));
-        if (this.nbu != null) {
-            this.nbu.onChangeSkinType();
-        }
         this.nbv.sk(i);
-        this.nbw.sk(i);
+        this.nbq.getLayoutMode().setNightMode(i == 1);
+        this.nbq.getLayoutMode().onModeChanged(this.nbI);
+        this.mNavigationBar.onChangeSkinType(getPageContext(), i);
+        dIW();
+        this.nbR.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
+        this.nbT.setBackgroundRes(ao.getBitmap(R.drawable.bg_switch_open), ao.getBitmap(R.drawable.bg_switch_close), ao.getBitmap(R.drawable.btn_handle));
+        ao.setBackgroundColor(this.nbJ, R.color.CAM_X0201);
+        this.nbu.setLocalIcon(ao.qc(R.drawable.icon_mine_list_baidu));
+        if (this.nbt != null) {
+            this.nbt.onChangeSkinType();
+        }
+        this.nbu.sk(i);
+        this.nbv.sk(i);
+        this.nbw.onChangeSkinType(i);
         this.nbx.onChangeSkinType(i);
         this.nby.onChangeSkinType(i);
         this.nbz.onChangeSkinType(i);
@@ -181,119 +182,118 @@ public class e extends com.baidu.adp.base.d<MoreActivity> {
         this.nbE.onChangeSkinType(i);
         this.nbF.onChangeSkinType(i);
         this.nbG.onChangeSkinType(i);
-        this.nbH.onChangeSkinType(i);
     }
 
-    private void bDf() {
+    private void bDg() {
         View.OnClickListener clickListener = getClickListener();
-        this.nbJ = (RelativeLayout) this.nbr.findViewById(R.id.parent);
-        this.nbK = this.nbr.findViewById(R.id.scroll);
-        this.nbr.findViewById(R.id.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
-        this.mNavigationBar = (NavigationBar) this.nbr.findViewById(R.id.view_navigation_bar);
-        this.nbL = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.mNavigationBar.setCenterTextTitle(this.nbr.getPageContext().getString(R.string.setup));
+        this.nbI = (RelativeLayout) this.nbq.findViewById(R.id.parent);
+        this.nbJ = this.nbq.findViewById(R.id.scroll);
+        this.nbq.findViewById(R.id.head_top_view).getLayoutParams().height = BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT);
+        this.mNavigationBar = (NavigationBar) this.nbq.findViewById(R.id.view_navigation_bar);
+        this.nbK = this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.mNavigationBar.setCenterTextTitle(this.nbq.getPageContext().getString(R.string.setup));
         this.mNavigationBar.showBottomLine();
-        this.nbv = (SettingTextNormalImageView) this.nbr.findViewById(R.id.accountSafeSetting);
-        this.nbw = (SettingTextImageView) this.nbr.findViewById(R.id.personInfo);
-        this.nbx = (TbSettingTextTipView) this.nbr.findViewById(R.id.interest_label_setting);
+        this.nbu = (SettingTextNormalImageView) this.nbq.findViewById(R.id.accountSafeSetting);
+        this.nbv = (SettingTextImageView) this.nbq.findViewById(R.id.personInfo);
+        this.nbw = (TbSettingTextTipView) this.nbq.findViewById(R.id.interest_label_setting);
+        this.nbw.setTopLineVisibility(true);
+        this.nbx = (TbSettingTextTipView) this.nbq.findViewById(R.id.accountManager);
         this.nbx.setTopLineVisibility(true);
-        this.nby = (TbSettingTextTipView) this.nbr.findViewById(R.id.accountManager);
-        this.nby.setTopLineVisibility(true);
-        this.nbz = (TbSettingTextTipView) this.nbr.findViewById(R.id.browseSetting);
+        this.nby = (TbSettingTextTipView) this.nbq.findViewById(R.id.browseSetting);
+        this.nby.setBottomLineVisibility(true);
+        this.nbz = (TbSettingTextTipView) this.nbq.findViewById(R.id.youngsterSetting);
         this.nbz.setBottomLineVisibility(true);
-        this.nbA = (TbSettingTextTipView) this.nbr.findViewById(R.id.youngsterSetting);
+        if (com.baidu.tbadk.youngster.b.c.bME()) {
+            this.nbz.setTip(this.nbq.getString(R.string.youngster_settings_tip_open));
+        } else {
+            this.nbz.setTip(this.nbq.getString(R.string.youngster_settings_tip_close));
+        }
+        this.nbA = (TbSettingTextTipView) this.nbq.findViewById(R.id.adSetting);
         this.nbA.setBottomLineVisibility(true);
-        if (com.baidu.tbadk.youngster.b.c.bMD()) {
-            this.nbA.setTip(this.nbr.getString(R.string.youngster_settings_tip_open));
-        } else {
-            this.nbA.setTip(this.nbr.getString(R.string.youngster_settings_tip_close));
-        }
-        this.nbB = (TbSettingTextTipView) this.nbr.findViewById(R.id.adSetting);
+        this.nbB = (TbSettingTextTipView) this.nbq.findViewById(R.id.messageSetting);
         this.nbB.setBottomLineVisibility(true);
-        this.nbC = (TbSettingTextTipView) this.nbr.findViewById(R.id.messageSetting);
+        this.nby.setBottomLineVisibility(true);
+        this.nbC = (TbSettingTextTipView) this.nbq.findViewById(R.id.secretSetting);
         this.nbC.setBottomLineVisibility(true);
-        this.nbz.setBottomLineVisibility(true);
-        this.nbD = (TbSettingTextTipView) this.nbr.findViewById(R.id.secretSetting);
-        this.nbD.setBottomLineVisibility(true);
-        this.nbE = (SettingTextVersionView) this.nbr.findViewById(R.id.versionInfo);
-        this.nbF = (TbSettingTextTipView) this.nbr.findViewById(R.id.feedBack);
-        this.nbF.setTopLineVisibility(true);
-        this.nbF.setBottomLineVisibility(true);
-        this.nbG = (TbSettingTextTipView) this.nbr.findViewById(R.id.recommend);
+        this.nbD = (SettingTextVersionView) this.nbq.findViewById(R.id.versionInfo);
+        this.nbE = (TbSettingTextTipView) this.nbq.findViewById(R.id.feedBack);
+        this.nbE.setTopLineVisibility(true);
+        this.nbE.setBottomLineVisibility(true);
+        this.nbF = (TbSettingTextTipView) this.nbq.findViewById(R.id.recommend);
         if (!TbadkCoreApplication.getInst().getIsAppOn()) {
-            this.nbG.setVisibility(8);
-            this.nbG.setBottomLineVisibility(false);
+            this.nbF.setVisibility(8);
+            this.nbF.setBottomLineVisibility(false);
         } else {
-            this.nbG.setVisibility(0);
-            this.nbG.setBottomLineVisibility(true);
+            this.nbF.setVisibility(0);
+            this.nbF.setBottomLineVisibility(true);
         }
-        this.nbH = (TbSettingTextNewDotView) this.nbr.findViewById(R.id.systemhelpsetting);
-        this.nbI = (TextView) this.nbr.findViewById(R.id.quit);
-        this.nbR = (RelativeLayout) this.nbr.findViewById(R.id.eyeshield_mode);
-        this.nbS = (BdSwitchView) this.nbr.findViewById(R.id.item_switch);
-        l.addToParentArea(this.nbr.getPageContext().getPageActivity(), this.nbS, 10, 10, 10, 10);
-        this.nbT = (RelativeLayout) this.nbr.findViewById(R.id.follow_system_day_night_mode);
-        this.nbU = (BdSwitchView) this.nbr.findViewById(R.id.follow_system_item_switch);
-        l.addToParentArea(this.nbr.getPageContext().getPageActivity(), this.nbU, 10, 10, 10, 10);
-        this.nbM = this.nbr.findViewById(R.id.divide_view2);
-        this.nbN = this.nbr.findViewById(R.id.divide_view1);
-        this.nbO = this.nbr.findViewById(R.id.divide_view3);
-        this.nbP = this.nbr.findViewById(R.id.divide_view4);
-        this.nbQ = this.nbr.findViewById(R.id.divide_view5);
+        this.nbG = (TbSettingTextNewDotView) this.nbq.findViewById(R.id.systemhelpsetting);
+        this.nbH = (TextView) this.nbq.findViewById(R.id.quit);
+        this.nbQ = (RelativeLayout) this.nbq.findViewById(R.id.eyeshield_mode);
+        this.nbR = (BdSwitchView) this.nbq.findViewById(R.id.item_switch);
+        l.addToParentArea(this.nbq.getPageContext().getPageActivity(), this.nbR, 10, 10, 10, 10);
+        this.nbS = (RelativeLayout) this.nbq.findViewById(R.id.follow_system_day_night_mode);
+        this.nbT = (BdSwitchView) this.nbq.findViewById(R.id.follow_system_item_switch);
+        l.addToParentArea(this.nbq.getPageContext().getPageActivity(), this.nbT, 10, 10, 10, 10);
+        this.nbL = this.nbq.findViewById(R.id.divide_view2);
+        this.nbM = this.nbq.findViewById(R.id.divide_view1);
+        this.nbN = this.nbq.findViewById(R.id.divide_view3);
+        this.nbO = this.nbq.findViewById(R.id.divide_view4);
+        this.nbP = this.nbq.findViewById(R.id.divide_view5);
+        dIW();
         dIV();
-        dIU();
-        this.nbw.dKd();
+        this.nbv.dKe();
         sk(TbadkCoreApplication.getInst().getSkinType());
+        this.nbM.setVisibility(0);
         this.nbN.setVisibility(0);
         this.nbO.setVisibility(0);
         this.nbP.setVisibility(0);
-        this.nbQ.setVisibility(0);
         ag(clickListener);
-        if (!dIX()) {
-            this.nbz.setTip(this.nbr.getResources().getString(R.string.browsing_settings_tip_no_night));
-            this.nbM.setVisibility(8);
-            this.nbR.setVisibility(8);
+        if (!dIY()) {
+            this.nby.setTip(this.nbq.getResources().getString(R.string.browsing_settings_tip_no_night));
+            this.nbL.setVisibility(8);
+            this.nbQ.setVisibility(8);
         } else {
-            this.nbM.setVisibility(0);
-            this.nbR.setVisibility(0);
+            this.nbL.setVisibility(0);
+            this.nbQ.setVisibility(0);
         }
-        this.nbT.setVisibility(dIY() ? 0 : 8);
-        if (com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_is_follow_system_mode", false)) {
-            this.nbU.turnOnNoCallback();
+        this.nbS.setVisibility(dIZ() ? 0 : 8);
+        if (com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_is_follow_system_mode", false)) {
+            this.nbT.turnOnNoCallback();
         } else {
-            this.nbU.turnOffNoCallback();
+            this.nbT.turnOffNoCallback();
         }
-    }
-
-    private boolean dIX() {
-        return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
     }
 
     private boolean dIY() {
-        if (dIX()) {
+        return MessageManager.getInstance().runTask(CmdConfigCustom.CMD_NIGHT_RESOURCE_AVAILABLE, Boolean.class) != null;
+    }
+
+    private boolean dIZ() {
+        if (dIY()) {
             if (Build.VERSION.SDK_INT >= 29) {
                 return true;
             }
-            return com.baidu.tbadk.core.sharedPref.b.bvq().getBoolean("key_is_dark_mode_notify_shown", false);
+            return com.baidu.tbadk.core.sharedPref.b.bvr().getBoolean("key_is_dark_mode_notify_shown", false);
         }
         return false;
     }
 
-    private void atC() {
-        this.nbu = new k(getPageContext().getPageActivity());
-        this.nbu.setTitleText(getPageContext().getString(R.string.quit_account_tip));
+    private void atD() {
+        this.nbt = new k(getPageContext().getPageActivity());
+        this.nbt.setTitleText(getPageContext().getString(R.string.quit_account_tip));
         ArrayList arrayList = new ArrayList();
-        final com.baidu.tbadk.core.dialog.g gVar = new com.baidu.tbadk.core.dialog.g(getPageContext().getString(R.string.quite_current_account), this.nbu);
+        final com.baidu.tbadk.core.dialog.g gVar = new com.baidu.tbadk.core.dialog.g(getPageContext().getString(R.string.quite_current_account), this.nbt);
         gVar.setTextColor(R.color.CAM_X0301);
         arrayList.add(gVar);
-        this.nbr.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
-        this.nbr.getLayoutMode().onModeChanged(this.nbu.getView());
+        this.nbq.getLayoutMode().setNightMode(TbadkCoreApplication.getInst().getSkinType() == 1);
+        this.nbq.getLayoutMode().onModeChanged(this.nbt.getView());
         k.c cVar = new k.c() { // from class: com.baidu.tieba.setting.more.e.1
             @Override // com.baidu.tbadk.core.dialog.k.c
             public void a(k kVar, int i, View view) {
                 if (i == gVar.getId()) {
                     e.this.If();
-                    e.this.nbs.JS(12);
+                    e.this.nbr.JS(12);
                 }
             }
         };
@@ -303,17 +303,18 @@ public class e extends com.baidu.adp.base.d<MoreActivity> {
                 e.this.If();
             }
         };
-        this.nbu.bB(arrayList);
-        this.nbu.a(cVar);
-        this.nbu.a(aVar);
-        this.nbt = new com.baidu.tbadk.core.dialog.i(this.mContext);
-        this.nbt.setCanceledOnTouchOutside(true);
-        this.nbt.a(this.nbu);
+        this.nbt.bB(arrayList);
+        this.nbt.a(cVar);
+        this.nbt.a(aVar);
+        this.nbs = new com.baidu.tbadk.core.dialog.i(this.mContext);
+        this.nbs.setCanceledOnTouchOutside(true);
+        this.nbs.a(this.nbt);
     }
 
     private void ag(View.OnClickListener onClickListener) {
+        this.nbu.setOnClickListener(onClickListener);
+        this.nbK.setOnClickListener(onClickListener);
         this.nbv.setOnClickListener(onClickListener);
-        this.nbL.setOnClickListener(onClickListener);
         this.nbw.setOnClickListener(onClickListener);
         this.nbx.setOnClickListener(onClickListener);
         this.nby.setOnClickListener(onClickListener);
@@ -326,76 +327,75 @@ public class e extends com.baidu.adp.base.d<MoreActivity> {
         this.nbF.setOnClickListener(onClickListener);
         this.nbG.setOnClickListener(onClickListener);
         this.nbH.setOnClickListener(onClickListener);
-        this.nbI.setOnClickListener(onClickListener);
-        this.nbS.setOnSwitchStateChangeListener(this.nbr);
-        this.nbU.setOnSwitchStateChangeListener(this.nbr);
+        this.nbR.setOnSwitchStateChangeListener(this.nbq);
+        this.nbT.setOnSwitchStateChangeListener(this.nbq);
     }
 
     private View.OnClickListener getClickListener() {
         return new View.OnClickListener() { // from class: com.baidu.tieba.setting.more.e.3
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (view == e.this.nbL) {
-                    e.this.nbs.JS(0);
-                } else if (view == e.this.nbw) {
-                    e.this.nbs.JS(1);
-                } else if (view == e.this.nbx) {
-                    e.this.nbs.JS(15);
-                } else if (view == e.this.nby) {
-                    e.this.nbs.JS(2);
-                } else if (view == e.this.nbz) {
-                    e.this.nbs.JS(3);
-                } else if (view == e.this.nbA) {
-                    e.this.nbs.JS(17);
-                } else if (view == e.this.nbC) {
-                    e.this.nbs.JS(4);
-                } else if (view == e.this.nbD) {
-                    e.this.nbs.JS(9);
-                } else if (view == e.this.nbE) {
-                    e.this.nbs.JS(6);
-                } else if (view == e.this.nbF) {
-                    e.this.nbs.JS(7);
-                } else if (view == e.this.nbG) {
-                    e.this.nbs.JS(8);
-                } else if (view == e.this.nbH) {
-                    e.this.nbs.JS(5);
-                } else if (view == e.this.nbI) {
-                    e.this.nbs.JS(10);
+                if (view == e.this.nbK) {
+                    e.this.nbr.JS(0);
                 } else if (view == e.this.nbv) {
-                    e.this.nbs.JS(13);
+                    e.this.nbr.JS(1);
+                } else if (view == e.this.nbw) {
+                    e.this.nbr.JS(15);
+                } else if (view == e.this.nbx) {
+                    e.this.nbr.JS(2);
+                } else if (view == e.this.nby) {
+                    e.this.nbr.JS(3);
+                } else if (view == e.this.nbz) {
+                    e.this.nbr.JS(17);
                 } else if (view == e.this.nbB) {
-                    e.this.nbs.JS(16);
+                    e.this.nbr.JS(4);
+                } else if (view == e.this.nbC) {
+                    e.this.nbr.JS(9);
+                } else if (view == e.this.nbD) {
+                    e.this.nbr.JS(6);
+                } else if (view == e.this.nbE) {
+                    e.this.nbr.JS(7);
+                } else if (view == e.this.nbF) {
+                    e.this.nbr.JS(8);
+                } else if (view == e.this.nbG) {
+                    e.this.nbr.JS(5);
+                } else if (view == e.this.nbH) {
+                    e.this.nbr.JS(10);
+                } else if (view == e.this.nbu) {
+                    e.this.nbr.JS(13);
+                } else if (view == e.this.nbA) {
+                    e.this.nbr.JS(16);
                 }
             }
         };
     }
 
-    public void dIZ() {
-        if (this.nbt == null) {
-            atC();
+    public void dJa() {
+        if (this.nbs == null) {
+            atD();
         }
-        this.nbt.SY();
+        this.nbs.SY();
     }
 
     public void If() {
-        if (this.nbt != null) {
-            this.nbt.dismiss();
+        if (this.nbs != null) {
+            this.nbs.dismiss();
         }
     }
 
-    public BdSwitchView dJa() {
-        return this.nbS;
+    public BdSwitchView dJb() {
+        return this.nbR;
     }
 
-    public BdSwitchView dJb() {
-        return this.nbU;
+    public BdSwitchView dJc() {
+        return this.nbT;
     }
 
     public void onResume() {
-        boolean areNotificationsEnabled = NotificationManagerCompat.from(this.nbr).areNotificationsEnabled();
-        if (this.nbC != null) {
-            this.nbC.setTipViewColor(R.color.CAM_X0105);
-            this.nbC.setTip(areNotificationsEnabled ? "" : this.nbr.getString(R.string.may_lose_important_msg));
+        boolean areNotificationsEnabled = NotificationManagerCompat.from(this.nbq).areNotificationsEnabled();
+        if (this.nbB != null) {
+            this.nbB.setTipViewColor(R.color.CAM_X0105);
+            this.nbB.setTip(areNotificationsEnabled ? "" : this.nbq.getString(R.string.may_lose_important_msg));
         }
     }
 }

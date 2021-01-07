@@ -4,21 +4,21 @@ import android.os.Handler;
 import android.os.Looper;
 import android.util.Log;
 /* JADX INFO: Access modifiers changed from: package-private */
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class j implements WalkNaviModeSwitchListener {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ int f4577a;
+    final /* synthetic */ int f4578a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ boolean f4578b;
+    final /* synthetic */ boolean f4579b;
     final /* synthetic */ b c;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public j(b bVar, int i, boolean z) {
         this.c = bVar;
-        this.f4577a = i;
-        this.f4578b = z;
+        this.f4578a = i;
+        this.f4579b = z;
     }
 
     @Override // com.baidu.platform.comapi.walknavi.WalkNaviModeSwitchListener
@@ -26,13 +26,13 @@ public class j implements WalkNaviModeSwitchListener {
         com.baidu.platform.comapi.wnplatform.o.a aVar;
         com.baidu.platform.comapi.wnplatform.o.a aVar2;
         com.baidu.platform.comapi.wnplatform.o.a aVar3;
-        this.c.T = this.f4577a;
+        this.c.T = this.f4578a;
         aVar = this.c.p;
         if (aVar != null) {
             aVar2 = this.c.p;
             if (aVar2 instanceof com.baidu.platform.comapi.walknavi.g.a) {
                 aVar3 = this.c.p;
-                ((com.baidu.platform.comapi.walknavi.g.a) aVar3).a(this.f4577a, this.f4578b);
+                ((com.baidu.platform.comapi.walknavi.g.a) aVar3).a(this.f4578a, this.f4579b);
             }
         }
         if (com.baidu.platform.comapi.wnplatform.a.a().b()) {

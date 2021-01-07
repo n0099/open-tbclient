@@ -46,7 +46,7 @@ public class SwanAppBottomTabIconView extends RelativeLayout {
         this.mTextView.setTextColor(i);
     }
 
-    public boolean aQw() {
+    public boolean aQx() {
         return this.dQl;
     }
 

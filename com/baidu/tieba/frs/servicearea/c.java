@@ -41,8 +41,8 @@ public class c implements a, b {
         @Override // android.view.View.OnClickListener
         public void onClick(View view) {
             if (!TextUtils.equals(c.this.mRootView.getResources().getString(R.string.hot_user_rank), c.this.jFB.imageUrl) || c.this.jFx == null || c.this.jFx.getForum() == null || TextUtils.isEmpty(c.this.jFx.getForum().getId())) {
-                if (c.this.jFB != null && c.this.jFB.nqy != null) {
-                    TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("fid", c.this.jFB.forumId).dX("obj_source", "frs_card").dX("obj_id", c.this.jFB.nqy.id).dX("obj_name", c.this.jFB.nqy.name).an("obj_param1", c.this.jFB.nqy.eGU.intValue()));
+                if (c.this.jFB != null && c.this.jFB.nqx != null) {
+                    TiebaStatic.log(new aq("c13274").w("uid", TbadkCoreApplication.getCurrentAccountId()).dX("fid", c.this.jFB.forumId).dX("obj_source", "frs_card").dX("obj_id", c.this.jFB.nqx.id).dX("obj_name", c.this.jFB.nqx.name).an("obj_param1", c.this.jFB.nqx.eGU.intValue()));
                 }
                 d.a(view.getContext(), c.this.jFB);
                 d.c(c.this.jFB);
@@ -122,7 +122,7 @@ public class c implements a, b {
 
     @Override // com.baidu.tieba.frs.servicearea.a
     public void setThemeFontColor(int i) {
-        com.baidu.tbadk.core.util.f.a.bwU().qq(0).qx(l.getDimens(getView().getContext(), R.dimen.tbds10)).qs(i).bz(this.dXi);
+        com.baidu.tbadk.core.util.f.a.bwV().qq(0).qx(l.getDimens(getView().getContext(), R.dimen.tbds10)).qs(i).bz(this.dXi);
     }
 
     private boolean g(FrsViewData frsViewData) {

@@ -6,21 +6,21 @@ import com.baidu.location.Jni;
 import javax.crypto.Cipher;
 import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.SecretKeySpec;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class m {
 
     /* renamed from: a  reason: collision with root package name */
-    private IvParameterSpec f2635a;
+    private IvParameterSpec f2636a;
 
     /* renamed from: b  reason: collision with root package name */
-    private SecretKeySpec f2636b;
+    private SecretKeySpec f2637b;
     private boolean c;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     private static class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private static m f2637a = new m();
+        private static m f2638a = new m();
     }
 
     private m() {
@@ -31,8 +31,8 @@ public class m {
                 return;
             }
             String[] split = str.split(EditTextPasteFilterUtils.EDITTEXT_PASTE_INTERCEPTOR_SEPERATOR);
-            this.f2635a = new IvParameterSpec(split[1].getBytes("UTF-8"));
-            this.f2636b = new SecretKeySpec(split[0].getBytes("UTF-8"), com.baidu.sapi2.utils.e.q);
+            this.f2636a = new IvParameterSpec(split[1].getBytes("UTF-8"));
+            this.f2637b = new SecretKeySpec(split[0].getBytes("UTF-8"), com.baidu.sapi2.utils.e.q);
             this.c = true;
         } catch (Exception e) {
             e.printStackTrace();
@@ -40,14 +40,14 @@ public class m {
     }
 
     public static m a() {
-        return a.f2637a;
+        return a.f2638a;
     }
 
     public String a(String str) {
         if (this.c) {
             try {
                 Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-                cipher.init(1, this.f2636b, this.f2635a);
+                cipher.init(1, this.f2637b, this.f2636a);
                 return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
             } catch (Exception e) {
                 e.printStackTrace();
@@ -62,7 +62,7 @@ public class m {
             if (this.c) {
                 try {
                     Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5PADDING");
-                    cipher.init(2, this.f2636b, this.f2635a);
+                    cipher.init(2, this.f2637b, this.f2636a);
                     str2 = new String(cipher.doFinal(Base64.decode(str, 0)), "UTF-8");
                 } catch (Exception e) {
                     e.printStackTrace();

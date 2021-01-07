@@ -12,7 +12,7 @@ import com.baidu.swan.games.bdtls.model.j;
 public class d {
     private static volatile d efU;
 
-    public static d aXR() {
+    public static d aXS() {
         if (efU == null) {
             synchronized (d.class) {
                 if (efU == null) {
@@ -33,11 +33,11 @@ public class d {
         try {
             byte[] a2 = com.baidu.swan.games.bdtls.a.a.a(jVar, new g());
             if (a2 != null) {
-                h aYP = h.egp.aYP();
-                aYP.c((byte) 22);
-                aYP.d((short) a2.length);
-                aYP.S(a2);
-                return com.baidu.swan.games.bdtls.a.b.a(aYP);
+                h aYQ = h.egp.aYQ();
+                aYQ.c((byte) 22);
+                aYQ.d((short) a2.length);
+                aYQ.S(a2);
+                return com.baidu.swan.games.bdtls.a.b.a(aYQ);
             }
             return null;
         } catch (Exception e) {
@@ -55,19 +55,19 @@ public class d {
             return null;
         }
         try {
-            h aYP = h.egp.aYP();
-            aYP.c((byte) 23);
-            byte[] aZb = jVar.aZb();
-            if (aZb != null && aZb.length > 0 && aZb.length <= 32767) {
-                aYP.d((short) aZb.length);
-                aYP.S(aZb);
+            h aYQ = h.egp.aYQ();
+            aYQ.c((byte) 23);
+            byte[] aZc = jVar.aZc();
+            if (aZc != null && aZc.length > 0 && aZc.length <= 32767) {
+                aYQ.d((short) aZc.length);
+                aYQ.S(aZc);
             }
             if (!TextUtils.isEmpty(str)) {
-                byte[] h = AES.h(str, jVar.aZa());
-                aYP.mC(h.length);
-                aYP.setContent(h);
+                byte[] h = AES.h(str, jVar.aZb());
+                aYQ.mC(h.length);
+                aYQ.setContent(h);
             }
-            return com.baidu.swan.games.bdtls.a.b.a(aYP);
+            return com.baidu.swan.games.bdtls.a.b.a(aYQ);
         } catch (Exception e) {
             if (a.DEBUG) {
                 e.printStackTrace();
@@ -82,9 +82,9 @@ public class d {
         i iVar = new i();
         try {
             h W = com.baidu.swan.games.bdtls.a.b.W(bArr);
-            switch (W.aYK()) {
+            switch (W.aYL()) {
                 case 21:
-                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(W.aYO());
+                    Bdtls.Alert parseFrom = Bdtls.Alert.parseFrom(W.aYP());
                     if (parseFrom != null) {
                         String str = new String(parseFrom.getDescription().toByteArray());
                         if (a.DEBUG) {
@@ -115,7 +115,7 @@ public class d {
                     }
                     break;
                 case 23:
-                    iVar.wV(new String(AES.d(W.getContent(), jVar.aZa())));
+                    iVar.wV(new String(AES.d(W.getContent(), jVar.aZb())));
                     iVar.h(1);
                     break;
             }

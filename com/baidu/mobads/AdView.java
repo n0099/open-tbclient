@@ -16,17 +16,17 @@ public final class AdView extends RelativeLayout {
     protected static final String P_VERSION = "3.61";
 
     /* renamed from: a  reason: collision with root package name */
-    IOAdEventListener f3302a;
+    IOAdEventListener f3303a;
 
     /* renamed from: b  reason: collision with root package name */
-    private AtomicBoolean f3303b;
+    private AtomicBoolean f3304b;
     private com.baidu.mobads.production.a.a c;
     private AdViewListener d;
 
     public AdView(Context context) {
         super(context);
-        this.f3303b = new AtomicBoolean(false);
-        this.f3302a = new a(this);
+        this.f3304b = new AtomicBoolean(false);
+        this.f3303a = new a(this);
     }
 
     public AdView(Context context, String str) {
@@ -44,23 +44,23 @@ public final class AdView extends RelativeLayout {
 
     public AdView(Context context, AttributeSet attributeSet, boolean z, AdSize adSize, String str) {
         super(context, attributeSet);
-        this.f3303b = new AtomicBoolean(false);
-        this.f3302a = new a(this);
+        this.f3304b = new AtomicBoolean(false);
+        this.f3303a = new a(this);
         XAdView xAdView = new XAdView(context);
         this.c = new com.baidu.mobads.production.a.a(context, xAdView, str, z);
-        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f3302a);
-        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3302a);
-        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3302a);
-        this.c.addEventListener("AdUserClick", this.f3302a);
-        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f3302a);
+        this.c.addEventListener(IXAdEvent.AD_LOADED, this.f3303a);
+        this.c.addEventListener(IXAdEvent.AD_ERROR, this.f3303a);
+        this.c.addEventListener(IXAdEvent.AD_STARTED, this.f3303a);
+        this.c.addEventListener("AdUserClick", this.f3303a);
+        this.c.addEventListener(IXAdEvent.AD_USER_CLOSE, this.f3303a);
         xAdView.setListener(new c(this));
         addView(xAdView, new ViewGroup.LayoutParams(-1, -1));
     }
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a() {
-        if (!this.f3303b.get()) {
-            this.f3303b.set(true);
+        if (!this.f3304b.get()) {
+            this.f3304b.set(true);
             this.c.request();
         }
     }

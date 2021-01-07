@@ -55,7 +55,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         }
     }
 
-    public void aEK() {
+    public void aEL() {
         if (this.dnf == null || this.dnf.dno == null || !this.dnf.dno.isPlaying()) {
             return;
         }
@@ -123,9 +123,9 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         ImageRequestBuilder aj = ImageRequestBuilder.aj(path.startsWith(HttpHost.DEFAULT_SCHEME_NAME) ? Uri.parse(path) : Uri.fromFile(new File(mediaModel.getPath())));
         aj.c(new d(ah.getDisplayWidth(this.mContext), ah.getDisplayHeight(this.mContext), 10240.0f));
         aj.Bj(true);
-        com.facebook.drawee.controller.a evv = com.facebook.drawee.a.a.c.euI().AX(com.baidu.swan.apps.media.chooser.b.c.dnD).bo(aj.eBe()).c(a2).c(aVar.dnm.getController()).evz();
+        com.facebook.drawee.controller.a evC = com.facebook.drawee.a.a.c.euP().AX(com.baidu.swan.apps.media.chooser.b.c.dnD).bo(aj.eBI()).c(a2).c(aVar.dnm.getController()).evG();
         aVar.dnm.setVisibility(0);
-        aVar.dnm.setController(evv);
+        aVar.dnm.setController(evC);
         if (!(mediaModel instanceof ImageModel)) {
             return;
         }
@@ -134,7 +134,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 if (SwanAppAlbumPreviewAdapter.this.dnd != null) {
-                    SwanAppAlbumPreviewAdapter.this.dnd.aED();
+                    SwanAppAlbumPreviewAdapter.this.dnd.aEE();
                 }
             }
         });
@@ -185,7 +185,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
             this.dnh.dno.setVisibility(0);
             this.dnh.dnp.setVisibility(8);
             if (SwanAppAlbumPreviewAdapter.this.dnd != null) {
-                SwanAppAlbumPreviewAdapter.this.dnd.aEE();
+                SwanAppAlbumPreviewAdapter.this.dnd.aEF();
             }
             MediaController mediaController = new MediaController(SwanAppAlbumPreviewAdapter.this.mContext);
             mediaController.setVisibility(8);
@@ -270,7 +270,7 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
         });
         aVar.dnm.startAnimation(loadAnimation);
         if (z && this.dnd != null) {
-            this.dnd.aEF();
+            this.dnd.aEG();
         }
     }
 
@@ -303,20 +303,20 @@ public class SwanAppAlbumPreviewAdapter extends PagerAdapter {
                 if (obj instanceof com.facebook.imagepipeline.f.d) {
                     hugePhotoDraweeView.setIsDynamicBitmap(false);
                     hugePhotoDraweeView.setZoomEnabled(true);
-                    Bitmap ezc = ((com.facebook.imagepipeline.f.d) obj).ezc();
-                    SwanAppAlbumPreviewAdapter.this.dne = t.aRt();
-                    com.baidu.swan.apps.media.image.b n = com.baidu.swan.apps.media.image.b.n(ezc);
-                    if (ezc.getWidth() >= SwanAppAlbumPreviewAdapter.this.dne[0] || ezc.getHeight() >= SwanAppAlbumPreviewAdapter.this.dne[0]) {
-                        n.aFc();
-                    } else {
+                    Bitmap ezF = ((com.facebook.imagepipeline.f.d) obj).ezF();
+                    SwanAppAlbumPreviewAdapter.this.dne = t.aRu();
+                    com.baidu.swan.apps.media.image.b n = com.baidu.swan.apps.media.image.b.n(ezF);
+                    if (ezF.getWidth() >= SwanAppAlbumPreviewAdapter.this.dne[0] || ezF.getHeight() >= SwanAppAlbumPreviewAdapter.this.dne[0]) {
                         n.aFd();
+                    } else {
+                        n.aFe();
                     }
                     hugePhotoDraweeView.setImage(n);
-                    SwanAppAlbumPreviewAdapter.this.a(hugePhotoDraweeView, ezc);
+                    SwanAppAlbumPreviewAdapter.this.a(hugePhotoDraweeView, ezF);
                 } else if (obj instanceof com.facebook.imagepipeline.f.a) {
                     hugePhotoDraweeView.setIsDynamicBitmap(true);
                     hugePhotoDraweeView.setZoomEnabled(false);
-                    hugePhotoDraweeView.getHierarchy().b(p.b.pxD);
+                    hugePhotoDraweeView.getHierarchy().b(p.b.pxK);
                 }
             }
 

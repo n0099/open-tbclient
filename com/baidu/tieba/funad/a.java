@@ -19,21 +19,21 @@ public class a {
     }
 
     public static a rG(boolean z) {
-        if (z && cPq()) {
+        if (z && cPr()) {
             return new a();
         }
         return null;
     }
 
-    public static boolean cPq() {
-        return com.baidu.tbadk.a.d.bmC();
+    public static boolean cPr() {
+        return com.baidu.tbadk.a.d.bmD();
     }
 
     public static void aw(Activity activity) {
-        if (com.baidu.tbadk.a.d.bmC()) {
-            List<bz> LN = com.baidu.tieba.h.a.cPm().LN("6051001001-2043781376");
-            if (x.isEmpty(LN) || LN.size() < 3) {
-                com.baidu.tieba.h.a.cPm().b(activity, "6051001001-2043781376", new a.d() { // from class: com.baidu.tieba.funad.a.1
+        if (com.baidu.tbadk.a.d.bmD()) {
+            List<bz> LM = com.baidu.tieba.h.a.cPn().LM("6051001001-2043781376");
+            if (x.isEmpty(LM) || LM.size() < 3) {
+                com.baidu.tieba.h.a.cPn().b(activity, "6051001001-2043781376", new a.d() { // from class: com.baidu.tieba.funad.a.1
                     @Override // com.baidu.tieba.h.a.d
                     public void a(String str, n nVar) {
                         a.Cx(0);
@@ -50,33 +50,33 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public static void Cx(int i) {
-        aq.BY("c14005").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", i).bwn();
+        aq.BX("c14005").an("obj_source", 6).dX("obj_type", PageStayDurationConstants.PageName.FRS).an("obj_locate", i).bwo();
     }
 
     public void q(List<com.baidu.adp.widget.ListView.n> list, boolean z) {
         int i;
-        int cPo = com.baidu.tieba.h.a.cPm().cPo();
+        int cPp = com.baidu.tieba.h.a.cPn().cPp();
         if (z) {
-            int cPn = com.baidu.tieba.h.a.cPm().cPn() - 1;
+            int cPo = com.baidu.tieba.h.a.cPn().cPo() - 1;
             Iterator<com.baidu.adp.widget.ListView.n> it = list.iterator();
             while (true) {
-                i = cPn;
+                i = cPo;
                 if (!it.hasNext()) {
                     break;
                 }
                 com.baidu.adp.widget.ListView.n next = it.next();
                 if (!(next instanceof bz)) {
-                    cPn = i;
-                } else if (((bz) next).brl() != 1) {
+                    cPo = i;
+                } else if (((bz) next).brm() != 1) {
                     break;
                 } else {
-                    cPn = i + 1;
+                    cPo = i + 1;
                 }
             }
         } else {
             i = this.jQA;
         }
-        this.jQA = a(i, cPo, list);
+        this.jQA = a(i, cPp, list);
     }
 
     private int a(int i, int i2, List<com.baidu.adp.widget.ListView.n> list) {

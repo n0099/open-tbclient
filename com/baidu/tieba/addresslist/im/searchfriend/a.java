@@ -29,14 +29,14 @@ public class a {
                 String charSequence2String = k.charSequence2String(a.this.gmf.getText(), null);
                 if (!StringUtils.isNULL(charSequence2String)) {
                     if (charSequence2String.trim().length() != 0) {
-                        a.this.FR(charSequence2String.trim());
+                        a.this.FQ(charSequence2String.trim());
                         a.this.gmg.setClickable(false);
                     } else if (charSequence2String.length() > 0) {
                         a.this.mPageContext.showToast(R.string.input_content);
                     }
                 }
             } else if (view == a.this.gmh) {
-                a.this.FQ("");
+                a.this.FP("");
             }
         }
     };
@@ -46,14 +46,14 @@ public class a {
     /* renamed from: com.baidu.tieba.addresslist.im.searchfriend.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
     public interface InterfaceC0616a {
-        void FP(String str);
+        void FO(String str);
     }
 
     public void me(boolean z) {
         this.gmg.setClickable(z);
     }
 
-    public void FQ(String str) {
+    public void FP(String str) {
         this.gmf.setText(str);
     }
 
@@ -87,11 +87,11 @@ public class a {
         changeSkin(TbadkCoreApplication.getInst().getSkinType());
     }
 
-    public void bPA() {
+    public void bPB() {
         this.gmf.removeTextChangedListener(this.mTextWatcher);
     }
 
-    public void bMu() {
+    public void bMv() {
         l.hideSoftKeyPad(this.context, this.gmf);
     }
 
@@ -106,9 +106,9 @@ public class a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void FR(String str) {
+    public void FQ(String str) {
         if (this.gmi != null) {
-            this.gmi.FP(str);
+            this.gmi.FO(str);
         }
     }
 }

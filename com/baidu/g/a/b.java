@@ -8,14 +8,14 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class b extends MessageMicro {
     private boolean asj;
     private a ask = null;
     private List<C0117b> asl = Collections.emptyList();
     private int asi = -1;
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static final class a extends MessageMicro {
         private boolean asn;
         private boolean asp;
@@ -132,7 +132,7 @@ public final class b extends MessageMicro {
     }
 
     /* renamed from: com.baidu.g.a.b$b  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static final class C0117b extends MessageMicro {
         private boolean ass;
         private boolean asu;
@@ -144,7 +144,7 @@ public final class b extends MessageMicro {
         private int asi = -1;
 
         /* renamed from: com.baidu.g.a.b$b$a */
-        /* loaded from: classes15.dex */
+        /* loaded from: classes3.dex */
         public static final class a extends MessageMicro {
             private boolean ass;
             private boolean asu;
@@ -156,7 +156,7 @@ public final class b extends MessageMicro {
             private int asi = -1;
 
             /* renamed from: com.baidu.g.a.b$b$a$a  reason: collision with other inner class name */
-            /* loaded from: classes15.dex */
+            /* loaded from: classes3.dex */
             public static final class C0118a extends MessageMicro {
                 private boolean asC;
                 private boolean asE;
@@ -177,7 +177,7 @@ public final class b extends MessageMicro {
                 private int asi = -1;
 
                 /* renamed from: com.baidu.g.a.b$b$a$a$a  reason: collision with other inner class name */
-                /* loaded from: classes15.dex */
+                /* loaded from: classes3.dex */
                 public static final class C0119a extends MessageMicro {
                     private boolean arZ;
                     private boolean asL;

@@ -62,6 +62,6 @@ public class PersonHeadPendantView extends HeadPendantView {
     }
 
     public void setBorderColor(int i) {
-        com.baidu.tbadk.core.util.f.a.bwU().qq(1).qr(i).bz(this.eqn);
+        com.baidu.tbadk.core.util.f.a.bwV().qq(1).qr(i).bz(this.eqn);
     }
 }

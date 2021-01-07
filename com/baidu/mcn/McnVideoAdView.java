@@ -127,9 +127,9 @@ public class McnVideoAdView extends FrameLayout {
                 }
                 break;
             case 1:
-                adw();
+                adx();
                 if (Math.abs(motionEvent.getX() - this.mLastX) < 5.0f && Math.abs(motionEvent.getY() - this.mLastY) < 5.0f) {
-                    adx();
+                    ady();
                     break;
                 }
                 break;
@@ -144,13 +144,13 @@ public class McnVideoAdView extends FrameLayout {
                 }
                 break;
             case 3:
-                adw();
+                adx();
                 break;
         }
         return true;
     }
 
-    private void adw() {
+    private void adx() {
         this.mHandler.postDelayed(new Runnable() { // from class: com.baidu.mcn.McnVideoAdView.2
             @Override // java.lang.Runnable
             public void run() {
@@ -162,7 +162,7 @@ public class McnVideoAdView extends FrameLayout {
         }, 500L);
     }
 
-    private void adx() {
+    private void ady() {
         if (this.mContext != null && this.ciE != null && this.ciE.ciq != null) {
             s.x(this.mContext, this.ciE.ciq, null);
             if (this.ciF != null) {
@@ -227,7 +227,7 @@ public class McnVideoAdView extends FrameLayout {
         }
     }
 
-    public void adv() {
+    public void adw() {
         removeView();
     }
 

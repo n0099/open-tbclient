@@ -3,21 +3,21 @@ package com.qq.e.comm.plugin.ab.c;
 import com.qq.e.comm.plugin.ab.b.e;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class l implements e {
 
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     private static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        static final l f12042a = new l();
+        static final l f12043a = new l();
     }
 
     private l() {
     }
 
     public static l a() {
-        return a.f12042a;
+        return a.f12043a;
     }
 
     @Override // com.qq.e.comm.plugin.ab.c.e

@@ -1,7 +1,7 @@
 package com.baidu.helios.common.b.a;
 
 import java.io.ByteArrayOutputStream;
-/* loaded from: classes15.dex */
+/* loaded from: classes4.dex */
 public class b {
     private String axK;
     private boolean axL;

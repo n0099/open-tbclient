@@ -10,11 +10,11 @@ import com.baidu.mapapi.search.core.RouteStep;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"ParcelCreator"})
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
     public static final Parcelable.Creator<IndoorRouteLine> CREATOR = new g();
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static class IndoorRouteStep extends RouteStep {
         private RouteNode d;
         private RouteNode e;
@@ -24,14 +24,14 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
         private List<IndoorStepNode> i;
         private List<Double> j;
 
-        /* loaded from: classes15.dex */
+        /* loaded from: classes3.dex */
         public static class IndoorStepNode {
 
             /* renamed from: a  reason: collision with root package name */
-            private String f3024a;
+            private String f3025a;
 
             /* renamed from: b  reason: collision with root package name */
-            private int f3025b;
+            private int f3026b;
             private LatLng c;
             private String d;
 
@@ -44,11 +44,11 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             }
 
             public String getName() {
-                return this.f3024a;
+                return this.f3025a;
             }
 
             public int getType() {
-                return this.f3025b;
+                return this.f3026b;
             }
 
             public void setDetail(String str) {
@@ -60,11 +60,11 @@ public class IndoorRouteLine extends RouteLine<IndoorRouteStep> {
             }
 
             public void setName(String str) {
-                this.f3024a = str;
+                this.f3025a = str;
             }
 
             public void setType(int i) {
-                this.f3025b = i;
+                this.f3026b = i;
             }
         }
 

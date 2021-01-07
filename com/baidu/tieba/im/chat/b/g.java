@@ -20,7 +20,7 @@ public class g {
     private g() {
     }
 
-    public static synchronized g cXa() {
+    public static synchronized g cXb() {
         g gVar;
         synchronized (g.class) {
             if (kAQ == null) {
@@ -82,7 +82,7 @@ public class g {
     public static void a(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, a.b bVar) {
         a.a(groupMsgData, imMessageCenterPojo, bVar, new a.c() { // from class: com.baidu.tieba.im.chat.b.g.1
             @Override // com.baidu.tieba.im.chat.b.a.c
-            public boolean MS(String str) {
+            public boolean MR(String str) {
                 return true;
             }
         }, false);

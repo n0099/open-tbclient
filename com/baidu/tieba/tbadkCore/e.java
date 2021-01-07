@@ -18,7 +18,7 @@ import tbclient.User;
 /* loaded from: classes.dex */
 public class e {
     public static final Wire WIRE = new Wire(new Class[0]);
-    private static e npd;
+    private static e npc;
     private com.baidu.adp.lib.cache.l<byte[]> jaF;
     private m responseData = null;
 
@@ -27,26 +27,26 @@ public class e {
         this.jaF = BdCacheService.lx().b("tb.frs.protobuf", BdCacheService.CacheStorage.SQLite_CACHE_All_IN_ONE_TABLE, BdCacheService.CacheEvictPolicy.LRU_ON_INSERT, 20);
     }
 
-    public static e dNY() {
-        if (npd == null) {
+    public static e dNZ() {
+        if (npc == null) {
             synchronized (e.class) {
-                if (npd == null) {
-                    npd = new e();
+                if (npc == null) {
+                    npc = new e();
                 }
             }
         }
-        return npd;
+        return npc;
     }
 
-    public long dNZ() {
-        long j = com.baidu.tbadk.core.sharedPref.b.bvq().getLong("key_frs_cache_time", 604800000L);
+    public long dOa() {
+        long j = com.baidu.tbadk.core.sharedPref.b.bvr().getLong("key_frs_cache_time", 604800000L);
         if (j < 0) {
             return 604800000L;
         }
         return j;
     }
 
-    public boolean Td(String str) {
+    public boolean Tc(String str) {
         if (this.jaF != null && str != null) {
             byte[] bArr = this.jaF.get(TbadkCoreApplication.getCurrentAccount() + str);
             if (bArr != null && bArr.length > 0) {
@@ -224,10 +224,10 @@ public class e {
     public void d(String str, byte[] bArr, boolean z) {
         if (str != null && str.length() > 0) {
             if (z) {
-                this.jaF.set(TbadkCoreApplication.getCurrentAccount() + str, bArr, dNZ());
+                this.jaF.set(TbadkCoreApplication.getCurrentAccount() + str, bArr, dOa());
                 return;
             }
-            this.jaF.asyncSet(TbadkCoreApplication.getCurrentAccount() + str, bArr, dNZ());
+            this.jaF.asyncSet(TbadkCoreApplication.getCurrentAccount() + str, bArr, dOa());
         }
     }
 

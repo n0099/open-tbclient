@@ -12,7 +12,7 @@ public abstract class a {
 
     public abstract void bk(int i, String str);
 
-    public abstract void clA();
+    public abstract void clB();
 
     public a(com.baidu.tieba.ala.liveroom.data.e eVar) {
         this.huX = eVar;
@@ -28,13 +28,13 @@ public abstract class a {
         switch (s) {
             case 2:
                 if (this.hJv != null) {
-                    this.hJv.ckj();
+                    this.hJv.ckk();
                     return;
                 }
                 return;
             case 3:
                 if (this.hJv != null) {
-                    this.hJv.ckk();
+                    this.hJv.ckl();
                     return;
                 }
                 return;
@@ -60,13 +60,13 @@ public abstract class a {
                 return;
             case 6:
                 if (this.hJv != null) {
-                    this.hJv.ckr();
+                    this.hJv.cks();
                     return;
                 }
                 return;
             case 7:
                 if (this.hJv != null) {
-                    this.hJv.cks();
+                    this.hJv.ckt();
                     return;
                 }
                 return;
@@ -87,7 +87,7 @@ public abstract class a {
 
     public void c(com.baidu.tieba.ala.liveroom.data.d dVar) {
         this.hHZ = dVar;
-        clA();
+        clB();
     }
 
     public void c(as asVar) {
@@ -110,13 +110,13 @@ public abstract class a {
 
     public void markEnterBackground() {
         if (this.hJv != null) {
-            this.hJv.ckv();
+            this.hJv.ckw();
         }
     }
 
     public void markEnterForeground() {
         if (this.hJv != null) {
-            this.hJv.ckw();
+            this.hJv.ckx();
         }
     }
 
@@ -126,20 +126,20 @@ public abstract class a {
         }
     }
 
-    public boolean clB() {
+    public boolean clC() {
         if (this.hJv != null) {
-            return this.hJv.ckt();
+            return this.hJv.cku();
         }
         return false;
     }
 
-    public void clC() {
+    public void clD() {
         if (this.hJv != null) {
-            this.hJv.cku();
+            this.hJv.ckv();
         }
     }
 
-    public boolean clD() {
+    public boolean clE() {
         return this.cvb == 5;
     }
 

@@ -16,7 +16,7 @@ public class b {
     }
 
     /* JADX INFO: Access modifiers changed from: package-private */
-    public static int ejX() {
+    public static int ejY() {
         if (TextUtils.isEmpty(oPs)) {
             oPs = com.baidu.p.a.c.d.getManufacturer();
         }

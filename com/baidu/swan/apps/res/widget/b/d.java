@@ -29,7 +29,7 @@ public class d {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void ajM();
+        void ajN();
     }
 
     private d(Context context) {
@@ -124,7 +124,7 @@ public class d {
         return this;
     }
 
-    private boolean aLR() {
+    private boolean aLS() {
         if (this.mContext == null) {
             if (dFO) {
                 throw new IllegalArgumentException("UniversalToast mContext is null!!!");
@@ -140,19 +140,19 @@ public class d {
         }
     }
 
-    public void aLS() {
+    public void aLT() {
         hf(false);
     }
 
-    public void aLT() {
-        if (aLR()) {
+    public void aLU() {
+        if (aLS()) {
             cancelToast();
             com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.dFY, this.mDuration, false, this.dGc, this.dGh);
         }
     }
 
     public void hf(boolean z) {
-        if (aLR()) {
+        if (aLS()) {
             cancelToast();
             if (!z && (this.mContext instanceof Activity)) {
                 e.a((Activity) this.mContext, this.dFY, this.mDuration, this.dGc, this.dGh);
@@ -162,12 +162,12 @@ public class d {
         }
     }
 
-    public void aLU() {
+    public void aLV() {
         hg(false);
     }
 
     public void hg(boolean z) {
-        if (aLR()) {
+        if (aLS()) {
             cancelToast();
             if (z) {
                 com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.dFY, this.mDuration);
@@ -179,12 +179,12 @@ public class d {
         }
     }
 
-    public void aLV() {
+    public void aLW() {
         hh(false);
     }
 
     public void hh(boolean z) {
-        if (aLR()) {
+        if (aLS()) {
             cancelToast();
             if (z) {
                 com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.dFY, this.dGa, this.mDuration, this.dGh);
@@ -196,12 +196,12 @@ public class d {
         }
     }
 
-    public void aLW() {
+    public void aLX() {
         hi(false);
     }
 
     public void hi(boolean z) {
-        if (aLR()) {
+        if (aLS()) {
             cancelToast();
             if (z) {
                 com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.dFY, this.mDuration, this.dGh);
@@ -213,12 +213,12 @@ public class d {
         }
     }
 
-    public void aLX() {
+    public void aLY() {
         hj(false);
     }
 
     public void hj(boolean z) {
-        if (aLR()) {
+        if (aLS()) {
             cancelToast();
             if (!z && (this.mContext instanceof Activity)) {
                 e.a((Activity) this.mContext, this.dFY, this.mTextSize, this.dFZ, this.mDuration, this.dGd);
@@ -228,12 +228,12 @@ public class d {
         }
     }
 
-    public void aLY() {
+    public void aLZ() {
         hk(false);
     }
 
     public void hk(boolean z) {
-        if (aLR()) {
+        if (aLS()) {
             cancelToast();
             if (z) {
                 com.baidu.swan.apps.res.widget.b.a.a(this.mContext, this.dGb, this.dGg, this.mTitleText, this.dFY, this.dFZ, this.dGe, this.mDuration, this.dGd);

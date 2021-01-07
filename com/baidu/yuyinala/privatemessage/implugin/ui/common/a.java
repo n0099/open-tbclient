@@ -11,7 +11,7 @@ import android.widget.TextView;
 public class a extends BaseMovementMethod {
     private static a oVZ;
 
-    public static a elQ() {
+    public static a elR() {
         if (oVZ == null) {
             oVZ = new a();
         }

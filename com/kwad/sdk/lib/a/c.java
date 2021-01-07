@@ -13,13 +13,13 @@ import com.kwad.sdk.contentalliance.refreshview.RefreshLayout;
 import com.kwad.sdk.lib.a.a;
 import com.kwad.sdk.mvp.Presenter;
 /* loaded from: classes5.dex */
-public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC1108a, b<PAGE> {
+public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC1149a, b<PAGE> {
 
     /* renamed from: a  reason: collision with root package name */
-    protected ViewGroup f10713a;
+    protected ViewGroup f10714a;
 
     /* renamed from: b  reason: collision with root package name */
-    protected RecyclerView f10714b;
+    protected RecyclerView f10715b;
     protected com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> c;
     @Nullable
     private RefreshLayout d;
@@ -31,7 +31,7 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC1
     private com.kwad.sdk.lib.a.a.b<PAGE, MODEL> k() {
         com.kwad.sdk.lib.a.a.b<PAGE, MODEL> f = f();
         f.e = this;
-        f.f = this.f10714b;
+        f.f = this.f10715b;
         f.k = this;
         f.g = c();
         this.c = d();
@@ -54,7 +54,7 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC1
 
     protected abstract com.kwad.sdk.lib.widget.recycler.c<MODEL, ?> d();
 
-    @Override // com.kwad.sdk.lib.a.a.InterfaceC1108a
+    @Override // com.kwad.sdk.lib.a.a.InterfaceC1149a
     @NonNull
     public final Presenter e() {
         Presenter presenter = new Presenter();
@@ -81,7 +81,7 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC1
     }
 
     public final RecyclerView i() {
-        return this.f10714b;
+        return this.f10715b;
     }
 
     protected RefreshLayout j() {
@@ -119,13 +119,13 @@ public abstract class c<PAGE, MODEL> extends KsFragment implements a.InterfaceC1
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle
     @Nullable
     public View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
-        if (this.f10713a == null) {
-            this.f10713a = (ViewGroup) layoutInflater.inflate(a(), viewGroup, false);
-            this.f10714b = (RecyclerView) this.f10713a.findViewById(b());
+        if (this.f10714a == null) {
+            this.f10714a = (ViewGroup) layoutInflater.inflate(a(), viewGroup, false);
+            this.f10715b = (RecyclerView) this.f10714a.findViewById(b());
             this.d = j();
             this.e = this.d != null;
         }
-        return this.f10713a;
+        return this.f10714a;
     }
 
     @Override // com.kwad.sdk.api.core.fragment.KsFragment, com.kwad.sdk.api.core.fragment.AbstractIFragmentLifecycle, com.kwad.sdk.api.core.fragment.IFragmentLifecycle

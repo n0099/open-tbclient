@@ -3,7 +3,7 @@ package com.qq.e.comm.plugin.m;
 import com.baidu.tieba.recapp.activity.newstyle.AdWebVideoActivityConfig;
 import com.qq.e.ads.nativ.express2.VideoOption2;
 import org.json.JSONObject;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class c extends com.qq.e.comm.plugin.s.a {
     private JSONObject J;
     private JSONObject K;

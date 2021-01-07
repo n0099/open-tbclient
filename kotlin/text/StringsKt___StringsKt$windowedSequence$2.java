@@ -24,6 +24,6 @@ final class StringsKt___StringsKt$windowedSequence$2 extends Lambda implements k
 
     /* JADX WARN: Type inference failed for: r0v1, types: [R, java.lang.Object] */
     public final R invoke(int i) {
-        return this.$transform.invoke(this.receiver$0.subSequence(i, kotlin.b.l.ep(this.$size + i, this.receiver$0.length())));
+        return this.$transform.invoke(this.receiver$0.subSequence(i, kotlin.b.l.er(this.$size + i, this.receiver$0.length())));
     }
 }

@@ -10,18 +10,18 @@ public class g extends a {
 
     public g(com.bytedance.sdk.adnet.core.b bVar, f fVar) {
         this.c = bVar;
-        this.f7557a = new ArrayList();
+        this.f7558a = new ArrayList();
         int i = 0;
         while (true) {
             int i2 = i;
-            if (i2 < this.c.esm().size()) {
-                com.bytedance.sdk.adnet.core.a aVar = this.c.esm().get(i2);
+            if (i2 < this.c.esn().size()) {
+                com.bytedance.sdk.adnet.core.a aVar = this.c.esn().get(i2);
                 if (aVar != null) {
-                    this.f7557a.add(new i.b(aVar.getName(), aVar.getValue()));
+                    this.f7558a.add(new i.b(aVar.getName(), aVar.getValue()));
                 }
                 i = i2 + 1;
             } else {
-                this.f7558b = fVar;
+                this.f7559b = fVar;
                 return;
             }
         }
@@ -40,14 +40,14 @@ public class g extends a {
     @Override // com.bytedance.sdk.openadsdk.j.e.a
     public String a(String str, String str2) {
         if (a(str) != null) {
-            return a(str).f7601b;
+            return a(str).f7602b;
         }
         return str2;
     }
 
     @Override // com.bytedance.sdk.openadsdk.j.e.a
     public List<i.b> c() {
-        return this.f7557a;
+        return this.f7558a;
     }
 
     @Override // com.bytedance.sdk.openadsdk.j.e.a

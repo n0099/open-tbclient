@@ -52,7 +52,7 @@ public class c {
                             try {
                                 try {
                                     if (cursor2.moveToFirst() && (string = cursor2.getString(cursor2.getColumnIndex("_data"))) != null) {
-                                        bVar.UC(string.replace("/storage/emulated/0", "/sdcard"));
+                                        bVar.UB(string.replace("/storage/emulated/0", "/sdcard"));
                                     }
                                 } catch (Throwable th) {
                                     th = th;
@@ -88,7 +88,7 @@ public class c {
                         cursor2 = null;
                     }
                     cursor.moveToNext();
-                    if (bVar.getVideoPath() != null && bVar.getDuration() != 0 && UE(bVar.getMimeType()) && bVar.getDuration() >= 1000) {
+                    if (bVar.getVideoPath() != null && bVar.getDuration() != 0 && UD(bVar.getMimeType()) && bVar.getDuration() >= 1000) {
                         videoPath = bVar.getVideoPath();
                         String substring2 = videoPath.substring(0, videoPath.lastIndexOf("/"));
                         if (!videoPath.contains("/DCIM/") && ((substring2 == null || !substring2.equals("/sdcard")) && (file = new File(videoPath)) != null && file.exists())) {
@@ -131,7 +131,7 @@ public class c {
         return arrayList;
     }
 
-    public static b UD(String str) {
+    public static b UC(String str) {
         File file = new File(str);
         if (file == null || !file.exists() || !file.isFile()) {
             return null;
@@ -177,7 +177,7 @@ public class c {
 
     public static void e(String str, List<b> list, boolean z) {
         File[] listFiles;
-        b UD;
+        b UC;
         if (list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
             for (File file : listFiles) {
                 if (file != null && !StringUtils.isNull(file.getPath())) {
@@ -187,8 +187,8 @@ public class c {
                             if (file.exists()) {
                                 file.delete();
                             }
-                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (UD = UD(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && UD.getDuration() >= 1000 && UE(UD.getMimeType())) {
-                            list.add(UD);
+                        } else if (path.contains(".mp4") && ".mp4".equals(path.substring(path.lastIndexOf(".mp4"))) && (UC = UC(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && UC.getDuration() >= 1000 && UD(UC.getMimeType())) {
+                            list.add(UC);
                         }
                     } else if (file.isDirectory() && !path.contains("/.") && z) {
                         e(path, list, z);
@@ -219,7 +219,7 @@ public class c {
         }
     }
 
-    public static boolean UE(String str) {
+    public static boolean UD(String str) {
         return "video/mp4".equals(str) || "video/ext-mp4".equals(str);
     }
 }

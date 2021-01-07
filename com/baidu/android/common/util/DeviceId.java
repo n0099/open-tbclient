@@ -8,14 +8,14 @@ import com.baidu.cesium.e.a;
 import com.baidu.cesium.f;
 import com.baidu.cesium.g;
 import java.io.File;
-/* loaded from: classes4.dex */
+/* loaded from: classes6.dex */
 public final class DeviceId {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1137a = "DeviceId";
+    private static final String f1138a = "DeviceId";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final boolean f1138b = false;
+    private static final boolean f1139b = false;
     private static g.a d;
     private static volatile DeviceId g;
     public static boolean sDataCuidInfoShable = true;

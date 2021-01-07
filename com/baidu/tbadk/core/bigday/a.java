@@ -27,14 +27,14 @@ public class a {
         }
     }
 
-    public boolean boB() {
+    public boolean boC() {
         return !StringUtils.isNULL(this.imgUrl) && this.eMF > 0 && (this.eMG == 1 || this.eMG == 3) && this.startTime > 0 && this.endTime > 0 && this.endTime > this.startTime;
     }
 
     public boolean equals(Object obj) {
         if (obj instanceof a) {
             a aVar = (a) obj;
-            if (aVar.boB() && boB() && this.eMF == aVar.eMF && at.equals(this.imgUrl, aVar.imgUrl)) {
+            if (aVar.boC() && boC() && this.eMF == aVar.eMF && at.equals(this.imgUrl, aVar.imgUrl)) {
                 return ((this.aJH == null && aVar.aJH == null) || at.equals(this.aJH, aVar.aJH)) && this.eME == aVar.eME && this.eMG == aVar.eMG && this.startTime == aVar.startTime && this.endTime == aVar.endTime;
             }
             return false;

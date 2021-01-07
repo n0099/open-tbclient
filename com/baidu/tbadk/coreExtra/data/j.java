@@ -7,19 +7,19 @@ public class j {
     private f.a fsU;
     private int type;
 
-    public static j CN(String str) {
+    public static j CM(String str) {
         return new j(0, str);
     }
 
-    public static j bzI() {
+    public static j bzJ() {
         return new j(1, null);
     }
 
-    public static j bzJ() {
+    public static j bzK() {
         return new j(2, null);
     }
 
-    public static j bzK() {
+    public static j bzL() {
         return new j(3, null);
     }
 
@@ -36,7 +36,7 @@ public class j {
         return this.authToken;
     }
 
-    public f.a bzL() {
+    public f.a bzM() {
         return this.fsU;
     }
 

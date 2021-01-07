@@ -17,7 +17,7 @@ public class c {
     private aa<h> jye;
     private NavigationBar mNavigationBar;
     private TbPageContext mPageContext;
-    private a moD;
+    private a moC;
 
     public c(TbPageContext tbPageContext) {
         this.mPageContext = tbPageContext;
@@ -26,11 +26,11 @@ public class c {
     public void ap(View view) {
         this.mNavigationBar = (NavigationBar) view.findViewById(R.id.person_more_navigation_bar);
         this.gAY = (BdTypeListView) view.findViewById(R.id.person_more_listview);
-        this.moD = new a(this.mPageContext, this.gAY, this.jye);
-        bIk();
+        this.moC = new a(this.mPageContext, this.gAY, this.jye);
+        bIl();
     }
 
-    private void bIk() {
+    private void bIl() {
         this.mNavigationBar.setCenterTextTitle(this.mPageContext.getString(R.string.person_center_more));
         this.mNavigationBar.showBottomLine();
         this.mNavigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.person.more.c.1
@@ -47,7 +47,7 @@ public class c {
     }
 
     public void onChangeSkinType() {
-        this.moD.notifyDataSetChanged();
+        this.moC.notifyDataSetChanged();
         ao.setBackgroundColor(this.gAY, R.color.CAM_X0201);
         this.mNavigationBar.onChangeSkinType(this.mPageContext, TbadkCoreApplication.getInst().getSkinType());
     }

@@ -11,10 +11,10 @@ import java.io.Writer;
 public class a extends i implements Handler.Callback {
 
     /* renamed from: a  reason: collision with root package name */
-    private b f13666a;
+    private b f13667a;
 
     /* renamed from: b  reason: collision with root package name */
-    private FileWriter f13667b;
+    private FileWriter f13668b;
     private File c;
     private char[] d;
     private volatile g e;
@@ -26,7 +26,7 @@ public class a extends i implements Handler.Callback {
     private Handler k;
 
     public a(b bVar) {
-        this(c.f13673b, true, h.f13681a, bVar);
+        this(c.f13674b, true, h.f13682a, bVar);
     }
 
     public a(int i, boolean z, h hVar, b bVar) {
@@ -99,23 +99,23 @@ public class a extends i implements Handler.Callback {
 
     private Writer g() {
         File a2 = c().a();
-        if ((a2 != null && !a2.equals(this.c)) || (this.f13667b == null && a2 != null)) {
+        if ((a2 != null && !a2.equals(this.c)) || (this.f13668b == null && a2 != null)) {
             this.c = a2;
             h();
             try {
-                this.f13667b = new FileWriter(this.c, true);
+                this.f13668b = new FileWriter(this.c, true);
             } catch (IOException e) {
                 return null;
             }
         }
-        return this.f13667b;
+        return this.f13668b;
     }
 
     private void h() {
         try {
-            if (this.f13667b != null) {
-                this.f13667b.flush();
-                this.f13667b.close();
+            if (this.f13668b != null) {
+                this.f13668b.flush();
+                this.f13668b.close();
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -135,10 +135,10 @@ public class a extends i implements Handler.Callback {
     }
 
     public b c() {
-        return this.f13666a;
+        return this.f13667a;
     }
 
     public void a(b bVar) {
-        this.f13666a = bVar;
+        this.f13667a = bVar;
     }
 }

@@ -10,10 +10,10 @@ public final class d {
     private HashMap<String, e> duC;
 
     private d() {
-        aIi();
+        aIj();
     }
 
-    public static d aIh() {
+    public static d aIi() {
         if (duz == null) {
             synchronized (d.class) {
                 if (duz == null) {
@@ -47,7 +47,7 @@ public final class d {
 
     public void e(String str, String str2, long j) {
         if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
-            aIi();
+            aIj();
             char c = 65535;
             switch (str2.hashCode()) {
                 case -1880922749:
@@ -104,7 +104,7 @@ public final class d {
         }
     }
 
-    private void aIi() {
+    private void aIj() {
         if (this.duA == null) {
             this.duA = new HashMap<>();
         }
@@ -209,7 +209,7 @@ public final class d {
             }
             if (eVar != null) {
                 eVar.setEnd(j);
-                r(eVar.getType(), eVar.atQ());
+                r(eVar.getType(), eVar.atR());
             }
         }
     }

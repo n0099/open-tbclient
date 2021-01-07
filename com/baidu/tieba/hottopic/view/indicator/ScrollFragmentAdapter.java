@@ -36,12 +36,12 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         }
         this.kpK = new ArrayList();
         this.kuR = new ArrayList();
-        this.kuR.add(cVG());
-        this.kuR.add(cVG());
-        this.kuR.add(cVG());
+        this.kuR.add(cVH());
+        this.kuR.add(cVH());
+        this.kuR.add(cVH());
     }
 
-    private HotRankView cVG() {
+    private HotRankView cVH() {
         return new HotRankView(this.mContext);
     }
 
@@ -59,17 +59,17 @@ public class ScrollFragmentAdapter extends PagerAdapter {
             this.kpL.addAll(this.kpK.get(0).krs);
         }
         notifyDataSetChanged();
-        cUt();
+        cUu();
     }
 
-    private void cUt() {
+    private void cUu() {
         String str;
         if (this.abC >= 0) {
             HotRankView hotRankView = this.kuR.get(this.abC % 3);
             j jVar = (j) x.getItem(this.kpK, this.abC);
             if (hotRankView != null) {
                 hotRankView.hideLoadingView();
-                hotRankView.Zi();
+                hotRankView.Zj();
                 p pVar = (p) x.getItem(this.kpL, this.abC);
                 if (pVar == null) {
                     str = "";
@@ -77,22 +77,22 @@ public class ScrollFragmentAdapter extends PagerAdapter {
                     str = pVar.heM;
                 }
                 hotRankView.b(jVar, str);
-                if (jVar == null || x.isEmpty(jVar.cVg())) {
+                if (jVar == null || x.isEmpty(jVar.cVh())) {
                     hotRankView.aR(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                 }
             }
         }
     }
 
-    public void Zi() {
-        if (cVH() != null) {
-            cVH().Zi();
+    public void Zj() {
+        if (cVI() != null) {
+            cVI().Zj();
         }
     }
 
     public void showLoadingView() {
-        if (cVH() != null) {
-            cVH().C(true, l.getDimens(this.pageContext.getPageActivity(), R.dimen.ds500));
+        if (cVI() != null) {
+            cVI().C(true, l.getDimens(this.pageContext.getPageActivity(), R.dimen.ds500));
         }
     }
 
@@ -130,14 +130,14 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         return -1;
     }
 
-    private HotRankView cVH() {
+    private HotRankView cVI() {
         if (this.abC == -1) {
             return null;
         }
         return (HotRankView) x.getItem(this.kuR, this.abC % 3);
     }
 
-    public List<j> cVI() {
+    public List<j> cVJ() {
         return this.kpK;
     }
 
@@ -165,13 +165,13 @@ public class ScrollFragmentAdapter extends PagerAdapter {
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.PB_PAUSE_VIDEO));
                 j jVar = this.kpK.get(this.abC);
                 HotRankView hotRankView2 = this.kuR.get(i % this.kuR.size());
-                if (jVar == null || x.isEmpty(jVar.cVg())) {
+                if (jVar == null || x.isEmpty(jVar.cVh())) {
                     if (!com.baidu.adp.lib.util.j.isNetworkAvailableForImmediately()) {
                         hotRankView2.aR(TbadkCoreApplication.getInst().getString(R.string.neterror), true);
                         return;
                     }
                     hotRankView2.C(true, 0);
-                    ((HotRanklistActivity) this.pageContext.getOrignalPage()).cUz();
+                    ((HotRanklistActivity) this.pageContext.getOrignalPage()).cUA();
                 }
             }
         }
@@ -187,7 +187,7 @@ public class ScrollFragmentAdapter extends PagerAdapter {
         j jVar = this.kpK.get(i);
         viewGroup.addView(hotRankView);
         hotRankView.hideLoadingView();
-        hotRankView.Zi();
+        hotRankView.Zj();
         if (this.abC == -1) {
             str = this.kpL.get(0).heM;
         } else {

@@ -13,25 +13,25 @@ import org.json.JSONObject;
 public class g extends HttpHandlerWrap {
 
     /* renamed from: a  reason: collision with root package name */
-    final /* synthetic */ ContrastPortraitResult f4050a;
+    final /* synthetic */ ContrastPortraitResult f4051a;
 
     /* renamed from: b  reason: collision with root package name */
-    final /* synthetic */ LivenessRecogActivity f4051b;
+    final /* synthetic */ LivenessRecogActivity f4052b;
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public g(LivenessRecogActivity livenessRecogActivity, Looper looper, ContrastPortraitResult contrastPortraitResult) {
         super(looper);
-        this.f4051b = livenessRecogActivity;
-        this.f4050a = contrastPortraitResult;
+        this.f4052b = livenessRecogActivity;
+        this.f4051a = contrastPortraitResult;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.pass.biometrics.base.http.HttpHandlerWrap
     public void onFailure(Throwable th, int i, String str) {
-        this.f4050a.setResultCode(-206);
-        this.f4050a.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
-        this.f4051b.b(this.f4050a);
+        this.f4051a.setResultCode(-206);
+        this.f4051a.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
+        this.f4052b.b(this.f4051a);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -44,25 +44,25 @@ public class g extends HttpHandlerWrap {
             JSONObject jSONObject = new JSONObject(str);
             int optInt = jSONObject.optInt(BaiduRimConstants.RETCODE_KEY);
             String optString = jSONObject.optString("retMsg");
-            this.f4050a.setResultCode(optInt);
-            this.f4050a.setResultMsg(optString);
-            if (this.f4050a.getResultCode() == 0) {
+            this.f4051a.setResultCode(optInt);
+            this.f4051a.setResultMsg(optString);
+            if (this.f4051a.getResultCode() == 0) {
                 JSONObject optJSONObject = new JSONObject(str).optJSONObject("result");
-                if (this.f4051b.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_AUTHTOKEN) {
-                    this.f4050a.authsid = optJSONObject.optString("authsid");
+                if (this.f4052b.passFaceRecogDTO.livenessType == PassFaceRecogType.RECOG_TYPE_AUTHTOKEN) {
+                    this.f4051a.authsid = optJSONObject.optString("authsid");
                 }
-                this.f4050a.callbackkey = optJSONObject.optString("callbackkey");
-                this.f4050a.contrastres = optJSONObject.optInt("contrastres");
-                this.f4050a.finalres = optJSONObject.optInt("finalres");
-                this.f4050a.finish = optJSONObject.optInt("finish");
-                this.f4050a.imgdigests = optJSONObject.optString("imgdigests");
-                this.f4050a.recordvideo = optJSONObject.optInt("recordvideo");
+                this.f4051a.callbackkey = optJSONObject.optString("callbackkey");
+                this.f4051a.contrastres = optJSONObject.optInt("contrastres");
+                this.f4051a.finalres = optJSONObject.optInt("finalres");
+                this.f4051a.finish = optJSONObject.optInt("finish");
+                this.f4051a.imgdigests = optJSONObject.optString("imgdigests");
+                this.f4051a.recordvideo = optJSONObject.optInt("recordvideo");
             }
         } catch (JSONException e) {
             Log.e(e);
-            this.f4050a.setResultCode(-206);
-            this.f4050a.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
+            this.f4051a.setResultCode(-206);
+            this.f4051a.setResultMsg(ContrastPortraitResult.ERROR_MSG_SERVER_ERROR);
         }
-        this.f4051b.c(this.f4050a);
+        this.f4052b.c(this.f4051a);
     }
 }

@@ -15,19 +15,19 @@ import yaq.gdtadv;
 /* JADX WARN: Classes with same name are omitted:
   assets/yaqgdtadv0.sec
  */
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class g {
 
     /* renamed from: a  reason: collision with root package name */
-    private static volatile long f12982a = -1;
+    private static volatile long f12983a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    private static volatile String f12983b = null;
+    private static volatile String f12984b = null;
     private static volatile boolean c = false;
     private static Object d = new Object();
 
     /* renamed from: com.qq.e.comm.plugin.w.g$1  reason: invalid class name */
-    /* loaded from: classes3.dex */
+    /* loaded from: classes4.dex */
     static final class AnonymousClass1 implements Runnable {
         AnonymousClass1() {
         }

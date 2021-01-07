@@ -166,19 +166,19 @@ public class RecommendForumLayout extends LinearLayout implements q {
             this.amQ.setVisibility(8);
             this.amR.setVisibility(8);
         }
-        if (bmVar != null && bmVar.bqw() != null && bmVar.bqw().size() > 0) {
+        if (bmVar != null && bmVar.bqx() != null && bmVar.bqx().size() > 0) {
             ArrayList<? extends com.baidu.tbadk.mvc.b.a> arrayList = new ArrayList<>();
-            ArrayList<bl> bqw = bmVar.bqw();
+            ArrayList<bl> bqx = bmVar.bqx();
             if (this.amT) {
                 if (this.amU) {
                     arrayList.add(new m());
                 }
-                if (bqw != null) {
-                    arrayList.addAll(bqw);
+                if (bqx != null) {
+                    arrayList.addAll(bqx);
                 }
             } else {
-                if (bqw != null) {
-                    arrayList.addAll(bqw);
+                if (bqx != null) {
+                    arrayList.addAll(bqx);
                 }
                 if (this.amU) {
                     arrayList.add(new m());
@@ -191,8 +191,8 @@ public class RecommendForumLayout extends LinearLayout implements q {
 
     public void onChangeSkinType() {
         ao.setViewTextColor(this.mTitle, this.amY);
-        SvgManager.bwq().a(this.amR, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
-        SvgManager.bwq().a(this.amS, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.amR, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
+        SvgManager.bwr().a(this.amS, R.drawable.icon_pure_list_arrow12_right_n_svg, R.color.CAM_X0107, SvgManager.SvgResourceStateType.NORMAL);
         this.amX.onChangeSkinType();
         this.amO.notifyDataSetChanged();
     }

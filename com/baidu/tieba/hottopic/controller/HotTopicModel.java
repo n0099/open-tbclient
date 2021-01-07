@@ -59,7 +59,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         int equipmentWidth = l.getEquipmentWidth(TbadkCoreApplication.getInst().getApp());
         int equipmentHeight = l.getEquipmentHeight(TbadkCoreApplication.getInst().getApp());
         requestHotTopicMessage.setTopicId(Long.valueOf(j));
-        requestHotTopicMessage.setCall_from(MD(str4));
+        requestHotTopicMessage.setCall_from(MC(str4));
         requestHotTopicMessage.setTopicName(str);
         requestHotTopicMessage.setScrH(Integer.valueOf(equipmentHeight));
         requestHotTopicMessage.setTopic_tid(j3);
@@ -68,7 +68,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         requestHotTopicMessage.setFid(Long.valueOf(j2));
         requestHotTopicMessage.setFirst_dir(str2);
         requestHotTopicMessage.setSecond_dir(str3);
-        requestHotTopicMessage.setQType(Integer.valueOf(k.bou().getViewImageQuality()));
+        requestHotTopicMessage.setQType(Integer.valueOf(k.bov().getViewImageQuality()));
         requestHotTopicMessage.setSort_type(Integer.valueOf(i));
         if (requestHotTopicMessage.getHttpMessage() != null) {
             requestHotTopicMessage.getHttpMessage().setExtra(Integer.valueOf(i));
@@ -113,7 +113,7 @@ public class HotTopicModel extends BdBaseModel<BaseActivity<?>> {
         return false;
     }
 
-    private int MD(String str) {
+    private int MC(String str) {
         if ("1".equals(str)) {
             return 1;
         }

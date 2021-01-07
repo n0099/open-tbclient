@@ -10,18 +10,18 @@ import java.io.File;
 public class j {
 
     /* renamed from: a  reason: collision with root package name */
-    private final String f8509a;
+    private final String f8510a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final String f8510b;
+    private final String f8511b;
     private final String c;
     private Resources d;
     private ClassLoader e;
     private IKsAdSDK f;
 
     private j(String str, String str2, String str3) {
-        this.f8509a = str;
-        this.f8510b = str2;
+        this.f8510a = str;
+        this.f8511b = str2;
         this.c = str3;
     }
 
@@ -55,24 +55,24 @@ public class j {
 
     private void a(Context context) {
         d();
-        Resources a2 = o.a(context, context.getResources(), this.f8509a);
-        ClassLoader a3 = d.a(context, this.f8509a, this.f8510b, this.c);
+        Resources a2 = o.a(context, context.getResources(), this.f8510a);
+        ClassLoader a3 = d.a(context, this.f8510a, this.f8511b, this.c);
         IKsAdSDK a4 = Loader.a(a3);
         this.d = a2;
         this.e = a3;
         this.f = a4;
         int sDKType = a4.getSDKType();
-        int i = com.kwad.sdk.api.a.f8473a;
+        int i = com.kwad.sdk.api.a.f8474a;
         if (sDKType != i) {
             throw new RuntimeException("sdkType error apiType: " + i + " , sdkType:" + sDKType);
         }
     }
 
     private void d() {
-        if (TextUtils.isEmpty(this.f8509a)) {
+        if (TextUtils.isEmpty(this.f8510a)) {
             throw new RuntimeException("mApk is null");
         }
-        File file = new File(this.f8509a);
+        File file = new File(this.f8510a);
         if (!file.isFile() || !file.exists()) {
             throw new RuntimeException("mApk not a file");
         }
@@ -94,6 +94,6 @@ public class j {
     }
 
     public String toString() {
-        return "ExternalPackage{mApk='" + this.f8509a + "', mDexDir='" + this.f8510b + "', mNativeLibDir='" + this.c + "', mResource=" + this.d + ", mClassLoader=" + this.e + ", mKsSdk=" + this.f + '}';
+        return "ExternalPackage{mApk='" + this.f8510a + "', mDexDir='" + this.f8511b + "', mNativeLibDir='" + this.c + "', mResource=" + this.d + ", mClassLoader=" + this.e + ", mKsSdk=" + this.f + '}';
     }
 }

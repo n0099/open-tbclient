@@ -4,21 +4,20 @@ import android.content.Context;
 import androidx.annotation.IdRes;
 import androidx.annotation.NonNull;
 import java.util.concurrent.atomic.AtomicReference;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public interface a {
     public static final AtomicReference<a> ctd = new AtomicReference<>();
 
     boolean a(String str, com.baidu.prologue.c.b bVar);
 
-    int agA();
+    String agA();
 
-    String agB();
+    int agB();
+
+    String agC();
 
     @NonNull
-    Context age();
-
-    @NonNull
-    String agf();
+    Context agf();
 
     @NonNull
     String agg();
@@ -44,25 +43,25 @@ public interface a {
     @NonNull
     String agn();
 
-    boolean ago();
+    @NonNull
+    String ago();
+
+    boolean agp();
 
     @NonNull
-    String agp();
+    String agq();
 
-    boolean agq();
-
-    String agr();
+    boolean agr();
 
     String ags();
 
-    String[] agt();
+    String agt();
 
-    String agu();
+    String[] agu();
 
     String agv();
 
-    @IdRes
-    int agw();
+    String agw();
 
     @IdRes
     int agx();
@@ -70,7 +69,8 @@ public interface a {
     @IdRes
     int agy();
 
-    String agz();
+    @IdRes
+    int agz();
 
     @NonNull
     String androidId();

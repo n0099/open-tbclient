@@ -21,10 +21,10 @@ import org.json.JSONObject;
 public class f {
 
     /* renamed from: a  reason: collision with root package name */
-    private static Map<String, f> f13731a = Collections.synchronizedMap(new HashMap());
+    private static Map<String, f> f13732a = Collections.synchronizedMap(new HashMap());
 
     /* renamed from: b  reason: collision with root package name */
-    private static String f13732b = null;
+    private static String f13733b = null;
     private Context c;
     private String d;
     private JSONObject e = null;
@@ -34,22 +34,22 @@ public class f {
 
     public static f a(Context context, String str) {
         f fVar;
-        synchronized (f13731a) {
+        synchronized (f13732a) {
             com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance begin");
             if (str != null) {
-                f13732b = str;
+                f13733b = str;
             }
             if (str == null) {
-                if (f13732b != null) {
-                    str = f13732b;
+                if (f13733b != null) {
+                    str = f13733b;
                 } else {
                     str = "0";
                 }
             }
-            fVar = f13731a.get(str);
+            fVar = f13732a.get(str);
             if (fVar == null) {
                 fVar = new f(context, str);
-                f13731a.put(str, fVar);
+                f13732a.put(str, fVar);
             }
             com.tencent.open.a.f.a("openSDK_LOG.OpenConfig", "getInstance end");
         }
@@ -157,7 +157,7 @@ public class f {
             @Override // java.lang.Thread, java.lang.Runnable
             public void run() {
                 try {
-                    f.this.a(j.d(HttpUtils.openUrl2(f.this.c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", bundle).f13745a));
+                    f.this.a(j.d(HttpUtils.openUrl2(f.this.c, "http://cgi.connect.qq.com/qqconnectopen/openapi/policy_conf", "GET", bundle).f13746a));
                 } catch (Exception e) {
                     e.printStackTrace();
                 }

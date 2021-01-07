@@ -75,7 +75,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
                     while (true) {
                         int i2 = i;
                         if (i2 < EmotionTabHost.this.iFg.size()) {
-                            if (((com.baidu.tbadk.editortools.emotiontool.c) EmotionTabHost.this.iFg.get(i2)).bFc() != EmotionGroupType.USER_COLLECT) {
+                            if (((com.baidu.tbadk.editortools.emotiontool.c) EmotionTabHost.this.iFg.get(i2)).bFd() != EmotionGroupType.USER_COLLECT) {
                                 i = i2 + 1;
                             } else {
                                 EmotionTabHost.this.setCurrentEmotionGroup(i2);
@@ -125,7 +125,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
                     while (true) {
                         int i2 = i;
                         if (i2 < EmotionTabHost.this.iFg.size()) {
-                            if (((com.baidu.tbadk.editortools.emotiontool.c) EmotionTabHost.this.iFg.get(i2)).bFc() != EmotionGroupType.USER_COLLECT) {
+                            if (((com.baidu.tbadk.editortools.emotiontool.c) EmotionTabHost.this.iFg.get(i2)).bFd() != EmotionGroupType.USER_COLLECT) {
                                 i = i2 + 1;
                             } else {
                                 EmotionTabHost.this.setCurrentEmotionGroup(i2);
@@ -170,13 +170,13 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
         this.iFk = z;
     }
 
-    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> cxj() {
+    private ArrayList<com.baidu.tbadk.editortools.emotiontool.c> cxk() {
         ArrayList<com.baidu.tbadk.editortools.emotiontool.c> arrayList = new ArrayList<>();
-        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = e.cxt().cxv().iterator();
+        Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = e.cxu().cxw().iterator();
         while (it.hasNext()) {
             com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-            if (next.bFc() != EmotionGroupType.BIG_EMOTION || this.iFj) {
-                if (next.bFc() != EmotionGroupType.USER_COLLECT || this.iFk) {
+            if (next.bFd() != EmotionGroupType.BIG_EMOTION || this.iFj) {
+                if (next.bFd() != EmotionGroupType.USER_COLLECT || this.iFk) {
                     arrayList.add(next);
                 }
             }
@@ -186,15 +186,15 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
 
     /* JADX INFO: Access modifiers changed from: private */
     public void setup() {
-        this.iFg = e.cxt().cxv();
+        this.iFg = e.cxu().cxw();
         if (!this.iFj || !this.iFk) {
-            this.iFh = cxj();
+            this.iFh = cxk();
             if (!this.iFk && this.iFg != null) {
-                this.iFg = new ArrayList<>(e.cxt().cxv());
+                this.iFg = new ArrayList<>(e.cxu().cxw());
                 int i = 0;
                 while (true) {
                     if (i < this.iFg.size()) {
-                        if (this.iFg.get(i).bFc() != EmotionGroupType.USER_COLLECT) {
+                        if (this.iFg.get(i).bFd() != EmotionGroupType.USER_COLLECT) {
                             i++;
                         } else {
                             this.iFg.remove(i);
@@ -206,11 +206,11 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
                 }
             }
         } else {
-            this.iFh = e.cxt().cxv();
+            this.iFh = e.cxu().cxw();
         }
         if ((this.iFg == null || this.iFg.size() <= 0) && this.iFl < 3) {
             this.iFl++;
-            e.cxt().cxu();
+            e.cxu().cxv();
             return;
         }
         this.iFe.setDatas(this.iFg);
@@ -319,7 +319,7 @@ public class EmotionTabHost extends NoPressedLinearLayout implements n, EmotionT
                             Iterator<com.baidu.tbadk.editortools.emotiontool.c> it = this.iFh.iterator();
                             while (it.hasNext()) {
                                 com.baidu.tbadk.editortools.emotiontool.c next = it.next();
-                                if (next != null && next.bFb()) {
+                                if (next != null && next.bFc()) {
                                     arrayList.add(next);
                                 }
                             }

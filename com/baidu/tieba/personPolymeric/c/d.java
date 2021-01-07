@@ -6,7 +6,7 @@ import com.baidu.tieba.card.data.BaseCardInfo;
 import java.util.List;
 /* loaded from: classes8.dex */
 public class d extends BaseCardInfo {
-    public static final BdUniqueId mxd = BdUniqueId.gen();
+    public static final BdUniqueId mxc = BdUniqueId.gen();
     public String iAn;
     public String iAo;
     public boolean iAu;
@@ -16,6 +16,6 @@ public class d extends BaseCardInfo {
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.adp.widget.ListView.n
     public BdUniqueId getType() {
-        return mxd;
+        return mxc;
     }
 }

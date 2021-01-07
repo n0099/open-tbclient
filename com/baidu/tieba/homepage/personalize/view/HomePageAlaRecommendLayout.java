@@ -47,7 +47,7 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
                     for (AlaLiveInfo alaLiveInfo : HomePageAlaRecommendLayout.this.mData) {
                         if (alaLiveInfo != null && alaLiveInfo.user_info != null && alaLiveInfo.user_info.user_id != null && data.toUid.equals(alaLiveInfo.user_info.user_id.toString())) {
                             HomePageAlaRecommendLayout.this.mData.remove(alaLiveInfo);
-                            HomePageAlaRecommendLayout.this.cTG();
+                            HomePageAlaRecommendLayout.this.cTH();
                             return;
                         }
                     }
@@ -73,16 +73,16 @@ public class HomePageAlaRecommendLayout extends LinearLayout {
     }
 
     public void setData(f fVar) {
-        if (fVar == null || x.isEmpty(fVar.cTu())) {
+        if (fVar == null || x.isEmpty(fVar.cTv())) {
             setVisibility(8);
             return;
         }
-        this.mData = fVar.cTu();
+        this.mData = fVar.cTv();
         setVisibility(0);
-        cTG();
+        cTH();
     }
 
-    public void cTG() {
+    public void cTH() {
         if (x.isEmpty(this.mData)) {
             setVisibility(8);
             return;

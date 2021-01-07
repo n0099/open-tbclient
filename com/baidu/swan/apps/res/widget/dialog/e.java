@@ -19,7 +19,7 @@ public class e extends h {
         super(context, a.i.NoTitleDialog);
     }
 
-    private void aLq() {
+    private void aLr() {
         this.dEH = new BdMultiPicker(getContext());
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
         layoutParams.gravity = 1;
@@ -32,8 +32,8 @@ public class e extends h {
 
     @Override // android.app.Dialog
     protected void onCreate(Bundle bundle) {
-        aLq();
-        aLB().aL(this.dEH);
+        aLr();
+        aLC().aL(this.dEH);
     }
 
     public void setDataArray(JSONArray jSONArray) {
@@ -97,8 +97,8 @@ public class e extends h {
         }
 
         @Override // com.baidu.swan.apps.res.widget.dialog.h.a
-        public h aLp() {
-            e eVar = (e) super.aLp();
+        public h aLq() {
+            e eVar = (e) super.aLq();
             eVar.setDataArray(this.dEK);
             eVar.setDataIndex(this.dEL);
             eVar.gR(this.dEM);

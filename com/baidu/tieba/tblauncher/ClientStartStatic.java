@@ -60,8 +60,8 @@ public class ClientStartStatic {
                 z zVar = new z(TbConfig.SERVER_ADDRESS + TbConfig.STAT_CLIENT_START);
                 zVar.addPostData("type", "1");
                 zVar.postNetData();
-                if (TbSingleton.getInstance().getBaiduIdForAnti() == null && zVar.bvQ() != null && zVar.bvQ().bwA() != null && zVar.bvQ().bwA().mHeader != null) {
-                    List<String> list = zVar.bvQ().bwA().mHeader.get(SM.SET_COOKIE);
+                if (TbSingleton.getInstance().getBaiduIdForAnti() == null && zVar.bvR() != null && zVar.bvR().bwB() != null && zVar.bvR().bwB().mHeader != null) {
+                    List<String> list = zVar.bvR().bwB().mHeader.get(SM.SET_COOKIE);
                     if (!x.isEmpty(list)) {
                         boolean z = false;
                         for (int i = 0; i < list.size(); i++) {

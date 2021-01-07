@@ -25,7 +25,7 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.ao.
             ak.runOnUiThread(new Runnable() { // from class: com.baidu.swan.facade.requred.webview.LoadingActivity.1.1
                 @Override // java.lang.Runnable
                 public void run() {
-                    LoadingActivity.this.aUv();
+                    LoadingActivity.this.aUw();
                 }
             });
         }
@@ -58,7 +58,7 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.ao.
             stringExtra = "";
         }
         this.dYE = cVar.ot(stringExtra);
-        if (this.dYE == null || this.dYE.axu()) {
+        if (this.dYE == null || this.dYE.axv()) {
             finish();
             return;
         }
@@ -78,10 +78,10 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.ao.
         });
     }
 
-    void aUv() {
-        d.b axp = this.dYE == null ? null : this.dYE.axp();
-        if (axp != null && axp.valid()) {
-            int min = (int) ((Math.min(Math.max(axp.current, 0L), axp.dcR) / axp.dcR) * 100.0d);
+    void aUw() {
+        d.b axq = this.dYE == null ? null : this.dYE.axq();
+        if (axq != null && axq.valid()) {
+            int min = (int) ((Math.min(Math.max(axq.current, 0L), axq.dcR) / axq.dcR) * 100.0d);
             if (this.dYC != null && this.dUx != null && min > 0) {
                 this.dYC.setProgress(min);
                 this.dUx.setText(String.valueOf(min));
@@ -99,11 +99,11 @@ public class LoadingActivity extends Activity implements com.baidu.swan.apps.ao.
     }
 
     private void registerListener() {
-        com.baidu.swan.apps.runtime.d.aMg().v(this);
+        com.baidu.swan.apps.runtime.d.aMh().v(this);
     }
 
     private void unregisterListener() {
-        com.baidu.swan.apps.runtime.d.aMg().w(this);
+        com.baidu.swan.apps.runtime.d.aMh().w(this);
     }
 
     /* JADX DEBUG: Method merged with bridge method */

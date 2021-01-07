@@ -11,7 +11,7 @@ import com.baidu.tieba.R;
 public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.i> {
     private ImageView icon;
     private TextView jYr;
-    private String mAl;
+    private String mAk;
     private View mRootView;
 
     public g(TbPageContext<?> tbPageContext) {
@@ -51,7 +51,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
         if (this.mRootView.getVisibility() != 0) {
             this.mRootView.setVisibility(0);
         }
-        if (StringUtils.isNull(this.mAl)) {
+        if (StringUtils.isNull(this.mAk)) {
             TextView textView = this.jYr;
             String string2 = this.mContext.getString(R.string.person_polymeric_null_data);
             Object[] objArr = new Object[1];
@@ -66,7 +66,7 @@ public class g extends com.baidu.tieba.card.b<com.baidu.tieba.personPolymeric.c.
             textView.setText(String.format(string2, objArr));
             return;
         }
-        this.jYr.setText(this.mAl);
+        this.jYr.setText(this.mAk);
     }
 
     @Override // android.view.View.OnClickListener

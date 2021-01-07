@@ -10,10 +10,10 @@ import com.kwad.sdk.glide.webp.e;
 public class AnimatedImageView extends RoundAngleImageView {
 
     /* renamed from: a  reason: collision with root package name */
-    private int f11134a;
+    private int f11135a;
 
     /* renamed from: b  reason: collision with root package name */
-    private FrameSequenceDrawable f11135b;
+    private FrameSequenceDrawable f11136b;
     private a c;
     private FrameSequenceDrawable.b d;
 
@@ -24,18 +24,18 @@ public class AnimatedImageView extends RoundAngleImageView {
 
     public AnimatedImageView(Context context) {
         super(context);
-        this.f11134a = 1;
+        this.f11135a = 1;
     }
 
     public AnimatedImageView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.f11134a = 1;
+        this.f11135a = 1;
         a(context, attributeSet);
     }
 
     public AnimatedImageView(Context context, AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        this.f11134a = 1;
+        this.f11135a = 1;
         a(context, attributeSet);
     }
 
@@ -52,14 +52,14 @@ public class AnimatedImageView extends RoundAngleImageView {
     }
 
     public void a() {
-        if (this.f11135b != null) {
-            this.f11135b.start();
+        if (this.f11136b != null) {
+            this.f11136b.start();
         }
     }
 
     public void b() {
-        if (this.f11135b != null) {
-            this.f11135b.stop();
+        if (this.f11136b != null) {
+            this.f11136b.stop();
         }
     }
 
@@ -73,13 +73,13 @@ public class AnimatedImageView extends RoundAngleImageView {
         }
         try {
             FrameSequenceDrawable frameSequenceDrawable = new FrameSequenceDrawable(frameSequence);
-            frameSequenceDrawable.setLoopCount(this.f11134a);
+            frameSequenceDrawable.setLoopCount(this.f11135a);
             frameSequenceDrawable.setOnFinishedListener(this.d);
             setImageDrawable(frameSequenceDrawable);
-            if (this.f11135b != null) {
-                this.f11135b.destroy();
+            if (this.f11136b != null) {
+                this.f11136b.destroy();
             }
-            this.f11135b = frameSequenceDrawable;
+            this.f11136b = frameSequenceDrawable;
         } catch (Exception e) {
             e.printStackTrace();
         }

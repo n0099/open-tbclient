@@ -25,10 +25,10 @@ import com.baidu.pass.biometrics.face.liveness.utils.enums.PassFaceRecogType;
 public class PassFaceRecogManager implements PassBiometric {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final long f4030a = 300;
+    private static final long f4031a = 300;
 
     /* renamed from: b  reason: collision with root package name */
-    private static PassFaceRecogManager f4031b;
+    private static PassFaceRecogManager f4032b;
     private PassBiometricConfiguration c;
     private PassFaceRecogCallback d;
     private long e;
@@ -109,10 +109,10 @@ public class PassFaceRecogManager implements PassBiometric {
     public static synchronized PassFaceRecogManager getInstance() {
         PassFaceRecogManager passFaceRecogManager;
         synchronized (PassFaceRecogManager.class) {
-            if (f4031b == null) {
-                f4031b = new PassFaceRecogManager();
+            if (f4032b == null) {
+                f4032b = new PassFaceRecogManager();
             }
-            passFaceRecogManager = f4031b;
+            passFaceRecogManager = f4032b;
         }
         return passFaceRecogManager;
     }

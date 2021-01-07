@@ -21,10 +21,10 @@ import java.security.NoSuchAlgorithmException;
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    private static final String f1981a = "utf-8";
+    private static final String f1982a = "utf-8";
 
     /* renamed from: b  reason: collision with root package name */
-    private static final String f1982b = "c82c403505338808201aad86f8194734";
+    private static final String f1983b = "c82c403505338808201aad86f8194734";
 
     a() {
     }
@@ -35,7 +35,7 @@ public class a {
             try {
                 fileOutputStream = context.openFileOutput(str, z ? 32768 : 0);
                 if (fileOutputStream != null) {
-                    fileOutputStream.write(str2.getBytes(f1981a));
+                    fileOutputStream.write(str2.getBytes(f1982a));
                 }
                 if (fileOutputStream != null) {
                     try {
@@ -71,7 +71,7 @@ public class a {
             if (b2 == null) {
                 return "";
             }
-            return new String(b2, f1981a);
+            return new String(b2, f1982a);
         } catch (Exception e) {
             return "";
         }

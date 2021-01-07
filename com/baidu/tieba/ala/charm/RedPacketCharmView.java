@@ -54,8 +54,8 @@ public class RedPacketCharmView extends RelativeLayout {
     public void vH(int i) {
         if (this.mStyle != i) {
             this.mStyle = i;
-            bWT();
-            bWV();
+            bWU();
+            bWW();
             switch (i) {
                 case 1:
                     this.gQf.setImageResource(a.e.icon_redpacket_charm_body_02);
@@ -65,12 +65,12 @@ public class RedPacketCharmView extends RelativeLayout {
                     break;
                 case 2:
                     this.gQf.setImageResource(a.e.icon_redpacket_charm_body_02);
-                    bWR();
+                    bWS();
                     break;
                 case 3:
                     this.gQf.setImageResource(a.e.icon_redpacket_charm_body_01);
-                    bWR();
                     bWS();
+                    bWT();
                     break;
                 case 4:
                     this.gQf.setImageResource(a.e.icon_redpacket_charm_body_01);
@@ -79,8 +79,8 @@ public class RedPacketCharmView extends RelativeLayout {
                     this.gQi.setVisibility(8);
                     this.gQj.setVisibility(0);
                     this.gQk.setVisibility(4);
-                    bWS();
-                    bWU();
+                    bWT();
+                    bWV();
                     break;
             }
             if (this.gQd != null) {
@@ -126,8 +126,8 @@ public class RedPacketCharmView extends RelativeLayout {
 
     public void release() {
         this.eRJ = "";
-        bWT();
-        bWV();
+        bWU();
+        bWW();
     }
 
     private void init() {
@@ -151,7 +151,7 @@ public class RedPacketCharmView extends RelativeLayout {
         this.aGr.setScaleType(ImageView.ScaleType.CENTER_CROP);
     }
 
-    private void bWR() {
+    private void bWS() {
         this.aGr.setVisibility(8);
         this.bgg.setVisibility(0);
         this.gQi.setVisibility(0);
@@ -159,21 +159,21 @@ public class RedPacketCharmView extends RelativeLayout {
         this.gQk.setVisibility(4);
     }
 
-    private void bWS() {
+    private void bWT() {
         if (this.gQe != null) {
             this.gQe.setVisibility(0);
             this.gQe.playAnimation();
         }
     }
 
-    private void bWT() {
+    private void bWU() {
         if (this.gQe != null) {
             this.gQe.cancelAnimation();
             this.gQe.setVisibility(4);
         }
     }
 
-    private void bWU() {
+    private void bWV() {
         if (this.bgg != null) {
             ObjectAnimator ofFloat = ObjectAnimator.ofFloat(this.bgg, "scaleX", 1.0f, 0.8f, 1.0f);
             ofFloat.setDuration(500L);
@@ -189,7 +189,7 @@ public class RedPacketCharmView extends RelativeLayout {
         }
     }
 
-    private void bWV() {
+    private void bWW() {
         if (this.bgg != null && (this.bgg.getTag() instanceof Animator)) {
             ((Animator) this.bgg.getTag()).cancel();
         }

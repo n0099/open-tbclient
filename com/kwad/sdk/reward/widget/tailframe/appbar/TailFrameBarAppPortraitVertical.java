@@ -22,10 +22,10 @@ import com.kwad.sdk.utils.ao;
 public class TailFrameBarAppPortraitVertical extends LinearLayout {
 
     /* renamed from: a  reason: collision with root package name */
-    private ImageView f11000a;
+    private ImageView f11001a;
 
     /* renamed from: b  reason: collision with root package name */
-    private TextView f11001b;
+    private TextView f11002b;
     private AppScoreView c;
     private TextView d;
     private TextView e;
@@ -47,10 +47,10 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
 
     private void b() {
         inflate(getContext(), R.layout.ksad_video_tf_bar_app_portrait_vertical, this);
-        this.f11000a = (ImageView) findViewById(R.id.ksad_app_icon);
+        this.f11001a = (ImageView) findViewById(R.id.ksad_app_icon);
         this.c = (AppScoreView) findViewById(R.id.ksad_app_score);
         this.d = (TextView) findViewById(R.id.ksad_app_download_count);
-        this.f11001b = (TextView) findViewById(R.id.ksad_app_name);
+        this.f11002b = (TextView) findViewById(R.id.ksad_app_name);
         this.e = (TextView) findViewById(R.id.ksad_app_introduce);
         this.f = (TextProgressBar) findViewById(R.id.ksad_download_bar);
         this.f.setTextDimen(ao.a(getContext(), 16.0f));
@@ -98,8 +98,8 @@ public class TailFrameBarAppPortraitVertical extends LinearLayout {
 
     public void a(@NonNull AdTemplate adTemplate) {
         AdInfo j = c.j(adTemplate);
-        KSImageLoader.loadAppIcon(this.f11000a, a.o(j), adTemplate, 12);
-        this.f11001b.setText(a.q(j));
+        KSImageLoader.loadAppIcon(this.f11001a, a.o(j), adTemplate, 12);
+        this.f11002b.setText(a.q(j));
         float u = a.u(j);
         if (u >= 3.0f) {
             this.c.setScore(u);

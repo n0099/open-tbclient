@@ -1,12 +1,12 @@
 package com.baidu.b.a;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 class k {
 
     /* renamed from: a  reason: collision with root package name */
-    private final byte[] f1571a;
+    private final byte[] f1572a;
 
     /* renamed from: b  reason: collision with root package name */
-    private final int[] f1572b;
+    private final int[] f1573b;
     private final byte[] c;
     private final int d;
     private int e;
@@ -18,8 +18,8 @@ class k {
     }
 
     protected k(int i) {
-        this.f1571a = new byte[1];
-        this.f1572b = new int[4];
+        this.f1572a = new byte[1];
+        this.f1573b = new int[4];
         this.c = new byte[16];
         this.d = i;
         b();
@@ -30,21 +30,21 @@ class k {
     }
 
     private void b() {
-        this.f1572b[0] = (this.d - 1640531535) - 2048144777;
-        this.f1572b[1] = this.d - 2048144777;
-        this.f1572b[2] = this.d;
-        this.f1572b[3] = this.d - (-1640531535);
+        this.f1573b[0] = (this.d - 1640531535) - 2048144777;
+        this.f1573b[1] = this.d - 2048144777;
+        this.f1573b[2] = this.d;
+        this.f1573b[3] = this.d - (-1640531535);
     }
 
     private void f(byte[] bArr, int i) {
-        int i2 = this.f1572b[0];
-        int i3 = this.f1572b[1];
-        int i4 = this.f1572b[2];
-        int i5 = this.f1572b[3];
-        this.f1572b[0] = Integer.rotateLeft(i2 + (a(bArr, i) * (-2048144777)), 13) * (-1640531535);
-        this.f1572b[1] = Integer.rotateLeft(i3 + (a(bArr, i + 4) * (-2048144777)), 13) * (-1640531535);
-        this.f1572b[2] = Integer.rotateLeft(i4 + (a(bArr, i + 8) * (-2048144777)), 13) * (-1640531535);
-        this.f1572b[3] = Integer.rotateLeft(i5 + (a(bArr, i + 12) * (-2048144777)), 13) * (-1640531535);
+        int i2 = this.f1573b[0];
+        int i3 = this.f1573b[1];
+        int i4 = this.f1573b[2];
+        int i5 = this.f1573b[3];
+        this.f1573b[0] = Integer.rotateLeft(i2 + (a(bArr, i) * (-2048144777)), 13) * (-1640531535);
+        this.f1573b[1] = Integer.rotateLeft(i3 + (a(bArr, i + 4) * (-2048144777)), 13) * (-1640531535);
+        this.f1573b[2] = Integer.rotateLeft(i4 + (a(bArr, i + 8) * (-2048144777)), 13) * (-1640531535);
+        this.f1573b[3] = Integer.rotateLeft(i5 + (a(bArr, i + 12) * (-2048144777)), 13) * (-1640531535);
         this.f = 0;
     }
 
@@ -61,7 +61,7 @@ class k {
 
     /* JADX INFO: Access modifiers changed from: protected */
     public long a() {
-        int rotateLeft = this.e + (this.e > 16 ? Integer.rotateLeft(this.f1572b[0], 1) + Integer.rotateLeft(this.f1572b[1], 7) + Integer.rotateLeft(this.f1572b[2], 12) + Integer.rotateLeft(this.f1572b[3], 18) : this.f1572b[2] + 374761393);
+        int rotateLeft = this.e + (this.e > 16 ? Integer.rotateLeft(this.f1573b[0], 1) + Integer.rotateLeft(this.f1573b[1], 7) + Integer.rotateLeft(this.f1573b[2], 12) + Integer.rotateLeft(this.f1573b[3], 18) : this.f1573b[2] + 374761393);
         int i = this.f - 4;
         int i2 = 0;
         while (i2 <= i) {

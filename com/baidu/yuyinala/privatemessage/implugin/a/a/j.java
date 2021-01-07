@@ -71,7 +71,7 @@ public class j extends c {
             this.oSx.setText(multiGraphicTextMsg.getArticles()[0].getDigest());
             String cover = multiGraphicTextMsg.getArticles()[0].getCover();
             com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
-            ImageLoader.getInstance().displayImage(cover, this.oSm, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
+            ImageLoader.getInstance().displayImage(cover, this.oSm, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
             try {
                 jSONArray = new JSONArray(multiGraphicTextMsg.getExtLog());
             } catch (JSONException e) {
@@ -83,9 +83,9 @@ public class j extends c {
                 public void onClick(View view) {
                     com.baidu.yuyinala.privatemessage.implugin.util.c.i("PushGraphicMultiItem", "mContentView is click");
                     if (!TextUtils.isEmpty(multiGraphicTextMsg.getArticles()[0].getSchema())) {
-                        com.baidu.yuyinala.privatemessage.implugin.d.b.ell().g(context, Uri.parse(multiGraphicTextMsg.getArticles()[0].getSchema()));
+                        com.baidu.yuyinala.privatemessage.implugin.d.b.elm().g(context, Uri.parse(multiGraphicTextMsg.getArticles()[0].getSchema()));
                     } else if (!TextUtils.isEmpty(multiGraphicTextMsg.getArticles()[0].getArticleUrl())) {
-                        com.baidu.yuyinala.privatemessage.implugin.d.b.ell().h(context, multiGraphicTextMsg.getArticles()[0].getArticleUrl(), false);
+                        com.baidu.yuyinala.privatemessage.implugin.d.b.elm().h(context, multiGraphicTextMsg.getArticles()[0].getArticleUrl(), false);
                     }
                     if (jSONArray != null && jSONArray.length() > 0) {
                         try {
@@ -126,7 +126,7 @@ public class j extends c {
                         aVar.hmK.setText(article.getDigest());
                         if (z) {
                             com.baidu.yuyinala.privatemessage.implugin.util.b.hE(context);
-                            ImageLoader.getInstance().displayImage(article.getCover(), aVar.oSG, com.baidu.yuyinala.privatemessage.implugin.util.b.enT());
+                            ImageLoader.getInstance().displayImage(article.getCover(), aVar.oSG, com.baidu.yuyinala.privatemessage.implugin.util.b.enU());
                         }
                     }
                     this.oSA.addView(inflate, i2);
@@ -135,9 +135,9 @@ public class j extends c {
                         public void onClick(View view) {
                             com.baidu.yuyinala.privatemessage.implugin.util.c.i("PushGraphicMultiItem", i2 + "mContentView item is click");
                             if (!TextUtils.isEmpty(article.getSchema())) {
-                                com.baidu.yuyinala.privatemessage.implugin.d.b.ell().g(context, Uri.parse(article.getSchema()));
+                                com.baidu.yuyinala.privatemessage.implugin.d.b.elm().g(context, Uri.parse(article.getSchema()));
                             } else if (!TextUtils.isEmpty(article.getArticleUrl())) {
-                                com.baidu.yuyinala.privatemessage.implugin.d.b.ell().h(context, article.getArticleUrl(), false);
+                                com.baidu.yuyinala.privatemessage.implugin.d.b.elm().h(context, article.getArticleUrl(), false);
                             }
                             String str = "";
                             if (jSONArray != null && jSONArray.length() > i2 + 1) {
@@ -160,7 +160,7 @@ public class j extends c {
                 }
             }
         }
-        eld();
+        ele();
         super.b(context, chatMsg);
     }
 
@@ -175,9 +175,9 @@ public class j extends c {
         bVar.a(new b.a() { // from class: com.baidu.yuyinala.privatemessage.implugin.a.a.j.5
             @Override // com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b.a
             public void a(com.baidu.yuyinala.privatemessage.implugin.ui.material.a.b bVar2, int i, int i2) {
-                com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c Yu = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emC().Yu(com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emC().emD());
-                if (Yu != null) {
-                    Yu.gz(arrayList);
+                com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.c Yt = com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emD().Yt(com.baidu.yuyinala.privatemessage.implugin.ui.fragment.a.d.emD().emE());
+                if (Yt != null) {
+                    Yt.gz(arrayList);
                 }
             }
         });
@@ -195,6 +195,6 @@ public class j extends c {
         }
     }
 
-    private void eld() {
+    private void ele() {
     }
 }

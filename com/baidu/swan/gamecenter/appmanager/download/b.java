@@ -11,7 +11,7 @@ public class b {
     private b() {
     }
 
-    public static b aWQ() {
+    public static b aWR() {
         if (eea == null) {
             synchronized (com.baidu.swan.gamecenter.appmanager.a.class) {
                 if (eea == null) {
@@ -28,7 +28,7 @@ public class b {
         edit.commit();
     }
 
-    public boolean aWR() {
+    public boolean aWS() {
         return this.mPreferences.getBoolean(edZ, true);
     }
 }

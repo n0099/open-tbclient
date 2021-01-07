@@ -5,7 +5,7 @@ import androidx.core.internal.view.SupportMenu;
 import java.io.RandomAccessFile;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-/* loaded from: classes5.dex */
+/* loaded from: classes4.dex */
 abstract class a {
     private static Pair<ByteBuffer, Long> a(RandomAccessFile randomAccessFile, int i) {
         if (i < 0 || i > 65535) {

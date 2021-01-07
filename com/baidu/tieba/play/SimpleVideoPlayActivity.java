@@ -15,7 +15,7 @@ import com.baidu.tieba.R;
 public class SimpleVideoPlayActivity extends BaseActivity {
     NavigationBar glZ;
     FrameLayout hUZ;
-    com.baidu.tieba.play.operableVideoView.e mDa;
+    com.baidu.tieba.play.operableVideoView.e mCZ;
     private String thumbUrl;
     private String videoUrl;
 
@@ -36,15 +36,15 @@ public class SimpleVideoPlayActivity extends BaseActivity {
         FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
         layoutParams.gravity = 17;
         this.hUZ.addView(frameLayout, layoutParams);
-        this.mDa = new com.baidu.tieba.play.operableVideoView.e(this, frameLayout);
-        this.mDa.setStageType("2006");
+        this.mCZ = new com.baidu.tieba.play.operableVideoView.e(this, frameLayout);
+        this.mCZ.setStageType("2006");
         this.glZ = new NavigationBar(this);
         this.glZ.hideBottomLine();
         this.glZ.getTopCoverBgView().setVisibility(8);
         FrameLayout.LayoutParams layoutParams2 = new FrameLayout.LayoutParams(-1, -2);
         layoutParams2.gravity = 48;
         this.hUZ.addView(this.glZ, layoutParams2);
-        SvgManager.bwq().a((ImageView) this.glZ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.play.SimpleVideoPlayActivity.1
+        SvgManager.bwr().a((ImageView) this.glZ.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new View.OnClickListener() { // from class: com.baidu.tieba.play.SimpleVideoPlayActivity.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
                 SimpleVideoPlayActivity.this.finish();
@@ -60,21 +60,21 @@ public class SimpleVideoPlayActivity extends BaseActivity {
             this.videoUrl = getIntent().getStringExtra("video_url");
             this.thumbUrl = getIntent().getStringExtra("thumb_url");
         }
-        this.mDa.setData(this.thumbUrl, this.videoUrl);
+        this.mCZ.setData(this.thumbUrl, this.videoUrl);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onResume() {
         super.onResume();
-        this.mDa.startPlay();
+        this.mCZ.startPlay();
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
     public void onPause() {
         super.onPause();
-        this.mDa.stopPlay();
+        this.mCZ.stopPlay();
     }
 
     @Override // android.app.Activity

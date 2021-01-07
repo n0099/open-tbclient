@@ -23,13 +23,13 @@ public class u extends ch {
     public boolean a(JSONObject jSONObject) {
         int i;
         String packageName = this.e.getPackageName();
-        if (TextUtils.isEmpty(this.pgJ.epO())) {
+        if (TextUtils.isEmpty(this.pgJ.epP())) {
             jSONObject.put("package", packageName);
         } else {
-            if (au.f6085b) {
+            if (au.f6086b) {
                 au.a("has zijie pkg", null);
             }
-            jSONObject.put("package", this.pgJ.epO());
+            jSONObject.put("package", this.pgJ.epP());
             jSONObject.put("real_package_name", packageName);
         }
         try {

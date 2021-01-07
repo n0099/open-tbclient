@@ -25,62 +25,62 @@ import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.tieba.personPolymeric.view.ReplyLinearLayout;
 /* loaded from: classes8.dex */
 public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.OnClickListener {
-    private static a myA;
-    private static String myB;
+    private static String myA;
+    private static a myz;
     public TextView ala;
     public TextView fmn;
     public TextView fni;
     private final LinearLayout ltu;
     private boolean mIsHost;
     private TbPageContext<?> mPageContext;
-    private int myC;
-    public LinearLayout myD;
-    public HeadImageView myE;
-    public TextView myF;
-    public ReplyLinearLayout myv;
-    public TextView myw;
-    protected final LinearLayout myx;
+    private int myB;
+    public LinearLayout myC;
+    public HeadImageView myD;
+    public TextView myE;
+    public ReplyLinearLayout myu;
+    public TextView myv;
+    protected final LinearLayout myw;
+    protected final ColumnLayout myx;
     protected final ColumnLayout myy;
-    protected final ColumnLayout myz;
 
     public PersonCommentHolder(View view, TbPageContext<?> tbPageContext, boolean z) {
         super(view);
         this.mPageContext = tbPageContext;
         this.mIsHost = z;
-        this.myv = (ReplyLinearLayout) view.findViewById(R.id.content_container);
-        this.myv.setIsHost(this.mIsHost);
-        this.myw = (TextView) view.findViewById(R.id.original_post_title);
-        this.myD = (LinearLayout) view.findViewById(R.id.top_line);
-        this.myE = (HeadImageView) view.findViewById(R.id.portrait);
+        this.myu = (ReplyLinearLayout) view.findViewById(R.id.content_container);
+        this.myu.setIsHost(this.mIsHost);
+        this.myv = (TextView) view.findViewById(R.id.original_post_title);
+        this.myC = (LinearLayout) view.findViewById(R.id.top_line);
+        this.myD = (HeadImageView) view.findViewById(R.id.portrait);
         this.ala = (TextView) view.findViewById(R.id.username);
         this.fmn = (TextView) view.findViewById(R.id.reply_time);
         this.fni = (TextView) view.findViewById(R.id.forum_name);
-        this.myF = (TextView) view.findViewById(R.id.reply_count);
+        this.myE = (TextView) view.findViewById(R.id.reply_count);
         this.ltu = (LinearLayout) view.findViewById(R.id.item_content);
-        this.myy = (ColumnLayout) view.findViewById(R.id.item_header);
-        this.myz = (ColumnLayout) view.findViewById(R.id.item_footer);
-        this.myx = (LinearLayout) view.findViewById(R.id.person_child);
-        this.myC = l.dip2px(view.getContext(), 42.0f);
+        this.myx = (ColumnLayout) view.findViewById(R.id.item_header);
+        this.myy = (ColumnLayout) view.findViewById(R.id.item_footer);
+        this.myw = (LinearLayout) view.findViewById(R.id.person_child);
+        this.myB = l.dip2px(view.getContext(), 42.0f);
         if (this.ltu != null) {
             this.ltu.setOnClickListener(this);
         }
-        this.myE.setOnClickListener(this);
+        this.myD.setOnClickListener(this);
         this.ala.setOnClickListener(this);
         this.fni.setOnClickListener(this);
-        this.myF.setOnClickListener(this);
+        this.myE.setOnClickListener(this);
+        this.myx.setOnClickListener(this);
         this.myy.setOnClickListener(this);
-        this.myz.setOnClickListener(this);
-        this.myw.setOnClickListener(this);
+        this.myv.setOnClickListener(this);
     }
 
     public void changeSkin(int i) {
-        ao.setBackgroundResource(this.myw, R.color.CAM_X0205);
+        ao.setBackgroundResource(this.myv, R.color.CAM_X0205);
         ao.setBackgroundColor(getView(), R.color.CAM_X0204);
-        ao.setBackgroundResource(this.myx, R.drawable.daily_recommend_item_selector);
+        ao.setBackgroundResource(this.myw, R.drawable.daily_recommend_item_selector);
         ao.setViewTextColor(this.ala, R.color.CAM_X0109, 1);
         ao.setViewTextColor(this.fmn, R.color.CAM_X0109, 1);
         ao.setViewTextColor(this.fni, R.color.CAM_X0109, 1);
-        ao.setViewTextColor(this.myF, R.color.CAM_X0109, 1);
+        ao.setViewTextColor(this.myE, R.color.CAM_X0109, 1);
     }
 
     @Override // android.view.View.OnClickListener
@@ -91,7 +91,7 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             if (this.mPageContext != null) {
                 MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.ACTIVITY_START_NORMAL, new FrsActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg((String) view.getTag(), "")));
             }
-        } else if (view == this.myw && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
+        } else if (view == this.myv && (strArr = (String[]) view.getTag()) != null && strArr.length >= 4 && strArr[3] != null) {
             if ("0".equals(strArr[2]) || strArr[1] == null) {
                 PbActivityConfig createNormalCfg = new PbActivityConfig(this.mPageContext.getPageActivity()).createNormalCfg(strArr[0], strArr[1], "person_page");
                 createNormalCfg.setStartFrom(4);
@@ -164,26 +164,26 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
             this.fmn.setText(str4);
             this.fni.setText(str3);
             this.fni.setTag(str3);
-            this.myF.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str2));
+            this.myE.setText(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.comment_num_tip), str2));
             this.fni.setOnClickListener(this);
-            QR(str);
+            QQ(str);
             if (this.ltu != null) {
                 this.ltu.setTag(strArr);
             }
+            this.myx.setTag(strArr);
             this.myy.setTag(strArr);
-            this.myz.setTag(strArr);
         }
     }
 
-    private void QR(String str) {
-        if (myB != null && !myB.equals(str)) {
-            myA = null;
+    private void QQ(String str) {
+        if (myA != null && !myA.equals(str)) {
+            myz = null;
         }
-        if (myA != null) {
-            this.myE.setImageBitmap(myA.getRawBitmap());
-            myB = str;
+        if (myz != null) {
+            this.myD.setImageBitmap(myz.getRawBitmap());
+            myA = str;
             return;
         }
-        this.myE.a(str, 12, this.myC, this.myC, false);
+        this.myD.a(str, 12, this.myB, this.myB, false);
     }
 }

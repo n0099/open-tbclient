@@ -7,9 +7,9 @@ import com.baidu.swan.apps.adaptation.b.d;
 public interface a<T extends d> extends e<T> {
     void C(ViewGroup viewGroup);
 
-    void amg();
-
     void amh();
+
+    void ami();
 
     void as(View view);
 

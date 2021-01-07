@@ -12,7 +12,7 @@ public class g extends BaseCardInfo {
         this.iDc = scoreCardInfo;
     }
 
-    public ScoreCardInfo cwz() {
+    public ScoreCardInfo cwA() {
         return this.iDc;
     }
 

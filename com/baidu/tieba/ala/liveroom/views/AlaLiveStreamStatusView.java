@@ -79,7 +79,7 @@ public class AlaLiveStreamStatusView extends LinearLayout {
         return this.hRm;
     }
 
-    public boolean cob() {
+    public boolean coc() {
         return this.hRn;
     }
 

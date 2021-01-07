@@ -23,7 +23,7 @@ public class AlaMasterOperationSwitchItemView extends AlaMasterOperationBaseItem
     public void i(short s) {
         this.hJs = s;
         updateIcon();
-        ZW();
+        ZX();
     }
 
     private void updateIcon() {
@@ -39,7 +39,7 @@ public class AlaMasterOperationSwitchItemView extends AlaMasterOperationBaseItem
         }
     }
 
-    private void ZW() {
+    private void ZX() {
         if (this.mId == 3) {
             if (this.hJs == 1) {
                 setTextResId(a.h.ala_operation_panel_text_mirror_on);

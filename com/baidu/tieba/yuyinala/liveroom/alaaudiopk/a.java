@@ -8,7 +8,7 @@ import com.baidu.live.tbadk.TbPageContext;
 /* loaded from: classes11.dex */
 public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     private x aGe;
-    public AlaChallengeLiveView omF;
+    public AlaChallengeLiveView omE;
 
     public a(TbPageContext tbPageContext) {
         super(tbPageContext);
@@ -22,63 +22,63 @@ public class a extends com.baidu.tieba.yuyinala.liveroom.a {
     public void aF(ViewGroup viewGroup) {
         super.aF(viewGroup);
         aN(viewGroup);
-        if (this.aGe != null && this.omF != null) {
-            this.omF.Z(this.aGe);
+        if (this.aGe != null && this.omE != null) {
+            this.omE.Z(this.aGe);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void DC() {
         super.DC();
-        if (this.omF != null && this.omF.getParent() != null) {
-            ((ViewGroup) this.omF.getParent()).removeView(this.omF);
+        if (this.omE != null && this.omE.getParent() != null) {
+            ((ViewGroup) this.omE.getParent()).removeView(this.omE);
         }
-        if (this.omF != null) {
-            this.omF.destory();
-            this.omF = null;
+        if (this.omE != null) {
+            this.omE.destory();
+            this.omE = null;
         }
     }
 
     public void showView() {
-        if (this.omF != null) {
-            this.omF.setVisibility(0);
+        if (this.omE != null) {
+            this.omE.setVisibility(0);
         }
     }
 
-    public void dtz() {
-        if (this.omF != null) {
-            this.omF.setVisibility(4);
+    public void dtA() {
+        if (this.omE != null) {
+            this.omE.setVisibility(4);
         }
     }
 
     @Override // com.baidu.tieba.yuyinala.liveroom.a
     public void onDestroy() {
-        if (this.omF != null && this.omF.getParent() != null) {
-            ((ViewGroup) this.omF.getParent()).removeView(this.omF);
+        if (this.omE != null && this.omE.getParent() != null) {
+            ((ViewGroup) this.omE.getParent()).removeView(this.omE);
         }
-        if (this.omF != null) {
-            this.omF.destory();
-            this.omF = null;
+        if (this.omE != null) {
+            this.omE.destory();
+            this.omE = null;
         }
     }
 
     private void aN(ViewGroup viewGroup) {
         if (this.aGe != null) {
-            if (this.omF != null && this.omF.getParent() != null) {
-                ((ViewGroup) this.omF.getParent()).removeView(this.omF);
+            if (this.omE != null && this.omE.getParent() != null) {
+                ((ViewGroup) this.omE.getParent()).removeView(this.omE);
             }
-            this.omF = new AlaChallengeLiveView(getPageContext().getPageActivity());
-            this.omF.setId(a.f.ala_liveroom_live_pk_bar);
+            this.omE = new AlaChallengeLiveView(getPageContext().getPageActivity());
+            this.omE.setId(a.f.ala_liveroom_live_pk_bar);
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
             layoutParams.addRule(3, a.f.ala_liveroom_charm_rank);
             layoutParams.topMargin = getPageContext().getPageActivity().getResources().getDimensionPixelSize(a.d.sdk_ds114);
-            viewGroup.addView(this.omF, layoutParams);
+            viewGroup.addView(this.omE, layoutParams);
         }
     }
 
     public void a(d dVar) {
-        if (this.omF != null) {
-            this.omF.a(dVar);
+        if (this.omE != null) {
+            this.omE.a(dVar);
         }
     }
 }

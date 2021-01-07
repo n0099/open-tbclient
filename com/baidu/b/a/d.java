@@ -1,7 +1,7 @@
 package com.baidu.b.a;
 
 import com.baidu.android.imsdk.internal.Constants;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public final class d {
     public static byte[] a() {
         return new byte[]{-8, 55, 15, 115, 74, -108, -56, -37, -56, -80, -90, 107, 115, -78, 65, 82, -59, 2, -104, 65, 10, 21, 19, -71, -74, 114, -100, 1, 29, -66, 72, 72};

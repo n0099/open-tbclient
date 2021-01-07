@@ -8,7 +8,7 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.spswitch.a;
 import com.baidu.spswitch.a.b;
-/* loaded from: classes3.dex */
+/* loaded from: classes4.dex */
 public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
     private b cEf;
     public static final String TAG = SPSwitchPanelLinearLayout.class.getSimpleName();
@@ -51,12 +51,12 @@ public class SPSwitchPanelLinearLayout extends LinearLayout implements a {
     }
 
     @Override // com.baidu.spswitch.a
-    public void aiZ() {
+    public void aja() {
         super.setVisibility(0);
     }
 
     @Override // com.baidu.spswitch.a
-    public void aja() {
-        this.cEf.aja();
+    public void ajb() {
+        this.cEf.ajb();
     }
 }

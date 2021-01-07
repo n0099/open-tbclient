@@ -8,24 +8,24 @@ import com.win.opensdk.core.Info;
 /* loaded from: classes4.dex */
 public class bf {
     public static final String java = bf.class.getSimpleName();
-    Context qbB;
-    Info qbW;
-    Handler qcJ = new Handler() { // from class: com.win.opensdk.bf.1
+    Info qdE;
+    Context qdj;
+    Handler qer = new Handler() { // from class: com.win.opensdk.bf.1
         @Override // android.os.Handler
         public final void handleMessage(Message message) {
             switch (message.what) {
                 case 11:
                     try {
                         String str = (String) message.obj;
-                        w.iM(bf.this.qbB).b(new x(bf.this.qbW), 2002, str).eJL();
-                        be.i(bf.this.qbB, Uri.parse(str));
+                        w.iM(bf.this.qdj).b(new x(bf.this.qdE), 2002, str).eKp();
+                        be.i(bf.this.qdj, Uri.parse(str));
                         return;
                     } catch (Exception e) {
                         return;
                     }
                 case 12:
                     try {
-                        be.i(bf.this.qbB, Uri.parse((String) message.obj));
+                        be.i(bf.this.qdj, Uri.parse((String) message.obj));
                         return;
                     } catch (Exception e2) {
                         return;
@@ -36,7 +36,7 @@ public class bf {
         }
     };
 
-    public static bf eKi() {
+    public static bf eKM() {
         return new bf();
     }
 

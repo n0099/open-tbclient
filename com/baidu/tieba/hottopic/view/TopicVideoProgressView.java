@@ -28,7 +28,7 @@ public class TopicVideoProgressView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (TopicVideoProgressView.this.bdx && TopicVideoProgressView.this.gjV != null && TopicVideoProgressView.this.gjV.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gjU - (TopicVideoProgressView.this.bPa() % TopicVideoProgressView.this.gjU));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gjU - (TopicVideoProgressView.this.bPb() % TopicVideoProgressView.this.gjU));
                             return;
                         }
                         return;
@@ -50,7 +50,7 @@ public class TopicVideoProgressView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (TopicVideoProgressView.this.bdx && TopicVideoProgressView.this.gjV != null && TopicVideoProgressView.this.gjV.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gjU - (TopicVideoProgressView.this.bPa() % TopicVideoProgressView.this.gjU));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gjU - (TopicVideoProgressView.this.bPb() % TopicVideoProgressView.this.gjU));
                             return;
                         }
                         return;
@@ -72,7 +72,7 @@ public class TopicVideoProgressView extends RelativeLayout {
                 switch (message.what) {
                     case 1:
                         if (TopicVideoProgressView.this.bdx && TopicVideoProgressView.this.gjV != null && TopicVideoProgressView.this.gjV.isPlaying()) {
-                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gjU - (TopicVideoProgressView.this.bPa() % TopicVideoProgressView.this.gjU));
+                            sendMessageDelayed(obtainMessage(1), TopicVideoProgressView.this.gjU - (TopicVideoProgressView.this.bPb() % TopicVideoProgressView.this.gjU));
                             return;
                         }
                         return;
@@ -117,12 +117,12 @@ public class TopicVideoProgressView extends RelativeLayout {
         }
     }
 
-    public void aUR() {
+    public void aUS() {
         initProgress();
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public int bPa() {
+    public int bPb() {
         if (this.gjV == null || this.iPK == null) {
             return 0;
         }

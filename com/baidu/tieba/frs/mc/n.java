@@ -39,7 +39,7 @@ public class n implements MessageQueue.IdleHandler {
         if (this.jEU != null) {
             this.jEU.b(this.jEY, this.jEZ, this.jEX);
             if (this.jDQ != null) {
-                this.jDQ.cFn();
+                this.jDQ.cFo();
             }
         }
         return false;

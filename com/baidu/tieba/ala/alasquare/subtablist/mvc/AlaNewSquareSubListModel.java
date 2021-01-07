@@ -187,7 +187,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         sendMessage(alaNewSquareSubListRequestMessage);
     }
 
-    public boolean bVK() {
+    public boolean bVL() {
         if (!this.hasMore) {
             return false;
         }
@@ -238,7 +238,7 @@ public class AlaNewSquareSubListModel extends BdBaseModel {
         return this.mDatas;
     }
 
-    public List<bz> bVD() {
+    public List<bz> bVE() {
         return this.gJb;
     }
 

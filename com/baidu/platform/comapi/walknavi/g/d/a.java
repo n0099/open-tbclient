@@ -1,27 +1,27 @@
 package com.baidu.platform.comapi.walknavi.g.d;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public class a {
 
     /* renamed from: a  reason: collision with root package name */
-    public static int f4549a = -1;
+    public static int f4550a = -1;
 
     /* renamed from: b  reason: collision with root package name */
-    private static final int[] f4550b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
+    private static final int[] f4551b = {500, 400, 300, 200, 100, 90, 80, 70, 60, 50, 30, 20, 10};
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     static class b {
 
         /* renamed from: a  reason: collision with root package name */
-        static final a f4553a = new a();
+        static final a f4554a = new a();
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public interface c {
         void a(int i, int i2);
     }
 
     public static a a() {
-        return b.f4553a;
+        return b.f4554a;
     }
 
     private a() {
@@ -68,14 +68,14 @@ public class a {
             i3 = -1;
         } else {
             C0301a b2 = b(i);
-            int i4 = b2.f4551a;
-            i2 = b2.f4552b;
+            int i4 = b2.f4552a;
+            i2 = b2.f4553b;
             i3 = i4;
         }
-        if (f4549a != i3) {
+        if (f4550a != i3) {
             cVar.a(i3, i2);
         }
-        f4549a = i3;
+        f4550a = i3;
     }
 
     private C0301a b(int i) {
@@ -83,13 +83,13 @@ public class a {
         int i2 = (i / 10) * 10;
         int i3 = 0;
         while (true) {
-            if (i3 >= f4550b.length) {
+            if (i3 >= f4551b.length) {
                 break;
-            } else if (i2 < f4550b[i3] || i2 % f4550b[i3] != 0) {
+            } else if (i2 < f4551b[i3] || i2 % f4551b[i3] != 0) {
                 i3++;
             } else {
-                c0301a.f4551a = c(f4550b[i3]);
-                c0301a.f4552b = i2 / f4550b[i3];
+                c0301a.f4552a = c(f4551b[i3]);
+                c0301a.f4553b = i2 / f4551b[i3];
                 break;
             }
         }
@@ -187,14 +187,14 @@ public class a {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     /* renamed from: com.baidu.platform.comapi.walknavi.g.d.a$a  reason: collision with other inner class name */
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public class C0301a {
 
         /* renamed from: a  reason: collision with root package name */
-        public int f4551a;
+        public int f4552a;
 
         /* renamed from: b  reason: collision with root package name */
-        public int f4552b;
+        public int f4553b;
 
         C0301a() {
         }

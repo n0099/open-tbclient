@@ -15,7 +15,7 @@ public class b extends BdBaseModel {
             if (httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021153 && (httpResponsedMessage instanceof YanZhiSignInHttpResponseMessage)) {
                 if (httpResponsedMessage.getError() == 0) {
                     if (b.this.hEo != null) {
-                        b.this.hEo.e(0, ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).ciG(), ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).ciH());
+                        b.this.hEo.e(0, ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).ciH(), ((YanZhiSignInHttpResponseMessage) httpResponsedMessage).ciI());
                     }
                 } else if (b.this.hEo != null) {
                     b.this.hEo.e(httpResponsedMessage.getError(), true, true);
@@ -32,15 +32,15 @@ public class b extends BdBaseModel {
 
     public b(a aVar) {
         this.hEo = aVar;
-        ciy();
+        ciz();
         MessageManager.getInstance().registerListener(this.hEr);
     }
 
-    private void ciy() {
+    private void ciz() {
         com.baidu.live.tieba.f.a.a.a(1021153, "ala/user/getUserSignInStatus", YanZhiSignInHttpResponseMessage.class, true, true, true, true);
     }
 
-    public void ciz() {
+    public void ciA() {
         MessageManager.getInstance().sendMessage(new HttpMessage(1021153));
     }
 

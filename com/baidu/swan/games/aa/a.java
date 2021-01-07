@@ -13,7 +13,7 @@ public class a {
     private a() {
     }
 
-    public static a bch() {
+    public static a bci() {
         if (eoe == null) {
             synchronized (a.class) {
                 if (eoe == null) {
@@ -26,7 +26,7 @@ public class a {
 
     public void a(d dVar) {
         this.egY = dVar;
-        bci();
+        bcj();
     }
 
     public void at(String str, boolean z) {
@@ -54,7 +54,7 @@ public class a {
         }
     }
 
-    private void bci() {
+    private void bcj() {
         if (!this.ehQ.isEmpty() && this.egY != null) {
             eod.lock();
             try {

@@ -7,8 +7,6 @@ public interface n {
 
     void bT(int i, int i2);
 
-    void cgs();
-
     void cgt();
 
     void cgu();
@@ -18,6 +16,8 @@ public interface n {
     void cgw();
 
     void cgx();
+
+    void cgy();
 
     void dZ(int i);
 

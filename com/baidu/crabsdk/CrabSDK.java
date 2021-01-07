@@ -261,9 +261,9 @@ public class CrabSDK {
 
     public static void setChannel(String str) {
         if (str == null || str.length() == 0) {
-            a.f1741b = "alpha";
+            a.f1742b = "alpha";
         } else {
-            a.f1741b = str;
+            a.f1742b = str;
         }
     }
 
@@ -295,7 +295,7 @@ public class CrabSDK {
     }
 
     public static void setDeveloperName(String str) {
-        a.f1740a = str;
+        a.f1741a = str;
     }
 
     public static void setEnableLog(boolean z) {

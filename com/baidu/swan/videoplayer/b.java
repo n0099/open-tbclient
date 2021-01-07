@@ -166,11 +166,11 @@ public final class b {
         this.mMeasuredHeight = i3;
     }
 
-    public int bjs() {
+    public int bjt() {
         return this.mMeasuredWidth;
     }
 
-    public int bjt() {
+    public int bju() {
         return this.mMeasuredHeight;
     }
 

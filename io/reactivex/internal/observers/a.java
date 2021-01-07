@@ -2,11 +2,11 @@ package io.reactivex.internal.observers;
 
 import io.reactivex.internal.disposables.DisposableHelper;
 import io.reactivex.u;
-/* loaded from: classes3.dex */
+/* loaded from: classes5.dex */
 public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     protected final u<? super R> actual;
     protected boolean done;
-    protected io.reactivex.internal.a.b<T> qgB;
+    protected io.reactivex.internal.a.b<T> qik;
     protected io.reactivex.disposables.b s;
     protected int sourceMode;
 
@@ -19,20 +19,20 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
         if (DisposableHelper.validate(this.s, bVar)) {
             this.s = bVar;
             if (bVar instanceof io.reactivex.internal.a.b) {
-                this.qgB = (io.reactivex.internal.a.b) bVar;
+                this.qik = (io.reactivex.internal.a.b) bVar;
             }
-            if (eLh()) {
+            if (eLL()) {
                 this.actual.onSubscribe(this);
-                eLi();
+                eLM();
             }
         }
     }
 
-    protected boolean eLh() {
+    protected boolean eLL() {
         return true;
     }
 
-    protected void eLi() {
+    protected void eLM() {
     }
 
     @Override // io.reactivex.u
@@ -61,8 +61,8 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
-    public final int Tf(int i) {
-        io.reactivex.internal.a.b<T> bVar = this.qgB;
+    public final int Tv(int i) {
+        io.reactivex.internal.a.b<T> bVar = this.qik;
         if (bVar == null || (i & 4) != 0) {
             return 0;
         }
@@ -86,12 +86,12 @@ public abstract class a<T, R> implements io.reactivex.internal.a.b<R>, u<T> {
 
     @Override // io.reactivex.internal.a.f
     public boolean isEmpty() {
-        return this.qgB.isEmpty();
+        return this.qik.isEmpty();
     }
 
     @Override // io.reactivex.internal.a.f
     public void clear() {
-        this.qgB.clear();
+        this.qik.clear();
     }
 
     @Override // io.reactivex.internal.a.f

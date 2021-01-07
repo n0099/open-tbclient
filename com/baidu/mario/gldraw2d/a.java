@@ -7,7 +7,7 @@ import android.view.SurfaceHolder;
 import com.baidu.mario.gldraw2d.params.c;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes5.dex */
+/* loaded from: classes3.dex */
 public class a {
     private static final String TAG = a.class.getSimpleName();
     protected com.baidu.mario.gldraw2d.a.a cgt;
@@ -44,7 +44,7 @@ public class a {
                 }
                 try {
                     this.cgu.add(new b(list.get(i2)));
-                    if (list.get(i2).acD()) {
+                    if (list.get(i2).acE()) {
                         this.cgv = i2;
                     }
                 } catch (Exception e) {
@@ -55,20 +55,20 @@ public class a {
             if (this.cgu.size() > this.cgv) {
                 if (obj != null) {
                     if (obj instanceof Surface) {
-                        this.cgt = new com.baidu.mario.gldraw2d.a.a(this.cgu.get(this.cgv).acd(), (Surface) obj, true);
+                        this.cgt = new com.baidu.mario.gldraw2d.a.a(this.cgu.get(this.cgv).ace(), (Surface) obj, true);
                     } else if (obj instanceof SurfaceTexture) {
-                        this.cgt = new com.baidu.mario.gldraw2d.a.a(this.cgu.get(this.cgv).acd(), (SurfaceTexture) obj);
+                        this.cgt = new com.baidu.mario.gldraw2d.a.a(this.cgu.get(this.cgv).ace(), (SurfaceTexture) obj);
                     } else if (obj instanceof SurfaceHolder) {
-                        this.cgt = new com.baidu.mario.gldraw2d.a.a(this.cgu.get(this.cgv).acd(), (SurfaceHolder) obj);
+                        this.cgt = new com.baidu.mario.gldraw2d.a.a(this.cgu.get(this.cgv).ace(), (SurfaceHolder) obj);
                     }
                 } else if (this.cgu != null && this.cgu != null && (bVar = this.cgu.get(this.cgv)) != null && this.cgt != null) {
-                    this.cgt.a(bVar.acd());
+                    this.cgt.a(bVar.ace());
                 }
             }
             for (b bVar2 : this.cgu) {
                 if (this.cgt != null) {
-                    this.cgt.b(bVar2.acd());
-                    bVar2.acc();
+                    this.cgt.b(bVar2.ace());
+                    bVar2.acd();
                 }
             }
         }
@@ -77,13 +77,13 @@ public class a {
     public void a(com.baidu.mario.gldraw2d.c.c cVar) {
         for (b bVar : this.cgu) {
             if (this.cgt != null) {
-                this.cgt.b(bVar.acd());
+                this.cgt.b(bVar.ace());
                 bVar.a(cVar);
             }
         }
     }
 
-    public void acb() {
+    public void acc() {
         if (this.cgt != null) {
             this.cgt.release();
             this.cgt = null;
@@ -101,7 +101,7 @@ public class a {
         if (this.cgt != null && this.cgu != null && this.cgu.size() != 0) {
             synchronized (this) {
                 for (b bVar : this.cgu) {
-                    this.cgt.b(bVar.acd());
+                    this.cgt.b(bVar.ace());
                     bVar.bE(j);
                 }
                 notifyAll();

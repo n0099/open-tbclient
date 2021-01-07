@@ -22,15 +22,15 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
     @Override // com.baidu.swan.pms.c.d
     /* renamed from: a */
     public com.baidu.swan.pms.model.a am(com.baidu.swan.pms.c.c.b bVar) {
-        this.ewT.aud();
+        this.ewT.aue();
         f fVar = new f();
         a(bVar.exA, fVar);
         a(bVar.exB, fVar);
         a(bVar.exE, fVar);
         a(bVar.exG, fVar);
         v(bVar.exF);
-        if (fVar.bhr() == 0) {
-            this.ewT.arc();
+        if (fVar.bhs() == 0) {
+            this.ewT.ard();
             return null;
         }
         this.ewT.a(fVar);
@@ -49,17 +49,17 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
         if (bVar.exA == null && ((bVar.exB == null || bVar.exB.isEmpty()) && bVar.exE == null && bVar.exG == null && bVar.exF == null)) {
             return false;
         }
-        if (bVar.exA == null || bVar.exA.auV()) {
+        if (bVar.exA == null || bVar.exA.auW()) {
             if (bVar.exB != null) {
                 for (com.baidu.swan.pms.model.g gVar : bVar.exB) {
-                    if (!gVar.auV()) {
+                    if (!gVar.auW()) {
                         return false;
                     }
                 }
             }
-            if (bVar.exE == null || bVar.exE.auV()) {
-                if (bVar.exG == null || bVar.exG.auV()) {
-                    return bVar.exF == null || bVar.exF.auV();
+            if (bVar.exE == null || bVar.exE.auW()) {
+                if (bVar.exG == null || bVar.exG.auW()) {
+                    return bVar.exF == null || bVar.exF.auW();
                 }
                 return false;
             }
@@ -69,7 +69,7 @@ public class b extends com.baidu.swan.pms.c.d<com.baidu.swan.pms.c.c.b> {
     }
 
     @Override // com.baidu.swan.pms.c.d
-    protected String bgq() {
+    protected String bgr() {
         return "getpkg";
     }
 }

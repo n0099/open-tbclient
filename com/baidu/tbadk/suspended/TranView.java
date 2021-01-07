@@ -13,7 +13,7 @@ public class TranView extends View {
 
     /* loaded from: classes.dex */
     public interface a {
-        void bIn();
+        void bIo();
     }
 
     public void setScrollCallBack(a aVar) {
@@ -49,7 +49,7 @@ public class TranView extends View {
                     setLayoutParams(layoutParams);
                 }
             } else if (this.fOq != null) {
-                this.fOq.bIn();
+                this.fOq.bIo();
             }
         }
     }

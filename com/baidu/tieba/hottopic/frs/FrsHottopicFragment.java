@@ -51,7 +51,7 @@ public class FrsHottopicFragment extends BaseFragment implements ao, aq, d.a {
         @Override // com.baidu.tieba.hottopic.controller.HotRanklistModel.a
         public void a(boolean z, j jVar, int i, String str) {
             FrsHottopicFragment.this.hideLoadingView();
-            FrsHottopicFragment.this.Zi();
+            FrsHottopicFragment.this.Zj();
             FrsHottopicFragment.this.krN.setRefreshing(false);
             if (z) {
                 FrsHottopicFragment.this.krM = jVar;
@@ -60,7 +60,7 @@ public class FrsHottopicFragment extends BaseFragment implements ao, aq, d.a {
                     FrsHottopicFragment.this.krN.showNoDataView();
                 }
             } else if (!FrsHottopicFragment.this.hasData()) {
-                FrsHottopicFragment.this.bUH();
+                FrsHottopicFragment.this.bUI();
             }
         }
     };
@@ -81,10 +81,10 @@ public class FrsHottopicFragment extends BaseFragment implements ao, aq, d.a {
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         super.onPrimary();
-        cHD();
+        cHE();
     }
 
-    private void cHD() {
+    private void cHE() {
         if (isPrimary()) {
             if (this.jlv != null && this.jlv.isViewAttached()) {
                 MessageManager.getInstance().registerListener(this.jiM);
@@ -131,12 +131,12 @@ public class FrsHottopicFragment extends BaseFragment implements ao, aq, d.a {
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void cEF() {
-        this.krN.cEF();
+    public void cEG() {
+        this.krN.cEG();
     }
 
     @Override // com.baidu.tieba.frs.ao
-    public void bVE() {
+    public void bVF() {
         refresh();
     }
 
@@ -171,7 +171,7 @@ public class FrsHottopicFragment extends BaseFragment implements ao, aq, d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void bUH() {
+    public void bUI() {
         this.krN.qP(false);
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(CmdConfigCustom.CMD_FRS_EXPAND_BAR_HEADER, true));
         if (this.jlv == null) {
@@ -188,7 +188,7 @@ public class FrsHottopicFragment extends BaseFragment implements ao, aq, d.a {
     }
 
     /* JADX INFO: Access modifiers changed from: private */
-    public void Zi() {
+    public void Zj() {
         this.krN.qP(true);
         if (this.jlv != null && this.jlv.isViewAttached()) {
             this.jlv.dettachView(this.krN.getRootView());
@@ -198,11 +198,11 @@ public class FrsHottopicFragment extends BaseFragment implements ao, aq, d.a {
 
     public void refresh() {
         if (!com.baidu.adp.lib.util.j.isNetWorkAvailable()) {
-            bUH();
+            bUI();
             return;
         }
-        Zi();
-        this.krN.cEF();
+        Zj();
+        this.krN.cEG();
         if (!hasData()) {
             showLoadingView();
         } else {
@@ -227,26 +227,26 @@ public class FrsHottopicFragment extends BaseFragment implements ao, aq, d.a {
 
     /* JADX INFO: Access modifiers changed from: private */
     public List<n> a(j jVar) {
-        if (jVar == null || x.isEmpty(jVar.cVk())) {
+        if (jVar == null || x.isEmpty(jVar.cVl())) {
             return null;
         }
         ArrayList arrayList = new ArrayList();
-        for (TopicList topicList : jVar.cVk()) {
+        for (TopicList topicList : jVar.cVl()) {
             if (topicList != null) {
                 bz bzVar = new bz();
                 bzVar.setTid(topicList.topic_tid + "");
                 bzVar.b(topicList.video_info);
                 bzVar.setFid(this.mFid);
-                bzVar.Bi(this.eTO);
-                bzVar.Bj(this.eTP);
-                bzVar.Bk(topicList.topic_h5_url);
+                bzVar.Bh(this.eTO);
+                bzVar.Bi(this.eTP);
+                bzVar.Bj(topicList.topic_h5_url);
                 MetaData metaData = new MetaData();
                 metaData.setUserName(topicList.topic_name);
                 bzVar.a(metaData);
                 bzVar.dG(topicList.update_time.longValue());
                 bzVar.setTitle(topicList.topic_desc);
-                bzVar.Bh(topicList.topic_user_name);
-                bzVar.bsZ();
+                bzVar.Bg(topicList.topic_user_name);
+                bzVar.bta();
                 ArrayList<MediaData> arrayList2 = new ArrayList<>();
                 if (topicList.media != null) {
                     List<Media> list = topicList.media;
@@ -276,11 +276,11 @@ public class FrsHottopicFragment extends BaseFragment implements ao, aq, d.a {
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bxL() {
+    public void bxM() {
         refresh();
     }
 
     @Override // com.baidu.tieba.frs.aq
-    public void bxM() {
+    public void bxN() {
     }
 }

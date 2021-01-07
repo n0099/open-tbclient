@@ -45,7 +45,7 @@ public class NEGFeedBackView extends AppCompatImageView {
         this.gfZ = new View.OnClickListener() { // from class: com.baidu.tieba.NEGFeedBack.NEGFeedBackView.1
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                NEGFeedBackView.this.bNI();
+                NEGFeedBackView.this.bNJ();
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - NEGFeedBackView.this.bbg > 500) {
                     NEGFeedBackView.this.O(view);
@@ -92,8 +92,8 @@ public class NEGFeedBackView extends AppCompatImageView {
         this.gfY.O(view);
     }
 
-    public void bNI() {
-        this.gfY.bNI();
+    public void bNJ() {
+        this.gfY.bNJ();
     }
 
     public void setCWRotateAnimation() {

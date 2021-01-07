@@ -47,7 +47,7 @@ public class LiveBBVideoFriendsResponseMessage extends JsonHttpResponsedMessage 
         return this.hasMore;
     }
 
-    public List<a> Zl() {
+    public List<a> Zm() {
         return this.bSq;
     }
 }

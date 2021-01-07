@@ -17,36 +17,36 @@ public class QQToken {
     private static SharedPreferences f;
 
     /* renamed from: a  reason: collision with root package name */
-    private String f13596a;
+    private String f13597a;
 
     /* renamed from: b  reason: collision with root package name */
-    private String f13597b;
+    private String f13598b;
     private String c;
     private int d = 1;
     private long e = -1;
 
     public QQToken(String str) {
-        this.f13596a = str;
+        this.f13597a = str;
     }
 
     public boolean isSessionValid() {
-        return this.f13597b != null && System.currentTimeMillis() < this.e;
+        return this.f13598b != null && System.currentTimeMillis() < this.e;
     }
 
     public String getAppId() {
-        return this.f13596a;
+        return this.f13597a;
     }
 
     public void setAppId(String str) {
-        this.f13596a = str;
+        this.f13597a = str;
     }
 
     public String getAccessToken() {
-        return this.f13597b;
+        return this.f13598b;
     }
 
     public void setAccessToken(String str, String str2) throws NumberFormatException {
-        this.f13597b = str;
+        this.f13598b = str;
         this.e = 0L;
         if (str2 != null) {
             this.e = System.currentTimeMillis() + (Long.parseLong(str2) * 1000);
@@ -75,7 +75,7 @@ public class QQToken {
 
     public void saveSession(JSONObject jSONObject) {
         try {
-            a(this.f13596a, jSONObject);
+            a(this.f13597a, jSONObject);
         } catch (Exception e) {
             f.c("QQToken", "login saveSession" + e.toString());
         }

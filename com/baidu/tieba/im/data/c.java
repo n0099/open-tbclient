@@ -8,7 +8,7 @@ public class c {
     private List<b> parent_menu = new ArrayList();
     private long update_time;
 
-    public boolean cXf() {
+    public boolean cXg() {
         return this.kBa == 1;
     }
 
@@ -24,7 +24,7 @@ public class c {
         this.update_time = j;
     }
 
-    public List<b> cXg() {
+    public List<b> cXh() {
         return this.parent_menu;
     }
 

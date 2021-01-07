@@ -23,10 +23,10 @@ import org.json.JSONObject;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.player.b;
 /* loaded from: classes15.dex */
-public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e, b.a, b.InterfaceC1293b, b.c, b.d, b.e, b.f, b.g, b.i {
+public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e, b.a, b.InterfaceC1334b, b.c, b.d, b.e, b.f, b.g, b.i {
 
     /* renamed from: b  reason: collision with root package name */
-    private CyberPlayerManager.OnPreparedListener f3227b;
+    private CyberPlayerManager.OnPreparedListener f3228b;
     private CyberPlayerManager.OnCompletionListener c;
     private IjkMediaPlayer ciO;
     private CyberPlayerManager.OnMediaSourceChangedListener ciP;
@@ -50,7 +50,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
             this.m = i;
             this.ciO.c(this.m);
             this.ciO.a((b.f) this);
-            this.ciO.a((b.InterfaceC1293b) this);
+            this.ciO.a((b.InterfaceC1334b) this);
             this.ciO.a((b.a) this);
             this.ciO.a((b.g) this);
             this.ciO.a((b.i) this);
@@ -150,8 +150,8 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
     @Override // tv.danmaku.ijk.media.player.b.f
     public void a(tv.danmaku.ijk.media.player.b bVar) {
         this.p = 2;
-        if (this.f3227b != null) {
-            this.f3227b.onPrepared();
+        if (this.f3228b != null) {
+            this.f3228b.onPrepared();
         }
         if (this.o > 0) {
             seekTo(this.o);
@@ -200,7 +200,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
         return this.g != null && this.g.onError(i, i2, obj);
     }
 
-    @Override // tv.danmaku.ijk.media.player.b.InterfaceC1293b
+    @Override // tv.danmaku.ijk.media.player.b.InterfaceC1334b
     public void b(tv.danmaku.ijk.media.player.b bVar) {
         this.p = 5;
         this.q = 5;
@@ -538,7 +538,7 @@ public class CyberPlayerImpl extends PlayerProvider implements IjkMediaPlayer.e,
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider
     public void setOnPreparedListener(CyberPlayerManager.OnPreparedListener onPreparedListener) {
-        this.f3227b = onPreparedListener;
+        this.f3228b = onPreparedListener;
     }
 
     @Override // com.baidu.cyberplayer.sdk.PlayerProvider

@@ -17,10 +17,10 @@ import com.kwad.sdk.utils.ar;
 public class b extends Presenter {
 
     /* renamed from: a  reason: collision with root package name */
-    private g f9645a;
+    private g f9646a;
 
     /* renamed from: b  reason: collision with root package name */
-    private com.kwad.sdk.core.webview.a f9646b;
+    private com.kwad.sdk.core.webview.a f9647b;
     private NestedScrollWebView c;
     private AdTemplate d;
     private k.b e = new k.b() { // from class: com.kwad.sdk.core.page.a.b.1
@@ -31,33 +31,33 @@ public class b extends Presenter {
 
     private void a(g gVar) {
         gVar.a(new d());
-        gVar.a(new e(this.f9646b));
-        gVar.a(new f(this.f9646b));
+        gVar.a(new e(this.f9647b));
+        gVar.a(new f(this.f9647b));
         gVar.a(new k(this.e));
-        gVar.a(new j(this.f9646b));
+        gVar.a(new j(this.f9647b));
     }
 
     @SuppressLint({"SetJavaScriptEnabled", "AddJavascriptInterface", "JavascriptInterface"})
     private void e() {
         f();
         ar.a(this.c);
-        this.f9645a = new g(this.c);
-        a(this.f9645a);
-        this.c.addJavascriptInterface(this.f9645a, "KwaiAd");
+        this.f9646a = new g(this.c);
+        a(this.f9646a);
+        this.c.addJavascriptInterface(this.f9646a, "KwaiAd");
     }
 
     private void f() {
-        if (this.f9645a != null) {
-            this.f9645a.a();
-            this.f9645a = null;
+        if (this.f9646a != null) {
+            this.f9646a.a();
+            this.f9646a = null;
         }
     }
 
     private void g() {
-        this.f9646b = new com.kwad.sdk.core.webview.a();
-        this.f9646b.f9836b = this.d;
-        this.f9646b.f9835a = 0;
-        this.f9646b.f = this.c;
+        this.f9647b = new com.kwad.sdk.core.webview.a();
+        this.f9647b.f9837b = this.d;
+        this.f9647b.f9836a = 0;
+        this.f9647b.f = this.c;
     }
 
     /* JADX INFO: Access modifiers changed from: protected */

@@ -18,18 +18,18 @@ final class j {
     static final class a {
 
         /* renamed from: a  reason: collision with root package name */
-        private final String f14461a;
+        private final String f14462a;
 
         /* renamed from: a  reason: collision with other field name */
-        private final boolean f845a;
+        private final boolean f846a;
 
         a(String str, boolean z) {
-            this.f14461a = str;
-            this.f845a = z;
+            this.f14462a = str;
+            this.f846a = z;
         }
 
         public String a() {
-            return this.f14461a;
+            return this.f14462a;
         }
     }
 
@@ -37,28 +37,28 @@ final class j {
     private static final class b implements ServiceConnection {
 
         /* renamed from: a  reason: collision with root package name */
-        private final LinkedBlockingQueue<IBinder> f14462a;
+        private final LinkedBlockingQueue<IBinder> f14463a;
 
         /* renamed from: a  reason: collision with other field name */
-        boolean f846a;
+        boolean f847a;
 
         private b() {
-            this.f846a = false;
-            this.f14462a = new LinkedBlockingQueue<>(1);
+            this.f847a = false;
+            this.f14463a = new LinkedBlockingQueue<>(1);
         }
 
         public IBinder a() {
-            if (this.f846a) {
+            if (this.f847a) {
                 throw new IllegalStateException();
             }
-            this.f846a = true;
-            return this.f14462a.poll(30000L, TimeUnit.MILLISECONDS);
+            this.f847a = true;
+            return this.f14463a.poll(30000L, TimeUnit.MILLISECONDS);
         }
 
         @Override // android.content.ServiceConnection
         public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
             try {
-                this.f14462a.put(iBinder);
+                this.f14463a.put(iBinder);
             } catch (InterruptedException e) {
             }
         }
@@ -72,10 +72,10 @@ final class j {
     private static final class c implements IInterface {
 
         /* renamed from: a  reason: collision with root package name */
-        private IBinder f14463a;
+        private IBinder f14464a;
 
         public c(IBinder iBinder) {
-            this.f14463a = iBinder;
+            this.f14464a = iBinder;
         }
 
         public String a() {
@@ -83,7 +83,7 @@ final class j {
             Parcel obtain2 = Parcel.obtain();
             try {
                 obtain.writeInterfaceToken("com.google.android.gms.ads.identifier.internal.IAdvertisingIdService");
-                this.f14463a.transact(1, obtain, obtain2, 0);
+                this.f14464a.transact(1, obtain, obtain2, 0);
                 obtain2.readException();
                 return obtain2.readString();
             } finally {
@@ -94,7 +94,7 @@ final class j {
 
         @Override // android.os.IInterface
         public IBinder asBinder() {
-            return this.f14463a;
+            return this.f14464a;
         }
     }
 

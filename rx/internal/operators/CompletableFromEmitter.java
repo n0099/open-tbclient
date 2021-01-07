@@ -6,7 +6,7 @@ import rx.internal.subscriptions.CancellableSubscription;
 import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes15.dex */
 public final class CompletableFromEmitter implements b.a {
-    final rx.functions.b<Object> qrj;
+    final rx.functions.b<Object> qsR;
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // rx.functions.b
@@ -15,7 +15,7 @@ public final class CompletableFromEmitter implements b.a {
         FromEmitter fromEmitter = new FromEmitter(cVar);
         cVar.onSubscribe(fromEmitter);
         try {
-            this.qrj.call(fromEmitter);
+            this.qsR.call(fromEmitter);
         } catch (Throwable th) {
             rx.exceptions.a.O(th);
             fromEmitter.onError(th);

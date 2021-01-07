@@ -18,7 +18,7 @@ public class l extends b {
     }
 
     @Override // com.baidu.yuyinala.privatemessage.implugin.f.b
-    public String eln() {
+    public String elo() {
         return IMTrack.DbBuilder.ACTION_UPDATE;
     }
 

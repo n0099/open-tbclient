@@ -11,7 +11,7 @@ import com.kwad.sdk.reward.d;
 public class b extends d implements View.OnClickListener {
 
     /* renamed from: b  reason: collision with root package name */
-    private View f10928b;
+    private View f10929b;
     private boolean d;
     private Handler c = new Handler(Looper.getMainLooper());
     private e e = new e() { // from class: com.kwad.sdk.reward.b.c.b.b.1
@@ -28,8 +28,8 @@ public class b extends d implements View.OnClickListener {
                             return;
                         }
                         b.this.e();
-                        b.this.f10928b.setAlpha(0.0f);
-                        b.this.f10928b.animate().alpha(1.0f).setDuration(500L).start();
+                        b.this.f10929b.setAlpha(0.0f);
+                        b.this.f10929b.animate().alpha(1.0f).setDuration(500L).start();
                     }
                 }, P);
             }
@@ -38,23 +38,23 @@ public class b extends d implements View.OnClickListener {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void e() {
-        this.f10928b.setVisibility(0);
-        this.f10928b.setOnClickListener(this);
+        this.f10929b.setVisibility(0);
+        this.f10929b.setOnClickListener(this);
     }
 
     private void f() {
-        Activity activity = this.f10949a.g;
+        Activity activity = this.f10950a.g;
         if (activity != null) {
             activity.finish();
         }
     }
 
     private void g() {
-        this.f10949a.f10824b.a(false);
+        this.f10950a.f10825b.a(false);
     }
 
     private void h() {
-        this.f10949a.f10824b.e();
+        this.f10950a.f10825b.e();
     }
 
     public b a(boolean z) {
@@ -66,14 +66,14 @@ public class b extends d implements View.OnClickListener {
     @Override // com.kwad.sdk.reward.d, com.kwad.sdk.mvp.Presenter
     public void a() {
         super.a();
-        this.f10949a.n.add(this.e);
+        this.f10950a.n.add(this.e);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
     @Override // com.kwad.sdk.mvp.Presenter
     public void b_() {
         super.b_();
-        this.f10949a.n.remove(this.e);
+        this.f10950a.n.remove(this.e);
         this.c.removeCallbacksAndMessages(null);
     }
 
@@ -81,7 +81,7 @@ public class b extends d implements View.OnClickListener {
     @Override // com.kwad.sdk.mvp.Presenter
     public void c() {
         super.c();
-        this.f10928b = b(R.id.ksad_end_close_btn);
+        this.f10929b = b(R.id.ksad_end_close_btn);
     }
 
     /* JADX INFO: Access modifiers changed from: protected */
@@ -93,7 +93,7 @@ public class b extends d implements View.OnClickListener {
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view) {
-        if (view == this.f10928b) {
+        if (view == this.f10929b) {
             h();
             g();
             f();

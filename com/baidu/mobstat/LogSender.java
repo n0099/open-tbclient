@@ -28,10 +28,10 @@ import org.json.JSONObject;
 public class LogSender {
 
     /* renamed from: a  reason: collision with root package name */
-    private static LogSender f3642a = new LogSender();
+    private static LogSender f3643a = new LogSender();
 
     /* renamed from: b  reason: collision with root package name */
-    private boolean f3643b = false;
+    private boolean f3644b = false;
     private int c = 0;
     private int d = 1;
     private SendStrategyEnum e = SendStrategyEnum.APP_START;
@@ -39,7 +39,7 @@ public class LogSender {
     private Handler g;
 
     public static LogSender instance() {
-        return f3642a;
+        return f3643a;
     }
 
     private LogSender() {
@@ -69,8 +69,8 @@ public class LogSender {
                 bq.a().b(context, 24);
             }
         }
-        this.f3643b = z;
-        bq.a().a(context, this.f3643b);
+        this.f3644b = z;
+        bq.a().a(context, this.f3644b);
     }
 
     public void onSend(final Context context) {
@@ -87,7 +87,7 @@ public class LogSender {
                     }
                     LogSender.this.e = SendStrategyEnum.values()[bq.a().b(context)];
                     LogSender.this.d = bq.a().c(context);
-                    LogSender.this.f3643b = bq.a().d(context);
+                    LogSender.this.f3644b = bq.a().d(context);
                     if (!LogSender.this.e.equals(SendStrategyEnum.SET_TIME_INTERVAL)) {
                         if (LogSender.this.e.equals(SendStrategyEnum.ONCE_A_DAY)) {
                             LogSender.this.setSendingLogTimer(context);
@@ -235,7 +235,7 @@ public class LogSender {
 
     /* JADX INFO: Access modifiers changed from: private */
     public void a(final Context context) {
-        if (!this.f3643b || bw.q(context)) {
+        if (!this.f3644b || bw.q(context)) {
             this.g.post(new Runnable() { // from class: com.baidu.mobstat.LogSender.5
                 @Override // java.lang.Runnable
                 public void run() {
@@ -340,7 +340,7 @@ public class LogSender {
         if (!z) {
             bc.c().a("Start send log \n" + str);
         }
-        if (this.f3643b && !bw.q(context)) {
+        if (this.f3644b && !bw.q(context)) {
             bc.c().a("[WARNING] wifi not available, log will be cached, next time will try to resend");
             return false;
         }

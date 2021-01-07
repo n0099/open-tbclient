@@ -96,13 +96,13 @@ public class FrsProfessionIntroActivity extends BaseActivity<FrsProfessionIntroA
         this.jFk.setEnabled(true);
         this.jFk.setOnClickListener(this.onClickListener);
         this.jFl.setOnClickListener(this.onClickListener);
-        cMB();
+        cMC();
         String stringExtra = getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_PATTEN_BACKGROUND);
         this.jFp.setGradientColor(getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DAY_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_NIGHT_DARK_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_LIGHT_COLOR), getIntent().getStringExtra(FrsProfessionIntroActivityConfig.KEY_DARK_DARK_COLOR));
         this.jFo.startLoad(stringExtra, 10, false);
     }
 
-    private void cMB() {
+    private void cMC() {
         boolean z = false;
         if (UtilHelper.isMiNotchDevice()) {
             z = true;

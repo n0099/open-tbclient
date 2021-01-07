@@ -12,7 +12,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes5.dex */
+/* loaded from: classes6.dex */
 public final class a {
     private static final Executor THREAD_POOL_EXECUTOR;
     private static final boolean DEBUG = com.baidu.prologue.a.a.a.ctc;
@@ -39,7 +39,7 @@ public final class a {
 
     /* JADX INFO: Access modifiers changed from: private */
     /* renamed from: com.baidu.prologue.service.network.a$a  reason: collision with other inner class name */
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     public static class C0332a {
         String name;
         Runnable runnable;
@@ -48,7 +48,7 @@ public final class a {
         }
     }
 
-    /* loaded from: classes5.dex */
+    /* loaded from: classes6.dex */
     private static class b extends AsyncTask<C0332a, Object, Object> {
         private b() {
         }

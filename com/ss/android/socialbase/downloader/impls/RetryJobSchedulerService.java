@@ -22,7 +22,7 @@ public class RetryJobSchedulerService extends JobService {
         if (jobParameters != null) {
             int jobId = jobParameters.getJobId();
             com.ss.android.socialbase.downloader.f.a.c("RetrySchedulerService", "onStartJob, id = " + jobId);
-            r.eJo().a(jobId);
+            r.eJS().a(jobId);
             return false;
         }
         return false;
@@ -35,16 +35,16 @@ public class RetryJobSchedulerService extends JobService {
 
     /* JADX INFO: Access modifiers changed from: package-private */
     public static void a(com.ss.android.socialbase.downloader.g.c cVar, long j, boolean z, int i) {
-        Context eHp;
+        Context eHT;
         long j2;
-        com.ss.android.socialbase.downloader.downloader.r eHu;
-        com.ss.android.socialbase.downloader.downloader.r eHu2;
-        if (cVar != null && j > 0 && (eHp = com.ss.android.socialbase.downloader.downloader.b.eHp()) != null) {
-            if (cVar.U() && (eHu2 = com.ss.android.socialbase.downloader.downloader.f.iA(com.ss.android.socialbase.downloader.downloader.b.eHp()).eHu()) != null) {
-                eHu2.a(cVar, 2, 3);
+        com.ss.android.socialbase.downloader.downloader.r eHY;
+        com.ss.android.socialbase.downloader.downloader.r eHY2;
+        if (cVar != null && j > 0 && (eHT = com.ss.android.socialbase.downloader.downloader.b.eHT()) != null) {
+            if (cVar.U() && (eHY2 = com.ss.android.socialbase.downloader.downloader.f.iA(com.ss.android.socialbase.downloader.downloader.b.eHT()).eHY()) != null) {
+                eHY2.a(cVar, 2, 3);
             }
             try {
-                JobScheduler jobScheduler = (JobScheduler) eHp.getSystemService("jobscheduler");
+                JobScheduler jobScheduler = (JobScheduler) eHT.getSystemService("jobscheduler");
                 if (jobScheduler != null) {
                     jobScheduler.cancel(cVar.g());
                     if (i == 0 || (z && i != 2)) {
@@ -53,13 +53,13 @@ public class RetryJobSchedulerService extends JobService {
                     } else {
                         j2 = AppStatusRules.DEFAULT_GRANULARITY + j;
                     }
-                    JobInfo.Builder requiresDeviceIdle = new JobInfo.Builder(cVar.g(), new ComponentName(eHp.getPackageName(), RetryJobSchedulerService.class.getName())).setMinimumLatency(j).setRequiredNetworkType(z ? 2 : 1).setRequiresCharging(false).setRequiresDeviceIdle(false);
+                    JobInfo.Builder requiresDeviceIdle = new JobInfo.Builder(cVar.g(), new ComponentName(eHT.getPackageName(), RetryJobSchedulerService.class.getName())).setMinimumLatency(j).setRequiredNetworkType(z ? 2 : 1).setRequiresCharging(false).setRequiresDeviceIdle(false);
                     if (j2 > 0) {
                         requiresDeviceIdle.setOverrideDeadline(j2);
                     }
                     int schedule = jobScheduler.schedule(requiresDeviceIdle.build());
-                    if (schedule > 0 && cVar.U() && (eHu = com.ss.android.socialbase.downloader.downloader.f.iA(com.ss.android.socialbase.downloader.downloader.b.eHp()).eHu()) != null) {
-                        eHu.a(cVar, 3, 3);
+                    if (schedule > 0 && cVar.U() && (eHY = com.ss.android.socialbase.downloader.downloader.f.iA(com.ss.android.socialbase.downloader.downloader.b.eHT()).eHY()) != null) {
+                        eHY.a(cVar, 3, 3);
                     }
                     if (schedule <= 0) {
                         com.ss.android.socialbase.downloader.f.a.d("RetrySchedulerService", "schedule err errCode = " + schedule);

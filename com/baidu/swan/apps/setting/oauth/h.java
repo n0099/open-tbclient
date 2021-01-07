@@ -9,7 +9,7 @@ public class h<ResultDataT> {
         return TaskState.FINISHED == this.dMr && this.dMs == null;
     }
 
-    public void aOs() {
+    public void aOt() {
         this.dMr = TaskState.FINISHED;
         this.dMs = null;
     }
@@ -21,7 +21,7 @@ public class h<ResultDataT> {
         return this.dMs.mErrorCode;
     }
 
-    public OAuthException aOt() {
+    public OAuthException aOu() {
         return this.dMs;
     }
 

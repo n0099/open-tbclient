@@ -12,16 +12,16 @@ import java.lang.ref.WeakReference;
 public class c extends ImageSpan {
 
     /* renamed from: a  reason: collision with root package name */
-    private boolean f9825a;
+    private boolean f9826a;
 
     /* renamed from: b  reason: collision with root package name */
-    private Rect f9826b;
+    private Rect f9827b;
     private Paint.FontMetricsInt c;
     private WeakReference<Drawable> d;
 
     public c(Drawable drawable, String str) {
         super(drawable, str, 1);
-        this.f9825a = true;
+        this.f9826a = true;
         this.c = new Paint.FontMetricsInt();
     }
 
@@ -30,11 +30,11 @@ public class c extends ImageSpan {
         Drawable drawable = weakReference != null ? weakReference.get() : null;
         if (drawable == null) {
             drawable = getDrawable();
-            if (this.f9825a) {
+            if (this.f9826a) {
                 int fontMetricsInt = paint.getFontMetricsInt(null);
                 drawable.setBounds(0, 0, fontMetricsInt, fontMetricsInt);
-            } else if (this.f9826b != null) {
-                drawable.setBounds(this.f9826b);
+            } else if (this.f9827b != null) {
+                drawable.setBounds(this.f9827b);
             }
             this.d = new WeakReference<>(drawable);
         }
@@ -42,8 +42,8 @@ public class c extends ImageSpan {
     }
 
     public c a(int i, int i2) {
-        this.f9825a = false;
-        this.f9826b = new Rect(0, 0, i, i2);
+        this.f9826a = false;
+        this.f9827b = new Rect(0, 0, i, i2);
         return this;
     }
 

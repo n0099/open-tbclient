@@ -7,10 +7,10 @@ import java.lang.ref.WeakReference;
 public class a implements com.ss.android.a.a.a.b {
 
     /* renamed from: a  reason: collision with root package name */
-    private final WeakReference<Context> f7357a;
+    private final WeakReference<Context> f7358a;
 
     public a(Context context) {
-        this.f7357a = new WeakReference<>(context);
+        this.f7358a = new WeakReference<>(context);
     }
 
     @Override // com.ss.android.a.a.a.b

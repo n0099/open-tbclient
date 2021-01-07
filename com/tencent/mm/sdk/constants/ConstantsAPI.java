@@ -1,5 +1,5 @@
 package com.tencent.mm.sdk.constants;
-/* loaded from: classes15.dex */
+/* loaded from: classes3.dex */
 public interface ConstantsAPI {
     public static final String ACTION_HANDLE_APP_REGISTER = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_REGISTER";
     public static final String ACTION_HANDLE_APP_UNREGISTER = "com.tencent.mm.plugin.openapi.Intent.ACTION_HANDLE_APP_UNREGISTER";
@@ -16,7 +16,7 @@ public interface ConstantsAPI {
     public static final String CONTENT = "_mmessage_content";
     public static final String SDK_VERSION = "_mmessage_sdkVersion";
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static final class Token {
         public static final String WX_TOKEN_JUMP_ARG = "wx_jump_arg";
         public static final String WX_TOKEN_KEY = "wx_token_key";
@@ -25,7 +25,7 @@ public interface ConstantsAPI {
         public static final String WX_TOKEN_VALUE_MSG = "com.tencent.mm.openapi.token";
     }
 
-    /* loaded from: classes15.dex */
+    /* loaded from: classes3.dex */
     public static final class WXApp {
         public static final String WXAPP_BROADCAST_PERMISSION = "com.tencent.mm.permission.MM_MESSAGE";
         public static final String WXAPP_MSG_ENTRY_CLASSNAME = "com.tencent.mm.plugin.base.stub.WXEntryActivity";

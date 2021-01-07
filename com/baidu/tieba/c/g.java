@@ -58,7 +58,7 @@ public class g {
             }
             if (bg.checkUpIsLogin(g.this.mPageContext.getPageActivity())) {
                 if (g.this.alW != null) {
-                    g.this.fcZ.a(false, g.this.alW.brq().getPortrait(), g.this.alW.brq().getUserId(), g.this.alW.brq().isGod(), "0", g.this.mPageContext.getUniqueId(), null, "0");
+                    g.this.fcZ.a(false, g.this.alW.brr().getPortrait(), g.this.alW.brr().getUserId(), g.this.alW.brr().isGod(), "0", g.this.mPageContext.getUniqueId(), null, "0");
                     TiebaStatic.log(new aq("c13571"));
                 } else {
                     return;
@@ -77,14 +77,14 @@ public class g {
         this.mPageContext = tbPageContext;
         this.fcZ = new com.baidu.tbadk.coreExtra.model.a(tbPageContext);
         this.mAnchor = view;
-        cwl();
+        cwm();
     }
 
     public void r(bz bzVar) {
         this.alW = bzVar;
     }
 
-    private void cwl() {
+    private void cwm() {
         this.ggg = l.getDimens(this.mPageContext.getContext(), R.dimen.M_W_X005);
         this.mXOffset = l.getDimens(this.mPageContext.getContext(), R.dimen.M_W_X004);
         this.mYOffset = l.getDimens(this.mPageContext.getContext(), R.dimen.tbds14);
@@ -109,11 +109,11 @@ public class g {
             this.ggl.setConfig(this.ggm);
             this.mContentView.setPadding(this.ggg, 0, this.ggg, 0);
         }
-        bxO();
+        bxP();
         return this.mContentView;
     }
 
-    public void cwm() {
+    public void cwn() {
         if (this.mPageContext.getContext() != null) {
             View contentView = getContentView();
             this.mWindowWidth = l.getEquipmentWidth(this.mPageContext.getContext()) - (this.mXOffset * 2);
@@ -175,7 +175,7 @@ public class g {
         return z;
     }
 
-    private void bxO() {
+    private void bxP() {
         int skinType = TbadkCoreApplication.getInst().getSkinType();
         if (skinType != this.mSkinType) {
             ao.setViewTextColor(this.ggk, R.color.CAM_X0105, 1);

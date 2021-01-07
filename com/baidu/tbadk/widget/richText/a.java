@@ -143,7 +143,7 @@ public class a {
         this.mTextSize = i;
     }
 
-    public boolean bKV() {
+    public boolean bKW() {
         return this.fYQ;
     }
 

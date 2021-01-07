@@ -5,10 +5,10 @@ import java.util.Map;
 public class d {
 
     /* renamed from: a  reason: collision with root package name */
-    public boolean f6303a = false;
+    public boolean f6304a = false;
 
     /* renamed from: b  reason: collision with root package name */
-    public boolean f6304b = true;
+    public boolean f6305b = true;
     public Map<String, Integer> c = null;
     public Map<String, String> d = null;
     public int e = 10;
@@ -25,8 +25,8 @@ public class d {
 
     public String toString() {
         StringBuilder sb = new StringBuilder();
-        sb.append(" localEnable: ").append(this.f6303a);
-        sb.append(" probeEnable: ").append(this.f6304b);
+        sb.append(" localEnable: ").append(this.f6304a);
+        sb.append(" probeEnable: ").append(this.f6305b);
         sb.append(" hostFilter: ").append(this.c != null ? this.c.size() : 0);
         sb.append(" hostMap: ").append(this.d != null ? this.d.size() : 0);
         sb.append(" reqTo: ").append(this.e).append("#").append(this.f).append("#").append(this.g);

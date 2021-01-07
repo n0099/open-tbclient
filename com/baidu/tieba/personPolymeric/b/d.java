@@ -22,36 +22,36 @@ import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
 public class d implements com.baidu.tieba.personPolymeric.mode.a {
     private TbPageContext mPageContext;
     private com.baidu.tbadk.core.view.a mWaitingDialog;
-    private BdUniqueId mvz;
-    private int mvx = -1;
-    private String mvy = "";
-    private com.baidu.tbadk.core.view.c lNE = new com.baidu.tbadk.core.view.c();
+    private BdUniqueId mvy;
+    private int mvw = -1;
+    private String mvx = "";
+    private com.baidu.tbadk.core.view.c lND = new com.baidu.tbadk.core.view.c();
 
     public BdUniqueId getUniqueId() {
-        return this.mvz;
+        return this.mvy;
     }
 
     public d(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
         this.mPageContext = tbPageContext;
-        this.lNE.toastTime = 1000L;
-        this.mvz = bdUniqueId;
+        this.lND.toastTime = 1000L;
+        this.mvy = bdUniqueId;
         UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(CmdConfigCustom.CMD_USER_MUTE_ADD_DEL_REGISTER_LISTENER);
-        userMuteAddAndDelCustomMessage.mId = this.mvz;
+        userMuteAddAndDelCustomMessage.mId = this.mvy;
         userMuteAddAndDelCustomMessage.from = 0;
-        userMuteAddAndDelCustomMessage.setTag(this.mvz);
+        userMuteAddAndDelCustomMessage.setTag(this.mvy);
         MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
         UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(CmdConfigCustom.CMD_USER_MUTE_CHECK_REGISTER_LISTENER);
-        userMuteCheckCustomMessage.mId = this.mvz;
-        userMuteCheckCustomMessage.setTag(this.mvz);
+        userMuteCheckCustomMessage.mId = this.mvy;
+        userMuteCheckCustomMessage.setTag(this.mvy);
         MessageManager.getInstance().sendMessage(userMuteCheckCustomMessage);
     }
 
-    public int dzR() {
-        return this.mvx;
+    public int dzS() {
+        return this.mvw;
     }
 
-    public String dzS() {
-        return this.mvy;
+    public String dzT() {
+        return this.mvx;
     }
 
     @Override // com.baidu.tieba.personPolymeric.mode.a
@@ -59,21 +59,21 @@ public class d implements com.baidu.tieba.personPolymeric.mode.a {
         if (this.mWaitingDialog != null) {
             this.mWaitingDialog.setDialogVisiable(false);
         }
-        this.mvx = i2;
-        this.mvy = str;
+        this.mvw = i2;
+        this.mvx = str;
         if (i3 == 0) {
             if (i == 1) {
-                this.lNE.showSuccessToast(this.mPageContext.getString(R.string.mute_success));
+                this.lND.showSuccessToast(this.mPageContext.getString(R.string.mute_success));
             } else if (i == 2) {
-                this.lNE.showSuccessToast(this.mPageContext.getResources().getString(R.string.un_mute_success));
+                this.lND.showSuccessToast(this.mPageContext.getResources().getString(R.string.un_mute_success));
             }
         } else if (i3 == 220017) {
             if (TextUtils.isEmpty(str2)) {
                 str2 = this.mPageContext.getString(R.string.mute_error_beyond_limit);
             }
-            DX(str2);
+            DW(str2);
         } else if (i3 == 1990043) {
-            dpv();
+            dpw();
         } else {
             if (at.isEmpty(str2)) {
                 if (i == 1) {
@@ -82,7 +82,7 @@ public class d implements com.baidu.tieba.personPolymeric.mode.a {
                     str2 = this.mPageContext.getResources().getString(R.string.un_mute_fail);
                 }
             }
-            this.lNE.showFailToast(str2);
+            this.lND.showFailToast(str2);
         }
     }
 
@@ -92,31 +92,31 @@ public class d implements com.baidu.tieba.personPolymeric.mode.a {
             this.mWaitingDialog.setCancelListener(new DialogInterface.OnCancelListener() { // from class: com.baidu.tieba.personPolymeric.b.d.1
                 @Override // android.content.DialogInterface.OnCancelListener
                 public void onCancel(DialogInterface dialogInterface) {
-                    MessageManager.getInstance().removeMessage(d.this.mvz);
+                    MessageManager.getInstance().removeMessage(d.this.mvy);
                 }
             });
         }
         this.mWaitingDialog.setDialogVisiable(true);
     }
 
-    public void DX(String str) {
+    public void DW(String str) {
         if (str == null) {
             str = "";
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        aVar.Bp(str);
+        aVar.Bo(str);
         aVar.b(R.string.know, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.d.2
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.mPageContext).btX();
+        aVar.b(this.mPageContext).btY();
     }
 
-    public void dpv() {
+    public void dpw() {
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
-        aVar.Bp(this.mPageContext.getString(R.string.mute_is_super_member_function));
+        aVar.Bo(this.mPageContext.getString(R.string.mute_is_super_member_function));
         aVar.a(R.string.open_now, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.d.3
             @Override // com.baidu.tbadk.core.dialog.a.b
             public void onClick(com.baidu.tbadk.core.dialog.a aVar2) {
@@ -141,7 +141,7 @@ public class d implements com.baidu.tieba.personPolymeric.mode.a {
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.mPageContext).btX();
+        aVar.b(this.mPageContext).btY();
     }
 
     public void a(boolean z, final UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage, String str, String str2) {
@@ -152,9 +152,9 @@ public class d implements com.baidu.tieba.personPolymeric.mode.a {
         }
         com.baidu.tbadk.core.dialog.a aVar = new com.baidu.tbadk.core.dialog.a(this.mPageContext.getPageActivity());
         if (at.isEmpty(str)) {
-            aVar.Bp(this.mPageContext.getResources().getString(R.string.block_mute_message_alert, str2));
+            aVar.Bo(this.mPageContext.getResources().getString(R.string.block_mute_message_alert, str2));
         } else {
-            aVar.Bp(str);
+            aVar.Bo(str);
         }
         aVar.a(R.string.confirm, new a.b() { // from class: com.baidu.tieba.personPolymeric.b.d.5
             @Override // com.baidu.tbadk.core.dialog.a.b
@@ -170,6 +170,6 @@ public class d implements com.baidu.tieba.personPolymeric.mode.a {
                 aVar2.dismiss();
             }
         });
-        aVar.b(this.mPageContext).btX();
+        aVar.b(this.mPageContext).btY();
     }
 }

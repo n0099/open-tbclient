@@ -12,65 +12,65 @@ import com.baidu.tieba.play.o;
 /* loaded from: classes.dex */
 public class b {
     private bz eMv;
-    private long mDW;
-    private o mDX;
-    private boolean mDZ;
-    private long mDV = 0;
+    private long mDV;
+    private o mDW;
+    private boolean mDY;
+    private long mDU = 0;
     private long mStartTime = 0;
-    private String mDY = "1";
-    private j mEa = new j();
+    private String mDX = "1";
+    private j mDZ = new j();
 
-    public void dBT() {
-        this.mEa.diM();
+    public void dBU() {
+        this.mDZ.diN();
     }
 
     public void hv(long j) {
-        this.mDW = j;
-        this.mEa.diN();
+        this.mDV = j;
+        this.mDZ.diO();
     }
 
     public void onStart() {
         if (this.mStartTime != 0) {
-            this.mDV = (System.currentTimeMillis() - this.mStartTime) + this.mDV;
+            this.mDU = (System.currentTimeMillis() - this.mStartTime) + this.mDU;
         }
         this.mStartTime = System.currentTimeMillis();
-        this.mDZ = true;
-        this.mEa.diO();
+        this.mDY = true;
+        this.mDZ.diP();
     }
 
     public void b(TbCyberVideoView tbCyberVideoView) {
-        this.mEa.a(tbCyberVideoView);
+        this.mDZ.a(tbCyberVideoView);
     }
 
     public void onPause() {
         if (this.mStartTime > 0) {
-            this.mDV = (System.currentTimeMillis() - this.mStartTime) + this.mDV;
+            this.mDU = (System.currentTimeMillis() - this.mStartTime) + this.mDU;
             this.mStartTime = 0L;
         }
-        this.mDZ = false;
+        this.mDY = false;
     }
 
     public void onStop() {
         if (this.mStartTime > 0) {
-            this.mDV = (System.currentTimeMillis() - this.mStartTime) + this.mDV;
+            this.mDU = (System.currentTimeMillis() - this.mStartTime) + this.mDU;
             this.mStartTime = 0L;
         }
-        dBU();
-        this.mDV = 0L;
+        dBV();
+        this.mDU = 0L;
         this.mStartTime = 0L;
-        this.mDZ = false;
-        this.mEa.diL();
+        this.mDY = false;
+        this.mDZ.diM();
     }
 
     public void onComplete() {
         if (this.mStartTime > 0) {
-            this.mDV = (System.currentTimeMillis() - this.mStartTime) + this.mDV;
+            this.mDU = (System.currentTimeMillis() - this.mStartTime) + this.mDU;
             this.mStartTime = 0L;
         }
     }
 
     public void setVideoStatsData(o oVar) {
-        this.mDX = oVar;
+        this.mDW = oVar;
     }
 
     public void setThreadData(bz bzVar) {
@@ -78,24 +78,24 @@ public class b {
     }
 
     public void setPlayMode(String str) {
-        this.mDY = str;
+        this.mDX = str;
     }
 
-    private void dBU() {
-        if (this.mDV >= 0 && this.mDV < 86400000) {
-            if (this.mDV > 0) {
+    private void dBV() {
+        if (this.mDU >= 0 && this.mDU < 86400000) {
+            if (this.mDU > 0) {
                 aq aqVar = new aq(TbadkCoreStatisticKey.KEY_VIDEO_TIME);
-                aqVar.w("obj_duration", this.mDV);
-                aqVar.dX("obj_type", this.mDY);
-                aqVar.w("playduration", this.mDW);
+                aqVar.w("obj_duration", this.mDU);
+                aqVar.dX("obj_type", this.mDX);
+                aqVar.w("playduration", this.mDV);
                 aqVar.an("player_type", 1);
                 if (!at.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     aqVar.dX("task_id", TbadkCoreApplication.getInst().getTaskId());
                 }
-                if (this.mDX != null) {
-                    this.mDX.f(aqVar);
+                if (this.mDW != null) {
+                    this.mDW.f(aqVar);
                 }
-                if (!aqVar.BX("obj_param5") && this.eMv != null) {
+                if (!aqVar.BW("obj_param5") && this.eMv != null) {
                     if (this.eMv.getBaijiahaoData() != null) {
                         if (this.eMv.getBaijiahaoData().oriUgcType == 2) {
                             aqVar.an("obj_param5", 3);
@@ -107,9 +107,9 @@ public class b {
                     }
                 }
                 TiebaStatic.log(aqVar);
-                h.a(this.mDV, this.mDY, this.mDX, "", this.mDW);
-            } else if (this.mDZ) {
-                h.a(this.mDV, this.mDY, this.mDX, "", this.mDW);
+                h.a(this.mDU, this.mDX, this.mDW, "", this.mDV);
+            } else if (this.mDY) {
+                h.a(this.mDU, this.mDX, this.mDW, "", this.mDV);
             }
         }
     }

@@ -48,54 +48,54 @@ public class f extends e {
             return;
         }
         this.mAppId = eVar.getAppId();
-        this.mSource = eVar.aCv();
-        this.dOi = eVar.aCB().getString("aiapp_extra_need_download", "");
-        this.dOk = eVar.aCB().getString("aiapp_extra_preset_pkg", "");
-        this.dOj = eVar.aCB().getString("aiapp_extra_pkg_downloading", "0");
-        this.mScheme = eVar.aCx();
+        this.mSource = eVar.aCw();
+        this.dOi = eVar.aCC().getString("aiapp_extra_need_download", "");
+        this.dOk = eVar.aCC().getString("aiapp_extra_preset_pkg", "");
+        this.dOj = eVar.aCC().getString("aiapp_extra_pkg_downloading", "0");
+        this.mScheme = eVar.aCy();
         this.dOn = eVar.getPage();
-        this.dHk = eVar.aCO();
+        this.dHk = eVar.aCP();
     }
 
     public void tM(String str) {
         this.dHk = str;
     }
 
-    public String aCO() {
+    public String aCP() {
         return this.dHk;
     }
 
     @Override // com.baidu.swan.apps.statistic.a.e
     public JSONObject toJSONObject() {
         try {
-            com.baidu.swan.apps.runtime.e arO = com.baidu.swan.apps.v.f.aDG().arO();
+            com.baidu.swan.apps.runtime.e arP = com.baidu.swan.apps.v.f.aDH().arP();
             String a2 = com.baidu.swan.apps.swancore.b.a(this.dOf, this.mFrom == "swangame" ? 1 : 0);
-            if (arO != null && arO.aju() != null) {
-                b.a aju = arO.aju();
+            if (arP != null && arP.ajv() != null) {
+                b.a ajv = arP.ajv();
                 if (TextUtils.isEmpty(this.mAppVersion)) {
-                    this.mAppVersion = arO.getVersion();
+                    this.mAppVersion = arP.getVersion();
                 }
                 if (TextUtils.isEmpty(this.dOg)) {
-                    this.dOg = aju.getVersionCode();
+                    this.dOg = ajv.getVersionCode();
                 }
-                if (aju.aCA() != null) {
-                    this.dOi = aju.aCA().getString("aiapp_extra_need_download", "");
-                    this.dOk = aju.aCB().getString("aiapp_extra_preset_pkg", "0");
-                    this.dOj = aju.aCB().getString("aiapp_extra_pkg_downloading", "0");
+                if (ajv.aCB() != null) {
+                    this.dOi = ajv.aCB().getString("aiapp_extra_need_download", "");
+                    this.dOk = ajv.aCC().getString("aiapp_extra_preset_pkg", "0");
+                    this.dOj = ajv.aCC().getString("aiapp_extra_pkg_downloading", "0");
                 }
                 if (TextUtils.isEmpty(this.mScheme)) {
-                    this.mScheme = aju.aCx();
+                    this.mScheme = ajv.aCy();
                 }
                 this.mScheme = com.baidu.swan.apps.statistic.g.tz(this.mScheme);
-                if (TextUtils.isEmpty(this.mPage) && !TextUtils.isEmpty(aju.getPage())) {
-                    this.dOn = aju.getPage();
+                if (TextUtils.isEmpty(this.mPage) && !TextUtils.isEmpty(ajv.getPage())) {
+                    this.dOn = ajv.getPage();
                 }
                 this.dOn = com.baidu.swan.apps.statistic.g.tz(this.dOn);
                 if (TextUtils.isEmpty(this.dHk)) {
-                    this.dHk = aju.aCO();
+                    this.dHk = ajv.aCP();
                 }
             }
-            this.dOh = SwanAppNetworkUtils.aGC().type;
+            this.dOh = SwanAppNetworkUtils.aGD().type;
             if (this.dOd == null) {
                 this.dOd = new JSONObject();
             }

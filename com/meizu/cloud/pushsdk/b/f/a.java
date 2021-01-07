@@ -5,13 +5,13 @@ import java.io.Serializable;
 public class a implements Serializable {
 
     /* renamed from: a  reason: collision with root package name */
-    public long f11487a;
+    public long f11488a;
 
     /* renamed from: b  reason: collision with root package name */
-    public long f11488b;
+    public long f11489b;
 
     public a(long j, long j2) {
-        this.f11487a = j;
-        this.f11488b = j2;
+        this.f11488a = j;
+        this.f11489b = j2;
     }
 }

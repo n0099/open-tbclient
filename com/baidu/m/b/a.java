@@ -16,17 +16,17 @@ public class a implements com.baidu.m.c.a {
 
     @Override // com.baidu.m.c.a
     public void e(Activity activity, String str, com.baidu.m.a.a aVar) {
-        com.baidu.swan.apps.t.a.aAG().e(activity, str, aVar);
+        com.baidu.swan.apps.t.a.aAH().e(activity, str, aVar);
     }
 
     @Override // com.baidu.m.c.a
     public void f(Activity activity, String str, com.baidu.m.a.a aVar) {
-        com.baidu.swan.apps.t.a.aAG().f(activity, str, aVar);
+        com.baidu.swan.apps.t.a.aAH().f(activity, str, aVar);
     }
 
     @Override // com.baidu.m.c.a
     public void b(Context context, JSONObject jSONObject, com.baidu.m.a.a aVar) {
-        com.baidu.swan.apps.t.a.aAG().b(context, jSONObject, aVar);
+        com.baidu.swan.apps.t.a.aAH().b(context, jSONObject, aVar);
     }
 
     @Override // com.baidu.m.c.a
@@ -50,26 +50,26 @@ public class a implements com.baidu.m.c.a {
 
     @Override // com.baidu.m.c.a
     public boolean bI(Context context) {
-        return com.baidu.swan.apps.t.a.aAG().bI(context);
+        return com.baidu.swan.apps.t.a.aAH().bI(context);
     }
 
     @Override // com.baidu.m.c.a
     public void jR(String str) {
-        com.baidu.swan.apps.aa.a.aGZ().appId = str;
+        com.baidu.swan.apps.aa.a.aHa().appId = str;
     }
 
     @Override // com.baidu.m.c.a
     public void k(Bundle bundle) {
-        String str = com.baidu.swan.apps.aa.a.aGZ().appId;
+        String str = com.baidu.swan.apps.aa.a.aHa().appId;
         if (TextUtils.isEmpty(str)) {
             d.l(bundle);
         } else {
-            com.baidu.swan.apps.process.messaging.a.aIX().a(new c(119, bundle).D(str).gG(true));
+            com.baidu.swan.apps.process.messaging.a.aIY().a(new c(119, bundle).D(str).gG(true));
         }
     }
 
     @Override // com.baidu.m.c.a
     public String getZid(Context context) {
-        return com.baidu.swan.apps.t.a.aBj().cU(context);
+        return com.baidu.swan.apps.t.a.aBk().cU(context);
     }
 }

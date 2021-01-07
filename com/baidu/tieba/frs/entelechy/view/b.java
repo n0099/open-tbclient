@@ -44,8 +44,8 @@ public class b extends a {
         this.jrN = new View.OnClickListener() { // from class: com.baidu.tieba.frs.entelechy.view.b.2
             @Override // android.view.View.OnClickListener
             public void onClick(View view) {
-                if (b.this.aim != null && b.this.aim.brq() != null && !StringUtils.isNull(b.this.aim.brq().getName_show()) && !StringUtils.isNull(b.this.aim.brq().getUserId()) && b.this.aim.bru() != null) {
-                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.aim.brq().getUserId(), b.this.aim.brq().getName_show(), b.this.aim.bru(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
+                if (b.this.aim != null && b.this.aim.brr() != null && !StringUtils.isNull(b.this.aim.brr().getName_show()) && !StringUtils.isNull(b.this.aim.brr().getUserId()) && b.this.aim.brv() != null) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage((int) CmdConfigCustom.START_PERSON_INFO, new PersonInfoActivityConfig(b.this.mPageContext.getPageActivity(), b.this.aim.brr().getUserId(), b.this.aim.brr().getName_show(), b.this.aim.brv(), AddFriendActivityConfig.TYPE_FRS_HEAD)));
                 }
             }
         };
@@ -68,7 +68,7 @@ public class b extends a {
         this.jrL.setLayoutParams(layoutParams2);
         ((ViewGroup) getView()).addView(this.jrL);
         this.alC = new com.baidu.tbadk.core.view.userLike.c(tbPageContext, this.jrL);
-        this.alC.Bb("1");
+        this.alC.Ba("1");
         this.alC.l(bdUniqueId);
     }
 
@@ -79,16 +79,16 @@ public class b extends a {
         super.a(bzVar);
         if (bzVar != null) {
             this.aim = bzVar;
-            if (bzVar.brq() != null) {
-                this.alC.a(bzVar.brq());
-                AP(bzVar.brq().getFansNum());
-                if (!this.aim.brt()) {
+            if (bzVar.brr() != null) {
+                this.alC.a(bzVar.brr());
+                AP(bzVar.brr().getFansNum());
+                if (!this.aim.bru()) {
                     this.jrL.setVisibility(8);
-                } else if (this.aim.brq().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.aim.brq().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+                } else if (this.aim.brr().getUserId() != null && TbadkCoreApplication.getCurrentAccount() != null && this.aim.brr().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
                     this.jrL.setVisibility(8);
                     return;
-                } else if (this.aim.brq().getGodUserData() != null && this.aim.brq().getGodUserData().getIsLike()) {
-                    if (this.aim.brq().getGodUserData().getIsFromNetWork()) {
+                } else if (this.aim.brr().getGodUserData() != null && this.aim.brr().getGodUserData().getIsLike()) {
+                    if (this.aim.brr().getGodUserData().getIsFromNetWork()) {
                         this.jrL.setVisibility(8);
                     } else {
                         this.jrL.setVisibility(0);
@@ -100,7 +100,7 @@ public class b extends a {
             }
             int i = ((RelativeLayout.LayoutParams) this.hox.getLayoutParams()).height;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.jrL.getLayoutParams();
-            if (bzVar.brL() != null) {
+            if (bzVar.brM() != null) {
                 layoutParams.topMargin = i + l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds4);
             } else {
                 layoutParams.topMargin = l.getDimens(this.mPageContext.getPageActivity(), R.dimen.ds24);
@@ -127,8 +127,8 @@ public class b extends a {
     public void AP(int i) {
         if (this.jrK != null) {
             String string = this.mPageContext.getResources().getString(R.string.fans_default_name_god_user);
-            if (this.aim != null && !StringUtils.isNull(this.aim.bru()) && this.aim.bru().equals(this.mForumName)) {
-                if (this.aim.brt()) {
+            if (this.aim != null && !StringUtils.isNull(this.aim.brv()) && this.aim.brv().equals(this.mForumName)) {
+                if (this.aim.bru()) {
                     String format = String.format(string, at.numberUniformFormat(i));
                     this.jrK.setVisibility(0);
                     this.jrK.setText(format);

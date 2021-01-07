@@ -39,7 +39,7 @@ public class b extends BdBaseModel {
                         }
                         return;
                     }
-                    b.this.hkx = alaAdminListResponseMessage.caW();
+                    b.this.hkx = alaAdminListResponseMessage.caX();
                     if (b.this.hks != null) {
                         b.this.hks.mK(false);
                     }
@@ -59,13 +59,13 @@ public class b extends BdBaseModel {
         MessageManager.getInstance().registerTask(tbHttpMessageTask);
     }
 
-    public void caX() {
+    public void caY() {
         sendMessage(new com.baidu.tieba.ala.live.personcenter.admin.message.a());
     }
 
     @Override // com.baidu.live.adp.base.BdBaseModel
     protected boolean loadData() {
-        caX();
+        caY();
         return true;
     }
 
@@ -79,9 +79,9 @@ public class b extends BdBaseModel {
         return hasData() ? new ArrayList(this.hkx.getUserList()) : new ArrayList();
     }
 
-    public int caV() {
+    public int caW() {
         if (hasData()) {
-            return this.hkx.caV();
+            return this.hkx.caW();
         }
         return -1;
     }

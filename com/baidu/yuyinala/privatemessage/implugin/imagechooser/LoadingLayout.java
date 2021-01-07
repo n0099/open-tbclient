@@ -18,7 +18,7 @@ public class LoadingLayout extends LinearLayout {
 
     /* loaded from: classes11.dex */
     public interface a {
-        void eli();
+        void elj();
     }
 
     public LoadingLayout(Context context) {
@@ -55,7 +55,7 @@ public class LoadingLayout extends LinearLayout {
                     return false;
                 }
                 if (motionEvent.getAction() == 0 && LoadingLayout.this.oUa != null) {
-                    LoadingLayout.this.oUa.eli();
+                    LoadingLayout.this.oUa.elj();
                 }
                 return true;
             }

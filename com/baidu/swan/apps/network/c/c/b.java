@@ -23,7 +23,7 @@ public class b {
     private b() {
     }
 
-    public static b aGR() {
+    public static b aGS() {
         return dsp;
     }
 
@@ -101,15 +101,15 @@ public class b {
     /* JADX INFO: Access modifiers changed from: package-private */
     public void b(HybridUbcFlow hybridUbcFlow) {
         if (hybridUbcFlow != null) {
-            JSONArray aGS = aGS();
-            if (aGS != null && aGS.length() > 0) {
-                hybridUbcFlow.cn("ma_update_recorder", aGS.toString());
+            JSONArray aGT = aGT();
+            if (aGT != null && aGT.length() > 0) {
+                hybridUbcFlow.cn("ma_update_recorder", aGT.toString());
             }
             done();
         }
     }
 
-    private JSONArray aGS() {
+    private JSONArray aGT() {
         JSONArray jSONArray = new JSONArray();
         synchronized (this.dsl) {
             try {

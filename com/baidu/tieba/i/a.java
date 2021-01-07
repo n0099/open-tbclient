@@ -24,39 +24,39 @@ public class a {
         }
     }
 
-    public String cJK() {
+    public String cJL() {
         return this.mTitle;
     }
 
-    public String cPv() {
+    public String cPw() {
         return this.jRc;
     }
 
-    public String cPw() {
+    public String cPx() {
         return this.bep;
     }
 
-    public String cPx() {
+    public String cPy() {
         return this.jRd;
     }
 
-    public String cPy() {
+    public String cPz() {
         return this.jRe;
     }
 
-    public String cPz() {
+    public String cPA() {
         return this.bTV;
     }
 
-    public void LO(String str) {
+    public void LN(String str) {
         this.bTV = str;
     }
 
-    public String cPA() {
+    public String cPB() {
         return this.giS;
     }
 
-    public void LP(String str) {
+    public void LO(String str) {
         this.giS = str;
     }
 }

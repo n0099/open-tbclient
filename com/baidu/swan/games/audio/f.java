@@ -30,11 +30,11 @@ public class f {
         dVar.efd = gVar.startTime;
         dVar.dld = gVar.obeyMuteSwitch;
         dVar.mVolume = gVar.volume;
-        dVar.dkZ = aXD().toString();
+        dVar.dkZ = aXE().toString();
         return dVar;
     }
 
-    public static JSONObject aXD() {
+    public static JSONObject aXE() {
         JSONObject jSONObject = new JSONObject();
         try {
             jSONObject.put("onCanplay", "canplay");
@@ -66,22 +66,22 @@ public class f {
         if (lastIndexOf != -1) {
             str2 = str.substring(lastIndexOf);
         }
-        return "/" + com.baidu.swan.apps.runtime.e.aMm() + "/" + str.hashCode() + str2;
-    }
-
-    public static String aXE() {
-        String aXG = aXG();
-        if (!isExternalStorageWritable() || TextUtils.isEmpty(aXG)) {
-            return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
-        }
-        return aXG;
+        return "/" + com.baidu.swan.apps.runtime.e.aMn() + "/" + str.hashCode() + str2;
     }
 
     public static String aXF() {
+        String aXH = aXH();
+        if (!isExternalStorageWritable() || TextUtils.isEmpty(aXH)) {
+            return AppRuntime.getAppContext().getCacheDir().getAbsolutePath();
+        }
+        return aXH;
+    }
+
+    public static String aXG() {
         return File.separator + "bdata" + File.separator;
     }
 
-    private static String aXG() {
+    private static String aXH() {
         String str = n.getBasePath() + "/usr";
         File file = new File(str);
         if (!file.exists() && !file.mkdirs()) {
